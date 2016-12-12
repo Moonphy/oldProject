@@ -1,0 +1,75 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/service.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 售后服务
+            .search
+            form.popup_search(action='/search/', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+        #content
+            ul.cart_goods_body
+                li.td2
+                    a(href='detail.html',title='')
+                        img(src='images/examples/good_block_img.png',alt='')
+                li.td3
+                    a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                    i 数量：<span>1</span>件
+                li.td4
+                    p 牛皮
+                    p 黑色
+                    p 245/39
+                li.td5
+                    .good_price_all ¥<span>599.00</span>
+            .chat_thread
+                ul
+                    li.customer
+                        img.header_img(src='images/avatar.png',alt='')
+                        .chat_content
+                            p 我买的鞋子有问题，可以申请退货么？
+                            label 2015-04-30
+                                span 10:38
+                    li.custom_service
+                        img.header_img(src='images/custom_server.png',alt='')
+                        .chat_content
+                            p 能不能详细地说明一下原因？
+                            label 2015-04-30
+                                span 10:38
+                    li.customer
+                        img.header_img(src='images/avatar.png',alt='')
+                        .chat_content
+                            p
+                                img(src='images/aaa.png',alt='')
+                            label 2015-04-30
+                                span 10:38
+                    li.customer
+                        img.header_img(src='images/avatar.png',alt='')
+                        .chat_content
+                            p 我买的鞋子有问题，可以申请退货么？我买的申请退货么？我买的
+                            label 2015-04-30
+                                span 10:38
+                    li.custom_service
+                        img.header_img(src='images/custom_server.png',alt='')
+                        .chat_content
+                            p 能不能详细地说明一下原因？
+                            label 2015-04-30
+                                span 10:38
+                    li.customer
+                        img.header_img(src='images/avatar.png',alt='')
+                        .chat_content
+                            p
+                                img(src='images/aaa.png',alt='')
+                            label 2015-04-30
+                                span 10:38
+                form.chat_form(action='', method='post')
+                    //.camera
+                    .a_upload(href='javascript;')
+                        input(type='file',value='')
+                    input.submit(type='submit',value='发送')
+                    textarea#gallery(rows='1',cols='20',value placeholder='')
+block jsblock
+    script(src='js/autosize.js')
+    script(src='js/service.js')

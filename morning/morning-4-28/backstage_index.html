@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/backstage_index.css">
+    <title>早上好时尚商城</title>
+  </head>
+  <body>
+    <div class="backstage_body">
+      <div class="backstage_header">
+        <div class="header-left">欢迎 <i>广州早上好网络科技</i>使用系统后台！<span class="button">【注销】</span></div>
+        <form action="/search/" method="get">
+          <input id="searchBtn" type="submit" value="">
+          <div class="selected_wrap">
+            <select>
+              <option selected="selected">全部</option>
+            </select>
+          </div>
+          <input id="searchKeyword" placeholder="" name="k">
+        </form>
+      </div>
+      <div class="backstage_main">
+        <div class="home_main_left fl">
+          <div class="left_part1">
+            <ul>
+              <li class="selected"><a href="">供应商</a></li>
+              <li><a href="">广告管理</a></li>
+            </ul>
+          </div>
+          <div class="left_part2">
+            <ul>
+              <div class="part_title">文档内容管理</div>
+              <li><a href="">文章分类</a></li>
+              <li><a href="">文章</a></li>
+            </ul>
+          </div>
+          <div class="left_part2">
+            <ul>
+              <div class="part_title">目录</div>
+              <li><a href="">文章分类</a></li>
+              <li><a href="">文章</a></li>
+            </ul>
+          </div>
+          <div class="left_part2">
+            <ul>
+              <div class="part_title">系统配置</div>
+              <li><a href="">用户</a></li>
+              <li><a href="">登录日志</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="home_main_right fr">
+          <div class="user_home_header">
+            <ul>
+              <div class="part_title fl">类型：</div>
+              <li class="selected">全部</li>
+              <li>服装厂</li>
+              <li>鞋厂</li>
+              <li>包厂</li>
+              <li>服饰公司</li>
+              <li>鞋子公司</li>
+              <li>皮具公司</li>
+              <li>饰品供应商</li>
+              <li>手表供应商</li>
+            </ul>
+            <div class="add_supplier_btn">添加供应商</div>
+          </div>
+          <div class="user_home_list">
+            <div class="list">我的供应商<i>0</i>个</div>
+            <div class="list_content"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">© 2014 广州早上好网络科技有限公司</div>
+    </div>
+    <div id="scrolltop"><a id="toTop" href="#top"></a></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/cart_slide.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $(".home_main_left li").click(function () {
+              $(this).addClass("selected").removeClass("unselected").siblings(".selected").removeClass("selected").addClass("unselected");
+          });
+      });
+    </script>
+  </body>
+</html>

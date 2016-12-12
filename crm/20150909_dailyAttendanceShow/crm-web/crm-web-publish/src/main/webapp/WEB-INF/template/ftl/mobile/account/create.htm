@@ -1,0 +1,112 @@
+<#import '/inc/inc.htm' as inc />
+<@inc.header '管理账号' 'create-account' '0.0.1' 'index' ',new.css'>
+<style>
+    .button-group{
+        margin-left: 100px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+    <div class="page-title">
+        <h2>
+            <span><strong>
+            <#if flag == 'edit'>
+                编辑账号
+            <#else>
+                创建账号
+            </#if>
+            </strong></span>
+        </h2>
+    </div>
+    <div class="main-list" style="margin-top: 0px;">
+        <div class="js-course-list fn-clear">
+            <#if (result?exists && !result.success)>
+                <div class="result-tip result-tip-error">错误信息：${result.msg}</div>
+            </#if>
+            <#if (result?exists && result.success && result.msg?exists)>
+                <div class="result-tip result-tip-success">${result.msg}</div>
+            </#if>
+            <#if flag == 'edit'>
+                <form class="form" action="/base/account/edit" method="POST" id="form">
+            <#else>
+                <form class="form" action="/base/account/create" method="POST" id="form">
+            </#if>
+                <#escape x as x?if_exists>
+                <div class="form-group">
+                    <label for="userName">姓名</label>
+                    <input class="form-control" id="userName" name="userName" value="${(result.model.userName)?if_exists}" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="dutyId">职位</label>
+                    <select name="dutyId" id="dutyId" required="required">
+                        <option value="">请选择职位</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Mp">手机</label>
+                    <input class="form-control" id="Mp" name="Mp" value="${(result.model.mp)?if_exists}" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="Email">邮箱</label>
+                    <input class="form-control" id="Email" name="Email" value="${(result.model.email)?if_exists}" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="cactMan">分配地区</label>
+                    <select id="Province" required="required">
+                        <option value="-1">选择省</option>
+                    </select>
+                    <select id="City" required="required">
+                        <option value="-1">选择市</option>
+                    </select>
+                    <select id="areaId" name="areaId" required="required">
+                        <option value="-1">选择区</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="loginName">账号</label>
+                    <input class="form-control" id="loginName" name="loginName" value="${(result.model.loginName)?if_exists}" required="required"/>
+                </div>
+                <#if flag == 'edit'>
+                    <input type="hidden" name="userId" value="${(result.model.userId)?if_exists}"/>
+                <#else>
+                    <div class="form-group">
+                        <label for="loginPwd">密码</label>
+                        <input type="password" class="form-control" id="loginPwd" name="loginPwd" value="${(result.model.loginPwd)?if_exists}" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="reloginPwd">再次确认</label>
+                        <input type="password" class="form-control" id="reloginPwd" name="reloginPwd" required="required"/>
+                    </div>
+                </#if>
+                </#escape>
+                <div class="form-group button-group">
+                    <button class="ml10 btn submit" id="submitBtn" type="submit">
+                        <#if flag == 'edit'>
+                            确认修改
+                        <#else>
+                            确认创建
+                        </#if>
+                    </button>
+                    <#if flag == 'edit'>
+                        <button class="ml10 btn" type="button" id="resetPwdBtn">重置密码</button>
+                        <button class="ml10 btn danger" type="button" id="delBtn">删除此账户</button>
+                    <#else>
+                        <button class="ml10 btn" id="goList" type="button">管理已有账号</button>
+                    </#if>
+                </div>
+            </form>
+        </div>
+    </div>
+</@inc.body>
+<script>
+    window.params = {
+        id:'${(result.model.userId)?if_exists}',
+        dutyID:'${(result.model.dutyId)?if_exists}',
+        areaId:'${(result.model.areaId)?if_exists}',
+        cityId:'${(result.model.areaDetailEntity.cityID)?if_exists}',
+        provinceID:'${(result.model.areaDetailEntity.provinceID)?if_exists}'
+    }
+</script>
+<@inc.footer>
+</@inc.footer>

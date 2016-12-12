@@ -1,0 +1,178 @@
+#content {
+  top: 44px;
+  padding-bottom: 50px;
+}
+.user_header {
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: url("../images/bg.png") no-repeat 0 0;
+  background-size: cover;
+  color: #ffffff;
+}
+.user_header .user_img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.user_header .user_name {
+  margin: 10px 0 0 10px;
+}
+.user_header .user_name button {
+  background-color: #303c48;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: none;
+  font-size: 12px;
+  padding: 2px 20px;
+  color: #ffffff;
+  margin-top: 15px;
+}
+.user_header .name {
+  position: relative;
+}
+.user_header .name i {
+  width: 11px;
+  height: 14px;
+  position: absolute;
+  top: 2px;
+  right: -15px;
+  background-size: cover;
+}
+.user_header .female {
+  background: url("../images/icon/female.png") no-repeat center center;
+}
+.user_header .male {
+  background: url("../images/icon/male.png") no-repeat center center;
+}
+.hongbao {
+  margin-top: 10px;
+  width: 50px;
+  height: 32px;
+  background: url("../images/hongbao.png") no-repeat 0 0;
+  background-size: cover;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+.hongbao p {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+}
+.order_list {
+  width: 90%;
+  margin-left: 5%;
+  height: 70px;
+  border: 1px solid #dbdbdb;
+  z-index: -1;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  -webkit-border-radius: 0 0 6px 6px;
+  color: #666666;
+}
+.order_list li {
+  float: left;
+  width: 33.3333%;
+  box-sizing: border-box;
+  border-right: 1px solid #dbdbdb;
+  height: 30px;
+  margin-top: 20px;
+}
+.order_list li a {
+  width: 100%;
+  color: #444444;
+  display: block;
+  text-align: center;
+  float: left;
+  line-height: 16px;
+}
+.order_list li p {
+  width: 100%;
+  text-align: center;
+  margin-top: -5px;
+  float: left;
+}
+.user_list {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #dbdbdb;
+  color: #666666;
+}
+.user_list li {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dbdbdb;
+}
+.user_list li img {
+  width: 30px;
+  float: left;
+  margin-right: 10px;
+}
+.user_list li a {
+  display: block;
+  line-height: 30px;
+  font-weight: 600;
+  color: #666666;
+}
+.user_list li a i {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border: 1px solid #df3d82;
+  color: #df3d82;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.user_list li a label {
+  float: right!important;
+  line-height: 30px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.app {
+  margin: 10px 0;
+}
+.app a {
+  width: 47%;
+  height: 50px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid #dbdbdb;
+  display: block;
+  line-height: 30px;
+  text-align: center;
+}
+.app a img {
+  width: 28px;
+  margin-left: 12%;
+  float: left;
+}
+.app a span {
+  float: right;
+  margin-right: 15%;
+}
+.app .android {
+  float: left;
+  margin-left: 2%;
+}
+.app .ios {
+  float: right;
+  margin-right: 2%;
+}
+@media screen and (max-width: 330px) {
+  .app span {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,75 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/cart.css')
+
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 购物车
+            .search
+            form.popup_search(action='cart.html', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+        #content
+            form(action='order.html',method='post')
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .numbers
+                            input.cut(type='button',value='-',name='')
+                            input.text_box(type='text',value='1',name='')
+                            input.add(type='button',value='+',name='')
+                        i 仅剩<span>3</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_del_btn
+                        .good_price ¥<span>599.00</span>
+            form(action='order.html',method='post')
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .numbers
+                            input.cut(type='button',value='-',name='')
+                            input.text_box(type='text',value='1',name='')
+                            input.add(type='button',value='+',name='')
+                        i 仅剩<span>3</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_del_btn
+                        .good_price ¥<span>599.00</span>
+            .bottom_btn
+                .custom_btn
+                    .check
+                        label.allselect.unchecked_all
+                            input(class='',type='checkbox',name='',value='9')
+                        p 全选
+                    .p
+                        p.total 合计：
+                            span  &yen 4792.00
+                        p 共<span>4</span>件商品
+                button.buy_btn 去结算
+                    p (下一步可使用优惠券)
+
+
+block jsblock
+    script(src='js/cart.js')

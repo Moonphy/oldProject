@@ -1,0 +1,181 @@
+a:hover {
+  text-decoration: none;
+}
+.home_main_left {
+  width: 248px;
+  color: #444444;
+  margin-top: 20px;
+}
+.home_main_left .left_part {
+  width: 246px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 5px;
+}
+.home_main_left a:hover {
+  text-decoration: none;
+}
+.home_main_left ul li {
+  width: 188px;
+  padding: 0px 29px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+.home_main_left ul li a {
+  width: 188px;
+  display: inline-block;
+  color: #444444;
+}
+.home_main_left ul .selected {
+  background-color: #ff3b3c;
+}
+.home_main_left ul .selected a {
+  color: #ffffff;
+}
+.home_main_left ul .unselected {
+  background: none;
+}
+.home_main_left ul .part_title {
+  width: 188px;
+  margin: 0 29px 10px;
+  padding: 10px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.home_main_left ul .part_title_2 {
+  width: 188px;
+  margin: 0 29px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.home_main_left ul .part_title_2 a {
+  color: #444444;
+}
+.home_body {
+  width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.home_body .home_main .home_main_right {
+  width: 1032px;
+}
+.home_body .home_main .home_main_right .user_home_header,
+.home_body .home_main .home_main_right .user_home_list {
+  width: 1030px;
+  margin-top: 20px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+}
+.home_body .home_main .home_main_right .user_home_header {
+  height: 148px;
+}
+.home_body .home_main .home_main_right .user_home_header .user_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin: 34px 30px;
+  overflow: hidden;
+}
+.home_body .home_main .home_main_right .user_home_header .user_img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name {
+  height: 80px;
+  margin: 44px 0 24px 0;
+  color: #444444;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .name {
+  font-size: 18px;
+  line-height: 40px;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .time {
+  font-size: 14px;
+  color: #666666;
+}
+.home_body .home_main .home_main_right .user_home_header .user_edit {
+  height: 28px;
+  width: 25px;
+  margin-top: 50px;
+  cursor: pointer;
+  background: url("../images/personal_edit_bg.png") no-repeat center center;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title {
+  width: 990px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #666666;
+}
+.home_body .home_main .home_main_right .user_home_list .list_content {
+  width: 990px;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #dfdfdf;
+}
+.home_body .home_main .home_main_right .user_home_list .list_content span a {
+  color: #6d6d6d;
+}
+.home_body .home_main .home_main_right .user_home_list ul li {
+  width: 128px;
+  height: 114px;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.home_body .home_main .home_main_right .user_home_list ul li img {
+  max-width: 108px;
+  max-height: 90px;
+  margin: 12px 10px;
+  vertical-align: middle;
+}
+.home_body .home_main .home_main_right .user_home_list_little {
+  width: 513px;
+  margin-top: 20px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  float: left;
+}
+.home_body .home_main .home_main_right .user_home_list_little .list_title {
+  width: 473px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #666666;
+}
+.home_body .home_main .home_main_right .user_home_list_little .list_content {
+  width: 473px;
+  padding: 47px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #dfdfdf;
+}
+.home_body .home_main .home_main_right .user_home_list_little .list_content span a {
+  color: #6d6d6d;
+}
+.home_body .home_main .home_main_right .user_home_list_little ul li {
+  width: 128px;
+  height: 114px;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.home_body .home_main .home_main_right .user_home_list_little ul li img {
+  max-width: 108px;
+  max-height: 90px;
+  margin: 12px 10px;
+  vertical-align: middle;
+}
+.home_body .home_main .home_main_right .user_home_list_last {
+  margin-left: 2px;
+}

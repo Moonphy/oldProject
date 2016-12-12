@@ -1,0 +1,431 @@
+.pay_body {
+  width: 1280px;
+  padding: 10px;
+  color: #333333;
+  margin: 10px auto 20px auto;
+  background-color: #ffffff;
+}
+.pay_body h4 {
+  font-size: 18px;
+  width: 1264px;
+  border-bottom: 1px solid #dbdbdb;
+  margin: 5px auto;
+  color: #333333;
+  padding-bottom: 10px;
+}
+.pay_body .pay_title {
+  width: 1264px;
+  margin: 5px auto;
+  font-size: 14px;
+  color: #333333;
+  line-height: 40px;
+}
+.pay_body .settle_btn {
+  width: 160px;
+  line-height: 38px;
+  text-align: center;
+  float: right;
+  background-color: #ff3b3c;
+  color: #ffffff;
+  margin-left: 10px;
+}
+.pay_body .settle_btn:hover {
+  text-decoration: none;
+}
+.pay_body .pay_block {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.pay_body .pay_block .address .address_main,
+.pay_body .pay_block .address .edit_address_main,
+.pay_body .pay_block .address .new_address {
+  width: 300px;
+  height: 190px;
+  border: 1px solid #dbdbdb;
+  float: left;
+  margin: 9px;
+  cursor: pointer;
+}
+.pay_body .pay_block .address .address_main .address_delete_btn,
+.pay_body .pay_block .address .edit_address_main .address_delete_btn,
+.pay_body .pay_block .address .new_address .address_delete_btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pay_body .pay_block .address .address_main .address_delete_btn:hover,
+.pay_body .pay_block .address .edit_address_main .address_delete_btn:hover,
+.pay_body .pay_block .address .new_address .address_delete_btn:hover {
+  color: #FF3B3C;
+}
+.pay_body .pay_block .address .address_main form label,
+.pay_body .pay_block .address .edit_address_main form label,
+.pay_body .pay_block .address .new_address form label {
+  float: left;
+}
+.pay_body .pay_block .address .address_main form input,
+.pay_body .pay_block .address .edit_address_main form input,
+.pay_body .pay_block .address .new_address form input {
+  float: left;
+  height: 24px;
+  border-radius: 4px;
+}
+.pay_body .pay_block .address .address_main form .address_big span,
+.pay_body .pay_block .address .edit_address_main form .address_big span,
+.pay_body .pay_block .address .new_address form .address_big span {
+  margin-right: 0px;
+}
+.pay_body .pay_block .address .address_main form .address_big select,
+.pay_body .pay_block .address .edit_address_main form .address_big select,
+.pay_body .pay_block .address .new_address form .address_big select {
+  width: 82px;
+}
+.pay_body .pay_block .address .address_main form #telephone,
+.pay_body .pay_block .address .edit_address_main form #telephone,
+.pay_body .pay_block .address .new_address form #telephone {
+  width: 200px;
+  padding: 0 7px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 10px;
+}
+.pay_body .pay_block .address .address_main form #address_detail,
+.pay_body .pay_block .address .edit_address_main form #address_detail,
+.pay_body .pay_block .address .new_address form #address_detail {
+  width: 264px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dbdbdb;
+  border-radius: 0;
+}
+.pay_body .pay_block .address .address_main form #zip_code,
+.pay_body .pay_block .address .edit_address_main form #zip_code,
+.pay_body .pay_block .address .new_address form #zip_code {
+  width: 90px;
+  padding: 0 5px;
+  border: 1px solid #dbdbdb;
+}
+.pay_body .pay_block .address .address_main form #address_submit,
+.pay_body .pay_block .address .edit_address_main form #address_submit,
+.pay_body .pay_block .address .new_address form #address_submit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  background-color: #FF3B3C;
+  border-radius: 4px;
+  color: #ffffff;
+  line-height: 12px;
+  text-align: center;
+}
+.pay_body .pay_block .address .address_main .name,
+.pay_body .pay_block .address .edit_address_main .name,
+.pay_body .pay_block .address .new_address .name {
+  width: 264px;
+  margin: 10px 18px;
+  line-height: 24px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.pay_body .pay_block .address .address_main .personal,
+.pay_body .pay_block .address .edit_address_main .personal,
+.pay_body .pay_block .address .new_address .personal {
+  width: 264px;
+  margin: 0 18px;
+  line-height: 24px;
+}
+.pay_body .pay_block .address .address_main .personal .address_big span select,
+.pay_body .pay_block .address .edit_address_main .personal .address_big span select,
+.pay_body .pay_block .address .new_address .personal .address_big span select {
+  width: 85px;
+}
+.pay_body .pay_block .address .address_main .personal .address_detail,
+.pay_body .pay_block .address .edit_address_main .personal .address_detail,
+.pay_body .pay_block .address .new_address .personal .address_detail {
+  width: 100%;
+}
+.pay_body .pay_block .address .address_main .personal .zip_code,
+.pay_body .pay_block .address .edit_address_main .personal .zip_code,
+.pay_body .pay_block .address .new_address .personal .zip_code {
+  width: 100%;
+}
+.pay_body .pay_block .address .address_main .personal #address_submit,
+.pay_body .pay_block .address .edit_address_main .personal #address_submit,
+.pay_body .pay_block .address .new_address .personal #address_submit {
+  cursor: pointer;
+  float: right;
+}
+.pay_body .pay_block .address .address_main .edit_address,
+.pay_body .pay_block .address .edit_address_main .edit_address,
+.pay_body .pay_block .address .new_address .edit_address,
+.pay_body .pay_block .address .address_main .edit_default,
+.pay_body .pay_block .address .edit_address_main .edit_default,
+.pay_body .pay_block .address .new_address .edit_default {
+  width: 120px;
+  height: 30px;
+  border: none;
+  float: right;
+  background-color: #ff3b3c;
+  color: #ffffff;
+  margin-left: 5px;
+  position: absolute;
+  top: 195px;
+}
+.pay_body .pay_block .address .address_main .edit_address,
+.pay_body .pay_block .address .edit_address_main .edit_address,
+.pay_body .pay_block .address .new_address .edit_address {
+  right: 124px;
+}
+.pay_body .pay_block .address .address_main .edit_default,
+.pay_body .pay_block .address .edit_address_main .edit_default,
+.pay_body .pay_block .address .new_address .edit_default {
+  right: -1px;
+}
+.pay_body .pay_block .address .address_main,
+.pay_body .pay_block .address .new_address {
+  position: relative;
+}
+.pay_body .pay_block .address .edit_address_main {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  display: none;
+  background: #ffffff;
+}
+.pay_body .pay_block .address .default .edit_default,
+.pay_body .pay_block .address .default .edit_address {
+  display: none;
+}
+.pay_body .pay_block .address .selected {
+  border: 1px solid #FF3B3C;
+  box-shadow: 0px 0px 1px 1px #ff3b3c;
+}
+.pay_body .pay_block .address .unselected {
+  border: 1px solid #dbdbdb;
+}
+.pay_body .pay_block .address .add_address {
+  width: 300px;
+  height: 190px;
+  border: 1px solid #dbdbdb;
+  float: left;
+  margin: 9px;
+  cursor: pointer;
+}
+.pay_body .pay_block .address .add_address p {
+  width: 100%;
+  text-align: center;
+  color: #8c8c8c;
+}
+.pay_body .pay_block .address .add_address .img {
+  font-size: 46px;
+  line-height: 36px;
+  margin-top: 60px;
+}
+.pay_body .pay_block .style_information div {
+  width: 185px;
+  height: 51px;
+  float: left;
+  margin: 10px;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+  line-height: 51px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.pay_body .pay_block .style_information .style1 {
+  width: 96px;
+  height: 28px;
+  line-height: 28px;
+}
+.pay_body .pay_block .style_information .selected {
+  border: 1px solid #FF3B3C;
+  box-shadow: 0px 0px 1px 1px #ff3b3c;
+}
+.pay_body .pay_block .style_information .unselected {
+  border: 1px solid #dbdbdb;
+}
+.pay_body .pay_block .settle_btn {
+  font-size: 14px;
+  width: 160px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  background-color: #FF3B3C;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 0;
+}
+.pay_body .cart_goods_body {
+  width: 1262px;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  margin-top: -1px;
+  margin-left: 9px;
+}
+.pay_body .cart_goods_body div {
+  float: left;
+}
+.pay_body .cart_goods_body tr {
+  color: #2e2e2e;
+  font-size: 14px;
+}
+.pay_body .cart_goods_body tr .td3,
+.pay_body .cart_goods_body tr .td4,
+.pay_body .cart_goods_body tr .td5,
+.pay_body .cart_goods_body tr .td6,
+.pay_body .cart_goods_body tr .td8 {
+  line-height: 138px;
+}
+.pay_body .cart_goods_body tr td {
+  padding: 10px 0;
+}
+.pay_body .cart_goods_body tr .good_operation_btn {
+  height: 36px;
+  width: 74px;
+  border: none;
+  background-color: #ff3b3c;
+  cursor: pointer;
+  margin-top: 50px;
+  color: #ffffff;
+}
+.pay_body .cart_goods_title {
+  width: 1262px;
+  height: 42px;
+  background-color: #ffffff;
+  line-height: 42px;
+  border: 1px solid #dbdbdb;
+  color: #444444;
+  margin-left: 9px;
+}
+.pay_body .f_checkbox_normal {
+  cursor: pointer;
+  display: block !important;
+  padding: 0 20px;
+  line-height: 14px;
+}
+.pay_body .unchecked {
+  background: url("../images/check_bg1.jpg") no-repeat 3px center;
+}
+.pay_body .checked {
+  background: url("../images/check_bg2.jpg") no-repeat 3px center;
+}
+.pay_body td {
+  text-align: center;
+}
+.pay_body .td1 {
+  width: 130px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.pay_body .td1 label {
+  height: 12px;
+  float: left;
+  margin-left: 40px;
+  position: relative;
+}
+.pay_body .td1 label input {
+  left: -9999px;
+  position: absolute;
+}
+.pay_body .td2 {
+  width: 230px;
+  text-align: left;
+}
+.pay_body .td2 .img {
+  width: 210px;
+  height: 110px;
+  text-align: center;
+}
+.pay_body .td2 .img img {
+  margin-top: 10px;
+  max-width: 210px;
+  max-height: 100px;
+}
+.pay_body .td2 a,
+.pay_body .td2 p {
+  display: block;
+  width: 230px;
+  height: 18px;
+  line-height: 18px;
+  text-align: left;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #444444;
+}
+.pay_body .td2 p {
+  text-align: left;
+}
+.pay_body .td3,
+.pay_body .td4,
+.pay_body .td5,
+.pay_body .td6,
+.pay_body .td7,
+.pay_body .td8,
+.pay_body .td9 {
+  width: 134px;
+  text-align: center;
+}
+.pay_body .td7 {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.pay_body .td7 input {
+  width: 24px;
+  height: 24px;
+  float: left;
+  text-align: center;
+}
+.pay_body .td7 .text_box {
+  width: 32px;
+  height: 22px;
+  border: 1px solid #dbdbdb;
+  color: #575757;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: #ffffff;
+}
+.pay_body .td7 .cut {
+  color: #ffffff;
+  cursor: pointer;
+  background: url("../images/cut.png") no-repeat center center #444444;
+  margin-left: 26px;
+}
+.pay_body .td7 .add {
+  cursor: pointer;
+  background: url("../images/add.png") no-repeat center center #444444;
+}
+.pay_body .td7 label {
+  width: 52px;
+  text-align: center;
+  font-size: 12px;
+}
+.pay_body .pay {
+  float: right;
+  margin-right: 10px;
+}
+.pay_body .pay .have_select {
+  font-size: 14px;
+  margin-left: 10px;
+}
+.pay_body .pay .have_select i {
+  padding: 0 40px;
+  color: #ff3b3c;
+}
+.pay_body .pay .price_total {
+  font-size: 14px;
+  margin: 15px 10px;
+}
+.pay_body .pay .price_total span {
+  font-size: 24px;
+  padding: 0 10px;
+  color: #ff3b3c;
+}
+.pay_body .clear {
+  clear: both;
+}

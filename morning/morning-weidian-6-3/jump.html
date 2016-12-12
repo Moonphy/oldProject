@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/jump.css">
+    <title>早上好时尚网</title>
+  </head>
+  <body>
+    <div class="cover"><img src="images/logo.png" class="logo">
+      <div class="h1">早上好时尚网</div>
+      <div class="loader"></div><i>www.36-37.com</i>
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+      function jump(count) {
+          window.setTimeout(function(){
+              count--;
+              if(count > 0) {
+                  $('#count').val(count+'s');
+                  jump(count);
+              } else {
+                  location.href="index.html";
+              }
+          }, 1000);
+      }
+      jump(3);
+    </script>
+  </body>
+</html>

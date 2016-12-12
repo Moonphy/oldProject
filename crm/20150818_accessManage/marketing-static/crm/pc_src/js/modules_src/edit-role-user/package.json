@@ -1,0 +1,18 @@
+{
+  "name": "edit-role-user",
+  "version": "0.0.1",
+  "description": "给用户分配岗位－业务",
+  "keywords": [],
+  "author": "cjxsgn <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "licenses": "MIT",
+  "scripts": {
+    "build": "quick build"
+  },
+  "modulecfg": {
+    
+  }
+}

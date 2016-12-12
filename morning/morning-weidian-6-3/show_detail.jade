@@ -1,0 +1,151 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/show_detail.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 买家秀详情
+            .search
+            form.popup_search(action='/search/', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+        #content
+            .main_visual
+                a.show_header(href='show_personal.html')
+                    img(src='images/show_header.jpg',alt='')
+                    .name
+                        b 萌萌哒小妹纸
+                        br
+                        span 5分钟前
+                    .position
+                        span 广东
+                        span 广州
+                p 衣服不错，这个价格还好，大小正好，我158,105斤，穿L码正好。
+                .main_image
+                    .swiper-wrapper
+                        .swiper-slide
+                            img(src='images/examples/3.png',alt='')
+                        .swiper-slide
+                            img(src='images/examples/show_2.jpg',alt='')
+                        .swiper-slide
+                            img(src='images/examples/show_2.jpg',alt='')
+                        .swiper-slide
+                            img(src='images/examples/0.png',alt='')
+                        .swiper-slide
+                            img(src='images/examples/1.png',alt='')
+                    .swiper-pagination
+            .main_information
+                label 人气：
+                    span 999
+                p 这个买家一共收到<span>999</span>个赞
+                a(href='show_personal.html',title='') 去看看这个买家其它晒单
+            .zan_report
+                .bar2 <span>999</span>赞
+                a(href='',title='') 举报
+            .clear
+            .main_visual2
+                h4 我秀的商品：
+                .same_main_image
+                    .swiper-wrapper
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+                        a.swiper-slide(href='show_detail.html',title='')
+                            img(src='images/examples/pic_1.jpg',alt='')
+                            p
+                                label &yen; <span>999.00</span>
+                                button 去看看
+
+        footer
+            a(href='index.html',class='home',title='')
+                .img
+                    img(src='images/icon/home.png',alt='')
+                p 首页
+            a(href='list.html',class='fenlei',title='')
+                .img
+                    img(src='images/icon/fenlei.png',alt='')
+                p 分类
+            a(href='show.html',class='show selected',title='')
+                .img
+                    img(src='images/icon/show_img.png',alt='')
+                p 买家秀
+            a(href='cart.html',class='cart',title='')
+                .img
+                    img(src='images/icon/cart.png',alt='')
+                    i: span 100
+                p 购物车
+            a(href='home.html',class='personal',title='')
+                .img
+                    img(src='images/icon/personal.png',alt='')
+                p 个人中心
+        .form_content
+            ul
+                li.h3 热门搜索：
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+block jsblock
+    script(src='js/swiper.min.js')
+    script(src='js/show_detail.js')

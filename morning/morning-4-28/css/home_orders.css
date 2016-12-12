@@ -1,0 +1,442 @@
+.home_main_left {
+  width: 248px;
+  color: #444444;
+  margin-top: 20px;
+}
+.home_main_left .left_part {
+  width: 246px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 5px;
+}
+.home_main_left a:hover {
+  text-decoration: none;
+}
+.home_main_left ul li {
+  width: 188px;
+  padding: 0px 29px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+.home_main_left ul li a {
+  width: 188px;
+  display: inline-block;
+  color: #444444;
+}
+.home_main_left ul .selected {
+  background-color: #ff3b3c;
+}
+.home_main_left ul .selected a {
+  color: #ffffff;
+}
+.home_main_left ul .unselected {
+  background: none;
+}
+.home_main_left ul .part_title {
+  width: 188px;
+  margin: 0 29px 10px;
+  padding: 10px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.home_main_left ul .part_title_2 {
+  width: 188px;
+  margin: 0 29px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.home_main_left ul .part_title_2 a {
+  color: #444444;
+}
+.home_body {
+  width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.home_body .home_main .home_main_right {
+  width: 1032px;
+  margin-top: 20px;
+}
+.home_body .home_main .home_main_right .user_home_header {
+  width: 1030px;
+  margin-bottom: 20px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  height: 148px;
+}
+.home_body .home_main .home_main_right .user_home_header .user_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin: 34px 30px;
+  overflow: hidden;
+}
+.home_body .home_main .home_main_right .user_home_header .user_img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name {
+  height: 80px;
+  margin: 44px 0 24px 0;
+  color: #444444;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .name {
+  font-size: 18px;
+  line-height: 40px;
+  position: relative;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .female {
+  width: 11px;
+  height: 14px;
+  position: absolute;
+  top: 13px;
+  right: -15px;
+  background: url("../images/female.png") no-repeat center center;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .male {
+  width: 11px;
+  height: 14px;
+  position: absolute;
+  top: 13px;
+  right: -15px;
+  background: url("../images/male.png") no-repeat center center;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .time {
+  font-size: 14px;
+  color: #666666;
+}
+.home_body .home_main .home_main_right .user_home_header .user_edit {
+  height: 28px;
+  width: 120px;
+  padding-left: 30px;
+  line-height: 28px;
+  cursor: pointer;
+  background: url("../images/user_show.png") no-repeat 0 center;
+}
+.home_body .home_main .home_main_right .user_home_header p {
+  width: 160px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins {
+  width: 160px;
+  height: 120px;
+  float: right;
+  background-color: #fe4c4c;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: 15px 30px 0 15px;
+  color: #ffffff;
+  overflow: hidden;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins button {
+  width: 160px;
+  height: 70px;
+  padding-left: 50px;
+  border: none;
+  background: url("../images/date_bg1.png") no-repeat 45px center;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins .count_checkins {
+  width: 120px;
+  padding-left: 40px;
+  text-align: left;
+  background: url("../images/count_checkins.png") no-repeat 25px center;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins .tips {
+  height: 28px;
+  line-height: 28px;
+  background-color: #ff6262;
+  margin-top: 5px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao {
+  width: 193px;
+  height: 121px;
+  float: right;
+  background: url("../images/hongbao_bg.png");
+  margin-top: 15px;
+  color: #fffba5;
+  text-shadow: 0px 2px 1px #444444;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao .hongbao_h {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao p {
+  margin-top: 18px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao p span {
+  font-size: 24px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao .hongbao_b span {
+  font-size: 12px;
+}
+.home_body .home_main .home_main_right .orders_search {
+  width: 1030px;
+  height: 44px;
+  border: 1px solid #dfdfdf;
+  background-color: #fafafa;
+  position: relative;
+}
+.home_body .home_main .home_main_right .orders_search form {
+  float: left;
+}
+.home_body .home_main .home_main_right .orders_search input {
+  margin: 6px 0;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .orders_search #order_text {
+  width: 230px;
+  border: 1px solid #dbdbdb;
+  margin-left: 30px;
+  line-height: 20px;
+  padding: 4px 5px;
+  background-color: #ffffff;
+  color: #dfdfdf;
+}
+.home_body .home_main .home_main_right .orders_search #order_text:focus {
+  color: #444444;
+}
+.home_body .home_main .home_main_right .orders_search #submit {
+  width: 58px;
+  height: 30px;
+  background-color: #666666;
+  color: #ffffff;
+  margin-left: -5px;
+}
+.home_body .home_main .home_main_right .inline {
+  float: left;
+  font-size: 14px;
+  margin-left: 50px;
+  margin-top: 3px;
+}
+.home_body .home_main .home_main_right .inline #start,
+.home_body .home_main .home_main_right .inline #end {
+  height: 28px;
+  width: 95px;
+  line-height: 28px;
+  text-align: center;
+  background: url("../images/date_bg2.png") no-repeat 92px center #ffffff;
+}
+.home_body .home_main .home_main_right .inline .from,
+.home_body .home_main .home_main_right .inline .to {
+  padding: 0 5px;
+  line-height: 38px;
+  float: left;
+}
+.home_body .home_main .home_main_right .status {
+  margin-left: 100px;
+  margin-top: 7px;
+  float: left;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .status select {
+  width: 98px;
+  height: 30px;
+  color: #444444;
+}
+.home_body .home_main .home_main_right .user_home_list {
+  width: 1030px;
+  margin-bottom: 20px;
+  border: 1px solid #888888;
+  background-color: #ffffff;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title {
+  width: 970px;
+  height: 30px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eeeeee;
+  font-size: 14px;
+  color: #666666;
+  line-height: 30px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title span {
+  margin-right: 30px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .last {
+  margin-left: 30px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .last span {
+  margin: 0 5px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .last strong {
+  font-weight: 100;
+  margin: 0 5px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .orders_manage {
+  float: right;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .orders_manage a {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  display: block;
+  line-height: 30px;
+  background-color: #ff3b3c;
+  font-size: 14px;
+  color: #ffffff;
+  float: left;
+  margin: 0 10px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .orders_manage a:hover {
+  text-decoration: none;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .orders_manage p {
+  float: right;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title .orders_manage p i {
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .user_home_list li {
+  float: left;
+  font-size: 14px;
+  text-align: center;
+}
+.home_body .home_main .home_main_right .user_home_list .thead {
+  width: 970px;
+  padding: 0 30px;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.home_body .home_main .home_main_right .user_home_list .thead .td7 {
+  width: 80px;
+  text-align: right;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody {
+  width: 970px;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px 30px;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody li {
+  height: 148px;
+  line-height: 148px;
+  text-align: center;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody .td7 {
+  width: 80px;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody .td1 .img {
+  width: 220px;
+  height: 110px;
+  text-align: center;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody .td1 .img img {
+  margin-top: 10px;
+  max-width: 200px;
+  max-height: 100px;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody .td1 a,
+.home_body .home_main .home_main_right .user_home_list .tbody .td1 p {
+  display: block;
+  width: 240px;
+  height: 18px;
+  line-height: 18px;
+  text-align: left;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #444444;
+}
+.home_body .home_main .home_main_right .user_home_list .tbody .td1 p {
+  text-align: left;
+}
+.home_body .home_main .home_main_right .user_home_list .tfoot {
+  height: 79px;
+  padding: 20px 0;
+  float: right;
+  margin-right: 20px;
+}
+.home_body .home_main .home_main_right .user_home_list .tfoot p {
+  font-size: 14px;
+  line-height: 36px;
+}
+.home_body .home_main .home_main_right .user_home_list .tfoot p span {
+  text-align: center;
+  display: inline-block;
+  padding: 0 50px;
+  color: #ff3b3c;
+}
+.home_body .home_main .home_main_right .user_home_list .tfoot .total_price span {
+  font-size: 24px;
+  padding: 0 10px;
+}
+.home_body .home_main .home_main_right .user_home_list .td1 {
+  width: 250px;
+  text-align: left;
+}
+.home_body .home_main .home_main_right .user_home_list .td2,
+.home_body .home_main .home_main_right .user_home_list .td3,
+.home_body .home_main .home_main_right .user_home_list .td4,
+.home_body .home_main .home_main_right .user_home_list .td5,
+.home_body .home_main .home_main_right .user_home_list .td6 {
+  width: 128px;
+}
+.home_body .home_main .home_main_right .user_home_list .td7 {
+  width: 80px;
+  text-align: right;
+}
+.home_body .home_main .home_main_right #page {
+  float: right;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right #page .page_one {
+  float: left;
+}
+.home_body .home_main .home_main_right #page .page_one .current {
+  background-color: #f2f2f2;
+  border-color: #f2f2f2;
+  color: #ff3b3c;
+}
+.home_body .home_main .home_main_right #page .page_one .next {
+  width: 90px;
+}
+.home_body .home_main .home_main_right #page .page_one a {
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  margin: 0 5px;
+  float: left;
+  color: #444444;
+}
+.home_body .home_main .home_main_right #page .page_one div {
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  float: left;
+}
+.home_body .home_main .home_main_right #page .page_total {
+  float: right;
+}
+.home_body .home_main .home_main_right #page .page_total span {
+  margin: 0 5px;
+}
+.home_body .home_main .home_main_right #page .page_total input {
+  width: 84px;
+  height: 36px;
+  text-align: center;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.home_body .home_main .home_main_right #page .page_total #page_text {
+  width: 36px;
+  margin: 0 5px;
+  cursor: default;
+}

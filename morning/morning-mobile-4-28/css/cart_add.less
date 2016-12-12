@@ -1,0 +1,138 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  -ms-border-radius: @radius;
+}
+.text-overflow {
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.horizontal_vertical_center{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+body{
+  background-color: #f2f2f2;
+}
+#afui #content {
+  position: static!important;
+  padding-top: 44px;
+  padding-bottom: 60px;
+}
+section{
+  width: 100%;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  margin-top: 7px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  .add_header{
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+    line-height: 28px;
+    div{
+      float: left;
+    }
+    .header_color{
+      width: 20%;
+      min-width: 45px;
+    }
+    .header_title{
+      width: 80%;
+      .text-overflow;
+    }
+  }
+  .add_main{
+    border-bottom: 1px solid #dbdbdb;
+    padding: 4px 0;
+    .img{
+      display: block;
+      width: 68px;
+      height: 72px;
+      border: 1px solid #e6e6e6;
+      position: relative;
+      float: left;
+      margin: 3px 0;
+      img{
+        .horizontal_vertical_center;
+      }
+    }
+    .main_size{
+      max-width: 75%;
+      float: left;
+      font-size: 12px;
+      .good_count{
+        width: 42px;
+        text-align: center;
+        float: left;
+        margin-left: 7px;
+        .text_box{
+          width: 40px;
+          border: 1px solid #dbdbdb;
+          .border-radius (4px);
+          text-align: center;
+        }
+      }
+    }
+  }
+  .add_footer{
+    .add_price{
+      float: left;
+      color: #df3d82;
+    }
+    .count{
+      float: right;
+      text-align: right;
+    }
+  }
+}
+
+.bottom_btn{
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  .custom_btn,button{
+    height: 50px;
+    float: left;
+    color: #ffffff;
+  }
+  .custom_btn{
+    width: 60%;
+    background-color: rgba(0,0,0,0.8);
+    .total{
+      font-size: 18px;
+      line-height: 30px;
+    }
+    p{
+      line-height: 10px;
+      margin-left: 20px;
+    }
+  }
+  .buy_btn{
+    width: 40%;
+    background-color: rgba(224,73,62,0.9);
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+  }
+}

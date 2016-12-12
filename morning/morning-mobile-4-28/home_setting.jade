@@ -1,0 +1,70 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/home_setting.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 设置
+        #content
+            ul.user_list
+                li
+                    a(href='personal_edit.html',title='') 个人资料修改
+                        label 〉
+                li
+                    a(href='address_m.html',title='') 收货地址管理
+                        label 〉
+
+            ul.user_list
+                li
+                    a(href='home_idcard.html',title='') 身份认证
+                        span (未认证)
+                        label 〉
+                        p 4503***********123
+                li
+                    a(href='change_password.html',title='') 修改密码
+                        label 〉
+                li
+                    a(href='change_email.html',title='') 修改邮箱
+                        span (已绑定)
+                        label 〉
+                        p 123456@qq.com
+                li
+                    a(href='phone_edit.html',title='') 手机绑定
+                        span (已绑定)
+                        label 〉
+                        p 139*****4512
+
+            ul.user_list
+                li
+                    a(href='about.html',title='') 关于
+                        label 〉
+
+            .logout_btn 退出当前账号
+
+
+        footer
+            a(href='index.html',class='home',title='')
+                .img
+                    img(src='images/icon/home.png',alt='')
+                p 首页
+            a(href='list.html',class='fenlei',title='')
+                .img
+                    img(src='images/icon/fenlei.png',alt='')
+                p 分类
+            a(href='show.html',class='show',title='')
+                .img
+                    img(src='images/icon/show_img.png',alt='')
+                p 买家秀
+            a(href='cart.html',class='cart',title='')
+                .img
+                    img(src='images/icon/cart.png',alt='')
+                    i: span 100
+                p 购物车
+            a(href='home.html',class='personal selected',title='')
+                .img
+                    img(src='images/icon/personal.png',alt='')
+                    i: span 99
+                p 个人中心
+block jsblock
+    script

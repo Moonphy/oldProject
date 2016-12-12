@@ -1,0 +1,74 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/home.css')
+block content
+    include _header
+    .home_body
+        .home_main
+            .home_main_left.fl
+                .left_part
+                    ul
+                        .part_title 个人中心
+                        li.selected: a(href='home.html',title='') 我的账户
+                        li: a(href='home_favorite.html',title='') 我的徽章
+                        li: a(href='home_like.html',title='') 我关注的商品
+                        li: a(href='home_seen.html',title='') 我看过的商品
+                        li: a(href='home_favorite.html',title='') 我收藏的商品
+                .left_part
+                    ul
+                        .part_title 我的订单
+                        li: a(href='home_orders.html',title='') 所有订单
+                        li: a(href='home_address.html',title='') 收货地址管理
+                .left_part
+                    ul
+                        .part_title_2: a(href='',title='') 买家秀
+                .left_part
+                    ul
+                        .part_title 我的优惠
+                        li: a(href='home_address.html',title='') 我的红包
+                        li: a(href='change_password.html',title='') 我的积分
+                .left_part
+                    ul
+                        .part_title_2: a(href='cart.html',title='') 购物车
+                .left_part
+                    ul
+                        .part_title 安全中心
+                        li: a(href='home_address.html',title='') 身份认证
+                        li: a(href='change_password.html',title='') 修改密码
+                        li: a(href='change_password.html',title='') 修改邮箱
+                        li: a(href='change_password.html',title='') 手机绑定
+            .home_main_right.fr
+                .user_home_header
+                    .user_img.fl
+                        img(src='images/personal_head.png')
+                    .user_name.fl
+                        .name 萌萌哒小妹纸
+                        .time 下午好~
+                    .user_edit.fl
+                .user_home_list
+                    .list_title 未支付订单
+                    .list_content 您暂时没有未付款订单。
+                        span: a(href='index.html',title='') 挑挑喜欢的商品区>>
+                .user_home_list
+                    .list_title 未收货订单
+                    ul
+                        - for (var i=0;i<8;i++)
+                            li: img(src='images/examples/good_img.jpg',alt='')
+                .user_home_list_little
+                    .list_title 购物车
+                    ul
+                        - for (var i=0;i<4;i++)
+                            li: img(src='images/examples/good_img.jpg',alt='')
+                .user_home_list_little.user_home_list_last
+                    .list_title 收藏夹
+                    .list_content 您的购物车是空的，
+                        span: a(href='index.html',title='') 马上去购物>>
+
+    include _footer
+//block jsblock
+    //script(type='text/javascript').
+        $(document).ready(function(){
+            $(".home_main_left li").click(function () {
+                $(this).addClass("selected").removeClass("unselected").siblings(".selected").removeClass("selected").addClass("unselected");
+            });
+        });

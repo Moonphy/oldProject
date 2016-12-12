@@ -1,0 +1,101 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/cart_add.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 填选购买数量
+            a.header_cart(href='cart.html',title='')
+                i: span 99
+
+        #content
+            section
+                .add_header
+                    .header_color 橙色
+                    .header_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低
+                .add_main
+                    a.img(href='detail.html',title='')
+                        img(src='images/examples/good_2.jpg',alt='鞋靴')
+                    form.main_size(method='post',action='')
+                        - for(var i=0; i<10; i++)
+                            .good_count
+                                p 250/40
+                                input(class='text_box',type='number',value='1',name='')
+                .add_footer
+                    .add_price 单价
+                        span &yen;99
+                    .count
+                        .add_count 数量：
+                            span 10
+                        .add_total 总价：
+                            span &yen;999.00
+            section
+                .add_header
+                    .header_color 橙色
+                    .header_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低
+                .add_main
+                    a.img(href='detail.html',title='')
+                        img(src='images/examples/show_1.jpg',alt='鞋靴')
+                    form.main_size(method='post',action='')
+                        - for(var i=0; i<8; i++)
+                            .good_count
+                                p 250/40
+                                input(class='text_box',type='number',value='1',name='')
+                .add_footer
+                    .add_price 单价
+                        span &yen;99
+                    .count
+                        .add_count 数量：
+                            span 10
+                        .add_total 总价：
+                            span &yen;999.00
+            section
+                .add_header
+                    .header_color 橙色
+                    .header_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低
+                .add_main
+                    a.img(href='detail.html',title='')
+                        img(src='images/examples/1.png',alt='鞋靴')
+                    form.main_size(method='post',action='')
+                        - for(var i=0; i<8; i++)
+                            .good_count
+                                p 250/40
+                                input(class='text_box',type='number',value='1',name='')
+                .add_footer
+                    .add_price 单价
+                        span &yen;99
+                    .count
+                        .add_count 数量：
+                            span 10
+                        .add_total 总价：
+                            span &yen;999.00
+            section
+                .add_header
+                    .header_color 橙色
+                    .header_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低
+                .add_main
+                    a.img(href='detail.html',title='')
+                        img(src='images/examples/0.png',alt='鞋靴')
+                    form.main_size(method='post',action='')
+                        - for(var i=0; i<8; i++)
+                            .good_count
+                                p 250/40
+                                input(class='text_box',type='number',value='1',name='')
+                .add_footer
+                    .add_price 单价
+                        span &yen;99
+                    .count
+                        .add_count 数量：
+                            span 10
+                        .add_total 总价：
+                            span &yen;999.00
+
+        .bottom_btn
+            .custom_btn
+                p.total 合计：
+                    span  &yen;4792.00
+                p 共<span>4</span>件商品
+            button.buy_btn 确定
+block jsblock
+    script(src='js/cart.js')

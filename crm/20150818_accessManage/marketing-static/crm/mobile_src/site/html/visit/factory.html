@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>汽修厂</title>
+    <meta name="description" content="CRM汽修厂">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" media="all"/>
+    <style>
+        .content{
+            margin-top: 10px;
+            min-height: 200px;
+            background: #eeeeee;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+        .content ul{
+            border-top: 1px solid #DDDDDD;
+        }
+        .content  li{
+            height: 49px;
+            border-bottom: 1px solid #DDDDDD;
+            background: #FFFFFF;
+            cursor: pointer;
+        }
+
+        ul.todo{
+            margin-top: 10px;
+        }
+
+        .content .item{
+            padding-left: 10px;
+        }
+        .content .item a{
+            color: #333333;
+        }
+        .content .item div{
+            display: inline-block;
+            overflow: hidden;
+            /*background: #DDDDDD;*/
+            width: 32px;
+            height: 32px;
+            margin: 8px 10px 8px 0;
+            vertical-align: middle;
+        }
+
+        .content .item label{
+            vertical-align: middle;
+        }
+
+        .content .item .icon {
+            margin-left: 15px;
+            margin-right: 30px;
+            line-height: 49px;
+            color: #ababab;
+        }
+
+        .ui-icon{
+            width: 32px;
+            width: 32px;
+        }
+        .beseinformation{
+            background: url('../../img/factory_icon/basic-information.png');
+            background-size: 100%;
+        }
+        .bill{
+            background: url('../../img/factory_icon/check.png');
+            background-size: 100%;
+        }
+        .visit{
+            background: url('../../img/factory_icon/call-on.png');
+            background-size: 100%;
+        }
+        .platform{
+            background: url('../../img/factory_icon/question-for-platform.png');
+            background-size: 100%;
+        }
+        .return{
+            background: url('../../img/factory_icon/question-for-return.png');
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+    <div class="viewport">
+        <header class="navbar height" id="navbar">
+            <div class="btn prev" id="J_back"><i class="icon iconfont">&#xe61f;</i>拜访</div>
+            <div class="title" id="J_name"><!--汽修厂--></div>
+            <div class="btn op"></div>
+        </header>
+        <section class="content fn-clear">
+            <div class="pt10">
+                <ul class="my">
+                    <li class="item">
+                        <a href="information.html" id="baseInfo">
+                            <div class="ui-icon beseinformation"></div>
+                            <label>基本情况</label>
+                            <i class="icon icon-chevron-right fn-right"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#" id="J_inquiry_order">
+                            <div class="ui-icon bill"></div>
+                            <label>查看询价单及订单</label>
+                            <i class="icon icon-chevron-right fn-right"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="info-list.html">
+                            <div class="ui-icon visit"></div>
+                            <label>拜访信息</label>
+                            <i class="icon icon-chevron-right fn-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="todo">
+                    <li class="item">
+                        <a href="../platform/problem-list.html">
+                            <div class="ui-icon platform"></div>
+                            <label>平台问题</label>
+                            <i class="icon icon-chevron-right fn-right"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="../return/problem-list.html">
+                            <div class="ui-icon return"></div>
+                            <label>退货问题</label>
+                            <i class="icon icon-chevron-right fn-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script data-main='../../js/visit-factory.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

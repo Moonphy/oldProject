@@ -1,0 +1,141 @@
+<#include "/inc/global.htm">
+<#--
+  @title  声明header宏
+  @desc 整体网站头部风格，其中包含页面css脚手架的导入
+  @params
+    title：网页标题
+    model：网页需要加载的js模块所在文件夹路径
+    version：网页需要加载的js模块版本
+    name：网页需要加载的js模块名称
+-->
+<#macro header title model version name styles>
+  <!DOCTYPE HTML>
+  <!--
+      ◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
+      ◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
+      ◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◆◆◆◆◇◇◇◇◆◆◆◆◇
+      ◇◇◇◆◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◆◆◆◆◇◇◇◇◆◆◆◆◇
+      ◇◇◇◆◆◆◆◇◇◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◇◆◆◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◆◆◆◆◆◇◇◆◆◆◆◆◇
+      ◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◆◆◆◆◆◇◇◆◆◆◆◆◇
+      ◇◇◆◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◆◆◆◆◆◆◇◆◆◆◆◆◇
+      ◇◇◆◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◇◆◆◆◆◆◆◆◆◆◇
+      ◇◇◆◆◆◆◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◆◆◇◆◆◆◆◆◆◆◆◆◇
+      ◇◇◇◆◆◆◆◇◇◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◆◆◇◇◇◇◇◇◇◆◆◆◇◆◆◆◇◇◇◇◇◇◆◆◇◇◆◆◆◆◇◆◆◆◇
+      ◇◇◇◆◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◆◆◇◇◆◆◆◆◇◆◆◆◇
+      ◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◆◆◆◆◆◆◆◇◇◇◇◇◇◇◆◆◆◇◆◆◆◆◇◇◇◇◇◆◆◇◇◆◆◆◆◇◆◆◆◇
+      ◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◆◆◆◇◇◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
+      ◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
+      ◇◇◇◇◇◇◇◇◇◆◆◆◆◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
+      ◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
+
+
+            汽配铺招募资深前端工程师，web服务端工程师若干，会Nodejs，Java语言者优先。
+            工作地点在广州白云，电商方向，欢迎推荐或自荐，有意者请发送简历到 hr@qipeipu.com。
+            请在邮件标题注明：【crm-console】
+            更多岗位参见: http://www.baturu.org/join-us.html
+  -->
+  <html>
+  <head>
+    <title>汽配铺CRM-${title!''}</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Keywords" content="汽配铺CRM,汽配铺,汽配商城,汽配电商,汽配服务,汽车服务,汽车配件,汽车维修,巴图鲁,qipeipu.com,qipeipu" />
+    <meta name="Description" content="汽配铺CRM-${title!''} - 做好每一个细节，打造中国汽车配件流通市场的新格局"/>
+    <#--<#if model?exists && version?exists && name?exists>-->
+    <script type="text/javascript">
+    var OP_CONFIG={"module":"${model?default('common')}","version":"${version?default('0.0.1')}","name":"${name?default('index')}"};
+    </script>
+    <#--</#if>-->
+	<link href="${cssRoot}/??base/reset.css,base/table.css,base/base.css,plugin/layer/skin/layer.css,plugin/layer/skin/ext.css${styles?if_exists}" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+ 		<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+ 		<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <script>
+      GLOBAL = {CTX: '${ctx}',CDN: '${crm_cdn}',JS: '${jsRoot}',SEA:  '${seajsRoot}',MODULES: '${moduleRoot}',GALLERY: '${galleryRoot}', PLUGIN:'${pluginRoot}', TIMESTAMP: new Date().getTime()};
+    </script>
+    <#nested>
+  </head>
+</#macro>
+
+<#--
+  @title  声明body宏
+  @desc 整体网站正文部分风格
+  @params
+    cls：指定最外层div的class，默认为：page
+-->
+<#macro body cls="container" showLeftNav=true showHeader=true>
+  <body>
+  	<#if showHeader>
+        <#include '/inc/header.htm'>
+  	</#if>
+  	<div class="${cls}">
+        <#if msg??>
+        <div class="alert alert-warning alert-dismissible mt10" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>信息：</strong> ${msg}
+        </div>
+        </#if>
+
+  		<div id="main" class="clearfix">
+            <#if showLeftNav && $user>
+            <ul class="opus-nav animated infinite" id="leftMenu">
+                <#include '/inc/menu.htm'>
+            </ul>
+            <div class="other-right wrapper">
+            <#else>
+            <div class="wrapper">
+            </#if>
+                <section>
+                    <div class="content-wrapper">
+                        <#nested>
+                    </div>
+                </section>
+            </div>
+	    </div>
+    </div>
+</#macro>
+
+<#--
+  @title  声明footer宏
+  @desc 整体网站尾部风格，其中包含页面js脚手架的导入
+  @params none
+-->
+<#macro footer showFooter=true>
+  <#if showFooter>
+    <#include '/inc/footer.htm'>
+  </#if>
+    <#if DEBUG>
+        <script src="${comRoot}/sea.js" id="seajsnode"></script>
+        <script>var DEBUG = true</script>
+        <script src="${cdn}/crm/c.js"></script>
+    <#else>
+        <script src="${cdn}??common/sea.js,common/seajs/seajs-combo/1.0.1/seajs-combo.js,crm/c.min.js" id="seajsnode"></script>
+    </#if>
+
+    <#if $user>
+    <script>
+      seajs.use(['common'],function(common){
+          var $ = common.jquery;
+          $(function(){
+              var leftMenu = $('#leftMenu');
+              $('#logo').on('mouseover',function () {
+                  Anim('tada');
+              });
+              function Anim(x) {
+                  $('#logo').removeClass(x+' animated')
+                          .addClass(x+' animated')
+                          .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                      $(this).removeClass(x+' animated');
+                  });
+              };
+          });
+      });
+    </script>
+    </#if>
+    <#nested>
+    <#include '/inc/script.htm'>
+    </body>
+  </html>
+</#macro>

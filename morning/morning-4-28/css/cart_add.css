@@ -1,0 +1,219 @@
+.text-overflow {
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.horizontal_vertical_center {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+#header {
+  position: relative;
+}
+.wrap {
+  width: 100%;
+  height: auto!important;
+  min-height: 100%;
+  position: relative;
+}
+.cart_add_body {
+  width: 1298px;
+  margin: 20px auto;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  color: #444444;
+}
+.cart_add_body h1 {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0;
+}
+.section {
+  width: 1278px;
+  height: 238px;
+  border: 1px solid #e6e6e6;
+  margin: 10px;
+}
+.section .td1 {
+  width: 128px;
+  padding-left: 7px!important;
+  margin-right: 10px;
+}
+.section .td2 {
+  width: 840px;
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.section .td3,
+.section .td4,
+.section .td5 {
+  border-left: 1px solid #e6e6e6;
+  text-align: center;
+}
+.section .td3 {
+  width: 78px;
+}
+.section .td4 {
+  width: 98px;
+}
+.section .td5 {
+  width: 114px;
+}
+.section .add_header {
+  height: 57px;
+  overflow: hidden;
+  border-bottom: 1px solid #e6e6e6;
+}
+.section .add_header div {
+  float: left;
+  font-size: 18px;
+  line-height: 58px;
+  padding: 0;
+}
+.section .add_header .header_title {
+  text-indent: 20px;
+}
+.section .add_main div {
+  height: 150px;
+  float: left;
+  font-size: 14px;
+  padding: 15px 0;
+}
+.section .add_main .td3,
+.section .add_main .td4,
+.section .add_main .td5 {
+  line-height: 150px;
+}
+.section .add_main .main_img .img {
+  display: block;
+  width: 126px;
+  height: 126px;
+  border: 1px solid #e6e6e6;
+  position: relative;
+}
+.section .add_main .main_img .img img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.section .add_main .main_img p {
+  float: right;
+  color: #ff3b3c;
+  font-size: 12px;
+}
+.section .add_main .main_size .add_count {
+  width: 60px;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.section .add_main .main_size .add_count p {
+  text-align: center;
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.section .add_main .main_size .add_count input {
+  float: left;
+  text-align: center;
+  line-height: 19px;
+}
+.section .add_main .main_size .add_count .text_box {
+  width: 58px;
+  height: 26px;
+  border: 1px solid #dbdbdb;
+  border-bottom: none!important;
+  color: #575757;
+  font-size: 14px;
+  line-height: 26px;
+  background-color: #ffffff;
+}
+.section .add_main .main_size .add_count .cut {
+  width: 30px;
+  height: 19px;
+  color: #ffffff;
+  cursor: pointer;
+  background: url("../images/cut.png") no-repeat center center #dbdbdb;
+}
+.section .add_main .main_size .add_count .add {
+  width: 30px;
+  height: 19px;
+  color: #ffffff;
+  cursor: pointer;
+  background: url("../images/add.png") no-repeat center center #777777;
+}
+.tfoot {
+  height: 125px;
+  padding: 20px 0;
+  float: right;
+  margin-right: 18px;
+}
+.tfoot p {
+  font-size: 14px;
+  line-height: 36px;
+  text-align: right;
+}
+.tfoot p span {
+  text-align: center;
+  display: inline-block;
+  padding: 0 40px;
+  color: #ff3b3c;
+  font-size: 24px;
+}
+.tfoot .total_price span {
+  padding: 0 10px;
+}
+.tfoot a {
+  display: block;
+  width: 160px;
+  line-height: 38px;
+  background-color: #ff3b3c;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  float: left;
+  margin-top: 8px;
+  margin-left: 14px;
+}
+.tfoot a:hover,
+.tfoot a:active {
+  text-decoration: none;
+}
+.push {
+  height: 68px;
+}
+#footer {
+  height: 68px;
+  position: absolute;
+  bottom: 0;
+}

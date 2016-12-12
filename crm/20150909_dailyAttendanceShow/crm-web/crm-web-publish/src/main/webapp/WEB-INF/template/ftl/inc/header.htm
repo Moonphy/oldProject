@@ -1,0 +1,37 @@
+<div id="header">
+    <div class="page-container" id="nav">
+        <div id="logo" class="logo"><a href="/" target="_self" class="hide-text">汽配铺-CRM</a></div>
+        <ul class="nav-item l">
+            <li><a href="/index" target="_self">首页</a></li>
+        </ul>
+        <div id="login-area">
+            <#if $user.isAdmin?exists>
+            <ul class="clearfix logined">
+                <#global $userName = ($user.userName)!"匿名" />
+                <li class="my_message">
+                    <a href="#" title="我的昵称" target="_self">
+                        <span>${$userName}</span>
+                    </a>
+                </li>
+                <#--职责存在多个，此处不显示，在用户资料页面显示<li class="my_message" title="个人中心">
+                    <a href="#" title="我的身份" target="_self">
+                        <span>${($user.dutyNames[0])?default("未知身份")}</span>
+                    </a>
+                </li>
+                -->
+                <li class="set_btn">
+                    <a id="header-avator" action-type="my_menu" href="/user/profile" target="_self">
+                    	<img src="/assets/images/head.png" width="40" height="40">
+                    </a>
+                    <ul id="nav_list">
+                    	<li><a id="my_space" href="/user/profile" title="${$userName}" class="text-ellipsis" target="_self">${$userName}</a></li>
+                        <li><a id="my_statistics" href="/statistics/tel/tradeInfo?userId=${$user.userId?if_exists}" target="_self">我的统计</a></li>
+                        <li><a id="my_setting" href="/resetpwd" target="_self">修改密码</a></li>
+                        <li><a id="my_logout" href="/logout" target="_self">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </#if>
+        </div>
+	</div>
+</div>

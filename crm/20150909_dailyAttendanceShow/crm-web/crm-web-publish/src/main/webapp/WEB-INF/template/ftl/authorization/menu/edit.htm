@@ -1,0 +1,67 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '修改菜单' 'menu-edit' '0.0.1' 'index' ',new.css'>
+<style>
+
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="page-title">
+    <h2>
+        <span><strong>修改菜单</strong></span>
+    </h2>
+</div>
+<div class="main-list">
+
+    <div class="js-course-list fn-clear">
+        <div class="form">
+            <div class="form-group">
+                <label for="resourceCode">菜单编码</label>
+                <input class="form-control" id="resourceCode" name="resourceCode"/>
+            </div>
+            <div class="form-group">
+                <label for="resourceName">菜单名称</label>
+                <input class="form-control" id="resourceName" name="resourceName"/>
+            </div>
+            <div class="form-group">
+                <label for="resourceURL">菜单URL</label>
+                <input class="form-control" id="resourceURL" name="resourceURL"/>
+            </div>
+            <div class="form-group">
+                <label for="resourceMethodType">请求类型</label>
+                <select name="resourceMethodType" id="resourceMethodType">
+                    <option value="1">GET</option>
+                    <option value="2">POST</option>
+                    <option value="0">未知</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="parentId">父级ID</label>
+                <input type="text" name="parentId" id="parentId"/>
+            </div>
+            <div class="form-group">
+                <label for="state">状态</label>
+                <select name="state" id="state">
+                    <option value="0">可用</option>
+                    <option value="1">禁用</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="resourceMemo">备注</label>
+                <textarea name="resourceMemo" id="resourceMemo"></textarea>
+            </div>
+
+            <div class="form-group button-group">
+                <button class="btn" type="button" id="backBtn">返回</button>
+                <button class="ml10 btn submit" id="submitBtn" type="button">提交</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

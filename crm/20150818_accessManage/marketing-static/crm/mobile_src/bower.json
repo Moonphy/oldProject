@@ -1,0 +1,21 @@
+{
+  "name": "crm-mobile-app",
+  "version": "0.0.1",
+  "authors": [
+    "dreamstu <cjxsgn@163.com>"
+  ],
+  "description": "crm微信端app",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "zepto": "~1.1.6",
+    "requirejs-text": "~2.0.14"
+  }
+}

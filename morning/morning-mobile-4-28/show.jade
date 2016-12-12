@@ -1,0 +1,182 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/show.css')
+    script(src='js/jquery.touchSlider.js')
+    script(src='js/jquery.event.drag-1.5.min.js')
+
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 买家秀
+            .search
+            form.popup_search(action='/search/', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+        nav
+            ul
+                li
+                    a.sort_down(href='show.html',title='') 热度 ↓
+                li
+                    a(href='show.html',title='') 时间
+                li
+                    a.sort_up(href='show.html',title='') 性别
+                li
+                    a(href='show.html',title='') 位置
+
+        #content
+            ul.filters
+                li
+                    span 女
+                    img(src='images/list_del.png',alt='')
+                li
+                    span 广州
+                    img(src='images/list_del.png',alt='')
+            .main_visual
+                a.show_header(href='show_personal.html')
+                    img(src='images/show_header.jpg',alt='')
+                    .name
+                        b 萌萌哒小妹纸
+                        br
+                        span 5分钟前
+                    .position
+                        span 广东
+                        span 广州
+                .flicking_con.con1
+                    a(href='#') 1
+                    a(href='#') 2
+                    a(href='#') 3
+                    a(href='#') 4
+                    a(href='#') 5
+                .main_image#main_image1
+                    ul
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/02.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_2.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                .bar2
+                    span 998
+                script.
+                    $("#main_image1").touchSlider({
+                        view : 1,
+                        range : 0.15,
+                        page : 1,
+                        flexible: true,
+                        speed: 300,
+                        paging: $(this).prev().children(),
+                        counter: function (e) {
+                            $('.con1 a').removeClass("on").eq(e.current - 1).addClass("on");
+                        }
+                    });
+
+            .main_visual
+                a.show_header(href='show_personal.html')
+                    img(src='images/show_header.jpg',alt='')
+                    .name
+                        b 萌萌哒小妹纸
+                        br
+                        span 5分钟前
+                    .position
+                        span 广东
+                        span 广州
+                .flicking_con.con2
+                    a(href='#') 1
+                    a(href='#') 2
+                    a(href='#') 3
+                    a(href='#') 4
+                    a(href='#') 5
+                .main_image#main_image2
+                    ul
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                        li
+                            a(href='show_detail.html',title=''): img(src='images/examples/show_1.jpg',alt='')
+                .bar2
+                    span 99
+                script.
+                    $("#main_image2").touchSlider({
+                        view : 1,
+                        range : 0.15,
+                        page : 1,
+                        flexible: true,
+                        speed: 300,
+                        paging: $(this).prev().children(),
+                        counter: function (e) {
+                            $('.con2 a').removeClass("on").eq(e.current - 1).addClass("on");
+                        }
+                    });
+
+        a#post_show(href='show_post.html',title='') +
+        footer
+            a(href='index.html',class='home',title='')
+                .img
+                    img(src='images/icon/home.png',alt='')
+                p 首页
+            a(href='list.html',class='fenlei',title='')
+                .img
+                    img(src='images/icon/fenlei.png',alt='')
+                p 分类
+            a(href='show.html',class='show selected',title='')
+                .img
+                    img(src='images/icon/show_img.png',alt='')
+                p 买家秀
+            a(href='cart.html',class='cart',title='')
+                .img
+                    img(src='images/icon/cart.png',alt='')
+                    i: span 100
+                p 购物车
+            a(href='home.html',class='personal',title='')
+                .img
+                    img(src='images/icon/personal.png',alt='')
+                p 个人中心
+        .form_content
+            ul
+                li.h3 热门搜索：
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+                li
+                    a(href='list.html',title='') 高跟鞋
+                li
+                    a(href='list.html',title='') 平底鞋
+                li
+                    a(href='list.html',title='') 松糕鞋
+                li
+                    a(href='list.html',title='') 长筒靴
+
+block jsblock
+
+    script(src='js/show.js')

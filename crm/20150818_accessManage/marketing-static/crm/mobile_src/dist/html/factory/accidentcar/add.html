@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加事故车</title>
+    <meta name="description" content="CRM添加事故车">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <style>
+        div.item{
+            height: 40px;
+            background: #fff;
+            border: 1px solid #DDDDDD;
+        }
+        .pl2{
+            padding-left: 2px;
+        }
+        input{
+            height: 20px;
+            line-height: 20px;
+            border: none;
+        }
+        .label{
+            height: 28px;
+        }
+        label{
+            padding-right: 5px;
+        }
+        .addicon{
+            position: relative;
+            top: -7px;
+        }
+        .num{
+            width: 25px;
+            margin: 0 5px;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+        .jian,.jia{
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 50%;
+            background: #c1bfbf;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+        }
+        .J_event{
+            width: 65%;
+        }
+        .J_carType{
+            width: 60%;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content">
+        <div class="form" id="J_form">
+            <div class="label">
+                <label>事故车详情</label>
+                <i class="icon iconfont fn-right addicon" id="J_add">&#xe637;</i>
+            </div>
+        </div>
+
+        <script type="text/html" id="tpl">
+            <ul class="list mt10">
+                <li class="item">
+                    <label>事故车型<i class="idx">{idx}</i>:</label>
+                    <input class="J_carType pl2" data-tip="请输入事故车型" data-key="carType"/>
+                </li>
+                <li class="item">
+                    <label>事故车辆:</label>
+                    <span class="pl2 ops"><i class="jian">-</i><input class="J_car num" data-tip="请输入事故车辆数" data-key="num" value="1"/><i class="jia">+</i></span>
+                </li>
+                <li class="item">
+                    <label>预采购时间:</label>
+                    <input class="pl2 J_event car_{idx}" data-tip="请选择预采购时间" data-key="preBuyTime"/>
+                </li>
+            </ul>
+        </script>
+
+    </section>
+</div>
+<script data-main='../../../js/accidentcar-add.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

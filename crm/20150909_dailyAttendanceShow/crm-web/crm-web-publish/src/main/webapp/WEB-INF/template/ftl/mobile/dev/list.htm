@@ -1,0 +1,90 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '汽修厂开发人及维护人管理' 'dev-list' '0.0.1' 'index' ',plugin/pagination.css'>
+<style>
+    .button-group{
+        margin-left: 100px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+    <div class="page-title">
+        <h2>
+            <span><strong>汽修厂开发人及维护人管理</strong></span>
+        </h2>
+    </div>
+
+    <div class="main-list" style="margin-top: 0px;">
+        <#if (result?exists && !result.success)>
+            <div class="result-tip result-tip-error">错误信息：${result.msg}</div>
+        </#if>
+        <#if (result?exists && result.success && result.msg?exists)>
+            <div class="result-tip result-tip-success">${result.msg}</div>
+        </#if>
+        <div class="tool filter">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>汽修厂</label>
+                <input name="key" value="${key?if_exists}"/>
+            </div>
+            <div class="group">
+                <label>汽修厂ID</label>
+                <input name="mfctyID" value="${mfctyID?if_exists}"/>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+        <div class="fn-clear">
+            <table class="gridtable" summary="汽修厂开发人及维护人管理">
+                <thead>
+                <tr>
+                    <th scope="col">汽修厂ID</th>
+                    <th scope="col">汽修厂名</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">开发人</th>
+                    <th scope="col">开发时间</th>
+                    <th scope="col">预维护人</th>
+                    <th scope="col">现维护时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <#assign list = result.model.model/>
+                    <#if list?size gt 0>
+                        <#escape x as x?if_exists>
+                            <#list list as mo>
+                            <tr class="data">
+                                <#assign mo1 = mo.customerBasedEntity/>
+                                <td>${mo1.mfctyID}</td>
+                                <td><a href="/base/maintain/find?custID=${mo1.id}" class="link">${mo1.mfctyName}</a></td>
+                                <td title="${mo1.address}">${mo1.address}</td>
+                                <#assign mo2 = mo.maintainEntityList/>
+                                <td>${mo2[0].userName}</td>
+                                <td>${mo2[0].createTime}</td>
+                                <td>${mo2[1].userName}</td>
+                                <td>${mo2[1].createTime}</td>
+                            </tr>
+                            </#list>
+                        </#escape>
+                    <#else>
+                    <tr class="nodata">
+                        <td colspan="10">没有符合条件的数据</td>
+                    </tr>
+                    </#if>
+                </tbody>
+            </table>
+            <div class="pager"></div>
+        </div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+    var params = {
+        total:'${result.model.total}',
+        size:'${result.model.size}',
+        current:'${result.model.current}'
+    };
+</script>
+</@inc.footer>

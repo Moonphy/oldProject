@@ -1,0 +1,48 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header title='重设密码' styles=',resetpwd.css'></@inc.header>
+
+<@inc.body>
+	
+	<div class="page-title">
+        <h2>
+			<span><strong>重设密码</strong></span>
+		</h2>
+    </div>
+    
+    <div class="main-list" style="margin-top: 0px;">
+    	<div class="js-course-list fn-clear">
+    		<form class="form" action="/resetpwd" method="POST">
+			 	<div class="form-group">
+			 		<label for="username">原始密码</label>
+			 		<input class="form-control" id="oldpassword" name="loginPwd" type="password" value="${result.model.loginPwd}" autocomplete="off"/>
+			 	</div>
+			 	<div class="form-group">
+			 		<label for="password">新密码</label>
+			 		<input class="form-control" id="password" name="newloginPwd" type="password" value="${result.model.newloginPwd}"/>
+			 	</div>
+                <div class="form-group">
+                    <label for="password">重复新密码</label>
+                    <input class="form-control" id="repassword" name="repassword" type="password" value="${result.model.repassword}"/>
+                </div>
+				<#if (result?exists && !result.success)>
+					<div class="form-group">
+						<div class="result-tip result-tip-error">${result.msg}</div>
+					</div>
+				</#if>
+				<#if (result?exists && result.success && result.msg?exists)>
+					<div class="form-group">
+						<div class="result-tip result-tip-success">${result.msg}</div>
+					</div>
+				</#if>
+				<div class="form-group button-group">
+                    <button type="button" class="btn" onclick="history.go(-1);">返回</button>
+					<button class="ml10 loginbtn" type="submit">确定修改</button>
+				</div>
+			</form>
+    	</div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

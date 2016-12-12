@@ -1,0 +1,64 @@
+@import "base.css";
+.cityList{
+    margin: 0px 18px;
+}
+.cityList div{
+    display: inline-block;
+}
+.cityList li.item{
+    height: 41px;
+    line-height: 39px;
+    background: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    -moz-border-radius: 4px; /* Gecko browsers */
+    -webkit-border-radius: 4px; /* Webkit browsers */
+    border-radius: 4px;
+}
+.cityList .icon{
+    margin-left: 15px;
+}
+.cityList .label{
+    margin-left: 11.5px;
+}
+.cityList .value{
+    margin-right: 11.5px;
+}
+
+.chosen-drop{
+    display: none;
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 4px 5px rgba(0,0,0,.15);
+    box-shadow: 0 4px 5px rgba(0,0,0,.15);
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
+    top: 1px;
+}
+.chosen-results{
+    color: #444;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 4px 4px 0;
+    padding: 0 0 0 4px;
+    max-height: 240px;
+    -webkit-overflow-scrolling: touch;
+}
+.chosen-results li.active-result{
+    display: inline-block;
+    cursor: pointer;
+}
+.chosen-results li{
+    padding: 5px 6px;
+    line-height: 18px;
+    word-wrap: break-word;
+    -webkit-touch-callout: none;
+    width: 48%;
+    text-align: center;
+}
+.chosen-results li.highlighted {
+    background-color: #0e90d2;
+    color: #fff
+}

@@ -1,0 +1,572 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/square.css')
+block content
+    include _common_header
+    .square_body
+        #budget_list.fl.products-top
+            .budget_list_header 预算分类
+            li: a(href='#') 399
+                span 元
+            li: a() 599
+                span 元
+            li: a() 899
+                span 元
+            li.lastli: a() 1299
+                span 元
+        #square_main
+            .main_header
+                img(src='images/examples/square_img_1.jpg')
+                .header_title
+                    .header_title_top
+                        .h4.fl 小白最爱
+                        .h4_right
+                            .h5.fl ¥
+                            .h6.fl 450
+                            .h7.fl /
+                            .h8.fl 平方组合
+                    .header_content
+                        .header_content_title 套餐说明：以建筑面积80平方的2房1卫1厨为例
+                        .p xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxshsadoifsaidfio;
+            .products_choose
+                .block_top
+                    .block_top_title 产品选择
+                    ul
+                        li: a 涂料
+                        li: a 墙砖
+                        li: a 地砖
+                        li: a 水管
+                        li: a 开关面板
+                        li: a 电线
+                        li: a 电箱整套
+                        li: a 电线管
+                        li: a 龙头
+                        li: a 花洒
+                        li: a 马桶
+                        li: a 洗脸盆
+                        li: a 浴室柜
+                        li: a 房门
+                        li: a 厨卫门
+                        li.last: a 橱柜
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 涂料
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_1.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_2.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_3.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_4.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_5.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_6.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 墙砖
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_7.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_8.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_9.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_10.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_11.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_12.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 地砖
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_13.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_14.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_15.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_16.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_17.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_18.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 水管
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_19.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_20.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_21.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_22.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_23.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_24.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 开关面板
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_25.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_26.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_27.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_28.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_29.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_30.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 电线
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_31.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_32.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_33.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_34.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_35.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_36.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 电箱整套
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_37.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_38.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_39.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_40.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_41.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_42.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 电线管
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_43.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_44.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_45.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_46.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_47.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_48.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 龙头
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_49.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_50.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_51.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_52.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_53.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_54.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 花洒
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_55.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_56.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_57.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_58.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_59.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_60.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 马桶
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_61.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_62.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_63.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_64.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_65.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_66.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 洗脸盆
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_67.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_68.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_69.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_70.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_71.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_72.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 浴室柜
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_13.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_14.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_15.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_16.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_17.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_18.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 房门
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_1.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_12.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_5.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_6.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_7.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_8.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 厨卫门
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_23.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_24.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_25.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_26.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_27.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_28.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 橱柜
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_53.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_54.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_55.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_56.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_57.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_58.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 其他
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_43.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_44.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_45.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_46.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_47.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_48.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                .choose_little_block
+                    .little_block_top
+                        .little_block_title 其他
+                        .choose_tips: a(href='') ( <span><img src='images/icon_i_bg.png'/></span>购买建议 )
+                    .little_block_img
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_23.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_24.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_25.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_26.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_27.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方
+                        .choose_img: a(href='product_details.html')
+                            img(src='images/examples/choose_img_28.jpg')
+                            .choose_img_hover 东鹏陶瓷
+                                .span 60元/方

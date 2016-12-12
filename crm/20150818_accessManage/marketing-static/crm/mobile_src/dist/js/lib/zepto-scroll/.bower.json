@@ -1,0 +1,14 @@
+{
+  "name": "zepto-scroll",
+  "homepage": "https://github.com/suprMax/ZeptoScroll",
+  "_release": "82093fa3c2",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "82093fa3c24c344ee81423b9456edef9daccc7b9"
+  },
+  "_source": "git://github.com/suprMax/ZeptoScroll.git",
+  "_target": "*",
+  "_originalSource": "zepto-scroll",
+  "_direct": true
+}

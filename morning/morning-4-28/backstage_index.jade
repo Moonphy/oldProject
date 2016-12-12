@@ -1,0 +1,63 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/backstage_index.css')
+block content
+    .backstage_body
+        .backstage_header
+            .header-left 欢迎 <i>广州早上好网络科技</i>使用系统后台！
+                span.button 【注销】
+            form(action='/search/', method='get')
+                input#searchBtn(type='submit',value='')
+                .selected_wrap
+                    select
+                        option(selected='selected') 全部
+                input#searchKeyword(placeholder='',name='k')
+        .backstage_main
+            .home_main_left.fl
+                .left_part1
+                    ul
+                        li.selected: a(href='') 供应商
+                        li: a(href='') 广告管理
+                .left_part2
+                    ul
+                        .part_title 文档内容管理
+                        li: a(href='') 文章分类
+                        li: a(href='') 文章
+                .left_part2
+                    ul
+                        .part_title 目录
+
+                        li: a(href='') 文章分类
+                        li: a(href='') 文章
+                .left_part2
+                    ul
+                        .part_title 系统配置
+
+                        li: a(href='') 用户
+                        li: a(href='') 登录日志
+            .home_main_right.fr
+                .user_home_header
+                    ul
+                        .part_title.fl 类型：
+                        li.selected 全部
+                        li 服装厂
+                        li 鞋厂
+                        li 包厂
+                        li 服饰公司
+                        li 鞋子公司
+                        li 皮具公司
+                        li 饰品供应商
+                        li 手表供应商
+                    .add_supplier_btn 添加供应商
+                .user_home_list
+                    .list 我的供应商<i>0</i>个
+                    .list_content
+
+        .footer © 2014 广州早上好网络科技有限公司
+block jsblock
+    script(type='text/javascript').
+        $(document).ready(function(){
+            $(".home_main_left li").click(function () {
+                $(this).addClass("selected").removeClass("unselected").siblings(".selected").removeClass("selected").addClass("unselected");
+            });
+        });

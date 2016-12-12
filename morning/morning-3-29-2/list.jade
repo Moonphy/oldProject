@@ -1,0 +1,66 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/list.css')
+
+block content
+    include _header
+        include _header_list
+    .list_body
+        .filters
+            ul
+                li.filter_first 鞋靴
+                each item in ['时尚女鞋','高跟鞋','杏色','深口','羊皮','人造革/PU','中筒靴','高跟（5-7cm）','圆头','金属']
+                    li
+                        //.filter_to.fl
+                        .filter_name #{item}&nbsp;×
+                        //.filter_del_btn x
+        .goods_block_hot
+            .goods_waterfall
+                - for (var i=0;i<3;i++)
+                    .goods_little_block
+                        .goods_little_block_img
+                            img(src='images/examples/good_block_img.png')
+                        .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .goods_little_block_bar
+                            .bar
+                            .pro_bar
+                                #prog
+                                input#like(type='button',value='', onclick='startProgress()')
+                        .goods_in_btn
+                            span.good_price 599.00¥
+                            span.nbsp &nbsp; | &nbsp;
+                            span: a(href='') 进入 &nbsp; ＞
+                - for (var i=0;i<5;i++)
+                    .goods_little_block
+                        .goods_little_block_img
+                            img(src='images/examples/good_block_img2.png')
+                        .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .goods_little_block_bar
+                            .bar
+                            .pro_bar
+                                #prog
+                                input#like(type='button',value='', onclick='startProgress()')
+                        .goods_in_btn
+                            span.good_price 599.00¥
+                            span.nbsp &nbsp; | &nbsp;
+                            span: a(href='') 进入 &nbsp; ＞
+                - for (var i=0;i<7;i++)
+                    .goods_little_block
+                        .goods_little_block_img
+                            img(src='images/examples/good_block_img.png')
+                        .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .goods_little_block_bar
+                            .bar
+                            .pro_bar
+                                #prog
+                                input#like(type='button',value='', onclick='startProgress()')
+                        .goods_in_btn
+                            span.good_price 599.00¥
+                            span.nbsp &nbsp; | &nbsp;
+                            span: a(href='') 进入 &nbsp; ＞
+    include _footer
+
+block jsblock
+    script(src='js/blocksit.min.js')
+    script(src='js/subdivision.js')

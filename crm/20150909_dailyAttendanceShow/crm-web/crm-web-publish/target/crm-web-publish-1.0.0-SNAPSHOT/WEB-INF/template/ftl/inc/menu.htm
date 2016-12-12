@@ -1,0 +1,28 @@
+<#--
+<#list menus as n>
+    <#assign models = n.models/>
+    <#list models as model>
+        <#if model.isRoot>
+        <li class="first-cat"><a href="${model.url}">${model.title}</a></li>
+        <#else>
+            <#if currUrl==model.url>
+            <li class="selected"><a href="${model.url}">${model.title}</a></li>
+            <#else>
+            <li><a href="${model.url}">${model.title}</a></li>
+            </#if>
+        </#if>
+    </#list>
+</#list>
+-->
+
+<#list $user.resources as resource>
+    <!--${resource}-->
+    <#if resource.parentId==100>
+        <li class="first-cat"><a href="${resource.resourceURL}">${resource.resourceName}</a></li>
+        <#list $user.resources as r>
+            <#if r.parentId==resource.resourceId>
+                <li><a href="${r.resourceURL}">${r.resourceName}</a></li>
+            </#if>
+        </#list>
+    </#if>
+</#list>

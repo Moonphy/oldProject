@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>询价详细信息</title>
+        <#--<link href="${cssRoot}/base/base.css" rel="stylesheet">-->
+        <style>
+            body{
+                font-size: 14px;
+            }
+            p{
+                font-size: 16px;
+                padding: 5px 10px;
+                background: #edf1f2;
+            }
+            td{
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+            .lastmemo{
+                margin-top:10px;
+                height: 100%;
+            }
+            .lastmemo textarea{
+                width: 100%;
+                min-height: 100px;
+            }
+            td.num{
+                color: #df0007;
+            }
+            td.num a{
+                font-weight: bold;
+            }
+            td.num a:visited,td.num a:link{
+                color: #df0007;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="modal" style="margin: 20px;">
+            <#if result.success>
+                <#assign info = result.model/>
+                <p>询价详细信息：</p>
+                <table class="gridtable" style="width: 100%;">
+                    <tbody>
+                    <tr>
+                        <td>询价单号</td>
+                        <td class="num">${info.inquiryNo}</td>
+                        <td>询价时间</td>
+                        <td class="num">${info.publishTime?string('yyyy-mm-dd')}</td>
+                        <td>询价所在地</td>
+                        <td class="num">000</td>
+                    </tr>
+                    <tr>
+                        <td>需方名称</td>
+                        <td class="num">${info.userDTO.userName}</td>
+                        <td>联系人</td>
+                        <td class="num">${info.userDTO.contacts}</td>
+                        <td>联系方式</td>
+                        <td class="num">${info.userDTO.phone}</td>
+                    </tr>
+                    <tr>
+                        <td>发票信息</td>
+                        <td class="num">000</td>
+                        <td>过期时间</td>
+                        <td class="num">${info.failTime?string('yyyy-mm-dd')}</td>
+                        <td>VIN码</td>
+                        <td class="num">${info.vinCode}</td>
+                    </tr>
+                    <tr>
+                        <td>查询类别</td>
+                        <td class="num">000新件</td>
+                        <td>品牌</td>
+                        <td class="num">${info.carTypeDTO.brandName}</td>
+                        <td>年款</td>
+                        <td class="num">${info.carTypeDTO.modelYear}</td>
+                    </tr>
+                    <tr>
+                        <td>车型</td>
+                        <td class="num">${info.carTypeDTO.carType}</td>
+                        <td>销售名称</td>
+                        <td class="num">${info.carTypeDTO.salesName}</td>
+                        <td>底盘号</td>
+                        <td class="num">000</td>
+                    </tr>
+                    <tr>
+                        <td>排量</td>
+                        <td class="num">${info.carTypeDTO.displacement}</td>
+                        <td>变速箱种类</td>
+                        <td class="num">${info.carTypeDTO.transmissionType}</td>
+                        <td>发动机号</td>
+                        <td class="num">${info.carTypeDTO.engineType}</td>
+                    </tr>
+                    <tr>
+                        <td>生产年份</td>
+                        <td class="num" colspan="5">${info.carTypeDTO.productTime}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="lastmemo">
+                    <p>物流信息：（假数据）</p>
+                    <ul>
+                        <li>2015-12-20 11：12：13 商品正在出库</li>
+                        <li>2015-12-20 19：20：10 已发往湖南长沙分捡中心，正在分捡</li>
+                        <li>2015-12-20 21：30：13 商品已到郴州，正在分捡</li>
+                        <li>2015-12-21 1：12：13 商品已到达广州</li>
+                        <li>2015-12-21 9：12：45 陈建已签收</li>
+                    </ul>
+                </div>
+            <#else>
+                抱歉，信息查询失败！
+            </#if>
+        </div>
+    </body>
+</html>

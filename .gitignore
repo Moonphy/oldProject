@@ -1,0 +1,12 @@
+# git
+.git/
+
+
+**/.git
+# idea
+.idea/
+**/.idea/
+
+
+# node_modules
+**/node_modules

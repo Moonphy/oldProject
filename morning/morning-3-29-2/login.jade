@@ -1,0 +1,31 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/login.css')
+
+block content
+    #login_body
+        .logo
+        .login_wrap
+            .login_title 欢迎光临36-37.com！
+            .login_main
+                form(id='signupForm',method='post',action='')
+                    p.clearfix
+                        label(class='telphone_lab',for='telphone')
+                        input(id='telphone',class='required' value placeholder='手机号')
+                    p.clearfix
+                        label(class='password_lab',for='password')
+                        input(id='password',type='password',class='{required:true,rangelength:[8,20]}',value placeholder='密码（不少于8位）')
+                    a.find_password(href='#') 忘记密码？
+                    p.clearfix
+                        input(type='submit',class='submit',value='立即登录')
+                    .reg_submit
+                        a(href='register.html') 注册账号
+                .other_ways
+                    .other_ways_title 第三方账号快速登录
+                    .weixin
+                    .qq
+                    .weibo
+        .about-us © 2014 广州早上好网络科技有限公司
+            br
+            a(href='http://www.miibeian.gov.cn/',target='_blank') 粤ICP备14049451号-1

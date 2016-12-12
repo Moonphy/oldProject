@@ -1,0 +1,88 @@
+#header
+    .top
+        .logo
+            a(href='/')
+                img(src='images/logo.jpg')
+        .search
+            form(method='get',action='products_search.html',target='_blank')
+                .classification
+                    span#searchList 搜产品
+                    #popup_classification.hide.js-over-show
+                        ul
+                            li 搜产品
+                            li 搜案例
+                            li 搜经验
+                            li 搜问答
+                .search_keyword
+                    input(type='text',name='keyword',class='search_keyword')
+                .search_sub
+                    input(type='submit',value='',class='search_sub')
+    .nav_out
+        .nav
+            ul.nav_bar
+                li.allProducts 导购分类
+                li: a(href='index.html') 首页
+                li.hot
+                    a(href='square.html') 平方购
+                    .nav_hot 热门
+                li: a(href='cost_efficient.html') 聚合算
+                li: a(href='base_price.html') 底价爆款
+                li.anli
+                    a(href='') 案例经验
+                    #popup_anli.hide.js-over-show
+                        ul
+                            li: a(href='case.html') 案例
+                            li: a(href='experience.html') 经验
+                            li: a(href='#') 问答
+                li.lastli: a(href='budget_details.html') 预算
+            if(user)
+                .user
+                    .user_name 美丽都市
+                        #popup_user.js-over-show
+                            .user_bg
+                                .user_head: img(src='images/case_details_head1.jpg')
+                                .user_info.fr
+                                    .user_rank 等级：
+                                        span 一袋长老
+                                    .user_score 总积分：
+                                        span 626
+                            ul
+                                li: a() 我的主页
+                                li: a() 我要提问
+                                li: a() 我要推荐产品
+                                li: a() 我要发经验
+                                li.user_set
+                                    .set_left.fl: a() 设置
+                                    .set_right.fr: a() 退出
+                    .news 消息
+                        span 2
+                        #popup_news.js-over-show
+                            .news_bg
+                            ul
+                                li: a()
+                                    .lileft 系统消息
+                                    .liright 未读
+                                        span 0
+                                li: a()
+                                    .lileft 回答我的
+                                    .liright 未读
+                                        span 0
+                                li: a()
+                                    .lileft 回复我的
+                                    .liright 未读
+                                        span 2
+                                li: a()
+                                    .lileft 收藏我的
+                                    .liright 未读
+                                        span 0
+                                li: a()
+                                    .lileft 喜欢我的
+                                    .liright 未读
+                                        span 0
+            else
+                ul.user_unlogin
+                    a.qq
+                    a.weibo
+                    .unlogin
+                        a(href='#' class='login') 登录
+                        a(href='#' class='register') 注册

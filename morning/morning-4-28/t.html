@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+      #goods_waterfall div{
+          float: left;
+          width: 20%;
+          margin-left: 5%;
+      }
+
+  </style>
+</head>
+<body>
+  
+<div id="goods_waterfall">
+  <!-- -->
+  <div id="wa-1" class="">
+      <div class="goods_little_block">
+        <div class="goods_little_block_img"><img src="images/examples/05.jpg"></div>
+        <div class="goods_little_block_p">圆头拉链皮革拼接磨砂皮粗高跟低筒靴</div>
+        <div class="goods_little_block_bar">
+          <div class="bar"></div>
+          <div class="pro_bar">
+              <div id="prog"></div>
+              <input id="like" type="button" value="" onclick="startProgress()">
+          </div>
+        </div>
+      <div class="goods_in_btn"><span class="good_price">599.00¥</span><span class="nbsp">&nbsp; | &nbsp;</span><span><a href="detail.html">进入 &nbsp; ＞</a></span></div>
+  </div></div>
+  <div id="wa-2">i<p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p></div>
+  <div id="wa-3"><p>sdfsdfsdfsd</p></div>
+  <div id="wa-4"><p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p><p>sdfsdfsdfsd</p></div>
+  <!-- -->
+</div>
+<script id='tpl' type="tpl">
+<div class="goods_little_block" data-id ="{id}" mylike="{my_like}" proLike="{proLike}" proid="{id}">
+<a href="{product_link}">
+    <div class="goods_little_block_img"><img src="{image}" title="{name}"></div>
+    <div class="goods_little_block_p">{name}</div>
+    <div class="goods_little_block_bar">
+        <div class="bar"></div>
+        <div class="pro_bar">
+            <div id="prog"></div>
+            <input id="like" type="button" value="{proLike}" onclick="startProgress()">
+        </div>
+    </div>
+    <div class="goods_in_btn">
+        <span class="good_price">¥ {price}</span>
+        <span class="nbsp">&nbsp; | &nbsp;</span>
+        <span><a href="{product_link}">进入 &nbsp; ＞</a></span></div>
+</a>
+</div>
+
+</script>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script>
+/*
+var div_html = "";
+var divs = array();
+for(i=1, i<=4, i++) {
+  div_html += '<div id="wa-' + i + '"></div>';
+  divs[] = "#wa-" + 1;
+}
+$("#goods_waterfall").append(div_html);
+*/
+window.onscroll= function () {
+    if($(document).height() - $(this).scrollTop() - $(this).height()<100){
+        $.getJSON("json.json", function(d) {
+            alert(d);
+            push(d.photos.photo);
+
+        });
+    }
+};
+
+function push(jsons) {
+    var divs = [];
+    for(i=1; i<=4; i++) {
+        divs.push("#wa-" + i);
+    }
+    var div_hg = [];
+    $.each(divs, function(i, n){
+        div_hg.push({"hg": $(n).outerHeight(), "id": n});
+    });
+
+// 按从低到高 排序 div_hg
+    div_hg.sort(function(a, b) {
+        return a.hg - b.hg;
+    });
+
+    /*$.each(div_hg, function(i, n){
+     alert(n.hg);
+     alert(n.id);
+     });*/
+
+    $.each(jsons, function(i, n) {
+        $(div_hg[i%4].id).append(nano($("#tpl").html(), n));
+    });
+}
+
+
+function nano(template, data) {
+    return template.replace(/\{([\w\.]*)\}/g, function(str, key) {
+        var keys = key.split("."), v = data[keys.shift()];
+        for (var i = 0, l = keys.length; i < l; i++) v = v[keys[i]];
+        return (typeof v !== "undefined" && v !== null) ? v : "";
+    });
+}
+</script>
+</body>
+</html>

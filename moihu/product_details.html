@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/product_details.css">
+    <title>美乎--家居生活分享社交第一平台</title>
+  </head>
+  <body>
+    <div id="right_part">
+      <ul class="right">
+        <li class="to-top"></li>
+        <li class="erweima">
+          <div class="moihu_web"><img src="images/erweima_bg.jpg"></div>
+        </li>
+        <li class="feedback"></li>
+      </ul>
+    </div>
+    <div id="_common_header">
+      <div class="top">
+        <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
+        <div class="search">
+          <form method="get" action="products_search.html" target="_blank">
+            <div class="classification"><span id="searchList">搜产品</span>
+              <div id="popup_classification" class="hide js-over-show">
+                <ul>
+                  <li>搜产品</li>
+                  <li>搜案例</li>
+                  <li>搜经验</li>
+                  <li>搜问答</li>
+                </ul>
+              </div>
+            </div>
+            <div class="search_keyword">
+              <input type="text" name="keyword" class="search_keyword">
+            </div>
+            <div class="search_sub">
+              <input type="submit" value="" class="search_sub">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="nav_out">
+        <div class="nav">
+          <ul class="nav_bar">
+            <li><a href="index.html">首页</a></li>
+            <li class="hot"><a href="square.html">平方购</a>
+              <div class="nav_hot">热门</div>
+            </li>
+            <li><a href="cost_efficient.html">聚合算</a></li>
+            <li><a href="base_price.html">底价爆款</a></li>
+            <li class="anli"><a href="#">案例经验</a>
+              <div id="popup_anli" class="hide js-over-show">
+                <ul>
+                  <li><a href="case.html">案例</a></li>
+                  <li><a href="experience.html">经验</a></li>
+                  <li><a href="#">问答</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="lastli"><a href="budget_details.html">预算</a></li>
+          </ul>
+          <ul class="user_unlogin"><a class="qq"></a><a class="weibo"></a>
+            <div class="unlogin"><a href="#" class="login">登录</a><a href="#" class="register">注册</a></div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="product_details_body">
+      <div class="body-wrap">
+        <div id="product_classification" class="products-top">
+          <div class="classification_header">产品分类</div>
+          <ul class="classificationul">
+            <li class="li cfli1"><a href="#" class="li1">主材</a></li>
+            <li class="li cfli2"><a href="#" class="li2">家具</a></li>
+            <li class="li cfli3"><a href="#" class="li3">家饰</a></li>
+            <li class="li cfli4 lastli"><a href="#" class="li4">家电</a></li>
+            <div id="popup_products_details">
+              <div class="popup popup_zhucai js-over-show">
+                <div class="cover"></div>
+                <div class="title">墙面</div>
+                <ul>
+                  <li><a>墙漆</a></li>
+                  <li><a>踢脚线</a></li>
+                  <li><a>墙砖</a></li>
+                  <li><a>墙纸</a></li>
+                </ul>
+                <div class="title">地面</div>
+                <ul>
+                  <li><a>地板</a></li>
+                  <li><a>地砖</a></li>
+                </ul>
+                <div class="title">水电改造</div>
+                <ul>
+                  <li><a>光源</a></li>
+                  <li><a>开关面板</a></li>
+                  <li><a>电线管</a></li>
+                  <li><a>水管</a></li>
+                  <li><a>漏电开关</a></li>
+                  <li><a>配电箱</a></li>
+                </ul>
+                <div class="title">厨卫五金</div>
+                <ul>
+                  <li><a>龙头</a></li>
+                  <li><a>厨房挂架</a></li>
+                  <li><a>水槽</a></li>
+                  <li><a>角阀</a></li>
+                  <li><a>花洒</a></li>
+                  <li><a>卫浴挂架</a></li>
+                  <li><a>地漏</a></li>
+                </ul>
+                <div class="title">卫浴</div>
+                <ul>
+                  <li><a>马桶</a></li>
+                  <li><a>浴室柜</a></li>
+                  <li><a>洗脸盆</a></li>
+                  <li><a>浴缸</a></li>
+                </ul>
+                <div class="title">门窗</div>
+                <ul>
+                  <li><a>室内门</a></li>
+                  <li><a>防盗门</a></li>
+                  <li><a>铝合金窗</a></li>
+                </ul>
+                <div class="title">橱柜</div>
+                <ul>
+                  <li><a>定制橱柜</a></li>
+                </ul>
+                <div class="title">采暖</div>
+                <ul>
+                  <li><a>浴霸</a></li>
+                  <li><a>壁挂炉</a></li>
+                  <li><a>暖气片</a></li>
+                  <li><a>分集水器</a></li>
+                  <li><a>地暖管</a></li>
+                </ul>
+                <div class="title">其他</div>
+                <ul>
+                  <li><a>防水</a></li>
+                  <li><a>吊顶扣板</a></li>
+                </ul>
+              </div>
+              <div class="popup popup_jiaju js-over-show">
+                <div class="cover"></div>
+                <div class="title">客厅</div>
+                <ul>
+                  <li><a>沙发</a></li>
+                  <li><a>电视柜</a></li>
+                  <li><a>鞋柜</a></li>
+                  <li><a>茶几</a></li>
+                  <li><a>玄关</a></li>
+                  <li><a>沙发床</a></li>
+                  <li><a>壁炉</a></li>
+                  <li><a>角几</a></li>
+                </ul>
+                <div class="title">餐厅</div>
+                <ul>
+                  <li><a>餐桌</a></li>
+                  <li><a>酒柜</a></li>
+                </ul>
+                <div class="title">卧室</div>
+                <ul>
+                  <li><a>斗柜</a></li>
+                  <li><a>木衣柜</a></li>
+                  <li><a>床头柜</a></li>
+                  <li><a>床垫</a></li>
+                  <li><a>梳妆台</a></li>
+                  <li><a>儿童套房</a></li>
+                </ul>
+                <div class="title">书房</div>
+                <ul>
+                  <li><a>书桌</a></li>
+                  <li><a>书柜</a></li>
+                </ul>
+                <div class="title">椅</div>
+                <div class="title">定制衣柜</div>
+              </div>
+              <div class="popup popup_jiashi js-over-show">
+                <div class="cover"></div>
+                <ul>
+                  <li><a>窗帘</a></li>
+                  <li><a>灯饰</a></li>
+                  <li><a>靠抱枕</a></li>
+                  <li><a>园艺</a></li>
+                  <li><a>床品</a></li>
+                </ul>
+              </div>
+              <div class="popup popup_jiadian js-over-show">
+                <div class="cover"></div>
+                <ul>
+                  <li><a>洗衣机</a></li>
+                  <li><a>平板电视</a></li>
+                  <li><a>热水器</a></li>
+                  <li><a>空调</a></li>
+                  <li><a>电冰箱</a></li>
+                  <li><a>吸油烟机</a></li>
+                  <li><a>消毒柜</a></li>
+                  <li><a>灶具</a></li>
+                  <li><a>洗碗机</a></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+          <div class="budget"><a href="#">做预算</a></div>
+        </div>
+        <div id="product_details_main">
+          <div class="block block_1">
+            <div class="left_part fl"><img src="images/examples/product_details_img_1.jpg">
+              <div class="img_like"></div>
+            </div>
+            <div class="right_part fl">
+              <div class="title">
+                <div class="product_source">天猫</div>
+                <div class="product_title">三包到家 大森林 田园床实木床公主床韩式床婚床</div>
+              </div>
+              <div class="promulgator">
+                <div class="key">发布者：</div>
+                <div class="val">天天好家天猫</div>
+              </div>
+              <div class="price_part">
+                <div class="price">￥<span>139</span></div>
+                <div class="toget"><a href="">去抢购</a></div>
+              </div>
+              <div class="description">
+                <div class="key">描述：</div>
+                <div class="val">有加绒的和不加绒的供亲爱的MM选择！！英伦复古风格的理念！质量保证！高端的品质...</div>
+              </div>
+              <div class="case_source">
+                <div class="key">案例来源：</div>
+                <div class="val">案例来源</div>
+              </div>
+              <div class="other_spec">
+                <div class="key">其他规格：</div>
+                <div class="spec">
+                  <div class="t1">T<span>1</span>
+                    <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                  </div>
+                  <div class="t2">T<span>2</span>
+                    <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                  </div>
+                  <div class="t3">T<span>3</span>
+                    <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="share">
+                <div class="share_icon">分享商品到：</div><a href="#" class="qq"></a><a href="#" class="qzone"></a><a href="#" class="weibo"></a>
+              </div>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block_top">
+              <div class="block_top_bg1"><a href="#">平方购</a></div>
+              <div class="p2">爱家的你，感受家装新生活</div>
+            </div>
+            <div class="little_block">
+              <div class="little_block_top">
+                <div class="h4 fl">工薪首选</div>
+                <div class="h4_right fr">
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">450</div>
+                  <div class="h7 fl">/</div>
+                  <div class="h8 fl">平方</div>
+                </div>
+              </div>
+              <div class="block_img"><a><img src="images/examples/block_img_1.jpg"></a></div>
+              <div class="block_img_logo">
+                <li class="li1"><a href="#" target="_blank"></a></li>
+                <li class="li2"><a href="#"></a></li>
+                <li class="li3"><a href="#"></a></li>
+                <li class="li4"><a href="#"></a></li>
+                <li class="li5"><a href="#"></a></li>
+                <li class="li6"><a href="#"></a></li>
+                <li class="li7"><a href="#"></a></li>
+                <li class="li8"><a href="#"></a></li>
+                <li class="li9"><a href="#"></a></li>
+                <li class="li10"><a href="#"></a></li>
+                <li class="li11"><a href="#"></a></li>
+                <li class="li12"><a href="#"></a></li>
+              </div>
+            </div>
+            <div class="little_block">
+              <div class="little_block_top">
+                <div class="h4 fl">小白最爱</div>
+                <div class="h4_right fr">
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">600</div>
+                  <div class="h7 fl">/</div>
+                  <div class="h8 fl">平方</div>
+                </div>
+              </div>
+              <div class="block_img"><a><img src="images/examples/block_img_2.jpg"></a></div>
+              <ul class="block_img_logo">
+                <li class="li1"><a href="#" target="_blank"></a></li>
+                <li class="li2"><a href="#"></a></li>
+                <li class="li3"><a href="#"></a></li>
+                <li class="li4"><a href="#"></a></li>
+                <li class="li5"><a href="#"></a></li>
+                <li class="li6"><a href="#"></a></li>
+                <li class="li7"><a href="#"></a></li>
+                <li class="li8"><a href="#"></a></li>
+                <li class="li9"><a href="#"></a></li>
+                <li class="li10"><a href="#"></a></li>
+                <li class="li11"><a href="#"></a></li>
+                <li class="li12"><a href="#"></a></li>
+              </ul>
+            </div>
+            <div class="little_block last">
+              <div class="little_block_top">
+                <div class="h4 fl">个性品味</div>
+                <div class="h4_right fr">
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">1000</div>
+                  <div class="h7 fl">/</div>
+                  <div class="h8 fl">平方</div>
+                </div>
+              </div>
+              <div class="block_img"><a><img src="images/examples/block_img_3.jpg"></a></div>
+              <ul class="block_img_logo">
+                <li class="li1"><a href="#" target="_blank"></a></li>
+                <li class="li2"><a href="#"></a></li>
+                <li class="li3"><a href="#"></a></li>
+                <li class="li4"><a href="#"></a></li>
+                <li class="li5"><a href="#"></a></li>
+                <li class="li6"><a href="#"></a></li>
+                <li class="li7"><a href="#"></a></li>
+                <li class="li8"><a href="#"></a></li>
+                <li class="li9"><a href="#"></a></li>
+                <li class="li10"><a href="#"></a></li>
+                <li class="li11"><a href="#"></a></li>
+                <li class="li12"><a href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block_top">
+              <div class="block_top_bg2"><a href="#">聚合算</a></div>
+              <ul class="part3">
+                <li><a>灯饰照明</a></li>
+                <li><a>厨房卫浴</a></li>
+                <li><a>电工电料</a></li>
+                <li><a>墙地面材料</a></li>
+                <li><a>装饰材料</a></li>
+                <li><a>五金工具</a></li>
+                <li class="last"><a>智能家居</a></li>
+              </ul>
+            </div>
+            <div class="little_block_part2">
+              <div class="little_block_part2_top">
+                <div class="part2_top">同依布艺花开富贵遮光窗帘3米宽*2.5米高</div>
+                <div class="h4_right">
+                  <h4 class="fl">搭配价</h4>
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">4580</div>
+                  <div class="h9 fr">共26件套</div>
+                </div>
+              </div>
+              <div class="block_img_part2">
+                <div class="img_part2_row1"><a><img src="images/examples/block_img_row2_1.jpg"></a>
+                  <div class="price_bg">¥ 199</div>
+                </div>
+                <div class="img_part2_row2">
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_3.jpg"></a>
+                    <div class="price_bg">¥ 1250</div>
+                  </div>
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 190</div>
+                  </div>
+                  <div class="row2_img last fl"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 750</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="little_block_part2">
+              <div class="little_block_part2_top">
+                <div class="part2_top">同依布艺花开富贵遮光窗帘3米宽*2.5米高</div>
+                <div class="h4_right">
+                  <h4 class="fl">搭配价</h4>
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">7100</div>
+                  <div class="h9 fr">共69件套</div>
+                </div>
+              </div>
+              <div class="block_img_part2">
+                <div class="img_part2_row1"><a><img src="images/examples/block_img_row2_2.jpg"></a>
+                  <div class="price_bg">¥ 199</div>
+                </div>
+                <div class="img_part2_row2">
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_3.jpg"></a>
+                    <div class="price_bg">¥ 1250</div>
+                  </div>
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 190</div>
+                  </div>
+                  <div class="row2_img last fl"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 750</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="little_block_part2 last">
+              <div class="little_block_part2_top">
+                <div class="part2_top">同依布艺花开富贵遮光窗帘3米宽*2.5米高</div>
+                <div class="h4_right">
+                  <h4 class="fl">搭配价</h4>
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">8280</div>
+                  <div class="h9 fr">共69件套</div>
+                </div>
+              </div>
+              <div class="block_img_part2">
+                <div class="img_part2_row1"><a><img src="images/examples/block_img_row2_3.jpg"></a>
+                  <div class="price_bg">¥ 199</div>
+                </div>
+                <div class="img_part2_row2">
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_3.jpg"></a>
+                    <div class="price_bg">¥ 1250</div>
+                  </div>
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 190</div>
+                  </div>
+                  <div class="row2_img last fl"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 750</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="little_block_part2">
+              <div class="little_block_part2_top">
+                <div class="part2_top">同依布艺花开富贵遮光窗帘3米宽*2.5米高</div>
+                <div class="h4_right">
+                  <h4 class="fl">搭配价</h4>
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">6100</div>
+                  <div class="h9 fr">共69件套</div>
+                </div>
+              </div>
+              <div class="block_img_part2">
+                <div class="img_part2_row1">
+                  <div class="row1_img fl"><a><img src="images/examples/block_img_row2_4.jpg"></a>
+                    <div class="price_bg">¥ 200</div>
+                  </div>
+                  <div class="row1_2_img fl last"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 19</div>
+                  </div>
+                  <div class="row1_2_img fl last"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 199</div>
+                  </div>
+                </div>
+                <div class="img_part2_row2">
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_3.jpg"></a>
+                    <div class="price_bg">¥ 1250</div>
+                  </div>
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 190</div>
+                  </div>
+                  <div class="row2_img last fl"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 750</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="little_block_part2">
+              <div class="little_block_part2_top">
+                <div class="part2_top">同依布艺花开富贵遮光窗帘3米宽*2.5米高</div>
+                <div class="h4_right">
+                  <h4 class="fl">搭配价</h4>
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">20500</div>
+                  <div class="h9 fr">共69件套</div>
+                </div>
+              </div>
+              <div class="block_img_part2">
+                <div class="img_part2_row1">
+                  <div class="row1_img fl"><a><img src="images/examples/block_img_row2_5.jpg"></a>
+                    <div class="price_bg">¥ 200</div>
+                  </div>
+                  <div class="row1_2_img fl last"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 19</div>
+                  </div>
+                  <div class="row1_2_img fl last"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 199</div>
+                  </div>
+                </div>
+                <div class="img_part2_row2">
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_5.jpg"></a>
+                    <div class="price_bg">¥ 190</div>
+                  </div>
+                  <div class="row2_img last fl"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 750</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="little_block_part2 last">
+              <div class="little_block_part2_top">
+                <div class="part2_top">同依布艺花开富贵遮光窗帘3米宽*2.5米高</div>
+                <div class="h4_right">
+                  <h4 class="fl">搭配价</h4>
+                  <div class="h5 fl">¥</div>
+                  <div class="h6 fl">11280</div>
+                  <div class="h9 fr">共69件套</div>
+                </div>
+              </div>
+              <div class="block_img_part2">
+                <div class="img_part2_row1"><a><img src="images/examples/block_img_row2_6.jpg"></a>
+                  <div class="price_bg">¥ 199</div>
+                </div>
+                <div class="img_part2_row2">
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_3.jpg"></a>
+                    <div class="price_bg">¥ 1250</div>
+                  </div>
+                  <div class="row2_img fl"><a><img src="images/examples/block_img_part2_row2_1.jpg"></a>
+                    <div class="price_bg">¥ 190</div>
+                  </div>
+                  <div class="row2_img last fl"><a><img src="images/examples/block_img_part2_row2_2.jpg"></a>
+                    <div class="price_bg">¥ 750</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="bottom">
+        <div class="moihulogo"><img src="images/moihu_logo.png"></div>
+        <div class="us">
+          <ul>
+            <li><a>广告合作</a></li>
+            <li><a>免责声明</a></li>
+            <li><a>友情链接</a></li>
+            <li><a>联系我们</a></li>
+            <li><a>关于我们</a></li>
+            <li><a>@美乎网meihu</a></li>
+          </ul>
+          <p>Copyright © 2013 美乎-MOIHU  Powered by WordPress and 中国万网 - 粤ICP备12017804号-1</p><br>
+          <div class="Attention"><span>关注美乎网  ：</span><a><img src="images/weibo_bg.png"></a><a><img src="images/renren_bg.png"></a><a><img src="images/qqkongjian_bg.png"></a><a><img src="images/qweibo_bg.png"></a><a><img src="images/souhu_bg.png"></a><a><img src="images/douban_bg.png"></a></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.1.8.2.js" rel="stylesheet"></script>
+    <script src="js/index.js" rel="stylesheet"></script>
+  </body>
+</html>

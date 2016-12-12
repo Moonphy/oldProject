@@ -1,0 +1,86 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header 'VIP100编辑' 'vip100-edit' '0.0.1' 'index'
+',plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css'
+>
+<style>
+    .button-group{
+        margin-left: 100px;
+    }
+    input{
+        width: 180px;
+    }
+    .base{
+        border: 1px solid #DDDDDD;
+    }
+    .base .title{
+        padding: 0 20px;
+        font-size: 1.2em;
+        height: 45px;
+        line-height: 45px;
+    }
+    .base ul{
+        padding: 0 20px;
+        border-top: 1px solid #DDDDDD;
+    }
+    .base ul li{
+        float: left;
+        width: 50%;
+        height: 40px;
+        line-height: 40px;
+    }
+    .edit ul{
+        padding: 0 10px;
+    }
+    .edit ul li{
+        float: left;
+        width: 33.3%;
+        height: 50px;
+        line-height: 50px;
+    }
+    .buttons{
+        text-align: center;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+    <div class="wapper">
+        <div class="page-title">
+            <h2>
+                <span><strong>VIP100管理 - 编辑</strong></span>
+            </h2>
+        </div>
+        <div class="main-list">
+            <div class="base mt10">
+                <div class="title"><span id="mfctyName"></span></div>
+                <ul class="fn-clear">
+                    <li class="span">汽修厂ID：<span id="orgID"></span></li>
+                    <li class="span">联系人：<span id="contactPerson"></span></li>
+                    <li class="span">联系地址：<span id="address"></span></li>
+                    <li class="span">联系电话：<span id="contactMobile"></span></li>
+                    <li class="span">注册时间：<span id="auditTime"></span></li>
+                    <li class="span">VIP用户：<span id="isVip"></span></li>
+                </ul>
+            </div>
+            <div class="edit mt10">
+                <ul class="fn-clear">
+                    <li class="span">生效时间：<input class="time" name="startTime" id="startTime"/></li>
+                    <li class="span">结束时间：<input class="time" name="endTime" id="endTime"/></li>
+                </ul>
+            </div>
+            <div class="mt10 buttons">
+                <button class="ml10 btn danger" id="deleteBtn" type="button">删除VIP</button>
+                <button class="ml10 btn submit" id="submitBtn" type="button">确认修改</button>
+                <button class="ml10 btn submit" id="setVipBtn" type="button">设为VIP</button>
+                <button class="btn" type="button" id="backbtn" onclick="history.go(-1);">返回</button>
+            </div>
+        </div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+</script>
+</@inc.footer>

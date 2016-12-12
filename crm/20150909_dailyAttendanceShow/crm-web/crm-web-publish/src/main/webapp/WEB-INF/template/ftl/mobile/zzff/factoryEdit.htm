@@ -1,0 +1,321 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '汽修厂信息修改' 'factory-edit' '0.0.1' 'index'
+',plugin/validate/validate.css
+'>
+<style>
+    .main-list{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .box{
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .tip{background: #eee;height: 35px;
+        line-height: 35px;padding: 0 20px; margin-bottom: 20px;}
+    input[type=checkbox]{
+        width: 20px;
+        vertical-align: middle;
+    }
+    h2{
+        font-size: 18px;
+    }
+    .box li{
+        height: 60px;
+        line-height: 60px;
+    }
+    .box li>label{
+        display: inline-block;
+        width: 110px;
+        margin-right: 20px;
+        text-align: right;
+    }
+    .box li>label:after{
+        content: "：";
+    }
+    .box li span{
+        height: 60px;
+        line-height: 60px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    .info{
+        padding-left: 50px;
+    }
+    .beseinfo .img{
+        text-align: center;
+        padding-top: 58px;
+        padding-right: 200px;
+        -webkit-transition: all .5s easeIn;
+        -o-transition: all .5s easeIn;
+        transition: all .5s easeIn;
+    }
+    .beseinfo .img img,.gszzLoading{
+        height: 180px;
+        line-height: 180px;
+        width: 216px;
+        border: 1px solid #eee;
+        vertical-align: middle;
+        margin: 10px;
+    }
+    .beseinfo .img .upbtn{
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        width: 150px;
+        background: #ddd;
+        text-align: center;
+    }
+
+    .upload{
+        border: 1px dashed #6eb0dd;
+        min-height: 300px;
+    }
+    .imglist{
+        padding: 20px;
+    }
+    .uploadbtn{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.1em;
+        cursor: pointer;
+        background: #eee;
+    }
+    .imglist img{
+        width: 191px;
+        height: 191px;
+        margin: 5px 10px;
+        vertical-align: middle;
+        border: 1px solid #eee;
+        cursor: pointer;
+    }
+
+    .op{
+        text-align: center;
+    }
+    .op .btn{
+        margin: 0 20px;
+    }
+    .uploading{
+        display: inline-block;
+        width: 191px;
+        height: 191px;
+        line-height: 191px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 5px 0;
+    }
+    .deletebtn{
+        position: absolute;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        width: 193px;
+        background: #df0007;
+        color:#fff;
+        -webkit-transition: all .5s easeIn;
+        -o-transition: all .5s easeIn;
+        transition: all .5s easeIn;
+    }
+    .predelete{
+        border:1px solid #df0007;
+        box-shadow: 8px 8px 5px #888888;
+    }
+    .fa-trash-o{
+        font-size: 20px;
+        margin-right: 3px;
+    }
+    /**表单**/
+    .errortip{
+        position: absolute;
+        min-width: 242px;
+        height: 8px;
+        line-height: 8px;
+        background: #ff4238;
+        color: #fff;
+        padding: 5px 10px;
+        z-index: 3;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>汽修厂信息修改</strong></span>
+        </h2>
+    </div>
+
+    <form class="main-list fn-clear" id="form" onsubmit="return false;">
+        <div class="errortip fn-hide">
+        </div>
+        <div class="box beseinfo fn-clear">
+            <p class="tip">注：带 <i class="star">*</i> 号为必填项</p>
+            <h2>基本信息</h2>
+            <div class="info fn-left">
+                <ul>
+                    <li>
+                        <label for="id">汽修厂ID</label>
+                        <span name="orgID" id="id">-</span>
+                    </li>
+                    <li>
+                        <label for="name"><i class="star">*</i>企业名称</label>
+                        <input type="text" name="mfctyName"
+                               placeholder="请填写工商局注册的全称。"
+                               datatype="*4-50"
+                               errormsg="输入错误，4-50位字符，可有中英文、数字及“_”"/>
+                    </li>
+                    <li>
+                        <label for="no"><i class="star">*</i>工商执照号</label>
+                        <input type="text" name="businessLicenseNo"
+                               placeholder="请填写工商局注册的工商执照号"
+                               datatype="/^\d{15}$/"
+                               errormsg="输入有误，工商执照号为15位数字"/>
+                    </li>
+                    <li>
+                        <label for=""><i class="star">*</i>法人名称</label>
+                        <input type="text" name="legalPerson"
+                               placeholder="请输入法人名称"
+                               datatype="s2-20"
+                               errormsg="2-20位字符"/>
+                    </li>
+                    <li>
+                        <label for="">身份证号</label>
+                        <input type="text" name="identityNo"
+                               placeholder="请输入身份证号"
+                               datatype="idcard"
+                               errormsg="请输入正确的18位身份证号码"
+                               ignore="ignore"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="img fn-right" id="container1">
+                <div>
+                    <div class="gszzLoading" style="display: none;">
+                        <i class="fa fa-spinner fa-spin fa-2x"></i>
+                    </div>
+                    <img id="gszz" name="businessLicensePic" src="/assets/images/head.png" alt="工商执照号照片" title="请上传工商执照号的照片或者扫描件"/>
+                </div>
+                <a class="btn upbtn" id="uploadbtn1" href="#">
+                    <sapn>选择工商执照号照片</sapn>
+                </a>
+            </div>
+        </div>
+        <div class="box">
+            <h2>详细信息</h2>
+            <div class="info">
+                <ul>
+                    <li>
+                        <label for="createTime">注册时间</label>
+                        <span id="createTime">-</span>
+                    </li>
+                    <li>
+                        <label for="type">客户类型</label>
+                        <select name="orgType" id="orgType" datatype="n" errormsg="请选择客户类型">
+                            <option value="10">汽修厂</option>
+                            <option value="20">服务商</option>
+                            <option value="21">合作服务商</option>
+                            <option value="22">直营服务商</option>
+                            <option value="30">代理商</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="no"><i class="star">*</i>联系人</label>
+                        <input type="text" name="contactPerson"
+                               placeholder="请输入联系人"
+                               datatype="s2-20"
+                               errormsg="2-20位字符，可由中文或英文组成"/>
+                    </li>
+                    <li>
+                        <label for=""><i class="star">*</i>联系人手机</label>
+                        <input type="text" name="contactMobile"
+                               placeholder="请填写联系人的手机号码或电话号码"
+                               errormsg="号码格式有误，可输入手机号或电话号，电话号需遵守3-4位区号，7-8位直播号码，1－4位分机号，用 - 隔开"
+                               datatype="m|/^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$/"/>
+                    </li>
+                    <li>
+                        <label for="">业务电话</label>
+                        <input type="text" name="businessTelephone"
+                               placeholder="请输入企业的业务电话，支持手机号码"
+                               errormsg="号码格式有误，可输入手机号或电话号，电话号需遵守3-4位区号，7-8位直播号码，1－4位分机号，用 - 隔开"
+                               datatype="m|/^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$/"
+                               ignore="ignore" />
+                    </li>
+                    <li>
+                        <label for="">邮箱</label>
+                        <input type="text" name="email"
+                               placeholder="请输入邮箱"
+                               errormsg="请输入有效的邮箱地址"
+                               datatype="e"
+                               ignore="ignore"/>
+                    </li>
+                    <li>
+                        <label for="">传真</label>
+                        <input type="text" name="fax" placeholder="请输入传真"/>
+                    </li>
+                    <li>
+                        <label for=""><i class="star">*</i>地址</label>
+                        <select id="province" name="provinceID" data-name="provinceName"
+                                datatype="/^[^\D]+$/"
+                                errormsg="请选择省份">
+                            <option value="-1">请选择</option>
+                        </select>
+                        <select id="city" name="cityID" data-name="cityName"
+                                datatype="/^[^\D]+$/"
+                                errormsg="请选择城市">
+                            <option value="-1">请选择</option>
+                        </select>
+                        <select id="area" name="countyID" data-name="countyName"
+                                datatype="/^[^\D]+$/"
+                                errormsg="请选择区县">
+                            <option value="-1">请选择</option>
+                        </select>
+                        <input type="text" name="address"
+                               placeholder="请详细填写企业经营地址"
+                               datatype="/^.{0,100}$/"
+                               errormsg="请输入中文，且地址长度不能超过100位"/>
+                    </li>
+                    <li>
+                        <label for="">过滤汽修厂</label>
+                        <span>
+                            <input type="checkbox" name="isFilter" id="filter"/>
+                            <label class="desc" for="filter">勾选此项，统计数据时会过滤该汽修厂数据</label>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="box">
+            <h2>门头照片</h2>
+            <div class="upload" id="container2">
+                <div class="info imglist">
+                    <#--<img src="/assets/images/head.png" alt="工商执照号照片"/>-->
+                    <span class="deletebtn fn-hide"><i class="fa fa-trash-o"></i>双击图片删除此图片</span>
+                </div>
+                <div class="uploadbtn" id="uploadbtn2">
+                    <sapn>选择门头照片上传（按住shift键可一次性选择多张，或直接将照片拖入虚线框中）</sapn>
+                </div>
+            </div>
+        </div>
+        <div class="op">
+            <a class="btn" href="/mobile/zzff/factoryManage.do">返回</a>
+            <button class="btn submit" id="saveBtn">保存</button>
+        </div>
+    </form>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+<script>
+
+</script>
+</@inc.footer>

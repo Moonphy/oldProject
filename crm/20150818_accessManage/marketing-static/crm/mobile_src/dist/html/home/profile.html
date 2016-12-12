@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>个人信息</title>
+    <meta name="description" content="个人信息">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/profile.css" media="all"/>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <ul class="profile list">
+                <li class="item border-top">
+                    <label for="J_name">姓名：</label>
+                    <span id="J_name"></span>
+                </li>
+                <li class="item">
+                    <label for="J_dept">部门：</label>
+                    <span id="J_dept"></span>
+                </li>
+                <li class="item">
+                    <label for="J_phone">手机：</label>
+                    <span id="J_phone"></span>
+                </li>
+                <li class="item border-bottom">
+                    <label for="J_email">邮箱：</label>
+                    <span id="J_email"></span>
+                </li>
+            </ul>
+
+            <ul class="list resetpwd fn-clear">
+                <li class="item">
+                    <a href="resetpwd.html" id="J_resetPwd">
+                        <label>修改密码</label>
+                        <i class="icon iconfont fn-right">&#xe630;</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script data-main='../../js/profile.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

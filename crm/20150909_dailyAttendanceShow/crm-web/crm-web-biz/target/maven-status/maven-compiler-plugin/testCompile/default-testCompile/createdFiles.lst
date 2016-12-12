@@ -1,0 +1,6 @@
+com\qipeipu\crm\service\impl\basedata\TestCityServiceImpl.class
+com\qipeipu\crm\service\impl\phone\PhoneServiceTest.class
+com\qipeipu\crm\dao\BaseDAOTest.class
+com\qipeipu\crm\service\impl\user\TestUserServiceImpl.class
+com\qipeipu\crm\service\impl\user\DateTest.class
+com\qipeipu\crm\dao\QpuOrgDAOTest.class

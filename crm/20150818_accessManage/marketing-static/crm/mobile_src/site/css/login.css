@@ -1,0 +1,122 @@
+@import "base.css";
+.content{
+    margin: 0 55.5px;
+}
+.head{
+    height: 234px;
+}
+.content .image-border{
+    position: relative;
+    top: 5rem;
+    height: 7.8rem;
+    width: 7.8rem;
+    background: transparent;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    border: 5px solid #54c4f3;
+}
+.content .image{
+    position: relative;
+    top: -2.26rem;
+    height: 6.8rem;
+    width: 6.8rem;
+    background: #ddd;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid #d6d6d6;
+}
+
+.content .head{
+    margin-top: 50px;
+    height: 8em;
+    line-height: 8em;
+    text-align: center;
+}
+.content .head img{
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    width: 5em;
+    height: 5em;
+    top: 4px;
+    position: relative;
+}
+.content .head .outer{
+    width: 6em;
+    height: 6em;
+    vertical-align: middle;
+    display: inline-block;
+    background: #eeeeee;
+    border-radius: 50%;
+    border: 4px solid #6cd7a7;
+}
+
+
+.content{
+    height:100%;
+}
+
+.form{
+    margin: 0 auto;
+    /*width: 14rem;*/
+}
+
+.form-group{
+    margin-top: 9px;
+    position: relative;
+}
+
+.form-group input{
+    height: 35px;
+    line-height: 21px;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    width: 100%;
+    padding-left: 30px;
+    -webkit-box-sizing: border-box;
+    text-indent: 0;
+    /*padding: 10px 0 10px 39px;*/
+}
+.icon{
+    color: #56c5ed;
+    position: absolute;
+    top: 2px;
+    font-size: 20px;
+    left: 8px;
+}
+.chkbox-group{
+    margin-top: 15px;
+    height: 14px;
+    line-height: 14px;
+}
+.chkbox-group input{
+    margin-left: 14px;
+}
+.btns{
+    margin-top: 26px;
+}
+
+.btns .login{
+    height: 34px;
+    line-height: 25.5px;
+    width: 100%;
+    background: #60cecb;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #eeeeee;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-copyright{
+    font-size: 12px;
+    color: #666666;
+    margin-top: 70px;/**95px**/
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+}

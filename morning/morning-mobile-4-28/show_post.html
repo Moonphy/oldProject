@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/show_post.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <title>早上好时尚网</title>
+  </head>
+  <body>
+    <div id="afui">
+      <header id="header"><a href="#" title="" class="back"></a>
+        <h1>发布我的买家秀</h1>
+        <div class="search"></div>
+        <form action="/search/" method="get" class="popup_search">
+          <input id="searchKeyword" placeholder="请输入商品关键字..." name="k">
+          <input id="searchBtn" type="submit" value="">
+        </form>
+      </header>
+      <form id="content1" action="show_personal.html" method="post">
+        <div class="main_visual1 photolist">
+          <ul>
+            <li id="addImg-box" class="add_btn">
+              <p class="bg">+</p>
+              <p>添加图片</p>
+              <input id="chooseImg" type="file" value="">
+            </li>
+          </ul>
+        </div>
+        <h3>提示：每次晒单只能发布一套装扮的8张照片</h3>
+        <div class="main_visual2">
+          <h4>我秀的商品：</h4>
+          <div class="same_main_image">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><a href="detail.html" title="" class="img"><img src="images/examples/show_1.jpg" alt=""></a>
+                <p>&yen; <span>999.00</span></p><a class="a">去看看</a>
+                <div onclick=" $(this).parent().remove();" class="del_btn"></div>
+              </div>
+              <div class="swiper-slide"><a href="detail.html" title="" class="img"><img src="images/examples/1.png" alt=""></a>
+                <p>&yen; <span>999.00</span></p><a class="a">去看看</a>
+                <div onclick="$(this).parent().remove();" class="del_btn"></div>
+              </div>
+              <div class="swiper-slide add_img">
+                <div class="bg">+</div>
+                <div class="select_img">选择商品</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <textarea rows="5" cols="20" value placeholder="(选填，消息内容长度不得超过100字)"></textarea>
+        <input type="submit" value="确认发布" class="submit">
+      </form>
+      <div id="content2">
+        <form action="show_post.html" method="post">
+          <div class="check">
+            <label class="allselect unchecked_all">全选
+              <input type="checkbox" name="" value="">
+            </label><span>2015-04-22</span>
+          </div>
+          <ul class="cart_goods_body">
+            <li class="td1">
+              <label class="f_checkbox_normal unchecked">
+                <input type="checkbox" name="goodslist" value="">
+              </label>
+            </li>
+            <li class="td2"><a href="detail.html" title=""><img src="images/examples/good_block_img.png" alt=""></a></li>
+            <li class="td3"><a href="detail.html">新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴</a><i>数量：<span>1</span>件</i></li>
+            <li class="td4">
+              <p>牛皮</p>
+              <p>黑色</p>
+              <p>245/39</p>
+            </li>
+            <li class="td5">
+              <div class="good_price_all">¥<span>599.00</span></div>
+            </li>
+          </ul>
+          <ul class="cart_goods_body">
+            <li class="td1">
+              <label class="f_checkbox_normal unchecked">
+                <input type="checkbox" name="goodslist" value="">
+              </label>
+            </li>
+            <li class="td2"><a href="detail.html" title=""><img src="images/examples/good_block_img.png" alt=""></a></li>
+            <li class="td3"><a href="detail.html">新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴</a><i>数量：<span>1</span>件</i></li>
+            <li class="td4">
+              <p>牛皮</p>
+              <p>黑色</p>
+              <p>245/39</p>
+            </li>
+            <li class="td5">
+              <div class="good_price_all">¥<span>599.00</span></div>
+            </li>
+          </ul>
+        </form>
+        <form action="show_post.html" method="post">
+          <div class="check">
+            <label class="allselect unchecked_all">全选
+              <input type="checkbox" name="" value="">
+            </label><span>2015-04-22</span>
+          </div>
+          <ul class="cart_goods_body">
+            <li class="td1">
+              <label class="f_checkbox_normal unchecked">
+                <input type="checkbox" name="goodslist" value="">
+              </label>
+            </li>
+            <li class="td2"><a href="detail.html" title=""><img src="images/examples/good_block_img.png" alt=""></a></li>
+            <li class="td3"><a href="detail.html">新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴</a><i>数量：<span>1</span>件</i></li>
+            <li class="td4">
+              <p>牛皮</p>
+              <p>黑色</p>
+              <p>245/39</p>
+            </li>
+            <li class="td5">
+              <div class="good_price_all">¥<span>599.00</span></div>
+            </li>
+          </ul>
+          <ul class="cart_goods_body">
+            <li class="td1">
+              <label class="f_checkbox_normal unchecked">
+                <input type="checkbox" name="goodslist" value="">
+              </label>
+            </li>
+            <li class="td2"><a href="detail.html" title=""><img src="images/examples/good_block_img.png" alt=""></a></li>
+            <li class="td3"><a href="detail.html">新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴</a><i>数量：<span>1</span>件</i></li>
+            <li class="td4">
+              <p>牛皮</p>
+              <p>黑色</p>
+              <p>245/39</p>
+            </li>
+            <li class="td5">
+              <div class="good_price_all">¥<span>599.00</span></div>
+            </li>
+          </ul>
+        </form>
+        <input type="submit" value="确定" class="submit sub_content2">
+      </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/common.js"></script>
+    <!--script(src='js/swiper.min.js')-->
+    <script src="js/show_post.js"></script>
+    <script>
+      try{
+          var photoNum = $('.photoCut').length;
+          var chooseImg = $('#chooseImg');
+      
+          $('input[type=file]').on('change', function () {
+              // 得到文件列表
+              var files = !!this.files ? this.files : [];
+      
+              // 如果没有选择文件或者没有FileReader对象
+              if (!files.length || !window.FileReader) return;
+      
+              // 文件类型
+              if (/^image/.test(files[0].type)) {
+      
+                  //创建实例
+                  var reader = new FileReader();
+      
+                  // 将本地文件给DataURL
+                  reader.readAsDataURL(files[0]);
+      
+                  // 上传时操作
+                  reader.onloadend = function () {
+                      $('#addImg-box').before('<li><div><a></a></div></li>');
+                      $('#addImg-box').prev().find('div').addClass('photoCut').css('background-image', "url(" + this.result + ")").find('a').attr({
+                          href: '#',
+                          onclick: " $(this).parents('li').remove();photoNum--; if(photoNum == 7){$('#addImg-box').show();}else{$('#lastNum').html(8-photoNum)}"
+                      }).addClass('.del_btn').list;
+                  };
+                  photoNum++;
+                  $('#lastNum').html(8 - photoNum);
+                  if (photoNum >= 8) {
+                      $('#addImg-box').hide();
+                  }
+                  chooseImg.replaceWith(chooseImg = chooseImg.clone(true));
+      
+              } else {
+                  alert("文件类型不是图片");
+              }
+          });
+      }catch(e){
+      }
+    </script>
+  </body>
+</html>

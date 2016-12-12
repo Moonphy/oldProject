@@ -1,0 +1,43 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/home_setting.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 关于
+        #content(style='position: absolute;')
+            ul.user_list
+                li
+                    a(href='#',title='') 新版本检测
+                        label.latest  已是最新版
+                li
+                    a(href='about_us.html',title='') 关于我们
+                        label 〉
+            .about-us &copy; 2015 广州早上好网络科技有限公司
+                br
+                a(href='http://www.miibeian.gov.cn/' target='_blank') 粤ICP备14049451号-1
+
+        footer
+            a(href='index.html',class='home',title='')
+                .img
+                    img(src='images/icon/home.png',alt='')
+                p 首页
+            a(href='list.html',class='fenlei',title='')
+                .img
+                    img(src='images/icon/fenlei.png',alt='')
+                p 分类
+            a(href='show.html',class='show',title='')
+                .img
+                    img(src='images/icon/show_img.png',alt='')
+                p 买家秀
+            a(href='cart.html',class='cart',title='')
+                .img
+                    img(src='images/icon/cart.png',alt='')
+                    i: span 100
+                p 购物车
+            a(href='home.html',class='personal selected',title='')
+                .img
+                    img(src='images/icon/personal.png',alt='')
+                    i: span 99
+                p 个人中心

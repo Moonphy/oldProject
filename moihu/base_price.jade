@@ -1,0 +1,704 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/base_price.css')
+block content
+    include _index_header
+    .base_price_body
+        div#products.products-top
+            .products_wrap.zhucai
+                ul
+                    .h3.zhucaibg 主材
+                    li: a(href='#') 墙面
+                    li: a(href='#') 厨卫五金
+                    li: a(href='#') 卫浴
+                    li: a(href='#') 地面
+                    li: a(href='#') 水电改造
+                    li: a(href='#') 门窗
+                    li: a(href='#') 橱柜
+                    li: a(href='#') 采暖
+                    li: a(href='#') 其他
+                #popup_zhucai.js-over-show
+                    .cover1
+                    ul
+                        li: a() 墙漆
+                        li: a() 墙纸
+                        li: a() 墙砖
+                        li: a() 踢脚线
+                        li: a() 木地板
+                        li: a() 地砖
+                    ul
+                        li: a() 开关面板
+                        li: a() 漏电开关
+                        li: a() 光源
+                        li: a() 配电箱
+                        li: a() 电线
+                        li: a() 电线管
+                    ul
+                        li: a() 水管
+                        li: a() 龙头
+                        li: a() 花洒
+                        li: a() 水槽
+                        li: a() 厨房挂架
+                        li: a() 卫浴挂架
+                        li: a() 角阀
+                        li: a() 地漏
+                    ul
+                        li: a() 马桶
+                        li: a() 浴室柜
+                        li: a() 洗脸盆
+                        li: a() 浴缸
+                    ul
+                        li: a() 橱柜
+                    ul
+                        li: a() 防水
+                        li: a() 吊顶扣板
+            .products_wrap.jiaju
+                ul
+                    .h3.jiajubg 家具
+                    li: a(href='#') 客厅
+                    li: a(href='#') 餐厅
+                    li: a(href='#') 书房
+                    li: a(href='#') 卧室
+                    li: a(href='#') 椅
+                    li: a(href='#') 定制衣柜
+                #popup_jiaju.js-over-show
+                    .cover2
+                    ul
+                        li: a() 沙发
+                        li: a() 电视柜
+                        li: a() 鞋柜
+                        li: a() 茶几
+                        li: a() 玄关
+                        li: a() 沙发床
+                        li: a() 壁炉
+                        li: a() 角几
+                    ul
+                        li: a() 餐桌
+                        li: a() 酒柜
+                    ul
+                        li: a() 床
+                        li: a() 木衣柜
+                        li: a() 斗柜
+                        li: a() 儿童套房
+                        li: a() 床垫
+                        li: a() 梳妆台
+                        li: a() 床头柜
+                    ul
+                        li: a() 书桌
+                        li: a() 书柜
+                    ul
+                        li: a() 椅
+                        li: a() 定制衣柜
+            .products_wrap
+                ul
+                    .h3.jiashibg 家饰
+                    li: a(href='#') 窗帘
+                    li: a(href='#') 灯饰
+                    li: a(href='#') 床品
+                    li: a(href='#') 园艺
+                    li: a(href='#') 挂钟
+            .products_wrap
+                ul
+                    .h3.jiadianbg 家电
+                    li: a(href='#') 平板电视
+                    li: a(href='#') 空调
+                    li: a(href='#') 洗衣机
+                    li: a(href='#') 吸油烟机
+                    li: a(href='#') 灶具
+                    li: a(href='#') 电冰箱
+                    li: a(href='#') 热水器
+                    li: a(href='#') 消毒柜
+                    li: a(href='#') 洗碗机
+            .products_wrap
+                ul.lastul
+                    .anli 看案例
+                    li: a(href='#') 轻奢华
+                    li: a(href='#') 现代简约
+                    li: a(href='#') 田园
+                    li: a(href='#') 欧式
+                    li: a(href='#') 现代中式
+                    li: a(href='#') 宜家
+                    li: a(href='#') 美式
+                    li: a(href='#') 古典中式
+                    li: a(href='#') 北欧
+                    li: a(href='#') 地中海
+                    li: a(href='#') 小清新
+        .base_price_main
+            .block
+                .base_price_title
+                    .title_big 底价爆款
+                        span 搜罗全网最划算的大牌产品组合！
+            .block2
+                .filter_conditions_title
+                    .conditions_title.fl 聚合算筛选条件：
+                    .condition_zhucai.fl 主材
+                    .condition_jiaju.fl 家具
+                    .condition_jiashi.fl 家饰
+                    .condition_jiadian.fl 家电
+                    ul#popup_condition_zhucai.js-over-show
+                        li.condition_cover1
+                        li 墙面
+                        li 厨卫五金
+                        li 卫浴
+                        li 地面
+                        li 水电改造
+                        li 门窗
+                        li 橱柜
+                        li 采暖
+                        li 其他
+                    ul#popup_condition_jiaju.js-over-show
+                        li.condition_cover2
+                        li 客厅
+                        li 餐厅
+                        li 书房
+                        li 卧室
+                        li 椅
+                    ul#popup_condition_jiashi.js-over-show
+                        li.condition_cover3
+                        li 窗帘
+                        li 灯饰
+                        li 床品
+                        li 园艺
+                        li 挂钟
+                    ul#popup_condition_jiadian.js-over-show
+                        li.condition_cover3
+                        li 平板电视
+                        li 空调
+                        li 洗衣机
+                        li 吸油烟机
+                        li 灶具
+                        li 电冰箱
+                        li 热水器
+                        li 消毒柜
+                        li 洗碗机
+                ul.base_price_products
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_1.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 850
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_2.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 1999
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_3.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 1920
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_4.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_5.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 2788
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_6.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 349
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_7.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 20
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+                    li
+                        .row3
+                            .img_row3
+                                a(href='#',target='_blank')
+                                    img(src='images/examples/block_img_row3_8.jpg')
+                            .p 优妮彩 景德镇陶瓷 56头骨瓷餐具瓷器套装
+                            .h4_bottom
+                                .h5.fl ¥
+                                .h6.fl 280
+                                .h8.fl 起
+                                .btn2.fr 去看看
+
+            include _page_one

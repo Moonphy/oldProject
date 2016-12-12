@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>询价单详情</title>
+    <meta name="description" content="CRM询价单详情">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <style>
+        .item{
+            border-bottom: 1px solid #ddd;
+        }
+        .order{
+            background: #fff;
+            margin-bottom: 7px;
+        }
+        .order span{
+            display: inline-block;
+        }
+        .order i{
+            font-style: normal;
+        }
+        .order .head{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            padding: 0 4px;
+            color: #db5f22;
+            border: 1px solid #dddddd;
+            border-left: none;
+            border-right: none;
+        }
+        .order .head .time{
+            margin-left: 10px;
+        }
+        .order .head .state{
+            margin-right: 10px;
+        }
+        .order .body .content{
+            min-height: 60px;
+            padding: 6px 14px;
+        }
+        .order .body .moneys{
+            padding: 6px 15px 6px 30px;
+            height: auto;
+        }
+        .moneys .money{
+                display: inline-block;
+                width: 80px;
+        }
+        .lists li{
+            min-height: 40px;
+            line-height: 40px;
+            overflow: hidden;
+            border-top: 1px solid #ddd;
+        }
+        .lists li:last-child{
+            border-bottom: none;
+        }
+        .moneys .remark{
+            float: right;
+              max-width: 180px;
+        }
+        .order .body .content .total_money_btn{
+            padding: 0 5px;
+            margin-right: 1px;
+            color: #fff;
+            background: #00b3f0;
+        }
+        .order .dtl{
+            font-size: 16px;
+        }
+        .dtl .name{
+            width: 100%;
+        }
+        .dtl .two{
+            margin-top: 5px;
+        }
+        .bold{
+            font-weight: 500;
+        }
+        .down{
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="order-list">
+            <div class="order">
+                <div class="head bold">
+                    <span class="time fn-left J_time"><!--14:12:11--></span>
+                    <span class="orderNo">询单号：<i class="J_no"><!--1000--></i></span>
+                    <span class="state fn-right J_state"><!--待支付--></span>
+                </div>
+                <!--内容填补区域-->
+                <div class="body" id="J_order_list">
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<script type="text/html" id="J_dtl_list">
+    <div class="item">
+        <div class="content">
+            <div class="dtl">
+                <div class="name J_name">{name}</div>
+                <div class="two">
+                    <span class="num">X<i class="J_num">{num}</i></span>
+                    <span class="fn-right total_money">
+                         <div class="total_money_btn radius">
+                            报价金额<i class="icon iconfont down">&#xe62e;</i>
+                        </div>
+                     </span>
+                </div>
+            </div>
+        </div>
+        <div class="moneys fn-hide">
+                <ul class="lists J_total_money">
+                    {money}
+                </ul>
+         </div>
+    </div>
+</script>
+<script data-main='../../../js/inquiry-detail.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '联系登记' 'contact' '0.0.1' 'index' ',memo.css,plugin/pagination.css,plugin/calendar/calendar.css,plugin/raty/raty.css'></@inc.header>
+
+<@inc.body>
+	
+	<div class="page-title">
+        <h2>
+			<span><strong>联系登记</strong></span>
+		</h2>
+    </div>
+    <#if result.success>
+    <div class="main-list fn-clear">
+        <div class="mt10 info">
+            <div class="base">
+                <h2>
+                    客户基本信息
+                    <#--<em>收起</em>-->
+                </h2>
+                <div class="fn-clear">
+                    <#assign baseInfo = (result.model.model)?if_exists/>
+                    <#escape x as x?if_exists>
+                    <ul class="mt10 left fn-left">
+                        <li>客户ID：<em>${baseInfo.mfctyId}</em></li>
+                        <li>汽修厂名称：<em title="${baseInfo.mfctyId}">${baseInfo.mfctyName}</em></li>
+                        <li>注册时间：<em>${baseInfo.createTime?string('yyyy-MM-dd HH:mm:ss')}</em></li>
+                        <li>联系电话：<em>${baseInfo.cactTel}</em></li>
+                        <li>录入日期：<em>${baseInfo.recordTime?string('yyyy-MM-dd HH:mm:ss')}</em></li>
+                    </ul>
+                    <ul class="mt10 fn-left">
+                        <li>客户名称：<em>${baseInfo.mfctyName}</em></li>
+                        <li>地址：<em>${baseInfo.address}</em></li>
+                        <li>联系人：<em>${baseInfo.cactMan}</em></li>
+                        <li>手机/邮箱：[登录账号]<em>${baseInfo.mp}${baseInfo.email}</em></li>
+                        <li>跟踪客服：[ID?]<em title="${baseInfo.userId}">${baseInfo.userName}</em></li>
+                    </ul>
+                </div>
+                <div class="memo">
+                    <label>客户概况：</label>
+                    <div class="edit"><a href="/customer/edit/${baseInfo.id}?from=memo" target="_blank">>>[客户信息有误 or 补充内容？戳我]<<</a> </div>
+                    <p>${baseInfo.memo}</p>
+                </div>
+
+
+                </#escape>
+            </div>
+            <div class="data mt10">
+                <h2>客户数据信息</h2>
+                <#assign baseData = (baseData.model)?if_exists/>
+                <table class="gridtable">
+                    <thead>
+                    <tr>
+                        <th>旧数据</th>
+                        <th>数量</th>
+                        <th>新数据</th>
+                        <th>数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <#escape x as x?if_exists>
+                    <tr>
+                        <td>询价次数</td>
+                        <td class="num canclick"><a href="${appRoot}/bill/history/inquiry?isNew=0&custId=${baseInfo.mfctyId}&time=${baseInfo.recordTime?string('yyyy-MM-dd HH:mm:ss')}" title="查看询价详细信息" target="_blank">${baseData.inquiryOldNum}</a></td>
+                        <td>询价次数</td>
+                        <td class="num canclick"><a href="${appRoot}/bill/history/inquiry?isNew=1&custId=${baseInfo.mfctyId}&time=${baseInfo.recordTime?string('yyyy-MM-dd HH:mm:ss')}" title="查看询价详细信息" target="_blank">${baseData.inquiryNewNum}</a></td>
+                    </tr>
+                    <tr>
+                        <td>交易次数</td>
+                        <td class="num canclick"><a href="${appRoot}/bill/history/business?isNew=0&custId=${baseInfo.mfctyId}&time=${baseInfo.recordTime?string('yyyy-MM-dd HH:mm:ss')}" title="查看交易详细信息" target="_blank">${baseData.treadOldNum}</a></td>
+                        <td>交易次数</td>
+                        <td class="num canclick"><a href="${appRoot}/bill/history/business?isNew=1&custId=${baseInfo.mfctyId}&time=${baseInfo.recordTime?string('yyyy-MM-dd HH:mm:ss')}" title="查看交易详细信息" target="_blank">${baseData.treadNewNum}</a></td>
+                    </tr>
+                    <tr>
+                        <td>交易金额</td>
+                        <td class="num">${baseData.moneyOld}</td>
+                        <td>交易金额</td>
+                        <td class="num">${baseData.moneyNew}</td>
+                    </tr>
+                    </#escape>
+                    </tbody>
+                </table>
+            </div>
+            <div class="write mt10">
+                <h2>客户情况登记 [不能为空]</h2>
+                <form id="new" class="new fn-clear" action="${appRoot}/customer/memo/add" method="POST">
+                    <#--客户id，custId-->
+                    <input type="hidden" name="custId" value="${baseInfo.mfctyId}"/>
+                    <#-- 更新star需要id -->
+                    <input type="hidden" name="id" value="${baseInfo.id}"/>
+
+                    <div class="mt10 form-group">
+                        <label>问题反馈 *：</label>
+                        <textarea id="content" class="content" name="memo" placeholder="请在此描述客户情况，不超过200个字"></textarea>
+                        <div class="star" id="star" data-star="${baseInfo.star}"><b>该客户的意向如何,评价下？</b></div>
+                        <span class="hint" id="hint"></span>
+                        <button type="submit" class="fn-right btn">提交</button>
+                        <button type="button" class="fn-right btn" onclick="history.go(-1);">返回</button>
+                        <div class="autosave fn-right"><input id="isautosave" type="checkbox" checked><label for="isautosave">编辑内容3s自动保存至本地</label></div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page-title">
+        <h2>
+            <span><strong>历史记录</strong></span>
+        </h2>
+    </div>
+
+    <div class="main-list fn-clear">
+
+        <div class="history">
+            <#--<label class="title"></label>-->
+            <div class="tool">
+                <span class="label">筛选：</span>
+                <div class="group">
+                    <label>联系日期</label>
+                    <#assign $params = history.model.params.special?if_exists />
+                    <input name="beginTime" id="start" value="${$params.beginTime}"/>至<input name="endTime" id="end" value="${$params.endTime}"/>
+                </div>
+                <div class="group">
+                    <button class="btn" id="query">查询</button>(*查询结果仅供查看)
+                </div>
+            </div>
+            <#assign $history = history.model.model/>
+            <#if $history?size gt 0>
+                <#escape x as x?if_exists>
+                <#list $history as his>
+                <div class="item fn-clear">
+                    <label for="content1">${his.createTime?string('yyyy-MM-dd HH:mm:ss')}</label>
+                    <form class="" action="${appRoot}/memo/add" method="POST">
+                        <input type="hidden" name="traceId" value="${his.traceId}">
+                        <textarea id="content1" class="history-content" readonly>${his.memo}</textarea>
+                        <#--<button type="submit" class="fn-right btn modify-btn">修改</button>-->
+                    </form>
+                </div>
+                </#list>
+                </#escape>
+                <div class="mt10 pager"></div>
+            <#else>
+                <div class="no">
+                    没有找到符合条件的记录
+                </div>
+            </#if>
+        </div>
+    </div>
+    <#else>
+        <div class="main-list fn-clear">
+            <div class="content">
+                <p>ERROR:${result.msg}<p>
+                <button class="btn" onclick="history.go(-1);">返回</button>
+                <button class="btn" onclick="window.location.href='/index';">返回首页</button>
+            </div>
+        </div>
+    </#if>
+</@inc.body>
+
+<@inc.footer>
+<script>
+    var params = {
+        id:'${baseInfo.mfctyId}',
+        total:'${history.model.total}',
+        size:'${history.model.size}',
+        current:'${history.model.current}'
+    };
+</script>
+</@inc.footer>

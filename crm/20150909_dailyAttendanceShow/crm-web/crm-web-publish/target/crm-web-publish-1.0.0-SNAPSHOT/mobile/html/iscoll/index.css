@@ -1,0 +1,1 @@
+*{margin:0;padding:0}body{font-size:16px;}ul,li{border:none;list-style;none;}ul li{background:#eee;border-bottom:1px solid #ddd;height:40px;line-height:40px;padding:0px 10px;}#scoll{display:inline-block;height:300px;width:100%;overflow:hidden;overflow-y:scroll;}

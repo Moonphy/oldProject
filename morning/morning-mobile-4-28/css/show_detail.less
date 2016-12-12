@@ -1,0 +1,212 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.text-overflow {
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+#afui #content {
+  top: 44px;
+  padding-bottom: 60px;
+  color: #666666;
+}
+
+.main_visual{
+  width: 100%;
+  position:relative;
+  background-color: #ffffff;
+  padding-bottom: 15px;
+  p{
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-indent: 20px;
+    font-size: 12px;
+  }
+}
+.swiper-pagination{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9;
+  span{
+    float:left;
+    width:4px;
+    height:4px;
+    margin:0.2em;
+    padding:0;
+    border-radius: 4px;
+    background-color: #dbdbdb;
+    display:block;
+    text-indent:-1000px
+  }
+  .swiper-pagination-bullet-active{
+    background-color: #f2295d;
+  }
+}
+.main_image{
+  height: 300px;;
+  position:relative;
+  z-index: 0;
+  .swiper-wrapper{
+    width:9999px;
+    height:300px;
+    .swiper-slide{
+      float:left;
+      height: 300px;
+      display:table-cell;
+      vertical-align:middle;
+      text-align:center;
+      img{
+        max-width: 100%;
+        max-height: 300px;
+      }
+    }
+  }
+}
+.main_information{
+  float: left;
+  margin-left: 10px;
+  font-size: 12px;
+  label{
+    width: 60px;
+    padding-left: 25px;
+    background: url("../images/3p.png") no-repeat 0 0;
+    background-size: 24%;
+  }
+  a{
+    width: 160px;
+    line-height: 20px;
+    display: block;
+    text-align: center;
+    z-index: 9;
+    .border-radius (10px);
+    border: 1px solid #df3d82;
+    color: #df3d82;
+    position: absolute;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+.zan_report{
+  float: right;
+  margin-right: 10px;
+  position: relative;
+  .bar2{
+    width: 35px;
+    //position: absolute;
+    padding: 3px 5px 3px 25px;
+    text-align: center;
+    z-index: 9;
+    .border-radius (4px);
+    background: url("../images/zan.png") no-repeat 5px center;
+    background-size: 25%;
+    border: 1px solid #e0493e;
+    color: #e0493e;
+    font-size: 12px;
+    span{
+      color: #e0493e;
+      line-height: 12px;
+      font-size: 12px;
+    }
+  }
+  a{
+    margin: 0 0 0 30px;
+    color: #666666;
+    font-size: 12px;
+    position: absolute;
+    top: 48px;
+  }
+}
+
+.show_header{
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: block;
+  img{
+    width: 50px;
+    height: 50px;
+    //.border-radius (50%);
+    float: left;
+  }
+  .name{
+    margin: 5px 0 0 10px;
+    float: left;
+    b{
+      color: #444444;
+    }
+    span{
+      font-size: 12px;
+      color: #888888;
+    }
+  }
+  .position{
+    float: right;
+    margin: 15px 5px 0 0px;
+    font-size: 12px;
+    span{
+      color: #888888;
+    }
+  }
+}
+
+
+.clear{
+  height: 40px;
+}
+.main_visual2{
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.swiper-container{
+  height:120px;
+  position:relative;
+  .swiper-wrapper{
+    width:9999px;
+    height:120px;
+    .swiper-slide{
+      float:left;
+      height:120px;
+      border: 1px solid #dbdbdb;
+      overflow: hidden;
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      position: relative;
+      img{
+        max-width: 100%;
+        max-height: 100px;
+      }
+      label{
+        text-align: left;
+        display: inline-block;
+        float: left;
+        span{
+          color: #df3d82;
+        }
+      }
+      button{
+        float: right;
+        border: none;
+        background: none;
+        font-size: 12px;
+        line-height: 12px;
+        word-spacing: 0px;
+        letter-spacing: -2px;
+        color: #666666;
+      }
+    }
+  }
+}

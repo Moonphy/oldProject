@@ -1,0 +1,472 @@
+.case_details_body{
+  width: 100%;
+  z-index: 0;
+  font-family: '微软雅黑';
+  background: url("../images/budget_body_bg.jpg") repeat;
+  .case_details_body_bg{
+    width: 100%;
+    height: 207px;
+    position: absolute;
+    z-index: 1;
+    div{
+      width: 50%;
+      height: 207px;
+      float: left;
+    }
+    .bg_img1{
+      background: url("../images/case_details_body_bg1.jpg") no-repeat center center;
+    }
+    .bg_img2{
+      background: url("../images/case_details_body_bg2.jpg") no-repeat center center;
+    }
+  }
+  #case_details_main{
+    width: 1236px;
+    margin: 0 auto;
+    font-family: '微软雅黑';
+    position: relative;
+    z-index: 3;
+    #style_list{
+      width: 98px;
+      margin-right: 24px;
+      border: 1px solid #83b105;
+      position: absolute;
+      float: left;
+      margin-top: 25px;
+      background-color: #ffffff;
+      .style_list_header{
+        height: 35px;
+        background-color: #76b100;
+        color: #ffffff;
+        text-align: center;
+        line-height: 35px;
+        font-size: 16px;
+      }
+      li{
+        width: 98px;
+        height: 50px;
+        display: block;
+        border-bottom: 1px dashed #d2d2d2;
+        line-height: 50px;
+        font-size: 14px;
+        text-align: center;
+        a{
+          text-align: center;
+          color: #477800;
+        }
+      }
+      .lastli{border-bottom: none;}
+    }
+    .details_main{
+      width: 1000px;
+      margin: 25px 118px 30px 0;
+      float: right;
+      background-color: #ffffff;
+      #case_details_left{
+        width: 708px;
+        background-color: #e4efe0;
+        float: left;
+        .wrap{
+          width: 654px;
+          margin: 0px 27px;
+          .case_user_header{
+            width: 654px;
+            height: 106px;
+            position: relative;
+            background: url("../images/case_details_header_bg.png") no-repeat 0 bottom;
+            .head{
+              margin-top: 10px;
+              img{
+                width: 70px;
+                height: 70px;
+                border: 3px solid #ffffff;
+                border-radius: 50%;
+              }
+            }
+            .user_name{
+              margin-left: 10px;
+              line-height: 90px;
+              font-size: 14px;
+              color: #3366cc;
+            }
+            .share{
+              height: 16px;
+              position: absolute;
+              bottom: 20px;
+              right: 0;
+              float: right;
+              div{
+                width: 16px;
+                height: 16px;
+                margin-left: 5px;
+                float: right;
+              }
+              .icon1{
+                background: url("../images/icon_share_weibo.png");
+              }
+              .icon2{
+                background: url("../images/icon_share_baidu.jpg");
+              }
+              .icon3{
+                background: url("../images/icon_share_qzone.png");
+              }
+              .icon4{
+                background: url("../images/icon_share_douban.jpg");
+              }
+            }
+          }
+          .case_content{
+            .content_title{
+              font-size: 18px;
+              color: #333333;
+              margin: 5px 0;
+              span{
+                font-size: 12px;
+                color: #959595;
+                margin-left: 20px;
+                font-family: '宋体';
+              }
+              .collect{
+                width: 86px;
+                height: 31px;
+                color: #ffffff;
+                font-family: '宋体';
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 31px;
+                float: right;
+                text-indent: 30px;
+                background: url("../images/case_collect_bg.png") no-repeat;
+              }
+            }
+            .case_details_contents{
+              font-family: '宋体';
+              font-size: 14px;
+              text-indent: 2em;
+              margin: 20px 0;
+            }
+            .content_img{
+              .big_img{
+                width: 562px;
+                margin: 10px auto;
+              }
+              .little_img{
+                width: 520px;
+                margin: 5px auto;
+                .little_img_title{
+                  width: 500px;
+                  padding-left: 20px;
+                  margin-bottom: 10px;
+                  color: #555555;
+                  font-size: 14px;
+                  background: url("../images/case_details_img_title_bg.png") no-repeat 0 center;
+                }
+                .little_img_wrap{
+                  width: 60px;
+                  height: 60px;
+                  position: relative;
+                  float: left;
+                  margin-right: 5px;
+                  z-index: 99;
+                  a{
+                    img{
+                      width: 60px;
+                      height: 60px;
+                    }
+                  }
+                  .spc{
+                    width: 210px;
+                    height: 34px;
+                    position: absolute;
+                    bottom: -35px;
+                    display: none;
+                    line-height: 40px;
+                    font-size: 12px;
+                    font-family: '宋体';
+                    font-weight: normal;
+                    text-align: center;
+                    color: #ffffff;
+                    background: url("../images/spc_bg_3.png") no-repeat;
+                    span{
+                      font-size: 16px;
+                    }
+                  }
+                }
+                .little_img_wrap:hover{
+                  .spc{
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+          .shopping_list{
+            font-family: '宋体';
+            li{
+              height: 55px;
+              border-bottom: 1px solid #d3d3d3;
+              .ullist{
+                color: #959595;
+                position: relative;
+                top: 30px;
+                left: 20px;
+                font-size: 14px;
+              }
+              .lititle{
+                width: 70px;
+                float: left;
+                color: #66bb7f;
+                text-align: center;
+                font-size: 14px;
+                line-height: 55px;
+              }
+              p{
+                width: 540px;
+                margin-left: 20px;
+                float: left;
+                color: #959595;
+                padding: 10px;
+              }
+            }
+          }
+          .discussion{
+            font-family: '宋体';
+            margin-top: 65px;
+            .tag{
+              color: #6d6d6d;
+              font-weight: bold;
+              span{
+                font-weight: normal;
+                margin-right: 10px;
+              }
+            }
+            .discussion_post{
+              margin: 25px 0;
+              .discussion_content{
+                width: 549px;
+                height: 30px;
+                float: left;
+                border: 1px solid #c4d2bf;
+                background-color: #ffffff;
+              }
+              .post_btn{
+                width: 98px;
+                height: 32px;
+                float: right;
+                color: #ffffff;
+                font-size: 18px;
+                text-align: center;
+                line-height: 32px;
+                cursor: pointer;
+                background: url("../images/post_btn_bg.png") no-repeat;
+              }
+            }
+            ul{
+              li{
+                float: left;
+                color: #656464;
+                margin-bottom: 20px;
+                display: block;
+                .discussion_user{
+                  a{color: #1f97e4;}
+                  float: left;
+                }
+                .discussion_time{
+                  float: left;
+                  margin-left: 10px;
+                  padding-left: 10px;
+                  width: 200px;
+                  height: 12px;
+                  margin-top: 3px;
+                  line-height: 12px;
+                  border-left: 1px solid #656464;
+                }
+                .discussion_head{
+                  float: left;
+                  width: 63px;
+                  padding: 7px 0;
+                  background: url("../images/discussion_bg.png") no-repeat right center;
+                  img{
+                    width: 49px;
+                    height: 49px;
+                    border-radius: 100%;
+                  }
+                }
+                .discussion_wrap{
+                  float: right;
+                  width: 591px;
+                  .discussion_content_details{
+                    padding: 5px 15px;
+                    margin-bottom: 3px;
+                    background-color: #f3fcef;
+                    .discussion_content_header{
+                      border-bottom: 1px solid #e0eadc;
+                      padding-bottom: 5px;
+
+                      .discussion_btn{
+                        color: #66bb7f;
+                        float: right;
+                        .btn_reply{
+                          float: left;
+                          padding-left: 20px;
+                          cursor: pointer;
+                          background: url("../images/reply_bg.png") no-repeat 0 bottom;
+                        }
+                        .btn_del{
+                          margin-left: 15px;
+                          font-weight: bolder;
+                          cursor: pointer;
+                          float: right;
+                          span{
+                            font-weight: normal;
+                          }
+                        }
+                      }
+                    }
+                    .discussion_content_p{
+                      margin: 5px 0;
+                    }
+                  }
+                  .reply{
+                    padding: 5px 15px;
+                    margin-bottom: 3px;
+                    background-color: #f3fcef;
+                    .discussion_head_other{
+                      margin-top: 5px;
+                      width: 50px;
+                      img{
+                        width: 49px;
+                        height: 49px;
+                        border-radius: 100%;
+                      }
+                    }
+                    .reply_wrap{
+                      width: 500px;
+                      margin-left: 10px;
+                      padding: 5px 0;
+                      .discussion_content_details_other{
+                        float: left;
+                        p{
+                          float: left;
+                          span{color: #1f97e4;}
+                        }
+                      }
+                    }
+
+                  }
+                  .add_discussion{
+                    padding: 5px 15px;
+                    background-color: #f3fcef;
+                    input{
+                      width: 547px;
+                      height: 24px;
+                      padding: 0px 5px;
+                      border: 1px solid #cad3c7;
+                      background-color: #ffffff;
+                      color: #9f9f9f;
+                    }
+                    input:focus{
+                      border: 1px solid #51a86e;
+                    }
+                    .make_true{
+                      margin-top: 5px;
+                      .text_number{
+                        float: left;
+                      }
+                      .sub_yes{
+                        width: 70px;
+                        height: 24px;
+                        float: right;
+                        cursor: pointer;
+                        background: url("../images/btn_yes_bg.png") no-repeat;
+                      }
+                    }
+                  }
+                }
+
+              }
+              .show_more{
+                width: 653px;
+                height: 37px;
+                color: #4b4b4b;
+                font-weight: bold;
+                text-align: center;
+                line-height: 37px;
+                border: 1px solid #c4d2bf;
+                background-color: #dbe6d7;
+                margin: 40px 0;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      #case_details_right{
+        width: 292px;
+        float: left;
+        background-color: #ffffff;
+        .right_part_wrap{
+          margin: 19px 15px 0 15px;
+          .right_part_header{
+            width: 256px;
+            height: 31px;
+            font-size: 14px;
+            line-height: 31px;
+            margin-left: -4px;
+            padding-left: 10px;
+            background-color: #f5f5f5;
+            .more{
+              width: 70px;
+              height: 31px;
+              float: right;
+              cursor: pointer;
+              background: url("../images/case_details_right_header_bg.png") no-repeat center 7px #f5f5f5;
+            }
+
+          }
+          .content{
+            width: 127px;
+            border: 4px solid #f5f5f5;
+            margin-left: -4px;
+            margin-bottom: -5px;
+            float: left;
+            background-color: #ffffff;
+            .products_img{
+              width: 127px;
+              height: 128px;
+              a{
+                position: relative;
+                .tips{
+                  width: 127px;
+                  height: 29px;
+                  position: absolute;
+                  bottom: 2px;
+                  color: #ffffff;
+                  text-align: center;
+                  font-family: '宋体';
+                  line-height: 29px;
+                  background: url("../images/case_details_right_libg.png") no-repeat;
+                  display: none;
+                }
+              }
+            }
+            .products_img:hover{
+              .tips{
+                display: block;
+              }
+            }
+            .products_price{
+              width: 127px;
+              height: 34px;
+              line-height: 34px;
+              text-align: center;
+              color: #77a766;
+              border-top: 1px dashed #dcdcdc;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header title='首页' styles=',index.css'>
+    <style>
+        .opus-nav{
+            width: 100%;
+        }
+    </style>
+</@inc.header>
+
+<@inc.body>
+  <div class="wapper">
+    <div class="page-title">
+      <h2>
+          <span><strong>快捷导航</strong></span>
+      </h2>
+    </div>
+
+  </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+    seajs.use('$', function ($) {
+        /*var left = $('#leftMenu');
+        var lis = left.find('li');
+        var arr = [];
+        $.each(lis, function (idx, li) {
+            li = $(li);
+            var obj = {};
+            obj.title = li.text();
+            obj.url = li.find('a').attr('href');
+            obj.isRoot = li.hasClass('first-cat');
+            arr.push(obj);
+        });
+        console.log(arr,JSON.stringify(arr));*/
+        $('.other-right').remove();
+    });
+</script>
+</@inc.footer>

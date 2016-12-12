@@ -1,0 +1,93 @@
+
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+#afui #content {
+  position: static!important;
+  padding-bottom: 50px;
+  font-size: 0.875rem;
+}
+
+.delivery_address{
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #d6d6d6;
+  color: #444444;
+  th{
+    vertical-align: middle;
+  }
+  li{
+    float: left;
+  }
+  .td1{
+    width: 30%;
+  }
+  .td2{
+    width: 60%;
+  }
+  .td3{
+    width: 10%;
+    a{
+      color: #ff3b3c;
+    }
+  }
+  .selected{
+    color: #999999;
+  }
+  .unselected{
+    color: #ffffff;
+    background-color: #ff3b3c;
+  }
+}
+
+
+.add_radio{
+  display: block;
+  width: 80%;
+  padding: 8px 0px;
+  line-height: 1;
+  .border-radius (8px);
+  box-sizing: border-box;
+  text-align: center;
+  margin-left: 10%;
+}
+.add_del_btn{
+  width: 30px;
+  height: 30px;
+  background: url("../images/cart_del.png") no-repeat center 0;
+  background-size: 20px 20px;
+}
+
+.bottom_btn{
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 49px;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  .back{
+    width: 50px;
+    height: 49px;
+    position: absolute;
+    left: 0;
+    background: url("../images/back.png") no-repeat 18px center #000000;
+    background-size: 10px 17px;
+  }
+  .buy_btn{
+    width: 100%;
+    padding-left: 50px;
+    box-sizing: border-box;
+    height: 49px;
+    line-height: 49px;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    background-color: #ff3b3c;
+    border: none;
+    font-size: 1rem;
+  }
+}

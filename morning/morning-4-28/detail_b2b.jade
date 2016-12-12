@@ -1,0 +1,115 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/detail.css')
+    link(rel='stylesheet',href='css/detail_b2b.css')
+block content
+    include _header
+    .detail_body
+        .good_detail
+            .this_good.fl
+                include _banner
+                .good_information.fr
+                    .information_part1
+                        p.good_detail_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低
+                        .good_tag.fl 商品编号：BE004b80138
+                        .good_price.fr &yen;<span>599.00</span>
+                    .information_part3
+                        .title 商品信息：
+                        each item in [{k:'跟型',v:'粗跟'},{k:'适用场景',v:'日常'},{k:'鞋面材质',v:'牛皮'},{k:'跟高',v:'高跟(5-7cm)'},{k:'跟型',v:'粗跟'},{k:'适用场景',v:'日常'},{k:'鞋面材质',v:'牛皮'},{k:'跟高',v:'高跟(5-7cm)'},{k:'内里材质',v:'猪皮'},{k:'鞋底材质',v:'塑胶'},{k:'流行材质',v:'拼接撞色'},{k:'类型',v:'低筒靴'},{k:'闭合方式',v:'拉链'},{k:'女鞋头款',v:'圆头'}]
+                            label.tag_k #{item.k}：
+                                span #{item.v}
+                    .information_part2
+                        mixin tag(title,tags)
+                            .title #{title}
+                            each tag in tags
+                                label.f_radio.unselected #{tag}
+                                    input(type='radio',name=' ',value='')
+                        +tag('尺码',['245/39','250/40','220/34','225/35','230/36','235/37','240/38'])
+                    .information_part4
+                        .like_buy
+                            #add_cart 加入购物车
+                            .collection.cancel 收藏该商品
+                                input(type='checkbox',name='',value='name')
+                            .buy_btn: a(href='cart_add.html') 立即购买
+
+                        .like_share
+                            .like: img(src='images/like.png',alt='')
+                            p <span>99</span>人喜欢
+                            .other_ways
+                                .share_qq
+                                .share_weixin
+                                .share_weibo
+        .other_color
+            h4 其它颜色：
+            ul
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a2.jpg',alt='')
+                        p 黑色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色+黑色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/good_img.png',alt='')
+                        p 白色+红花+黑色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色黑是恶
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/good_detail_img.png',alt='')
+                        p 白色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色
+                li
+                    a(href='detail.html',target='_blank',title='')
+                        img(src='images/examples/a1.jpg',alt='')
+                        p 白色
+        .similar_products
+            .h2 同类产品
+            .ck-slide
+                .similar_show
+                    ul.similar_show_good
+                        - for(var i=0; i<25; i++)
+                            li
+                                .good
+                                    a(href='detail.html',title='',target='_blank'): img(src='images/examples/good_detail_img.png',alt='')
+                    .similar_arrow
+                        a(href='javascript:;',class='ctrl-slide similar_prev')
+                        a(href='javascript:;',class='ctrl-slide similar_next')
+        .similar_products
+            .h2 猜你喜欢
+            .ck-slide
+                .similar_show
+                    ul.similar_show_good
+                        - for(var i=0; i<21; i++)
+                            li
+                                .good
+                                    a(href='detail.html',title='',target='_blank'): img(src='images/examples/good_img.png',alt='')
+                    .similar_arrow
+                        a(href='javascript:;',class='ctrl-slide similar_prev')
+                        a(href='javascript:;',class='ctrl-slide similar_next')
+    include _footer
+block jsblock
+    script(src='js/detail-slider.js')
+    script(src='js/detail-images.js')
+    script(src='js/jquery.fly.min.js')
+    script(src='js/requestAnimationFrame.js')
+    script(src='js/detail.js')

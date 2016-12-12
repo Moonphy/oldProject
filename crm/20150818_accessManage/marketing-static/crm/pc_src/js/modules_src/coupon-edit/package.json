@@ -1,0 +1,23 @@
+{
+  "name": "coupon-edit",
+  "version": "0.0.1",
+  "description": "优惠券修改",
+  "keywords": [],
+  "homepage": "",
+  "author": "dreamstu <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "devDependencies": {
+    "grunt-build-seajs":"~0.0.1"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  }
+}

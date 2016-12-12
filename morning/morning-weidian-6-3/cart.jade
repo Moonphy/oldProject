@@ -1,0 +1,70 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/cart.css')
+
+block content
+    #afui
+
+        #content
+            form(action='order.html',method='post')
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/show_1.jpg',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .numbers
+                            input.cut(type='button',value='-',name='')
+                            input.text_box(type='text',value='1',name='')
+                            input.add(type='button',value='+',name='')
+                        i 仅剩<span>3</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_del_btn
+                        .good_price &yen;<span>599.00</span>
+            form(action='order.html',method='post')
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/1.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .numbers
+                            input.cut(type='button',value='-',name='')
+                            input.text_box(type='text',value='1',name='')
+                            input.add(type='button',value='+',name='')
+                        i 仅剩<span>3</span>件
+                    li.td4
+                        p 牛皮shidhfioahsdihfo
+                        p 黑色是滴哈覅是滴
+                        p 245/39
+                    li.td5
+                        .good_del_btn
+                        .good_price &yen;<span>599.00</span>
+            .bottom_btn
+                a(href='#',class='back',title='')
+                .bottom_wrap
+                    .custom_btn
+                        .check
+                            label.allselect.unchecked_all
+                                input(class='',type='checkbox',name='',value='9')
+                            p 全选
+                        .p
+                            p.total 合计:
+                                span  &yen;4792.00
+                            p 共<span>4</span>件商品
+                    button.buy_btn 立即下单
+
+
+block jsblock
+    script(src='js/cart.js')

@@ -1,0 +1,54 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/address.css')
+block content
+    #afui
+        #content
+            table.delivery_address
+                tr
+                    th(rowspan='5')
+                        a.add_radio.selected(href='#',title='') 默认地址
+                    td.td2 <span>张三</span>
+                    td.td3
+                        .add_del_btn
+
+                tr
+                    td.td2 <span>广东省</span><span>广州市</span><span>白云区</span>
+                    td.td3
+                tr
+                    td.td2 <span>广花一路633号平沙国际商务中心502室广花一国际商务中心502室</span>
+                    td.td3
+                tr
+                    td.td2 (<span>510440</span>）
+                    td.td3
+                tr
+                    td.td2 <span>13631365214</span>
+                    td.td3
+                        a(href='add_address.html') 编辑
+            - for (var i=0;i<5;i++)
+                table.delivery_address
+                    tr
+                        th(rowspan='5')
+                            a.add_radio.unselected(href='#',title='') 设为默认
+                        td.td2 <span>张三</span>
+                        td.td3
+                            .add_del_btn
+
+                    tr
+                        td.td2 <span>广东省</span><span>广州市</span><span>白云区</span>
+                        td.td3
+                    tr
+                        td.td2 <span>广花一路633号平沙国际商务中心502室广花一国际商务中心502室</span>
+                        td.td3
+                    tr
+                        td.td2 (<span>510440</span>）
+                        td.td3
+                    tr
+                        td.td2 <span>13631365214</span>
+                        td.td3
+                            a(href='add_address.html') 编辑
+            .bottom_btn
+                a(href='#',class='back',title='')
+                a.buy_btn(href='add_address.html',title='') 增加新的收货地址
+block jsblock
+    script(src='js/order.js')

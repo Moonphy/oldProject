@@ -1,0 +1,362 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '订单统计' 'order-tj' '0.0.1' 'index'
+',plugin/pagination.css
+,plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css'
+>
+<style>
+    .list{
+        padding:18px;
+    }
+    .index_tap_item:first-child .tap_inner {
+        border-left-width: 0;
+    }
+    .tap_inner{
+        display: block;
+        border-left: 1px solid #6fa7ce;
+    }
+    .index_tap_item{
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
+    .index_tap_item .title {
+        display: block;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: -10px;
+    }
+    .index_tap_item .number {
+        margin-left: 5px;
+        font-weight: 400;
+        font-style: normal;
+        vertical-align: middle;
+        font-size: 35px;
+    }
+    #inner .grid_item{
+        background: #fff;
+        float: left;
+        overflow: hidden;
+        width: 25%;
+        height: 64px;
+        margin: 0;
+        cursor: default;
+        box-shadow: none;
+        transition: 0.5s;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+    }
+    #inner{
+        background-color: #7cbae5;
+        border: 1px solid #6eb0dd;
+        overflow: hidden;
+        padding-left: 0;
+        list-style-type: none;
+    }
+    .pannel1{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .filter{
+        display: inline-block;
+        border: 1px solid #DDDDDD;
+        width: 100%;
+        padding: 20px 10px;
+        -moz-box-sizing: border-box;  /*Firefox3.5+*/
+        -webkit-box-sizing: border-box; /*Safari3.2+*/
+        -o-box-sizing: border-box; /*Opera9.6*/
+        -ms-box-sizing: border-box; /*IE8*/
+        box-sizing: border-box; /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
+    }
+    .filter li{
+        height: 50px;
+    }
+    .filter li label{
+        padding: 15px;
+        width: 45px;
+        display: inline-block;
+    }
+    .filter .datepicker{
+        width: 150px;
+    }
+    .timebtn{
+        position: relative;
+        left: 0;
+    }
+    .timebtn button.item{
+        width: 80px;
+    }
+    .timebtn button.item.active{
+        border: 2px solid #ff684d;
+    }
+    .queryBtn{
+        margin-right: 10px;
+        position: relative;
+        top: 8px;
+    }
+    #province{
+        margin-left: 0;
+    }
+    .timebtn button.item{
+        position: relative;
+    }
+    .timebtn .arrow-up {
+        width:0px;
+        height:0px;
+        border-left:20px solid transparent;  /* left arrow slant */
+        /*border-right:20px solid transparent;*/ /* right arrow slant */
+        border-bottom:20px solid #ff684d; /* bottom, add background color here */
+        font-size:0px;
+        line-height:0px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .timebtn .arrow-text{
+        position: absolute;
+        right: 2px;
+        bottom: -5px;
+    }
+
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+
+    .tools{
+        text-align: right;
+        padding: 10px 10px 0 10px;
+        height: 20px;
+    }
+    .tools select{
+        height: 20px;
+        line-height: 20px;
+    }
+    .breadcrumb span{
+        cursor: pointer;
+    }
+    .breadcrumb span:before{
+        content: '>>';
+    }
+    .breadcrumb span:first-child:before{
+        content: '';
+    }
+    tr{
+        cursor: pointer;
+    }
+    th.active b{
+        visibility: visible!important;
+        color: #111;
+    }
+    th[scope='sort'] b {
+        visibility: hidden;
+    }
+    th[scope='sort']:hover b{
+        visibility: visible;
+    }
+    #box2,#box3{
+        padding: 10px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>订单统计</strong></span>
+        </h2>
+    </div>
+
+    <div class="list fn-clear">
+        <div class="pannel1">
+            <ul class="inner" id="inner">
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number"><#--1121221--></em>
+                    <strong class="title">昨日订单金额</strong>
+                </span>
+                </li>
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number"><#--13121--></em>
+                    <strong class="title">昨日订单数</strong>
+                </span>
+                </li>
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number"><#--12312--></em>
+                    <strong class="title">昨日退单金额</strong>
+                </span>
+                </li>
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number"><#--12312--></em>
+                    <strong class="title">昨日退单数</strong>
+                </span>
+                </li>
+            </ul>
+        </div>
+        <div class="filter mt10">
+            <ul>
+                <li>
+                    <div class="timebtn">
+                        <label>时间</label>
+                        <button class="item" data-day="0">今日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="1">昨日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="7">最近7日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="30">最近30日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <input type="text" name="start" id="startDate" class="datepicker" placeholder="请选择开始日期"/>
+                        <input type="text" name="end" id="endDate" class="datepicker" placeholder="请选择结束日期"/>
+                        <button id="query" class="btn fn-right queryBtn">查询</button>
+                    </div>
+                </li>
+                <li>
+                    <label>地区</label>
+                    <select name="provinceID" id="province">
+                        <option value="">全部</option>
+                    </select>
+                    <select name="cityID" id="city">
+                        <option value="">全部</option>
+                    </select>
+                    <select name="areaID" id="area">
+                        <option value="">全部</option>
+                    </select>
+
+                </li>
+                <#--<li>
+                    <label>汽修厂</label>
+                    <input type="text" placeholder="请输入汽修厂名称"/>
+                    <label>ID</label>
+                    <input type="text" placeholder="请输入汽修厂ID"/>
+                </li>-->
+            </ul>
+        </div>
+        <div class="mt10">
+            <div class="page-title">
+                <h2>
+                    <span><strong>订单情况</strong></span>
+                </h2>
+            </div>
+            <div class="fn-clear">
+                <a href="javascript:alert('请先设置好条件并按查询按钮！')" id="exporting" target="_blank" class="fn-right">导出数据</a>
+                <table class="gridtable" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                        <tr>
+                            <th scope="col">地区</th>
+                            <th scope="sort" data-val="sortByTotalOrder=1&sortASC=0" data-active="0" data-state="0">订单金额<b class="fa fa-sort-amount-desc fa-x1-2 ml2"></b></th>
+                            <th scope="sort" data-val="sortByOrderNum=1&sortASC=0" data-active="0">订单数<b class="fa fa-sort-amount-desc fa-x1-2 ml2"></b></th>
+                            <th scope="sort" data-val="sortByTotalChargeback=1&sortASC=0" data-active="0">退单金额<b class="fa fa-sort-amount-desc fa-x1-2 ml2"></b></th>
+                            <th scope="col">退单数</th>
+                            <th scope="col">订单退款率</th>
+                            <th scope="col">订单出错率</th>
+                            <th scope="col">注册到首单的平均天数</th>
+                            <th scope="col">注册到激活的平均天数</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list"></tbody>
+                </table>
+                <div class="pager pager1"></div>
+            </div>
+
+            <div class="fn-clear fn-hide" id="box2">
+                <div class="tools">
+                    <div class="fn-left breadcrumb">
+                        <span>详细数据</span>
+                        <span class="breadcrumb1"></span>
+                    </div>
+                    <a href="javascript:alert('请先设置好条件并按查询按钮！')" id="exporting_box2" target="_blank">导出数据</a>
+                    <select name="orderCol2" id="orderCol2">
+                        <option value="">订单金额降序</option>
+                        <option value="">订单金额升序</option>
+                        <option value="">退单金额降序</option>
+                        <option value="">退单数降序</option>
+                    </select>
+                </div>
+                <table class="gridtable" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                    <tr>
+                        <th scope="col">厂名</th>
+                        <th scope="col">订单金额</th>
+                        <th scope="col">订单数</th>
+                        <th scope="col">退单金额</th>
+                        <th scope="col">退单数</th>
+                    </tr>
+                    </thead>
+                    <tbody id="list2">
+                    <#--<tr class="data">
+                        <td>广州</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr class="nodata">
+                        <td colspan="5">没有符合条件的数据</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+                <div class="pager pager2"></div>
+            </div>
+
+            <div class="fn-clear fn-hide" id="box3">
+                <div class="tools">
+                    <div class="fn-left breadcrumb" id="breadcrumb2">
+                        <span>详细数据</span>
+                        <span class="breadcrumb1"></span>
+                        <span class="breadcrumb2"></span>
+                    </div>
+                </div>
+                <table class="gridtable" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                    <tr>
+                        <th scope="col">订单号</th>
+                        <th scope="col">订单金额</th>
+                        <th scope="col">交易时间</th>
+                        <th scope="col">收货人</th>
+                        <th scope="col">收货地址</th>
+                    </tr>
+                    </thead>
+                    <tbody id="list3">
+                    <#--<tr class="data">
+                        <td>广州</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr class="nodata">
+                        <td colspan="5">没有符合条件的数据</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+                <div class="pager pager3"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

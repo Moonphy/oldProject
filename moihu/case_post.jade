@@ -1,0 +1,226 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/case_post.css')
+block content
+    include _common_header
+    .case_post_body
+        .case_post_body_bg
+            .bg_img1
+            .bg_img2
+        #case_post_main
+            .step1
+                .description_header
+                    .left_header.fl 标题
+                    .right_header.fr 你还可以输入<span>32/32</span>字
+                    input(type='text',name='title',placeholder='',class='title')
+                .add_tags
+                    .left_header 添加标签
+                    .tags
+                        .tag1 现代厨房
+                            .del
+                        input(type='text',name='tag',class='tag',placeholder='输入标签内容后回车即可')
+                .case_post_step1_btn
+
+            .step2_initial.block1
+                .big_img.fl
+                    .img
+                    .img_btn
+                .block1_right.fr
+                    .description_block
+                        .description_header
+                            .left_header.fl 场景图描述
+                            .right_header.fr 你还可以输入<span>-29/400</span>字
+                        form(method='post',action='')
+                            textarea(name='title',placeholder='',rows='7')
+                    .little_img_block
+                        .img_block_header 插入土中可购买产品
+                        .little_img
+                            .img
+                                img(src='images/examples/img_little_1.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_7.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_6.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_5.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_4.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_3.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_2.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                            .img
+                            .img.add_new
+                        .page
+                            a.current 1
+                            a(href='#?page=2') 2
+                            a(href='#?page=3') 3
+                            a(href='#?page=4') 4
+                            a(href='#?page=5') 5
+                            a(href='#?page=6') 6
+                            a(href='#?page=2',class='next') 下一页
+                    .step2_initial_btn 发布
+            .step2_initial.block2
+                .block2_header 已录入场景图：（要修改，请点击）
+                .ck-slide
+                    ul.ck-slide-wrapper
+                        li
+                            .img 暂未添加任何图片
+                            .img
+                            .img
+                            .img
+                    .arrow
+                        a(href='javascript:;',class='ctrl-slide ck-prev')
+                        a(href='javascript:;',class='ctrl-slide ck-next')
+
+            .step2.block1
+                .big_img.fl
+                    img(src='images/examples/case_release_img1.jpg')
+                    .img_btn
+                .block1_right.fr
+                    .description_block
+                        .description_header
+                            .left_header.fl 场景图描述
+                            .right_header.fr 你还可以输入<span>-29/400</span>字
+                        form(method='post',action='')
+                            textarea(name='title',placeholder='',rows='7')
+                    .little_img_block
+                        .img_block_header 插入土中可购买产品
+                        .little_img
+                            .img
+                                img(src='images/examples/img_little_1.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_7.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_6.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_5.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_4.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_3.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                                img(src='images/examples/img_little_2.jpg')
+                                .img_des 探木坊现代中式台灯..
+                                    span ￥59
+                            .img
+                            .img
+                            .img.add_new
+                        .page
+                            a.current 1
+                            a(href='#?page=2') 2
+                            a(href='#?page=3') 3
+                            a(href='#?page=4') 4
+                            a(href='#?page=5') 5
+                            a(href='#?page=6') 6
+                            a(href='#?page=2',class='next') 下一页
+                    .step2_btn 发布
+            .step2.block2
+                .block2_header 已录入场景图：（要修改，请点击）
+                .ck-slide
+                    ul.ck-slide-wrapper
+                        li
+                            .img
+                                img(src='images/examples/block_img_row3_1.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_2.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_3.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_4.jpg')
+                                .edit
+                        li.hide
+                            .img
+                                img(src='images/examples/block_img_row3_5.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_6.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_1.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_7.jpg')
+                                .edit
+                        li.hide
+                            .img
+                                img(src='images/examples/block_img_row3_8.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_5.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_1.jpg')
+                                .edit
+                            .img
+                                img(src='images/examples/block_img_row3_3.jpg')
+                                .edit
+                    .arrow
+                        a(href='javascript:;',class='ctrl-slide ck-prev')
+                        a(href='javascript:;',class='ctrl-slide ck-next')
+            .step3
+                .description_header
+                    .left_header.fl 填写花费清单
+                    .right_header.fl: a(href='') （？填写帮助）
+                .spend_list
+                    input(type='text',name='title',placeholder='请输入花费项目1',class='spend_title')
+                    input(type='text',name='title',placeholder='请描述花费项目1的具体情况',class='spend_content')
+                .spend_list
+                    input(type='text',name='title',placeholder='请输入花费项目2',class='spend_title')
+                    input(type='text',name='title',placeholder='请描述花费项目2的具体情况',class='spend_content')
+                .spend_list
+                    input(type='text',name='title',placeholder='请输入花费项目3',class='spend_title')
+                    input(type='text',name='title',placeholder='请描述花费项目3的具体情况',class='spend_content')
+                .spend_list
+                    input(type='text',name='title',placeholder='请输入花费项目4',class='spend_title')
+                    input(type='text',name='title',placeholder='请描述花费项目4的具体情况',class='spend_content')
+                .case_release_step3_btn
+                    .add_more
+                    input(type='button',class='step3_release_btn')
+
+    #popup_case_release_step2
+        .close_button
+        .tips 继续添加场景图吗？
+        .button
+            .add_btn 继续添加
+            .done_btn 下一步
+    #popup_case_release
+        .close_button
+        .button
+            .release_btn 发布消费清单
+            .done_btn 完成发布
+
+block jsblock
+    script(src='js/slide.js')
+    script
+        $('.ck-slide').ckSlide({autoPlay: null,dir: null,isAnimate: false});

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>查看询价及订单</title>
+    <meta name="description" content="CRM查看询价及订单">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/phone.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/ui-switch.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/selcity.css" media="all"/>
+    <style>
+        .J_params_pannel{
+            background: #fff;
+            position: fixed;
+            z-index: 2;
+            width: 97%;
+            margin: 0 5px;
+            padding: 10px;
+            -webkit-box-shadow: -3px 3px 5px 3px rgba(0,0,0,0.15);
+            box-shadow: -3px 3px 5px 3px rgba(0,0,0,0.15);
+        }
+        .J_params_pannel .search{
+            text-align: center;
+        }
+        .J_params_pannel .search .icon1 {
+            top: 21px;
+            left: 20px;
+        }
+        .J_params_pannel .search .icon2 {
+            top: 21px;
+            right: 22px;
+        }
+        .J_params_pannel .search .J_cancel{
+            margin-top: 5px;
+        }
+        #J_params .J_params_trigger{
+            top:-2px;
+        }
+        .chosen-results{
+            max-height: 140px;
+        }
+        .clear{
+            text-align: center;
+            padding-top: 10px;
+        }
+        #scroller{
+            position: static;
+        }
+        #wrapper{
+            bottom: 0px;
+            top: 217px;
+            height: auto;
+            overflow: hidden;
+        }
+        .content .nav li{
+            height: 50px;
+            line-height: 50px;
+        }
+        table{
+            background: #fff;
+        }
+        table tbody{
+            color: #999;
+        }
+        table tr{
+            border-top: 1px solid #dddddd;
+            height: 55px;
+        }
+        table tr:last-child{
+            border-bottom: 1px solid #dddddd;
+        }
+        table{
+            width: 100%;
+        }
+        table th{
+            text-align: center;
+        }
+        table.result td{
+            text-align: center;
+            cursor: pointer;
+        }
+        table th,table td{
+            width:33%
+        }
+        #J_no_more_data{
+            height: 40px;
+            line-height: 40px;
+        }
+        .nodata{
+            text-align: center;
+            border-top: 1px solid #dddddd;
+        }
+        .clear button{
+            margin: 0px 10px;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content fn-clear">
+
+        <ul class="nav fn-clear fn-hide" id="J_params">
+            <li class="left"><div class="active J_params_trigger J_t1">日期</div></li>
+            <li class="line">|</li>
+            <li class="right"><div class="J_params_trigger J_t2">地区</div></li>
+        </ul>
+        <!-- date -->
+        <div class="J_params_pannel fn-hide">
+            <div class="search" id="J_search">
+                <i class="icon iconfont icon1">&#xe648;</i>
+                <i class="icon iconfont icon2 fn-right fn-hide">&#xe61d;</i>
+                <input type="text" id="J_search_in" placeholder="请选择日期搜索"/>
+                <button class="J_cancel">取消</button>
+            </div>
+        </div>
+        <!-- area -->
+        <div class="J_params_pannel fn-hide">
+            <div class="pt10">
+                <ul class="cityList fn-clear">
+                    <li class="item" id="J_sheng">
+                        <div class="label fn-left">省级</div>
+                        <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                        <span class="chosen-drop">
+                            <ul class="chosen-results">
+                                <!--<li class="active-result" value="1">长沙</li>-->
+                            </ul>
+                        </span>
+                    </li>
+                    <li class="item mt10" id="J_shi">
+                        <div class="label fn-left">市级</div>
+                        <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                        <span class="chosen-drop">
+                            <ul class="chosen-results">
+                            </ul>
+                        </span>
+                    </li>
+                    <li class="item mt10" id="J_qu">
+                        <div class="label fn-left">区级</div>
+                        <div class="value fn-right"><span id="J_qu_id">请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                        <span class="chosen-drop">
+                            <ul class="chosen-results">
+                            </ul>
+                        </span>
+                    </li>
+                </ul>
+                <div class="clear"><button id="J_clear">清空</button><button class="J_cancel">取消</button></div>
+            </div>
+        </div>
+
+
+        <ul class="nav mt10 fn-clear" id="J_nav">
+            <li class="left"><div class="J_trigger J_t1">询价单</div></li>
+            <li class="line">|</li>
+            <li class="right"><div class="active J_trigger J_t2">订单</div></li>
+        </ul>
+        <table class="mt10 head">
+            <thead>
+            <tr>
+                <th class="col1"></th>
+                <th>支付状态</th>
+                <th>金额</th>
+            </tr>
+            </thead>
+        </table>
+        <table class="mt10 head fn-hide">
+            <thead>
+                <tr>
+                    <th class="col1"></th>
+                    <th>状态</th>
+                    <th>金额</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
+    <div class="list" id="wrapper">
+        <div>
+            <div id="pulldown">
+                <span class="pulldown-icon"></span>
+                <span id="pulldown-label"></span>
+            </div>
+            <div id="scroller">
+                <table class="result">
+                    <tbody id="J_result_list">
+                        <!--<tr>
+                            <td>2015-3-25</td>
+                            <td>代付款</td>
+                            <td>&yen;298.00</td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div id="pullup" >
+                <span class="pullup-icon"></span><span id="pullup-label"></span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="ui-mask" id="J-mask" style="z-index: 1;display: none;"></div>
+<script data-main='../../../js/factory-order.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

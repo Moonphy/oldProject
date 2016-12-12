@@ -1,0 +1,24 @@
+{
+  "name": "map",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "scripts": {
+    "build": "quick build"
+  },
+  "devDependencies": {
+    "grunt-build-seajs": "~0.0.1"
+  },
+  "modulecfg": {
+    
+  }
+}

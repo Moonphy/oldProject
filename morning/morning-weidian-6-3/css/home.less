@@ -1,0 +1,133 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.text-overflow {
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.horizontal_vertical_center{
+  max-width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+#content{
+  padding-bottom: 60px;
+}
+#header{
+  width: 100%;
+  height: 15em;
+  background: url("../images/home_bg.jpg") no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  img{
+    width: 6.25em;
+    .border-radius (50%);
+    margin-top: 3em;
+  }
+  h2{
+    font-size: 1em;
+    .text-overflow;
+  }
+  .weixinid{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+  }
+}
+
+.user_list{
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #dbdbdb;
+  color: #666666;
+  li{
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dbdbdb;
+    img{
+      width: 30px;
+      float: left;
+      margin-right: 10px;
+    }
+    a{
+      display: block;
+      line-height: 30px;
+      //font-weight: 600;
+      color: #666666;
+      i{
+        width: 20px;
+        height: 20px;
+        .border-radius (100%);
+        border: 1px solid #df3d82;
+        color: #df3d82;
+        text-align: center;
+        font-size: 12px;
+        line-height: 20px;
+        margin-left: 10px;
+        display: inline-block;
+      }
+      label{
+        float: right!important;
+        line-height: 30px;
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.app{
+  margin: 10px 0;
+  a{
+    //width: 150px;
+    width: 47%;
+    height: 50px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    img{
+      width: 28px;
+      margin-left: 12%;
+      float: left;
+    }
+    span{
+      float: right;
+      margin-right: 15%;
+    }
+  }
+  .android{
+    float: left;
+    margin-left: 2%;
+  }
+  .ios{
+    float: right;
+    margin-right: 2%;
+  }
+}
+@media screen and (max-width: 330px) {
+  .app{
+    span{
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,188 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '交易记录详情信息' 'history-inquiry' '0.0.1' 'index' ',clist.css,plugin/pagination.css'>
+</@inc.header>
+
+<@inc.body>
+	
+	<div class="page-title">
+        <h2>
+			<span><strong>交易记录详情信息</strong></span>
+		</h2>
+    </div>
+    
+    <div class="main-list">
+
+        <#--<div class="tool">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>汽修厂</label>
+                <input name=""/>
+            </div>
+            <div class="group">
+                <label>汽修厂ID</label>
+                <input name=""/>
+            </div>
+            <div class="group">
+                <label>所在地</label>
+                <input name=""/>
+            </div>
+            <div class="group">
+                <label>跟踪日期</label>
+                <input name="tracking-start" id="start"/>至<input name="tracking-end" id="end"/>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+
+        <div class="subtool fn-clear">
+            <span class="fn-left label">排序：</span>
+            <ul>
+                <li>按询价次数</li>
+                <li>按交易金额</li>
+            </ul>
+
+        </div>-->
+        <div class="result-tip result-tip-warn">提示：按下Ctrl+F，输入关键字以搜索。</div>
+    	<div class="js-course-list fn-clear">
+
+            <table class="gridtable">
+                <thead>
+                <tr>
+                    <th scope="col">交易时间（付款）</th>
+                    <th scope="col">订单号</th>
+                    <th scope="col">交易金额</th>
+                    <th scope="col">交易状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <#assign list = result.model/>
+                    <#escape x as x?if_exists>
+                    <#if list?size gt 0>
+                    <#list list as model>
+                    <tr>
+                        <td>${model.payTime?string('yyyy-MM-dd')}</td>
+                        <td>
+                            ${model.orderMainNo}
+                        </td>
+                        <td>${model.money}</td>
+                        <td>${model.orderStatus}</td>
+                    </tr>
+                    </#list>
+                    <#else>
+                    <tr class="nodata">
+                        <td colspan="4">没有符合条件的数据</td>
+                    </tr>
+                    </#if>
+                    </#escape>
+                </tbody>
+            </table>
+
+            <div class="pager"></div>
+
+    	</div>
+    </div>
+
+    <style>
+        .jqd-content{
+            padding: 10px 20px;
+        }
+        .jqd-content label{
+            font-size: 15px;
+            color: #BEC866;
+        }
+        .jquery-dialog td{
+            padding: 8px 10px 8px 10px;
+        }
+        .lastmemo{
+            margin-top:10px;
+            height: 100%;
+        }
+        .lastmemo textarea{
+            width: 100%;
+            min-height: 100px;
+        }
+        td.num{
+            color: #df0007;
+        }
+        td.num a{
+            font-weight: bold;
+        }
+        td.num a:visited,td.num a:link{
+            color: #df0007;
+        }
+    </style>
+    <div id="modal" style="display: none;margin: 20px;">
+        <label>询价详细信息：</label>
+        <table class="gridtable" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td>询价单号</td>
+                    <td class="num"><a href="history/inquiry" title="查看询价详细信息" target="_blank">R4512412</a></td>
+                    <td>询价时间</td>
+                    <td class="num"><a href="new/inquiry" title="查看询价详细信息" target="_blank">2015-10-12 12：52：12</a></td>
+                    <td>询价所在地</td>
+                    <td class="num"><a href="new/inquiry" title="查看询价详细信息" target="_blank">湖南长沙</a></td>
+                </tr>
+                <tr>
+                    <td>需方名称</td>
+                    <td class="num"><a href="history/business" title="查看交易详细信息" target="_blank">阿建</a></td>
+                    <td>联系人</td>
+                    <td class="num"><a href="new/business" title="查看交易详细信息" target="_blank">陈建</a></td>
+                    <td>联系方式</td>
+                    <td class="num"><a href="new/business" title="查看交易详细信息" target="_blank">15701663455</a></td>
+                </tr>
+                <tr>
+                    <td>发票信息</td>
+                    <td class="num">需要发票</td>
+                    <td>过期时间</td>
+                    <td class="num">2015-12-23 13：52：12</td>
+                    <td>VIN码</td>
+                    <td class="num">RDEF4512415241254</td>
+                </tr>
+                <tr>
+                    <td>查询类别</td>
+                    <td class="num">新件</td>
+                    <td>品牌</td>
+                    <td class="num">宝马</td>
+                    <td>年款</td>
+                    <td class="num">2014</td>
+                </tr>
+                <tr>
+                    <td>车型</td>
+                    <td class="num">FD51241</td>
+                    <td>销售名称</td>
+                    <td class="num">XFD541241</td>
+                    <td>底盘号</td>
+                    <td class="num">EREW51241</td>
+                </tr>
+                <tr>
+                    <td>排量</td>
+                    <td class="num">2.0T</td>
+                    <td>变速箱种类</td>
+                    <td class="num">AT</td>
+                    <td>发动机号</td>
+                    <td class="num">2GR-FE</td>
+                </tr>
+                <tr>
+                    <td>生产年份</td>
+                    <td class="num" colspan="5">2014年1月</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="lastmemo">
+            <label>物流信息：</label>
+            <ul>
+                <li>2015-12-20 11：12：13 商品正在出库</li>
+                <li>2015-12-20 19：20：10 已发往湖南长沙分捡中心，正在分捡</li>
+                <li>2015-12-20 21：30：13 商品已到郴州，正在分捡</li>
+                <li>2015-12-21 1：12：13 商品已到达广州</li>
+                <li>2015-12-21 9：12：45 陈建已签收</li>
+            </ul>
+        </div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

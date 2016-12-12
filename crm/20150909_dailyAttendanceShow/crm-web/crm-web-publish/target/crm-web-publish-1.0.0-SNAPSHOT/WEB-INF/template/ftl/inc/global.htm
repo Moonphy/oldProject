@@ -1,0 +1,91 @@
+<#global $user = currUser?if_exists />
+<#--DEBUG 是否开启工程调试模式-->
+<#global DEBUG = false>
+
+<#if DEBUG?? && DEBUG>
+    <#--cdn cdn加速缓存服务器地址-->
+    <#assign cdn = 'http://127.0.0.1:2500'>
+    <#assign crm_cdn = '${cdn}/crm/pc_src'>
+    <#--moduleRoot 业务模块文件所在目录（相对于seajs模块根目录）-->
+    <#global moduleRoot = 'modules_src'>
+    <#-- 通用模块文件所在目录 -->
+    <#global galleryRoot = 'gallery_src'>
+<#else>
+    <#-- 远程:192.168.17.82 -->
+    <#assign cdn = 'http://127.0.0.1:5000'>
+    <#assign crm_cdn = '${cdn}/crm/pc'>
+    <#global moduleRoot = 'modules'>
+    <#-- 通用模块文件所在目录 -->
+    <#global galleryRoot = 'gallery'>
+</#if>
+
+<#--ctx 工程对外访问路径-->
+<#assign ctx = ''>
+<#--jsRoot js文件所在路径-->
+<#global jsRoot = '${crm_cdn}/js'>
+<#global comRoot = '${cdn}/common'>
+<#--seajsRoot seajs模块根路径-->
+<#global seajsRoot = '${jsRoot}'>
+<#--cssRoot css文件所在路径-->
+<#global cssRoot = '${crm_cdn}/css'>
+<#--imgRoot img文件所在路径-->
+<#global imgRoot = '${crm_cdn}/img'>
+<#global pluginRoot = '${cssRoot}/plugin'>
+
+<!--临时菜单-->
+<#--
+    <#if $user.isAdmin>
+    <#assign menus = {"models":[
+    {"title":"汽修厂","url":"#","isRoot":true}
+    ,{"title":"开发人及维护人列表","url":"/base/maintain/find/all","isRoot":false}
+    ,{"title":"汽修厂管理","url":"/mobile/zzff/factoryManage.do","isRoot":false}
+    ,{"title":"账户管理","url":"#","isRoot":true}
+    ,{"title":"创建账户","url":"/mobile/account/create.do","isRoot":false}
+    ,{"title":"现有账户","url":"/base/account/find/all","isRoot":false}
+    ,{"title":"公共号码管理","url":"#","isRoot":true}
+    ,{"title":"创建号码","url":"/mobile/commonNo/create.do","isRoot":false}
+    ,{"title":"现有号码","url":"/base/pubPhone/find/pub/all","isRoot":false}
+    ,{"title":"交易分析","url":"#","isRoot":true}
+    ,{"title":"订单统计","url":"/mobile/trade/order-tj.do","isRoot":false}
+    ,{"title":"询单分析","url":"/mobile/trade/inquiry-fx.do","isRoot":false}
+    ,{"title":"增长趋势分析","url":"/faq","isRoot":false}
+    ,{"title":"客户搜索","url":"/mobile/trade/customer-search.do","isRoot":false}
+    ,{"title":"客户分析","url":"#","isRoot":true}
+    ,{"title":"客户统计","url":"/mobile/customer/tj.do","isRoot":false}
+    ,{"title":"crm分析","url":"#","isRoot":true}
+    ,{"title":"工作统计","url":"/mobile/crm/gztj.do","isRoot":false}
+    ,{"title":"活动管理","url":"#","isRoot":true}
+    ,{"title":"VIP100管理","url":"/mobile/zzff/vip100-list.do","isRoot":false}
+    ,{"title":"优惠券管理","url":"/mobile/zzff/coupon-list.do","isRoot":false}
+    ,{"title":"砸金蛋配置","url":"/mobile/zzff/eggs.do","isRoot":false}
+    ,{"title":"客户管理","url":"#","isRoot":true}
+    ,{"title":"新客户信息录入","url":"/customer/new","isRoot":false}
+    ,{"title":"已联系客户追踪","url":"/customer/clist","isRoot":false}
+    ,{"title":"业绩统计","url":"#","isRoot":true}
+    ,{"title":"电话营销统计","url":"/statistics/tel/tradeInfo","isRoot":false}
+    ,{"title":"汇总统计","url":"/statistics/summary/tradeInfo","isRoot":false}
+    ,{"title":"个人中心","url":"#","isRoot":true}
+    ,{"title":"重设密码","url":"/resetpwd","isRoot":false}
+    ,{"title":"系统","url":"#","isRoot":true}
+    ,{"title":"安全退出系统","url":"/logout","isRoot":false}
+    ,{"title":"测试","url":"#","isRoot":true}
+    ,{"title":"图表功能测试","url":"/mobile/crm/charts.do","isRoot":false}
+    ,{"title":"上传功能测试","url":"/mobile/crm/upload.do","isRoot":false}]}
+    />
+<#else>
+    <#assign menus = {"models":[{"title":"客户管理","url":"#","isRoot":true}
+    ,{"title":"新客户信息录入","url":"/customer/new","isRoot":false}
+    ,{"title":"已联系客户追踪","url":"/customer/clist","isRoot":false}
+    ,{"title":"业绩统计","url":"#","isRoot":true}
+    ,{"title":"电话营销统计","url":"/statistics/tel/tradeInfo","isRoot":false}
+    ,{"title":"汇总统计","url":"/statistics/summary/tradeInfo","isRoot":false}
+    ,{"title":"个人中心","url":"#","isRoot":true}
+    ,{"title":"重设密码","url":"/resetpwd","isRoot":false}
+    ,{"title":"系统","url":"#","isRoot":true}
+    ,{"title":"安全退出系统","url":"/logout","isRoot":false}
+    ,{"title":"测试","url":"#","isRoot":true}
+    ,{"title":"图表功能测试","url":"/mobile/crm/charts.do","isRoot":false}
+    ,{"title":"上传功能测试","url":"/mobile/crm/upload.do","isRoot":false}]}
+    />
+</#if>
+    -->

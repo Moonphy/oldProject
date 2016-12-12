@@ -1,0 +1,109 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/order_done.css')
+    link(rel='stylesheet',href='css/order_all.css')
+block content
+    #afui
+        nav
+            ul
+                li
+                    a.selected(href='order_all.html',title='') 全部
+                li
+                    a(href='order_unpaid.html',title='') 待付款
+                li
+                    a(href='order_paid.html',title='') 待发货
+                li
+                    a(href='order_paid.html',title='') 待收货
+                li
+                    a(href='service.html',title='') 售后
+        #content(action='pay.html',method='post')
+            #order_unpaid
+                .order_tips
+                    span 2015-04-22
+                    span 929242778496691
+                    label.last 未付款
+                ul.cart_goods_body
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/show_1.jpg',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all &yen;<span>599.00</span>
+                ul.cart_goods_body
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/0.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all &yen;<span>599.00</span>
+                .pay
+                    label 实付：
+                        span.price_total &yen;<span>4738.00</span>
+                    .have_select 共<span>8</span>件商品
+                ul.order_detail
+                    li: a(href='pay.html',title='') 马上付款
+                    li: a(href='order_done.html',title='') 订单详情
+            #order_done
+                .order_tips
+                    span 2015-04-22
+                    span 929242778496691
+                    label.last 交易完成
+                ul.cart_goods_body
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all &yen;<span>599.00</span>
+                .pay
+                    label 实付：
+                        span.price_total &yen;<span>4738.00</span>
+                    .have_select 共<span>8</span>件商品
+                ul.order_detail
+                    li: a(href='order_done.html',title='') 订单详情
+            #order_paid
+                .order_tips
+                    span 2015-04-22
+                    span 929242778496691
+                    label.last 已付款
+                ul.cart_goods_body
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all &yen;<span>599.00</span>
+                .pay
+                    label 实付：
+                        span.price_total &yen;<span>4738.00</span>
+                    .have_select 共<span>8</span>件商品
+                ul.order_detail
+                    li: a(href='order_done.html',title='') 订单详情
+                    li: a(href='logistics.html',title='') 查询物流
+                    li: a(href='pay.html',title='') 确认收货
+        .bottom_btn
+            a(href='#',class='back_single',title='') 返回

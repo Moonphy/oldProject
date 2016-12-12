@@ -1,0 +1,196 @@
+.ul {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  z-index: 1;
+  float: left;
+}
+.ul li {
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  float: left;
+}
+.ul li a {
+  display: block;
+  width: 1200px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  float: left;
+}
+.ul li a .img {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  float: left;
+}
+.test_body {
+  width: 100px;
+}
+#reg_body .close_button {
+  position: absolute;
+  font-size: 18px;
+  background: url("../images/close_btn.png") no-repeat;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  z-index: 1000;
+}
+#reg_body .wrap_title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #f2295d;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+#reg_body #popup_login {
+  width: 306px;
+  border: 2px solid #f23d6b;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  margin-left: -188px;
+  display: none;
+  z-index: 999;
+  background-color: #f3f2f2;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  padding: 35px;
+}
+#reg_body .popup_main {
+  width: 240px;
+  padding: 0 32px 0 32px;
+  background-color: #fdfdfc;
+  border: 1px solid #e4e4e4;
+}
+#reg_body .popup_main form .form_title {
+  font-size: 14px;
+  color: #333333;
+  line-height: 45px;
+}
+#reg_body .popup_main form input {
+  width: 210px;
+  color: #5b5b5b;
+  padding: 6px 0 6px 5px;
+}
+#reg_body .popup_main form .center_wrap {
+  width: 100%;
+  height: 28px;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+}
+#reg_body .popup_main form .center_wrap img {
+  width: 18px;
+  height: 11px;
+  margin-top: 5px;
+}
+#reg_body .popup_main form .top {
+  margin: 20px 0;
+}
+#reg_body .popup_main form .reg_btn {
+  width: 50%;
+  height: 28px;
+  display: inline-block;
+  color: #ffffff;
+  line-height: 28px;
+  text-align: center;
+  background-color: #f2295d;
+  cursor: pointer;
+}
+#reg_body .popup_main form .test {
+  width: 50%;
+  height: 20px;
+}
+#reg_body .popup_main .submit-btn {
+  width: 80px;
+  height: 34px;
+  margin: 20px 80px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #f2295d;
+}
+#reg_body .popup_main .reg_submit-btn {
+  margin-left: 80px;
+}
+#reg_body .popup_main .contract p {
+  padding-left: 2px;
+  line-height: 14px;
+}
+#reg_body .popup_main .contract a {
+  color: #f2295d;
+  line-height: 14px;
+}
+#reg_body .popup_main .other_ways {
+  color: #ffffff;
+}
+#reg_body .popup_main .other_ways .span {
+  width: 142px;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 32px;
+  border-left: 1px solid #ffffff;
+  text-align: center;
+}
+#reg_body .popup_main .other_ways .QQ {
+  width: 164px;
+  height: 20px;
+  margin: 0 auto;
+  padding: 5px;
+  cursor: pointer;
+  background: url("../images/QQ_bg.png") no-repeat 10px center #3b5998;
+}
+#reg_body .popup_main .other_ways .weibo {
+  width: 164px;
+  height: 20px;
+  margin: 0 auto;
+  padding: 5px;
+  margin-top: 8px;
+  cursor: pointer;
+  background: url("../images/weibo_bg.png") no-repeat 10px center #d34836;
+}
+#reg_body .popup_main .other_ways .weixin {
+  width: 164px;
+  height: 20px;
+  margin: 0 auto;
+  padding: 5px;
+  margin-top: 8px;
+  cursor: pointer;
+  background: url("../images/Wechat Icon.png") no-repeat 10px center #0f9001;
+}
+#reg_body .popup_main .find_password {
+  margin: 20px 90px;
+}
+#reg_body .popup_main .find_password a {
+  color: #f2295d;
+}
+#reg_body #popup_register {
+  width: 306px;
+  border: 2px solid #f23d6b;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  margin-left: -188px;
+  display: none;
+  z-index: 999;
+  background-color: #f3f2f2;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  padding: 35px;
+}

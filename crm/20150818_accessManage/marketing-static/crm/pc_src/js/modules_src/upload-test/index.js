@@ -1,0 +1,94 @@
+var uploadTest;
+var $ = require('jquery');
+var upload = require('upload');
+var pl = require('plupload');
+
+require('mousewheel')($);
+require('fancybox')($,['buttons','thumbs','media']);
+
+$(function(){
+    var token = null;
+    var domain = null;
+    var imglist = document.querySelector('#imglist');
+    uploadInit();
+    $("#imglist img").fancybox({
+        padding : 0,//去掉两边白色边框
+        margin     : 5,
+        helpers : {
+            overlay : {
+                css : {
+                    'background' : 'rgba(58, 42, 45, 0.95)'//自定义遮罩颜色
+                }
+            }
+        }
+    });
+    function uploadInit(){
+        var up = new upload.initalize({
+            browse_button:'uploadbtn',
+            uptoken_url:'/cdn/qn/token',
+            uptoken_key:'token',
+            domain_key:'domain',
+            //downloadUrl:'/cdn/qn/file?key=',
+            downloadUrl:domain,
+            init:{
+                'FilesAdded': function(up, files) {
+                    pl.upload.each(files, function(file) {
+                        var div = document.createElement('div');
+                        div.className='uploading';
+                        var i = document.createElement('i');
+                        i.className='fa fa-spinner fa-spin fa-2x';
+                        file.loading=div;
+                        div.appendChild(i);
+                        imglist.appendChild(div);
+                        //console.log('请稍等',file);
+                    });
+                },
+                'FileUploaded':function(up, file, info) {
+                    console.log('uploaed',up, info,file);
+                    var res = JSON.parse(info);
+                    var img = document.createElement('img');
+                    img.src=upload.sdk.getUrl(res.key);
+
+                    imglist.replaceChild(img,file.loading);
+                    var url =  upload.sdk.imageView2({
+                        mode:2,
+                        w:500,
+                        h:200,
+                        quality:90
+                    },res.key);
+                    var url2 =  upload.sdk.imageMogr2({
+                        blur:'20x2'
+                    },res.key);
+
+                    var t = document.createElement('img');
+                    t.src=url;
+                    imglist.appendChild(t);
+
+                    var t2 = document.createElement('img');
+                    t2.src=url2;
+                    imglist.appendChild(t2);
+
+                   upload.sdk.imageAve(res.key,function(info){
+                        var sColorChange = [];
+                        for(var i=2; i<7; i+=2){
+                            sColorChange.push(parseInt("0x"+info.RGB.slice(i,i+2)));
+                        }
+                        document.querySelector('body').style.backgroundColor="RGB(" + sColorChange.join(",") + ")";
+                   });
+
+                   upload.sdk.imageInfo(res.key,function(info){
+                    console.log(info);
+                   });
+                },
+                'UploadProgress': function(up, file) {
+                    // 每个文件上传时,处理相关的事情
+                    //var progress = new FileProgress(file, 'fsUploadProgress');
+                    var chunk_size = pl.upload.parseSize(this.getOption('chunk_size'));
+                    //progress.setProgress(file.percent + "%", up.total.bytesPerSec, chunk_size);
+                    console.log(file.percent + "%",up.total.bytesPerSec,chunk_size);
+                }
+            }
+        });
+    }
+});
+module.exports = uploadTest;

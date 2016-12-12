@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>500 ERROR</title>
+    <style>
+        .wrapper{
+            width: 80%;
+            border: 1px solid #e6e8e9;
+            box-shadow: 0 3px 3px -2px rgba(0,0,0,0.25);
+            background: #fff;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .center{
+            text-align: center;
+        }
+        #newsticker a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrapper center">
+       <h1>500 error</h1>
+       <img src="/assets/images/500.jpg">
+       <div id="newsticker"><span id="tickertitle"></span><a id="typewriter" href="#"></a></div>
+       <p><a href="/index">回到首页</a></p>
+   </div>
+
+    <script type="text/javascript">
+        var current = 0;
+        var x = 0;
+        var speed = 70;
+        var speed2 = 2000;
+        function initArray(n) {
+            this.length = n;
+            for (var i =1; i <= n; i++) {
+                this[i] = ' '
+            }
+        }
+        typ = new initArray(8);
+        typ[0]="red:抱歉，我们系统出现了不可处理的错误！";
+        typ[1]="red:抱歉，我們系統出現了不可處理的錯誤";
+        typ[2]="red:Sorry, our system can not handle the error occurred";
+        typ[3]="red:죄송합니다, 오류를 처리 할 수없는 우리의 시스템은 발생";
+        typ[4]="red:申し訳ありませんが、エラーがは、エラーが発生し処理することはできません";
+        typ[5]="red:К сожалению, наша система не может справиться с Произошла ошибка";
+        typ[6]="red:Sorry, unser System nicht den Fehler zu behandeln aufgetreten";
+        typ[7]="red:Désolé, notre système ne gère pas l'erreur";
+        typ[8]="red:Уучлаарай, алдааг ажиллаж чадахгүй байгаа нь бидний систем гарлаа";
+        function typewrite() {
+            var m = typ[current];
+            document.getElementById("typewriter").href = '/index';
+            document.getElementById("typewriter").style.color = m.substring(0,m.indexOf(':'));
+            m = m.substring(m.indexOf(':') + 1);
+            m = m.replace("&","and");
+            document.getElementById("typewriter").innerHTML = m.substring(0, x++) + "_";
+            if (x == m.length + 1) {
+                x = 0
+                current++
+                if (current > typ.length - 1) {
+                    current = 0
+                }
+                setTimeout("typewrite()", speed2)
+            } else {
+                setTimeout("typewrite()", speed)
+            }
+        }
+        typewrite();
+   </script>
+</body>
+</html>

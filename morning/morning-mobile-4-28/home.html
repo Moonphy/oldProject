@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>早上好时尚网</title>
+  </head>
+  <body>
+    <div id="afui">
+      <header id="header"><a href="#" title="" class="back"></a>
+        <h1>个人中心</h1>
+        <div class="search"></div>
+        <form action="/search/" method="get" class="popup_search">
+          <input id="searchKeyword" placeholder="请输入商品关键字..." name="k">
+          <input id="searchBtn" type="submit" value="">
+        </form>
+      </header>
+      <div id="content">
+        <div class="user_header">
+          <div class="user_img fl"><img src="images/header.png" alt=""></div>
+          <div class="user_name fl">
+            <div class="name">萌萌哒小妹纸<i class="female"></i><i class="male"></i></div>
+            <button>签到</button>
+          </div>
+          <div class="hongbao fr">
+            <p>&yen;<span>999</span></p>
+            <p class="hongbao_h">我的红包</p>
+          </div>
+        </div>
+        <ul class="order_list">
+          <li>
+            <p>0</p><a href="order_unpaid.html" title="">待付款</a>
+          </li>
+          <li>
+            <p>0</p><a href="order_paid.html" title="">待发货</a>
+          </li>
+          <li>
+            <p>0</p><a href="order_paid.html" title="">待收货</a>
+          </li>
+        </ul>
+        <ul class="user_list">
+          <li class="my_hongbao"><a href="hongbao.html" title="">我的红包<img src="images/personal_myhongbao.png"><i>99</i>
+              <label>余额：<span> 9999</span>元</label></a></li>
+          <li class="my_jifen"><a href="jifen.html" title="">我的积分<img src="images/personal_jifen.png"><i>9</i>
+              <label><span> 999</span>点</label></a></li>
+          <li class="my_show"><a href="show.html" title="">我的晒单秀<img src="images/personal_show.png">
+              <label><span> 22</span>人赞过</label></a></li>
+          <li class="all_order"><a href="order_all.html" title="">所有订单<img src="images/personal_allfolder.png"></a></li>
+        </ul>
+        <ul class="user_list">
+          <li class="my_favorite"><a href="home_like.html" title="">我关注的商品<img src="images/personal_guanzhu.png"></a></li>
+          <li class="my_seen"><a href="home_favorite.html" title="">我看过的商品<img src="images/personal_kanguo.png"></a></li>
+          <li class="my_collection"><a href="home_favorite.html" title="">我收藏的商品<img src="images/personal_shouchang.png"></a></li>
+        </ul>
+        <ul class="user_list">
+          <li class="home_setting"><a href="home_setting.html" title="">设置<img src="images/personal_setting.png"></a></li>
+        </ul>
+        <div class="app"><a class="android"><img src="images/home_android.png"><span>Android客户端</span></a><a class="ios"><img src="images/home_ios.png"><span>IOS客户端</span></a></div>
+      </div>
+      <footer><a href="index.html" title="" class="home">
+          <div class="img"><img src="images/icon/home.png" alt=""></div>
+          <p>首页</p></a><a href="list.html" title="" class="fenlei">
+          <div class="img"><img src="images/icon/fenlei.png" alt=""></div>
+          <p>分类</p></a><a href="show.html" title="" class="show">
+          <div class="img"><img src="images/icon/show_img.png" alt=""></div>
+          <p>买家秀</p></a><a href="cart.html" title="" class="cart">
+          <div class="img"><img src="images/icon/cart.png" alt=""><i><span>100</span></i></div>
+          <p>购物车</p></a><a href="home.html" title="" class="personal selected">
+          <div class="img"><img src="images/icon/personal.png" alt=""><i><span>99</span></i></div>
+          <p>个人中心</p></a></footer>
+      <div class="form_content">
+        <ul>
+          <li class="h3">热门搜索：</li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/common.js"></script>
+    <script>$(".order_list li:last").css("border-right","none");</script>
+  </body>
+</html>

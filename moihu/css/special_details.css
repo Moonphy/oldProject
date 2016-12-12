@@ -1,0 +1,113 @@
+#product_classification {
+  margin-top: -15px;
+}
+.special_details_body .body-wrap {
+  width: 1236px;
+  margin: 0 auto;
+  position: relative;
+}
+.special_details_body .body-wrap #special_details_main {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 15px;
+}
+.special_details_body .body-wrap #special_details_main .block_top {
+  padding: 30px;
+  font-size: 16px;
+  font-family: '微软雅黑';
+  color: #555555;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dedede;
+}
+.special_details_body .body-wrap #special_details_main .block_content {
+  border-bottom: 1px dashed #dedede;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block {
+  width: 235px;
+  margin: 20px 20px 20px 0;
+  float: left;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .little_block_img {
+  position: relative;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .little_block_img .img_tips1 {
+  width: 30px;
+  height: 44px;
+  color: #ffffff;
+  font-size: 12px;
+  padding-left: 6px;
+  position: absolute;
+  top: 0;
+  left: 12px;
+  background: url("../images/products_search_little_block_img_bg2.png") no-repeat;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .little_block_img .img_like {
+  width: 23px;
+  height: 20px;
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  background: url("../images/special_like_1.png") no-repeat;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .little_block_img .img_like2 {
+  background: url("../images/special_like_2.png") no-repeat;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .little_block_img img {
+  width: 235px;
+  height: 235px;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .p_title {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .p_title span {
+  color: #acacac;
+  border-right: 1px solid #555555;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .p_title i {
+  margin-right: 5px;
+}
+.special_details_body .body-wrap #special_details_main .block_content .products_search_little_block .spc_price {
+  font-family: '微软雅黑';
+  font-size: 20px;
+  color: #ff802f;
+  margin-bottom: -10px;
+}
+.special_details_body .body-wrap #special_details_main .block_content .last {
+  margin-right: 0;
+}
+.special_details_body .body-wrap #special_details_main #page {
+  width: 368px;
+  margin: 50px auto;
+}
+.special_details_body .body-wrap #special_details_main #page .page_one .disabled {
+  display: none;
+}
+.special_details_body .body-wrap #special_details_main #page .page_one .current {
+  background-color: #76be00;
+  border-color: #76be00;
+  color: #ffffff;
+}
+.special_details_body .body-wrap #special_details_main #page .page_one .next {
+  width: 90px;
+}
+.special_details_body .body-wrap #special_details_main #page .page_one a {
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  border: 1px solid #eeeeee;
+  margin-right: -1px;
+  float: left;
+}
+.special_details_body .body-wrap #special_details_main #page .page_one div {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  float: left;
+}

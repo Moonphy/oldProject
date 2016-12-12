@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/budget_details.css">
+    <title>美乎--家居生活分享社交第一平台</title>
+  </head>
+  <body>
+    <div id="right_part">
+      <ul class="right">
+        <li class="to-top"></li>
+        <li class="erweima">
+          <div class="moihu_web"><img src="images/erweima_bg.jpg"></div>
+        </li>
+        <li class="feedback"></li>
+      </ul>
+    </div>
+    <div id="_common_header">
+      <div class="top">
+        <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
+        <div class="search">
+          <form method="get" action="products_search.html" target="_blank">
+            <div class="classification"><span id="searchList">搜产品</span>
+              <div id="popup_classification" class="hide js-over-show">
+                <ul>
+                  <li>搜产品</li>
+                  <li>搜案例</li>
+                  <li>搜经验</li>
+                  <li>搜问答</li>
+                </ul>
+              </div>
+            </div>
+            <div class="search_keyword">
+              <input type="text" name="keyword" class="search_keyword">
+            </div>
+            <div class="search_sub">
+              <input type="submit" value="" class="search_sub">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="nav_out">
+        <div class="nav">
+          <ul class="nav_bar">
+            <li><a href="index.html">首页</a></li>
+            <li class="hot"><a href="square.html">平方购</a>
+              <div class="nav_hot">热门</div>
+            </li>
+            <li><a href="cost_efficient.html">聚合算</a></li>
+            <li><a href="base_price.html">底价爆款</a></li>
+            <li class="anli"><a href="#">案例经验</a>
+              <div id="popup_anli" class="hide js-over-show">
+                <ul>
+                  <li><a href="case.html">案例</a></li>
+                  <li><a href="experience.html">经验</a></li>
+                  <li><a href="#">问答</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="lastli"><a href="budget_details.html">预算</a></li>
+          </ul>
+          <ul class="user_unlogin"><a class="qq"></a><a class="weibo"></a>
+            <div class="unlogin"><a href="#" class="login">登录</a><a href="#" class="register">注册</a></div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="budget_details_body">
+      <div class="body-wrap">
+        <div id="product_classification" class="products-top">
+          <div class="classification_header">产品分类</div>
+          <ul class="classificationul">
+            <li class="li cfli1"><a href="#" class="li1">主材</a></li>
+            <li class="li cfli2"><a href="#" class="li2">家具</a></li>
+            <li class="li cfli3"><a href="#" class="li3">家饰</a></li>
+            <li class="li cfli4 lastli"><a href="#" class="li4">家电</a></li>
+            <div id="popup_products_details">
+              <div class="popup popup_zhucai js-over-show">
+                <div class="cover"></div>
+                <div class="title">墙面</div>
+                <ul>
+                  <li><a>墙漆</a></li>
+                  <li><a>踢脚线</a></li>
+                  <li><a>墙砖</a></li>
+                  <li><a>墙纸</a></li>
+                </ul>
+                <div class="title">地面</div>
+                <ul>
+                  <li><a>地板</a></li>
+                  <li><a>地砖</a></li>
+                </ul>
+                <div class="title">水电改造</div>
+                <ul>
+                  <li><a>光源</a></li>
+                  <li><a>开关面板</a></li>
+                  <li><a>电线管</a></li>
+                  <li><a>水管</a></li>
+                  <li><a>漏电开关</a></li>
+                  <li><a>配电箱</a></li>
+                </ul>
+                <div class="title">厨卫五金</div>
+                <ul>
+                  <li><a>龙头</a></li>
+                  <li><a>厨房挂架</a></li>
+                  <li><a>水槽</a></li>
+                  <li><a>角阀</a></li>
+                  <li><a>花洒</a></li>
+                  <li><a>卫浴挂架</a></li>
+                  <li><a>地漏</a></li>
+                </ul>
+                <div class="title">卫浴</div>
+                <ul>
+                  <li><a>马桶</a></li>
+                  <li><a>浴室柜</a></li>
+                  <li><a>洗脸盆</a></li>
+                  <li><a>浴缸</a></li>
+                </ul>
+                <div class="title">门窗</div>
+                <ul>
+                  <li><a>室内门</a></li>
+                  <li><a>防盗门</a></li>
+                  <li><a>铝合金窗</a></li>
+                </ul>
+                <div class="title">橱柜</div>
+                <ul>
+                  <li><a>定制橱柜</a></li>
+                </ul>
+                <div class="title">采暖</div>
+                <ul>
+                  <li><a>浴霸</a></li>
+                  <li><a>壁挂炉</a></li>
+                  <li><a>暖气片</a></li>
+                  <li><a>分集水器</a></li>
+                  <li><a>地暖管</a></li>
+                </ul>
+                <div class="title">其他</div>
+                <ul>
+                  <li><a>防水</a></li>
+                  <li><a>吊顶扣板</a></li>
+                </ul>
+              </div>
+              <div class="popup popup_jiaju js-over-show">
+                <div class="cover"></div>
+                <div class="title">客厅</div>
+                <ul>
+                  <li><a>沙发</a></li>
+                  <li><a>电视柜</a></li>
+                  <li><a>鞋柜</a></li>
+                  <li><a>茶几</a></li>
+                  <li><a>玄关</a></li>
+                  <li><a>沙发床</a></li>
+                  <li><a>壁炉</a></li>
+                  <li><a>角几</a></li>
+                </ul>
+                <div class="title">餐厅</div>
+                <ul>
+                  <li><a>餐桌</a></li>
+                  <li><a>酒柜</a></li>
+                </ul>
+                <div class="title">卧室</div>
+                <ul>
+                  <li><a>斗柜</a></li>
+                  <li><a>木衣柜</a></li>
+                  <li><a>床头柜</a></li>
+                  <li><a>床垫</a></li>
+                  <li><a>梳妆台</a></li>
+                  <li><a>儿童套房</a></li>
+                </ul>
+                <div class="title">书房</div>
+                <ul>
+                  <li><a>书桌</a></li>
+                  <li><a>书柜</a></li>
+                </ul>
+                <div class="title">椅</div>
+                <div class="title">定制衣柜</div>
+              </div>
+              <div class="popup popup_jiashi js-over-show">
+                <div class="cover"></div>
+                <ul>
+                  <li><a>窗帘</a></li>
+                  <li><a>灯饰</a></li>
+                  <li><a>靠抱枕</a></li>
+                  <li><a>园艺</a></li>
+                  <li><a>床品</a></li>
+                </ul>
+              </div>
+              <div class="popup popup_jiadian js-over-show">
+                <div class="cover"></div>
+                <ul>
+                  <li><a>洗衣机</a></li>
+                  <li><a>平板电视</a></li>
+                  <li><a>热水器</a></li>
+                  <li><a>空调</a></li>
+                  <li><a>电冰箱</a></li>
+                  <li><a>吸油烟机</a></li>
+                  <li><a>消毒柜</a></li>
+                  <li><a>灶具</a></li>
+                  <li><a>洗碗机</a></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+          <div class="budget"><a href="#">做预算</a></div>
+        </div>
+        <div id="budget_details_main">
+          <div id="main_left">
+            <div class="main_left_part1">
+              <div class="part1_content">
+                <div class="part1_content_header">预算神器解房</div>
+                <div class="budget_type">预算属于：<span>精致有范型</span></div>
+                <div class="suggestion">
+                  <ul>
+                    <li>.预算合理，好好利用，打扮出属于你的范来！</li>
+                    <li>.房价越来越贵，根据户型定制家具，能帮你省出不少空间。</li>
+                    <li>.上美乎，看经验，学网购，多省钱！</li>
+                    <li>.增加53万元可提升至“土豪驾到”型</li>
+                  </ul>
+                </div>
+                <div id="distribute">
+                  <ul>
+                    <div class="distribute">分布建议如下：</div>
+                    <li>主材<span>12万-13万</span></li>
+                    <li>家具<span>8万-10万</span></li>
+                    <li>家电<span>3万-5万</span></li>
+                    <li>家饰<span>9万-11万</span></li>
+                    <li>人工费<span>9万-11万</span></li>
+                    <li>设计费<span>3万-3.5万</span></li>
+                  </ul>
+                </div>
+                <div class="change_budget">
+                  <div class="change_btn">更改预算</div>
+                </div>
+                <div class="personal">
+                  <label class="f_checkbox_normal unchecked">保存方案到个人主页
+                    <input type="checkbox" name="" value="">
+                  </label>
+                  <label class="f_checkbox_normal unchecked">发送邮件到E-mail
+                    <input type="checkbox" name="" value="">
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="main_left_part2">
+              <div class="part2_content_header">筛选条件</div>
+              <div class="part2_content">
+                <div class="default">
+                  <div class="title">默认</div>
+                </div>
+                <div class="price">
+                  <div class="title"> 价格</div>
+                  <label class="f_radio unselected">100-500
+                    <input type="radio" name=" " value="">
+                  </label>
+                  <label class="f_radio unselected">500-1000
+                    <input type="radio" name=" " value="">
+                  </label>
+                  <label class="f_radio unselected">1000-1500
+                    <input type="radio" name=" " value="">
+                  </label>
+                  <label class="f_radio unselected">1500以上
+                    <input type="radio" name=" " value="">
+                  </label>
+                </div>
+                <div class="sales">
+                  <div class="title"> 销量</div>
+                  <label class="f_radio unselected">月销量
+                    <input type="radio" name=" " value="">
+                  </label>
+                  <label class="f_radio unselected">优惠活动款
+                    <input type="radio" name=" " value="">
+                  </label>
+                </div>
+                <div class="style"></div>
+                                <div class="title">风格</div>
+                                <label class="f_radio unselected">现代
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">欧式
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">中式
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">美式
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">田园
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">宜家
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">混搭
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">北欧
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">地中海
+                                  <input type="radio" name="" value="">
+                                </label>
+                                <label class="f_radio unselected">小清新
+                                  <input type="radio" name="" value="">
+                                </label>
+              </div>
+            </div>
+          </div>
+          <div id="main_right">
+            <div class="block">
+              <div class="header">
+                <div class="row1_header row1_header1">根据您<span>98</span>㎡<span>3</span>房<span>23</span>万预算筛选出：</div>
+              </div>
+              <div class="row1_little_block">
+                <div class="little_block1">
+                  <div class="unselected_budget"></div>
+                  <div class="h3 bg1">主材<span>813件</span></div>
+                  <ul class="content">
+                    <li><a href="#">墙面</a></li>
+                    <li><a href="#">采暖</a></li>
+                    <li><a href="#">门窗</a></li>
+                    <li><a href="#">卫浴</a></li>
+                    <li><a href="#">地面</a></li>
+                    <li><a href="#">橱柜</a></li>
+                    <li><a href="#">水电改造</a></li>
+                    <li><a href="#">厨卫五金</a></li>
+                    <li><a href="#">其他</a></li>
+                  </ul>
+                </div>
+                <div class="little_block1">
+                  <div class="h3 bg2">家具<span>689件</span></div>
+                  <ul class="content">
+                    <li><a href="#">客厅</a></li>
+                    <li><a href="#">餐厅</a></li>
+                    <li><a href="#">书房</a></li>
+                    <li><a href="#">卧室</a></li>
+                    <li><a href="#">椅</a></li>
+                    <li><a href="#">定制衣柜</a></li>
+                  </ul>
+                </div>
+                <div class="little_block1">
+                  <div class="h3 bg3">家饰<span>363件</span></div>
+                  <ul class="content">
+                    <li><a href="#">窗帘</a></li>
+                    <li><a href="#">灯饰</a></li>
+                    <li><a href="#">床品</a></li>
+                    <li><a href="#">园艺</a></li>
+                    <li><a href="#">挂钟</a></li>
+                  </ul>
+                </div>
+                <div class="little_block1">
+                  <div class="h3 bg4">家电<span>986件</span></div>
+                  <ul class="content">
+                    <li><a href="#">平板电视</a></li>
+                    <li><a href="#">洗衣机</a></li>
+                    <li><a href="#">空调</a></li>
+                    <li><a href="#">灶具</a></li>
+                    <li><a href="#">洗碗机</a></li>
+                    <li><a href="#">吸油烟机</a></li>
+                    <li><a href="#">电冰箱</a></li>
+                    <li><a href="#">热水器</a></li>
+                    <li><a href="#">消毒柜</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="block2">
+              <div class="ck-slide">
+                <div class="img_header">
+                  <div class="header_left"><span>主材</span><span>></span><span>门窗</span><span>></span></div>
+                  <div class="header_right">排序方式
+                    <div id="popup_budget_sort" class="js-over-show">
+                      <li class="unselected">销量↑</li>
+                      <li class="selected">价格↓</li>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ck-slide-wrapper">
+                  <li><a href="#" target="_blank"><img src="images/examples/img_big_1.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_2.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">长沙发 皮沙发 进口 新居沙发 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_3.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_4.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">装饰 家装 家具 羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_4.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_1.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_2.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_3.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_4.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="hide"><a href="#" target="_blank"><img src="images/examples/img_big_1.jpg"></a>
+                    <div class="price_bg_2">
+                      <div class="source">京东</div>
+                      <div class="price">¥3698</div>
+                    </div>
+                    <div class="img_title">珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷</div>
+                    <div class="other_spec">
+                      <div class="key">其他规格：</div>
+                      <div class="spec">
+                        <div class="t1">T<span>1</span>
+                          <div id="spc" class="s1 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t2">T<span>2</span>
+                          <div id="spc" class="s2 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t3">T<span>3</span>
+                          <div id="spc" class="s3 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t4">T<span>4</span>
+                          <div id="spc" class="s4 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t5">T<span>5</span>
+                          <div id="spc" class="s5 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t6">T<span>6</span>
+                          <div id="spc" class="s6 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t7">T<span>7</span>
+                          <div id="spc" class="s7 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t8">T<span>8</span>
+                          <div id="spc" class="s8 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t9">T<span>9</span>
+                          <div id="spc" class="s9 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                        <div class="t10">T<span>10</span>
+                          <div id="spc" class="s10 js-over-show hide">1.5*1.8儿童专用被子尺寸<i>￥365</i></div>
+                        </div>
+                        <div class="t11">T<span>11</span>
+                          <div id="spc" class="s11 js-over-show hide">1.8*1.8儿童专用被子尺寸<i>￥429</i></div>
+                        </div>
+                        <div class="t12">T<span>12</span>
+                          <div id="spc" class="s12 js-over-show hide">2.0*2.3儿童专用被子尺寸<i>￥498</i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="arrow"><a href="javascript:;" class="ctrl-slide ck-prev">上一张</a><a href="javascript:;" class="ctrl-slide ck-next">下一张</a></div>
+                <div class="ck-slidebox">
+                  <div class="slidewrap">
+                    <ul class="dot-wrap">
+                      <li class="current">
+                        <div class="current"></div><img src="images/examples/img_little_1.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_2.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_3.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_4.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_5.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_6.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_7.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_8.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_9.jpg">
+                      </li>
+                      <li>
+                        <div class="current"></div><img src="images/examples/img_little_10.jpg">
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="page">
+                <div class="page_ten">
+                  <!--a(href='#?page=2',class='next disabled') 上一组--><a class="current">1</a><a href="#?page=2">2</a><a href="#?page=3">3</a><a href="#?page=4">4</a><a href="#?page=5">5</a><a href="#?page=6">6</a><a href="#?page=7">7</a><a href="#?page=8">8</a><a href="#?page=9">9</a><a href="#?page=10">10</a><a href="#?page=11">11</a><a href="#?page=12">12</a><a href="#?page=2" class="next">下一组</a>
+                </div>
+                <div class="page_more1"><a href="#?page=13">13</a><a href="#?page=14">14</a><a href="#?page=15">15</a><a href="#?page=16">16</a><a href="#?page=17">17</a><a href="#?page=18">18</a><a href="#?page=19">19</a><a href="#?page=20">20</a><a href="#?page=21">21</a><a href="#?page=22">22</a><a href="#?page=23">23</a><a href="#?page=24">24</a><a href="#?page=25">25</a><a href="#?page=26">26</a><a href="#?page=27">27</a><a href="#?page=28">28</a><a href="#?page=29">29</a></div>
+                <div class="page_more2"><a href="#?page=30">30</a><a href="#?page=31">31</a><a href="#?page=32">32</a><a href="#?page=33">33</a><a href="#?page=34">34</a><a href="#?page=35">35</a><a href="#?page=36">36</a><a href="#?page=37">37</a><a href="#?page=38">38</a><a href="#?page=39">39</a><a href="#?page=40">40</a><a href="#?page=41">41</a><a href="#?page=42">42</a><a href="#?page=43">43</a><a href="#?page=44">44</a><a href="#?page=45">45</a><a href="#?page=46">46</a><a href="#?page=47">47</a><a href="#?page=48">48</a><a href="#?page=49">49</a><a href="#?page=50">50</a><a href="#?page=51">51</a>
+                </div>
+              </div>
+            </div>
+            <div class="recommend">
+              <div class="recommend_h">你可能喜欢的案例</div>
+              <div class="recommend_little_block"><a><img src="images/examples/recommend_1.jpg"></a><a href="" target="_blank">
+                  <div class="recommend_content">[现代]<span>简约不简单，85后夫妻简约小窝</span></div></a></div>
+              <div class="recommend_little_block"><a><img src="images/examples/recommend_2.jpg"></a><a href="" target="_blank">
+                  <div class="recommend_content">[现代]<span>简约不简单，85后夫妻简约小窝</span></div></a></div>
+              <div class="recommend_little_block last"><a><img src="images/examples/recommend_3.jpg"></a><a href="" target="_blank">
+                  <div class="recommend_content">[现代]<span>简约不简单，85后夫妻简约小窝</span></div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="bottom">
+        <div class="moihulogo"><img src="images/moihu_logo.png"></div>
+        <div class="us">
+          <ul>
+            <li><a>广告合作</a></li>
+            <li><a>免责声明</a></li>
+            <li><a>友情链接</a></li>
+            <li><a>联系我们</a></li>
+            <li><a>关于我们</a></li>
+            <li><a>@美乎网meihu</a></li>
+          </ul>
+          <p>Copyright © 2013 美乎-MOIHU  Powered by WordPress and 中国万网 - 粤ICP备12017804号-1</p><br>
+          <div class="Attention"><span>关注美乎网  ：</span><a><img src="images/weibo_bg.png"></a><a><img src="images/renren_bg.png"></a><a><img src="images/qqkongjian_bg.png"></a><a><img src="images/qweibo_bg.png"></a><a><img src="images/souhu_bg.png"></a><a><img src="images/douban_bg.png"></a></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.1.8.2.js" rel="stylesheet"></script>
+    <script src="js/index.js" rel="stylesheet"></script>
+    <script src="js/slide.js"></script>
+    <script>$('.ck-slide').ckSlide({autoPlay: true,dir: null,isAnimate: false});</script>
+  </body>
+</html>

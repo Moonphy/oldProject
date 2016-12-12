@@ -1,0 +1,167 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/show_post.css')
+    script(src='http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 发布我的买家秀
+            .search
+            form.popup_search(action='/search/', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+        form#content1(action='show_personal.html',method='post')
+            .main_visual1.photolist
+                ul
+                    li.add_btn(id='addImg-box')
+                        p.bg +
+                        p 添加图片
+                        input(id='chooseImg',type='file',value='')
+
+            h3 提示：每次晒单只能发布一套装扮的8张照片
+            .main_visual2
+                h4 我秀的商品：
+                .same_main_image
+                    .swiper-wrapper
+                        .swiper-slide
+                            a.img(href='detail.html',title='')
+                                img(src='images/examples/show_1.jpg',alt='')
+                            p &yen; <span>999.00</span>
+                            a.a 去看看
+                            .del_btn(onclick=' $(this).parent().remove();')
+                        .swiper-slide
+                            a.img(href='detail.html',title='')
+                                img(src='images/examples/1.png',alt='')
+                            p &yen; <span>999.00</span>
+                            a.a 去看看
+                            .del_btn(onclick= '$(this).parent().remove();')
+                        .swiper-slide.add_img
+                            .bg +
+                            .select_img 选择商品
+
+            textarea(rows='5',cols='20',value placeholder='(选填，消息内容长度不得超过100字)')
+            input.submit(type='submit',value='确认发布')
+
+        #content2
+            form(action='show_post.html',method='post')
+                .check
+                    label.allselect.unchecked_all 全选
+                        input(class='',type='checkbox',name='',value='')
+                    span 2015-04-22
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+            form(action='show_post.html',method='post')
+                .check
+                    label.allselect.unchecked_all 全选
+                        input(class='',type='checkbox',name='',value='')
+                    span 2015-04-22
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+
+            input.submit.sub_content2(type='submit',value='确定')
+block jsblock
+    //script(src='js/swiper.min.js')
+    script(src='js/show_post.js')
+    script.
+        try{
+            var photoNum = $('.photoCut').length;
+            var chooseImg = $('#chooseImg');
+
+            $('input[type=file]').on('change', function () {
+                // 得到文件列表
+                var files = !!this.files ? this.files : [];
+
+                // 如果没有选择文件或者没有FileReader对象
+                if (!files.length || !window.FileReader) return;
+
+                // 文件类型
+                if (/^image/.test(files[0].type)) {
+
+                    //创建实例
+                    var reader = new FileReader();
+
+                    // 将本地文件给DataURL
+                    reader.readAsDataURL(files[0]);
+
+                    // 上传时操作
+                    reader.onloadend = function () {
+                        $('#addImg-box').before('<li><div><a></a></div></li>');
+                        $('#addImg-box').prev().find('div').addClass('photoCut').css('background-image', "url(" + this.result + ")").find('a').attr({
+                            href: '#',
+                            onclick: " $(this).parents('li').remove();photoNum--; if(photoNum == 7){$('#addImg-box').show();}else{$('#lastNum').html(8-photoNum)}"
+                        }).addClass('.del_btn').list;
+                    };
+                    photoNum++;
+                    $('#lastNum').html(8 - photoNum);
+                    if (photoNum >= 8) {
+                        $('#addImg-box').hide();
+                    }
+                    chooseImg.replaceWith(chooseImg = chooseImg.clone(true));
+
+                } else {
+                    alert("文件类型不是图片");
+                }
+            });
+        }catch(e){
+        }

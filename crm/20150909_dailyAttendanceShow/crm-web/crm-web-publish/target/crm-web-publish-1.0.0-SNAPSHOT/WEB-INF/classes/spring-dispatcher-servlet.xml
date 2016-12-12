@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<!--<context:property-placeholder location="classpath:ftl_global_variables.properties" ignore-unresolvable="true"/>-->
+	
+	<bean id="viewResolver" class="com.qipeipu.crm.utils.view.AppViewResolver">
+        <property name="defaultViewResolver" ref="beanNameViewResolver"/>
+        <property name="viewResolverMap">
+            <map>
+                <entry>
+                    <key>
+                    	<set>
+		                    <value>.htm</value>
+                        </set>
+                    </key>
+                    <ref bean="freeMarkerViewResolver"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>	
+    
+     <!--  FreeMarker ViewResolver Configuration -->
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <!-- 将Spring的FreeMarkerView改成我们扩展的View -->
+        <property name="viewClass" value="com.qipeipu.crm.utils.view.AppFreeMarkerView" />
+        <property name="exposeRequestAttributes" value="true" /> 
+        <property name="exposeSessionAttributes" value="true" /> 
+        <property name="exposeSpringMacroHelpers" value="true" />
+    </bean>
+    
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+    
+    <!-- FreeMarker Configuration -->     
+    <bean id="freemarkerConfig"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+       <property name="configLocation" value="classpath:freemarker.properties"/>
+        <property name="templateLoaderPath" value="/WEB-INF/template/ftl"/>
+         <property name="freemarkerVariables">
+             <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape"/>
+            </map>
+         </property>
+    </bean>
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置上传文件的最大尺寸为1MB -->
+        <property name="maxUploadSize">
+            <value>1048576</value>
+        </property>
+    </bean>
+
+</beans>

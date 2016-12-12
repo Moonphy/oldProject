@@ -1,0 +1,18 @@
+{
+  "name": "edit-role-menu",
+  "version": "0.0.1",
+  "description": "编辑菜单",
+  "keywords": [],
+  "author": "cjxsgn <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "licenses": "MIT",
+  "scripts": {
+    "build": "quick build"
+  },
+  "modulecfg": {
+    
+  }
+}

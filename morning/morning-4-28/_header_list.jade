@@ -1,0 +1,67 @@
+#popup_subdivision
+    .sec_classify.fl
+        form.sec_classify_title
+            label.f_radio.unselected.sec_classify_1 流行男鞋
+                input(type='radio',name=' ',value='')
+            label.f_radio.unselected.sec_classify_2 流行女鞋
+                input(type='radio',name=' ',value='')
+        form.popup_sec_classify_2
+            each item in ['高跟鞋','坡跟鞋','内增高','单鞋','休闲鞋','凉鞋','女靴','雪地靴','筒靴']
+                label.f_radio.unselected #{item}
+                    input(type='radio',name=' ',value='')
+    .classify_color.fl
+        form
+            ul.fl
+                li.selected_color: .classify_color_1
+                li: .classify_color_2
+                li: .classify_color_3
+                li: .classify_color_4
+                li: .classify_color_5
+                li: .classify_color_6
+                li: .classify_color_7
+                li: .classify_color_8
+                li: .classify_color_9
+                li: .classify_color_10
+                li: .classify_color_11
+                li: .classify_color_12
+                li: .classify_color_13
+                li: .classify_color_14
+                li: .classify_color_15
+        form.selected_entrance.fl
+            label.f_radio.unselected 浅口
+                input(type='radio',name=' ',value='')
+            label.f_radio.unselected 深口
+                input(type='radio',name=' ',value='')
+            label.f_radio.unselected 中口
+                input(type='radio',name=' ',value='')
+    form.outside_material
+        each item in ['牛皮','猪皮','羊皮','麂皮','漆皮','女靴','反绒皮','布面','绒面','PU/革','磨砂皮','其它']
+            label.f_radio.unselected #{item}
+                input(type='radio',name=' ',value='')
+    form.inside_material
+        each item in ['牛皮','羊皮','猪皮','人造革/PU','超纤','布面','棉质','人造短毛线','网纱','羊毛']
+            label.f_radio.unselected #{item}
+                input(type='radio',name=' ',value='')
+    form.good_type
+        each item in ['单鞋','浅口鞋','包脚鞋','低筒靴','中筒靴','高筒靴','皮毛一体','其它']
+            label.f_radio.unselected #{item}
+                input(type='radio',name=' ',value='')
+    .goods_height_header
+        form.good_height
+            each item in ['低跟(小于3cm)','中跟(3-5cm)','高跟(5-7cm)','超高跟(大于7cm)']
+                label.f_radio.unselected #{item}
+                    input(type='radio',name=' ',value='')
+        form.good_header
+            label.f_radio.unselected 圆头
+                input(type='radio',name=' ',value='')
+            label.f_radio.unselected 尖头
+                input(type='radio',name=' ',value='')
+            label.f_radio.unselected 方头
+                input(type='radio',name=' ',value='')
+    form.pop_elements
+        each item in ['图腾','铆钉','车缝线','金属','皮革拼接','绣花','亮片','镂空','流苏','翻边','刺绣','水钻','系带']
+            label.f_radio.unselected #{item}
+                input(type='radio',name=' ',value='')
+    .ad_img
+        li: a(href='',title=''): img(src='images/examples/ad_list_1.jpg',alt='')
+        li: a(href='',title=''): img(src='images/examples/ad_list_2.jpg',alt='')

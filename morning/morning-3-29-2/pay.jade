@@ -1,0 +1,73 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/pay.css')
+
+block content
+    include _header
+    .pay_body
+        .pay_main
+            .pay_block
+                .pay_title 收货地址
+                .address
+                    .address_main.selected
+                        .name 张三
+                        .personal
+                            .telephone 138****8888
+                            .address_big
+                                span 广东省
+                                span 广州市
+                                span 白云区
+                            .address_detail 广花一路633号平沙国际商务中心502室
+                            .zip_code (<span>510440</span>)
+                    .address_main
+                        .name 张三
+                        .personal
+                            .telephone 138****8888
+                            .address_big
+                                span 广东省
+                                span 广州市
+                                span 白云区
+                            .address_detail 广花一路633号平沙国际商务中心502室
+                            .zip_code (<span>510440</span>)
+                    .address_main
+                        .name 张三
+                        .personal
+                            .telephone 138****8888
+                            .address_big
+                                span 广东省
+                                span 广州市
+                                span 白云区
+                            .address_detail 广花一路633号平沙国际商务中心502室
+                            .zip_code (<span>510440</span>)
+                    .div.add_address
+            .pay_block
+                .pay_title 支付方式
+                .style_information
+                    .style1 支付宝
+                    .style1 微信支付
+            .pay_block
+                .pay_title 发票信息
+                .style_information
+                    .information1 电子发票
+                    .information1 纸质发票
+            .pay
+                .have_select 商品件数：<i>8</i>件
+                .price_total 应付总额：<span>4738</span>元
+                .settle_btn 立即下单
+
+    include _footer
+
+block jsblock
+    script(type='text/javascript').
+        $(document).ready(function(){
+            $(".address_main").click(function () {
+                $(this).addClass("selected").removeClass("unselected").siblings(".selected").removeClass("selected").addClass("unselected");
+            });
+            $(".style1").click(function () {
+                $(this).addClass("selected").removeClass("unselected").siblings(".selected").removeClass("selected").addClass("unselected");
+            });
+            $(".information1").click(function () {
+                $(this).addClass("selected").removeClass("unselected").siblings(".selected").removeClass("selected").addClass("unselected");
+            });
+        });

@@ -1,0 +1,57 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/order_done.css')
+block content
+    #afui
+        #content
+            ul.cart_goods_body
+                li.td2
+                    a(href='detail.html',title='')
+                        img(src='images/examples/good_block_img.png',alt='')
+                li.td3
+                    a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+
+                    i 数量：<span>1</span>件
+                li.td4
+                    p 牛皮
+                    p 黑色
+                    p 245/39
+                li.td5
+                    .good_price ¥<span>599.00</span>
+            ul.cart_goods_body
+                li.td2
+                    a(href='detail.html',title='')
+                        img(src='images/examples/good_block_img.png',alt='')
+                li.td3
+                    a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+
+                    i 数量：<span>1</span>件
+                li.td4
+                    p 牛皮
+                    p 黑色
+                    p 245/39
+                li.td5
+                    .good_price ¥<span>599.00</span>
+
+            .pay
+                label 实付：
+                    label.price_total ¥<span>4738.00</span>
+                .have_select 共<span>8</span>件商品
+            label 订单号：
+                span 929242778496691
+            label.last 距离交易关闭还有：
+                span#day_show 0 天
+                span#hour_show 0 时
+                span#minute_show 0 分
+                span#second_show 0 秒
+
+            ul.address_detail
+                li 张三
+                li <span>广东省</span><span>广州市</span><span>白云区</span>
+                li <span>均禾街道</span><span>广花一路633号平沙国际商务中心502室广花一国际商务中心502室</span>
+                li 510440
+                li 13978398888
+        .bottom_btn
+            a(href='#',class='back_single',title='') 返回
+block jsblock
+    script(src='js/order_done.js')

@@ -1,0 +1,231 @@
+.pay_body{
+  width: 1280px;
+  padding: 10px;
+  color: #333333;
+  margin: 10px auto 20px auto;
+  background-color: #ffffff;
+  .pay_title{
+    width: 1264px;
+    border-bottom: 1px solid #dbdbdb;
+    margin: 10px auto;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    padding-bottom: 10px;
+  }
+  .pay_block{
+    width: 100%;
+    margin-bottom: 40px;
+
+    .address{
+      .address_main,.edit_address_main{
+        width: 300px;
+        height: 190px;
+        border: 1px solid #dbdbdb;
+        float: left;
+        margin: 9px;
+        cursor: pointer;
+        .address_delete_btn{
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        .address_delete_btn:hover{
+          color: #FF3B3C;
+        }
+        form{
+          label{
+            float: left;
+          }
+          input{
+            float: left;
+            height: 24px;
+            border-radius: 4px;
+          }
+          .address_big{
+            span{
+              margin-right: 0px;
+            }
+            select{
+              width: 82px;
+            }
+          }
+          #name{
+            //line-height: 12px;
+          }
+          #telephone{
+            width: 200px;
+            padding: 0 7px;
+            border: 1px solid #dbdbdb;
+            margin-bottom: 10px;
+          }
+          #address_detail{
+            width: 264px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #dbdbdb;
+            border-radius: 0;
+          }
+          #zip_code{
+            width: 90px;
+            padding: 0 5px;
+            border: 1px solid #dbdbdb;
+          }
+          #address_submit{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            cursor: pointer;
+            width: 40px;
+            height: 20px;
+            background-color: #FF3B3C;
+            border-radius: 4px;
+            color: #ffffff;
+            line-height: 12px;
+            text-align: center;
+          }
+        }
+        .name{
+          width: 264px;
+          margin: 10px 18px;
+          line-height: 24px;
+          border-bottom: 1px solid #dbdbdb;
+        }
+        .personal{
+          width: 264px;
+          margin: 0 18px;
+          line-height: 24px;
+          .telephone{}
+          .address_big{
+            span{
+              select{
+                width: 85px;
+              }
+            }
+          }
+          .address_detail{
+            width: 100%;
+          }
+          .zip_code{
+            width: 100%;
+          }
+          #address_submit{
+            cursor: pointer;
+            float: right;
+          }
+        }
+        .edit_address,.edit_default{
+          width: 120px;
+          height: 30px;
+          border: none;
+          float: right;
+          background-color: #ff3b3c;
+          color: #ffffff;
+          margin-left: 5px;
+          position: absolute;
+          top: 195px;
+        }
+        .edit_address{
+          right: 124px;
+        }
+        .edit_default{
+          right: -1px;
+        }
+      }
+      .address_main{
+        position: relative;
+      }
+      .edit_address_main{
+        position: absolute;
+        top: -21px;
+        left: -21px;
+        display: none;
+        background: #ffffff;
+      }
+      .default{
+        .edit_default,.edit_address{
+          display: none;
+        }
+      }
+      .selected{
+        border: 1px solid #FF3B3C;
+      }
+      .unselected{
+        border: 1px solid #dbdbdb;
+      }
+      .add_address{
+        width: 300px;
+        height: 190px;
+        border: 1px solid #dbdbdb;
+        float: left;
+        margin: 9px;
+        cursor: pointer;
+        p{
+          width: 100%;
+          text-align: center;
+          color: #8c8c8c;
+        }
+        .img{
+          font-size: 46px;
+          line-height: 36px;
+          margin-top: 60px;
+        }
+        .text{
+          //font-size: 14px;
+        }
+      }
+
+    }
+    .style_information{
+      div{
+        width: 185px;
+        height: 51px;
+        float: left;
+        margin: 10px;
+        border: 1px solid #dbdbdb;
+        text-align: center;
+        line-height: 51px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .selected{
+        border: 1px solid #FF3B3C;
+      }
+      .unselected{
+        border: 1px solid #dbdbdb;
+      }
+    }
+  }
+  .pay{
+    float: right;
+    .have_select{
+      font-size: 14px;
+      margin-left: 10px;
+      i{
+        padding: 0 40px;
+        color: #ff3b3c;
+      }
+    }
+    .price_total{
+      font-size: 14px;
+      margin: 15px 10px;
+      span{
+        font-size: 24px;
+        padding: 0 10px;
+        color: #ff3b3c;
+      }
+    }
+    .settle_btn{
+      font-size: 14px;
+      width: 160px;
+      height: 38px;
+      text-align: center;
+      line-height: 38px;
+      background-color: #FF3B3C;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+}

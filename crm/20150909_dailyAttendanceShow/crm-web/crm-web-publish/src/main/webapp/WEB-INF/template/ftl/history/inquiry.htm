@@ -1,0 +1,95 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '询价记录详情信息' 'history-inquiry' '0.0.1' 'index' ',clist.css,plugin/pagination.css'>
+</@inc.header>
+
+<@inc.body>
+	<div class="page-title">
+        <h2>
+			<span><strong>询价记录详情信息</strong></span>
+		</h2>
+    </div>
+    
+    <div class="main-list">
+
+        <#--<div class="tool">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>汽修厂</label>
+                <input name=""/>
+            </div>
+            <div class="group">
+                <label>汽修厂ID</label>
+                <input name=""/>
+            </div>
+            <div class="group">
+                <label>所在地</label>
+                <input name=""/>
+            </div>
+            <div class="group">
+                <label>跟踪日期</label>
+                <input name="tracking-start" id="start"/>至<input name="tracking-end" id="end"/>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+
+        <div class="subtool fn-clear">
+            <span class="fn-left label">排序：</span>
+            <ul>
+                <li>按询价次数</li>
+                <li>按交易金额</li>
+            </ul>
+
+        </div>-->
+
+        <div class="result-tip result-tip-warn">提示：按下Ctrl+F，输入关键字以搜索。</div>
+    	<div class="js-course-list fn-clear">
+
+            <table class="gridtable">
+                <thead>
+                <tr>
+                    <th scope="col">询价时间</th>
+                    <th scope="col">询价单号</th>
+                    <th scope="col">询价单状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <#assign list = result.model/>
+                    <#escape x as x?if_exists>
+                    <#if list?size gt 0>
+                    <#list list as model>
+                    <tr data-id="${model.inquiryId}">
+                        <td>
+                            ${model.publishTime?string('yyyy-MM-dd HH:mm:ss')}
+                        </td>
+                        <#if params.isNew>
+                        <td style="text-decoration: underline">
+                        <#else>
+                        <td>
+                        </#if>
+                            ${model.inquiryNo}
+                        </td>
+                        <td>${model.status}</td>
+                    </tr>
+                    </#list>
+                    <#else>
+                    <tr class="nodata">
+                        <td colspan="3">没有符合条件的数据</td>
+                    </tr>
+                    </#if>
+                    </#escape>
+                </tbody>
+            </table>
+    	</div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+    var params = {
+        need:'${params.isNew}',
+    };
+</script>
+</@inc.footer>

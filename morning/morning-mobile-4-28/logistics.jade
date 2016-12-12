@@ -1,0 +1,58 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/logistics.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 查询物流
+        #content
+            .logistics_header
+                img(src='images/logo_logistics.png',alt='')
+                .name
+                    b 顺丰速递
+                    p 运单编号：
+                        span 88888888888888888888888
+                    p 物流状态：
+                        span 正在派件
+            .logistics_main
+                h4 物流详情
+                ul
+                    li
+                        b
+                        p 在官网"运单资料&签收图"，可查看签收人信息
+                        p
+                            span 2015-06-23
+                            span 14:21:40
+                    li
+                        b
+                        p 已签收，感谢使用顺丰，期待再次为您服务
+                        p
+                            span 2015-06-23
+                            span 14:21:40
+                    li
+                        b
+                        p 正在派送途中，请您准备签收（派件人：范，电话：13570115255）
+                        p
+                            span 2015-06-23
+                            span 14:21:40
+                    li
+                        b
+                        p 快件在*****，正转运至【广州平沙服务点】
+                        p
+                            span 2015-06-23
+                            span 14:21:40
+                    li
+                        b
+                        p 快件在*****，正转运至【广州平沙服务点】
+                        p
+                            span 2015-06-23
+                            span 14:21:40
+                    li
+                        b
+                        p 顺丰速运已收取快件
+                        p
+                            span 2015-06-23
+                            span 14:21:40
+
+block jsblock

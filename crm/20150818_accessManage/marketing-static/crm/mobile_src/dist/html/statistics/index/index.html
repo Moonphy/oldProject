@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>指标</title>
+    <meta name="description" content="CRM指标">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <style>
+    .ui-title{
+        padding-left: 10px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: 500;
+    }
+    label{
+        font-weight: normal;
+    }
+    li>span{
+        float: right;
+        margin-right: 10px;
+    }
+    #J_icon{
+        position: relative;
+        top: -5px;
+    }
+   @media all and (max-width: 320px) {
+        .content{
+            margin-bottom: 50px;
+        }
+   }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+
+            <ul class="list fn-clear">
+                <li class="item">
+                    <a href="area.html" id="J_resetPwd">
+                        <label>地区业绩汇总</label>
+                        <i class="icon iconfont fn-right" id="J_icon"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="list fn-clear">
+                <div class="ui-title">今日</div>
+                <!-- <li class="item">
+                    <label for="bfs">拜访数</label>
+                    <span id="bfs">1</span>
+                </li> -->
+                <li class="item">
+                    <label for="zcs">注册数</label>
+                    <span id="zcs">1</span>
+                </li>
+                <li class="item">
+                    <label for="jhs">激活数</label>
+                    <span id="jhs">1</span>
+                </li>
+                <li class="item">
+                    <label for="ddzs">订单总数</label>
+                    <span id="ddzs">1</span>
+                </li>
+                <li class="item">
+                    <label for="ddze">订单总额</label>
+                    <span id="ddze">1</span>
+                </li>
+
+               <!--  <div class="ui-title">本周</div>
+               <li class="item">
+                   <label for="bfs">已工作天数</label>
+                   <span id="bfs">1</span>
+               </li>
+               <li class="item">
+                   <label for="zcs">工作时长</label>
+                   <span id="zcs">1h25m</span>
+               </li>
+               <li class="item">
+                   <label for="jhs">拜访数</label>
+                   <span id="jhs">1</span>
+               </li> -->
+            </ul>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/statistics/index/index.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '分配岗位' 'edit-role-user' '0.0.1' 'index' ',new.css,plugin/ztree/zTreeStyle/zTreeStyle.css'>
+<style>
+    .main-list .box{
+        padding: 15px 20px;
+        border: 1px solid #eee;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="page-title">
+    <h2>
+        <span><strong>分配岗位</strong></span>
+    </h2>
+</div>
+<div class="main-list">
+
+    <div class="js-course-list fn-clear">
+        <div class="box">
+
+            <div id="tree" class="ztree">
+
+            </div>
+
+            <div class="form-group button-group">
+                <button class="btn" type="button" id="backBtn">返回</button>
+                <button class="ml10 btn submit" id="submitBtn" type="button">提交</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

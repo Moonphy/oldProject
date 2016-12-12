@@ -1,0 +1,801 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/budget_details.css')
+block content
+    include _common_header
+    .budget_details_body
+        .body-wrap
+            include _left_part
+            #budget_details_main
+
+                #main_left
+                    .main_left_part1
+                        .part1_content
+                            .part1_content_header 预算神器解房
+                            .budget_type 预算属于：
+                                span 精致有范型
+                            .suggestion
+                                ul
+                                    li .预算合理，好好利用，打扮出属于你的范来！
+                                    li .房价越来越贵，根据户型定制家具，能帮你省出不少空间。
+                                    li .上美乎，看经验，学网购，多省钱！
+                                    li .增加53万元可提升至“土豪驾到”型
+                            #distribute
+                                ul
+                                    .distribute 分布建议如下：
+                                    li 主材
+                                        span 12万-13万
+                                    li 家具
+                                        span 8万-10万
+                                    li 家电
+                                        span 3万-5万
+                                    li 家饰
+                                        span 9万-11万
+                                    li 人工费
+                                        span 9万-11万
+                                    li 设计费
+                                        span 3万-3.5万
+                            .change_budget
+                                .change_btn 更改预算
+                            .personal
+                                label.f_checkbox_normal.unchecked 保存方案到个人主页
+                                    input(type='checkbox',name='',value='')
+                                label.f_checkbox_normal.unchecked 发送邮件到E-mail
+                                    input(type='checkbox',name='',value='')
+                    .main_left_part2
+                        .part2_content_header 筛选条件
+                        .part2_content
+                            .default
+                                .title 默认
+                            .price
+                                .title  价格
+                                label.f_radio.unselected 100-500
+                                    input(type='radio',name=' ',value='')
+                                label.f_radio.unselected 500-1000
+                                    input(type='radio',name=' ',value='')
+                                label.f_radio.unselected 1000-1500
+                                    input(type='radio',name=' ',value='')
+                                label.f_radio.unselected 1500以上
+                                    input(type='radio',name=' ',value='')
+                            .sales
+                                .title  销量
+                                label.f_radio.unselected 月销量
+                                    input(type='radio',name=' ',value='')
+                                label.f_radio.unselected 优惠活动款
+                                    input(type='radio',name=' ',value='')
+                            .style
+                            mixin label(title,radios)
+                                .title #{title}
+                                each radio in radios
+                                    label.f_radio.unselected #{radio}
+                                        input(type='radio',name='',value='')
+                            +label('风格',['现代','欧式','中式','美式','田园','宜家','混搭','北欧','地中海','小清新'])
+                #main_right
+                    .block
+                        .header
+                            .row1_header.row1_header1 根据您<span>98</span>㎡<span>3</span>房<span>23</span>万预算筛选出：
+
+                        .row1_little_block
+                            .little_block1
+                                .unselected_budget
+                                .h3.bg1 主材
+                                    span 813件
+                                ul.content
+                                    li: a(href='#') 墙面
+                                    li: a(href='#') 采暖
+                                    li: a(href='#') 门窗
+                                    li: a(href='#') 卫浴
+                                    li: a(href='#') 地面
+                                    li: a(href='#') 橱柜
+                                    li: a(href='#') 水电改造
+                                    li: a(href='#') 厨卫五金
+                                    li: a(href='#') 其他
+                            .little_block1
+                                .h3.bg2 家具
+                                    span 689件
+                                ul.content
+                                    li: a(href='#') 客厅
+                                    li: a(href='#') 餐厅
+                                    li: a(href='#') 书房
+                                    li: a(href='#') 卧室
+                                    li: a(href='#') 椅
+                                    li: a(href='#') 定制衣柜
+                            .little_block1
+                                .h3.bg3 家饰
+                                    span 363件
+                                ul.content
+                                    li: a(href='#') 窗帘
+                                    li: a(href='#') 灯饰
+                                    li: a(href='#') 床品
+                                    li: a(href='#') 园艺
+                                    li: a(href='#') 挂钟
+                            .little_block1
+                                .h3.bg4 家电
+                                    span 986件
+                                ul.content
+                                    li: a(href='#') 平板电视
+                                    li: a(href='#') 洗衣机
+                                    li: a(href='#') 空调
+                                    li: a(href='#') 灶具
+                                    li: a(href='#') 洗碗机
+                                    li: a(href='#') 吸油烟机
+                                    li: a(href='#') 电冰箱
+                                    li: a(href='#') 热水器
+                                    li: a(href='#') 消毒柜
+                    .block2
+                        .ck-slide
+                            .img_header
+                                .header_left
+                                    span 主材
+                                    span >
+                                    span 门窗
+                                    span >
+                                .header_right 排序方式
+                                    #popup_budget_sort.js-over-show
+                                        li.unselected 销量↑
+                                        li.selected 价格↓
+                            ul.ck-slide-wrapper
+                                li
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_1.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_2.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 长沙发 皮沙发 进口 新居沙发 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_3.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_4.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 装饰 家装 家具 羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_4.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_1.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_2.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_3.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_4.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                li.hide
+                                    a(href='#',target='_blank'): img(src='images/examples/img_big_1.jpg')
+                                    .price_bg_2
+                                        .source 京东
+                                        .price ¥3698
+                                    .img_title 珍丝坊 韩版磨毛植物羊绒 蓝色 青花瓷
+                                    .other_spec
+                                        .key 其他规格：
+                                        .spec
+                                            .t1 T
+                                                span 1
+                                                #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t2 T
+                                                span 2
+                                                #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t3 T
+                                                span 3
+                                                #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t4 T
+                                                span 4
+                                                #spc.s4.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t5 T
+                                                span 5
+                                                #spc.s5.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t6 T
+                                                span 6
+                                                #spc.s6.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t7 T
+                                                span 7
+                                                #spc.s7.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t8 T
+                                                span 8
+                                                #spc.s8.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t9 T
+                                                span 9
+                                                #spc.s9.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                                            .t10 T
+                                                span 10
+                                                #spc.s10.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                                    i ￥365
+                                            .t11 T
+                                                span 11
+                                                #spc.s11.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                                    i ￥429
+                                            .t12 T
+                                                span 12
+                                                #spc.s12.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                                    i ￥498
+                            .arrow
+                                a(href='javascript:;',class='ctrl-slide ck-prev') 上一张
+                                a(href='javascript:;',class='ctrl-slide ck-next') 下一张
+                            .ck-slidebox
+                                .slidewrap
+                                    ul.dot-wrap
+                                        li.current
+                                            .current
+                                            img(src='images/examples/img_little_1.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_2.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_3.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_4.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_5.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_6.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_7.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_8.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_9.jpg')
+                                        li
+                                            .current
+                                            img(src='images/examples/img_little_10.jpg')
+                        .page
+                            .page_ten
+                                //a(href='#?page=2',class='next disabled') 上一组
+                                a.current 1
+                                a(href='#?page=2') 2
+                                a(href='#?page=3') 3
+                                a(href='#?page=4') 4
+                                a(href='#?page=5') 5
+                                a(href='#?page=6') 6
+                                a(href='#?page=7') 7
+                                a(href='#?page=8') 8
+                                a(href='#?page=9') 9
+                                a(href='#?page=10') 10
+                                a(href='#?page=11') 11
+                                a(href='#?page=12') 12
+                                a(href='#?page=2',class='next') 下一组
+                            .page_more1
+                                a(href='#?page=13') 13
+                                a(href='#?page=14') 14
+                                a(href='#?page=15') 15
+                                a(href='#?page=16') 16
+                                a(href='#?page=17') 17
+                                a(href='#?page=18') 18
+                                a(href='#?page=19') 19
+                                a(href='#?page=20') 20
+                                a(href='#?page=21') 21
+                                a(href='#?page=22') 22
+                                a(href='#?page=23') 23
+                                a(href='#?page=24') 24
+                                a(href='#?page=25') 25
+                                a(href='#?page=26') 26
+                                a(href='#?page=27') 27
+                                a(href='#?page=28') 28
+                                a(href='#?page=29') 29
+                            .page_more2
+                                - for(i=30;i<52;i++)
+                                    a(href='#?page=#{i}') #{i}
+                    .recommend
+                        .recommend_h 你可能喜欢的案例
+                        .recommend_little_block
+                            a: img(src='images/examples/recommend_1.jpg')
+                            a(href='',target='_blank')
+                                .recommend_content [现代]
+                                    span 简约不简单，85后夫妻简约小窝
+                        .recommend_little_block
+                            a: img(src='images/examples/recommend_2.jpg')
+                            a(href='',target='_blank')
+                                .recommend_content [现代]
+                                    span 简约不简单，85后夫妻简约小窝
+                        .recommend_little_block.last
+                            a: img(src='images/examples/recommend_3.jpg')
+                            a(href='',target='_blank')
+                                .recommend_content [现代]
+                                    span 简约不简单，85后夫妻简约小窝
+block jsblock
+    script(src='js/slide.js')
+    script
+        $('.ck-slide').ckSlide({autoPlay: true,dir: null,isAnimate: false});

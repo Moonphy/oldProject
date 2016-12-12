@@ -1,0 +1,92 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/home_favorite.css')
+block content
+    include _header
+    .home_body
+        .home_main
+            .home_main_left.fl
+                .left_part
+                    ul
+                        .part_title 个人中心
+                        li: a(href='home.html',title='') 我的账户
+                        li: a(href='',title='') 我的徽章
+                        li: a(href='home_like.html',title='') 我关注的商品
+                        li.selected: a(href='home_seen.html',title='') 我看过的商品
+                        li: a(href='home_favorite.html',title='') 我收藏的商品
+                .left_part
+                    ul
+                        .part_title 我的订单
+                        li: a(href='home_orders.html',title='') 所有订单
+                        li: a(href='home_address.html',title='') 收货地址管理
+                .left_part
+                    ul
+                        .part_title_2: a(href='',title='') 买家秀
+                .left_part
+                    ul
+                        .part_title 我的优惠
+                        li: a(href='',title='') 我的红包
+                        li: a(href='',title='') 我的积分
+                .left_part
+                    ul
+                        .part_title_2: a(href='cart.html',title='') 购物车
+                .left_part
+                    ul
+                        .part_title 安全中心
+                        li: a(href='',title='') 身份认证
+                        li: a(href='change_password.html',title='') 修改密码
+                        li: a(href='',title='') 修改邮箱
+                        li: a(href='',title='') 手机绑定
+            .home_main_right.fr
+                .user_home_header
+                    .user_img.fl
+                        img(src='images/personal_head.png')
+                    .user_name.fl
+                        .name 萌萌哒小妹纸，<span>下午好~</span>！
+                            i.female
+                            i.male
+                        span#phone 13712348888
+                        .user_edit <span>22</span>人赞了你的晒单秀
+                    .checkins
+                        button 签到
+                        p.count_checkins 你已连续<span>20</span>天签到
+                        p.tips 连续签到，更多红包！
+                    .hongbao
+                        p.hongbao_h 收到的红包
+                        p <span>12</span>元
+                        p.hongbao_b 亲，有<span>10</span>元红包即将到期
+                #goods_waterfall
+                    .waterfall_class
+                        - for (var i=0;i<3;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/good_block_img2.png',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+                    .waterfall_class
+                        - for (var i=0;i<5;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/good_block_img.png',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+                    .waterfall_class
+                        - for (var i=0;i<3;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/good_block_img2.png',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+    include _footer
+block jsblock
+    script(src='js/jquery.miniWaterfall.js')
+    script(src='js/home.js')

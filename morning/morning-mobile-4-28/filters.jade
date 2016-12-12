@@ -1,0 +1,94 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/filters.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 条件筛选
+            .search
+            form.popup_search(action='/search/', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+
+        .filters_content
+            img.bg(src='images/bg.png',alt='')
+            form#formid1(action='list.html', method='post')
+                label.f_radio.selected 流行女鞋
+                    input(type='radio',name=' ',value='',checked='checked')
+                label.f_radio.unselected 流行男鞋
+                    input(type='radio',name=' ',value='')
+            h3 种类
+            form#formid2(action='list.html', method='get')
+                label.f_radio.selected 高跟鞋
+                    input(type='radio',name=' ',value='',checked='checked')
+                label.f_radio.unselected 平底鞋
+                    input(type='radio',name=' ',value='')
+                label.f_radio.unselected 靴子
+                    input(type='radio',name=' ',value='')
+                label.f_radio.unselected 高跟鞋
+                    input(type='radio',name=' ',value='')
+                label.f_radio.unselected 平底鞋
+                    input(type='radio',name=' ',value='')
+            h3 颜色
+            - for (var i=0;i<1;i++)
+                form#formid3.classify_color(action='list.html', method='get')
+                    label.f_radio.selected
+                        input(type='radio',name=' ',value='土色',checked='checked')
+                        .classify_color_1(style='background:#c7b299;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='纯白')
+                        .classify_color_2(style='background:#ffffff;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='酒红')
+                        .classify_color_3(style='background:#9e0b0f;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='黄色')
+                        .classify_color_4(style='background:#fff200;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='绿色')
+                        .classify_color_5(style='background:#598527;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='橘色')
+                        .classify_color_6(style='background:#f7941d;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='间隔条')
+                        .classify_color_7(style='background:url("images/classify_color_7.png");')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='纯黑')
+                        .classify_color_8(style='background:#000000;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='褐色')
+                        .classify_color_9(style='background:#573310;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='浅黑')
+                        .classify_color_10(style='background:#565454;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='浅土')
+                        .classify_color_11(style='background:#c0af67;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='浅灰')
+                        .classify_color_12(style='background:#cccccc;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='深蓝')
+                        .classify_color_13(style='background:#2e3192;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='浅红')
+                        .classify_color_14(style='background:#f06eaa;')
+                    label.f_radio.unselected
+                        input(type='radio',name=' ',value='紫色')
+                        .classify_color_15(style='background:#a864a8;')
+            h3 材质
+            form#formid4(action='list.html', method='get')
+                label.f_radio.selected 牛皮
+                    input(type='radio',name=' ',value='',checked='checked')
+                label.f_radio.unselected 猪皮
+                    input(type='radio',name=' ',value='')
+                label.f_radio.unselected PU革
+                    input(type='radio',name=' ',value='')
+            input.button(type='submit',name=' ',value='确定')
+block jsblock
+    script.
+        $(".button").click(function () {
+            $("form").submit();
+        });

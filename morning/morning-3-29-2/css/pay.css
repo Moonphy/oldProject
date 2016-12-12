@@ -1,0 +1,110 @@
+.pay_body {
+  width: 1300px;
+  margin: 10px auto 20px auto;
+  background-color: #ffffff;
+}
+.pay_body .pay_main {
+  width: 1280px;
+  padding: 10px;
+  color: #333333;
+}
+.pay_body .pay_main .pay_block {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.pay_body .pay_main .pay_block .pay_title {
+  width: 1264px;
+  border-bottom: 1px solid #dbdbdb;
+  margin: 10px auto;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  padding-bottom: 10px;
+}
+.pay_body .pay_main .pay_block .address .address_main {
+  width: 300px;
+  height: 190px;
+  border: 1px solid #dbdbdb;
+  float: left;
+  margin: 9px;
+  cursor: pointer;
+}
+.pay_body .pay_main .pay_block .address .address_main .name {
+  width: 264px;
+  margin: 10px 18px;
+  padding: 5px 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+.pay_body .pay_main .pay_block .address .address_main .personal {
+  width: 264px;
+  margin: 0 18px;
+  line-height: 24px;
+}
+.pay_body .pay_main .pay_block .address .div {
+  width: 300px;
+  height: 190px;
+  border: 1px solid #dbdbdb;
+  float: left;
+  margin: 9px;
+  cursor: pointer;
+}
+.pay_body .pay_main .pay_block .address .selected {
+  border: 1px solid #f2295d;
+}
+.pay_body .pay_main .pay_block .address .unselected {
+  border: 1px solid #dbdbdb;
+}
+.pay_body .pay_main .pay_block .address .add_address {
+  background: url("../images/new_address_bg.png") no-repeat center center #ffffff;
+}
+.pay_body .pay_main .pay_block .style_information div {
+  width: 185px;
+  height: 51px;
+  float: left;
+  margin: 10px;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+  line-height: 51px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.pay_body .pay_main .pay_block .style_information .selected {
+  border: 1px solid #f2295d;
+}
+.pay_body .pay_main .pay_block .style_information .unselected {
+  border: 1px solid #dbdbdb;
+}
+.pay_body .pay_main .pay {
+  float: right;
+}
+.pay_body .pay_main .pay .have_select {
+  font-size: 14px;
+  margin-left: 10px;
+}
+.pay_body .pay_main .pay .have_select i {
+  width: 60px;
+  text-align: center;
+  color: #f2295d;
+  display: inline-block;
+}
+.pay_body .pay_main .pay .price_total {
+  font-size: 14px;
+  margin: 15px 0 15px 10px;
+}
+.pay_body .pay_main .pay .price_total span {
+  width: 60px;
+  text-align: center;
+  color: #f2295d;
+  font-size: 24px;
+  display: inline-block;
+}
+.pay_body .pay_main .pay .settle_btn {
+  font-size: 14px;
+  width: 160px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  background-color: #f2295d;
+  color: #ffffff;
+  cursor: pointer;
+}

@@ -1,0 +1,156 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header title='首页' styles=',index.css'></@inc.header>
+
+<@inc.body>
+  <div class="wapper">
+
+    <div class="page-title">
+      <h2>
+          <span><strong>快捷导航</strong></span>
+      </h2>
+    </div>
+    <style>
+        .ui-container{
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .ui-container .icon{
+            padding-right: 5px;
+        }
+        .ui-container .content{
+            padding: 10px 20px;
+        }
+        .side{
+            display: block;
+            padding: 10px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .side li{
+            display: inline;
+            margin-right: 20px;
+        }
+        .side li a{
+            text-decoration: underline;
+        }
+        .side li i{
+            width: 20px;
+            height: 10px;
+        }
+        .fa-tag{
+            padding-right: 5px;
+        }
+    </style>
+
+    <#if $user.isAdmin>
+    <div class="ui-container">
+        <h2><i class="fa fa-quote-left icon"></i>CRM</h2>
+        <div class="content">
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>汽修厂</h3>
+                <ul class="side">
+                    <li><a href="/base/maintain/find/all"><i class="fa fa-th-list"></i><b>开发人及维护人列表</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>账户管理</h3>
+                <ul class="side">
+                    <li><a href="/mobile/account/create.do"><i class="fa fa-edit"></i><b>创建账户</b></a></li>
+                    <li><a href="/base/account/find/all"><i class="fa fa-th-list"></i><b>现有账户</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>公共号码管理</h3>
+                <ul class="side">
+                    <li><a href="/mobile/commonNo/create.do"><i class="fa fa-edit"></i><b>创建号码</b></a></li>
+                    <li><a href="/base/pubPhone/find/pub/all"><i class="fa fa-th-list"></i><b>现有号码</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>交易分析</h3>
+                <ul class="side">
+                    <li><a href="/mobile/trade/order-tj.do"><i class="fa fa-signal"></i><b>订单统计</b></a></li>
+                    <li><a href="/mobile/trade/inquiry-fx.do"><i class="fa fa-bar-chart-o"></i><b>询单分析</b></a></li>
+                    <li><a href="/faq"><i class="fa fa-bar-chart-o"></i><b>增长趋势分析</b></a></li>
+                    <li><a href="/mobile/trade/customer-search.do"><i class="fa fa-search"></i><b>客户搜索</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>客户分析</h3>
+                <ul class="side">
+                    <li><a href="/mobile/customer/tj.do"><i class="fa fa-signal"></i><b>客户统计</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>crm分析</h3>
+                <ul class="side">
+                    <li><a href="/mobile/crm/gztj.do"><i class="fa fa-signal"></i><b>工作统计</b></a></li>
+                    <li><a href="/mobile/crm/charts.do"><i class="fa fa-signal"></i><b>图表功能测试</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>增值服务</h3>
+                <ul class="side">
+                    <li><a href="/mobile/zzff/factoryManage.do"><i class="fa fa-signal"></i><b>汽修厂管理</b></a></li>
+                    <li><a href="/mobile/crm/charts.do"><i class="fa fa-signal"></i><b>图表功能测试</b></a></li>
+                    <li><a href="/mobile/crm/upload.do"><i class="fa fa-signal"></i><b>上传功能测试</b></a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    </#if>
+
+    <div class="ui-container">
+        <h2><i class="fa fa-quote-left icon"></i>推广客服</h2>
+        <div class="content">
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>客户管理</h3>
+                <ul class="side">
+                    <li><a href="/customer/new"><i class="fa fa-edit"></i><b>新客户信息录入</b></a></li>
+                    <li><a href="/customer/clist"><i class="fa fa-th-list"></i><b>已联系客户追踪</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>业绩统计</h3>
+                <ul class="side">
+                    <li><a href="/statistics/tel/tradeInfo"><i class="fa fa-signal"></i><b>电话营销统计</b></a></li>
+                    <li><a href="/statistics/summary/tradeInfo"><i class="fa fa-signal"></i><b>汇总统计</b></a></li>
+                </ul>
+            </section>
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>个人中心</h3>
+                <ul class="side">
+                    <li><a href="/resetpwd"><i class="fa fa-cog"></i><b>重设密码</b></a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="ui-container">
+        <h2><i class="fa fa-quote-left icon"></i>其他</h2>
+        <div class="content">
+            <section class="group">
+                <h3><i class="fa fa-tag"></i>系统</h3>
+                <ul class="side">
+                    <li><a href="/logout"><i class="fa fa-power-off"></i><b>安全退出系统</b></a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+  </div>
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

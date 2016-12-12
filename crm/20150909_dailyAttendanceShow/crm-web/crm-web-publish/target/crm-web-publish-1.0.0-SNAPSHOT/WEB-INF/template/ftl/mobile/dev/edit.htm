@@ -1,0 +1,138 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '汽修厂开发人及维护人管理' 'dev-edit' '0.0.1' 'index'
+',plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css'
+>
+<style>
+    .main-list{
+        min-height: 900px;
+    }
+    .button-group{
+        margin-left: 100px;
+    }
+    input{
+        width: 180px;
+    }
+    .base{
+        border: 1px solid #DDDDDD;
+    }
+    .base .title{
+        padding: 0 20px;
+        font-size: 1.2em;
+        height: 45px;
+        line-height: 45px;
+    }
+    .base ul{
+        padding: 0 20px;
+        border-top: 1px solid #DDDDDD;
+    }
+    .base ul li{
+        float: left;
+        width: 50%;
+        height: 40px;
+        line-height: 40px;
+    }
+    .edit ul{
+        padding: 0 10px;
+    }
+    .edit ul li{
+        float: left;
+        width: 33.3%;
+        height: 50px;
+        line-height: 50px;
+    }
+    .buttons{
+        text-align: center;
+    }
+    .search-results{
+        top: 282px;
+        left: 69.875px;
+        width: 192px;
+        position: absolute;
+        overflow: auto;
+    }
+    .search-results::-webkit-scrollbar{
+        width:8px; /*滚动条宽度*/
+    }
+    .search-results::-webkit-scrollbar-track-piece{
+        background-color:#F3F3F3;  /*滑道*/
+        -webkit-border-radius:0px; /*滑道圆角宽度*/
+    }
+    .search-results ul{
+        max-height: 500px;
+    }
+    .search-results ul li{
+        height: 30px;
+        line-height: 30px;
+        background: #DDDDDD;
+        padding: 0 10px;
+    }
+    .search-results ul li:hover{
+        background: #468cdd;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+    <div class="wapper">
+        <div class="page-title">
+            <h2>
+                <span><strong>汽修厂开发人及维护人管理 - 编辑</strong></span>
+            </h2>
+        </div>
+        <div class="main-list" style="margin-top: 0px;">
+            <#if (result?exists && !result.success)>
+                <div class="result-tip result-tip-error">错误信息：${result.msg}</div>
+            </#if>
+            <#if (result?exists && result.success && result.msg?exists)>
+                <div class="result-tip result-tip-success">${result.msg}</div>
+            </#if>
+
+            <#assign info = result.model[0].customerBasedEntity/>
+            <div class="base mt10">
+                <div class="title">${info.mfctyName}</div>
+                <ul class="fn-clear">
+                    <li class="span">汽修厂ID：${info.mfctyID}</li>
+                    <li class="span">地址：${info.address}</li>
+                    <li class="span">联系人：${info.cactMan}</li>
+                    <li class="span">联系电话：${info.cactTel}</li>
+                </ul>
+            </div>
+            <div class="edit mt10">
+                <#assign dev = result.model[0].maintainEntityList/>
+                <ul class="fn-clear">
+                    <li class="span">开发人：
+                        <input class="fn-hide" name="developUserID" value="${dev[0].userID}" id="developUserID"/>
+                        <input value="${dev[0].userName}" id="developUser"/>
+                    </li>
+                    <li class="span">联系电话：<input value="${dev[0].mp}" class="J_tel" id="developTel" title="联系电话不能修改" readonly/></li>
+                    <li class="span">开发时间：<input class="time" name="developTime" id="developTime" value="${dev[0].createTime}"/></li>
+                    <li class="span">维护人：
+                        <input class="fn-hide" name="maintainUserID" value="${dev[1].userID}" id="maintainUserID"/>
+                        <input value="${dev[1].userName}" id="maintainUser"/>
+                    </li>
+                    <li class="span">联系电话：<input value="${dev[1].mp}" class="J_tel" id="maintainTel" title="联系电话不能修改" readonly/></li>
+                    <li class="span">维护时间：<input class="time" name="maintainTime" id="maintainTime" value="${dev[1].createTime}"/></li>
+                    <li class="span fn-hide"><input name="custID" value="${info.id}"/></li>
+                </ul>
+            </div>
+            <div class="mt10 buttons">
+                <button class="btn" type="button" id="backbtn" onclick="history.go(-1);">返回</button>
+                <button class="ml10 btn submit" id="submitBtn" type="button">提交</button>
+            </div>
+
+            <div class="search-results fn-hide" id="searchResults">
+                <ul>
+                    <li class="item">aaaa</li>
+                    <li class="item">bbbb</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+</script>
+</@inc.footer>

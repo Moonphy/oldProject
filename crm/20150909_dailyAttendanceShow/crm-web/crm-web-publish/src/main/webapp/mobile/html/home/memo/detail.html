@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>备忘录详情</title>
+    <meta name="description" content="CRM备忘录详情">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/phone.css" media="all"/>
+    <style>
+        label{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <ul class="list">
+                <li>
+                    <label for="date">时间</label>
+                    <span id="date"></span>
+                </li>
+                <li>
+                    <label for="desc">备忘具体事项</label>
+                    <span id="desc"></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/memo-detail.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

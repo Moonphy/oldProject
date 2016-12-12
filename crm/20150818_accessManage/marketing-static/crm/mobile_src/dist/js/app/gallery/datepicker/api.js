@@ -1,0 +1,1 @@
+BTR.define(["require","exports","module","./core","./scroller","./datetime","./i18n-zh","./select"],function(e,t,n){n.exports={init:function(t){e("./core")(t),e("./scroller")(t),e("./datetime")(t),e("./i18n-zh")(t),e("./select")(t)}}});

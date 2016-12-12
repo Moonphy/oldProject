@@ -1,0 +1,82 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/order.css')
+
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 填写订单信息
+            a.header_cart(href='cart.html',title='')
+                i: span 99
+        #content
+            form(action='pay.html',method='post')
+                ul.cart_goods_body
+                    li.td1
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .numbers
+                            input.cut(type='button',value='-',name='')
+                            input.text_box(type='text',value='1',name='')
+                            input.add(type='button',value='+',name='')
+                        i 仅剩<span>3</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_del_btn
+                        .good_price ¥<span>599.00</span>
+            form(action='pay.html',method='post')
+                ul.cart_goods_body
+                    li.td1
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .numbers
+                            input.cut(type='button',value='-',name='')
+                            input.text_box(type='text',value='1',name='')
+                            input.add(type='button',value='+',name='')
+                        i 仅剩<span>3</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_del_btn
+                        .good_price ¥<span>599.00</span>
+
+            a.delivery_address(href='address.html',title='')
+                table
+                    tr
+                        th(rowspan='5') 收货地址
+                        td.td2 <span>张三</span>
+                        td.td3(rowspan='5')
+                            img(src='images/list_open.png')
+                    tr
+                        td.td2 <span>广东省</span><span>广州市</span><span>白云区</span>
+                    tr
+                        td.td2 <span>广花一路633号平沙国际商务中心502室广花一国际商务中心502室</span>
+                    tr
+                        td.td2 (<span>510440</span>）
+                    tr
+                        td.td2 <span id="phone">13631365214</span>
+            .pay_style 支付方式
+                label.f_radio.selected 支付宝
+                    input(type='radio',name=' ',value='')
+                label.f_radio.unselected 微信支付
+                    input(type='radio',name=' ',value='')
+            .pay
+                .have_select 共：<span>8</span>件商品
+                .price_total 合计：¥<span>4738</span>
+
+            .bottom_btn
+                button.buy_btn 下一步
+block jsblock
+    script(src='js/order.js')

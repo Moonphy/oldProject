@@ -1,0 +1,85 @@
+#content {
+  top: 44px;
+  padding-bottom: 50px;
+}
+.oldpassword,
+.oldphonenumber {
+  position: absolute;
+  left: 60px;
+  top: 30px;
+  color: #df3d82;
+  padding-left: 20px;
+  font-size: 12px;
+  background: url("../images/tip_bg.png") no-repeat 0 center;
+}
+.oldphonenumber {
+  left: 75px!important;
+}
+.center_wrap,
+.phone_wrap {
+  position: relative;
+}
+form {
+  width: 280px;
+  position: relative;
+  padding: 20px;
+  margin: 0 auto;
+}
+form input {
+  color: #5b5b5b;
+  padding: 6px;
+  line-height: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #e1e1e1;
+}
+form .password,
+form .oldphone {
+  margin-bottom: 20px;
+}
+form #new_password,
+form .password {
+  width: 200px;
+}
+form #confirm_new_password {
+  width: 172px;
+}
+form input:focus {
+  border: 1px solid #FF3B3C ;
+}
+form .oldphone,
+form #new_phone {
+  width: 190px;
+}
+form p {
+  width: 100%;
+}
+.submit {
+  width: 250px;
+  height: 44px;
+  margin: 20px 15px;
+  font-weight: bold;
+  line-height: 14px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #df3d82 ;
+  border: none;
+  display: block;
+}
+#identifying_code {
+  width: 70px;
+  margin-left: 14px;
+}
+.get_code {
+  width: 110px;
+  color: #ffffff;
+  border: none;
+  line-height: 18px;
+  margin-right: 3px;
+}
+.newemail {
+  width: 220px;
+  margin-bottom: 0;
+}
+.newid {
+  width: 190px;
+}

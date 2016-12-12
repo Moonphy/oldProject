@@ -1,0 +1,92 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '砸金蛋规则账号配置' 'eggs-rule-edit' '0.0.1' 'index' '
+,plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css'
+>
+<style>
+    .main-list .link{
+        color: #d03232;
+        text-decoration: underline;
+    }
+    .tool{
+        margin: 10px;
+    }
+    .tool div.group{
+        display: inline;
+        margin-right: 10px;
+    }
+    .tool div.group input{
+        margin: 0 5px;
+    }
+    .tool div.group .btn{
+        width: 50px;
+    }
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+    td select{
+        height: 25px;
+        line-height: 25px;
+    }
+    .warn{
+        color: #df0007;
+    }
+    td input{
+        width: 40px;
+    }
+    td input.time{
+        width: 140px;
+    }
+    .op{
+        text-align: center;
+    }
+    .btn{
+        width: 50px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>砸金蛋规则配置</strong></span>
+        </h2>
+    </div>
+
+    <div class="main-list fn-clear">
+        <div class="fn-clear">
+            <table class="gridtable" summary="砸金蛋规则配置">
+                <thead>
+                <tr>
+                    <th scope="col">用户名</th>
+                    <th scope="col">登录名</th>
+                    <th scope="col">登录手机号</th>
+                    <th scope="col">登录邮箱号</th>
+                    <th scope="col">规则等级</th>
+                    <th scope="col">规则比例</th>
+                    <th scope="col">开始时间</th>
+                    <th scope="col">结束时间</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody id="list">
+
+                </tbody>
+            </table>
+            <p class="op"><button class="btn" id="backbtn">返回</button></p>
+            <div class="pager"></div>
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+<script>
+
+</script>
+</@inc.footer>

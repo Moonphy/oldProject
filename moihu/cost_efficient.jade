@@ -1,0 +1,1084 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/cost_efficient.css')
+block content
+    include _index_header
+    .cost_efficient_body
+        div#products.products-top
+            .products_wrap.zhucai
+                ul
+                    .h3.zhucaibg 主材
+                    li: a(href='#') 墙面
+                    li: a(href='#') 厨卫五金
+                    li: a(href='#') 卫浴
+                    li: a(href='#') 地面
+                    li: a(href='#') 水电改造
+                    li: a(href='#') 门窗
+                    li: a(href='#') 橱柜
+                    li: a(href='#') 采暖
+                    li: a(href='#') 其他
+                #popup_zhucai.js-over-show
+                    .cover1
+                    ul
+                        li: a() 墙漆
+                        li: a() 墙纸
+                        li: a() 墙砖
+                        li: a() 踢脚线
+                        li: a() 木地板
+                        li: a() 地砖
+                    ul
+                        li: a() 开关面板
+                        li: a() 漏电开关
+                        li: a() 光源
+                        li: a() 配电箱
+                        li: a() 电线
+                        li: a() 电线管
+                    ul
+                        li: a() 水管
+                        li: a() 龙头
+                        li: a() 花洒
+                        li: a() 水槽
+                        li: a() 厨房挂架
+                        li: a() 卫浴挂架
+                        li: a() 角阀
+                        li: a() 地漏
+                    ul
+                        li: a() 马桶
+                        li: a() 浴室柜
+                        li: a() 洗脸盆
+                        li: a() 浴缸
+                    ul
+                        li: a() 橱柜
+                    ul
+                        li: a() 防水
+                        li: a() 吊顶扣板
+            .products_wrap.jiaju
+                ul
+                    .h3.jiajubg 家具
+                    li: a(href='#') 客厅
+                    li: a(href='#') 餐厅
+                    li: a(href='#') 书房
+                    li: a(href='#') 卧室
+                    li: a(href='#') 椅
+                    li: a(href='#') 定制衣柜
+                #popup_jiaju.js-over-show
+                    .cover2
+                    ul
+                        li: a() 沙发
+                        li: a() 电视柜
+                        li: a() 鞋柜
+                        li: a() 茶几
+                        li: a() 玄关
+                        li: a() 沙发床
+                        li: a() 壁炉
+                        li: a() 角几
+                    ul
+                        li: a() 餐桌
+                        li: a() 酒柜
+                    ul
+                        li: a() 床
+                        li: a() 木衣柜
+                        li: a() 斗柜
+                        li: a() 儿童套房
+                        li: a() 床垫
+                        li: a() 梳妆台
+                        li: a() 床头柜
+                    ul
+                        li: a() 书桌
+                        li: a() 书柜
+                    ul
+                        li: a() 椅
+                        li: a() 定制衣柜
+            .products_wrap
+                ul
+                    .h3.jiashibg 家饰
+                    li: a(href='#') 窗帘
+                    li: a(href='#') 灯饰
+                    li: a(href='#') 床品
+                    li: a(href='#') 园艺
+                    li: a(href='#') 挂钟
+            .products_wrap
+                ul
+                    .h3.jiadianbg 家电
+                    li: a(href='#') 平板电视
+                    li: a(href='#') 空调
+                    li: a(href='#') 洗衣机
+                    li: a(href='#') 吸油烟机
+                    li: a(href='#') 灶具
+                    li: a(href='#') 电冰箱
+                    li: a(href='#') 热水器
+                    li: a(href='#') 消毒柜
+                    li: a(href='#') 洗碗机
+            .products_wrap
+                ul.lastul
+                    .anli 看案例
+                    li: a(href='#') 轻奢华
+                    li: a(href='#') 现代简约
+                    li: a(href='#') 田园
+                    li: a(href='#') 欧式
+                    li: a(href='#') 现代中式
+                    li: a(href='#') 宜家
+                    li: a(href='#') 美式
+                    li: a(href='#') 古典中式
+                    li: a(href='#') 北欧
+                    li: a(href='#') 地中海
+                    li: a(href='#') 小清新
+        .cost_efficient_main
+            .block
+                .cost_efficient_title
+                    .title_big 聚合算
+                        span 搜罗全网最划算的大牌产品组合！
+                .cost_efficient_filter
+                    .filter_row_title
+                        .title 聚合算筛选条件：
+                    .cost_efficient_area
+                        .title 区域：
+                        label.f_radio.unselected 客厅
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 饭厅
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 卧室
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 书房
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 儿童房
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 厨房
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 卫浴
+                            input(type='radio',name=' ',value='')
+                    .cost_efficient_style
+                        .title 风格：
+                        label.f_radio.unselected 欧式
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 美式
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 现代中式
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 地中海
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 现代简约
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 北欧
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 田园
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 宜家
+                            input(type='radio',name=' ',value='')
+                        label.f_radio.unselected 古典中式
+                            input(type='radio',name=' ',value='')
+            .block
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 4580
+                            .h9.fr 共26件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_1.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 7100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_2.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 8280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_3.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 6100
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_4.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 20500
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            .row1_img.fl
+                                a(href='product_details.html'): img(src='images/examples/block_img_row2_5.jpg')
+                                .price_bg ¥ 200
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 19
+                            .row1_2_img.fl.last
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+                .little_block_part2.last
+                    .little_block_part2_top
+                        .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                        .h4_right
+                            h4.fl 搭配价
+                            .h5.fl ¥
+                            .h6.fl 11280
+                            .h9.fr 共69件套
+                    .block_img_part2
+                        .img_part2_row1
+                            a(href='product_details.html'): img(src='images/examples/block_img_row2_6.jpg')
+                            .price_bg ¥ 199
+                        .img_part2_row2
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                .price_bg ¥ 1250
+                            .row2_img.fl
+                                a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                .price_bg ¥ 190
+                            .row2_img.last.fl
+                                a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                .price_bg ¥ 750
+            include _page_one

@@ -1,0 +1,79 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/detail.css')
+block content
+    #afui
+        #content
+            a.header_cart(href='cart.html',title='')
+                i: span 99
+            .main_visual
+                .flicking_con
+                    a(href='#') 1
+                    a(href='#') 2
+                    a(href='#') 3
+                    a(href='#') 4
+                    a(href='#') 5
+                .main_image
+                    ul
+                        li: img(src='images/examples/0.png')
+                        li: img(src='images/examples/02.jpg')
+                        li: img(src='images/examples/1.png')
+                        li: img(src='images/examples/0.png')
+                        li: img(src='images/examples/1.png')
+                    a#btn_prev(href='javascript:;')
+                    a#btn_next(href='javascript:;')
+                .bar1
+                    span 收藏
+                .bar2.like
+                    span 899+
+            .good_tag 商品编号：BE004b80138
+            .information_part1
+                .good_detail_title.fl
+                    p.good_title 圆头拉链皮革拼接磨砂皮粗高跟低筒革拼接磨砂皮粗高跟低筒
+                    .good_price ¥<i>599.00</i>
+                .want.fl
+                    img(src='images/want.png',alt='')
+                    p 我要买
+
+            .information_part2
+                each item in [{k:'跟型',v:'粗跟'},{k:'适用场景',v:'日常'},{k:'鞋面材质',v:'牛皮'},{k:'跟高',v:'高跟(5-7cm)'},{k:'内里材质',v:'猪皮'},{k:'鞋底材质',v:'塑胶'},{k:'流行材质',v:'拼接撞色'},{k:'类型',v:'低筒靴'},{k:'闭合方式',v:'拉链'},{k:'女鞋头款',v:'圆头'}]
+                    .tag_k #{item.k}：
+                        span #{item.v}
+            .other_color
+                h4 其它颜色：
+                ul
+                    li.selected
+                        a(href='detail.html',title='')
+                            img(src='images/examples/a2.jpg',alt='')
+                            p 黑色黄色白色
+                    li
+                        a(href='detail.html',title='')
+                            img(src='images/examples/a1.jpg',alt='')
+                            p 白色
+                    li
+                        a(href='detail.html',title='')
+                            img(src='images/examples/a1.jpg',alt='')
+                            p 白色
+                    li
+                        a(href='detail.html',title='')
+                            img(src='images/examples/a1.jpg',alt='')
+                            p 白色
+                    li
+                        a(href='detail.html',title='')
+                            img(src='images/examples/a1.jpg',alt='')
+                            p 白色
+            .detail_img
+                ul
+                    li: img(src='images/examples/0.png')
+                    li: img(src='images/examples/02.jpg')
+                    li: img(src='images/examples/1.png')
+                    li: img(src='images/examples/0.png')
+                    li: img(src='images/examples/1.png')
+            .bottom_btn
+                a(href='#',class='back_single',title='') 返回上一页
+
+        #toTop
+block jsblock
+    script(src='js/jquery.touchSlider.js')
+    script(src='js/jquery.event.drag-1.5.min.js')
+    script(src='js/detail.js')

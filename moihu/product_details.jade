@@ -1,0 +1,277 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/product_details.css')
+block content
+    include _common_header
+    .product_details_body
+        .body-wrap
+            include _left_part
+            #product_details_main
+                .block.block_1
+                    .left_part.fl
+                        img(src='images/examples/product_details_img_1.jpg')
+                        .img_like
+                    .right_part.fl
+                        .title
+                            .product_source 天猫
+                            .product_title 三包到家 大森林 田园床实木床公主床韩式床婚床
+                        .promulgator
+                            .key 发布者：
+                            .val 天天好家天猫
+                        .price_part
+                            .price ￥
+                                span 139
+                            .toget: a(href='') 去抢购
+                        .description
+                            .key 描述：
+                            .val 有加绒的和不加绒的供亲爱的MM选择！！英伦复古风格的理念！质量保证！高端的品质...
+                        .case_source
+                            .key 案例来源：
+                            .val 案例来源
+                        .other_spec
+                            .key 其他规格：
+                            .spec
+                                .t1 T
+                                    span 1
+                                    #spc.s1.js-over-show.hide 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t2 T
+                                    span 2
+                                    #spc.s2.js-over-show.hide 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t3 T
+                                    span 3
+                                    #spc.s3.js-over-show.hide 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .share
+                            .share_icon 分享商品到：
+                            a(href='#' class='qq')
+                            a(href='#' class='qzone')
+                            a(href='#' class='weibo')
+                .block
+                    .block_top
+                        .block_top_bg1: a(href='#') 平方购
+                        .p2 爱家的你，感受家装新生活
+                    .little_block
+                        .little_block_top
+                            .h4.fl 工薪首选
+                            .h4_right.fr
+                                .h5.fl ¥
+                                .h6.fl 450
+                                .h7.fl /
+                                .h8.fl 平方
+                        .block_img
+                            a: img(src='images/examples/block_img_1.jpg')
+                        .block_img_logo
+                            li.li1: a(href='#' target='_blank')
+                            li.li2: a(href='#')
+                            li.li3: a(href='#')
+                            li.li4: a(href='#')
+                            li.li5: a(href='#')
+                            li.li6: a(href='#')
+                            li.li7: a(href='#')
+                            li.li8: a(href='#')
+                            li.li9: a(href='#')
+                            li.li10: a(href='#')
+                            li.li11: a(href='#')
+                            li.li12: a(href='#')
+                    .little_block
+                        .little_block_top
+                            .h4.fl 小白最爱
+                            .h4_right.fr
+                                .h5.fl ¥
+                                .h6.fl 600
+                                .h7.fl /
+                                .h8.fl 平方
+                        .block_img
+                            a: img(src='images/examples/block_img_2.jpg')
+                        ul.block_img_logo
+                            li.li1: a(href='#' target='_blank')
+                            li.li2: a(href='#')
+                            li.li3: a(href='#')
+                            li.li4: a(href='#')
+                            li.li5: a(href='#')
+                            li.li6: a(href='#')
+                            li.li7: a(href='#')
+                            li.li8: a(href='#')
+                            li.li9: a(href='#')
+                            li.li10: a(href='#')
+                            li.li11: a(href='#')
+                            li.li12: a(href='#')
+                    .little_block.last
+                        .little_block_top
+                            .h4.fl 个性品味
+                            .h4_right.fr
+                                .h5.fl ¥
+                                .h6.fl 1000
+                                .h7.fl /
+                                .h8.fl 平方
+                        .block_img
+                            a: img(src='images/examples/block_img_3.jpg')
+                        ul.block_img_logo
+                            li.li1: a(href='#' target='_blank')
+                            li.li2: a(href='#')
+                            li.li3: a(href='#')
+                            li.li4: a(href='#')
+                            li.li5: a(href='#')
+                            li.li6: a(href='#')
+                            li.li7: a(href='#')
+                            li.li8: a(href='#')
+                            li.li9: a(href='#')
+                            li.li10: a(href='#')
+                            li.li11: a(href='#')
+                            li.li12: a(href='#')
+                .block
+                    .block_top
+                        .block_top_bg2: a(href='#') 聚合算
+                        ul.part3
+                            li: a 灯饰照明
+                            li: a 厨房卫浴
+                            li: a 电工电料
+                            li: a 墙地面材料
+                            li: a 装饰材料
+                            li: a 五金工具
+                            li.last: a 智能家居
+                    .little_block_part2
+                        .little_block_part2_top
+                            .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                            .h4_right
+                                h4.fl 搭配价
+                                .h5.fl ¥
+                                .h6.fl 4580
+                                .h9.fr 共26件套
+                        .block_img_part2
+                            .img_part2_row1
+                                a: img(src='images/examples/block_img_row2_1.jpg')
+                                .price_bg ¥ 199
+                            .img_part2_row2
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                    .price_bg ¥ 1250
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 190
+                                .row2_img.last.fl
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 750
+                    .little_block_part2
+                        .little_block_part2_top
+                            .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                            .h4_right
+                                h4.fl 搭配价
+                                .h5.fl ¥
+                                .h6.fl 7100
+                                .h9.fr 共69件套
+                        .block_img_part2
+                            .img_part2_row1
+                                a: img(src='images/examples/block_img_row2_2.jpg')
+                                .price_bg ¥ 199
+                            .img_part2_row2
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                    .price_bg ¥ 1250
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 190
+                                .row2_img.last.fl
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 750
+                    .little_block_part2.last
+                        .little_block_part2_top
+                            .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                            .h4_right
+                                h4.fl 搭配价
+                                .h5.fl ¥
+                                .h6.fl 8280
+                                .h9.fr 共69件套
+                        .block_img_part2
+                            .img_part2_row1
+                                a: img(src='images/examples/block_img_row2_3.jpg')
+                                .price_bg ¥ 199
+                            .img_part2_row2
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                    .price_bg ¥ 1250
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 190
+                                .row2_img.last.fl
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 750
+                    .little_block_part2
+                        .little_block_part2_top
+                            .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                            .h4_right
+                                h4.fl 搭配价
+                                .h5.fl ¥
+                                .h6.fl 6100
+                                .h9.fr 共69件套
+                        .block_img_part2
+                            .img_part2_row1
+                                .row1_img.fl
+                                    a: img(src='images/examples/block_img_row2_4.jpg')
+                                    .price_bg ¥ 200
+                                .row1_2_img.fl.last
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 19
+                                .row1_2_img.fl.last
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 199
+                            .img_part2_row2
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                    .price_bg ¥ 1250
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 190
+                                .row2_img.last.fl
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 750
+                    .little_block_part2
+                        .little_block_part2_top
+                            .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                            .h4_right
+                                h4.fl 搭配价
+                                .h5.fl ¥
+                                .h6.fl 20500
+                                .h9.fr 共69件套
+                        .block_img_part2
+                            .img_part2_row1
+                                .row1_img.fl
+                                    a: img(src='images/examples/block_img_row2_5.jpg')
+                                    .price_bg ¥ 200
+                                .row1_2_img.fl.last
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 19
+                                .row1_2_img.fl.last
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 199
+                            .img_part2_row2
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_5.jpg')
+                                    .price_bg ¥ 190
+                                .row2_img.last.fl
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 750
+                    .little_block_part2.last
+                        .little_block_part2_top
+                            .part2_top 同依布艺花开富贵遮光窗帘3米宽*2.5米高
+                            .h4_right
+                                h4.fl 搭配价
+                                .h5.fl ¥
+                                .h6.fl 11280
+                                .h9.fr 共69件套
+                        .block_img_part2
+                            .img_part2_row1
+                                a: img(src='images/examples/block_img_row2_6.jpg')
+                                .price_bg ¥ 199
+                            .img_part2_row2
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_3.jpg')
+                                    .price_bg ¥ 1250
+                                .row2_img.fl
+                                    a: img(src='images/examples/block_img_part2_row2_1.jpg')
+                                    .price_bg ¥ 190
+                                .row2_img.last.fl
+                                    a: img(src='images/examples/block_img_part2_row2_2.jpg')
+                                    .price_bg ¥ 750

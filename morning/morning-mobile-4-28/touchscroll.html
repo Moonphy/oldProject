@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="target-densitydpi=medium-dpi, width=device-width, height=device-height, initial-scale=1" />
+    <title></title>
+    <style type="text/css">
+        *{ margin:0; padding:0;}
+        body{border:1px solid #066}
+        .swap_h{ width:1000px; height:77px}
+        .swap_h div{width:108px; height:75px; word-wrap:break-word; word-break:break-all; float:left; border:1px solid #096;  overflow:scroll}
+    </style>
+</head>
+<body leftmargin="4" rightmargin="4" onswipe="g('dbg1').innerHTML='swipe b'" onswipeleft="g('dbg2').innerHTML='left b'" onswiperight="g('dbg2').innerHTML='right b'">
+swipe swipeleft swiperight
+<div id="div1" style="width:300px; overflow:hidden; height:77px; margin:0 auto">
+    <div style="word-break:break-all" class="swap_h" id="swap_1">
+        <div id="swap_11"> -1<?php echo date('H:i:s'); ?></div>
+        <div id="swap_12"> -2</div>
+        <div> -3</div>
+        <div> -4</div>
+        <div> -5</div>
+        <div> -6</div>
+        <div> -7</div>
+        <div> -8</div>
+        <div> -9</div>
+        <div> -0</div>
+        <div> -a</div>
+        <div> -b</div>
+    </div>
+</div>
+<div id="dbg">dbg</div>
+
+<script language="javascript">
+function l(s){
+    g('dbg').innerHTML = s;
+}
+function printEvent(evt)
+{
+    try
+    {
+        var tmp = '';
+        for(var i in evt)
+        {
+            tmp += i+':'
+            var v = evt[i]+'';
+            if(v=='[object HTMLDivElement]')
+            {
+                tmp+=' <b>div</b> - '+evt[i].id+'<br/>';
+            }
+            else if(''+(evt[i])=='[object TouchList]')
+            {
+                tmp+=' <br/>    <b>touchlist</b>:<div style="border:1px solid red; margin:1px"> ';
+                for(var x in evt[i])
+                {
+                    if(''+(evt[i][x])=='[object Touch]')
+                    {
+                        tmp+='<br>    ----'+x+':'+' <b>Touch</b><br/><div style="border:1px solid blue;margin:1px">';
+                        for(var y in evt[i][x])
+                        {
+                            if(evt[i][x][y]=='[object HTMLDivElement]')
+                            {
+                                tmp+='    ----'+y+':<b>div</b> - '+evt[i][x][y].id+'<br/>';
+                            }else tmp+='<br>    ----'+y+':'+evt[i][x][y]+'<br/>';
+                        }
+                        tmp+='</div>';
+                    }else
+                        tmp+='<br>     '+x+':'+evt[i][x]+'<br/>';
+                }
+                tmp+='</div>';
+            }else if(typeof(evt[i])=='number'){
+                tmp+='<font color="green">'+v+'</font><br/>';
+            }
+            else tmp+=''+v+'<br/>';
+        }
+        return tmp;
+    }catch(e){
+        alert(e)
+    }
+}
+function getxy(e){
+    var a=new Array()
+    var t=e.offsetTop;
+    var l=e.offsetLeft;
+    var w=e.offsetWidth;
+    var h=e.offsetHeight;
+    while(e=e.offsetParent){
+        t+=e.offsetTop;
+        l+=e.offsetLeft;
+    }
+    a[0]=w;a[1]=h;
+    a[2]=l;a[3]=t;
+    return a;
+}
+function touch(obj,func)
+{
+    try{
+        if(arguments.length>2)
+            this.leftRightOnly = arguments[2];
+        else
+            this.leftRightOnly = false;
+
+        if(arguments.length>4){//4，5个参数设置后会帮你设定子元素的宽度，帮助滚动效果
+            var fchild = g(arguments[3]);
+            if(fchild){
+                var fchildCTagName = arguments[4];
+                var childs = fchild.getElementsByTagName(fchildCTagName);
+                var w = 0;
+
+                for(var i=0;i<childs.length;i++){
+                    var xy = getxy(childs[i]);
+                    w += xy[0];
+                }
+                fchild.style.width = w+"px";
+            }
+        }
+
+        this.swipe_function[obj.id] = func;
+        this.id = obj.id;
+        if(!this.id){
+            alert("第一个参数必须有一个id");
+            return;
+        }
+        this.isPc = navigator.userAgent.indexOf('Windows')!=-1||navigator.platform.indexOf('Mac')!=-1;
+        this.startFlag = false;
+        obj.data = this;
+
+        if(this.isPc){
+            this.bind(obj,'mousedown',function(e){this.data.touchstart(e);});
+            this.bind(obj,'mouseup',function(e){this.data.touchend(e);});
+            this.bind(obj,'mouseout',function(e){this.data.touchend(e);});
+            this.bind(obj,'mousemove',function(e){this.data.touchmove(e);});
+        }else{
+            this.bind(obj,'touchstart',function(e){this.data.touchstart(e);});
+            this.bind(obj,'touchend',function(e){this.data.touchend(e);});
+            this.bind(obj,'touchmove',function(e){this.data.touchmove(e);});
+        }
+    }catch(e){
+        alert("touch: "+e);
+    }
+}
+touch.prototype.tch_start = {};
+touch.prototype.tch_mv = {};
+touch.prototype.swipe_function = {};
+touch.prototype.bind = function(obj,evt,fun)
+{
+    if(typeof obj.attachEvent != 'undefined')
+    {
+        obj.attachEvent('on'+evt,fun);
+    }else{
+        obj.addEventListener(evt,fun,true);
+    }
+}
+touch.prototype.touchstart=function(evt)
+{
+    try{
+        if(this.isPc)
+            var tch = evt;
+        else
+            var tch = evt['touches'][0];
+
+        if(this.isPc)
+            var id = this.id;
+        else
+            var id  = tch.target.id
+        this.tch_start[id] = [tch.clientX,tch.clientY,tch.clientX];
+        l("this.tch_start[id]="+this.tch_start[id]+",id="+id)
+        this.startFlag = true;
+        evt.preventDefault();
+    }catch(e){
+        alert('this.tch_start='+this.tch_start+'<br />'+e);
+    }
+}
+touch.prototype.touchend=function (evt)
+{
+    try{
+        if(!this.startFlag) return;
+        if(!this.isPc && (typeof(evt.changedTouches)=='undefined'||evt.changedTouches.length<1)) return;
+
+        if(this.isPc)
+            var id  = this.id;
+        else
+            var id = evt.changedTouches[0].target.id;
+
+        var pid = evt.currentTarget.id;
+        var now = this.tch_mv[id];
+        var start = this.tch_start[id];
+
+        l('end= '+start+","+now+",id="+id)
+
+        var xdiff = now[0]-start[0];
+        var ydiff = now[1]-start[1];
+
+        var f = this.swipe_function[pid];
+        evt.preventDefault();
+        this.startFlag = false;
+        if(Math.abs(xdiff)>Math.abs(ydiff))
+        {
+            if(xdiff<0)
+            {
+                this.swipe(pid,'left',xdiff,f);
+                return;
+            }
+            if(xdiff>0)
+            {
+                this.swipe(pid,'right',xdiff,f);
+                return;
+            }
+        }else{
+            if(ydiff<0)
+            {
+                this.swipe(pid,'up',ydiff,f);
+                return;
+            }
+            if(ydiff>0)
+            {
+                this.swipe(pid,'down',ydiff,f);
+                return;
+            }
+        }
+    }catch(e){
+        alert('touchend error='+e)
+    }
+}
+touch.prototype.touchmove=function(evt)
+{
+    try{
+        if(!this.startFlag) return;
+        if(this.isPc){
+            var id = this.id;
+            var tch = evt;
+        }else{
+            var tch = evt['touches'][0];
+            var id  = tch.target.id;
+        }
+        var now = [tch.clientX,tch.clientY];
+        this.tch_mv[id] = now;
+
+        if(this.leftRightOnly)
+        {
+            var start = this.tch_start[id];
+            l('move='+start+","+now+",id="+id)
+            var xdiff = start[2] - now[0];
+            var obj   = g(this.id);
+            obj.scrollLeft += xdiff;
+            start[2] = now[0];
+        }
+        evt.preventDefault();
+    }catch(e){
+        console.log('touchmove error='+e);
+        //l(printEvent(evt));
+    }
+}
+touch.prototype.swipe = function(pid,dir,xydiff,func)
+{
+    if(typeof(swiping)=='undefined') swiping = false;
+    if(swiping) return;
+    swiping = true;
+    try{
+        var obj = g(pid);
+        var moveDis = obj.style.width?parseInt(obj.style.width,10):300;
+        if(this.leftRightOnly)
+        {
+            var cur_scrollleft = obj.scrollLeft;
+            var moved = cur_scrollleft%moveDis;
+            if(dir=='right')
+                moveDis = moved;
+            else if(dir=='left')
+                moveDis -= moved;
+            else{
+                if(moved>moveDis/2)
+                {
+                    var factor = 1;
+                    moveDis = moveDis - moved;
+                }else{
+                    var factor = -1;
+                    moveDis = moved;
+                }
+            }
+            //g('dbg').innerHTML  = 'dir='+dir+',cur_scrollleft='+cur_scrollleft+',moveDis='+moveDis+'<br/>'+g('dbg').innerHTML;
+        }
+        if(dir=='left')
+            func(pid,moveDis,1);
+        else if(dir=='right')
+            func(pid,moveDis,-1);
+        else{
+            swiping = false;
+            xydiff = Math.abs(xydiff)*2;
+            if(dir=='up')
+                var scrollMoveValue = xydiff;
+            else
+                var scrollMoveValue = xydiff*-1;
+
+            document.body.scrollTop = document.body.scrollTop+scrollMoveValue;
+            if(this.leftRightOnly)
+            {
+                func(pid,moveDis,factor);
+            }
+        }
+    }catch(e){
+        alert(e)
+    }
+}
+
+function g(id)
+{
+    return document.getElementById(id);
+}
+var swiping = false;
+var step = 16;
+function slowmv(pid,v,v1)
+{
+    try{
+        var moved = arguments.length==4?arguments[3]:0;
+        if(moved+step>v)
+            var _step = v-moved;
+        else
+            var _step = step;
+
+        moved+=_step;
+        var obj = g(pid);
+        var display_width = obj.style.width?parseInt(obj.style.width,10):0;
+
+        var new_left = obj.scrollLeft+_step*v1;
+        if((v1>0&&new_left+display_width>=obj.scrollWidth)||(v1<0&&new_left<=0)) new_left = new_left<=0?0:(obj.scrollWidth-display_width);
+        obj.scrollLeft = new_left;
+
+        if(moved<v)
+        {
+            if(new_left>=obj.scrollWidth-display_width||new_left<=0){
+                swiping = false;
+                return;
+            }
+            setTimeout(function(){slowmv(pid,v,v1,moved);},25);
+        }else swiping = false;
+    }catch(e){
+        alert('slowmv error='+e+',pid='+pid+',v='+v+',v1='+v1);
+    }
+}
+//div1是最外的框，决定了可以看到的范围；swap_1是里面很宽的内容，每次滑动显示一部分它的内容；最后一个参数是swap_1里面子元素的标签名，如果swap_1里面是图片，就传img
+var t = new touch(g('div1'),slowmv,true,'swap_1', 'div');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/***************************{CSS Reset}*****************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td { background: transparent; border: 0; margin: 0; padding: 0; vertical-align: baseline;  -webkit-text-size-adjust: none; }
+table, caption, tbody, tfoot, thead, tr, th, td, a { vertical-align: top;}
+body { line-height: 1; }
+table { border-collapse: collapse; border-spacing: 0; }
+object, :focus { outline: none; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section /* HTML 5 */ { display: block; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+a img { border: none; }
+input,button,textarea,select,optgroup,option{ font-size: 100%; font: inherit; }
+li {list-style:none;}
+input[type='button'], input[type='submit'], input[type='reset']{-webkit-appearance: none;outline:none;}
+
+/***************************{Common CSS Class}*****************************/
+.fl, .il .fl { float: left; }
+.fr, .il .fr { float: right; }
+.clear, .il .clear { float: none; clear: both; }
+.il { list-style: none; }
+.il li { float: left; }
+.show{display: block;}
+.hide{display:none}
+
+div:after,ul:after,dl:after,form:after {
+    clear:both;
+    content:'';
+    display:block;
+    height:0;
+    visibility:hidden;
+}
+
+a {color:#999999;text-decoration:none;text-overflow: ellipsis;}
+
+input ,textarea{background:none;border:0 none;padding:0;margin:0;}
+p {margin:0;}
+i,b {font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6 {font-weight:normal;font-size:12px;}
+
+
+body {font-size:0.875em;line-height:1.5;background:#ffffff;color: #5b5b5b;-webkit-text-size-adjust:none;max-width: 750px;margin: 0 auto;}

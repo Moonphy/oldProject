@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>更多</title>
+    <meta name="description" content="CRM指标更多">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/selcity.css" media="all"/>
+    <style>
+    #J_params_pannel{
+        background: #fff;
+        position: fixed;
+        z-index: 2;
+        width: 94%;
+        top: 55px;
+        padding: 10px;
+        -webkit-box-shadow: -3px 3px 5px 3px rgba(0,0,0,0.15);
+        box-shadow: -3px 3px 5px 3px rgba(0,0,0,0.15);
+    }
+    .close{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        border-radius: 50%;
+        color: #fff;
+        background: #F97D81;
+        text-align: center;
+        font-style: normal;
+    }
+     li>span{
+        float: right;
+        margin-right: 10px;
+    }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <div class="group">
+                <input type="text" readonly="" placeholder="更改搜索条件" id="trigger" />
+            </div>
+            <div id="J_params_pannel" class="fn-clear fn-hide">
+                <div class="group">
+                    <label for="">日期<em class="fn-right close" id="close">X</em></label>
+                    <input type="text" id="J_date_start" placeholder="开始时间"/>
+                    <input type="text" id="J_date_end" placeholder="结束时间"/>
+                </div>
+                <div class="group">
+                    <label for="">地区</label>
+                </div>
+                <ul class="cityList fn-clear">
+                    <li class="item" id="J_sheng">
+                        <div class="label fn-left">省级</div>
+                        <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                    <span class="chosen-drop">
+                        <ul class="chosen-results">
+                            <!--<li class="active-result" value="1">长沙</li>-->
+                        </ul>
+                    </span>
+                    </li>
+                    <li class="item mt10" id="J_shi">
+                        <div class="label fn-left">市级</div>
+                        <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                    <span class="chosen-drop">
+                        <ul class="chosen-results">
+                        </ul>
+                    </span>
+                    </li>
+                    <li class="item mt10" id="J_qu">
+                        <div class="label fn-left">区级</div>
+                        <div class="value fn-right"><span id="J_qu_id">请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                    <span class="chosen-drop">
+                        <ul class="chosen-results">
+                        </ul>
+                    </span>
+                    </li>
+                </ul>
+                <div class="group" id="buttons">
+                    <button class="clearTime clearBtn mt10" id="clearTime">清空时间</button>
+                    <button class="clearArea clearBtn mt10" id="clearArea">清空地区</button>
+                    <button class="sure btn mt10" id="submit">确认并搜索</button>
+                </div>
+            </div>
+
+            <ul class="list fn-clear">
+                <div class="ui-title">交易统计</div>
+                <!-- <li class="item">
+                    <label for="bfs">拜访数</label>
+                    <span id="bfs">1</span>
+                </li> -->
+                <li class="item">
+                    <label for="dds">订单数</label>
+                    <span id="dds">1</span>
+                </li>
+                <li class="item">
+                    <label for="ddje">订单金额</label>
+                    <span id="ddje">1</span>
+                </li>
+                <li class="item">
+                    <label for="tds">退单数</label>
+                    <span id="tds">1</span>
+                </li>
+                <li class="item">
+                    <label for="tdje">退单金额</label>
+                    <span id="tdje">1</span>
+                </li>
+
+               <div class="ui-title">客户统计</div>
+               <li class="item">
+                   <label for="zcs">注册数</label>
+                   <span id="zcs">1</span>
+               </li>
+                <li class="item">
+                   <label for="jhs">激活数</label>
+                   <span id="jhs">1</span>
+               </li>
+               <li class="item">
+                   <label for="hys">活跃数</label>
+                   <span id="hys">1h25m</span>
+               </li>
+               <li class="item">
+                   <label for="jykhlcl">交易客户留存率</label>
+                   <span id="jykhlcl">1</span>
+               </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/statistics/index/target.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

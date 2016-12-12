@@ -1,0 +1,126 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/cart_add.css')
+block content
+    .wrap
+        include _header
+        .cart_add_body
+            h1 填选购买数量
+            .section
+                .add_header
+                    .header_color.td1 橙色
+                    .header_title.td2 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链
+                    .header_count.td3 数量
+                    .header_price.td4 单价(元)
+                    .header_total.td5 总价(元)
+                .add_main
+                    .main_img.td1
+                        a.img(href='detail.html',target='_blank',title='')
+                            img(src='images/examples/good_detail_img.png',alt='鞋靴')
+                        p 单价
+                            span &yen;99
+                    .main_size.td2
+                        - for(var i=0; i<12; i++)
+                            .add_count
+                                p 250/40
+                                input(class='text_box',type='text',value='1',name='')
+                                input(class='cut',type='button',value='',name='')
+                                input(class='add',type='button',value='',name='')
+                    .main_count.td3 10
+                    .main_price.td4 99
+                    .main_total.td5 999
+            .section
+                .add_header
+                    .header_color.td1 橙色
+                    .header_title.td2 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                    .header_count.td3 数量
+                    .header_price.td4 单价(元)
+                    .header_total.td5 总价(元)
+                .add_main
+                    .main_img.td1
+                        a.img(href='detail.html',target='_blank',title='')
+                            img(src='images/examples/good_img2.jpg',alt='鞋靴')
+                        p 单价
+                            span &yen;92222
+                    .main_size.td2
+                        - for(var i=0; i<2; i++)
+                            .add_count
+                                p 250/40
+                                input(class='text_box',type='text',value='1',name='')
+                                input(class='cut',type='button',value='',name='')
+                                input(class='add',type='button',value='',name='')
+                    .main_count.td3 10
+                    .main_price.td4 99
+                    .main_total.td5 999
+            .section
+                .add_header
+                    .header_color.td1 橙色
+                    .header_title.td2 圆头拉链皮革拼接磨砂皮粗高跟低筒
+                    .header_count.td3 数量
+                    .header_price.td4 单价(元)
+                    .header_total.td5 总价(元)
+                .add_main
+                    .main_img.td1
+                        a.img(href='detail.html',target='_blank',title='')
+                            img(src='images/examples/good_block_img2.png',alt='鞋靴')
+                        p 单价
+                            span &yen;99
+                    .main_size.td2
+                        - for(var i=0; i<8; i++)
+                            .add_count
+                                p 250/40
+                                input(class='text_box',type='text',value='1',name='')
+                                input(class='cut',type='button',value='',name='')
+                                input(class='add',type='button',value='',name='')
+                    .main_count.td3 10
+                    .main_price.td4 99
+                    .main_total.td5 999
+            .section
+                .add_header
+                    .header_color.td1 橙色
+                    .header_title.td2 圆头拉链皮革拼接磨砂皮粗高跟低筒靴h头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低头拉链皮革拼接磨砂皮粗高跟低
+                    .header_count.td3 数量
+                    .header_price.td4 单价(元)
+                    .header_total.td5 总价(元)
+                .add_main
+                    .main_img.td1
+                        a.img(href='detail.html',target='_blank',title='')
+                            img(src='images/examples/ad_list_1.jpg',alt='鞋靴')
+                        p 单价
+                            span &yen;99
+                    .main_size.td2
+                        - for(var i=0; i<4; i++)
+                            .add_count
+                                p 250/40
+                                input(class='text_box',type='text',value='1',name='')
+                                input(class='cut',type='button',value='',name='')
+                                input(class='add',type='button',value='',name='')
+                    .main_count.td3 10
+                    .main_price.td4 99
+                    .main_total.td5 999
+            .tfoot
+                p 商品件数：<span>6</span>件
+                p.total_price 应付总额：<span>4738.00</span>元
+                a(href='detail.html',title='') 返回商品详情
+                a(href='cart.html',title='') 下一步
+        .push
+        include _footer
+block jsblock
+    script.
+        $(function(){
+            //购物数量加减
+            $(".add").click(function () {
+                var n1 = parseInt($(this).prev().prev().val());
+                $(this).prev().prev().val(n1 + 1);
+                $(this).prevAll(".cut").removeAttr("disabled").css("background-color"," #777777");
+            });
+            $(".cut").click(function () {
+                var n2 = parseInt($(this).prev().val());
+                if(n2 < 2){
+                    $(this).attr("disabled", "true").css("background-color"," #dbdbdb");
+                }else{
+                    $(".cut").removeAttr("disabled");
+                    $(this).prev().val(n2 - 1);
+                }
+            });
+        });

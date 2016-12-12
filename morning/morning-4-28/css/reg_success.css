@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+#header {
+  position: relative;
+}
+.wrap {
+  width: 100%;
+  height: auto!important;
+  min-height: 100%;
+  position: relative;
+}
+.reg_body {
+  width: 1298px;
+  height: 510px;
+  margin: 20px auto;
+  background: url("../images/reg_success.png") no-repeat center 100px #ffffff;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 1px solid #e6e6e6;
+}
+.reg_body .tips {
+  font-size: 24px;
+}
+.reg_body a {
+  color: #ff3b3c;
+}
+.reg_body .p {
+  width: 409px;
+  margin: 0 auto;
+  margin-top: 300px;
+}
+.reg_body p {
+  font-size: 14px;
+  line-height: 36px;
+}
+.reg_body .count,
+.reg_body #count {
+  color: #b1b1b1;
+}
+#scrolltop {
+  display: none;
+}
+.push {
+  height: 68px;
+}
+#footer {
+  height: 68px;
+  position: absolute;
+  bottom: 0;
+}

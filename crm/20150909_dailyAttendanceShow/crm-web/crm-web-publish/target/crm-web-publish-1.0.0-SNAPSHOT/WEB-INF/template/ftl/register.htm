@@ -1,0 +1,54 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '注册' 'register' '0.0.1' 'index'>
+<link href="${cssRoot}/mo-login.css" rel="stylesheet">
+</@inc.header>
+
+<@inc.body>
+
+<div class="page-title">
+    <h2>
+        <span><strong>注册</strong></span>
+    </h2>
+</div>
+
+<div class="main-list" style="margin-top: 0px;">
+    <div class="js-course-list fn-clear">
+        <form class="form register-form fn-left" action="/register" method="POST">
+            <div class="form-group">
+                <label for="username">账户</label>
+                <input class="form-control" id="username" name="name" value="${result.dtos[0].name}" autocomplete="off"/>
+                <p class="tips"></p>
+            </div>
+            <div class="form-tip">输入账户名</div>
+            <div class="form-group">
+                <label for="password">口令</label>
+                <input type="password" class="form-control" id="password" name="password"/>
+                <p class="tips"></p>
+            </div>
+            <div class="form-tip pwd-tip"><em class="active">弱</em><em>中</em><em>强</em></div>
+            <div class="form-group">
+                <label for="password">口令</label>
+                <input type="password" class="form-control" id="repassword" name="repassword" disabled/>
+                <p class="tips"></p>
+            </div>
+            <div class="form-tip">再次确认口令</div>
+            <#if result.state && result.state!=0>
+                <div class="form-group">
+                    <div class="result-tip">${result.msg}</div>
+                </div>
+            </#if>
+            <div class="form-group button-group rule">
+                <a href="/rule/register.html" class="ml10 rule-link">用户注册协议</a>
+                <button class="ml30 registerbtn" type="submit">同意协议并注册</button>
+            </div>
+            <div class="form-group">
+                <a href="/login" class="ml50">已有账号，去登录？</a>
+            </div>
+        </form>
+    </div>
+</div>
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

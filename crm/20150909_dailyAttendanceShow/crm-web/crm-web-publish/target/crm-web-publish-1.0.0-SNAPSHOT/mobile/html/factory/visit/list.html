@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>拜访信息</title>
+    <meta name="description" content="CRM基本情况">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <style>
+        #wrapper{
+            top: 0px;
+            bottom: 41px;
+        }
+
+        .list2{
+            color: #666666;
+        }
+        .list2 .item{
+            height: 41px;
+            line-height: 41px;
+            border-bottom: 1px solid #DDDDDD;
+            padding: 0px 10px;
+            background: #FFFFFF;
+        }
+        .list2 .icon{
+            color: #A7A7A7;
+        }
+        .time{
+            padding: 0px 6px;
+        }
+        .idx{
+            display: inline-block;
+            width: 31px;
+            height: 25px;
+            vertical-align: middle;
+            background: url("../../../img/idx_bg.png") no-repeat;
+            -webkit-background-size: 33px;
+            background-size: 33px;
+            border: none;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .add{
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+        .add button{
+            height: 41px;
+            line-height: 41px;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            border: 1px solid #bdcce1;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="viewport">
+        <section class="content" id="content">
+            <div id="wrapper" class="mt43">
+                <div>
+                    <div id="pulldown">
+                        <span class="pulldown-icon"></span>
+                        <span id="pulldown-label"></span>
+                    </div>
+                    <div id="scroller">
+                        <ul class="result list2" id="J_result_list"></ul>
+                    </div>
+                    <div id="pullup" >
+                        <span class="pullup-icon"></span><span id="pullup-label"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="add">
+                <button id="addcar">添加事故车</button>
+            </div>
+        </section>
+    </div>
+    <script data-main='../../../js/factory-visit-list.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+.text-overflow {
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+}
+#afui #content {
+  position: static!important;
+  padding-top: 44px;
+  padding-bottom: 50px;
+}
+table{
+  display: table!important;
+  tbody{
+    padding: 10px 0;
+  }
+}
+.delivery_address{
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #d6d6d6;
+  color: #444444;
+  width: 100%;
+  li{
+    float: left;
+  }
+  tbody,tr{
+    width: 100%;
+  }
+  .td1{
+    width: 30%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .td2{
+    width: 60%;
+  }
+  .td3{
+    width: 10%;
+    a{
+      color: #df3d82;
+    }
+  }
+  .selected{
+    color: #999999;
+  }
+  .unselected{
+    color: #ffffff;
+    background-color: #df3d82;
+  }
+}
+.f_checkbox_normal,.add_radio{
+  width: 80%;
+  padding: 5px 0px;
+  .border-radius (8px);
+  position: relative;
+  display: block!important;
+  font-size: 12px;
+  left: 10%;
+  margin-top: 42%;
+  input{
+    left: -9999px;
+    position: absolute;
+  }
+}
+
+.bottom_btn{
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  .buy_btn{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    background-color: rgba(0,0,0,0.7);
+    border: none;
+  }
+}
+
+.add_del_btn{
+  width: 16px;
+  height: 16px;
+  background: url("../images/cart_del.png") no-repeat 0 0;
+  background-size: cover;
+}

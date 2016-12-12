@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>选择城市</title>
+    <meta name="description" content="CRM选择城市">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/selcity.css" media="all"/>
+</head>
+<body ontouchstart="">
+
+    <div class="viewport">
+        <section class="content">
+            <div class="pt10">
+                <ul class="cityList fn-clear">
+                    <li class="item" id="J_sheng">
+                        <div class="label fn-left">省级</div>
+                        <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                    <span class="chosen-drop">
+                        <ul class="chosen-results">
+                            <!--<li class="active-result" value="1">长沙</li>-->
+                        </ul>
+                    </span>
+                    </li>
+                    <li class="item mt10" id="J_shi">
+                        <div class="label fn-left">市级</div>
+                        <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                    <span class="chosen-drop">
+                        <ul class="chosen-results">
+                        </ul>
+                    </span>
+                    </li>
+                    <li class="item mt10" id="J_qu">
+                        <div class="label fn-left">区级</div>
+                        <div class="value fn-right"><span id="J_qu_id">请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                    <span class="chosen-drop">
+                        <ul class="chosen-results">
+                        </ul>
+                    </span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script data-main='../../js/selcity.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

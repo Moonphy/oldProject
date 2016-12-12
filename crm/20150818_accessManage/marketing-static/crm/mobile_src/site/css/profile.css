@@ -1,0 +1,17 @@
+@import "base.css";
+ul.resetpwd{
+    margin-top: 10px;
+}
+ul.resetpwd li{
+    -moz-border-radius: 4px; /* Gecko browsers */
+    -webkit-border-radius: 4px; /* Webkit browsers */
+    border-radius: 4px;
+}
+.item .icon{
+    position: relative;
+    top: -6px;
+}
+.item a{
+    display: block;
+    width: 100%;
+}

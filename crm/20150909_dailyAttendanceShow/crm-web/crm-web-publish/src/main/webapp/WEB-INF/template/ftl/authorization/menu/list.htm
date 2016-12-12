@@ -1,0 +1,71 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '菜单' 'menu-list' '0.0.1' 'index' ',plugin/pagination.css'>
+<style>
+    .button-group{
+        margin-left: 100px;
+    }
+    .main-list .link{
+        color: #d03232;
+        text-decoration: underline;
+    }
+    .tool{
+        margin: 15px 40px;
+    }
+    .tool div.group{
+        display: inline;
+        margin-right: 10px;
+    }
+    .tool div.group input{
+        margin: 0 5px;
+    }
+    .tool div.group .btn{
+        width: 50px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="page-title">
+    <h2>
+        <span><strong>现有菜单管理</strong></span>
+    </h2>
+</div>
+<div class="main-list" style="margin-top: 0px;">
+
+    <div class="tool filter">
+        <span class="label">筛选：</span>
+        <div class="group">
+            <label>菜单名称</label>
+            <input name="key" id="key" placeholder="请输入菜单名称"/>
+        </div>
+        <div class="group">
+            <button class="btn" id="querybtn">查询</button>
+            <button class="btn" id="addbtn">新增</button>
+        </div>
+    </div>
+
+
+    <div class="fn-clear">
+        <table class="gridtable" summary="现有菜单管理">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">菜单编码</th>
+                <th scope="col">菜单名称</th>
+                <th scope="col">url</th>
+                <th scope="col">状态</th>
+                <th scope="col">操作</th>
+            </tr>
+            </thead>
+            <tbody id="list">
+            </tbody>
+        </table>
+        <div class="pager"></div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

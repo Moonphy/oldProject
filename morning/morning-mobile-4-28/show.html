@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/show.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.touchSlider.js"></script>
+    <script src="js/jquery.event.drag-1.5.min.js"></script>
+    <title>早上好时尚网</title>
+  </head>
+  <body>
+    <div id="afui">
+      <header id="header"><a href="#" title="" class="back"></a>
+        <h1>买家秀</h1>
+        <div class="search"></div>
+        <form action="/search/" method="get" class="popup_search">
+          <input id="searchKeyword" placeholder="请输入商品关键字..." name="k">
+          <input id="searchBtn" type="submit" value="">
+        </form>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="show.html" title="" class="sort_down">热度 ↓</a></li>
+          <li><a href="show.html" title="">时间</a></li>
+          <li><a href="show.html" title="" class="sort_up">性别</a></li>
+          <li><a href="show.html" title="">位置</a></li>
+        </ul>
+      </nav>
+      <div id="content">
+        <ul class="filters">
+          <li><span>女</span><img src="images/list_del.png" alt=""></li>
+          <li><span>广州</span><img src="images/list_del.png" alt=""></li>
+        </ul>
+        <div class="main_visual"><a href="show_personal.html" class="show_header"><img src="images/show_header.jpg" alt="">
+            <div class="name"><b>萌萌哒小妹纸</b><br><span>5分钟前</span></div>
+            <div class="position"><span>广东</span><span>广州</span></div></a>
+          <div class="flicking_con con1"><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></div>
+          <div id="main_image1" class="main_image">
+            <ul>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/02.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_2.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+            </ul>
+          </div>
+          <div class="bar2"><span>998</span></div>
+          <script>
+            $("#main_image1").touchSlider({
+                view : 1,
+                range : 0.15,
+                page : 1,
+                flexible: true,
+                speed: 300,
+                paging: $(this).prev().children(),
+                counter: function (e) {
+                    $('.con1 a').removeClass("on").eq(e.current - 1).addClass("on");
+                }
+            });
+            
+          </script>
+        </div>
+        <div class="main_visual"><a href="show_personal.html" class="show_header"><img src="images/show_header.jpg" alt="">
+            <div class="name"><b>萌萌哒小妹纸</b><br><span>5分钟前</span></div>
+            <div class="position"><span>广东</span><span>广州</span></div></a>
+          <div class="flicking_con con2"><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></div>
+          <div id="main_image2" class="main_image">
+            <ul>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+              <li><a href="show_detail.html" title=""><img src="images/examples/show_1.jpg" alt=""></a></li>
+            </ul>
+          </div>
+          <div class="bar2"><span>99</span></div>
+          <script>
+            $("#main_image2").touchSlider({
+                view : 1,
+                range : 0.15,
+                page : 1,
+                flexible: true,
+                speed: 300,
+                paging: $(this).prev().children(),
+                counter: function (e) {
+                    $('.con2 a').removeClass("on").eq(e.current - 1).addClass("on");
+                }
+            });
+            
+          </script>
+        </div>
+      </div><a id="post_show" href="show_post.html" title="">+</a>
+      <footer><a href="index.html" title="" class="home">
+          <div class="img"><img src="images/icon/home.png" alt=""></div>
+          <p>首页</p></a><a href="list.html" title="" class="fenlei">
+          <div class="img"><img src="images/icon/fenlei.png" alt=""></div>
+          <p>分类</p></a><a href="show.html" title="" class="show selected">
+          <div class="img"><img src="images/icon/show_img.png" alt=""></div>
+          <p>买家秀</p></a><a href="cart.html" title="" class="cart">
+          <div class="img"><img src="images/icon/cart.png" alt=""><i><span>100</span></i></div>
+          <p>购物车</p></a><a href="home.html" title="" class="personal">
+          <div class="img"><img src="images/icon/personal.png" alt=""></div>
+          <p>个人中心</p></a></footer>
+      <div class="form_content">
+        <ul>
+          <li class="h3">热门搜索：</li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+          <li><a href="list.html" title="">高跟鞋</a></li>
+          <li><a href="list.html" title="">平底鞋</a></li>
+          <li><a href="list.html" title="">松糕鞋</a></li>
+          <li><a href="list.html" title="">长筒靴</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/show.js"></script>
+  </body>
+</html>

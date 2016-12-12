@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>选择汽修厂</title>
+    <meta name="description" content="CRM拜访">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../css/phone.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../css/ui-switch.css" media="all"/>
+    <style>
+        #wrapper{
+            bottom: 0px;
+            top:156px;
+            height: auto;
+            overflow: hidden;
+        }
+        #J_result_list li.nodata{
+            text-align:center;
+            height: 100%;
+            background: #eeeeee;
+            height: 200px;
+            background: url("../../img/no-factory.png") 50% no-repeat;
+            position: relative;
+        }
+        .value .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .nodata .btn{
+            position: absolute;
+            top: 71%;
+            left: 40%;
+            width: 70px;
+            height: 35px;
+            line-height: 35px;
+            background: #fff;
+            border: 1px solid #b1c3de;
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="search" id="J_search">
+            <i class="icon iconfont icon1">&#xe648;</i>
+            <i class="icon iconfont icon2 fn-right fn-hide">&#xe61d;</i>
+            <input type="text" id="J_search_in" placeholder="请输入关键字搜索"/>
+        </div>
+
+        <ul class="nav fn-clear" id="J_nav">
+            <li class="left"><div class="active J_trigger J_t1">注册客户</div></li>
+            <li class="line">|</li>
+            <li class="right"><div class="J_trigger J_t2">已有客户</div></li>
+        </ul>
+    </section>
+
+    <div id="wrapper">
+        <div>
+            <div id="pulldown" >
+                <span class="pulldown-icon"></span>
+                <span id="pulldown-label"></span>
+            </div>
+            <div id="scroller">
+                <ul class="result" id="J_result_list"></ul>
+            </div>
+            <div id="pullup" >
+                <span class="pullup-icon"></span><span id="pullup-label"></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script data-main='../../js/factory-select2.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

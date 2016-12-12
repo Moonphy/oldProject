@@ -1,0 +1,75 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+#logout_body{
+  width: 960px;
+  margin: auto auto;
+  .logo{
+    width: 118px;
+    height: 20px;
+    margin: 100px 0 60px 0;
+    background: url("../images/reg_logo_bg.png") no-repeat 0 center;
+  }
+  .reg_wrap{
+    width: 958px;
+    height: auto;
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+    .border-radius(8px);
+    .reg_title{
+      width: 890px;
+      height: 100px;
+      margin: 0 auto;
+      line-height: 100px;
+      text-align: center;
+      font-size: 18px;
+      border-bottom: 1px solid #e6e6e6;
+      color: #666666;
+      font-weight: 500;
+    }
+    .reg_main{
+      width: 890px;
+      margin: 0 auto;
+      position: relative;
+      .out_img{
+        width: 420px;
+        height: 420px;
+        float: left;
+        background: url("../images/logout.png") no-repeat center center;
+      }
+      p{
+        width: 450px;
+        float: left;
+        font-size: 24px;
+        color: #666666;
+        margin-top: 150px;
+        a{
+          color: #FF3B3C;
+        }
+      }
+      #count{
+        width: 450px;
+        color: #dbdbdb;
+        padding: 0;
+      }
+    }
+  }
+  .about-us{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 0 0 0;
+    font-size: 14px;
+    color: #6a6a6a;
+    a{
+      font-size: 14px;
+      color: #6a6a6a;
+    }
+  }
+}
+#scrolltop{
+  display: none;
+}

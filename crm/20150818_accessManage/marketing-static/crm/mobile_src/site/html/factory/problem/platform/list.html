@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>平台问题</title>
+    <meta name="description" content="CRM平台问题">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../../css/base.css" media="all"/>
+    <style type="text/css">
+        .list2{
+            color: #666666;
+            background: #FFFFFF;
+        }
+        .list2 .item{
+            height: 41px;
+            line-height: 41px;
+            border-bottom: 1px solid #DDDDDD;
+            padding: 0px 10px;
+
+        }
+        .list2 .icon{
+            color: #A7A7A7;
+        }
+        .list2 .name{
+            color: #28ab4d;
+            font-style: normal;
+        }
+        .list2 .desc{
+            white-space:nowrap; text-overflow:ellipsis;/* for internet explorer */
+            overflow:hidden; width:160px;
+        }
+        .list2 .zicon{
+            color: #03a539;
+            font-size: 1.1em;
+        }
+        .time{
+            padding: 0px 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content">
+        <div id="wrapper">
+            <div>
+                <div id="pulldown">
+                    <span class="pulldown-icon"></span>
+                    <span id="pulldown-label"></span>
+                </div>
+                <div id="scroller">
+                    <ul class="result list2" id="J_result_list"></ul>
+                </div>
+                <div id="pullup" >
+                    <span class="pullup-icon"></span><span id="pullup-label"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script data-main='../../../../js/factory-problem-platform-list.js' src='../../../../js/lib/require.js'></script>
+</body>
+</html>

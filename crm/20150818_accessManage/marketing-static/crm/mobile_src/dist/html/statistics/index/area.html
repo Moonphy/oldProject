@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>地区业绩</title>
+    <meta name="description" content="CRM地区业绩">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <style>
+        #head li:first-child{
+            font-weight: 600;
+            border-bottom: none;
+        }
+        .item span{
+            display: inline-block;
+            min-width: 32%;
+            max-width: 32%;
+            text-align: center;
+        }
+        span.rmb:before{
+            content: '¥'
+        }
+        #pulldown, #pullup{
+            border-bottom: none;
+        }
+        #wrapper{
+            bottom: 0px;
+            top: 88px;
+            height: auto;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content fn-clear">
+            <ul class="list" id="head">
+                <li class="item">
+                    <span>城市</span>
+                    <span>订单数</span>
+                    <span class="h-rmb">金额</span>
+                </li>
+            </ul>
+    </section>
+
+    <div id="wrapper">
+        <div>
+                <div id="pulldown">
+                    <span class="pulldown-icon"></span>
+                    <span id="pulldown-label"></span>
+                </div>
+                <div id="scroller">
+                    <ul class="list" id="J_result_list">
+                        <!-- <li class="item">
+                            <span>广州</span>
+                            <span>1521</span>
+                            <span class="rmb">21521111</span>
+                        </li> -->
+                    </ul>
+                </div>
+                <div id="pullup" >
+                    <span class="pullup-icon"></span><span id="pullup-label"></span>
+                </div>
+            </div>
+    </div>
+
+<script data-main='../../../js/statistics/index/area.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

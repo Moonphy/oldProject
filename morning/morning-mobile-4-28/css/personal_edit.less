@@ -1,0 +1,119 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+#content{
+  top: 44px;
+  padding-bottom: 50px;
+}
+.user_list{
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #dbdbdb;
+  color: #666666;
+  li{
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dbdbdb;
+    position: relative;
+    span{
+      float: right!important;
+      line-height: 24px;
+      font-size: 12px;
+      font-weight: normal;
+    }
+    input{
+      position:absolute;
+      width:80%;
+      line-height: 30px;
+      top: 0;
+      z-index:1;
+      text-align:center;
+      white-space:nowrap;
+      padding: 5px 0;
+    }
+    a{
+      display: block;
+      line-height: 30px;
+      color: #666666;
+      position: relative;
+
+    }
+  }
+  .user_list_header{
+    a{
+      line-height: 60px;
+      padding: 10px 0;
+    }
+    img{
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      .border-radius (100%);
+      z-index:1;
+      left:45%;
+    }
+    span{
+      line-height: 60px;
+    }
+  }
+}
+.clearh{
+  margin-top: -20px;
+  padding: 0 20px;
+}
+.f_radio{
+  width: 30px;
+  height: 30px;
+  display: block !important;
+  position: relative;
+  z-index: 9;
+  float: left;
+  padding-left: 20px;
+  margin-left: 10px;
+  input{
+    left: -9999px;
+    position: absolute;
+  }
+}
+form{
+  p{
+    padding: 20px;
+    .name{
+      width: 79%;
+      padding: 5px;
+      border: 1px solid #dbdbdb;
+      line-height: 18px;
+    }
+    .sex{
+      float: left;
+    }
+    label{
+      margin: 15px 0;
+    }
+    .unselected{
+      background: url("../images/selected2_1.png") no-repeat 0 3px;
+      background-size: 28%;
+      color: #444444;
+    }
+    .selected{
+      background: url("../images/selected2_22.png") no-repeat 0 3px;
+      background-size: 28%;
+      color: #df3d82;
+    }
+  }
+}
+
+
+.logout_btn{
+  width: 280px;
+  line-height: 50px;
+  background-color: #df3d82;
+  color: #ffffff;
+  text-align: center;
+  margin: 60px auto;
+  border: none;
+  display: block;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>拜访</title>
+    <meta name="description" content="CRM拜访">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../css/phone.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../css/ui-switch.css" media="all"/>
+    <style type="text/css">
+        #wrapper{
+            top: 100px;
+            bottom: 50px;
+            height: auto;
+            overflow: hidden;
+        }
+        .item{
+            position: relative;
+        }
+        .item .value{
+            position: absolute;
+            right: -5px;
+        }
+        .item .time{
+              color: #03a539;
+        }
+        .item span{
+            padding:0 5px;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+
+    <section class="content fn-clear">
+        <div class="search" id="J_search">
+            <i class="icon iconfont icon1">&#xe648;</i>
+            <i class="icon iconfont icon2 fn-right fn-hide">&#xe61d;</i>
+            <input type="text" id="J_search_in" placeholder="请输入汽修厂名搜索"/>
+        </div>
+            <div id="wrapper">
+                <div>
+                    <div id="pulldown" >
+                        <span class="pulldown-icon"></span>
+                        <span id="pulldown-label"></span>
+                    </div>
+                    <div id="scroller">
+                        <ul class="result" id="J_result_list"></ul>
+                    </div>
+                    <div id="pullup" >
+                        <span class="pullup-icon"></span><span id="pullup-label"></span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    
+</div>
+<script data-main='../../js/visit-list.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<#import '/inc/inc.htm' as inc />
+
+<#assign isEdit =(flag==1)?if_exists/>
+<#if isEdit>
+    <#assign title= "客户信息编辑"/>
+<#else>
+    <#assign title= "新客户信息录入"/>
+</#if>
+
+<@inc.header title 'cust-new' '0.0.1' 'index' ',new.css,plugin/tags/tagsinput.css,plugin/laydate/core.css,plugin/laydate/skins/danlan/laydate.css'>
+    <style type="text/css">
+        #suggest{width:500px;}
+        .ac_results {background:#fff;border:1px solid #DEDEDE;position: absolute;z-index: 10000;display: none;}
+        .ac_results ul{margin:0;padding:0;list-style:none;}
+        .ac_results li a{white-space: nowrap;text-decoration:none;display:block;color:#05a;padding:1px 3px;}
+        .ac_results li{border:1px solid #fff; line-height:18px}
+        .ac_over,.ac_results li a:hover {background:#c8e3fc;}
+        .ac_results li a span{float:right;}
+        .ac_result_tip{border-bottom:1px #666;padding:3px;}
+        #suggest{
+            top: 620px!important;
+            left: 650px!important;
+            display: none;
+        }
+        #xianxia_tag{
+            border: 1px solid #CCC;
+            width: 80px;
+        }
+    </style>
+</@inc.header>
+
+<@inc.body>
+	<div class="page-title">
+        <h2>
+			<span>
+                <strong>${title}</strong>
+            </span>
+		</h2>
+    </div>
+    <div class="main-list">
+    	<div class="js-course-list fn-clear">
+            <#-- 此页面与edit页面共用、所以post地址需根据flag标识作出选择 -->
+            <#assign postUrl = appRoot+"/customer/new" />
+            <#if isEdit>
+                <#assign postUrl = appRoot+"/customer/edit/"+id />
+            </#if>
+
+            <#if (result?exists && !result.success)>
+                <div class="result-tip result-tip-error">错误信息：${result.msg}</div>
+            </#if>
+            <#if (result?exists && result.success && result.msg?exists)>
+                <div class="result-tip result-tip-success">${result.msg}</div>
+            </#if>
+
+    		<form class="form" action="${postUrl}" method="POST" id="form">
+                <#escape x as x?if_exists>
+			 	<div class="form-group">
+			 		<label for="mfctyId">汽修厂ID</label>
+                    <#if isEdit>
+                        <#--编辑靠id-->
+                        <input type="hidden" name="id" value="${id}" id="id"/>
+                        <input class="form-control" id="mfctyId" name="mfctyId" value="${(result.model.mfctyId)?if_exists}" title="编辑模式下，汽修厂ID不能更改" style="cursor: help;background: #EDEFF0;" readonly placeholder="输入数字"/>
+                    <#else>
+                        <input class="form-control" id="mfctyId" name="mfctyId" value="${(result.model.mfctyId)?if_exists}" placeholder="输入数字"/>
+                    </#if>
+					<button class="autobtn" type="button">自动载入</button>
+			 	</div>
+			 	<div class="form-group">
+			 		<label for="mfctyName">手机账户名</label>
+			 		<input class="form-control" id="mp" name="mp" value="${(result.model.mp)?if_exists}"/>
+			 	</div>
+                <div class="form-group">
+                    <label for="mfctyName">邮箱账户名</label>
+                    <input class="form-control" id="email" name="email" value="${(result.model.email)?if_exists}"/>
+                </div>
+                <div class="form-group">
+                    <label for="mfctyName">厂家名</label>
+                    <input class="form-control" id="mfctyName" name="mfctyName" value="${(result.model.mfctyName)?if_exists}"/>
+                </div>
+                <div class="form-group">
+                    <label for="address">地址</label>
+                    <input class="form-control" id="address" name="address" value="${(result.model.address)?if_exists}"/>
+                </div>
+                <div class="form-group">
+                    <label for="cactMan">联系人</label>
+                    <input class="form-control" id="cactMan" name="cactMan" value="${(result.model.cactMan)?if_exists}"/>
+                </div>
+                <div class="form-group">
+                    <label for="cactTel">联系电话</label>
+                    <input class="form-control" id="cactTel" name="cactTel" value="${(result.model.cactTel)?if_exists}"/>
+                </div>
+                <div class="form-group">
+                    <label for="createTime">注册时间</label>
+                    <#if result.model.createTime?exists>
+                        <input class="form-control" id="createTime" name="createTime" value="${(result.model.createTime)?string('yyyy-MM-dd hh:mm:ss')}"/>
+                    <#else>
+                        <input class="form-control" id="createTime" name="createTime" value=""/>
+                    </#if>
+                </div>
+                <div class="form-group">
+                    <label for="type">客户类型</label>
+                    <div class="type" id="type">
+                        <#if (result.model.mfctyType)?if_exists>
+                            <#if result.model.mfctyType==1>
+                                <input type="radio" id="one" name="mfctyType" value="1" checked/><label for="one">一类汽车维修企业</label>
+                                <input type="radio" id="two" name="mfctyType" value="2"/><label for="two">二类汽车维修企业</label>
+                                <input type="radio" id="three" name="mfctyType" value="3"/><label for="three">三类汽车维修企业</label>
+                            <#elseif result.model.mfctyType==2>
+                                <input type="radio" id="one" name="mfctyType" value="1"/><label for="one">一类汽车维修企业</label>
+                                <input type="radio" id="two" name="mfctyType" value="2" checked/><label for="two">二类汽车维修企业</label>
+                                <input type="radio" id="three" name="mfctyType" value="3"/><label for="three">三类汽车维修企业</label>
+                            <#elseif result.model.mfctyType==3>
+                                <input type="radio" id="one" name="mfctyType" value="1"/><label for="one">一类汽车维修企业</label>
+                                <input type="radio" id="two" name="mfctyType" value="2"/><label for="two">二类汽车维修企业</label>
+                                <input type="radio" id="three" name="mfctyType" value="3" checked/><label for="three">三类汽车维修企业</label>
+                            </#if>
+                        <#else>
+                            <input type="radio" id="one" name="mfctyType" value="1" checked/><label for="one">一类汽车维修企业</label>
+                            <input type="radio" id="two" name="mfctyType" value="2"/><label for="two">二类汽车维修企业</label>
+                            <input type="radio" id="three" name="mfctyType" value="3"/><label for="three">三类汽车维修企业</label>
+                        </#if>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>采购构成</label>
+
+                    线上：<input id="online" name="onlineBuy" value="${(result.model.onlineBuy)?if_exists}"/>
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    线下：
+                    <div class="xianxia">
+                        <input id="xianxia" class="mr10" name="">
+                    </div>
+                    <div id='suggest' class="ac_results">
+                    </div>
+                    <#--隐藏域-->
+                    <div id="hidden" class="fn-hide">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>客户概况</label>
+                    <textarea name="memo" class="memo" placeholder="可填写客户的基本情况或备注，不超过200个字">${(result.model.memo)?if_exists}</textarea>
+                </div>
+                </#escape>
+
+				<div class="form-group button-group">
+                    <button class="btn" type="button" id="backbtn" onclick="history.go(-1);">返回</button>
+					<button class="ml10 btn submit" id="submitBtn" type="button">提交</button>
+				</div>
+            </form>
+    	</div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

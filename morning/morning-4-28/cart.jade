@@ -1,0 +1,69 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/cart.css')
+
+block content
+    .wrap
+        include _header
+        .shopping_cart_body
+            form.cart_goods(action='pay_fillin.html',method='post')
+                table.cart_goods_title
+                    tbody.settle_goods
+                        tr
+                            td.td1
+                                label.allselect.f_checkbox_normal.unchecked 全选
+                                    input(type='checkbox',name='',value='name')
+                            td.td2 商品
+                            td.td3 材质
+                            td.td4 颜色
+                            td.td5 尺码
+                            td.td6 单价（元）
+                            td.td7 数量
+                            td.td8 小计（元）
+                            td.td9 操作
+                .cart_wrap
+                    - for(var i=0; i<2; i++)
+                        table.cart_goods_body
+                            tbody.settle_goods
+                                tr
+                                    td.td1.goods_checkbox
+                                        label.f_checkbox_normal.unchecked
+                                            input(class='allselect',type='checkbox',name='goodslist',value='9')
+                                    td.td2
+                                        p 商品编号：
+                                            span ABCEDFG1234567
+                                        a(href='detail.html',title='',target='_blank') 新款时尚流行圆头拉链皮革拼接磨砂皮女鞋hhhhhh
+                                        a.img(href='detail.html',title=''): img(src='images/examples/good_block_img.png',alt='')
+                                    td.td3 压花水牛皮
+                                    td.td4 黑色
+                                    td.td5 245/39
+                                    td.td6 599.00
+                                    td.td7
+                                        input.cut(type='button',value='',name='')
+                                        input.text_box(type='text',value='1',name='')
+                                        input.add(type='button',value='',name='')
+                                        label 有货
+                                    td.td8 599.00
+                                    td.td9
+                                        button.good_operation_btn 删除
+
+
+                table.cart_goods_title.to_settle
+                    tbody.settle_goods
+                        tr
+                            td.td1.td_title
+                                label.allselect.f_checkbox_normal.unchecked 全选
+                                    input(class='',type='checkbox',name='',value='9')
+                            td.td10 删除选中的商品
+                            td.td11#total 已选择<span id="shuliang">8</span>件商品
+                            td.td12.td_total 总价(不含运费)：
+                                i &yen
+                                span  4792.00
+                            td.td13
+                                input.to_settle_btn(type='submit',value='去结算')
+        .push
+        include _footer
+block jsblock
+    script(src='js/detail-slider.js')
+    script(src='js/cart.js')

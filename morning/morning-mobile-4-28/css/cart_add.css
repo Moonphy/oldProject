@@ -1,0 +1,147 @@
+.text-overflow {
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.horizontal_vertical_center {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+body {
+  background-color: #f2f2f2;
+}
+#afui #content {
+  position: static!important;
+  padding-top: 44px;
+  padding-bottom: 60px;
+}
+section {
+  width: 100%;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  margin-top: 7px;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+section .add_header {
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+  line-height: 28px;
+}
+section .add_header div {
+  float: left;
+}
+section .add_header .header_color {
+  width: 20%;
+  min-width: 45px;
+}
+section .add_header .header_title {
+  width: 80%;
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section .add_main {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 4px 0;
+}
+section .add_main .img {
+  display: block;
+  width: 68px;
+  height: 72px;
+  border: 1px solid #e6e6e6;
+  position: relative;
+  float: left;
+  margin: 3px 0;
+}
+section .add_main .img img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+section .add_main .main_size {
+  max-width: 75%;
+  float: left;
+  font-size: 12px;
+}
+section .add_main .main_size .good_count {
+  width: 42px;
+  text-align: center;
+  float: left;
+  margin-left: 7px;
+}
+section .add_main .main_size .good_count .text_box {
+  width: 40px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  text-align: center;
+}
+section .add_footer .add_price {
+  float: left;
+  color: #df3d82;
+}
+section .add_footer .count {
+  float: right;
+  text-align: right;
+}
+.bottom_btn {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+}
+.bottom_btn .custom_btn,
+.bottom_btn button {
+  height: 50px;
+  float: left;
+  color: #ffffff;
+}
+.bottom_btn .custom_btn {
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.bottom_btn .custom_btn .total {
+  font-size: 18px;
+  line-height: 30px;
+}
+.bottom_btn .custom_btn p {
+  line-height: 10px;
+  margin-left: 20px;
+}
+.bottom_btn .buy_btn {
+  width: 40%;
+  background-color: rgba(224, 73, 62, 0.9);
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 16px;
+  text-align: center;
+}

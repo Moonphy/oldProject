@@ -1,0 +1,140 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/shopping-cart.css')
+
+block content
+    include _header
+    .shopping_cart_body
+        .cart_goods
+            table.cart_goods_title
+                tbody.settle_goods
+                    tr
+                        td.td1.td_title
+                            label.f_checkbox_normal.unchecked 全选
+                                input(type='checkbox',name='',value='name')
+                        td.td2 &nbsp;
+                        td.td3.td_title 商品
+                        td.td4.td_title 单价（元）
+                        td.td5.td_title 数量
+                        td.td6.td_title 小计（元）
+                        td.td7.td_title 操作
+            table.cart_goods_body
+                tbody.settle_goods
+                    - for(var i=0;i<4;i++)
+                        tr
+                            td.td1.goods_checkbox
+                                label.f_checkbox_normal.unchecked
+                                    input(type='checkbox',name='goodslist',value='9')
+                            td.td2.goods_img
+                                a(href='detail.html'): img(src='images/examples/good_img.jpg')
+                            td.td3.good_title
+                                a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                                br
+                                p 尺码：
+                                    span 245/39
+                            td.td4.good_price 599.00
+                            td.td5.good_count
+                                input(id='cut',type='button',value='-',name='')
+                                input(type='text',value='1',name='')
+                                input(id='add',type='button',value='+',name='')
+                            td.td6.good_total 599.00
+                            td.td7.good_operation_btn 删除
+            table.cart_goods_title.to_settle
+                tbody.settle_goods
+                    tr
+                        td.td1.td_title
+                            label.f_checkbox_normal.unchecked 全选
+                                input(type='checkbox',name='',value='name')
+                        td.td8 删除选中的商品
+                        td.td9 已选择<span>8</span>件商品
+                        td.td10.td_total 总价(不含运费)：
+                            i ¥
+                            span  4792.00
+                        td.td11
+                            .to_settle_btn
+                                a(href='pay.html') 去结算
+        .recommend_recently
+            .recommend_recently_lable
+                .recommend_lable.active 猜你喜欢
+                .recently_lable 最近浏览
+            .recommend_recently_popup
+                #popup_recommend
+                    .ck-slide
+                        .similar_show
+                            ul.similar_show_good
+                                li
+                                    - for(var i=0; i<6; i++)
+                                        .good
+                                            .good_img: a(href='detail.html'): img(src='images/examples/recommend_img.png')
+                                            p: a(href='detail.html') 磨砂皮粗高跟低筒靴
+                                            .good_price ¥ 599.00
+                                li
+                                    - for(var i=0; i<6; i++)
+                                        .good
+                                            .good_img: a(href='detail.html'): img(src='images/examples/recommend_img.png')
+                                            p: a(href='detail.html') 磨砂皮粗高跟低筒靴
+                                            .good_price ¥ 599.00
+                                li
+                                    - for(var i=0; i<6; i++)
+                                        .good
+                                            .good_img: a(href='detail.html'): img(src='images/examples/recommend_img.png')
+                                            p: a(href='detail.html') 磨砂皮粗高跟低筒靴
+                                            .good_price ¥ 599.00
+                            .similar_arrow
+                                a(href='javascript:;',class='ctrl-slide similar_prev')
+                                a(href='javascript:;',class='ctrl-slide similar_next')
+                #popup_recently.hide
+                    .ck-slide
+                        .similar_show
+                            ul.similar_show_good
+                                li
+                                    - for(var i=0; i<6; i++)
+                                        .good
+                                            .good_img: a(href='detail.html'): img(src='images/examples/recommend_img.png')
+                                            p: a(href='detail.html') 磨砂皮粗高跟低筒靴
+                                            .good_price ¥ 599.00
+                                li
+                                    - for(var i=0; i<6; i++)
+                                        .good
+                                            .good_img: a(href='detail.html'): img(src='images/examples/recommend_img.png')
+                                            p: a(href='detail.html') 磨砂皮粗高跟低筒靴
+                                            .good_price ¥ 599.00
+                                li
+                                    - for(var i=0; i<6; i++)
+                                        .good
+                                            .good_img: a(href='detail.html'): img(src='images/examples/recommend_img.png')
+                                            p: a(href='detail.html') 磨砂皮粗高跟低筒靴
+                                            .good_price ¥ 599.00
+                            .similar_arrow
+                                a(href='javascript:;',class='ctrl-slide similar_prev')
+                                a(href='javascript:;',class='ctrl-slide similar_next')
+    .custom_service
+    include _footer
+block jsblock
+    script(src='js/detail-slider.js')
+    script(type='text/javascript').
+        $(document).ready(function(){
+            $(".f_checkbox_normal").toggle(
+                function () {
+                    $(this).addClass("checked");
+                    $(this).children("input").attr("checked", "checked");
+                },
+                function () {
+                    $(this).removeClass("checked");
+                    $(this).children("input").removeAttr("checked");
+                }
+            );
+            $(".recommend_lable").click(function(){
+                $(this).addClass('active');
+                $('.recently_lable').removeClass('active');
+                $("#popup_recommend").show();
+                $("#popup_recently").hide();
+            });
+            $(".recently_lable").click(function(){
+                $(this).addClass('active');
+                $('.recommend_lable').removeClass('active');
+                $("#popup_recently").show();
+                $("#popup_recommend").hide();
+            });
+        });

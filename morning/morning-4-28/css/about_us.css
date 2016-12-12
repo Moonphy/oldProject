@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+.wrap {
+  width: 100%;
+  height: auto!important;
+  min-height: 100%;
+  position: relative;
+}
+.push {
+  height: 68px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+}
+.about_us_body {
+  width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.about_us_body .about_us_main .about_us_main_left {
+  width: 246px;
+  border: 1px solid #dbdbdb;
+  margin-top: 20px;
+  background-color: #fafafa;
+  color: #444444;
+}
+.about_us_body .about_us_main .about_us_main_left ul {
+  margin-bottom: 10px;
+}
+.about_us_body .about_us_main .about_us_main_left ul li {
+  width: 188px;
+  padding: 0px 29px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  /*a:hover{
+            text-decoration: none;
+          }*/
+}
+.about_us_body .about_us_main .about_us_main_left ul li a {
+  width: 188px;
+  display: inline-block;
+  color: #444444;
+}
+.about_us_body .about_us_main .about_us_main_left ul .selected {
+  background-color: #ff3b3c;
+}
+.about_us_body .about_us_main .about_us_main_left ul .selected a {
+  color: #ffffff;
+}
+.about_us_body .about_us_main .about_us_main_left ul .unselected {
+  background: none;
+}
+.about_us_body .about_us_main .about_us_main_left ul .part_title {
+  width: 188px;
+  margin: 0 29px 5px 29px;
+  padding: 10px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.about_us_body .about_us_main .about_us_main_right {
+  color: #444444;
+  width: 950px;
+  padding: 20px 40px;
+  margin-top: 20px;
+  border: 1px solid #dbdbdb;
+  background-color: #fafafa;
+}
+.about_us_body .about_us_main .about_us_main_right .list_title {
+  width: 932px;
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #fafafa;
+  font-size: 18px;
+  color: #444444;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.about_us_body .about_us_main .about_us_main_right p {
+  font-size: 14px;
+  text-indent: 2em;
+  line-height: 24px;
+}
+.about_us_body .about_us_main .about_us_main_right .title {
+  font-size: 18px;
+  font-weight: bold;
+}

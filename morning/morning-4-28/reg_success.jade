@@ -1,0 +1,27 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/reg_success.css')
+block content
+    .wrap
+        include _header
+        .reg_body
+            .p
+                p.tips 恭喜你，注册成功！</br>如果浏览器没有自动跳转，请<a href="index.html">点击这里</a>
+                p 你可以先<a href="home.html">完善个人资料</a>
+                    span.count （<input id="count" type="button" value="5s"></input>）
+        .push
+        include _footer
+block jsblock
+    script(type='text/javascript').
+        function jump(count) {
+            window.setTimeout(function(){
+                count--;
+                if(count > 0) {
+                    $('#count').val(count+'s');
+                    jump(count);
+                } else {
+                    location.href="http://36-37.com";
+                }
+            }, 1000);
+        }
+        jump(5);

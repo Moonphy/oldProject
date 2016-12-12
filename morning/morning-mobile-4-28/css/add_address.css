@@ -1,0 +1,84 @@
+#afui #content {
+  top: 44px;
+  padding-bottom: 60px;
+}
+p {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-top: 1px solid #dbdbdb;
+  margin-top: -1px;
+  line-height: 30px;
+}
+p label {
+  width: 20%;
+}
+p input,
+p select {
+  width: 75%;
+  border: 1px solid #dbdbdb;
+  float: right;
+  padding: 5px 10px;
+  position: relative;
+  line-height: 16px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  box-sizing: border-box;
+}
+.address_select {
+  width: 100%;
+}
+.address_detail {
+  width: 100%;
+}
+.address_detail label {
+  line-height: 95px;
+}
+.address_detail textarea {
+  width: 72%;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  float: right;
+}
+.f_checkbox_normal {
+  width: 200px;
+  height: 30px;
+  display: block !important;
+  position: relative;
+  z-index: 9;
+  padding-left: 20px;
+}
+.f_checkbox_normal input {
+  left: -9999px;
+  position: absolute;
+}
+.unchecked {
+  background: url("../images/selected2_1.png") no-repeat 0 center;
+  background-size: 7%;
+}
+.checked {
+  background: url("../images/selected2_2.png") no-repeat 0 center;
+  background-size: 7%;
+}
+.bottom_btn {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+}
+.bottom_btn .buy_btn {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+}

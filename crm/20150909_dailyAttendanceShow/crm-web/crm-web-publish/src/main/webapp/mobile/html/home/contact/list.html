@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>通讯录</title>
+    <meta name="description" content="CRM通讯录">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/phone.css" media="all"/>
+    <style>
+        .t100{
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="viewport">
+
+        <section class="content fn-clear">
+            <div class="search" id="J_search">
+                <i class="icon iconfont icon1">&#xe648;</i>
+                <i class="icon iconfont icon2 fn-right fn-hide">&#xe61d;</i>
+                <input type="text" id="J_search_in" placeholder="请输入关键字搜索"/>
+            </div>
+        </section>
+
+        <div id="scroll-container" class="t100">
+
+            <div id="wrapper">
+                <div>
+                    <div id="pulldown" >
+                        <span class="pulldown-icon"></span>
+                        <span id="pulldown-label"></span>
+                    </div>
+                    <div id="scroller">
+                        <ul class="result">
+                            <li class="item common">
+                                <a href="common.html" class="comm-phone">
+                                    <div class="name">公共服务电话</div>
+                                    <i class="icon iconfont fn-right">&#xe65d;</i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="result" id="J_result_list"></ul>
+                    </div>
+                    <div id="pullup" >
+                        <span class="pullup-icon"></span><span id="pullup-label"></span>
+                    </div>
+                </div>
+            </div>
+        </div><!--#container end-->
+
+    </div>
+
+    <script data-main='../../../js/contact-list.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

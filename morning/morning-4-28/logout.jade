@@ -1,0 +1,30 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/logout.css')
+block content
+    #logout_body
+        .logo
+        .reg_wrap
+            .reg_title 早上好账号
+            .reg_main
+                .out_img
+                p 退出成功</br>如果浏览器没有自动跳转，请<a href="index.html">点击这里</a>
+                input#count(type='button',value='5s')
+
+        .about-us &copy; 2014 广州早上好网络科技有限公司
+            br
+            a(href='http://www.miibeian.gov.cn/',target='_blank') 粤ICP备14049451号-1
+block jsblock
+    script(type='text/javascript').
+        function jump(count) {
+            window.setTimeout(function(){
+                count--;
+                if(count > 0) {
+                    $('#count').val(count+'s');
+                    jump(count);
+                } else {
+                    location.href="http://36-37.com";
+                }
+            }, 1000);
+        }
+        jump(5);

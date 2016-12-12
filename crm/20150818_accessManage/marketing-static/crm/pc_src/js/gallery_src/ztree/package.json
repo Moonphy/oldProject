@@ -1,0 +1,18 @@
+{
+  "name": "ztree",
+  "version": "3.5.18",
+  "description": "jQuery Tree Plugin",
+  "keywords": [],
+  "author": "cjxsgn <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "licenses": "MIT",
+  "scripts": {
+    "build": "quick build"
+  },
+  "modulecfg": {
+    
+  }
+}

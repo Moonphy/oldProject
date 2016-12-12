@@ -1,0 +1,166 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/index.css')
+
+block content
+    .index_body
+        #header
+            .header-top
+                .logo
+                    a(href='index.html',title='36-37早上好时尚商城')
+                        img(src='images/logo_header.png')
+                .header-right
+                    .telephone 4006-4888-00
+                    .user
+                        .shopping-cart.fl
+                            a.cart_logo(href='cart.html',title='')
+                                img(src='images/icon/shopping_cart_icon2.png',alt='')
+                                i: span 99
+                            .popup_cart.js-over-show
+                                .cart_cover_left
+                                .cart_cover
+                                .cart_wrap
+                                    .cart_show
+                                        .cart_show_good
+                                            - for(var i=0; i<4; i++)
+                                                .good
+                                                    .good_left.fl: a(href='detail.html',title='',target='_blank'): img(src='images/examples/good_detail_img.png',alt='')
+                                                    .good_right.fr
+                                                        .right_top
+                                                            a(href='detail.html',title='',target='_blank') 新款时尚流行圆头拉链皮革拼接磨
+                                                        button 删除
+                                                        .right_bottom
+                                                            .good_count.fl 1件
+                                                            .good_size 尺码：<span>36</span>
+                                                            .good_price.fr <i>¥</i>599.00
+                                            .good
+                                                p 您的购物车是空的，
+                                                    span: a(href='index.html',title='') 马上去购物>>
+
+                                    .cart_arrow
+                                        a(href='javascript:;',class='ctrl-slide cart_up')
+                                        a(href='javascript:;',class='ctrl-slide cart_down')
+                                    .cart_bottom
+                                        .good_price_total
+                                            span.i 总价：¥
+                                            span 9999.00
+                                        .to-settle: a(href='cart.html',title='') 去购物车结算
+                        - if(user)
+                            .register_btn.fr: a(href='') 退出
+                            .login_btn.fr: a(href='home.html') 个人中心
+                        - else
+                            .register_btn.fr: a(href='reg1.html') 注册
+                            .login_btn.fr: a(href='login.html') 登录
+            #nav
+                ul#main-menu.fl
+                    li: a(href='index.html') 首页
+                    li: a(href='list.html') 鞋靴
+                    li: a(href='list2.html') 服装
+                    li: a(href='list3.html') 箱包
+                    li: a(href='list4.html') 手表
+                .search.fr
+                    form(action='/search/', method='get')
+                        input#searchBtn(type='submit',value='')
+                        input#searchKeyword(placeholder='搜索',name='k')
+                        button 确定
+
+        include _index_banner
+        .index_main
+            .classify_block
+                .classify: a(href='list.html')
+                    .classify_title.lc 鞋靴
+                    .classify_img.lc
+                        img(src='images/shoes_bg.png',alt='')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list.html') 跳转至
+                .classify: a(href='list2.html')
+                    .classify_title.lc 服装
+                    .classify_img.lc
+                        img(src='images/garment_bg.png',alt='')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list2.html') 跳转至
+                .classify: a(href='list3.html')
+                    .classify_title.lc 箱包
+                    .classify_img.lc
+                        img(src='images/bags_bg.png',alt='')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list3.html') 跳转至
+                .classify: a(href='list4.html')
+                    .classify_title.lc 手表
+                    .classify_img.lc
+                        img(src='images/watch_bg.png',alt='')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list4.html') 跳转至
+            .goods_block
+                .goods_block_title 品牌<i>促销</i>
+                - for(var i=0;i<4;i++)
+                    .goods_little_block
+                        .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                            img(src='images/examples/good_block_img.png',alt='')
+                            p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴eeeeeeeeeeeee
+                        .goods_in_btn 零售价&yen;<span>599.00</span>
+                        .goods_little_block_bar
+                            .like: img(src='images/like.png',alt='')
+                            p <span>99</span>人喜欢
+
+            .goods_block_hot
+                .goods_block_title 热卖<i>商品</i>
+                #goods_waterfall
+                    .waterfall_class
+                        - for (var i=0;i<6;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/05.jpg',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+                    .waterfall_class
+                        - for (var i=0;i<3;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/good_block_img2.png',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+                    .waterfall_class
+                        - for (var i=0;i<5;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/good_block_img.png',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+                    .waterfall_class
+                        - for (var i=0;i<3;i++)
+                            .goods_little_block
+                                .goods_little_block_img: a(href='detail.html',title='',target='_blank')
+                                    img(src='images/examples/good_block_img2.png',alt='')
+                                    p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴hhhhhhh
+                                .goods_in_btn 零售价&yen;<span>599.00</span>
+                                .goods_little_block_bar
+                                    .like: img(src='images/like.png',alt='')
+                                    p <span>99</span>人喜欢
+                #loading
+                    //img(src='images/thumb.gif')
+    //include _pageshow
+    include _footer
+
+block jsblock
+    script(src='js/jquery.miniWaterfall.js')
+    script(src='js/jquery.touchSlider.js')
+    script(src='js/index.js')

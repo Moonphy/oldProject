@@ -1,0 +1,94 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  -ms-border-radius: @radius;
+}
+body{
+  background-color: #eeeeee;
+}
+#afui #content {
+  top: 44px;
+  color: #666666;
+}
+.logistics_header{
+  width: 100%;
+  height: 80px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  img{
+    width: 50px;
+    float: left;
+  }
+  .name{
+    float: left;
+    margin-left: 10px;
+    b{
+      color: #444444;
+      font-weight: bold;
+    }
+    p{
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}
+.logistics_main{
+  background-color: #ffffff;
+  margin: 15px 0;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0 20px;
+  box-sizing: border-box;
+  h4{
+    font-size: 14px;
+    line-height: 40px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  ul{
+    margin: 20px 0px 25px 10px;
+    li:first-child{
+      color: #df3d82;
+      b{
+        width: 14px;
+        height: 14px;
+        background: #df3d82;
+        border: 3px solid #ef9ec0;
+        left: -11px;
+        top: -3px;
+        .border-radius (20px);
+      }
+    }
+    li{
+      border-left: 1px solid #df3d82;
+      padding: 0px 20px 20px 20px;
+      position: relative;
+      font-size: 12px;
+      b{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        left: -5px;
+        top: 4px;
+        background-color: #df3d82;
+        .border-radius (10px);
+      }
+      p{
+        span{
+          margin-right: 10px;
+        }
+      }
+    }
+    li:last-child{
+      border-left: none;
+      margin-top: -4px;
+      b{
+        left: -4px;
+        //top: 0px;
+      }
+    }
+  }
+}

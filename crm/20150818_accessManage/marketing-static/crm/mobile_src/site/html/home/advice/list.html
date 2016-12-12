@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问题与建议</title>
+    <meta name="description" content="CRM问题与建议">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/phone.css" media="all"/>
+    <style>
+        .memo .value{
+            display: inline-block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            min-width: 100px;
+            max-width: 270px;
+        }
+        .result{
+            position: relative;
+        }
+        .result .memo{
+            position: absolute;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+
+    <div id="wrapper" class="mt43">
+        <div>
+            <div id="pulldown">
+                <span class="pulldown-icon"></span>
+                <span id="pulldown-label"></span>
+            </div>
+            <div id="scroller">
+                <ul class="result" id="J_result_list"></ul>
+            </div>
+            <div id="pullup" >
+                <span class="pullup-icon"></span><span id="pullup-label"></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script data-main='../../../js/advice-list.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

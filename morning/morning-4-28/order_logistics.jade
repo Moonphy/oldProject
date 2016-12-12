@@ -1,0 +1,138 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/order_detail.css')
+block content
+    include _header
+    .home_body
+        .home_main
+            .home_main_left.fl
+                .left_part
+                    ul
+                        .part_title 个人中心
+                        li: a(href='home.html',title='') 我的账户
+                        li: a(href='home_favorite.html',title='') 我的徽章
+                        li: a(href='home_like.html',title='') 我关注的商品
+                        li: a(href='home_seen.html',title='') 我看过的商品
+                        li: a(href='home_favorite.html',title='') 我收藏的商品
+                .left_part
+                    ul
+                        .part_title 我的订单
+                        li.selected: a(href='home_orders.html',title='') 所有订单
+                        li: a(href='home_address.html',title='') 收货地址管理
+                .left_part
+                    ul
+                        .part_title_2: a(href='',title='') 买家秀
+                .left_part
+                    ul
+                        .part_title 我的优惠
+                        li: a(href='home_address.html',title='') 我的红包
+                        li: a(href='change_password.html',title='') 我的积分
+                .left_part
+                    ul
+                        .part_title_2: a(href='cart.html',title='') 购物车
+                .left_part
+                    ul
+                        .part_title 安全中心
+                        li: a(href='home_address.html',title='') 身份认证
+                        li: a(href='change_password.html',title='') 修改密码
+                        li: a(href='change_password.html',title='') 修改邮箱
+                        li: a(href='change_password.html',title='') 手机绑定
+            .home_main_right.fr
+                .user_home_header
+                    .user_img.fl
+                        img(src='images/personal_head.png')
+                    .user_name.fl
+                        .name 萌萌哒小妹纸，<span>下午好~</span>！
+                            i.female
+                            i.male
+                        span#phone 13912348888
+                        .user_edit <span>22</span>人赞了你的晒单秀
+                    .checkins
+                        button 签到
+                        p.count_checkins 你已连续<span>20</span>天签到
+                        p.tips 连续签到，更多红包！
+                    .hongbao
+                        p.hongbao_h 收到的红包
+                        p <span>12</span>元
+                        p.hongbao_b 亲，有<span>10</span>元红包即将到期
+                .completed.user_home_list
+                    .orders_back
+                        a(href='home_orders.html',title='') 返回所有订单
+                        p.total_price 总额：<span>4738.00</span>元
+                        p 商品件数：<span>6</span>件
+                    .list_title
+                        span 2015-04-22
+                        label 订单号：
+                            span 929242778496691
+                        .orders_manage
+                            p 状态：<i>已付款</i>
+                    ul.thead
+                        li.td1 商品
+                        li.td2 材质
+                        li.td3 颜色
+                        li.td4 尺码
+                        li.td5 单价（元）
+                        li.td6 数量（件）
+                        li.td7 小计（元）
+                    - for(var i=0; i<2; i++)
+                        ul.tbody
+                            li.td1
+                                p 商品编号：
+                                    span ABCEDFG1234567
+                                a(href='detail.html',title='',target='_blank') 新款时尚流行圆头拉链皮革拼接磨砂皮女鞋hhhhhh
+                                a.img(href='detail.html',title='',target='_blank'): img(src='images/examples/good_block_img.png',alt='')
+                            li.td2 压花水牛皮
+                            li.td3 黑色
+                            li.td4 245/39
+                            li.td5 599.00
+                            li.td6 1
+                            li.td7 599.00
+                    .tfoot
+                        p 商品件数：<span>6</span>件
+                        p.total_price 应付总额：<span>4738.00</span>元
+                    .delivery_address
+                        h4 收货地址
+                        ul
+                            li 姓名：<span>张三</span>
+                            li 手机：<span id="phone2">13631365214</span>
+                            li 所在地区：<span>广东省</span><span>广州市</span><span>白云区</span>
+                            li 详细地址：<span>广花一路633号平沙国际商务中心502室</span>
+                            li 邮编：（<span>510440</span>）
+                .consultation
+                    .consultation_title 查询物流
+                    .logistics
+                        .logistics_header
+                            b 您的包裹已签收
+                            .p
+                                p 物流状态：
+                                    span 正在派件
+                                p 运单编号：
+                                    span 88888888888888888888888
+                        ul
+                            li 在官网"运单资料&签收图"，可查看签收人信息
+                                p
+                                    span 2015-06-23
+                                    span 14:21:40
+                            li 已签收，感谢使用顺丰，期待再次为您服务
+                                p
+                                    span 2015-06-23
+                                    span 14:21:40
+                            li 正在派送途中，请您准备签收（派件人：范，电话：13570115255）
+                                p
+                                    span 2015-06-23
+                                    span 14:21:40
+                            li 快件在*****，正转运至【广州平沙服务点】
+                                p
+                                    span 2015-06-23
+                                    span 14:21:40
+                            li 快件在*****，正转运至【广州平沙服务点】
+                                p
+                                    span 2015-06-23
+                                    span 14:21:40
+                            li 顺丰速运已收取快件
+                                p
+                                    span 2015-06-23
+                                    span 14:21:40
+    include _footer
+block jsblock
+    script(src='js/home.js')

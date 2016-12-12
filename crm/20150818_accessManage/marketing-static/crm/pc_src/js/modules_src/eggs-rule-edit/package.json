@@ -1,0 +1,23 @@
+{
+  "name": "eggs-rule-edit",
+  "version": "0.0.1",
+  "description": "编辑用户的砸蛋中奖比例",
+  "keywords": [],
+  "homepage": "",
+  "author": "cjxsgn <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "devDependencies": {
+    "grunt-build-seajs":"~0.0.1"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  }
+}

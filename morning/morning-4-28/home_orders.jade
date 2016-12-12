@@ -1,0 +1,191 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/home_orders.css')
+block content
+    include _header
+    .home_body
+        .home_main
+            .home_main_left.fl
+                .left_part
+                    ul
+                        .part_title 个人中心
+                        li: a(href='home.html',title='') 我的账户
+                        li: a(href='home_favorite.html',title='') 我的徽章
+                        li: a(href='home_like.html',title='') 我关注的商品
+                        li: a(href='home_seen.html',title='') 我看过的商品
+                        li: a(href='home_favorite.html',title='') 我收藏的商品
+                .left_part
+                    ul
+                        .part_title 我的订单
+                        li.selected: a(href='home_orders.html',title='') 所有订单
+                        li: a(href='home_address.html',title='') 收货地址管理
+                .left_part
+                    ul
+                        .part_title_2: a(href='',title='') 买家秀
+                .left_part
+                    ul
+                        .part_title 我的优惠
+                        li: a(href='',title='') 我的红包
+                        li: a(href='',title='') 我的积分
+                .left_part
+                    ul
+                        .part_title_2: a(href='cart.html',title='') 购物车
+                .left_part
+                    ul
+                        .part_title 安全中心
+                        li: a(href='home_address.html',title='') 身份认证
+                        li: a(href='change_password.html',title='') 修改密码
+                        li: a(href='change_password.html',title='') 修改邮箱
+                        li: a(href='change_password.html',title='') 手机绑定
+            .home_main_right.fr
+                .user_home_header
+                    .user_img.fl
+                        img(src='images/personal_head.png')
+                    .user_name.fl
+                        .name 萌萌哒小妹纸，<span>下午好~</span>！
+                            i.female
+                            i.male
+                        .user_edit <span>22</span>人赞了你的晒单秀
+                    .checkins
+                        button 签到
+                        p.count_checkins 你已连续<span>20</span>天签到
+                        p.tips 连续签到，更多红包！
+                    .hongbao
+                        p.hongbao_h 收到的红包
+                        p <span>12</span>元
+                        p.hongbao_b 亲，有<span>10</span>元红包即将到期
+                .orders_search
+                    form(action='/search/', method='get')
+                        input#order_text(type='text',value placeholder='输入商品标题或订单号进行搜索')
+                        input#submit(type='submit',value='搜索')
+                    form.inline#date(action='/search/', method='get')
+                        .from 交易时间：
+                        input#start.inline.laydate-icon
+                        .to 到
+                        input#end.inline.laydate-icon
+                    form.status(action='/search/', method='get') 交易状态：
+                        select
+                            option(value='全部') 全部
+                            option(value='未付款') 未付款
+                            option(value='已付款') 已付款
+                            option(value='交易完成') 交易完成
+                .unpaid.user_home_list
+                    .list_title
+                        span 2015-04-22
+                        label 订单号：
+                            span 929242778496691
+                        label.last 距离交易关闭还有：
+                            span#day_show 0 天
+                            strong#hour_show 0 时
+                            strong#minute_show 0 分
+                            strong#second_show 0 秒
+                        .orders_manage
+                            a(href='order_detail.html',title='') 订单详情
+                            a(href='',title='') 马上付款
+                    ul.thead
+                        li.td1 商品
+                        li.td2 材质
+                        li.td3 颜色
+                        li.td4 尺码
+                        li.td5 单价（元）
+                        li.td6 数量（件）
+                        li.td7 小计（元）
+                    - for(var i=0; i<2; i++)
+                        ul.tbody
+                            li.td1
+                                p 商品编号：
+                                    span ABCEDFG1234567
+                                a(href='detail.html',title='',target='_blank') 新款时尚流行圆头拉链皮革拼接磨砂皮女鞋hhhhhh
+                                a.img(href='detail.html',title='',target='_blank'): img(src='images/examples/good_block_img.png',alt='')
+                            li.td2 压花水牛皮
+                            li.td3 黑色
+                            li.td4 245/39
+                            li.td5 599.00
+                            li.td6 1
+                            li.td7 599.00
+                    .tfoot
+                        p 商品件数：<span>6</span>件
+                        p.total_price 应付总额：<span>4738.00</span>元
+                .completed.user_home_list
+                    .list_title
+                        span 2015-04-22
+                        label 订单号：
+                            span 929242778496691
+                        .orders_manage
+                            a(href='order_detail.html',title='') 订单详情
+                            p 状态：<i>交易完成</i>
+                    ul.thead
+                        li.td1 商品
+                        li.td2 材质
+                        li.td3 颜色
+                        li.td4 尺码
+                        li.td5 单价（元）
+                        li.td6 数量（件）
+                        li.td7 小计（元）
+                    - for(var i=0; i<2; i++)
+                        ul.tbody
+                            li.td1
+                                p 商品编号：
+                                    span ABCEDFG1234567
+                                a(href='detail.html',title='',target='_blank') 新款时尚流行圆头拉链皮革拼接磨砂皮女鞋hhhhhhhhhhh
+                                a.img(href='detail.html',title='',target='_blank'): img(src='images/examples/good_block_img.png',alt='')
+                            li.td2 压花水牛皮
+                            li.td3 黑色
+                            li.td4 245/39
+                            li.td5 599.00
+                            li.td6 1
+                            li.td7 599.00
+                    .tfoot
+                        p 商品件数：<span>6</span>件
+                        p.total_price 应付总额：<span>4738.00</span>元
+                .paid.user_home_list
+                    .list_title
+                        span 2015-04-22
+                        label 订单号：
+                            span 929242778496691
+                        .orders_manage
+                            a(href='order_logistics.html',title='') 查看物流信息
+                            a(href='order_detail.html',title='') 订单详情
+                            p 状态：<i>已付款</i>
+                    ul.thead
+                        li.td1 商品
+                        li.td2 材质
+                        li.td3 颜色
+                        li.td4 尺码
+                        li.td5 单价（元）
+                        li.td6 数量（件）
+                        li.td7 小计（元）
+                    - for(var i=0; i<2; i++)
+                        ul.tbody
+                            li.td1
+                                p 商品编号：
+                                    span ABCEDFG1234567
+                                a(href='detail.html',title='',target='_blank') 新款时尚流行圆头拉链皮革拼接磨砂皮女鞋hhhhhhhhhhhh
+                                a.img(href='detail.html',title='',target='_blank'): img(src='images/examples/good_block_img.png',alt='')
+                            li.td2 压花水牛皮
+                            li.td3 黑色
+                            li.td4 245/39
+                            li.td5 599.00
+                            li.td6 1
+                            li.td7 599.00
+                    .tfoot
+                        p 商品件数：<span>6</span>件
+                        p.total_price 应付总额：<span>4738.00</span>元
+                #page
+                    .page_one
+                        a(href='#?page=2',class='next disabled') < 上一页
+                        a.current 1
+                        a(href='#?page=2') 2
+                        a(href='#?page=3') 3
+                        div ...
+                        a(href='#?page=250') 53
+                        a(href='#?page=2',class='next') 下一页 >
+                    form.page_total
+                        span 共<span>53</span>页
+                        span 直接跳到第<input id="page_text" type="text" value="1"/>页
+                        input(type='submit',value='确定')
+
+    include _footer
+block jsblock
+    script(src='js/laydate.js')
+    script(src='js/home_orders.js')

@@ -1,0 +1,107 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '砸金蛋规则配置' 'eggs-rule' '0.0.1' 'index' '
+,plugin/pagination.css
+'
+>
+<style>
+    .main-list .link{
+        color: #d03232;
+        text-decoration: underline;
+    }
+    .tool{
+        margin: 10px;
+    }
+    .tool div.group{
+        display: inline;
+        margin-right: 10px;
+    }
+    .tool div.group input{
+        margin: 0 5px;
+    }
+    .tool div.group .btn{
+        width: 50px;
+    }
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+    td select{
+        height: 25px;
+        line-height: 25px;
+    }
+    .warn{
+        color: #df0007;
+    }
+    td a{
+        text-decoration: underline;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>砸金蛋规则配置</strong></span>
+        </h2>
+    </div>
+
+    <div class="main-list fn-clear">
+        <div class="tool filter">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>汽修厂名</label>
+                <input name="key" placeholder="请输入汽修厂名"/>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+        <div class="fn-clear">
+            <table class="gridtable" summary="砸金蛋规则配置">
+                <thead>
+                <tr>
+                    <th scope="col">汽修厂名</th>
+                    <th scope="col">城市</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">注册时间</th>
+                    <th scope="col">登录主账号</th>
+                    <th scope="col">规则等级</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody id="list">
+                <#--<tr>
+                        <td>呵呵</td>
+                        <td>北京</td>
+                        <td>中关村</td>
+                        <td>2015-6-1  12:00:00</td>
+                        <td>15925632512</td>
+                        <td>
+                            <select>
+                                <option>中规则</option>
+                                <option>高规则</option>
+                                <option>低规则</option>
+                                <option>不参与活动</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="nodata">
+                        <td colspan="6">美柚数据</td>
+                    </tr>-->
+                </tbody>
+            </table>
+            <div class="pager"></div>
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+<script>
+
+</script>
+</@inc.footer>

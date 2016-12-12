@@ -1,0 +1,106 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '上传' 'upload-test' '0.0.1' 'index' ',plugin/fancybox/fancybox.css'>
+<style>
+    body{
+        -webkit-transition: all .5s ease-out;
+        -moz-transition: all .5s ease-out;
+        -ms-transition: all .5s ease-out;
+        -o-transition: all .5s ease-out;
+        transition: all .5s ease-out;
+    }
+    .btn{
+        text-align: center;
+    }
+    .box{
+        min-width:400px;
+        height:1000px;
+    }
+    .upbtn{
+        height: 50px;
+        width: 150px;
+        padding: 10px 20px;
+        cursor: pointer;
+        background: #DDD;
+    }
+    #imglist{
+        padding: 20px;
+        height: 990px;
+        width: 100%;
+        overflow: auto;
+    }
+    #imglist img{
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-left: none;
+        vertical-align: middle;
+        margin: 5px 0;
+        -webkit-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }
+    #imglist img:first-child{
+        border-left: 1px solid #eee;
+    }
+    #imglist img:nth-child(9n+1){
+        border-left: 1px solid #eee;
+    }
+    .uploading{
+        display: inline-block;
+        width: 122px;
+        height: 122px;
+        line-height: 122px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 5px 0;
+    }
+    #imglist img:hover{
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+        border: 1px solid #ddd;
+        background: #eee;
+        z-index: 1;
+        box-shadow: 10px 10px 5px #888888;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>上传</strong></span>
+        </h2>
+    </div>
+
+    <div class="list fn-clear">
+
+        <div class="mt10">
+            <div class="fn-clear">
+                <div id="container" class="box">
+                    <a class="btn" id="uploadbtn" href="#">
+                        <sapn>选择文件</sapn>
+                    </a>
+                    <div id="imglist">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+<script>
+
+</script>
+</@inc.footer>

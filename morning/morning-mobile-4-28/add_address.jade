@@ -1,0 +1,60 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/add_address.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 新建收货地址
+            a.header_cart(href='cart.html',title='')
+                i: span 99
+        form#content(action='order.html',method='post')
+            p
+                label 姓名：
+                input(type='text',value='')
+            p
+                label 手机号：
+                input(type='text',value='')
+            .address_select
+                p
+                    label 省份：
+                    select.prov(size='1')
+                        option 请选择...
+                p
+                    label 城市：
+                    select.city(size='1')
+                        option 请选择...
+                p
+                    label 地区：
+                    select.dist(size='1')
+                        option 请选择...
+            p.address_detail
+                label 详细地址：
+                textarea(rows='3',cols='30')
+            p
+                label 邮政编码：
+                input(id='add_zip',type='text')
+            p
+                label.f_checkbox_normal.unchecked 设为默认收货地址
+                    input(class='',type='checkbox',name='',value='')
+            .bottom_btn
+                button.buy_btn 确认
+
+block jsblock
+    script(src='js/jquery.cityselect.js')
+    script(type='text/javascript').
+        $(".address_select").citySelect({
+            nodata:"none",
+            required:false
+        });
+        //复选框
+        $(".f_checkbox_normal").toggle(
+            function () {
+                $(this).addClass("checked");
+                $(this).children("input").attr("checked", "checked");
+                },
+            function () {
+                $(this).removeClass("checked");
+                $(this).children("input").removeAttr("checked");
+            }
+        );

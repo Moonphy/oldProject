@@ -1,0 +1,216 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/case_details.css')
+block content
+    include _common_header
+    .case_details_body
+        .case_details_body_bg
+            .bg_img1
+            .bg_img2
+        #case_details_main
+            #style_list.fl.products-top
+                .style_list_header 风格分类
+                li: a(href='#') 轻奢华
+                li: a() 现代简约
+                li: a() 欧式
+                li: a(href='#') 现代中式
+                li: a() 宜家
+                li: a() 美式
+                li: a(href='#') 中式古典
+                li: a() 北欧
+                li: a() 地中海
+                li: a() 小清新
+                li.lastli: a() 田园
+            .details_main
+                #case_details_left
+                    .wrap
+                        .case_user_header
+                            .head.fl: img(src='images/case_details_head1.jpg')
+                            .user_name.fl 美丽人生
+                            .share.fl 分享到：
+                                .icon1: a()
+                                .icon2: a()
+                                .icon3: a()
+                                .icon4: a()
+                        .case_content
+                            .content_title 一招叫你识别环保材料，轻松搞定
+                                span 2013-09-08
+                                .collect 收藏34
+                            .case_details_contents     本案公寓走北欧的简约路线，摆设不多但足够使用。客厅与厨房成一体，窗户设置在厨房，微微想客厅倾斜，让这两个空间共享光线。大而占地多的餐桌被替换成长形吧台，隔开了两个功能区间，也更有饮酒情调。酒柜半透明的门板让储存空间不会太沉重，也避免空间显得杂乱。
+                            .content_img
+                                .big_img: img(src='images/examples/case_details_contents_img.jpg')
+                                .little_img
+                                    .little_img_title 图中的产品如下：
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_1.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_2.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_3.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_4.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_5.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_6.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_7.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                                    .little_img_wrap
+                                        a(): img(src='images/examples/img_little_8.jpg')
+                                        .spc 1.5*1.8儿童专用被子尺寸
+                                            span ￥365
+                        ul.shopping_list
+                            li
+                                .ullist 购物清单
+                            li
+                                .lititle 主材
+                                p 房子，承载着家庭宝贵的记忆，随着房子的翻新，悠悠历史里又添进新的记忆。屋子主人是对新婚夫妇，从旧主人手里买下了这个房子。
+                            li
+                                .lititle 家具
+                                p 房子，承载着家庭宝贵的记忆，随着房子的翻新。
+                            li
+                                .lititle 主材
+                                p 房子，承载着家庭宝贵的记忆，随着房子的翻新，悠悠历史里又添进新的记忆。屋子主人是对新婚夫妇，从旧主人手里买下了这个房子。
+                            li
+                                .lititle 家具
+                                p 房子，承载着家庭宝贵的记忆，随着房子的翻新。
+                        .discussion
+                            .tag 标签：
+                                span 地砖
+                                span 瓷砖
+                                span 填缝剂
+                                span 地砖
+                                span 瓷砖
+                            .discussion_post
+                                .discussion_content
+                                .post_btn 发布讨论
+                            ul
+                                li
+                                    .discussion_head
+                                        a(href=''): img(src='images/case_details_head_2.png')
+                                    .discussion_wrap
+                                        .discussion_content_details
+                                            .discussion_content_header
+                                                .discussion_user
+                                                    a(href='') 纯净水86
+                                                .discussion_time 2013-04-03
+                                                .discussion_btn
+                                                    .btn_reply 回复
+                                                    .btn_del X
+                                                        span  删除
+                                            .discussion_content_p 给小老虎喂奶，看猪赛跑，人妖很水晶晶，酒店很大，东西很便宜。。。导游很黑。。。
+                                        .reply
+                                            .discussion_head_other.fl
+                                                a(href=''): img(src='images/case_details_head_3.png')
+                                            .reply_wrap.fr
+                                                .discussion_user
+                                                    a(href='') 咖啡卡布
+                                                .discussion_time 2013-04-03
+                                                br
+                                                .discussion_content_details_other
+                                                    p 回复<span> @纯净水86</span>厕所的位置在居家风水中，是十分重要的，若是将房屋的平面九等分，位于那一块为家中“中宫”，居家厕所的位置不能在“中宫”上，即所谓的“厕占中宫”，对家中的财运人身体都不好。
+                                        .add_discussion
+                                            input(class='add_content',placeholder='添加评论')
+                                            .make_true
+                                                .text_number 0/1000字
+                                                .sub_yes
+                                li
+                                    .discussion_head
+                                        a(href=''): img(src='images/case_details_head_4.png')
+                                    .discussion_wrap
+                                        .discussion_content_details
+                                            .discussion_content_header
+                                                .discussion_user
+                                                    a(href='') 纯净水86
+                                                .discussion_time 2013-04-03
+                                                .discussion_btn
+                                                    .btn_reply 回复
+                                                    .btn_del X
+                                                        span  删除
+                                            .discussion_content_p 厕所的位置在居家风水中，占十分重要的，若是将房屋的平面分九等分，位于正中的那一块为家中的“中宫”，居家的厕所的位置不能在“中宫”上，即所谓的“厕占中宫”，对家中的财运与家人身体都不好。解决方法：若建设公司已将马桶放置在中宫位上，试着将洗脸盆和马桶对调，或是长期在浴缸中储水，可以改善
+                                        .add_discussion
+                                            input(class='add_content',placeholder='添加评论')
+                                            .make_true
+                                                .text_number 0/1000字
+                                                .sub_yes
+                                li
+                                    .discussion_head
+                                        a(href=''): img(src='images/case_details_head_4.png')
+                                    .discussion_wrap
+                                        .discussion_content_details
+                                            .discussion_content_header
+                                                .discussion_user
+                                                    a(href='') 纯净水86
+                                                .discussion_time 2013-04-03
+                                                .discussion_btn
+                                                    .btn_reply 回复
+                                                    .btn_del X
+                                                        span  删除
+                                            .discussion_content_p 厕所的位置在居家风水中，占十分重要的，若是将房屋的平面分九等分，位于正中的那一块为家中的“中宫”，居家的厕所的位置不能在“中宫”上，即所谓的“厕占中宫”，对家中的财运与家人身体都不好。解决方法：若建设公司已将马桶放置在中宫位上，试着将洗脸盆和马桶对调，或是长期在浴缸中储水，可以改善
+                                li.show_more 显示更多
+                #case_details_right
+                    .right_part_wrap
+                        .right_part_header 案例中的产品
+                            .more
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img1.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img2.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img1.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img2.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img1.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img2.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img1.jpg')
+                            .products_price ¥198
+                        .content
+                            .products_img
+                                a(href='#')
+                                    .tips 北欧时尚舒适小椅子
+                                    img(src='images/examples/case_details_img2.jpg')
+                            .products_price ¥198

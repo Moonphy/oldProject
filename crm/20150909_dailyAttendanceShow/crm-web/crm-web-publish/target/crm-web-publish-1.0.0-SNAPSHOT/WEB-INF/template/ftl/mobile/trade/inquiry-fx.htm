@@ -1,0 +1,188 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '询单分析' 'order-fx' '0.0.1' 'index'
+',plugin/pagination.css
+,plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css'
+>
+<style>
+    .list{
+        padding:18px;
+    }
+    .filter{
+        display: inline-block;
+        border: 1px solid #DDDDDD;
+        width: 100%;
+        padding: 20px 10px;
+        -moz-box-sizing: border-box;  /*Firefox3.5+*/
+        -webkit-box-sizing: border-box; /*Safari3.2+*/
+        -o-box-sizing: border-box; /*Opera9.6*/
+        -ms-box-sizing: border-box; /*IE8*/
+        box-sizing: border-box; /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
+    }
+    .filter li{
+        height: 50px;
+    }
+    .filter li label{
+        padding: 15px;
+        width: 45px;
+        display: inline-block;
+    }
+    .filter .datepicker{
+        width: 150px;
+    }
+    .timebtn{
+        position: relative;
+        left: 0;
+    }
+    .timebtn button.item{
+        width: 80px;
+    }
+    .timebtn button.item.active{
+        border: 2px solid #ff684d;
+    }
+    .queryBtn{
+        margin-right: 10px;
+        position: relative;
+        top: 8px;
+    }
+    #province{
+        margin-left: 0;
+    }
+    .timebtn button.item{
+        position: relative;
+    }
+    .timebtn .arrow-up {
+        width:0px;
+        height:0px;
+        border-left:20px solid transparent;  /* left arrow slant */
+        /*border-right:20px solid transparent;*/ /* right arrow slant */
+        border-bottom:20px solid #ff684d; /* bottom, add background color here */
+        font-size:0px;
+        line-height:0px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .timebtn .arrow-text{
+        position: absolute;
+        right: 2px;
+        bottom: -5px;
+    }
+
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+
+    .tools{
+        text-align: right;
+        padding: 10px 20px;
+    }
+    .icon-loading{
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+    .breadcrumb span{
+        cursor: pointer;
+    }
+    .breadcrumb span:before{
+        content: '>>';
+    }
+    .breadcrumb span:first-child:before{
+        content: '';
+    }
+    tr{
+        cursor: pointer;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>询单分析</strong></span>
+        </h2>
+    </div>
+
+    <div class="list fn-clear">
+        <div class="filter mt10">
+            <ul>
+                <li>
+                    <div class="timebtn">
+                        <label>时间</label>
+                        <button class="item" data-day="0">今日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="7">最近7日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="30">最近30日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="90">最近90日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <input type="text" name="start" id="startDate" class="datepicker" placeholder="请选择开始日期"/>
+                        <input type="text" name="end" id="endDate" class="datepicker" placeholder="请选择结束日期"/>
+                        <button id="query" class="btn fn-right queryBtn">查询</button>
+                    </div>
+                </li>
+                <li>
+                    <label>地区</label>
+                    <select name="provinceID" id="province">
+                        <option value="">全部</option>
+                    </select>
+                    <select name="cityID" id="city">
+                        <option value="">全部</option>
+                    </select>
+                    <select name="areaID" id="area">
+                        <option value="">全部</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="mt10">
+            <div class="page-title">
+                <h2>
+                    <span><strong>详细数据</strong></span>
+                </h2>
+            </div>
+            <div class="fn-clear">
+
+                <div class="tools fn-hide">
+                    <select name="orderCol1" id="orderCol1">
+                        <option value="sortByTotalOrder=1&isAsc=0">询单转化率降序</option>
+                        <option value="sortByTotalOrder=1&isAsc=0">询单数降序</option>
+                    </select>
+                </div>
+
+                <table class="gridtable" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                        <tr>
+                            <th scope="col">地区</th>
+                            <th scope="col">询单转化率</th>
+                            <th scope="col">询单数</th>
+                            <th scope="col">注册到首单的询价单数</th>
+                            <th scope="col">注册到激活的询价单数</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list"></tbody>
+                </table>
+                <div class="pager pager1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

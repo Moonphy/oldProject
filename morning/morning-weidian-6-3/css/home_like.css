@@ -1,0 +1,110 @@
+.text-overflow {
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#afui #content {
+  top: 0px;
+}
+#goods_waterfall {
+  width: 100%;
+  position: relative;
+  margin-bottom: 49px;
+  margin-left: 1%;
+}
+#goods_waterfall .waterfall_class {
+  width: 46%;
+  margin-left: 2%;
+  float: left;
+}
+#goods_waterfall .waterfall_class .goods_block {
+  margin: 5px 0;
+  float: left;
+  width: 100%;
+  height: auto;
+  z-index: 9;
+  overflow: hidden;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img {
+  width: 100%;
+  position: relative;
+  border: 1px solid #e2e2e2;
+  overflow: hidden;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar,
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar1 {
+  height: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-align: center;
+  z-index: 10;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar span,
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar1 span {
+  text-align: center;
+  color: #ffffff;
+  line-height: 20px;
+  font-size: 12px!important;
+  float: left;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar {
+  padding: 0px 10px 0px 22px;
+  background: url("../images/like_bg.png") no-repeat 5px center rgba(178, 178, 178, 0.7);
+  background-size: 22%;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar span {
+  width: 20px;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar1 {
+  padding: 0px 10px 0px 22px;
+  background: url("../images/favorite.png") no-repeat 5px 2px rgba(178, 178, 178, 0.7);
+  background-size: 24%;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .bar1 span {
+  width: 28px;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .like {
+  background: url("../images/like_bg.png") no-repeat 5px center rgba(255, 59, 60, 0.9);
+  background-size: 22%;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_img .favorite {
+  background: url("../images/favorite.png") no-repeat 5px center rgba(255, 59, 60, 0.9);
+  background-size: 24%;
+}
+#goods_waterfall .waterfall_class .goods_block p {
+  width: 90%;
+  margin: 0px auto;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 74%;
+}
+#goods_waterfall .waterfall_class .goods_block .goods_in_btn {
+  color: #ff3b3c;
+}
+#loading {
+  width: 100%;
+}
+#loading img {
+  width: 20%;
+  margin-left: 40%;
+}

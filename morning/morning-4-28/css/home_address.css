@@ -1,0 +1,358 @@
+a:hover {
+  text-decoration: none;
+}
+.home_main_left {
+  width: 248px;
+  color: #444444;
+  margin-top: 20px;
+}
+.home_main_left .left_part {
+  width: 246px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 5px;
+}
+.home_main_left a:hover {
+  text-decoration: none;
+}
+.home_main_left ul li {
+  width: 188px;
+  padding: 0px 29px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+.home_main_left ul li a {
+  width: 188px;
+  display: inline-block;
+  color: #444444;
+}
+.home_main_left ul .selected {
+  background-color: #ff3b3c;
+}
+.home_main_left ul .selected a {
+  color: #ffffff;
+}
+.home_main_left ul .unselected {
+  background: none;
+}
+.home_main_left ul .part_title {
+  width: 188px;
+  margin: 0 29px 10px;
+  padding: 10px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.home_main_left ul .part_title_2 {
+  width: 188px;
+  margin: 0 29px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.home_main_left ul .part_title_2 a {
+  color: #444444;
+}
+.home_body {
+  width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.home_body .home_main .home_main_right {
+  width: 1032px;
+}
+.home_body .home_main .home_main_right .user_home_header,
+.home_body .home_main .home_main_right .user_home_list {
+  width: 1030px;
+  margin-top: 20px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+}
+.home_body .home_main .home_main_right .user_home_header {
+  width: 1030px;
+  margin-bottom: 20px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  height: 148px;
+}
+.home_body .home_main .home_main_right .user_home_header .user_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin: 34px 30px;
+  overflow: hidden;
+}
+.home_body .home_main .home_main_right .user_home_header .user_img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name {
+  height: 80px;
+  margin: 44px 0 24px 0;
+  color: #444444;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .name {
+  font-size: 18px;
+  position: relative;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .female {
+  width: 11px;
+  height: 14px;
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  background: url("../images/female.png") no-repeat center center;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .male {
+  width: 11px;
+  height: 14px;
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  background: url("../images/male.png") no-repeat center center;
+}
+.home_body .home_main .home_main_right .user_home_header .user_name .time {
+  font-size: 14px;
+  color: #666666;
+}
+.home_body .home_main .home_main_right .user_home_header .user_edit {
+  height: 28px;
+  width: 120px;
+  padding-left: 30px;
+  line-height: 28px;
+  cursor: pointer;
+  background: url("../images/user_show.png") no-repeat 0 center;
+}
+.home_body .home_main .home_main_right .user_home_header p {
+  width: 160px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins {
+  width: 160px;
+  height: 120px;
+  float: right;
+  background-color: #fe4c4c;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: 15px 30px 0 15px;
+  color: #ffffff;
+  overflow: hidden;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins button {
+  width: 160px;
+  height: 70px;
+  padding-left: 50px;
+  border: none;
+  background: url("../images/date_bg1.png") no-repeat 45px center;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins .count_checkins {
+  width: 120px;
+  padding-left: 40px;
+  text-align: left;
+  background: url("../images/count_checkins.png") no-repeat 25px center;
+}
+.home_body .home_main .home_main_right .user_home_header .checkins .tips {
+  height: 28px;
+  line-height: 28px;
+  background-color: #ff6262;
+  margin-top: 5px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao {
+  width: 193px;
+  height: 121px;
+  float: right;
+  background: url("../images/hongbao_bg.png");
+  margin-top: 15px;
+  color: #fffba5;
+  text-shadow: 0px 2px 1px #444444;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao .hongbao_h {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao p {
+  margin-top: 18px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao p span {
+  font-size: 24px;
+}
+.home_body .home_main .home_main_right .user_home_header .hongbao .hongbao_b span {
+  font-size: 12px;
+}
+.home_body .home_main .home_main_right .user_home_list .list_title {
+  width: 990px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #666666;
+}
+.home_body .home_main .home_main_right .user_home_list .address {
+  padding: 0;
+  margin: 0;
+}
+.home_body .home_main .home_main_right .user_home_list .address .address_main,
+.home_body .home_main .home_main_right .user_home_list .address .edit_address_main,
+.home_body .home_main .home_main_right .user_home_list .address .new_address {
+  width: 300px;
+  height: 190px;
+  border: 1px solid #dbdbdb;
+  float: left;
+  margin: 20px 20px 60px 20px;
+  cursor: pointer;
+}
+.home_body .home_main .home_main_right .user_home_list .address .address_main,
+.home_body .home_main .home_main_right .user_home_list .address .new_address {
+  position: relative;
+}
+.home_body .home_main .home_main_right .user_home_list .address .edit_address_main {
+  position: absolute;
+  top: -21px;
+  left: -21px;
+  display: none;
+  background: #ffffff;
+}
+.home_body .home_main .home_main_right .user_home_list .address .default .edit_default,
+.home_body .home_main .home_main_right .user_home_list .address .default .edit_address {
+  display: none;
+}
+.home_body .home_main .home_main_right .user_home_list .address .address_main_margin {
+  margin: 20 22px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .address_delete_btn,
+.home_body .home_main .home_main_right .user_home_list .address .add_delete_btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.home_body .home_main .home_main_right .user_home_list .address .address_delete_btn:hover,
+.home_body .home_main .home_main_right .user_home_list .address .add_delete_btn:hover {
+  color: #FF3B3C;
+}
+.home_body .home_main .home_main_right .user_home_list .address form label {
+  float: left;
+}
+.home_body .home_main .home_main_right .user_home_list .address form input {
+  float: left;
+  height: 24px;
+  border-radius: 4px;
+}
+.home_body .home_main .home_main_right .user_home_list .address form .telephone {
+  width: 200px;
+  padding: 0 7px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 10px;
+}
+.home_body .home_main .home_main_right .user_home_list .address form .address_detail {
+  width: 264px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dbdbdb;
+  border-radius: 0;
+}
+.home_body .home_main .home_main_right .user_home_list .address form .zip_code {
+  width: 90px!important;
+  padding: 0 5px;
+  border: 1px solid #dbdbdb;
+}
+.home_body .home_main .home_main_right .user_home_list .address form .address_submit,
+.home_body .home_main .home_main_right .user_home_list .address form .submit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  background-color: #FF3B3C;
+  border-radius: 4px;
+  color: #ffffff;
+  line-height: 12px;
+  text-align: center;
+}
+.home_body .home_main .home_main_right .user_home_list .address .username {
+  width: 264px;
+  margin: 10px 18px;
+  line-height: 24px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.home_body .home_main .home_main_right .user_home_list .address .personal {
+  width: 264px;
+  margin: 0 18px;
+  line-height: 24px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .personal .address_detail {
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
+  line-height: 16px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .personal .zip {
+  margin-top: -5px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .personal .zip_code {
+  width: 100%;
+  margin-top: -5px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .personal #address_submit {
+  cursor: pointer;
+  float: right;
+}
+.home_body .home_main .home_main_right .user_home_list .address .edit_address,
+.home_body .home_main .home_main_right .user_home_list .address .edit_default {
+  width: 120px;
+  height: 30px;
+  border: none;
+  float: right;
+  background-color: #ff3b3c;
+  color: #ffffff;
+  margin-left: 5px;
+  position: absolute;
+  top: 195px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .edit_address {
+  right: 124px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .edit_default {
+  right: -1px;
+}
+.home_body .home_main .home_main_right .user_home_list .address .selected {
+  border: 1px solid #FF3B3C;
+  box-shadow: 0px 0px 1px 1px #ff3b3c;
+}
+.home_body .home_main .home_main_right .user_home_list .address .unselected {
+  border: 1px solid #dbdbdb;
+}
+.home_body .home_main .home_main_right .user_home_list .address .add_address {
+  width: 300px;
+  height: 190px;
+  border: 1px solid #dbdbdb;
+  float: left;
+  margin: 20px;
+  cursor: pointer;
+}
+.home_body .home_main .home_main_right .user_home_list .address .add_address p {
+  width: 100%;
+  text-align: center;
+  color: #8c8c8c;
+}
+.home_body .home_main .home_main_right .user_home_list .address .add_address .img {
+  font-size: 46px;
+  line-height: 36px;
+  margin-top: 60px;
+}
+select {
+  width: 85px;
+}
+.hidden {
+  display: none;
+}

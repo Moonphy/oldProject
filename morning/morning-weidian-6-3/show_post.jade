@@ -1,0 +1,162 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/show_post.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 发布我的买家秀
+            .search
+            form.popup_search(action='/search/', method='get')
+                input#searchKeyword(placeholder='请输入商品关键字...',name='k')
+                input#searchBtn(type='submit',value='')
+        form#content1(action='show_personal.html',method='post')
+            .main_visual1
+                ul
+                    li
+                        img(src='images/examples/pic_1.jpg',alt='')
+                        .del_btn
+                    li.add_btn
+                        p.bg +
+                        p 添加图片
+                        input(type='file',value='')
+
+            h3 提示：每次晒单只能发布一套装扮的8张照片
+            .main_visual2
+                h4 我秀的商品：
+                .same_main_image
+                    .swiper-wrapper
+                        .swiper-slide
+                            img(src='images/examples/0.png',alt='')
+                            p &yen; <span>999.00</span>
+                            button 去看看
+                            .del_btn
+                        .swiper-slide
+                            img(src='images/examples/1.png',alt='')
+                            p &yen; <span>999.00</span>
+                            button 去看看
+                            .del_btn
+
+                        .swiper-slide.add_img
+                            .bg +
+                            .select_img 选择商品
+
+            textarea(rows='5',cols='20',value placeholder='(选填，消息内容长度不得超过100字)')
+            input.submit(type='submit',value='确认发布')
+
+        #content2
+            form(action='show_post.html',method='post')
+                .check
+                    label.allselect.unchecked_all 全选
+                        input(class='',type='checkbox',name='',value='')
+                    span 2015-04-22
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+            form(action='show_post.html',method='post')
+                .check
+                    label.allselect.unchecked_all 全选
+                        input(class='',type='checkbox',name='',value='')
+                    span 2015-04-22
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+            form(action='show_post.html',method='post')
+                .check
+                    label.allselect.unchecked_all 全选
+                        input(class='',type='checkbox',name='',value='')
+                    span 2015-04-22
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+                ul.cart_goods_body
+                    li.td1
+                        label.f_checkbox_normal.unchecked
+                            input(class='',type='checkbox',name='goodslist',value='')
+                    li.td2
+                        a(href='detail.html',title='')
+                            img(src='images/examples/good_block_img.png',alt='')
+                    li.td3
+                        a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        i 数量：<span>1</span>件
+                    li.td4
+                        p 牛皮
+                        p 黑色
+                        p 245/39
+                    li.td5
+                        .good_price_all ¥<span>599.00</span>
+
+            input.submit.sub_content2(type='submit',value='确定')
+block jsblock
+    script(src='js/show_post.js')

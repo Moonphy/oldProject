@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>通讯录-详情</title>
+    <meta name="description" content="CRM通讯录-详情">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/phone.css" media="all"/>
+    <style>
+        ul.contacts li{
+            -moz-border-radius: 4px; /* Gecko browsers */
+            -webkit-border-radius: 4px; /* Webkit browsers */
+            border-radius: 4px;
+        }
+        li.relative{
+            position: relative;
+        }
+        li.relative .icon{
+            position: absolute;
+            top: -28px;
+            color: #00b3f0;
+            width: 20%;
+            text-align: right;
+            right: 0;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <ul class="list">
+                <li class="item border-top">
+                    <label for="J_name">姓名：</label>
+                    <span id="J_name"></span>
+                </li>
+                <li class="item">
+                    <label for="J_type">联系人类型：</label>
+                    <span id="J_type"></span>
+                </li>
+                <li class="item border-bottom">
+                    <label for="J_memo">备注：</label>
+                    <span id="J_memo"></span>
+                </li>
+            </ul>
+
+            <ul class="list contacts mt10 fn-clear">
+                <li class="item relative">
+                    <label for="J_phone">联系电话：</label>
+                    <span id="J_phone">
+                        <span></span>
+                        <a href="#">
+                            <i class="icon iconfont fn-right">&#xe607;</i>
+                        </a>
+                    </span>
+
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/contact-detail.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+.like_buy {
+  width: 350px;
+  height: 86px;
+  margin-top: 10px;
+  float: left;
+}
+.like_buy div {
+  float: left;
+  margin: 5px 10px 0 0;
+}
+.like_buy #add_cart,
+.like_buy .collection {
+  width: 130px;
+  height: 38px;
+  padding-left: 30px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 38px;
+  cursor: pointer;
+  display: block;
+}
+.like_buy .collection {
+  position: relative;
+}
+.like_buy .collection input {
+  left: -9999px;
+  position: absolute;
+}
+.like_buy #add_cart {
+  background: url("../images/shopping_cart_icon1.png") no-repeat 30px center #3d8efd;
+}
+.like_buy .cancel {
+  background: url("../images/cancel.png") no-repeat 30px center #777777;
+}
+.like_buy .bookmarked {
+  background: url("../images/bookmarked.png") no-repeat 30px center #444444;
+}
+.like_buy .buy_btn {
+  width: 330px!important;
+  height: 38px;
+  background-color: #FF3B3C ;
+  text-align: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.30s ;
+  -webkit-transition: all 0.30s;
+  -moz-transition: all 0.30s ;
+  outline: none;
+}
+.like_buy .buy_btn a {
+  width: 160px;
+  height: 38px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 38px;
+  text-decoration: none;
+  display: inline-block;
+}

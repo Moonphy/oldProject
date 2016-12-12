@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>事故车提醒</title>
+    <meta name="description" content="CRM事故车提醒">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../../css/phone.css" media="all"/>
+    <style>
+        .car{
+            background: #fff;
+        }
+        .head{
+            padding: 0 10px;
+            border-bottom: 1px solid #dddddd;
+            font-size: 1.1em;
+        }
+        .head .name{
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            width: 95%;
+            margin-left: 5px;
+        }
+        .body{
+        }
+        .body table{
+            width: 100%;
+        }
+        .body th{
+            font-weight: 500;
+        }
+        .body th,.body td{
+            padding: 0 20px;
+        }
+        .body table tr{
+            height: 38px;
+            line-height: 38px;
+        }
+        .body table tbody tr:last-child{
+            border-bottom: 1px solid #dddddd;
+        }
+        .foot{
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #dddddd;
+        }
+        .foot div{
+            display: inline-block;
+        }
+        .value{
+            color: #888;
+        }
+        .active{
+            width: 3px;
+            background: #ff3300;
+        }
+        .complete{
+            width: 3px;
+            background: #fff;
+        }
+        .nodata{
+            background: #fff;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content">
+        <div class="search fn-hide" id="J_search">
+            <i class="icon iconfont icon1">&#xe648;</i>
+            <i class="icon iconfont icon2 fn-right fn-hide">&#xe61d;</i>
+            <input type="text" id="J_search_in" placeholder="请选择日期搜索"/>
+        </div>
+        <div class="list" id="J_list">
+        </div>
+    </section>
+</div>
+<script data-main='../../../../js/accidentcar-remind-list.js' src='../../../../js/lib/require.js'></script>
+</body>
+</html>

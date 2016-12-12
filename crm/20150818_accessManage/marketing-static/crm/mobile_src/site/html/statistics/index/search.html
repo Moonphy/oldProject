@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>业绩明细</title>
+    <meta name="description" content="CRM业绩明细">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/selcity.css" media="all"/>
+    <style>
+        .cityList{margin: 0;}
+        .sure{width: 100%;}
+        .clearTime,.clearArea{width: 49%;}
+        button{
+            border: none;
+            cursor: pointer;
+            height: 35px;
+            line-height: 35px;
+        }
+        button.btn{
+            background: rgb(107, 205, 239);
+        }
+        button.clearBtn,button.clearBtn{
+            background: rgba(174, 190, 195, 0.74);
+        }
+        button.active{
+            background: rgb(75, 174, 208);
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <div class="group">
+                <label for="">日期</label>
+                <input type="text" id="J_date"/>
+            </div>
+            <div class="group">
+                <label for="">地区</label>
+            </div>
+            <ul class="cityList fn-clear">
+                <li class="item" id="J_sheng">
+                    <div class="label fn-left">省级</div>
+                    <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                <span class="chosen-drop">
+                    <ul class="chosen-results">
+                        <!--<li class="active-result" value="1">长沙</li>-->
+                    </ul>
+                </span>
+                </li>
+                <li class="item mt10" id="J_shi">
+                    <div class="label fn-left">市级</div>
+                    <div class="value fn-right"><span>请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                <span class="chosen-drop">
+                    <ul class="chosen-results">
+                    </ul>
+                </span>
+                </li>
+                <li class="item mt10" id="J_qu">
+                    <div class="label fn-left">区级</div>
+                    <div class="value fn-right"><span id="J_qu_id">请选择</span><i class="icon iconfont">&#xe630;</i></div>
+                <span class="chosen-drop">
+                    <ul class="chosen-results">
+                    </ul>
+                </span>
+                </li>
+            </ul>
+            <div class="group" id="buttons">
+                <button class="clearTime clearBtn mt10" id="clearTime">清空时间</button>
+                <button class="clearArea clearBtn mt10" id="clearArea">清空地区</button>
+                <button class="sure btn mt10" id="submit">确认并搜索</button>
+            </div>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/statistics/index/search.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

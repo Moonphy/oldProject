@@ -1,0 +1,58 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '编辑岗位信息' 'edit-role' '0.0.1' 'index' ',new.css'>
+<style>
+
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="page-title">
+    <h2>
+        <span><strong>编辑岗位信息</strong></span>
+    </h2>
+</div>
+<div class="main-list">
+
+    <div class="js-course-list fn-clear">
+        <div class="form">
+
+            <div class="form-group">
+                <label for="roleCode">岗位编码</label>
+                <input class="form-control" id="roleCode" name="roleCode"/>
+            </div>
+
+            <div class="form-group">
+                <label for="roleName">岗位名称</label>
+                <input class="form-control" id="roleName" name="roleName"/>
+            </div>
+
+            <div class="form-group">
+                <label for="parentId">上级岗位</label>
+                <select class="form-control" id="parentId" name="parentId">
+                    <option value="1">1</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="state">状态</label>
+                <select class="form-control" id="state" name="state">
+                    <option value="0">可用</option>
+                    <option value="1">禁用</option>
+                </select>
+            </div>
+
+            <div class="form-group button-group">
+                <button class="btn" type="button" id="backBtn">返回</button>
+                <button class="ml10 btn submit" id="submitBtn" type="button">提交</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

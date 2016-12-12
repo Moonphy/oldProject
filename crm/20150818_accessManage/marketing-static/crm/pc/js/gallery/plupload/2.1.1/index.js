@@ -1,0 +1,1 @@
+define("gallery/plupload/2.1.1/index",["gallery/plupload/2.1.1/src/moxie","gallery/plupload/2.1.1/src/plupload","gallery/plupload/2.1.1/src/zh_CN"],function(l,a,p){var o={},e=l("gallery/plupload/2.1.1/src/moxie"),r=l("gallery/plupload/2.1.1/src/plupload").initalize(window,e);l("gallery/plupload/2.1.1/src/zh_CN").load(r),o.moxie=e,o.upload=r,p.exports=o});

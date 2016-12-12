@@ -1,0 +1,1228 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/products_search.css')
+block content
+    include _index_header
+    .products_search_body
+        div#products.products-top
+            .products_wrap.zhucai
+                ul
+                    .h3.zhucaibg 主材
+                    li: a(href='#') 墙面
+                    li: a(href='#') 厨卫五金
+                    li: a(href='#') 卫浴
+                    li: a(href='#') 地面
+                    li: a(href='#') 水电改造
+                    li: a(href='#') 门窗
+                    li: a(href='#') 橱柜
+                    li: a(href='#') 采暖
+                    li: a(href='#') 其他
+                #popup_zhucai.js-over-show
+                    .cover1
+                    ul
+                        li: a() 墙漆
+                        li: a() 墙纸
+                        li: a() 墙砖
+                        li: a() 踢脚线
+                        li: a() 木地板
+                        li: a() 地砖
+                    ul
+                        li: a() 开关面板
+                        li: a() 漏电开关
+                        li: a() 光源
+                        li: a() 配电箱
+                        li: a() 电线
+                        li: a() 电线管
+                    ul
+                        li: a() 水管
+                        li: a() 龙头
+                        li: a() 花洒
+                        li: a() 水槽
+                        li: a() 厨房挂架
+                        li: a() 卫浴挂架
+                        li: a() 角阀
+                        li: a() 地漏
+                    ul
+                        li: a() 马桶
+                        li: a() 浴室柜
+                        li: a() 洗脸盆
+                        li: a() 浴缸
+                    ul
+                        li: a() 橱柜
+                    ul
+                        li: a() 防水
+                        li: a() 吊顶扣板
+            .products_wrap.jiaju
+                ul
+                    .h3.jiajubg 家具
+                    li: a(href='#') 客厅
+                    li: a(href='#') 餐厅
+                    li: a(href='#') 书房
+                    li: a(href='#') 卧室
+                    li: a(href='#') 椅
+                    li: a(href='#') 定制衣柜
+                #popup_jiaju.js-over-show
+                    .cover2
+                    ul
+                        li: a() 沙发
+                        li: a() 电视柜
+                        li: a() 鞋柜
+                        li: a() 茶几
+                        li: a() 玄关
+                        li: a() 沙发床
+                        li: a() 壁炉
+                        li: a() 角几
+                    ul
+                        li: a() 餐桌
+                        li: a() 酒柜
+                    ul
+                        li: a() 床
+                        li: a() 木衣柜
+                        li: a() 斗柜
+                        li: a() 儿童套房
+                        li: a() 床垫
+                        li: a() 梳妆台
+                        li: a() 床头柜
+                    ul
+                        li: a() 书桌
+                        li: a() 书柜
+                    ul
+                        li: a() 椅
+                        li: a() 定制衣柜
+            .products_wrap
+                ul
+                    .h3.jiashibg 家饰
+                    li: a(href='#') 窗帘
+                    li: a(href='#') 灯饰
+                    li: a(href='#') 床品
+                    li: a(href='#') 园艺
+                    li: a(href='#') 挂钟
+            .products_wrap
+                ul
+                    .h3.jiadianbg 家电
+                    li: a(href='#') 平板电视
+                    li: a(href='#') 空调
+                    li: a(href='#') 洗衣机
+                    li: a(href='#') 吸油烟机
+                    li: a(href='#') 灶具
+                    li: a(href='#') 电冰箱
+                    li: a(href='#') 热水器
+                    li: a(href='#') 消毒柜
+                    li: a(href='#') 洗碗机
+            .products_wrap
+                ul.lastul
+                    .anli 看案例
+                    li: a(href='#') 轻奢华
+                    li: a(href='#') 现代简约
+                    li: a(href='#') 田园
+                    li: a(href='#') 欧式
+                    li: a(href='#') 现代中式
+                    li: a(href='#') 宜家
+                    li: a(href='#') 美式
+                    li: a(href='#') 古典中式
+                    li: a(href='#') 北欧
+                    li: a(href='#') 地中海
+                    li: a(href='#') 小清新
+        .products_search_main
+            .block
+                .guess_want
+                    .want_title 你是不是要找：
+                        span: a() 床头柜
+                        span: a() 大木床
+                        span.last_border: a() 铁架床
+                .filter
+                    .filter_row_title
+                        span.filter_products_name 床
+                        span.products_number 筛选出<span>（共<i>9689</i>件）</span>
+                        label.f_checkbox_normal.unchecked 只看案例产品
+                            input(type='checkbox',name='',value='')
+                    .filter_row2_conditions
+                        .conditions_title.fl 筛选条件：
+                        .condition1_caizhi.fl 材质
+                        .condition2_chicun.fl 尺寸
+                        .condition3_fengge.fl 风格
+                        ul#popup_condition_caizhi.js-over-show
+                            li.condition_cover1
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                        ul#popup_condition_chicun.js-over-show
+                            li.condition_cover2
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                        ul#popup_condition_fengge.js-over-show
+                            li.condition_cover3
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                            li 纯木
+                    .filter_row3_price
+                        .price_title.fl 价格段：
+                            span 0-199
+                            span 200-399
+                            span 300-499
+                            span 400-599
+                            span 600-999
+                        .user_defined_price.fl
+                            .defined1.fl
+                                input(type='text')
+                            span.fl -
+                            .defined2.fl
+                                input(type='text')
+                .products_purchase_exprience
+                    .purchase_title 产品选购经验
+                    ul.purchase_content
+                        li: a() 浅谈一下中式餐厅的配画风水学
+                        li: a() 招财进宝——居家鱼缸位置放在哪儿？
+                        li: a() 小奢欧式，2.3W全屋家具购，该有的一件不少！手慢无！
+                        li: a() 冬天应该是这样的——壁炉&家人，格调又暖暖！
+                .sort
+                    .time_sort 按时间排序 ↓
+                    .hot_sort 按热门排序 ↓
+            .block2
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                            .img_tips1 参考实例
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                            .img_tips2 参考实例
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                            .img_tips2 参考实例
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+
+                .products_search_row
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                            .img_tips2 参考实例
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+                    .products_search_little_block
+                        .little_block_img
+                            a(href='product_details.html',target='_blank')
+                                img(src='images/examples/img_big_4.jpg')
+                        .other_spec
+                            .spec
+                                .t T
+                                    span 1
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥365
+                                .t T
+                                    span 2
+                                    .spc 1.5*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 3
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                                .t T
+                                    span 4
+                                    .spc 1.8*1.8儿童专用被子尺寸
+                                        i ￥429
+                                .t T
+                                    span 5
+                                    .spc 2.0*2.3儿童专用被子尺寸
+                                        i ￥498
+                        .p_title <span>天猫</span>布艺婚<i>床</i>布<i>床</i>可拆洗双人<i>床</i>实木框架席梦思<i>床</i>头软
+                        .spc_price ¥169
+            include _page_one
+            .block3
+                .block_top
+                    .block_top_bg1: a(href='#') 平方购
+                    .p2 爱家的你，感受家装新生活
+                .little_block
+                    .little_block_top
+                        .h4.fl 工薪首选
+                        .h4_right.fr
+                            .h5.fl ¥
+                            .h6.fl 450
+                            .h7.fl /
+                            .h8.fl 平方
+                    .block_img
+                        a: img(src='images/examples/block_img_1.jpg')
+                    .block_img_logo
+                        li.li1: a(href='#' target='_blank')
+                        li.li2: a(href='#')
+                        li.li3: a(href='#')
+                        li.li4: a(href='#')
+                        li.li5: a(href='#')
+                        li.li6: a(href='#')
+                        li.li7: a(href='#')
+                        li.li8: a(href='#')
+                        li.li9: a(href='#')
+                        li.li10: a(href='#')
+                        li.li11: a(href='#')
+                        li.li12: a(href='#')
+                .little_block
+                    .little_block_top
+                        .h4.fl 小白最爱
+                        .h4_right.fr
+                            .h5.fl ¥
+                            .h6.fl 600
+                            .h7.fl /
+                            .h8.fl 平方
+                    .block_img
+                        a: img(src='images/examples/block_img_2.jpg')
+                    ul.block_img_logo
+                        li.li1: a(href='#' target='_blank')
+                        li.li2: a(href='#')
+                        li.li3: a(href='#')
+                        li.li4: a(href='#')
+                        li.li5: a(href='#')
+                        li.li6: a(href='#')
+                        li.li7: a(href='#')
+                        li.li8: a(href='#')
+                        li.li9: a(href='#')
+                        li.li10: a(href='#')
+                        li.li11: a(href='#')
+                        li.li12: a(href='#')
+                .little_block.last
+                    .little_block_top
+                        .h4.fl 个性品味
+                        .h4_right.fr
+                            .h5.fl ¥
+                            .h6.fl 1000
+                            .h7.fl /
+                            .h8.fl 平方
+                    .block_img
+                        a: img(src='images/examples/block_img_3.jpg')
+                    ul.block_img_logo
+                        li.li1: a(href='#' target='_blank')
+                        li.li2: a(href='#')
+                        li.li3: a(href='#')
+                        li.li4: a(href='#')
+                        li.li5: a(href='#')
+                        li.li6: a(href='#')
+                        li.li7: a(href='#')
+                        li.li8: a(href='#')
+                        li.li9: a(href='#')
+                        li.li10: a(href='#')
+                        li.li11: a(href='#')
+                        li.li12: a(href='#')

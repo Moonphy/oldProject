@@ -1,0 +1,25 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '登录' 'login' '0.0.1' 'index' ',login.css,login-modal.css'></@inc.header>
+
+<@inc.body showLeftNav=false showHeader=false>
+	<p id="tip"></p>
+	<form class="login-modal-pannel fn-clear" id="login-form">
+		<div class="form">
+			<div class="form-group">
+				<label for="username">账户</label>
+				<input class="form-control" id="username" name="loginName" value="" autocomplete="off"/>
+			</div>
+			<div class="form-group">
+				<label for="password">口令</label>
+				<input class="form-control" id="password" name="loginPwd" type="password" autocomplete="off"/>
+			</div>
+			<div class="form-group button-group">
+				<button class="ml10 loginbtn" type="submit" style="margin-left: 100px;">登录</button>
+			</div>
+		</div>
+	</form>
+</@inc.body>
+
+<@inc.footer showFooter=false>
+</@inc.footer>

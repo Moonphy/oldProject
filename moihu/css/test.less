@@ -1,0 +1,67 @@
+
+//变量
+@blue: #0000ff;      //定义蓝色变量
+@light_blue: @blue + #333;      //定义浅蓝变量
+@dark_blue: @blue - #333;       //定义深蓝变量
+
+#header{
+  color: @blue;
+}
+
+
+//混合
+.border{
+  border: 1px solid #0000ff;
+  border-radius: 50%;
+}
+
+ul.menu{
+  background: @light_blue;
+  .border;
+}
+
+//参数混合
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+#header{
+  .border-radius(4px);
+}
+
+.button{
+  .border-radius(10px);
+}
+
+//模式匹配
+.mixin(@a){
+  color: @a;
+  width: 10px;
+}
+.mixin(@a, @b){
+  color: fade(@a, @b);
+}
+
+.header{
+  .mixin(red);
+}
+.footer{
+  .mixin(blue, 50%);
+}
+
+//条件表达式
+.mixin(@a) when (@a >= 10){
+  background-color: #000000;
+}
+.mixin(@a) when (@a < 10){
+  background-color: #ffffff;
+}
+
+.class1{
+  .mixin(12)
+}
+.class2{
+  .mixin(6)
+}

@@ -1,0 +1,119 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '汇总统计' 'statistics-all' '0.0.1' 'index' ',statistics_all.css,plugin/pagination.css,plugin/calendar/calendar.css'>
+</@inc.header>
+
+<@inc.body>
+	<div class="page-title">
+        <h2>
+			<span><strong>汇总统计</strong></span>
+		</h2>
+    </div>
+    <#assign vo = result.model/>
+    <div class="main-list">
+        <#assign model = vo.model/>
+        <#assign info = model.summaryInfo/>
+        <div class="info fn-clear">
+            <ul class="statistics">
+                <li class="item">交易金额：<em>${info.money}</em></li>
+                <li class="item">询价次数：<em>${info.inquiryNum}</em></li>
+                <li class="item">询价厂家数：<em>${info.inquiryMfctyNum}</em></li>
+                <li class="item">交易次数：<em>${info.treadNum}</em></li>
+                <li class="item">交易厂家数：<em>${info.treadMfctyNum}</em></li>
+            </ul>
+        </div>
+        <#assign baseParams = vo.params.base/>
+        <#assign specialParams = vo.params.special/>
+        <#escape x as x?if_exists>
+        <div class="tool">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>汽修厂</label>
+                <input name="mfctyName" value="${baseParams.mfctyName}"/>
+            </div>
+            <div class="group">
+                <label>汽修厂ID</label>
+                <input name="mfctyId" value="${baseParams.mfctyId}"/>
+            </div>
+            <div class="group">
+                <label>录入日期</label>
+                <input name="beginTime" class="start" value="${specialParams.beginTime}"/>至<input name="endTime" class="end" value="${specialParams.endTime}"/>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+        </#escape>
+
+        <#--<div class="subtool fn-clear">
+            <span class="fn-left label">排序：</span>
+            <ul>
+                <li>按交易金额</li>
+            </ul>
+        </div>-->
+
+    	<div class="js-course-list fn-clear">
+
+            <table class="gridtable" summary="2007 Major IT Companies' Profit">
+                <thead>
+                <tr>
+                    <th scope="col">汽修厂</th>
+                    <th scope="col">询价次数</th>
+                    <th scope="col">交易次数（已付款）</th>
+                    <th scope="col">交易金额（已付款）</th>
+                    <th scope="col">下单次数（未付）</th>
+                    <th scope="col">下单金额（未付）</th>
+                    <th scope="col">跟踪客服</th>
+                    <th scope="col">录入日期</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <#assign list = model.summaryList/>
+                    <#if list?size gt 0>
+                    <#escape x as x?if_exists>
+                        <#list list as bill>
+                        <tr>
+                            <td>${bill.mfctyName}</td>
+                            <td>${bill.inquiryNum}</td>
+                            <td>
+                            ${bill.orderPayNum}
+                            </td>
+                            <td>${bill.orderPayMoney}</td>
+                            <td>
+                            ${bill.orderNoPayNum}
+                            </td>
+                            <td>
+                            ${bill.orderNoPayMoney}
+                            </td>
+                            <td>
+                            ${bill.userName}
+                            </td>
+                            <td>
+                            ${bill.recordTime?string('yyyy-MM-dd')}
+                            </td>
+                        </tr>
+                        </#list>
+                    </#escape>
+                    <#else>
+                    <tr class="nodata">
+                        <td colspan="11">没有符合条件的数据</td>
+                    </tr>
+                    </#if>
+                </tbody>
+            </table>
+
+            <div class="pager"></div>
+
+    	</div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+    var params = {
+        total:'${vo.total}',
+        size:'${vo.size}',
+        current:'${vo.current}'
+    };
+</script>
+</@inc.footer>

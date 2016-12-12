@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问题详情</title>
+    <meta name="description" content="CRM问题详情">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../../css/base.css" media="all"/>
+    <style>
+        .text{
+            display: inline-block;
+        }
+        #type .text{
+            text-indent: 0.5em;
+        }
+        #desc .text{
+            text-indent: 2em;
+        }
+        .J_icon_type{
+            font-size: 1em;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+    <section class="content">
+        <div class="form">
+            <div class="group">
+                <label for="type">问题类型</label>
+                <div class="value" id="type">
+                    <span class="text">电脑端</span>
+                    <i class="icon iconfont J_icon_type"></i>
+                </div>
+            </div>
+            <div class="group">
+                <label for="desc">具体描述</label>
+                <div class="value" id="desc">
+                    <span class="text">电脑端</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script data-main='../../../../js/factory-problem-platform-detail.js' src='../../../../js/lib/require.js'></script>
+</body>
+</html>

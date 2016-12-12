@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <title>早上好时尚商城</title>
+  </head>
+  <body>
+    <div id="logout_body">
+      <div class="logo"></div>
+      <div class="reg_wrap">
+        <div class="reg_title">早上好账号</div>
+        <div class="reg_main">
+          <div class="out_img"></div>
+          <p>退出成功</br>如果浏览器没有自动跳转，请<a href="index.html">点击这里</a></p>
+          <input id="count" type="button" value="5s">
+        </div>
+      </div>
+      <div class="about-us">&copy; 2014 广州早上好网络科技有限公司<br><a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备14049451号-1</a></div>
+    </div>
+    <div id="scrolltop"><a id="toTop" href="#top"></a></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/cart_slide.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script type="text/javascript">
+      function jump(count) {
+          window.setTimeout(function(){
+              count--;
+              if(count > 0) {
+                  $('#count').val(count+'s');
+                  jump(count);
+              } else {
+                  location.href="http://36-37.com";
+              }
+          }, 1000);
+      }
+      jump(5);
+    </script>
+  </body>
+</html>

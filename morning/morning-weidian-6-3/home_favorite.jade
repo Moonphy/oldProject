@@ -1,0 +1,66 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/home_like.css')
+block content
+    #afui
+        #content
+            #goods_waterfall
+                .waterfall_class
+                    .goods_block
+                        .goods_img
+                            a(href='detail.html',title='')
+                                img(src='images/examples/good_block_img.png',alt='')
+                            .bar1.favorite
+                                span 收藏
+                        p.goods_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        p.goods_in_btn &yen;<span>599.00</span>
+                    - for (var i=0;i<6;i++)
+                        .goods_block
+                            .goods_img
+                                a(href='detail.html',title='')
+                                    img(src='images/examples/0.png',alt='')
+                                .bar1.favorite
+                                    span 收藏
+                            p.goods_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                            p.goods_in_btn &yen;<span>599.00</span>
+                .waterfall_class
+                    - for (var i=0;i<6;i++)
+                        .goods_block
+                            .goods_img
+                                a(href='detail.html',title='')
+                                    img(src='images/examples/1.png',alt='')
+                                .bar1.favorite
+                                    span 收藏
+                            p.goods_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                            p.goods_in_btn &yen;<span>599.00</span>
+                    .goods_block
+                        .goods_img
+                            a(href='detail.html',title='')
+                                img(src='images/examples/good_block_img.png',alt='')
+                            .bar1.favorite
+                                span 收藏
+                        p.goods_title 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        p.goods_in_btn &yen;<span>599.00</span>
+        #toTop
+        footer
+            a(href='index.html',class='home',title='')
+                .img
+                    img(src='images/icon/home.png',alt='')
+                p 首页
+            a(href='list.html',class='fenlei',title='')
+                .img
+                    img(src='images/icon/fenlei.png',alt='')
+                p 发现
+            a(href='cart.html',class='cart',title='')
+                .img
+                    img(src='images/icon/cart.png',alt='')
+                    i: span 100
+                p 购物车
+            a(href='home.html',class='personal selected',title='')
+                .img
+                    img(src='images/icon/home_personal_select.png',alt='')
+                    i: span 99
+                p 个人中心
+block jsblock
+    script(src='js/jquery.miniWaterfall.js')
+    script(src='js/list.js')

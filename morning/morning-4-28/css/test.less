@@ -1,0 +1,62 @@
+
+//.clearfix {display:none;clear:both;}
+.div{
+  width: 100px;
+  height: 100px;
+  background-color: #000000;
+  transform: width 3s, height 3s, background-color 3s;
+}
+.div:hover{
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+}
+
+@keyframes demo{
+  0%{background-color: red; width: 100px}
+  10%{background-color: green; width: 100px}
+  40%{background-color: blue; width: 100px}
+  70%{background-color: yellow; width: 100px}
+  100%{background-color: orange; width: 100px}
+}
+@-moz-keyframes demo{
+  0%{background-color: red; width: 100px}
+  10%{background-color: green; width: 100px}
+  40%{background-color: blue; width: 100px}
+  70%{background-color: yellow; width: 100px}
+  100%{background-color: orange; width: 100px}
+}
+@-webkit-keyframes demo{
+  0%{background-color: red; width: 100px}
+  10%{background-color: green; width: 100px}
+  40%{background-color: blue; width: 100px}
+  70%{background-color: yellow; width: 100px}
+  100%{background-color: orange; width: 100px}
+}
+@-o-keyframes demo{
+  0%{background-color: red; width: 100px}
+  10%{background-color: green; width: 100px}
+  40%{background-color: blue; width: 100px}
+  70%{background-color: yellow; width: 100px}
+  100%{background-color: orange; width: 100px}
+}
+.div{
+  animation: demo 5s;
+  -webkit-animation: demo 5s;
+  -moz-animation: demo 5s;
+  -o-animation: demo 5s;
+}
+.div{
+  box-sizing: border-box;
+}
+@keyframes pound {
+  50% { transform: scale(1.4); }
+}
+
+.heart {
+  display: inline-block;
+  font-size: 150px;
+  color: #e00;
+  animation: pound .5s infinite;
+  transform-origin: center;
+}

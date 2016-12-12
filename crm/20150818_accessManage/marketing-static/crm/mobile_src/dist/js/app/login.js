@@ -1,0 +1,1 @@
+BTR.define(["require","./login/main"],function(e){var t=e("./login/main");$(function(){t.initialize()})});

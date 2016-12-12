@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>修改个人信息</title>
+    <meta name="description" content="修改个人信息">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/profile.css" media="all"/>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <div class="group">
+                <label for="J_name">姓名：</label>
+                <input id="J_name"/>
+            </div>
+            <fiv class="group">
+                <label for="J_dept">部门：</label>
+                <div class="select">
+                    <i class="icon iconfont icon">&#xe62e;</i>
+                    <select id="J_dept">
+                        <option value="-1">请选择部门</option>
+                    </select>
+                </div>
+            </fiv>
+            <fiv class="group">
+                <label for="J_phone">手机：</label>
+                <input id="J_phone"/>
+            </fiv>
+            <fiv class="group">
+                <label for="J_email">邮箱：</label>
+                <input id="J_email"/>
+            </fiv>
+        </div>
+    </section>
+</div>
+<script data-main='../../js/profile-edit.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

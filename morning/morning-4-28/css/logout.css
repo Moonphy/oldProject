@@ -1,0 +1,71 @@
+#logout_body {
+  width: 960px;
+  margin: auto auto;
+}
+#logout_body .logo {
+  width: 118px;
+  height: 20px;
+  margin: 100px 0 60px 0;
+  background: url("../images/reg_logo_bg.png") no-repeat 0 center;
+}
+#logout_body .reg_wrap {
+  width: 958px;
+  height: auto;
+  border: 1px solid #e6e6e6;
+  background-color: #ffffff;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+#logout_body .reg_wrap .reg_title {
+  width: 890px;
+  height: 100px;
+  margin: 0 auto;
+  line-height: 100px;
+  text-align: center;
+  font-size: 18px;
+  border-bottom: 1px solid #e6e6e6;
+  color: #666666;
+  font-weight: 500;
+}
+#logout_body .reg_wrap .reg_main {
+  width: 890px;
+  margin: 0 auto;
+  position: relative;
+}
+#logout_body .reg_wrap .reg_main .out_img {
+  width: 420px;
+  height: 420px;
+  float: left;
+  background: url("../images/logout.png") no-repeat center center;
+}
+#logout_body .reg_wrap .reg_main p {
+  width: 450px;
+  float: left;
+  font-size: 24px;
+  color: #666666;
+  margin-top: 150px;
+}
+#logout_body .reg_wrap .reg_main p a {
+  color: #FF3B3C;
+}
+#logout_body .reg_wrap .reg_main #count {
+  width: 450px;
+  color: #dbdbdb;
+  padding: 0;
+}
+#logout_body .about-us {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 100px 0 0 0;
+  font-size: 14px;
+  color: #6a6a6a;
+}
+#logout_body .about-us a {
+  font-size: 14px;
+  color: #6a6a6a;
+}
+#scrolltop {
+  display: none;
+}

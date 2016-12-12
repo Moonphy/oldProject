@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/register.css">
+    <title>早上好时尚网</title>
+  </head>
+  <body>
+    <div id="afui"><img src="images/logo.png" class="logo">
+      <div class="h1">早上好时尚网
+        <div class="h4">36-37.com</div>
+      </div>
+      <div class="login_wrap">
+        <form id="signupForm" method="post" action="">
+          <p class="clearfix">
+            <input id="username" name="username" type="text" value placeholder="手机号 / 会员名 / 邮箱" class="required">
+            <label class="username_warn">账号错误</label>
+          </p>
+          <p class="clearfix">
+            <input id="password" name="password" type="password" value placeholder="密码" class="{required:true,rangelength:[6,20]}">
+            <label class="password_warn">密码错误</label>
+          </p>
+          <input type="submit" value="登录" class="submit">
+        </form>
+        <div class="other_ways">
+          <h3>其它登录方式</h3><a href="#" title="" class="qq"><img src="images/qq.png">
+            <p>QQ</p></a><a href="#" title="" class="weixin"><img src="images/weixin.png">
+            <p>微信</p></a><a href="#" title="" class="weibo"><img src="images/weibo.png">
+            <p>新浪微博</p></a>
+        </div><a href="#" title="" class="find_password">找回密码</a>
+      </div><a href="reg1.html" class="reg_submit">还没有账号？现在注册</a>
+    </div>
+    <script src="js/common.js"></script>
+    <script>
+      var aw = $("#afui").width();
+      var ah = $("#afui").height();
+      var th = ah*0.05;
+      if(aw>ah){
+          $(".logo").css({"margin-top":th});
+      }
+    </script>
+  </body>
+</html>

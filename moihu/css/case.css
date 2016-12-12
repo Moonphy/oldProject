@@ -1,0 +1,202 @@
+#page {
+  width: 368px;
+  margin: 40px auto;
+}
+#page .page_one .disabled {
+  display: none;
+}
+#page .page_one .current {
+  background-color: #76be00;
+  border-color: #76be00;
+  color: #ffffff;
+}
+#page .page_one .next {
+  width: 90px;
+}
+#page .page_one a {
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  border: 1px solid #eeeeee;
+  margin-right: -1px;
+  float: left;
+}
+#page .page_one div {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  float: left;
+}
+.case_body #experience_main {
+  width: 1236px;
+  margin: 0 auto;
+  font-family: '微软雅黑';
+  padding: 0px 0 48px 0;
+  position: relative;
+}
+.case_body #experience_main #hot_list {
+  width: 98px;
+  margin-right: 24px;
+  border: 1px solid #83b105;
+  position: absolute;
+  float: left;
+  margin-top: 25px;
+  background-color: #ffffff;
+}
+.case_body #experience_main #hot_list .hot_list_header {
+  height: 35px;
+  background-color: #76b100;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+}
+.case_body #experience_main #hot_list li {
+  height: 50px;
+  display: block;
+  border-bottom: 1px dashed #d2d2d2;
+  line-height: 50px;
+  font-size: 14px;
+}
+.case_body #experience_main #hot_list li a {
+  margin-left: 50px;
+  color: #477800;
+}
+.case_body #experience_main #hot_list .li1 {
+  background: url("../images/icon_hot_1.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li2 {
+  background: url("../images/icon_hot_2.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li3 {
+  background: url("../images/icon_hot_3.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li4 {
+  background: url("../images/icon_hot_4.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li5 {
+  background: url("../images/icon_hot_5.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li6 {
+  background: url("../images/icon_hot_6.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li7 {
+  background: url("../images/icon_hot_7.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li8 {
+  background: url("../images/icon_hot_8.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+}
+.case_body #experience_main #hot_list .li9 {
+  background: url("../images/icon_hot_9.png") no-repeat scroll 20px center rgba(0, 0, 0, 0);
+  border-bottom: none;
+}
+.case_body #experience_main #case_right_part {
+  width: 1000px;
+  margin: 25px 118px 25px 0;
+  float: right;
+}
+.case_body #experience_main #case_right_part .right_part_title {
+  width: 1000px;
+  height: 86px;
+  background-color: #ececeb;
+  border-radius: 5px 5px 0 0;
+}
+.case_body #experience_main #case_right_part .right_part_title .title_big {
+  float: left;
+  font-size: 40px;
+  line-height: 86px;
+  margin-left: 50px;
+  color: #808080;
+}
+.case_body #experience_main #case_right_part .right_part_title .title_big span {
+  font-size: 18px;
+  color: #aeaeae;
+  margin-left: 20px;
+}
+.case_body #experience_main #case_right_part .right_part_title .experience_btn {
+  width: 190px;
+  height: 38px;
+  background: url("../images/btn_case_bg.png") no-repeat;
+  color: #ffffff;
+  text-align: center;
+  padding-left: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 38px;
+  float: right;
+  margin: 25px 25px 0 0;
+  cursor: pointer;
+}
+.case_body #experience_main #case_right_part .sort {
+  width: 1000px;
+  height: 38px;
+  border: 1px solid #eaeaea;
+  margin: 22px 0 20px 0;
+  line-height: 38px;
+  font-family: '宋体';
+  text-align: center;
+}
+.case_body #experience_main #case_right_part .sort .time_sort {
+  width: 148px;
+  float: left;
+  border-right: 1px solid #eaeaea;
+  cursor: pointer;
+}
+.case_body #experience_main #case_right_part .sort .hot_sort {
+  float: left;
+  color: #518800;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.case_body #experience_main #case_right_part ul li {
+  height: 290px;
+  border-bottom: 1px dashed #dddddd;
+  padding: 24px 0;
+}
+.case_body #experience_main #case_right_part ul li a {
+  float: left;
+}
+.case_body #experience_main #case_right_part ul li a img {
+  width: 440px;
+  height: 290px;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap {
+  float: left;
+  width: 490px;
+  height: 290px;
+  margin-left: 30px;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .head {
+  height: 60px;
+  position: relative;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .head img {
+  float: left;
+  width: 60px;
+  height: 60px;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .head .name {
+  float: left;
+  left: 80px;
+  position: absolute;
+  bottom: 10px;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .li_content .content_title {
+  font-size: 21px;
+  padding-right: 60px;
+  background: url("../images/experience_title_bg.png") no-repeat scroll right center;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .li_content .content_title a {
+  color: #333333;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .li_content .content_p {
+  font-size: 14px;
+  margin: 15px 0;
+  color: #656464;
+}
+.case_body #experience_main #case_right_part ul li .block_right_wrap .li_content .recommend_number {
+  color: #999999;
+  margin-top: 20px;
+}

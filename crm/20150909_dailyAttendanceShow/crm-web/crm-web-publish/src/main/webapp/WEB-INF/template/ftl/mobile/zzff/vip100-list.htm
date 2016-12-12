@@ -1,0 +1,95 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header 'VIP100管理' 'vip100-list' '0.0.1' 'index' '
+,plugin/pagination.css
+'
+>
+<style>
+    .main-list .link{
+        color: #d03232;
+        text-decoration: underline;
+    }
+    .tool{
+        margin: 10px;
+    }
+    .tool div.group{
+        display: inline;
+        margin-right: 10px;
+    }
+    .tool div.group input{
+        margin: 0 5px;
+    }
+    .tool div.group .btn{
+        width: 50px;
+    }
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>VIP100管理</strong></span>
+        </h2>
+    </div>
+
+    <div class="main-list fn-clear">
+        <div class="tool filter">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>汽修厂名</label>
+                <input name="key" placeholder="请输入汽修厂名"/>
+            </div>
+            <div class="group">
+                <label for="isVip">汽修厂类型</label>
+                <select name="isVip" id="isVip">
+                    <option value="">全部</option>
+                    <option value="1">VIP客户(未过期)</option>
+                    <option value="0">非VIP客户或已过期</option>
+                </select>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+        <div class="fn-clear">
+            <table class="gridtable" summary="管理现有汽修厂">
+                <thead>
+                <tr>
+                    <th scope="col">汽修厂名</th>
+                    <th scope="col">城市</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">VIP客户</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody id="list">
+                <#--<tr>
+                        <td>呵呵</td>
+                        <td>北京</td>
+                        <td>中关村</td>
+                        <td>2015-05-15 15:15:15</td>
+                        <td><a href="factoryEdit.do">编辑信息</a>|<a href="subAccount.do">编辑账号</a></td>
+                    </tr>
+                    <tr class="nodata">
+                        <td colspan="5">美柚数据</td>
+                    </tr>-->
+                </tbody>
+            </table>
+            <div class="pager"></div>
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+<script>
+
+</script>
+</@inc.footer>

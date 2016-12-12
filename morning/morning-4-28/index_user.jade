@@ -1,0 +1,169 @@
+extends layout
+
+block styleblock
+    link(rel='stylesheet',href='css/index.css')
+
+block content
+    .index_body
+        #header
+            .header-top
+                .logo
+                    a(href='index.html',title='36-37早上好时尚商城')
+                        img(src='images/logo_header.png')
+                .header-right
+                    .telephone 4006-4888-00
+                    .user
+                        .shopping-cart.fl
+                            a.cart_logo(href='cart.html')
+                                img(src='images/icon/shopping_cart_icon2.png')
+                                i: span 2
+                            .popup_cart.js-over-show
+                                .cart_cover_left
+                                .cart_cover
+                                .cart_wrap
+                                    .cart_show
+                                        .cart_show_good
+                                            - for(var i=0; i<10; i++)
+                                                .good
+                                                    .good_left.fl: a(href=''): img(src='images/examples/good_detail_img.png')
+                                                    .good_right.fr
+                                                        .right_top
+                                                            a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                                                        button 删除
+                                                        .right_bottom
+                                                            .good_count.fl 1件
+                                                            .good_size 尺码：<span>36</span>
+                                                            .good_price.fr <i>¥</i>599.00
+                                            .good
+                                                p 您的购物车是空的，
+                                                    span: a(href='index.html') 马上去购物>>
+                                    .cart_arrow
+                                        a(href='javascript:;',class='ctrl-slide cart_up')
+                                        a(href='javascript:;',class='ctrl-slide cart_down')
+                                    .cart_bottom
+                                        .good_price_total
+                                            span.i 总价：¥
+                                            span 9999.00
+                                        .to-settle: a(href='cart.html') 去购物车结算
+                        - if(user)
+                            .register_btn.fl: a(href='reg1.html') 注册
+                            .login_btn.fr: a(href='login.html') 登录/QQ微信登录
+
+                        - else
+                            .register_btn.fr: a(href='') 退出登录
+                            .user_name.fr: a(href='home.html') 萌萌哒小妹子
+            #nav
+
+                ul#main-menu.fl
+                    li.selected: a(href='index.html') 首页
+                    li: a(href='list.html') 鞋靴
+                    li: a(href='list2.html') 服装
+                    li: a(href='list3.html') 箱包
+                    li: a(href='list4.html') 手表
+                .search.fr
+                    form(action='/search/', method='get')
+                        input#searchBtn(type='submit',value='')
+                        input#searchKeyword(placeholder='搜索',name='k')
+        include _ad
+        .index_main
+            .classify_block
+                .classify.lc
+                    .classify_title.lc 鞋靴
+                    .classify_img.lc
+                        img(src='images/shoes_bg.png')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list.html') 跳转至
+                .classify.lc
+                    .classify_title.lc 服装
+                    .classify_img.lc
+                        img(src='images/garment_bg.png')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list.html') 跳转至
+                .classify.lc
+                    .classify_title.lc 箱包
+                    .classify_img.lc
+                        img(src='images/bags_bg.png')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list.html') 跳转至
+                .classify.lc
+                    .classify_title.lc 手表
+                    .classify_img.lc
+                        img(src='images/watch_bg.png')
+                    .classify_count.lc
+                        .count_title.lc 共有
+                        .count_num.lc 397件商品
+                    .classify_turn.lc: a(href='list.html') 跳转至
+            .goods_block
+                .goods_block_title 品牌<i>促销</i>
+                - for(var i=0;i<4;i++)
+                    .goods_little_block
+                        .goods_little_block_img
+                            img(src='images/examples/good_block_img.png')
+                        .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                        .goods_little_block_bar
+                            .bar
+                            .pro_bar
+                                #prog
+                                input#like(type='button',value='', onclick='startProgress()')
+                        .goods_in_btn
+                            span.good_price 599.00¥
+                            span.nbsp &nbsp; | &nbsp;
+                            span: a(href='detail.html') 进入 &nbsp; ＞
+
+            .goods_block_hot
+                .goods_block_title 热卖<i>商品</i>
+                .goods_waterfall
+                    - for (var i=0;i<6;i++)
+                        .goods_little_block
+                            .goods_little_block_img
+                                img(src='images/examples/good_block_img.png')
+                            .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                            .goods_little_block_bar
+                                .bar
+                                .pro_bar
+                                    #prog
+                                    input#like(type='button',value='', onclick='startProgress()')
+                            .goods_in_btn
+                                span.good_price 599.00¥
+                                span.nbsp &nbsp; | &nbsp;
+                                span: a(href='detail.html') 进入 &nbsp; ＞
+                    - for (var i=0;i<3;i++)
+                        .goods_little_block
+                            .goods_little_block_img
+                                img(src='images/examples/good_block_img2.png')
+                            .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                            .goods_little_block_bar
+                                .bar
+                                .pro_bar
+                                    #prog
+                                    input#like(type='button',value='', onclick='startProgress()')
+                            .goods_in_btn
+                                span.good_price 599.00¥
+                                span.nbsp &nbsp; | &nbsp;
+                                span: a(href='detail.html') 进入 &nbsp; ＞
+                    - for (var i=0;i<5;i++)
+                        .goods_little_block
+                            .goods_little_block_img
+                                img(src='images/examples/good_block_img.png')
+                            .goods_little_block_p 圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+                            .goods_little_block_bar
+                                .bar
+                                .pro_bar
+                                    #prog
+                                    input#like(type='button',value='', onclick='startProgress()')
+                            .goods_in_btn
+                                span.good_price 599.00¥
+                                span.nbsp &nbsp; | &nbsp;
+                                span: a(href='detail.html') 进入 &nbsp; ＞
+
+    include _footer
+
+block jsblock
+    script(src='js/blocksit.min.js')
+    script(src='js/index.js')

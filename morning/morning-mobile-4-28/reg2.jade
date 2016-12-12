@@ -1,0 +1,26 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/register.css')
+block content
+    #afui
+        a(href='index.html'): img.logo(src='images/logo.png')
+        .h1 早上好时尚网
+            .h4 36-37.com
+        .reg_wrap
+            form(id='signupForm', method='post',action='')
+                p.clearfix
+                    input(id='username',name='username',class='required',type='text',value placeholder='会员名')
+                p.clearfix
+                    input(id='password',name='password',class='{required:true,rangelength:[6,20]}',type='password',value placeholder='密码（6-20位大小写字母或数字）')
+                p.clearfix
+                    input(id='confirm_password',name='confirm_password',class='{required:true,rangelength:[6,20],equalTo:"#password"}',type='text',value placeholder='确认密码')
+                input(class='next',type='submit',value='立即注册')
+            .contract
+                p.fl 点击“立即注册”，即表示你已同意并愿意遵守
+                    span: a(href='#') 36-37用户服务协议
+                    span 和
+                    span: a(href='#') 隐私政策
+block jsblock
+    script(src='js/jquery.validate.js')
+    script(src='js/jquery.metadata.js')
+    script(src='js/resgin.js')

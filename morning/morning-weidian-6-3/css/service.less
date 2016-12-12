@@ -1,0 +1,251 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.text-overflow {
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+body {
+  height: 100%;
+}
+#afui #content {
+  top: 44px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.chat_thread{
+  width: 100%;
+  height: 100%;
+}
+ul{
+  //min-height: 85%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 0;
+  li{
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+    p{
+      width: auto;
+      max-width: 200px;
+      padding: 5px;
+      .border-radius (6px);
+      color: #000000;
+      font-size: 14px;
+      //display: inline-block;
+      img{
+        max-width: 120px;
+        max-height: 120px;
+      }
+    }
+    label{
+      font-size: 12px;
+    }
+    .header_img{
+      width: 51px;
+      height: 51px;
+      .border-radius (50%);
+      margin: 0 10px;
+    }
+  }
+  .custom_service{
+    float: left;
+    .header_img{
+      float: left;
+    }
+    .chat_content{
+      float: left;
+      position: relative;
+      p{
+        background-color: #f2f2f2;
+      }
+      span{
+        margin: 0 5px;
+      }
+    }
+
+  }
+  .customer{
+    float: right;
+    .header_img{
+      float: right;
+    }
+    .chat_content{
+      float: right;
+      position: relative;
+      p{
+        background-color: #b4eb7c;
+      }
+      label{
+        position: absolute;
+        right: 0;
+        span{
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.chat_form{
+  width: 100%;
+  max-width: 750px;
+  background-color: #444444;
+  padding: 10px 0;
+  box-sizing: border-box;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  textarea{
+    padding: 4px 10px;
+    overflow: hidden;
+    .border-radius (20px);
+    background-color: #ffffff;
+    width: 65%;
+    max-height: 62px;
+    float: right;
+    box-sizing: border-box;
+  }
+  textarea:focus{
+    border-color: #ff3b3c;
+  }
+  .submit{
+    width: 50px;
+    height: 30px;
+    border: none;
+    background-color: #3e84e0;
+    color: #ffffff;
+    float: right;
+    margin: 0 10px;
+    .border-radius (6px);
+  }
+  .a_upload{
+    width: 18px;
+    height: 18px;
+    position: relative;
+    background: url("../images/u_upload.png") no-repeat;
+    background-size: cover;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    float: left;
+    margin-top: 5px;
+    margin-left: 5%;
+    overflow: hidden;
+    input{
+      position: absolute;
+      font-size: 100px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      top: 0;
+      left: 0px;
+      filter: alpha(opacity=0);
+    }
+  }
+  .camera{
+    width: 18px;
+    height: 13px;
+    float: left;
+    margin-left: 5%;
+    margin-top: 8px;
+    background: url("../images/icon/show_img.png") no-repeat;
+    background-size: cover;
+  }
+}
+.photobooth ul li{
+  float: left;
+}
+.hue,.saturation,.brightness{
+  display: none;
+}
+
+.cart_goods_body {
+  width: 100%;
+  height: 80px!important;
+  border-bottom: 1px solid #d6d6d6;
+  background-color: #ffffff;
+  padding: 10px 0;
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+  li {
+    float: left;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .td2{
+    width: 25%;
+    position: relative;
+    a{
+      width: 100%;
+      height: 100%;
+    }
+    img{
+      max-width: 100%;
+      max-height: 80px;
+      position: absolute;
+      z-index: 1;
+      margin-left: 10px;
+    }
+  }
+  .td3{
+    width: 36%;
+    padding-left: 5px;
+    box-sizing: border-box;
+    display: table-cell!important;
+    vertical-align: middle;
+    text-align: left;
+    position: relative;
+    a{
+      width: 100%;
+      color: #444444;
+      .text-overflow;
+      font-size: 12px;
+    }
+    i{
+      font-size: 12px;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  .td4{
+    width: 14%;
+    text-align: center;
+    p{
+      width: 100%;
+      line-height: 20px;
+      font-size: 12px;
+      text-align: center;
+      .text-overflow;
+    }
+    p:first-child{
+      margin-top: -5px;
+    }
+  }
+  .td5{
+    width: 25%;
+    text-align: right;
+    position: relative;
+  }
+}
+.good_price_all{
+  width: 100%;
+  position: absolute;
+  bottom: 35%;
+  right: 0;
+  font-size: 16px;
+  text-align: center;
+}

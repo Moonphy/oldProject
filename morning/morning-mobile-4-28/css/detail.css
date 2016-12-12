@@ -1,0 +1,427 @@
+.text-overflow {
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#afui #content {
+  top: 44px;
+  overflow: hidden;
+  position: relative!important;
+  padding-bottom: 60px;
+}
+.main_visual {
+  width: 100%;
+  position: relative;
+}
+.main_visual .flicking_con {
+  position: absolute;
+  bottom: -20px;
+  right: 10px;
+  z-index: 9;
+}
+.main_visual .flicking_con a {
+  float: left;
+  width: 4px;
+  height: 4px;
+  margin: 0.2em;
+  padding: 0;
+  border-radius: 4px;
+  background-color: #dbdbdb;
+  display: block;
+  text-indent: -1000px;
+}
+.main_visual .flicking_con .on {
+  background-color: #f2295d;
+}
+.main_visual .main_image {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.main_visual .main_image ul {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main_visual .main_image ul li {
+  float: left;
+  overflow: hidden;
+  text-align: center;
+}
+.main_visual .main_image ul li img {
+  max-width: 100%;
+}
+.bar1,
+.bar2 {
+  width: 35px;
+  height: 20px;
+  position: absolute;
+  padding: 0px 5px 0px 20px;
+  right: 10px;
+  z-index: 9;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.bar1 span,
+.bar2 span {
+  width: 35px;
+  text-align: center;
+  color: #ffffff;
+  line-height: 12px;
+  font-size: 12px;
+  float: left;
+  margin-top: 4px;
+}
+.bar1 {
+  background: url("../images/favorite.png") no-repeat 5px 2px rgba(178, 178, 178, 0.7);
+  background-size: 25%;
+  bottom: 45px;
+}
+.bar2 {
+  background: url("../images/like_bg.png") no-repeat 5px center rgba(178, 178, 178, 0.7);
+  background-size: 25%!important;
+  bottom: 10px;
+}
+.favorite {
+  background: url("../images/favorite.png") no-repeat 5px center rgba(255, 59, 60, 0.9);
+  background-size: 25%;
+}
+.like {
+  background: url("../images/like_bg.png") no-repeat 5px center rgba(255, 59, 60, 0.9);
+  background-size: 25%;
+}
+.good_tag {
+  width: 80%;
+  font-size: 12px;
+  margin: 5px 0 5px 10px;
+}
+.information_part1 {
+  border-top: 1px solid #dbdbdb;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.information_part1 .good_detail_title {
+  width: 80%;
+  font-size: 1em;
+  border-right: 1px solid #dbdbdb;
+  box-sizing: border-box;
+}
+.information_part1 .good_detail_title .good_title {
+  width: 100%;
+  padding: 2px 10px 2px 0;
+  box-sizing: border-box;
+  line-height: 16px;
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.information_part1 .good_detail_title .good_price {
+  color: #ff3b3c;
+}
+.information_part1 .share {
+  width: 20%;
+  height: 40px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 12px;
+}
+.information_part1 .share img {
+  height: 20px;
+  margin-top: 5px;
+}
+.information_part1 .share p {
+  line-height: 8px;
+}
+.popup_share {
+  width: 240px;
+  height: 150px;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  z-index: 9;
+  margin-left: -120px;
+  background-color: #ffffff;
+  border: 1px solid #df3d82;
+  display: none;
+  overflow: hidden;
+}
+.popup_share h3 {
+  background-color: #df3d82;
+  color: #ffffff;
+  line-height: 30px;
+  padding-left: 10px;
+}
+.popup_share h3 .popup_close {
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: url("../images/clolse.png") no-repeat center center;
+  background-size: 70%;
+}
+.popup_share .bdsharebuttonbox a {
+  position: relative;
+  width: 33%;
+  float: left;
+  text-align: center;
+  display: block;
+}
+.popup_share .bdsharebuttonbox a img {
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  margin-left: -20px;
+}
+.popup_share .bdsharebuttonbox a p {
+  font-size: 12px;
+  line-height: 160px;
+}
+.information_part2 {
+  height: auto;
+}
+.information_part2 div {
+  width: 45%;
+  margin-left: 10px;
+  font-size: 0.875em;
+  color: #444444;
+  line-height: 2em;
+  float: left;
+}
+.other_color {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.other_color h4 {
+  font-size: 14px;
+  color: #2e2e2e;
+}
+.other_color ul li {
+  float: left;
+  width: 108px;
+  height: 34px;
+  border: 1px solid #888888;
+  padding: 0px 5px;
+  margin: 10px 11px 0 0;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  box-sizing: border-box;
+}
+.other_color ul li a {
+  width: 100%;
+  height: 32px;
+  display: block;
+  position: relative;
+}
+.other_color ul li a img {
+  float: left;
+  max-width: 60%;
+  max-height: 30px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  position: absolute;
+  left: 10px;
+  top: 1px;
+  z-index: 1;
+}
+.other_color ul li a p {
+  float: right;
+  width: 40%;
+  color: #444444;
+  font-size: 12px;
+  text-align: center;
+  line-height: 35px;
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.other_color ul .selected {
+  background-color: #df3d82;
+  border-color: #df3d82;
+}
+.other_color ul .selected p {
+  color: #ffffff;
+}
+.bottom_btn {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+}
+.bottom_btn div {
+  width: 50%;
+  height: 50px;
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  line-height: 50px;
+  display: block;
+}
+.bottom_btn .add_cart_btn {
+  background-color: #e09a3e;
+}
+.bottom_btn .buy_btn {
+  background-color: #e0493e;
+}
+#buy_content,
+#add_content {
+  position: fixed;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  display: none;
+  bottom: 50px;
+  background-color: #ffffff;
+  z-index: 12;
+}
+.information_part3 {
+  width: 100%;
+  border-top: 1px solid #dbdbdb;
+  padding-left: 20px;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+.information_part3 .unselected {
+  border: 1px solid #2e2e2e;
+  color: #575757;
+}
+.information_part3 .selected {
+  border: 1px solid #df3d82;
+  color: #ffffff;
+  background-color: #df3d82;
+}
+.information_part3 label {
+  float: left;
+  position: relative;
+  line-height: 2em;
+  color: #575757;
+  text-align: center;
+  font-size: 0.875em;
+  margin-right: 3%;
+  margin-bottom: 1em;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+.information_part3 label input {
+  left: -9999px;
+  position: absolute;
+}
+.information_part3 .f_radio {
+  padding: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+.information_part4 {
+  position: relative;
+  padding: 0 20px;
+  border-top: 1px solid #dbdbdb;
+}
+.information_part4 p {
+  float: left;
+  margin-top: 15px;
+}
+.information_part4 .numbers {
+  width: 120px;
+  margin: 10px 0;
+  overflow: hidden;
+  text-align: center;
+  padding-left: 1px;
+  float: right;
+}
+.information_part4 .numbers input {
+  width: 28%;
+  height: 30px;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #c5c8cf;
+  margin-left: -1px;
+  background-color: #f5f5f5;
+}
+.information_part4 .numbers .text_box {
+  width: 44%;
+  border: 1px solid #dbdbdb;
+  color: #575757;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: #ffffff;
+}
+.small {
+  width: 100%;
+  height: 45px;
+  background-color: #fafafa;
+  position: relative;
+  padding-top: 5px;
+}
+.small img {
+  max-width: 60px;
+  max-height: 50px;
+  margin: 0 20px;
+  position: absolute;
+  top: -10px;
+}
+.small .good_price {
+  color: #ff3b3c;
+  font-size: 18px;
+  line-height: 24px;
+}
+.small .good_price span {
+  margin: 0 5px;
+}
+.small p {
+  font-size: 12px;
+  margin-left: 80px;
+}
+.small .popup_form_close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  background: url("../images/cart_del.png") no-repeat center center;
+  background-size: 68%;
+}
+.button {
+  width: 100%;
+  max-width: 750px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #444444;
+  position: fixed;
+  bottom: 0;
+  color: #ffffff;
+  z-index: 2;
+}
+.clear {
+  height: 100%;
+  overflow: hidden;
+}
+.detail_img {
+  width: 100%;
+}
+.detail_img ul {
+  width: 100%;
+}
+.detail_img ul li {
+  width: 100%;
+  text-align: center;
+}
+.detail_img ul li img {
+  max-width: 100%;
+  max-height: 300px;
+}

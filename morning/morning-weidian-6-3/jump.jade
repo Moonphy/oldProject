@@ -1,0 +1,23 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/jump.css')
+block content
+    .cover
+        img.logo(src='images/logo.png')
+        .h1 早上好时尚网
+        .loader
+        i www.36-37.com
+block jsblock
+    script(type='text/javascript').
+        function jump(count) {
+            window.setTimeout(function(){
+                count--;
+                if(count > 0) {
+                    $('#count').val(count+'s');
+                    jump(count);
+                } else {
+                    location.href="index.html";
+                }
+            }, 1000);
+        }
+        jump(3);

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新建联系人</title>
+    <meta name="description" content="CRM通讯录">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+</head>
+<body>
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <div class="group">
+                <label for="J_name">名称</label>
+                <input type="text" id="J_name" placeholder="请填写名称"/>
+            </div>
+            <div class="group">
+                <label for="J_type">联系人类型</label>
+                <div class="select" id="J_type">
+                    <i class="icon iconfont icon1">&#xe62e;</i>
+                    <select name="type" id="type">
+                        <option value="-1">请选择联系人类型</option>
+                    </select>
+                </div>
+            </div>
+            <div class="group">
+                <label for="J_phone">电话</label>
+                <input type="text" id="J_phone" placeholder="请填写电话"/>
+            </div>
+            <div class="group">
+                <label for="J_memo">备注</label>
+                <textarea type="text" id="J_memo" placeholder="请填写其他需求"></textarea>
+            </div>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/contact-add.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

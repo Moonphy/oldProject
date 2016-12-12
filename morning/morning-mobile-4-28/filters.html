@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/filters.css">
+    <title>早上好时尚网</title>
+  </head>
+  <body>
+    <div id="afui">
+      <header id="header"><a href="#" title="" class="back"></a>
+        <h1>条件筛选</h1>
+        <div class="search"></div>
+        <form action="/search/" method="get" class="popup_search">
+          <input id="searchKeyword" placeholder="请输入商品关键字..." name="k">
+          <input id="searchBtn" type="submit" value="">
+        </form>
+      </header>
+      <div class="filters_content"><img src="images/bg.png" alt="" class="bg">
+        <form id="formid1" action="list.html" method="post">
+          <label class="f_radio selected">流行女鞋
+            <input type="radio" name=" " value="" checked="checked">
+          </label>
+          <label class="f_radio unselected">流行男鞋
+            <input type="radio" name=" " value="">
+          </label>
+        </form>
+        <h3>种类</h3>
+        <form id="formid2" action="list.html" method="get">
+          <label class="f_radio selected">高跟鞋
+            <input type="radio" name=" " value="" checked="checked">
+          </label>
+          <label class="f_radio unselected">平底鞋
+            <input type="radio" name=" " value="">
+          </label>
+          <label class="f_radio unselected">靴子
+            <input type="radio" name=" " value="">
+          </label>
+          <label class="f_radio unselected">高跟鞋
+            <input type="radio" name=" " value="">
+          </label>
+          <label class="f_radio unselected">平底鞋
+            <input type="radio" name=" " value="">
+          </label>
+        </form>
+        <h3>颜色</h3>
+        <form id="formid3" action="list.html" method="get" class="classify_color">
+          <label class="f_radio selected">
+            <input type="radio" name=" " value="土色" checked="checked">
+            <div style="background:#c7b299;" class="classify_color_1"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="纯白">
+            <div style="background:#ffffff;" class="classify_color_2"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="酒红">
+            <div style="background:#9e0b0f;" class="classify_color_3"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="黄色">
+            <div style="background:#fff200;" class="classify_color_4"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="绿色">
+            <div style="background:#598527;" class="classify_color_5"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="橘色">
+            <div style="background:#f7941d;" class="classify_color_6"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="间隔条">
+            <div style="background:url(&quot;images/classify_color_7.png&quot;);" class="classify_color_7"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="纯黑">
+            <div style="background:#000000;" class="classify_color_8"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="褐色">
+            <div style="background:#573310;" class="classify_color_9"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="浅黑">
+            <div style="background:#565454;" class="classify_color_10"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="浅土">
+            <div style="background:#c0af67;" class="classify_color_11"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="浅灰">
+            <div style="background:#cccccc;" class="classify_color_12"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="深蓝">
+            <div style="background:#2e3192;" class="classify_color_13"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="浅红">
+            <div style="background:#f06eaa;" class="classify_color_14"></div>
+          </label>
+          <label class="f_radio unselected">
+            <input type="radio" name=" " value="紫色">
+            <div style="background:#a864a8;" class="classify_color_15"></div>
+          </label>
+        </form>
+        <h3>材质</h3>
+        <form id="formid4" action="list.html" method="get">
+          <label class="f_radio selected">牛皮
+            <input type="radio" name=" " value="" checked="checked">
+          </label>
+          <label class="f_radio unselected">猪皮
+            <input type="radio" name=" " value="">
+          </label>
+          <label class="f_radio unselected">PU革
+            <input type="radio" name=" " value="">
+          </label>
+        </form>
+        <input type="submit" name=" " value="确定" class="button">
+      </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+      $(".button").click(function () {
+          $("form").submit();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header title='登录' styles=',login.css'></@inc.header>
+
+<@inc.body>
+	
+	<div class="page-title">
+        <h2>
+			<span><strong>登录</strong></span>
+		</h2>
+    </div>
+    
+    <div class="main-list" style="margin-top: 0px;">
+    	<div class="js-course-list fn-clear">
+			<div class="login-image" id="J_loginimg">
+
+			</div>
+    		<div class="form fn-right" action="/login?next=" method="POST">
+                <iframe src="/login-modal" frameborder="0" class="loginframe"></iframe>
+			</div>
+    	</div>
+    </div>
+</@inc.body>
+
+<@inc.footer>
+<script>
+    function getRandom(n) {
+        var randomString = "";
+        if (n == 1) {
+            randomString = parseInt(Math.random() * 10) + "";
+        } else {
+            randomString = getRandom(n - 1) + parseInt(Math.random() * 10);
+        }
+        return randomString;
+    }
+
+    //如果需要在登录成功之后跳转到指定页面，只需要声明goNext函数即可，在函数内部进行页面跳转
+	function goNext(){
+        var next = '${Request.next}' || '/index';
+		window.location.replace(next);
+	}
+
+	seajs.use(['$'],function($){
+		changeImg();
+		function changeImg(){
+			var img = document.createElement('img');
+			img.src = '${imgRoot}/gallery/'+getRandom(1)+'.jpg';
+			img.width=500;
+			$('#J_loginimg').empty().hide();
+			$('#J_loginimg').append(img).show();
+		}
+	});
+	</script>
+</@inc.footer>

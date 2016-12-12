@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <style>
+
+
+        body{
+            margin:0px;
+            padding: 0px;
+            background-color: #f2f2f1;
+            color:  #34495e;
+            font-size:12px;
+        }
+
+        .photolist{
+            position: absolute;
+            height: 120px;
+            display: block;
+            bottom: 0px;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .photolist ul{
+            height: 0px;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        .photolist ul li{
+            position: relative;
+            float: left;
+            width: 60px;
+            height: 60px;
+            display: list-item;
+            margin: 0 12px 15px 0;
+        }
+
+        #addImg-box{
+            font-size: 60px;
+            cursor: pointer;
+        }
+
+        .photoCut{
+            width: 100%;
+            height: 100%;
+            overflow:hidden;
+            background-position:center center;
+            background-size:cover;
+        }
+
+        .photolist p{
+            clear: both;
+        }
+
+        .addImg{
+            opacity: 0;
+            filter:alpha(opacity=0);
+            -ms-filter:'alpha(opacity=0)';
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 图片展示 -->
+<div class="photolist">
+    <ul>
+        <li id="addImg-box"
+            class="glyphicon glyphicon-plus icon icon-white"
+            onclick="chooseImg.click()">
+        </li>
+    </ul>
+    <p class="text-tip">
+        还可以上传
+        <span id="lastNum"></span>
+        张照片
+    </p>
+</div>
+
+<!-- 上传按钮 -->
+<input id="chooseImg" type="file" accept="image/*" class="addImg" readonly="readonly" />
+<span class="glyphicon glyphicon-picture"
+      style="font-size:20px;" onclick="chooseImg.click()">
+</span>
+<script>
+    try{
+        var photoNum = $('.photoCut').length;
+        var chooseImg = $('#chooseImg');
+
+        $('input[type=file]').on('change', function () {
+            // 得到文件列表
+            var files = !!this.files ? this.files : [];
+
+            // 如果没有选择文件或者没有FileReader对象
+            if (!files.length || !window.FileReader) return;
+
+            // 文件类型
+            if (/^image/.test(files[0].type)) {
+
+                //创建实例
+                var reader = new FileReader();
+
+                // 将本地文件给DataURL
+                reader.readAsDataURL(files[0]);
+
+                // 上传时操作
+                reader.onloadend = function () {
+                    $('#addImg-box').before("<li><div><a></a></div></li>");
+                    $('#addImg-box').prev().find('div').addClass('photoCut').css('background-image', "url(" + this.result + ")").find('a').attr({
+                        href: '#',
+                        onclick: " $(this).parents('li').remove();photoNum--;if(!photoNum){$('.photolist').hide();}else if(photoNum == 3){$('#addImg-box,.bottomBar span').show();}else{$('#lastNum').html(4-photoNum)}"
+                    }).addClass('glyphicon glyphicon-remove remove').list;
+                }
+
+                if ($('.photolist').is(':visible') == false) {
+                    $('.photolist').show();
+                }
+
+                photoNum++;
+                $('#lastNum').html(8 - photoNum);
+                if (photoNum >= 8) {
+                    $('#addImg-box,.bottomBar span').hide();
+                }
+                chooseImg.replaceWith(chooseImg = chooseImg.clone(true));
+
+            } else {
+                alert("文件类型不是图片");
+            }
+        });
+    }catch(e){
+    }
+</script>
+</body>
+
+</html>

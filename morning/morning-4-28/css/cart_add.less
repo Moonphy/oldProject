@@ -1,0 +1,214 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.text-overflow {
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.horizontal_vertical_center{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+*{
+  margin: 0;
+}
+html,body{
+  height: 100%;
+}
+#header{
+  position: relative;
+}
+.wrap{
+  width: 100%;
+  height: auto!important;
+  min-height: 100%;
+  position: relative;
+}
+
+.cart_add_body{
+  width: 1298px;
+  //height: 50px;
+  margin: 20px auto;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  color: #444444;
+  h1{
+    font-size: 36px;
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+.section{
+  width: 1278px;
+  height: 238px;
+  border: 1px solid #e6e6e6;
+  margin: 10px;
+  .td1{
+    width: 128px;
+    padding-left: 7px!important;
+    margin-right: 10px;
+  }
+  .td2{
+    width: 840px;
+    .text-overflow;
+  }
+  .td3,.td4,.td5{
+    border-left: 1px solid #e6e6e6;
+    text-align: center;
+  }
+  .td3{
+    width: 78px;
+  }
+  .td4{
+    width: 98px;
+  }
+  .td5{
+    width: 114px;
+  }
+  .add_header{
+    height: 57px;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    div{
+      float: left;
+      font-size: 18px;
+      line-height: 58px;
+      padding: 0;
+    }
+    .header_title{
+      text-indent: 20px;
+    }
+  }
+  .add_main{
+    div{
+      height: 150px;
+      float: left;
+      font-size: 14px;
+      padding: 15px 0;
+    }
+    .td3,.td4,.td5{
+      line-height: 150px;
+    }
+    .main_img{
+      .img{
+        display: block;
+        width: 126px;
+        height: 126px;
+        border: 1px solid #e6e6e6;
+        position: relative;
+        img{
+          .horizontal_vertical_center;
+        }
+      }
+      p{
+        float: right;
+        color: #ff3b3c;
+        font-size: 12px;
+      }
+    }
+    .main_size{
+      .add_count{
+        width: 60px;
+        margin-top: 15px;
+        margin-right: 10px;
+        //height: 38px;
+        p{
+          text-align: center;
+          .text-overflow;
+        }
+        input{
+          float: left;
+          text-align: center;
+          line-height: 19px;
+        }
+        .text_box{
+          width: 58px;
+          height: 26px;
+          border: 1px solid #dbdbdb;
+          border-bottom: none!important;
+          color: #575757;
+          font-size: 14px;
+          line-height: 26px;
+          background-color: #ffffff;
+        }
+        .cut{
+          width: 30px;
+          height: 19px;
+          color: #ffffff;
+          cursor: pointer;
+          background: url("../images/cut.png") no-repeat center center #dbdbdb;
+        }
+        .add{
+          width: 30px;
+          height: 19px;
+          color: #ffffff;
+          cursor: pointer;
+          background: url("../images/add.png") no-repeat center center #777777;
+        }
+      }
+    }
+  }
+}
+.tfoot{
+  height: 125px;
+  padding: 20px 0;
+  float: right;
+  margin-right: 18px;
+  p{
+    font-size: 14px;
+    line-height: 36px;
+    text-align: right;
+    span{
+      text-align: center;
+      display: inline-block;
+      padding: 0 40px;
+      color: #ff3b3c;
+      font-size: 24px;
+    }
+  }
+  .total_price{
+    span{
+      padding: 0 10px;
+    }
+  }
+  a{
+    display: block;
+    width: 160px;
+    line-height: 38px;
+    background-color: #ff3b3c;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    margin-top: 8px;
+    margin-left: 14px;
+  }
+  a:hover,a:active{
+    text-decoration: none;
+  }
+}
+#scrolltop{
+  //display: none;
+}
+.push{
+  height: 68px;
+}
+#footer{
+  height: 68px;
+  position: absolute;
+  bottom: 0;
+}

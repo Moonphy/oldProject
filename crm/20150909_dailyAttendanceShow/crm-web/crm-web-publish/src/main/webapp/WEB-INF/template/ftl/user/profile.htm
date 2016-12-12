@@ -1,0 +1,47 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header title='用户个人中心' styles=',profile.css'>
+<style>
+    .duty>span:not(:first-child){
+        margin-left: 15px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+  <div class="wapper">
+
+    <div class="page-title">
+      <h2>
+          <span><strong>用户个人中心</strong></span>
+      </h2>
+    </div>
+
+    <div class="main-list">
+        <div class="base">
+            <h1>基本信息</h1>
+            <ul>
+                <li>头像：
+                    <a class="header-avator">
+                        <img src="/assets/images/head.png" width="40" height="40">
+                    </a>
+                </li>
+                <li>账户名：${$userName}</li>
+                <li class="duty">账号职责：
+                    <#list $user.dutyNames as name>
+                    <span>${name}</span>
+                    </#list>
+                </li>
+                <li>注册时间：2015-01-07 16:27:50</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+</@inc.body>
+
+<@inc.footer>
+<script type="text/javascript">
+
+</script>
+</@inc.footer>

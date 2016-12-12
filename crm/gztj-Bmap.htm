@@ -1,0 +1,317 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '签到地图' 'map' '0.0.1' 'index'
+',plugin/pagination.css
+,plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css
+,map/map.css'
+>
+<style>
+    .list{
+        padding:18px;
+    }
+    .index_tap_item:first-child .tap_inner {
+        border-left-width: 0;
+    }
+    .tap_inner{
+        display: block;
+        border-left: 1px solid #6fa7ce;
+    }
+    .index_tap_item{
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
+    #allmap{
+        max-width:910px;
+        height:500px;
+        overflow: hidden;
+    }
+    #timemune{
+
+    }
+    #timemune ul li{
+        margin-left: 10px;
+    }
+    #timemune .title{
+        cursor: pointer;
+        color: #0087cb;
+        display: inline-block;
+    }
+    .tul{
+        border-left: 1px solid #666666;
+        margin-left: 20px;;
+    }
+    .tul li{
+        list-style-type: disc;
+        margin-left: -42px;
+        margin-bottom: 10px;
+        color: #666666;
+    }
+    .tul li[last-child] {
+        margin-bottom: 0px;
+    }
+    .mr20{
+        margin-right: 20px;
+    }
+    .ml20{
+        margin-left: 20px;
+    }
+    .mb20{
+        margin-bottom: 20px;
+    }
+    .mb10{
+        margin-bottom: 10px;
+    }
+    .index_tap_item .title {
+        display: block;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: -10px;
+    }
+    .index_tap_item .number {
+        margin-left: 5px;
+        font-weight: 400;
+        font-style: normal;
+        vertical-align: middle;
+        font-size: 35px;
+    }
+    #inner .grid_item{
+        background: #fff;
+        float: left;
+        overflow: hidden;
+        width: 25%;
+        height: 64px;
+        margin: 0;
+        cursor: default;
+        box-shadow: none;
+        transition: 0.5s;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+    }
+    #inner{
+        background-color: #7cbae5;
+        border: 1px solid #6eb0dd;
+        overflow: hidden;
+        padding-left: 0;
+        list-style-type: none;
+    }
+    .pannel1{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .filter{
+        display: inline-block;
+        border: 1px solid #DDDDDD;
+        width: 100%;
+        padding: 20px 10px;
+        -moz-box-sizing: border-box;  /*Firefox3.5+*/
+        -webkit-box-sizing: border-box; /*Safari3.2+*/
+        -o-box-sizing: border-box; /*Opera9.6*/
+        -ms-box-sizing: border-box; /*IE8*/
+        box-sizing: border-box; /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
+    }
+    .filter li{
+        height: 50px;
+    }
+    .filter li label{
+        padding: 15px;
+        width: 45px;
+        display: inline-block;
+    }
+    .filter .datepicker{
+        width: 150px;
+    }
+    .timebtn{
+        position: relative;
+        left: 0;
+    }
+    .timebtn button.item{
+        width: 80px;
+    }
+    .timebtn button.item.active{
+        border: 2px solid #ff684d;
+    }
+    .queryBtn{
+        margin-right: 10px;
+        position: relative;
+        top: 8px;
+    }
+    #province{
+        margin-left: 0;
+    }
+    .timebtn button.item{
+        position: relative;
+    }
+    .timebtn .arrow-up {
+        width:0px;
+        height:0px;
+        border-left:20px solid transparent;  /* left arrow slant */
+        /*border-right:20px solid transparent;*/ /* right arrow slant */
+        border-bottom:20px solid #ff684d; /* bottom, add background color here */
+        font-size:0px;
+        line-height:0px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .timebtn .arrow-text{
+        position: absolute;
+        right: 2px;
+        bottom: -5px;
+    }
+
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+
+    .tools{
+        text-align: right;
+        padding: 10px 20px;
+    }
+    .breadcrumb span{
+        cursor: pointer;
+    }
+    .breadcrumb span:before{
+        content: '>>';
+    }
+    .breadcrumb span:first-child:before{
+        content: '';
+    }
+    tr{
+        cursor: pointer;
+    }
+    th.active b{
+        visibility: visible!important;
+        color: #111;
+    }
+    th[scope='sort'] b {
+        visibility: hidden;
+    }
+    th[scope='sort']:hover b{
+        visibility: visible;
+    }
+    #box2,#box3{
+        padding: 10px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+
+<#if agent??>
+    <#assign cityName=agent.cityName!'' />
+    <#assign orgName=agent.orgName!'' />
+    <#assign tel=agent.businessTelephone!'' />
+    <#assign agentId=agent.orgID!0 />
+
+    <#if tel==''>
+        <#assign tel=agent.contactMobile!'' />
+    </#if>
+
+    <#assign address=agent.address!'' />
+    <#if  agent.coord??  && agent.coord.location??>
+        <#assign location=agent.coord.location />
+        <#assign lng=location.lng?if_exists />
+        <#assign lat=location.lat?if_exists />
+    </#if>
+</#if>
+<input type="hidden" name="cityName" value="${cityName?if_exists}" id="cityName"/>
+<input type="hidden" name="address" value="${address?if_exists}" id="address"/>
+<input type="hidden" name="lng" value="" id="lng"/>
+<input type="hidden" name="lat" value="" id="lat"/>
+<input type="hidden" name="orgName" value="${orgName?if_exists}" id="orgName"/>
+<input type="hidden" name="tel" value="${tel?if_exists}" id="tel"/>
+<input type="hidden" name="agentId" value="${agentId?if_exists}" id="agentId"/>
+<div class="container">
+    <div>
+        <div class="row imap">
+            <div id="allmap"  class="allmap">
+                <div class="loading"></div>
+            </div>
+
+            <div class="menu">
+                <div id="timemune" class="query_filter mt10 cf pr">
+                    <ul id="checklist">
+
+
+                    </ul>
+                    <!--<#assign total=0 />
+                    <#if countys?exists>
+                        <ul>
+                            <#list countys?keys as key>
+
+                                <#assign county=countys[key] />
+                                <#assign factorys=county.factorys />
+                                <#assign total=total+county.factorys?size />
+                                <li>
+                                    <div class="title" target="${key}" isshow="true" >${key}(${county.count?if_exists})</div>
+                                    <#if  factorys?size gt 0>
+                                        <ul id="${key}" class="tul">
+                                            <#list factorys as factory>
+                                                <#if factory.coord?? && factory.coord.location??>
+                                                    <#assign f_location=factory.coord.location />
+                                                    <#assign f_lng=f_location.lng?if_exists />
+                                                    <#assign f_lat=f_location.lat?if_exists />
+                                                    <li>
+                                                        <a href="#" id="${factory.orgID?if_exists}" lng="${f_lng?if_exists}" lat="${f_lat?if_exists}" orgName="${factory.orgName?if_exists}" address="${factory.address?if_exists}" tel="${factory.contactMobile?if_exists}">${factory.orgName?if_exists}</a>
+                                                        <#if factory.count?? && factory.count gt 0>
+                                                            <a  onclick="toDeliverList('${factory.orgName?if_exists}')" href="#">
+                                                                <span class="badge badge-info">${factory.count?if_exists}</span>
+                                                            </a>
+
+                                                        </#if>
+                                                    </li>
+                                                    <#else>
+                                                        <li>
+                                                            <a href="#" id="${factory.orgID?if_exists}" lng="" lat="" orgName="${factory.orgName?if_exists}" address="${factory.address?if_exists}" tel="${factory.contactMobile?if_exists}" >${factory.orgName?if_exists}</a>
+                                                            <#if factory.count?? && factory.count gt 0>
+                                                                <a  onclick="toDeliverList('${factory.orgName?if_exists}')" href="#">
+                                                                    <span class="badge badge-info">${factory.count?if_exists}</span>
+                                                                </a>
+                                                            </#if>
+                                                        </li>
+                                                </#if>
+
+                                            </#list>
+                                        </ul>
+                                    </#if>
+                                </li>
+                            </#list>
+                        </ul>
+                    </#if>-->
+                </div>
+
+            </div><!--end of .menu-->
+
+        </div>
+
+        <form id="deliverListForm" action="${appRoot}/deliver/find/deliverList.do" method="post">
+            <input type="hidden" name="orgName" id="hidden" value="">
+        </form>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Gm1F3nGNfmNsUfhapVzBhPVi"></script>
+
+<script type="text/javascript">
+
+    function toDeliverList(orgName){
+        document.getElementById("hidden").value=orgName;
+        document.getElementById("deliverListForm").submit();
+    }
+</script>
+
+</@inc.footer>

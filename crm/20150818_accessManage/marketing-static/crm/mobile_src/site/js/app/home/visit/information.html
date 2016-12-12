@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>基本情况</title>
+    <meta name="description" content="CRM基本情况">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../../css/switch.css" media="all"/>
+    <style>
+        .form{
+            padding-top: 0px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+    <div class="viewport">
+        <header class="navbar height" id="navbar">
+            <div class="btn prev" id="J_back"><i class="icon iconfont">&#xe61f;</i>我</div>
+            <div class="title">基本情况</div>
+            <div class="btn op" id="J_edit">编辑</div>
+        </header>
+        <section class="content">
+            <ul class="nav fn-clear" id="J_nav">
+                <li class="left"><div class="active J_trigger J_t1">基本信息</div></li>
+                <li class="line">|</li>
+                <li class="right"><div class="J_trigger J_t2">业务信息</div></li>
+            </ul>
+            <div class="pt10">
+                <div class="nav1 form" id="J_pannel1">
+                    <ul class="top list">
+                        <li class="item">
+                            <label for="J_name">名称：</label>
+                            <span id="J_name"><!--广东省天天汽修厂--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_type">类型：</label>
+                            <span id="J_type"><!--二类--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_address">地址：</label>
+                            <span id="J_address"><!--白云区大金钟路15号--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_phone">电话：</label>
+                            <span id="J_phone"><!--15241254121--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_contact">联系人：</label>
+                            <span id="J_contact"><!--陈年纪--></span>
+                        </li>
+                    </ul>
+
+                    <ul class="bottom list mt15">
+                        <li class="item">
+                            <label for="J_crane">升降架：</label>
+                            <span id="J_crane"><!--10--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_kaoqi">烤漆房：</label>
+                            <span id="J_kaoqi"><!--2--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_area">经营面积：</label>
+                            <span id="J_area"><!--100--></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav2 form fn-hide"  id="J_pannel2">
+                    <ul class="list mt10">
+                        <li class="item">
+                            <label for="J_purchase_crane">配件月采购规模：</label>
+                            <span id="J_purchase_crane"><!--3-5--></span>W
+                        </li>
+                        <li class="item">
+                            <label for="J_local_purchase">本地采购比例：</label>
+                            <span id="J_local_purchase"><!--30%-50%--></span>%
+                        </li>
+                        <li class="item">
+                            <label for="J_purchase">采购负责人：</label>
+                            <span id="J_purchase"><!--老板--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_pay">支付人：</label>
+                            <span id="J_pay"><!--会计--></span>
+                        </li>
+                        <li class="item">
+                            <label for="J_have_account">有无汽配铺账号：</label>
+                            <span id="J_have_account"><!--有--></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--你的html页面代码-->
+    <script src="../lib/sea.js" id="seajsnode"></script>
+    <script src="../lib/sea_config.js"></script>
+    <script>
+        seajs.config({
+            alias:{
+                'baseinfo':'gallery/crm-factory-baseinfo/0.0.1/index'
+            }
+        });
+        seajs.use('baseinfo');
+    </script>
+</body>
+</html>

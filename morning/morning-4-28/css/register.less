@@ -1,0 +1,159 @@
+.border-radius (@radius){
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+*{
+  margin: 0;
+}
+html,body{
+  height: 100%;
+}
+.wrap{
+  width: 100%;
+  height: auto!important;
+  min-height: 100%;
+  position: relative;
+}
+.push{
+  height: 68px;
+}
+.reg_body{
+  width: 1298px;
+  height: 510px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  .border-radius (8px);
+  border: 1px solid #e6e6e6;
+  .reg_wrap {
+    width: 330px;
+    margin-left: 177px;
+    margin-top: 60px;
+    .reg_title {
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      color: #666666;
+      font-weight: 500;
+    }
+    .reg_main {
+      width: 332px;
+      margin: 0 auto;
+      padding: 50px 0 56px 0;
+      position: relative;
+      #siteuserRegisterWarning {
+        width: 320px;
+        position: absolute;
+        top: 20px;
+        text-align: center;
+        font-size: 16px;
+        color: #FF3B3C;
+      }
+      form {
+        position: relative;
+        .clearfix {
+          margin-bottom: 18px;
+          position: relative;
+          span {
+            color: #cccccc;
+            font-size: 14px;
+          }
+        }
+        .one {
+          width: 80px;
+          text-align: right;
+          position: absolute;
+          left: -85px;
+          top: 0;
+          background: none;
+          color: #9d9d9d;
+          font-size: 14px;
+          font-weight: 400;
+          font-family: 'Microsoft YaHei', 'Arial';
+        }
+        label {
+          width: 200px;
+          position: absolute;
+          color: #FF3B3C;
+          left: 0;
+          top: 32px;
+          line-height: 42px;
+          background: url("../images/tip_bg.png") no-repeat 0 center;
+        }
+        input {
+          width: 318px;
+          height: 28px;
+          color: #5b5b5b;
+          padding: 6px;
+          line-height: 28px;
+          margin-bottom: 12px;
+          border: 1px solid #e1e1e1;
+          .border-radius (4px);
+          position: relative;
+          font-size: 14px;
+        }
+        input:focus {
+          border: 1px solid #FF3B3C;
+        }
+        .get_code:focus {
+          border: none;
+        }
+        .reg_btn {
+          width: 130px;
+          height: 40px;
+          color: #ffffff;
+          line-height: 14px;
+          text-align: center;
+          background-color: #FF3B3C;
+          cursor: pointer;
+          .border-radius (4px);
+          margin-left: 10px;
+          border: none;
+        }
+        .test {
+          height: 40px;
+          .border-radius (4px);
+          #identifying_code {
+            width: 178px;
+            float: left;
+          }
+        }
+      }
+      .reg_submit-btn {
+        margin-top: 0px;
+      }
+      .contract {
+        margin-top: -5px;
+        padding-bottom: 10px;
+        p {
+          padding-left: 2px;
+          line-height: 20px;
+          color: #9d9d9d;
+        }
+        a {
+          color: #555555;
+          line-height: 20px;
+        }
+      }
+      .submit {
+        width: 332px;
+        height: 44px;
+        font-size: 14px;
+        cursor: pointer;
+        color: #ffffff;
+        background-color: #FF3B3C;
+        .border-radius (4px);
+        border: none;
+        margin-top: 14px;
+      }
+    }
+  }
+}
+#scrolltop {
+  display: none;
+}
+#footer{
+  height: 68px;
+  position: absolute;
+  bottom: 0;
+}

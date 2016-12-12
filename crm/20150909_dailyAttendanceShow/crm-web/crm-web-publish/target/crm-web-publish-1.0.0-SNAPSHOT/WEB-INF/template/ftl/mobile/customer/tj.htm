@@ -1,0 +1,256 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '客户统计' 'cust-tj' '0.0.1' 'index'
+',plugin/pagination.css
+,plugin/laydate/core.css
+,plugin/laydate/skins/danlan/laydate.css'
+>
+<style>
+    .list{
+        padding:18px;
+    }
+    .index_tap_item:first-child .tap_inner {
+        border-left-width: 0;
+    }
+    .tap_inner{
+        display: block;
+        border-left: 1px solid #6fa7ce;
+    }
+    .index_tap_item{
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
+    .index_tap_item .title {
+        display: block;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: -10px;
+    }
+    .index_tap_item .number {
+        margin-left: 5px;
+        font-weight: 400;
+        font-style: normal;
+        vertical-align: middle;
+        font-size: 35px;
+    }
+    #inner .grid_item{
+        background: #fff;
+        float: left;
+        overflow: hidden;
+        width: 33.3%;
+        height: 64px;
+        margin: 0;
+        box-shadow: none;
+        transition: 0.5s;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+    }
+    #inner{
+        border: 1px solid #6eb0dd;
+        overflow: hidden;
+        padding: 0 2px;
+        list-style-type: none;
+    }
+    .pannel1{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .filter{
+        display: inline-block;
+        border: 1px solid #DDDDDD;
+        width: 100%;
+        padding: 20px 10px;
+        -moz-box-sizing: border-box;  /*Firefox3.5+*/
+        -webkit-box-sizing: border-box; /*Safari3.2+*/
+        -o-box-sizing: border-box; /*Opera9.6*/
+        -ms-box-sizing: border-box; /*IE8*/
+        box-sizing: border-box; /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
+    }
+    .filter li{
+        height: 50px;
+    }
+    .filter li label{
+        padding: 15px;
+        width: 45px;
+        display: inline-block;
+    }
+    .filter .datepicker{
+        width: 150px;
+    }
+    .timebtn{
+        position: relative;
+        left: 0;
+    }
+    .timebtn button.item{
+        width: 80px;
+    }
+    .timebtn button.item.active{
+        border: 2px solid #ff684d;
+    }
+    .queryBtn{
+        margin-right: 10px;
+        position: relative;
+        top: 8px;
+    }
+    #province{
+        margin-left: 0;
+    }
+    .timebtn button.item{
+        position: relative;
+    }
+    .timebtn .arrow-up {
+        width:0px;
+        height:0px;
+        border-left:20px solid transparent;  /* left arrow slant */
+        /*border-right:20px solid transparent;*/ /* right arrow slant */
+        border-bottom:20px solid #ff684d; /* bottom, add background color here */
+        font-size:0px;
+        line-height:0px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .timebtn .arrow-text{
+        position: absolute;
+        right: 2px;
+        bottom: -5px;
+    }
+
+    .gridtable{
+        margin: 15px 10px;
+        width: 98%;
+    }
+
+    .tools{
+        text-align: right;
+        padding: 10px 20px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+<div class="wapper">
+
+    <div class="page-title">
+        <h2>
+            <span><strong>客户统计</strong></span>
+        </h2>
+    </div>
+
+    <div class="list fn-clear">
+        <div class="pannel1">
+            <ul class="inner" id="inner">
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number">-</em>
+                    <strong class="title">累计注册客户数</strong>
+                </span>
+                </li>
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number">-</em>
+                    <strong class="title">累计交易客户数</strong>
+                </span>
+                </li>
+                <li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number">-</em>
+                    <strong class="title">累计激活客户数</strong>
+                </span>
+                </li>
+                <#--<li class="grid_item index_tap_item">
+                <span class="tap_inner">
+                    <em class="number">-</em>
+                    <strong class="title">累计活跃客户数</strong>
+                </span>
+                </li>-->
+            </ul>
+        </div>
+        <div class="filter mt10">
+            <ul>
+                <li>
+                    <div class="timebtn">
+                        <label>时间</label>
+                        <button class="item" data-day="0">今日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="1">昨日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="7">最近7日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <button class="item" data-day="30">最近30日
+                            <i class="arrow-up fn-hide"></i>
+                            <i class="arrow-text fn-hide">&#x221a;</i>
+                        </button>
+                        <input type="text" name="start" id="startDate" class="datepicker" placeholder="请选择开始日期"/>
+                        <input type="text" name="end" id="endDate" class="datepicker" placeholder="请选择结束日期"/>
+                        <button id="query" class="btn fn-right queryBtn">查询</button>
+                    </div>
+                </li>
+                <li>
+                    <label>地区</label>
+                    <select name="provinceID" id="province">
+                        <option value="">全部</option>
+                    </select>
+                    <select name="cityID" id="city">
+                        <option value="">全部</option>
+                    </select>
+                    <select name="areaID" id="area">
+                        <option value="">全部</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="mt10">
+            <div class="page-title">
+                <h2>
+                    <span><strong>详细数据</strong></span>
+                </h2>
+            </div>
+            <div class="fn-clear">
+
+                <#--<div class="tools">
+                    <select name="orderCol1" id="orderCol1">
+                        <option value="sortByTotalOrder=1&sortASC=0">注册客户数降序</option>
+                        <option value="sortByTotalOrder=1&sortASC=1">交易客户数降序</option>
+                        <option value="sortByOrderNum=1&sortASC=0">激活客户数降序</option>
+                        <option value="sortByTotalChargeback=1&sortASC=0">活跃客户数降序</option>
+                    </select>
+                </div>-->
+                <a href="javascript:alert('请先设置好条件并按查询按钮！')" id="exporting" target="_blank" class="fn-right">导出数据</a>
+                <table class="gridtable" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                        <tr>
+                            <th scope="col">地区</th>
+                            <th scope="col">注册客户数</th>
+                            <th scope="col">交易客户数</th>
+                            <th scope="col">激活客户数</th>
+                            <th scope="col">活跃客户数</th>
+                            <th scope="col">交易客户留存率</th>
+                            <th scope="col">活跃客户留存率</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list"></tbody>
+                </table>
+                <div class="pager pager1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</@inc.body>
+
+<@inc.footer>
+</@inc.footer>

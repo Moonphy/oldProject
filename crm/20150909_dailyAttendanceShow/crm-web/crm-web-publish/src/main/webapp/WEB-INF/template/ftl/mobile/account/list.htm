@@ -1,0 +1,101 @@
+<#import '/inc/inc.htm' as inc />
+
+<@inc.header '现有账户管理' 'list-account' '0.0.1' 'index' ',plugin/pagination.css'>
+<style>
+    .button-group{
+        margin-left: 100px;
+    }
+    .main-list .link{
+        color: #d03232;
+        text-decoration: underline;
+    }
+    .tool{
+        margin: 15px 40px;
+    }
+    .tool div.group{
+        display: inline;
+        margin-right: 10px;
+    }
+    .tool div.group input{
+        margin: 0 5px;
+    }
+    .tool div.group .btn{
+        width: 50px;
+    }
+</style>
+</@inc.header>
+
+<@inc.body>
+    <div class="page-title">
+        <h2>
+            <span><strong>现有账户管理</strong></span>
+        </h2>
+    </div>
+    <div class="main-list" style="margin-top: 0px;">
+        <#if (result?exists && !result.success)>
+            <div class="result-tip result-tip-error">错误信息：${result.msg}</div>
+        </#if>
+        <#if (result?exists && result.success && result.msg?exists)>
+            <div class="result-tip result-tip-success">${result.msg}</div>
+        </#if>
+
+        <div class="tool filter">
+            <span class="label">筛选：</span>
+            <div class="group">
+                <label>关键字</label>
+                <input name="key" value="${key?if_exists}" placeholder="请输入姓名"/>
+            </div>
+            <div class="group">
+                <button class="btn">查询</button>
+            </div>
+        </div>
+
+        <div class="fn-clear">
+            <table class="gridtable" summary="现有账户管理">
+                <thead>
+                <tr>
+                    <th scope="col">姓名</th>
+                    <th scope="col">账号</th>
+                    <th scope="col">职位</th>
+                    <th scope="col">手机</th>
+                    <th scope="col">邮箱</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <#assign list = result.model.model/>
+                    <#if list?size gt 0>
+                        <#escape x as x?if_exists>
+                            <#list list as mo>
+                            <tr class="data">
+                                <td>${mo.userName}</td>
+                                <td>${mo.loginName}</td>
+                                <td>${mo.dutyName}</td>
+                                <td>${mo.mp}</td>
+                                <td>${mo.email}</td>
+                                <td><a href="/base/account/find?id=${mo.userId}" class="link">修改</a>｜<a href="/authorization/role/edit-user.do?id=${mo.userId}" class="link">分配岗位</a></td>
+                            </tr>
+                            </#list>
+                        </#escape>
+                    <#else>
+                    <tr class="nodata">
+                        <td colspan="6">没有符合条件的数据</td>
+                    </tr>
+                    </#if>
+                </tbody>
+            </table>
+            <div class="pager"></div>
+        </div>
+    </div>
+
+</@inc.body>
+
+<@inc.footer>
+<script>
+    var params = {
+        total:'${result.model.total}',
+        size:'${result.model.size}',
+        current:'${result.model.current}'
+    };
+</script>
+</@inc.footer>

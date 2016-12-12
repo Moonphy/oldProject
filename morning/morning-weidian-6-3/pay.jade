@@ -1,0 +1,50 @@
+extends layout
+block styleblock
+    link(rel='stylesheet',href='css/pay.css')
+block content
+    #afui
+        header#header
+            a(href='#',class='back',title='')
+            h1 确认订单
+            a.header_cart(href='cart.html',title='')
+                i: span 99
+        #content
+            ul.cart_goods_body
+                li.td1
+                li.td2
+                    a(href='detail.html',title='')
+                        img(src='images/examples/good_block_img.png',alt='')
+                li.td3
+                    a(href='detail.html') 新款时尚流行圆头拉链皮革拼接磨砂皮粗高跟低筒靴
+
+                    i 数量：<span>1</span>件
+                li.td4
+                    p 牛皮
+                    p 黑色
+                    p 245/39
+                li.td5
+                    .good_price ¥<span>599.00</span>
+
+
+            table.delivery_address
+                tr
+                    th(rowspan='5') 收货地址
+                    td.td2 <span>张三</span>
+                tr
+                    td.td2 <span>广东省</span><span>广州市</span><span>白云区</span>
+                tr
+                    td.td2 <span>广花一路633号平沙国际商务中心502室广花一国际商务中心502室</span>
+                tr
+                    td.td2 (<span>510440</span>）
+                tr
+                    td.td2 <span id="phone">13631365214</span>
+            .pay_style
+                h3 支付方式
+                span 支付宝
+            .pay
+                .have_select 共：<span>8</span>件商品
+                .price_total 合计：¥<span>4738</span>
+            .bottom_btn
+                button.buy_btn 立即下单
+block jsblock
+    //script(src='js/order.js')

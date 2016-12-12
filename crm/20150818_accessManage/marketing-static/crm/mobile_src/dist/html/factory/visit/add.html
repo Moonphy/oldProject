@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>增加拜访信息</title>
+    <meta name="description" content="CRM信息详情">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css" media="all"/>
+    <style>
+        div.item{
+            height: 40px;
+            background: #fff;
+            border: 1px solid #DDDDDD;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content">
+        <div class="form">
+            <ul class="list fn-clear" id="list">
+                <div class="group">
+                    <label>拜访频率</label>
+                    <input class="value" id="J_bfpl" placeholder="拜访频率 天/每次"/>
+                </div>
+                <div class="group">
+                    <label>到店时间</label>
+                    <input class="value" id="J_ddsj" placeholder="到店时间"/>
+                </div>
+                <div class="group">
+                    <label>拜访人</label>
+                    <div class="select">
+                        <i class="icon iconfont">&#xe62e;</i>
+                        <select id="J_bfr">
+                            <option value="-1">请选择拜访人</option>
+                            <option value="老板">老板</option>
+                            <option value="前台">前台</option>
+                            <option value="普通员工">普通员工</option>
+                            <option value="0">其他</option>
+                        </select>
+                    </div>
+                    <input type="text" placeholder="请输入拜访人" class="fn-hide" id="J_bfr_other"/>
+                </div>
+                <div class="group">
+                    <label>沟通内容</label>
+                    <textarea class="value" id="J_gtnr" placeholder="填写沟通内容"></textarea>
+                </div>
+                <div class="group">
+                    <label>离店时间</label>
+                    <input class="value" id="J_ldsj" placeholder="离店时间"/>
+                </div>
+            </ul>
+        </div>
+    </section>
+</div>
+<script data-main='../../../js/factory-visit-add.js' src='../../../js/lib/require.js'></script>
+</body>
+</html>

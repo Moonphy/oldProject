@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>修改密码</title>
+    <meta name="description" content="CRM修改密码">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" media="all"/>
+    <style>
+    .item input{
+        float: right;
+        border: 1px solid #DDDDDD;
+        width: 64%;
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+    </style>
+</head>
+<body ontouchstart="">
+
+<div class="viewport">
+    <section class="content fn-clear">
+        <div class="form">
+            <div class="group">
+                <label for="J_oldpwd">旧密码：</label>
+                <input id="J_oldpwd" type="password"/>
+            </div>
+            <div class="group">
+                <label for="J_pwd">新密码：</label>
+                <input id="J_pwd" type="password"/>
+            </div>
+            <div class="group">
+                <label for="J_repwd">重复新密码：</label>
+                <input id="J_repwd" type="password"/>
+            </div>
+        </div>
+    </section>
+</div>
+<script data-main='../../js/resetpwd.js' src='../../js/lib/require.js'></script>
+</body>
+</html>

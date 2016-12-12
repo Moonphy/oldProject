@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试</title>
+    <meta name="description" content="CRM测试">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" media="all"/>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        *::-webkit-scrollbar{
+            width:0px;
+            height:0px;
+        }
+        #J_content::-webkit-scrollbar{
+            width:2px;
+            height:2px;
+        }
+        #J_content::-webkit-scrollbar-button    {
+            background-color:#FF7677;
+        }
+        #J_content::-webkit-scrollbar-track     {
+            background:#FF66D5;
+        }
+        /*底色*/
+        #J_content::-webkit-scrollbar-track-piece {
+            background:#ddd;
+        }
+        /*滚动条滑块样式*/
+        #J_content::-webkit-scrollbar-thumb{
+            background:#2e97e2;
+            border-radius:4px;
+        }
+        #J_content::-webkit-scrollbar-corner {
+            background:#82AFFF;
+        }
+        #J_content::-webkit-scrollbar-resizer  {
+            background:#FF0BEE;
+        }
+        body,html{
+            overflow-y:hidden; 
+        }
+        .clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden}
+        .clearfix{display:inline-block}
+        .clear{height:0; line-height:0; font-size:0; overflow:hidden; clear:both; display:block;}
+        *html .clearfix{height:1%;}
+        .clearfix{display:block;}
+        
+        .left{
+            width: 25%;
+            height: 100%;
+            background: #ddd;
+            float: left;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 75%;
+            overflow: hidden;
+        }
+        .left .name{
+            padding-top: 30px;
+            height: 100%;
+            overflow: auto;
+        }
+        
+        .left .item{
+            height: 30px;
+            line-height: 30px;
+            padding: 0 5px;
+            border-bottom: 1px solid #eee;
+        }
+    
+        .right{
+            width: 75%;
+            height: 100%;
+            background: #ddd;
+            float: right;
+            overflow: auto;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 25%;
+            overflow: hidden;
+        }
+
+        .top{
+            position: fixed;
+            z-index: 1;
+            padding-left: 25%;
+            width: 100%;
+            min-width: 240px;
+            height: 30px;
+            line-height: 30px;
+            display: inline-block;
+            background: #ddd;
+            right: 0;
+            left: 0;
+        }
+        
+        .top .head{
+            height: 100%;
+            overflow: auto;
+        }
+        .top .head table{
+            width: 500px;
+        }
+        .top .head table td{
+            padding: 0 5px;
+        }
+
+        .top .title{
+            padding: 0 10px;
+            display: inline;
+        }
+        
+        .pannel{
+            margin-top: 30px;
+            overflow: auto;
+            height: 100%;
+            width: 100%;
+        }
+        .pannel table td{
+            height: 30px;
+            line-height: 30px;
+            padding: 0 5px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            color: green;
+        }
+        .pannel table{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport clearfix">
+        <div class="top">
+            <div class="head" id="J_nav">
+                <table>
+                  <tr>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+      <div class="left">
+          <div class="name" id="J_left">
+              <ul id="leftval">
+                  <li class="item">农业银行</li>
+              </ul>
+          </div>
+      </div>
+      <div class="right">
+          <div class="pannel" id="J_content">
+              <table id="contentval">
+                  <tr>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                      <td>中国银行</td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+    </div>
+    <script data-main='../../js/test/index.js' src='../../js/lib/require.js'></script>
+</body>
+</html>
