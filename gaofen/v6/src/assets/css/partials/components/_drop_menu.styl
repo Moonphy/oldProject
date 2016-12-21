@@ -1,0 +1,31 @@
+// 元件：下拉选择菜单
+// ==================================================
+
+.drop-menu
+  absolute left top 25px
+  width 166px
+  padding 2px
+  border 1px solid #D0D0D0
+  background #FFF
+  if support-for-ie
+    *top 26px
+
+  p
+    margin 0
+    padding 2px 10px
+    color #999
+
+  ul
+    remove-list-style()
+    margin-bottom 0
+
+  li
+    height 18px
+    padding 2px 10px
+    color #666
+    cursor default
+    overflow hidden
+
+  .active
+    background-color #DFDFDF
+    color #0F0F0F

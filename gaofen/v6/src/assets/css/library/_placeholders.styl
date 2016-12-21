@@ -1,0 +1,52 @@
+$icon-nav
+  background-image url("img/icon_nav.png")
+  background-repeat no-repeat
+
+$icon-sec
+  background-image url("img/icon_sec.png")
+  background-repeat no-repeat
+
+$icon-sns
+  background-image url("img/icon_sns.png")
+  background-repeat no-repeat
+
+$icon-tools
+  background-image url("img/" + alias + "/icon_tools.png")
+  background-repeat no-repeat
+  if support-for-ie
+    _background-image url("img/" + alias + "/icon_tools_ie6.png")
+
+$icon-operations
+  background-image url("img/icon_operations.png")
+
+$icons
+  background-image url("img/icons.png")
+  background-repeat no-repeat
+  if support-for-ie
+    _background-image url("img/icons_ie6.png")
+
+$icon-pk
+  background-image url("img/icon_pk.png")
+  background-repeat no-repeat
+  if support-for-ie
+    _background-image url("img/icon_pk_ie6.png")
+
+// 相册箭头图标
+$album-arrows
+  background-image url("img/album_arrows.png")
+  background-repeat no-repeat
+  if support-for-ie
+    _background-image url("img/album_arrows_ie6.png")
+
+$album-thumb-arrows
+  background-image url("img/album_thumb_arrows.png")
+  background-repeat no-repeat
+
+// 关闭图标
+$close
+  @extend $icon-operations
+  background-position 0 -46px
+  cursor pointer
+
+  &:hover
+    background-position 0 -96px

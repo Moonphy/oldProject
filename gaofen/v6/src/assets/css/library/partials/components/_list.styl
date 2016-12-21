@@ -1,0 +1,98 @@
+// 元件：列表
+// ==================================================
+
+.list
+  ul
+    remove-list-style()
+
+  li
+    background url("img/split_h.png") repeat-x left bottom
+    padding 10px 0 9px
+    font-size 14px
+
+  .tit
+  .name
+  .subject
+    a:hover
+      text-decoration none
+
+  .subject
+    margin-right 3px
+
+.stat-post
+  li
+    padding-right 120px
+    position relative
+    if support-for-ie
+      *zoom 1
+
+    .date
+      absolute right top 12px
+      font-size 12px
+      color gray
+
+// 排行榜
+.ranking-list
+  ul
+    remove-list-style()
+
+  li
+    position relative
+    clearfix()
+    background url("img/split_h.png") repeat-x left bottom
+    padding 15px 0 5px 20px
+    if support-for-ie
+      *zoom 1
+
+    .num
+      absolute left top 15px
+      font-style italic
+      font-size 16px
+      line-height 24px
+      color gray
+
+    .tit
+      margin-left 10px
+      font-size 16px
+
+      a
+        color gray-darker
+
+        &:hover
+          color link-highlight-color
+          text-decoration none
+
+    .operations
+      float right
+      margin 3px 20px 0 0
+      font-size 12px
+      color gray
+
+      a
+        highlight-link()
+
+    .stat
+      float right
+      width 20px
+      height 18px
+      margin-top 4px
+      if support-for-ie
+        _display inline
+
+  .top
+    .num
+      color orange
+
+  .icon-up
+    @extend $ranking-status-icon
+
+  .icon-down
+    @extend $ranking-status-icon
+    background-position 0 -20px
+
+  .icon-fair
+    inline-block()
+    margin 8px 0
+    background #D9D9D9
+    size 8px 2px
+    overflow hidden

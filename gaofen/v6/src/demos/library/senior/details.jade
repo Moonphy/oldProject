@@ -1,0 +1,353 @@
+---
+page_title: "高中库-详情页"
+category: "library"
+body_class: ["details-page", "tab-page"]
+stylesheets: ["senior"]
+details_tabs: true,
+modals: ["comparison-list", "baidu-map"]
+breadcrumb: ["首页", "学校信息", "华南师范大学附属中学"]
+is_new: false
+hide_widget_weixin: true
+---
+
+//- 模板继承
+extends ../_layout
+
+//- 导入详情选项卡
+include ../partials/_tabs
+
+block header
+  // Start: 页头
+  +header("senior")
+  // End: 页头
+
+//- 内容
+block content
+  +ad({width:980, ex_class:["container", "picture-top"], count:3})
+
+  +breadcrumb({breadcrumb:breadcrumb})
+
+  .container.page-content
+    .school-summary.mb25
+      .school-heading
+        .operations
+          a(href="#", target="_blank") 学校介绍
+          i |
+          a(href="#", target="_blank") 查看该校高中
+        .title
+          h1 华南师范大学附属中学
+          span.meta 学校代码：1231123
+          span.meta 人气：1231123
+      .cont.clearfix
+        .picture
+          a.thumb(href="#", target="_blank")
+            +dummy(260, 195)
+            span.tit
+              | 共18张相关照片
+              i.bg
+          .orig1
+          .orig2
+        .info
+          .sec.sec-properties
+            ul
+              li.col-1
+                span.label 学校类型：
+                span.cont.hl 省属示范性高中
+              li.col-2
+                span.label 学校级别：
+                span.cont.hl 省一级
+              li.col-3
+                span.label 招生范围：
+                span.cont.hl 全市
+              li.col-1
+                span.label 所在区域：
+                span.cont 海珠区
+              li.col-2
+                span.label 办学性质：
+                span.cont 民办
+              li.col-3
+                span.label 录取批次：
+                span.cont 提前批第第一批提前批第第一批
+          .sec.sec-stars
+            ul
+              li.col-1
+                p 入学难度：
+                .vote-stars.vote-stars-3
+              li.col-2
+                p 高考成绩：
+                .vote-stars.vote-stars-8
+              li.col-3
+                p 热门程度：
+                .vote-stars.vote-stars-10
+          .sec.sec-metas
+            p.address
+              span
+                | 地址：广州市天河区中山大道西1号
+              a(href="#", target="_blank").icon-pin
+            p
+              span
+                | 电话：020-88576203
+            p
+              | 官网：
+              a(href="#", target="_blank") www.gaofen.com
+          .actions
+            a.btn-add-comparison(href="#")
+              span 加入对比
+            a.btn-follow(href="#")
+              span 收藏本校
+            a.btn-add-comparison.btn-added-comparison(href="#")
+              span 取消对比
+            a.btn-follow.btn-followed(href="#")
+              span 取消收藏
+
+      // Start: 中考头条
+      .headlines
+        .hd 中考头条
+        .bd
+          +post-list({count:6, classes:"post-list-large"})
+      // End: 中考头条
+
+    .row.row14-6
+      .span14
+        +details-tabs(library_school_tabs.senior)
+        .school-desc
+          +ad({width:630, height:40, ex_class:["mb30"]})
+          // Start: 无招生信息、学校实力、学生生活
+          .alert.alert-info
+            i.ico
+            .info
+              p 小编正在积极为你搜罗中！
+              p
+                | 如你熟悉该校情况，欢迎报料（请联系QQ1833538827），
+                br
+                |有大量高分币和好礼相送哦～
+          // End: 无招生信息、学校实力、学生生活
+
+          // Start: 无推荐资料
+          .alert.alert-info.alert-single
+            i.ico
+            .info
+              p 该校暂无相关资料
+          // End: 无推荐资料
+
+          // Start: 无学校要闻
+          .alert.alert-info.alert-single
+            i.ico
+            .info
+              p 该校暂无要闻
+          // End: 无学校要闻
+
+          // Start: 置顶消息
+          .sub-mod
+            .sub-mod-hd
+              .more
+                a(href="#", target="_blank") 更多
+              .title 置顶消息
+            .sub-mod-bd
+              .list.post-list.stat-post
+                ul
+                  - var i = 3
+                  - while(i--)
+                    li
+                      span.date 2014-03-22
+                      .tit
+                        a(href="#", target="_blank")= article.title
+          //End: 置顶消息
+
+          // Start: 分数线
+          .sub-mod
+            .sub-mod-hd
+              .title 独立批分数线
+            .sub-mod-bd
+              .table.data-table
+                table
+                  thead
+                    tr
+                      th
+                        .gap 年份
+                      th
+                        .gap 录取类别
+                      th
+                        .gap 招生区域
+                      th
+                        .gap 最低分数
+                      th
+                        .gap
+                          | 最低分数末位同分序号
+                          +hints({text:"最低分数末位同分序号：向该校投档考生最低分数的同分最大排位序号。"})
+                      th
+                        .gap
+                          | 末位考生志愿序号
+                          +hints({text:"末位考生志愿序号：向该校投档最后一名考生的志愿序号。"})
+                      th
+                        .gap
+                          | 末位考生分数
+                          +hints({text:"末位考生分数：最后一名被录取考生的分数。"})
+                      th
+                        .gap
+                          | 末位考生分数同分序号
+                          +hints({text:"末尾考生分数同分序号：向该院校投档最后一名考生分数的同分最大排位序号。"})
+                      th
+                        .gap 外区最低分数
+                      th
+                        .gap 外区最低分数同分序号
+                      th
+                        .gap
+                          | 最大志愿号
+                          +hints({text:"最大志愿号：向该校投档考生中最大的志愿序号。"})
+                  tbody
+                    tr
+                      td(rowspan="3") 2014
+                      td 借读生
+                      td 全市
+                      td.highlight 704
+                      td 49
+                      td.highlight 1
+                      td 49
+                      td 1
+                      td -
+                      td -
+                      td(rowspan="3") 1
+                    tr
+                      td 户籍生
+                      td 全市
+                      td.highlight 704
+                      td 49
+                      td.highlight 1
+                      td 49
+                      td 1
+                      td -
+                      td -
+                    tr
+                      td 外区生
+                      td 全市
+                      td.highlight 704
+                      td 49
+                      td.highlight 1
+                      td 49
+                      td 1
+                      td -
+                      td -
+                    tr.even
+                      td(rowspan="2") 2013
+                      td 公费
+                      td 全市
+                      td.highlight 704
+                      td 49
+                      td.highlight 1
+                      td 49
+                      td 1
+                      td 2
+                      td 1
+                      td -
+                    tr.even
+                      td 择校
+                      td 全市
+                      td.highlight 704
+                      td 49
+                      td.highlight 1
+                      td 49
+                      td 1
+                      td 2
+                      td 1
+                      td -
+                .more
+                  a(href="#")
+                    | 展开更多
+                    i.triangle
+          //End: 分数线
+
+          // Start: 特长生
+          .sub-mod
+            .sub-mod-hd
+              .title 特长生
+            .sub-mod-bd
+              .table.data-table
+                table
+                  thead
+                    tr
+                      th.w120
+                        .gap 特长类型
+                      th
+                        .gap 2014年特长项目
+                  tbody
+                    - for(var i=1; i<=3; i++)
+                      tr
+                        td
+                          em 艺术特长
+                        td
+                          em 舞蹈、声乐、合唱
+          //End: 特长生
+
+          // Start: 高考成绩
+          .sub-mod
+            .sub-mod-hd
+              .title 高考成绩
+            .sub-mod-bd
+              .table.data-table
+                table
+                  thead
+                    tr
+                      th.w80
+                        .gap 年份
+                      th
+                        .gap 参考人数
+                      th
+                        .gap 一本录取率
+                      th
+                        .gap 二本A录取率
+                      th
+                        .gap 二本B录取率
+                  tbody
+                    - for(var i=1; i<=4; i++)
+                      tr
+                        td
+                          em= 2015 - i
+                        td
+                          em 554
+                        td
+                          em 66%
+                        td
+                          em 71%
+                        td
+                          em 68%
+          //End: 高考成绩
+
+          // Start: 查询全市历年中考分数线
+          .sub-mod
+            .sub-mod-hd
+              .title 查询全市历年中考分数线
+            .sub-mod-bd
+              .text-cont.score-lines
+                p
+                  a(href="#", target="_blank") 2014年中考分数线
+                  a(href="#", target="_blank") 2013年中考分数线
+                  a(href="#", target="_blank") 2012年中考分数线
+          //End: 查询全市历年中考分数线
+
+          // Start: 纯文本模块
+          .sub-mod
+            .sub-mod-hd
+              .title 纯文本模块
+            .sub-mod-bd
+              .text-cont
+                p= article.content
+                p= article.content
+          //End: 纯文本模块
+      .span6
+        // Start: 侧栏挂件-热门学校推荐
+        +widget-rec-school({tabs:[{label:"全市", active:true}, {label:"本区"}], operations_text:"对比"})
+        // End: 侧栏挂件-热门学校推荐
+
+        // Start: 侧栏挂件-他们也对这所学校感兴趣
+        +widget-events({tabs:[{label:"全市", active:true}, {label:"本区"}], operations_text:"对比"})
+        // End: 侧栏挂件-他们也对这所学校感兴趣
+
+        // Start: 侧栏挂件-您浏览过的学校
+        +widget-history
+        // End: 侧栏挂件-您浏览过的学校
+
+        // Start: 侧栏挂件-关注高分中考
+        +widget-follow-s2({type:"zk"})
+        // End: 侧栏挂件-关注高分中考
+

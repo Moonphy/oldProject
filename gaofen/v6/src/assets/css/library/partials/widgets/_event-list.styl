@@ -1,0 +1,36 @@
+// 挂件：用户事件列表
+// ==================================================
+
+.event-list
+  position relative
+  overflow hidden
+
+  ul
+    margin-top -1px
+
+  li
+    background-position left top
+    padding 16px 0 15px
+    clearfix()
+
+    .avatar
+      float left
+      size 40px
+
+      img
+        size 40px
+        border-radius 4px
+
+    .info
+      margin-left 50px
+      line-height 20px
+      if support-for-ie
+        _margin-left 47px
+
+      .user
+        color gray-darker
+
+      p
+        margin 0
+        color gray
+        font-size 12px

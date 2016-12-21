@@ -1,0 +1,133 @@
+---
+page_title: "初中库-搜索页"
+category: "library"
+body_class: ["search-page"]
+stylesheets: ["junior"]
+modals: ["comparison-list"]
+is_new: false
+---
+
+//- 模板继承
+extends ../_layout
+
+//- 导入初中库组件
+include partials/_components
+
+//- 导入高中库侧栏
+include partials/_widgets
+
+//- 导入学校图文列表项
+include ../partials/_school-thumb-info-list-item
+
+block header
+  // Start: 页头
+  +header("junior")
+  // End: 页头
+
+//- 内容
+block content
+  +ad({width:980, ex_class:["container", "picture-top"], count:3})
+
+  .container.page-content
+    // Start: 过滤器
+    .filter-group
+      .filter
+        span.label 所在区域：
+        .filter-cont
+          .filter-options
+            span.active 不限
+            a(href="#") 越秀区
+            a(href="#") 荔湾区
+            a(href="#") 天河区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+            a(href="#") 海珠区
+          .filter-operations.hidden
+            a.unfold(href="#")
+              | 更多
+              i.triangle
+            a.fold(href="#")
+              | 收起
+              i.triangle
+      .filter
+        span.label 学校类型：
+        .filter-cont
+          .filter-options
+            span.active 不限
+            a(href="#") 省属示范性高中
+            a(href="#") 市属示范性高中
+            a(href="#") 区属示范性高中
+            a(href="#") 普通高中
+          .filter-operations.hidden
+            a.unfold(href="#")
+              | 更多
+              i.triangle
+            a.fold(href="#")
+              | 收起
+              i.triangle
+      .filter
+        span.label 入学途径：
+        .filter-cont
+          .filter-options
+            span.active 不限
+            a(href="#") 派位
+            a(href="#") 特长生
+            a(href="#") 直升
+            a(href="#") 择校
+          .filter-operations.hidden
+            a.unfold(href="#")
+              | 更多
+              i.triangle
+            a.fold(href="#")
+              | 收起
+              i.triangle
+    // End: 过滤器
+
+    .row.row14-6
+      .span14
+        // Start: 搜索结果为空
+        .alert.alert-info.alert-single.hidden
+          i.ico
+          .info
+            p 暂无学校，换个条件试试？
+        // End: 搜索结果为空
+
+        // Start: 学校列表
+        .school-thumb-info-list
+          ul
+            - for(var i=1; i<=10; i++)
+              +school-thumb-info-list-item({comments:true})
+          // 查看更多
+          .view-more
+            a(href="#") 查看更多学校
+            .loading-mini
+          // Loading
+          .view-more.view-loading
+            a(href="#") 查看更多学校
+            .loading-mini
+      .span6
+        // Start: 侧栏挂件-民校推荐
+        +widget-school-query
+        // End: 侧栏挂件-民校推荐
+
+        // Start: 侧栏挂件-特长生招生查询
+        +widget-recruit-query
+        // End: 侧栏挂件-特长生招生查询
+
+        // Start: 侧栏挂件-热门学校推荐
+        +widget-rec-school({meta:true})
+        // End: 侧栏挂件-热门学校推荐
+
+        // Start: 侧栏挂件-备考资料推荐
+        +widget-rec-data({date:true})
+        // End: 侧栏挂件-备考资料推荐
+
+        // Start: 侧栏挂件-您浏览过的学校
+        +widget-history
+        // End: 侧栏挂件-您浏览过的学校
+

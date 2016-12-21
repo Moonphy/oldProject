@@ -1,0 +1,19 @@
+#header.container(class="#{no_extra_links ? 'reg-header' : ''}")
+  h1.logo
+    a(href="#", title="高分网")
+      img(src="#{current.base}img/logo.png", alt="高分网")
+
+  if sub_title
+    .head-sub-title= sub_title
+  else
+    .head-info
+      .slogan 助力学生及家长共同成长
+
+  if head_hotline
+    .hotline 400-880-5286
+
+  if !hide_login
+    include _head-login
+
+
+

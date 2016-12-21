@@ -1,0 +1,717 @@
+// 简介：定义高分网会员中心样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 系统通知
+// @import "../shared/_notice"
+
+// 文件图标拼图
+@import "_data_sprite"
+
+// 资料封面图
+@import "../partials/components/_cover"
+
+// 表单
+@import "../partials/components/_form"
+
+// 资料列表元件：.data-list
+@import '_data_list'
+
+// 布局
+// ------------------------------
+.member-page
+  .page-content
+    margin-top 20px
+    background url("img/member/bg_sidebar.png") repeat-y left top
+
+  /*
+  .notice
+    margin-bottom 20px
+  */
+
+.mod
+  margin-bottom 25px
+
+$menu-icon
+  background-image url("img/member/bg_nav_icons.png")
+  background-repeat no-repeat
+
+menu-icons = home data lecture order coin message wrench lock fav upload course
+
+for item, i in menu-icons
+  offset-x = -30px * i
+  .icon-{item}
+    @extend $menu-icon
+    background-position -30px offset-x
+
+  .active
+    .icon-{item}
+      background-position 0 offset-x
+
+// 侧栏导航
+.nav-member
+  h2
+    margin 0
+    padding 10px 15px
+    font-size 20px
+    font-weight normal
+    color #1C79C1
+
+    span
+      margin-left 4px
+      font-size 13px
+      color #BBC3CA
+
+  ul
+    clearfix()
+    remove-list-style()
+    split(top)
+    margin 0 10px 10px
+    padding-bottom 10px
+    padding-top 10px
+
+  li
+    position relative
+    if support-for-ie
+      *zoom 1
+
+    a
+      display block
+      position relative
+      height 35px
+      line-height 35px
+      padding-left 30px
+      font-size 14px
+      color #222
+
+      i
+        absolute left 10px top 10px
+        size 16px
+
+      .icon-news
+        absolute left 60px top 11px
+        size 8px 10px
+        background url(img/icon_news.png) no-repeat
+
+  .active
+    position relative
+    margin 0 -10px
+    background #66B1EC url("img/member/bg_nav_member_active.png") no-repeat 165px 12px
+
+    a
+      padding-left 40px
+      color #FFF
+      font-weight bold
+
+      i
+        left 20px
+
+      .icon-news
+        left 70px
+
+// 标题
+.heading
+  .extra-links
+    float right
+    margin 4px 0 0 0
+
+    i
+      margin 0 10px
+      color #D9D9D9
+
+    a
+      highlight-link()
+
+// 子标题
+.sub-hd
+  margin-bottom 10px
+  background #F5F7F9
+
+  .title
+    padding 5px 10px
+
+  .more
+    margin 4px 10px 0 0
+
+// 提示
+// ------------------------------
+.alert
+  padding-top 4px
+  margin 10px 0 200px
+
+  p
+    line-height 30px
+
+    a
+      highlight-link()
+
+.alert-inline
+  padding-top 15px
+
+// 个人信息
+// ------------------------------
+.mod-profile
+  .cont
+    clearfix()
+    position relative
+    padding 5px 20px
+    min-height 135px
+
+  .avatar
+    float left
+    width 110px
+    border 1px solid #CCC
+    padding 2px
+
+    .pic
+      display block
+      position relative
+
+    img
+      display block
+
+    span
+      absolute left bottom
+      size 100% 24px
+      text-align center
+      color #FFF
+      cursor pointer
+      line-height 24px
+      z-index 10
+
+      i
+        absolute left top
+        z-index -1
+        size 100%
+        background #000
+        opacity .2
+
+  .info
+    margin-left 140px
+    if support-for-ie
+      _margin-left 145px
+
+    p
+      margin 0
+      line-height 24px
+
+    span
+      inline-block()
+      vertical-align middle
+
+    .name
+      font-weight bold
+      font-size 14px
+      margin-bottom 12px
+
+    .num
+      color orange
+      font-weight bold
+
+    .label
+      color #666
+
+    .edit
+      margin 0 0 0 10px
+      size 14px
+      background url("img/member/bg_edit.png") no-repeat 3px 1px
+      cursor pointer
+
+    .operations
+      margin-top 15px
+
+      a
+        highlight-link()
+        font-size 14px
+
+      i
+        margin 0 10px
+        color #CCC
+
+  .actions
+    absolute right 20px top 5px
+    width 210px
+    text-align center
+
+    a
+      highlight-link()
+
+  .sign
+    size 210px 100px
+    background url("img/member/bg_sign.png") no-repeat
+    cursor pointer
+    margin-bottom 10px
+
+    p
+      margin 0
+      color #FF5D15
+      padding 23px 0 0 67px
+      font-size 18px
+      text-align left
+
+  .signed
+    background-position 0 -120px
+    cursor default
+
+// 资料推荐
+// ------------------------------
+.mod-data-rec
+  .tips-info
+    background url("img/icon_help.png") no-repeat -10px -119px
+    padding-left 25px
+    margin 0 0 50px 15px
+
+    a
+      highlight-link()
+
+  .thumb-data-list
+    .list
+      clearfix()
+
+    .item
+      float left
+      size 350px 100px
+      overflow hidden
+      padding 10px 20px
+      background none
+
+      .title
+        height 42px
+        margin-bottom 33px
+        overflow hidden
+
+      .info-pack
+        .title
+          margin-bottom 8px
+
+// 活动推荐
+// ------------------------------
+.mod-lecture-rec
+  .thumb-info-list
+    clearfix()
+
+    .item
+      float left
+      size 350px 120px
+      overflow hidden
+      padding 10px 20px
+      margin 0
+      background none
+
+      .thumb
+        size 100px 75px
+
+      .info
+        margin-left 115px
+        if support-for-ie
+          _margin-left 112px
+
+        .title
+          height 21px
+          overflow hidden
+          margin-bottom 6px
+
+          a
+            color gray-darker
+
+        .details
+          p
+            color gray-darker
+
+            span
+              color #666
+
+
+// 我的订单
+// ------------------------------
+$order-list-icon
+  position static
+  display inline-block
+  margin-right 10px
+  vertical-align middle
+
+file-types = doc xls ppt pdf txt zip
+
+.order-list
+  for type in file-types
+    .icon-{type}
+      @extend $order-list-icon
+
+// 表格
+.simple-table
+  margin 20px 0
+
+  table
+    border-collapse collapse
+    width 100%
+    font-size 12px
+
+  td
+  th
+    text-align left
+
+  th
+    background #F2F2F2
+    padding 5px 10px
+    font-weight normal
+
+  td
+    border-bottom 1px solid #F2F2F2
+    padding 10px
+    color #4D4D4D
+
+    img
+      margin-right 10px
+      vertical-align middle
+
+  .name
+    padding-left 10px
+
+  // 我的资料状态
+  .status
+    position relative
+
+  .drop
+    z-index 100
+
+  .verifying
+    color #999
+
+  .passed
+    color #3CBF20
+
+  .refused
+    color #E72029
+
+  a.refused
+    text-decoration underline
+    cursor pointer
+
+  a.hl
+    color link-color-hover
+
+  .hl-green
+    color #3CBF20
+
+  .hl-gray
+    color #B3B3B3
+
+.download-list
+  .simple-table
+    .name
+      padding-left 36px
+
+// 我的活动
+// ------------------------------
+.mod-lecture
+  .thumb-info-list
+    .item
+      background none
+      border-top 1px solid #F2F2F2
+
+      .info
+        h3
+          margin-bottom 6px
+
+        .details
+          .status
+            margin-top 6px
+
+            a
+              margin-left 20px
+              color #808080
+
+          .success
+            color green
+
+          .warning
+            color orange
+
+          .canceled
+            color black
+
+        .actions
+          margin-top 5px
+
+          .btn
+            padding 0 10px
+
+          .tips
+            color #808080
+            inline-block()
+            line-height 30px
+            margin-left 15px
+            padding-left 15px
+            vertical-align middle
+            background url("img/icon_help.png") no-repeat -20px -229px
+
+// 高分币
+// ------------------------------
+.account-status
+  margin-bottom 25px
+
+  .btn
+    margin-left 20px
+    padding 0 15px
+
+.mod-order
+  .heading
+    clearfix()
+
+    .title
+      float left
+
+    .order-filter
+      float left
+      margin 3px 0 0 20px
+
+      label
+        margin-right 15px
+
+        input
+          margin-right 3px
+          margin-right ie678(0)
+          margin-left ie678(-3px)
+          if support-for-ie
+            _margin-top -3px
+
+        span
+          vertical-align middle
+
+// 消息
+// ------------------------------
+.message-list
+  td
+    vertical-align top
+
+    a
+      highlight-link()
+
+// 个人资料
+// ------------------------------
+.form
+  padding-bottom 40px
+
+  .form-row
+    margin-bottom 20px
+
+// 基本资料表单
+.form-profile
+  .form-row
+    .text
+      inline-block()
+      line-height 30px
+      font-size 14px
+
+// 联系方式表单
+.form-contact
+  .intro
+    padding 0 0 30px 10px
+
+  .form-row
+    .input-text
+      float left
+
+    .btn
+      margin 2px 0 0 20px
+
+    .hints
+      a
+        highlight-link()
+
+// 修改密码表单
+.form-change-password
+  padding-top 20px
+
+  .form-row
+    .control-label
+      width 100px
+
+  .code
+    .control-label
+      line-height 40px
+
+    .help-inline
+      margin-top 8px
+
+    /*.captcha
+      margin-top 10px*/
+
+    img
+      vertical-align middle
+      margin-left 10px
+
+    a
+      line-height 30px
+      highlight-link()
+      margin-left 14px
+
+  .actions
+    margin-left 110px
+
+
+// 浮层
+// ------------------------------
+
+// 设置年级浮层
+.modal-setting-grade
+  center-modal 510 400
+  size 510px auto
+
+  .modal-body
+    padding 30px 0 30px 40px
+
+  p
+    font-size 14px
+    margin 0 0 10px
+
+  .form
+    padding-bottom 20px
+    .form-row
+      .control-label
+        text-align left
+        margin-right 0
+        width 100%
+
+    .radio
+      float left
+      width 75px
+      margin-top 10px
+
+      input
+        margin-right 3px
+        margin-right ie678(0)
+        margin-left ie678(-3px)
+        if support-for-ie
+          _margin-top -3px
+
+  .actions
+    margin 50px 0 0 156px
+
+    .btn
+      float left
+
+    .loading-mini
+      float left
+      size 16px
+      margin 7px 0 0 17px
+
+  .error
+    .help-inline
+      margin 5px 0 0 15px
+      background-position -12px -58px
+
+// 评价课程浮层
+.modal-comment
+  center-modal 530 380
+  size 530px auto
+
+  .modal-body
+    padding 30px 0 50px 40px
+
+  .form
+    textarea
+      size 310px 150px
+      resize none
+      font-size 14px
+      line-height 24px
+
+    .name
+      .controls
+        font-size 14px
+        line-height 30px
+
+    .actions
+      .loading-mini
+        float left
+        size 16px
+        margin 7px 0 0 17px
+
+      .btn
+        width auto
+
+  .success
+    .help-inline
+      width auto
+      text-indent 0
+      color #4A4A4A
+
+  .alert
+    padding-top 15px
+    padding-right 80px
+    margin-bottom 0
+
+// 取消活动报名浮层
+.modal-cancel-apply
+  center-modal 530 432px
+  size 530px 432px
+
+  .form
+    padding-bottom 30px
+
+    .form-row
+      margin-bottom 10px
+
+      .text
+        line-height 30px
+        font-size 14px
+
+        .hl
+          margin-right 4px
+
+  .alert
+    padding-top 10px
+    margin 80px 0 80px 50px
+
+    h3
+      margin-bottom 10px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+// 元件：返回顶部
+// ==================================================
+
+.gotop
+  fixed left 50% bottom 184px
+  margin-left 500px
+  size 40px
+  background url(../img/gotop.png) no-repeat
+  hide-text()
+  z-index 1000
+  if support-for-ie
+    _position absolute
+    _bottom auto
+    _top unquote("expression(documentElement.scrollTop + documentElement.clientHeight - this.clientHeight - 182)")
+
+  &:hover
+    background-position -60px 0

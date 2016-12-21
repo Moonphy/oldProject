@@ -1,0 +1,82 @@
+// 缩略图
+// ==================================================
+
+.thumb
+  position relative
+  size 160px 120px
+  z-index 1
+
+  a
+    position relative
+    display block
+    height 100%
+    overflow hidden
+
+    &:hover
+      color #FFF
+      text-decoration none
+
+  img
+    display block
+
+  .tit
+    absolute left bottom
+    size 100% 28px
+    z-index 1
+
+    em
+      display block
+      font-style normal
+      color #FFF
+      height 28px
+      line-height 28px
+      padding 0 8px
+      overflow hidden
+      cursor pointer
+      text-align center
+
+    .bg
+      absolute left top
+      size 100% 100%
+      z-index -1
+      background #000
+      opacity .5
+
+  // 缎带
+  .ribbon
+    absolute top 5px right -5px
+
+    span
+      position relative
+      display inline-block
+      padding 3px 10px
+      background #4A4A4A
+      color #FFF
+
+    i
+      caret #858585 5px right
+      absolute top 19px right -5px
+      z-index -1
+
+  // 价格标签
+  .label
+    absolute right bottom
+    size 42px 28px
+    line-height 28px
+    padding 0 3px 0 0
+    color #FFF
+    text-align right
+    cursor pointer
+    pngfix("img/data/data_label.png", "shared/")
+    if support-for-ie
+      _padding-left 10px
+
+    i
+      font-size 22px
+      font-family arial
+      margin-right 3px
+
+  .label-large
+    i
+      font-size 18px
+      margin-right 1px

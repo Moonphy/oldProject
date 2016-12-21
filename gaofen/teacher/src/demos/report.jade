@@ -1,0 +1,155 @@
+---
+page_title: "学业报告页"
+body_classes: ["report-page"]
+header_bar_title: "学业报告"
+---
+extends _layout
+block css
+    link(rel="stylesheet", type="text/css", href="#{current.base}css/feedback.css")
+block content
+
+    .plr-1
+        h3.mt20 学生信息
+        .table-wrap.mb10
+            .table-v
+                .tr
+                    .th 学生姓名
+                    .td 小绿人
+                    .th 年级
+                    .td 初一
+
+                .tr
+                    .th 科目
+                    .td 数学
+                    .th 授课教师
+                    .td 李老师
+                .tr
+                    .th 上课日期
+                    .td 2016-3-16
+                    .th 上课时段
+                    .td 9:00-12:00
+                .tr
+                    .th 辅导内容
+                    .td(colspan='3') 三角函数
+
+        h3 上次课作业情况
+        .table-wrap.mt--20
+            .total-wrap
+                .row
+                    .y-name 正确数
+                    .y-value
+                        .valueY(data-value='18') 18
+                .row
+                    .y-name 完成数
+                    .y-value
+                        .valueY(data-value='22') 22
+                .row
+                    .y-name 总题量
+                    .y-value
+                        .valueY(data-value='32') 32
+
+        h3.mt20 学情分析
+        .table-wrap
+            .table
+                .tr
+                    .th 本堂课总题量
+                    .th 例题
+                    .th 课堂练习题
+                    .th 课后作业
+                .tr
+                    .td 47
+                    .td 8
+                    .td 27
+                    .td 12
+            .analysis-detail
+                .h3 知识点掌握等级：强
+                .analysis-wrap
+                    .analysis-container
+                        .analysis-row.row-flex
+                            .col
+                                .x-value
+                                    .valueX(data-value='0.81') 81%
+                                .x-name 01
+                            .col
+                                .x-value
+                                    .valueX(data-value='0.85') 85%
+                                .x-name 02
+                            .col
+                                .x-value
+                                    .valueX(data-value='0.92') 92%
+                                .x-name 03
+                            .col
+                                .x-value
+                                    .valueX(data-value='0.86') 86%
+                                .x-name 04
+                            .col
+                                .x-value
+                                    .valueX(data-value='0.82') 82%
+                                .x-name 05
+                            .col
+                                .x-value
+                                    .valueX(data-value='0.90') 90%
+                                .x-name 06
+                        .Y-axis-N
+                            div 75%
+                            div 50%
+                            div 25%
+                    .analysis-list
+                        - for(i=1;i<7;i++)
+                            .list-container
+                                i.icon-circle
+                                h4= "0" + i + ".核心知识点名称"
+                                .row-flex.flex-around
+                                    div
+                                        span 总题量：
+                                        strong 32
+                                    div
+                                        span 正确量：
+                                        strong 30
+                                    div
+                                        span 正确率：
+                                        strong 100%
+            .analysis-detail
+                .h3 知识点掌握等级：中
+            .analysis-detail
+                .h3 知识点掌握等级：弱
+
+        h3.mt20 老师评语
+        .table-wrap.mt--20.bg-grey
+            p 开发自动匹配评价（主要从学习能力+学习习惯+学习心理+学习成绩等方面评价）+教师个性化评价
+            p 开发自动匹配评价（主要从学习能力+学习习惯+学习心理+学习成绩等方面评价）+教师个性化评价
+
+        h3.mt20 我学我秀
+        .table-wrap.mt--20.bg-grey
+            .img-wrap
+                img(src="#{current.base}images/img-1.png", alt="学生照片")
+                img(src="#{current.base}images/ad-English.png", alt="学生照片")
+                img(src="#{current.base}images/ad-English.png", alt="学生照片")
+block javascript
+    script.
+        // 第一个图
+        var wrapW = document.getElementsByClassName("y-value")[0].offsetWidth,
+            scaleW = wrapW * 0.9;
+
+        var valueY = document.getElementsByClassName("valueY");
+
+        var max = valueY[2].attributes["data-value"].value;
+
+        for(var i=0;i<valueY.length;i++) {
+
+            var N = valueY[i].attributes["data-value"].value
+            valueY[i].style.width = N / max * scaleW + 'px';
+        }
+
+        // 第二个图
+        var scaleH = 150;
+        var valueX = document.getElementsByClassName("valueX");
+
+        for(var j=0;j<valueX.length;j++) {
+
+            var H = valueX[j].attributes["data-value"].value
+            console.log(H)
+            valueX[j].style.height = H * scaleH + 'px';
+        }
+
+

@@ -1,0 +1,70 @@
+// 广告
+// ==================================================
+
+// 通栏广告
+// ------------------------------
+.ad-full
+.picture-full
+  height 80px
+  overflow hidden
+
+  a
+    display block
+    overflow hidden
+    size 100% 80px
+
+// 主内容区广告
+// ------------------------------
+.ad-main
+.picture-main
+  height 100px
+  margin 8px 0 25px
+  overflow hidden
+
+  a
+    display block
+    overflow hidden
+    size 100% 100px
+
+// 侧栏广告
+// ------------------------------
+.ad-aside
+.picture-aside
+  text-align center
+
+  a
+    display block
+    overflow hidden
+    margin auto
+    size 180px 60px
+
+// 组合：.ad-aside .ad-aside-large 或 .picture-aside .picture-aside-large
+.ad-aside-large
+.picture-aside-large
+  a
+    height 240px
+
+// 新版广告位
+.ad
+.picture
+  overflow hidden
+
+  a
+    display block
+    text-align center
+
+  img
+    display block
+    margin auto
+
+for height in 40 50 60 70 100 120 150 195 225 240 250 260
+  .ad-h{height}
+  .picture-h{height}
+    height unit(height, "px")
+
+// 对联广告
+@import "_ad_couplet"
+
+// 底部广告
+@import "_ad_bottom"
+

@@ -1,0 +1,35 @@
+include _data-preview
+
+mixin html-previewer(params)
+  - var params = params ||
+  - var page_scale = params.scale || 0.8930
+  - var page_gap = params.margin_bottom || 27
+
+  #pageContain.cont
+    if environment == "development"
+      // Start:资料页面
+      //- +data-preview({page_scale: page_scale, page_gap: page_gap})
+      //- +ad({width:760})
+      //- +data-preview({page_scale: page_scale, page_gap: page_gap})
+      //- +data-preview({page_scale: page_scale, page_gap: page_gap})
+      // End:资料页面
+    // Start:data content for ie
+    .page-ie
+      .alert.alert-info
+        i.ico
+        .info
+          p 系统正在努力生成预览...
+    .page-ie
+      +dummy(1960, 2771)
+    +ad({width:670})
+    .page-ie
+      +dummy(1960, 2771)
+    .page-ie
+      +dummy(1960, 2771)
+    // End:data content for ie
+  .pay-tips
+    .inner
+      p
+        | 免费试读已结束，请
+        a(href="#", target="_blank") 登录
+        | 后继续阅读。

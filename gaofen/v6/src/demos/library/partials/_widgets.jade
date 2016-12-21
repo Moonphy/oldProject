@@ -1,0 +1,182 @@
+//------------------------------
+//- 挂件：热门学校推荐
+//------------------------------
+mixin widget-rec-school(params)
+  - var params = params || {}
+
+  .widget.widget-box
+    .widget-box-hd
+      if params.tabs
+        .widget-tabs
+          each tab in params.tabs
+            span(class="#{tab.active ? 'active' : ''}")= tab.label
+      .title= params.title || "热门学校推荐"
+    .widget-box-bd
+      // 暂无学校推荐
+      .tips-null 暂无学校推荐
+
+      // 推荐学校列表
+      .list.school-list
+        ul
+          - for(var i=1; i<=7; i++)
+            if i==1
+              li.rec
+                .picture
+                  a(href="#", target="_blank")
+                    +dummy(100, 75)
+                .info
+                  .name
+                    a(href="#", target="_blank")= article.title
+                  if params.meta
+                    .meta
+                      | 1231次浏览
+                  .operations
+                    a(href="#", target="_blank")= params.operations_text || "收藏"
+            else
+              li
+                span.name
+                  a(href="#", target="_blank")= article.title
+                span.operations.hidden
+                  a(href="#", target="_blank") 收藏
+                  span 已收藏
+
+//------------------------------
+//- 挂件：备考资料推荐
+//------------------------------
+mixin widget-rec-data(params)
+  - var params = params || {}
+
+  .widget
+    .widget-hd
+      .title 备考资料推荐
+    .widget-bd
+      .list.data-list
+        ul
+          - for(var i=1; i<=8; i++)
+            if i==1
+              li.rec
+                +cover({pack:true})
+                .info
+                  .name
+                    a(href="#", target="_blank")= article.title
+                  if params.date
+                    .date
+                      | 2014-10-26发布
+            else
+              li
+                span.name
+                  a(href="#", target="_blank", title="#{article.title}")= article.title
+
+//------------------------------
+//- 挂件：您浏览过的学校
+//------------------------------
+mixin widget-history
+  .widget
+    .widget-hd
+      .title 您浏览过的学校
+    .widget-bd
+      // 浏览历史为空
+      .tips-null 您暂未浏览过学校
+
+      // 浏览历史列表
+      .list
+        ul
+          - for(var i=1; i<=5; i++)
+            li
+              span.name
+                a(href="#", target="_blank")= article.title
+
+//------------------------------
+//- 挂件：他们也对这所学校感兴趣
+//------------------------------
+mixin widget-events
+  .widget.widget-box.widget-event
+    .widget-box-hd
+      .title 他们也对这所学校感兴趣
+    .widget-box-bd
+      .list.event-list
+        ul
+          - var i = 3
+          - while(i--)
+            li
+              .avatar
+                +avatar(40)
+              .info
+                .user= article.author
+                p 1分钟前浏览了这个学校
+
+//------------------------------
+//- 挂件：近期热门讨论
+//------------------------------
+mixin widget-discuss
+  .widget.widget-discuss
+    .widget-hd
+      .title 近期热门讨论
+    .widget-bd
+      // 热门讨论列表
+      .list
+        ul
+          - for(var i=1; i<=5; i++)
+            li
+              span.subject
+                | [
+                a(href="#", target="_blank") 择校
+                | ]
+              span.tit
+                a(href="#", target="_blank")= article.title
+
+//------------------------------
+//- 挂件：名词解释
+//------------------------------
+mixin widget-entries(params)
+  - var params = params || {}
+
+  .widget.widget-entries
+    .widget-hd
+      a.more(href="#", target="_blank") 更多
+      .title= params.title || "小升初择校名词解释"
+    .widget-bd
+      .tags
+        each entry in params.entries
+          a.item(href="#{entry.url}")= entry.label
+
+//------------------------------
+//- 挂件：中考志愿快讯
+//------------------------------
+mixin widget-posts
+  .widget.widget-box.widget-posts
+    .widget-box-hd
+      .more
+        a(href="#", target="_blank") 更多
+      .title 中考志愿快讯
+    .widget-box-bd
+      .list.post-list
+        ul
+          - for(var i=1; i<=7; i++)
+            li
+              span.tit
+                if i==1
+                  i.icon-new
+                a(href="#", target="_blank")= article.title
+
+//------------------------------
+//- 挂件：志愿问答
+//------------------------------
+mixin widget-faq(params)
+  - var params = params || {}
+
+  .widget.widget-faq
+    .widget-hd
+      .more
+        a(href="http://bbs.gaofen.com/forum.php?mod=forumdisplay&fid=49&filter=typeid&typeid=434", target="_blank") 更多
+      .title 志愿问答
+    .widget-bd
+      .list.faq-list
+        ul
+          each item in params.faq_list
+            li
+              span.tit= item.title
+              .operations
+                a(href="#{item.url}", target="_blank") 高分解读
+                i |
+                a(href="#{item.discuss_url}", target="_blank") 家长讨论

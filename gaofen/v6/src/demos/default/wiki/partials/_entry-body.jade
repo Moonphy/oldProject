@@ -1,0 +1,25 @@
+.entry-body
+  h2.entry-tit-1
+    span
+      != "1. "
+      a(href="#", target="_blank") 什么是国防生？
+  p
+    != article.content
+    a(href="#", target="_blank") 国防生
+  p= article.content
+  div= article.content
+  div
+    != article.content
+    div= article.content
+  div= article.content
+  h2.entry-tit-1
+    span
+      != "2. "
+      a(href="#", target="_blank") 什么是国防生？
+  h3.entry-tit-2= "2.1 " + article.title
+  p= article.content
+  p
+    +dummy(300, 180)
+  p= article.content
+  h3.entry-tit-2= "2.2 " + article.title
+  p= article.content

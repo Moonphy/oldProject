@@ -1,0 +1,264 @@
+// 简介：定义高分网主站学校频道样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 图文介绍元件 .thumb-info-details
+// 用于图文介绍
+@import "../partials/components/_thumb_info_details"
+
+// 表格元件 .table
+// 用于分数线展示
+@import "../partials/components/_table"
+
+// 侧栏数据统计挂件 .widget-statistic
+@import "widgets/_statistic"
+
+// 侧栏人物简介挂件 .widget-people
+@import "widgets/_people"
+
+// 侧栏主办方、合作机构挂件 .widget-sponsor
+@import "widgets/_sponsor"
+
+// 内页布局
+@import "../shared/_layout_inner"
+
+// 介绍和报道详情页
+@import "../shared/_inner_details"
+
+
+// 侧栏挂件
+// ------------------------------
+
+// 历年分数线查询
+.widget-query
+  label
+    float left
+    height 26px
+    line-height 26px
+    margin-left 5px
+
+  select
+    font-size 12px
+    width 100px
+    margin-left 5px
+
+  .form-row
+    padding 5px 0
+    font-size 14px
+
+  .actions
+    margin-top 10px
+    margin-left 66px
+    if support-for-ie
+      _margin-left 69px
+
+// 开放日
+.widget-open-day
+  .info
+    margin 0 5px
+
+  h3
+    margin 0 0 8px
+    font-size 14px
+
+  p
+    margin 0
+
+// 学校介绍页
+// ------------------------------
+.score
+  margin 20px 0
+
+// 历年分数线查询
+// ------------------------------
+.score-query
+  margin 0 20px
+
+  h3
+    margin 0 0 15px
+    font-size 14px
+
+    span
+      margin-right 10px
+
+    em
+      margin 0 5px
+      font-style normal
+      color #E4691F
+
+  .switcher
+    float right
+    font-size 14px
+
+    .item
+      inline-block()
+      margin-left 15px
+
+    select
+      width 95px
+
+  // 备注
+  .remark
+    margin 20px 0
+
+    .hd
+      margin-bottom 10px
+      font-size 14px
+      font-weight bold
+
+    li
+      font-size 14px
+      line-height 2
+
+// 新首页
+// ------------------------------
+
+// 学校列表
+.school-thumb-info-list
+  .item
+    clearfix()
+    margin 25px 25px 0 0
+
+    .thumb
+      float left
+
+    .info
+      margin-left 180px
+      if support-for-ie
+        _margin-left 177px
+
+      h3
+        height 24px
+        overflow hidden
+        font-size 16px
+        margin 0 0 5px
+
+      p
+        font-size 14px
+        line-height 24px
+        color #7F7F7F
+        margin 0
+
+        .num
+          color #FF5A41
+          margin-left 4px
+
+    .comments
+      color #FFAF40
+      font-size 14px
+      line-height 24px
+      height 48px
+      overflow hidden
+      margin-top 5px
+      color #7F7F7F
+
+// 带tab的模块
+.mod-school-tab
+  margin-bottom 40px
+
+  .heading-tabs
+    position relative
+    height 24px
+    padding-top 3px
+    margin 0
+
+    .title
+      absolute left top -7px
+      padding-right 20px
+      background #FFF
+      color #4D4D4D
+      font-size 26px
+      font-weight normal
+
+      a
+        display inline-block
+        color #4D4D4D
+
+        &:hover
+          color link-color-hover
+          text-decoration none
+
+    .tabs-s2
+      left 148px
+
+      .item
+        line-height 24px
+
+// 高中库和重点高校
+.mod-senior-schools
+.mod-colleges
+  .thumb
+    float left
+    size 120px 90px
+
+    img
+      size 120px 90px
+
+  .school-thumb-info-list
+    clearfix()
+
+    .item
+      float left
+      width 301px
+
+      .info
+        margin-left 140px
+        if support-for-ie
+          _margin-left 137px
+
+// 浮层
+// ------------------------------
+.modal-x
+  center-modal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

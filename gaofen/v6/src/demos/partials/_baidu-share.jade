@@ -1,0 +1,8 @@
+mixin baidu-share(icon_only)
+  .bdsharebuttonbox
+    if !icon_only
+      span.label 分享到：
+    a.bds_weixin(href='#', data-cmd='weixin', title='分享到微信')
+    a.bds_tsina(href='#', data-cmd='tsina', title='分享到新浪微博')
+    a.bds_qzone(href='#', data-cmd='qzone', title='分享到QQ空间')
+    a.bds_bdhome(href='#', data-cmd='bdhome', title='分享到新首页')

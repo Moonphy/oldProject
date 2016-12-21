@@ -1,0 +1,159 @@
+// 简介：定义高分网深圳站小学页面样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 链接云
+@import "../shared/_link_cloud"
+
+// 基于Base对深圳站的某些样式做全局性质的改动
+@import "_extends_base"
+
+
+// 模块
+// ------------------------------
+.mod
+  margin-bottom 25px
+  highlight-subject()
+
+// 文章列表页
+// ------------------------------
+
+// 栏目所有文章列表
+.all-posts
+  .headline
+    padding 5px 5px 30px
+    clearfix()
+
+    .thumb
+      float left
+      margin-right 20px
+      if support-for-ie
+        _display inline
+
+    .info
+      font-size 14px
+
+      a
+        font-weight bold
+
+        &:link
+          color #0F0F0F
+
+      p
+        margin 0
+        line-height 26px
+        height 104px
+        overflow hidden
+        text-indent 2em
+
+  .stat-post
+    padding 15px 0
+    split(top)
+
+    li
+      height 28px
+      line-height 28px
+
+// 热门搜索关键词
+.hot-tags
+  background #F5F7F9
+  border 1px solid #D5DFE9
+  padding 15px
+  margin-top 30px
+
+  h3
+    font-size 14px
+    margin 0 0 5px
+
+  .tags
+    clearfix()
+
+    a
+      float left
+      highlight-link()
+      font-size 14px
+      margin 0 10px 0 0
+      line-height 26px
+      if support-for-ie
+        _display inline
+
+// 文章内容页
+@import "../shared/_exam-details"
+
+// 标签文章列表
+.taged-posts
+  .stat-post
+    li
+      height auto
+      split()
+      padding 0 110px 15px 0
+      margin-bottom 15px
+
+    p
+      margin 0
+
+    .title
+      height 26px
+      padding-left 18px
+      overflow hidden
+      background url("../img/dot.png") no-repeat 7px 11px
+      font-size 14px
+
+    .summary
+      padding-left 18px
+      font-size 12px
+      line-height 22px
+      text-indent 2em
+      color #666
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

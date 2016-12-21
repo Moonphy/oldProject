@@ -1,0 +1,54 @@
+// 遮罩
+// ------------------------------
+
+.ui-mask
+  fixed left top
+  size 100%
+  background rgba(0, 0, 0, .8)
+  z-index z-index-mask
+
+.mask
+  fixed left top
+  size 100%
+  background rgba(0, 0, 0, .6)
+  z-index z-index-mask
+
+.mask-wrap
+  fixed left 10% top 50%
+  size 80% auto
+  margin 0 auto
+  background-color #ffffff
+  border-radius 1rem
+  transform translate(0,-50%)
+  z-index z-index-mask + 2
+.amsk-close
+  absolute right top
+  size 3rem
+  text-align center
+  line-height 3rem
+  font-size 1.6rem
+  color red
+  //background-color red
+.mask-content
+  size 100%
+  text-align center
+  padding 1rem 0
+  box-sizing border-box
+  p
+    font-size 1.8rem
+  .btn
+    display inline-block
+    width 50%!important
+    margin 1rem auto
+
+  .btn-inline
+    color white
+    padding 0.6rem 1.5rem
+    display inline-block
+    margin-right 1rem
+    border-radius 0.2rem
+    font-size 16px
+    a
+      font-size 16px
+  textarea
+    width 80%

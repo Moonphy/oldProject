@@ -1,0 +1,55 @@
+// 元件: 广告
+// ------------------------------
+
+.ui-picture
+  position relative
+  z-index z-index-header - 100
+  padding 0.5rem 0
+  background page-backgroud-color
+
+  .ui-picture-container
+    reset-list()
+
+    li
+      display none
+
+      &:first-child
+        display block
+
+    a
+      display block
+
+  img
+    display block
+    width 100%
+
+  .ui-picture-pagination
+    absolute left bottom 1.5rem
+    size 100% .7rem
+    text-align center
+
+    span
+      display inline-block
+      size .7rem
+      margin 0 .3rem
+      border-radius 1rem
+      hide-text()
+      background rgba(0, 0, 0, .6)
+
+      &.active
+        background rgba(255, 255, 255, .6)
+
+  .close
+    @extends $iconfont
+    absolute right 0 top 50%
+    margin-top -2.2rem
+    size 4rem 4.4rem
+
+    &:before
+      absolute left top
+      content "\3617"
+      size 4rem 4.4rem
+      text-align center
+      line-height 4.4rem
+      font-size 3rem
+      color rgba(255, 255, 255, .3)

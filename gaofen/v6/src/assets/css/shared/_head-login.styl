@@ -1,0 +1,239 @@
+// 未登录
+.head-login
+  float right
+  width 200px
+  margin 30px 0 0 0
+  if support-for-ie
+    _display inline
+
+  .quick-login
+  .actions
+    float right
+
+  .actions
+    line-height 32px
+    text-align center
+    margin-right 15px
+    white-space nowrap
+    font-size 0
+    if support-for-ie
+      _display inline
+
+    i
+    a
+      font-size 14px
+
+    i
+      color #E5E5E5
+      margin 0 10px
+
+    a
+      highlight-link()
+
+  .quick-login
+    size 74px 32px
+
+    .link-weibo
+    .link-qq
+      float right
+      margin-right 5px
+      @extend $icon-sns
+      size 32px
+      hide-text()
+      if support-for-ie
+        _display inline
+
+    for type, index in "weibo" "qq"
+      .link-{type}
+        offset-y = -120px * index
+        background-position 0 offset-y
+
+        &:hover
+          background-position 0 -120px * (index + .5)
+
+// 已登录
+.user-panel
+  absolute right -10px top 24px
+  width 234px
+  clearfix()
+
+  .avatar
+    float left
+    size 45px
+    overflow hidden
+
+    img
+      width 45px
+      border-radius 50px
+
+  .info
+    margin-left 60px
+    if support-for-ie
+      margin-left 57px
+
+    .name
+      font-weight bold
+      margin-bottom 4px
+
+  .operations
+    remove-list-style()
+    z-index 10
+
+    li
+      float left
+      white-space nowrap
+
+    .seperator
+      color #D2D2D2
+      margin 0 12px
+      if support-for-ie
+        _line-height 16px
+
+    .trigger
+      position relative
+      display inline-block
+      z-index 1000
+
+    a
+      color gray-dark
+
+    .caret
+      width 25px
+      padding-right 10px
+
+      i
+        absolute right top 8px
+        if support-for-ie
+          _top 6px
+
+    .news
+      .icon
+        absolute right -9px top 3px
+        size 8px 10px
+        background url("../default/img/icon_news.png") no-repeat
+        if support-for-ie
+          _top 1px
+
+    .dropable
+      .bg
+        display none
+        absolute left -19px top -6px
+        size 35px 12px
+        padding 5px 10px 4px 11px
+        z-index -1
+        border 3px solid #D9D9D9
+        border-color rgba(0, 0, 0, .15)
+        border-bottom none
+        border-radius 3px 3px 0 0
+
+        .bg-in
+          absolute left top
+          size 33px 12px
+          padding 6px 10px 6px 11px
+          border 1px solid #B0B0B0
+          border-bottom none
+          background white
+
+    .dropdown
+      display none
+      absolute left -138px top 18px
+      width 234px
+      border 3px solid #D9D9D9
+      border-color rgba(0, 0, 0, .15)
+      border-radius 0 3px 3px 3px
+      z-index 100
+      white-space normal
+
+      .dropdown-in
+        background #FFF
+        border 1px solid #B0B0B0
+
+    .more
+      .bg
+        width 40px
+
+        .bg-in
+          width 38px
+
+      .dropdown
+        width 94px
+        left auto
+        right -13px
+        border-radius 3px 0 3px 3px
+
+
+    .drop-on
+      position relative
+      z-index 10
+
+      .dropdown
+      .bg
+        display block
+
+  .extra-links
+    padding 0 15px
+
+    .inner
+      overflow hidden
+
+    .item
+      border-top 1px solid #CCC
+      padding 10px 0
+      margin-top -1px
+
+    a
+      line-height 20px
+
+  .news-wrap
+    position relative
+    padding 0 15px
+    overflow hidden
+    line-height 20px
+
+    .sec
+      padding 12px 0
+      margin-top -1px
+      border-top 1px solid #CCC
+
+      .hd
+        font-weight bold
+
+      .split-line
+        margin 10px 0
+
+    .more
+      text-align right
+
+      a
+        highlight-link()
+
+  .news-list
+    .item
+      height 40px
+      overflow hidden
+
+      a
+        margin-left 5px
+        highlight-link()
+
+  .data-list
+    .item
+      a
+        highlight-link()
+
+  .event-list
+    .item
+      a
+        highlight-link()
+
+      p
+        margin 0
+
+        i
+          margin 0 8px
+        color #999
+
+  .tips-null
+    p
+      margin 0
+      color #999

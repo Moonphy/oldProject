@@ -1,0 +1,66 @@
+---
+page_title: "课时消耗历史页"
+body_classes: ["consume-history-page"]
+header_bar_title: "课时消耗历史"
+---
+
+extends _layout
+
+block content
+    .class-hour
+        .select-date
+            input(type="text", id='txt_date-1' value="1998/05/12")
+            i.iconfont.icon-down
+        | 至
+        .select-date
+            input(type="text", id='txt_date-2' value="1998/05/12")
+            i.iconfont.icon-down
+        button 确定
+    ul.listView-wrap
+        li.listView
+            a(href='#',title='初三').listView-container
+                .listView-left
+                    p
+                        strong 语文-初三
+            .listView-container-detail
+                p
+                    span 8月26日
+                    time 15:00-16:50
+                    span 消耗课时：
+                    span.fontgreen 2.0
+                    span 课时
+                p
+                    span 8月26日
+                    time 15:00-16:50
+                    span 消耗课时：
+                    span.fontgreen 2.0
+                    span 课时
+        li.listView
+            a(href='#',title='初三').listView-container
+                .listView-left
+                    p
+                        strong 语文-初三
+            .listView-container-detail
+                p
+                    span 8月26日
+                    time 15:00-16:50
+                    span 消耗课时：
+                    span.fontgreen 2.0
+                    span 课时
+                p
+                    span 8月26日
+                    time 15:00-16:50
+                    span 消耗课时：
+                    span.fontgreen 2.0
+                    span 课时
+
+
+block javascript
+
+    script(type="text/javascript", src="#{current.base}scripts/dialog/dialog.min.js" )
+    script(type="text/javascript", src="#{current.base}scripts/datepicker/mobile-datepicker.min.js")
+    script.
+        var selectDate1 = new MobileSelectDate();
+        selectDate1.init({trigger:'#txt_date-1',min:'1985/01/01',max:'2016/02/11'});
+        var selectDate2 = new MobileSelectDate();
+        selectDate2.init({trigger:'#txt_date-2',min:'1985/01/01',max:'2016/02/11'});

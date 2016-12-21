@@ -1,0 +1,79 @@
+mixin hotline
+  .hotline 400-880-5286
+
+#header.container
+  h1.logo
+    a(href="#", title="高分网")
+      img(src="#{current.base}img/logo.png", alt="高分网")
+
+  .subsite-switcher
+    .city= cagetory == 'default' ? '广州站' : '深圳站'
+    span.tigger [切换城市]
+    .drop
+      .in
+        a(href="#{current.base}demos/default/home") 广州站
+        span 深圳站
+      i.arrow
+        i.arrow-border
+        i.arrow-body
+
+  if head_login
+    // Start:头部登录框
+    .head-login.clearfix
+      .quick-login
+        a.btn-weibo(href="#", target="_blank", title="用微博账号登录") 用微博账号登录
+    // End:头部登陆框
+  else if !no_extra_links
+    // Start:登录前
+    ul.extra-links.hidden
+      li
+        a(href="#", title="注册") 注册
+      li.seperator |
+      li
+        a(href="#", title="登录") 登录
+      li.seperator |
+      li.account
+        a.caret(href="#") 其他账号登录
+          i
+          span.bg.hidden
+            span.bg-in
+        .dropdown.hidden
+          .dropdown-in
+            .quick-login.clearfix
+              a.btn-qq(title="用QQ账号登录") 用QQ账号登录
+              a.btn-weibo(title="用微博账号登录") 用微博账号登录
+      li.seperator |
+      li
+        a(href="#", title="机构服务") 机构服务
+    // End:登录前
+
+    // Start:登录后
+    ul.extra-links
+      li
+        a.username(href="#", title="小路子", target="_blank")
+          img(src="#{current.base}assets/img/avatar_16x16.png", alt="小路子")
+          | 小路子
+        | ，35900高分币
+      li.seperator |
+      li
+        a(href="#", title="消息", target="_blank") 消息
+          i.badge 15
+      li.seperator |
+      li
+        a(href="#{current.base}dmos/default/member", title="会员中心", target="_blank") 会员中心
+      li.seperator |
+      li
+        a(href="#", title="退出") 退出
+      li.seperator |
+      li
+        a(href="#", target="_blank", title="机构服务") 机构服务
+      li.seperator |
+      li
+        a(href="#", title="设为首页") 设为首页
+    // End:登录后
+
+    +hotline
+
+  else
+    +hotline
+

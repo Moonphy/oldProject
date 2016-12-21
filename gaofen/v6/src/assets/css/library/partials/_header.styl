@@ -1,0 +1,75 @@
+// 页头
+// ==================================================
+
+.header
+  margin-bottom 3px
+  clearfix()
+  if support-for-ie
+    _overflow hidden
+
+  .container
+    position relative
+    height 80px
+
+  // Logo
+  .logo
+    float left
+    size 215px 26px
+    margin 27px 30px 0 0
+
+    a
+    img
+      display block
+
+  // 搜索框
+  .search-box
+    position relative
+    float left
+    border 2px solid common-border-color
+    size 280px 28px
+    border-radius 20px
+    margin 24px 0 0 0
+    z-index 10000
+    if support-for-ie
+      _display inline
+
+    .search-query
+      float left
+      size 228px 22px
+      padding 3px 4px
+      margin-left 10px
+      line-height 22px
+      background transparent
+      border none
+      color #4A4A4A
+
+    .blur
+      color #A9A9A9
+
+    .search-btn
+      float left
+      size 28px
+      border none
+      padding 0
+      background-color transparent
+      hide-text()
+      @extend $icons
+      background-position 4px -94px
+
+      &:hover
+        background-position 4px -144px
+
+    .ui-dropdown
+      top 38px
+
+  .search-box-focus
+    border-color blue
+
+  // 用户登录
+  @import "../../shared/_head-login"
+
+  .head-login
+    margin-top 24px
+
+  .user-panel
+    top 18px

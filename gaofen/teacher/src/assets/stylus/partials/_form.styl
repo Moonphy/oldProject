@@ -1,0 +1,125 @@
+// 表单
+
+
+// 输入框placeholder
+/* WebKit browsers */
+::-webkit-input-placeholder
+  color gray
+
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder
+  color gray
+  opacity 1
+
+/* Mozilla Firefox 19+ */
+::-moz-placeholder
+  color gray
+  opacity 1
+
+// 错误消息
+.error-message
+  position relative
+  color red-dark
+  padding-left 2.4rem
+  height 2.4rem
+  line-height 2.4rem
+  margin 1.5rem 0 1rem
+
+  &::before
+    @extends $iconfont
+    absolute left top
+    content "\3604"
+    size 2.4rem
+    font-size 2rem
+    color red-dark
+
+.form
+  padding 1.5rem 0
+  margin 1.5rem 1.5rem 0
+  border-top .1rem solid #E6E6E6
+  input[type="text"]
+  input[type="tel"]
+  textarea
+    display block
+    width 100%
+    border .1rem solid #D9D9D9
+    border-radius .4rem
+    font-size 1.6rem
+    padding 1rem 1.5rem
+    line-height 2.2rem
+    box-sizing border-box
+    color gray-dark
+    outline none
+
+    &.focus
+      border-color green
+      box-shadow 0 0 0 1px green
+
+    &.error
+      border-color red-dark
+      box-shadow 0 0 0 1px red-dark
+
+  textarea
+    height 8.6rem
+
+  .form-row
+    margin-bottom 1rem
+    width 100%
+
+    .minus
+    .count
+    .plus
+      display block
+      border .1rem solid #D9D9D9
+      height 4.2rem
+      line-height 4.2rem
+      text-align center
+      font-size 1.6rem
+
+    .minus
+    .plus
+      flex 1
+      color gray
+
+    .minus
+      border-radius .4rem 0 0 .4rem
+
+    .plus
+      border-radius 0 .4rem .4rem 0
+
+    .count
+      flex 6
+      margin 0 .3rem
+      position relative
+
+      input
+        width 4rem
+        padding 5px 0
+        text-align center
+        border none
+
+  .row-flex
+    display flex
+
+  .ui-select
+    display block
+
+  .row-time
+    margin-bottom 1.5rem
+
+  .form-info
+    text-align right
+    font-size 1.4rem
+    border-top .1rem solid #E6E6E6
+    margin-bottom 4rem
+    padding-top 1rem
+
+    span
+      margin-left 1.5rem
+
+  .hints
+    color gray
+    text-align center
+
+  .actions
+    margin-top 2rem

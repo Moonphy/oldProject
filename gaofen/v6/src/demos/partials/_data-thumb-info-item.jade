@@ -1,0 +1,43 @@
+mixin data-thumb-info-item(params)
+  - var params = params || {}
+
+  .item
+    if params.icon_thumb
+      i(class="icon icon-#{params.icon_thumb}")
+    else
+      +cover({ribbon:params.ribbon, pack:params.pack})
+    .info(class="#{params.pack ? 'info-pack' : ''}")
+      h3.title
+        a(href="#", title="#{article.title}")= article.title
+      .details
+        if params.data_info
+          p.status
+            span 浏览：1188
+            i |
+            span 下载：389
+        if params.publish_date
+          p.date
+            | 2014年5月18日发布
+            if params.icon_thumb
+              i |
+              | 共11份资料
+        //- if params.pack
+          p 含10份资料
+        if params.price
+          p.price
+            span.num 180
+            | 高分币
+            if params.pack
+              i |
+              | 原价
+              span.deprecated 200
+              | 高分币
+      if params.reading_free
+        .actions
+          +button({option:"primary", text:"免费试读"})
+      else if params.buy_now
+        .actions
+          +button({option:"primary", dimension:"small", text:" 购买"})
+          span.count 4546人已购买
+
+

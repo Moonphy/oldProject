@@ -1,0 +1,136 @@
+// 教师公用样式
+
+.search-teacher-wrap
+  background-color #ffffff
+  padding 0.5rem 1.5rem
+  border-bottom .1rem solid #E5E5E5
+
+  .search-teacher
+    width 100%
+    background-color #e0e0e0
+    border-radius 0.4rem
+    padding 0
+    overflow hidden
+    box-sizing border-box
+    border .1rem solid #E5E5E5
+    position relative
+    input[type="text"]
+      width 100%
+      line-height 1
+      font-size 1.6rem
+      background transparent
+      border none
+      padding 1rem
+      box-sizing border-box
+      &:focus
+        border none
+        box-shadow none
+        background-color #ffffff
+    .btn-search
+      absolute right top
+      width 4rem
+      height 3.5rem
+      text-align center
+      line-height 3.5rem
+      @extends $iconfont
+      font-size 2rem
+      color #999999
+      &:before
+        content "\3609"
+
+  .search-focus
+    .btn-search
+      color #2cbf00
+.teacher-name
+  margin-bottom .3rem
+  font-size 1.4rem
+  color gray-dark
+  font-weight bold
+
+  span
+    margin-left 0.5rem
+    font-size 1.2rem
+    color gray
+    font-weight normal
+
+// 为空提示
+.tips-null
+  margin 6rem 2rem
+  text-align center
+  font-size 1.6rem
+  color #4C4C4C
+
+// 教师列表
+.teacher-list
+  background #FFF
+
+  .teacher-list-item
+    display block
+    border-bottom .1rem solid #E5E5E5
+    padding 1.5rem 1.5rem 1.5rem 0
+    clearfix()
+
+    &.active
+      background-color link-active-background
+
+    .thumb
+      float left
+      width 11rem
+      padding-left .5rem
+      text-align center
+      position relative
+      .ui-avatar
+        margin 0 auto .8rem
+      .icon-v
+        display inline-block
+        size 2.3rem
+        line-height 2.5rem
+        text-align center
+        absolute right 0.6rem bottom 0.3rem
+        color #fff
+        background-color #ffa200
+        border-radius 100%
+        font-family arial, sans-serif
+        font-size 15px
+    .info
+      position relative
+      margin-left 11.5rem
+
+      p
+        margin .2rem 6.5rem 0 0
+        color gray
+        line-height 1.6rem
+
+    // 好评率
+    .levels
+      .label
+        display inline-block
+        vertical-align middle
+        color gray
+
+      .ui-stars
+        margin-top -0.2rem
+        width auto
+
+    // 标签
+    .tag-list
+      margin-top .5rem
+
+    // 价格
+    .price
+      absolute right top 2.3rem
+      color gray-dark
+
+      span
+        display block
+        text-align right
+        line-height 1.6rem
+
+      .num
+        color orange
+        font-size 1.3em
+        font-weight bold
+
+        i
+          font-size 1rem
+          font-weight normal

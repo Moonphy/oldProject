@@ -1,0 +1,24 @@
+---
+page_title: "个人设置页"
+header_bar_title: "个人设置"
+body_classes: ["config-page"]
+is_new: true
+user-config-change: true
+---
+extends _layout
+block content
+    .ui-panel
+        .form.form-config-change
+            a.form-row.student-current(href='',title='')
+                .info 学生姓名：欧阳某天
+                .info 手机号码：13800138000
+                //-i.iconfont.icon-tick
+            a.form-row(href='',title='')
+                .info 学生姓名：欧阳某天
+                .info 手机号码：13800138000
+            a.form-row.student-del(href='',title='')
+                .info 学生姓名：欧阳某天
+                .info 手机号码：13800138000
+                //-i.iconfont.icon-cha
+            .form-actions
+                a.btn.btn-primary.btn-block(href='',title='添加学生') 添加学生

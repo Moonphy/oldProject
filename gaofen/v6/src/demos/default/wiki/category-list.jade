@@ -1,0 +1,42 @@
+---
+page_title: "百科-分类列表"
+category: "default"
+body_class: ["wiki-page category-list-page"]
+stylesheets: ["wiki"]
+breadcrumb: ["初中百科", "中考招生"]
+---
+
+//- 模板继承
+extends _layout
+
+//- 导入分类网格
+include partials/_category-grid
+
+//- 导入分类列表
+include partials/_category-list
+
+//- 内容
+block content
+  // Start:面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End:面包屑导航
+
+  .container.page-content
+    .row.row14-6
+      .span14
+        .mod.mod-category
+          +heading({classes:"heading", title:"特色班"})
+          .alert.alert-info
+            i.ico
+            .info
+              p 暂无词条，小编正在努力为您搜罗！
+          +category-list({count:10})
+          +pagination({classes:"page_right"})
+      .span6
+        // Start: 挂件：分类导航
+        +widget-entry-list({ex_class:"widget-categories mt5", categories:["提前录取", "普通招生", "本地学校"], title:"分类导航"})
+        // End: 挂件：分类导航
+
+        // Start: 侧栏广告位
+        +ad({ex_class:["mb25"], width:280})
+        // End: 侧栏广告位

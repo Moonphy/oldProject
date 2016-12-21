@@ -1,0 +1,170 @@
+- var suffix = environment == "production" ? ".min" : "";
+
+//- 导入元件
+//------------------------------
+//- 全站公用元件
+include ../../partials/_components
+
+//- 导入侧栏挂件
+//------------------------------
+include ../../partials/_widgets
+
+//- 导入浮层
+//------------------------------
+include ../../partials/_modals
+
+//- 导入百度分享
+//------------------------------
+include ../../partials/_baidu-share
+
+//- 横幅
+mixin banner(subject)
+  .banner.mt20.mb15(class="banner-#{subject}")
+    h1.title= article.title
+    .status
+      span 1188人浏览
+      i |
+      span 389次下载
+      i |
+      span 500次收藏
+      i |
+      a(href="#", target="_blank") 提供方名称
+      i |
+      span 2014年8月8日发布
+    .operations
+      .share
+        +baidu-share
+      a(href="#").add-fav.hidden 收藏
+      a(href="#").add-fav.cancel-fav 取消收藏
+      .bg
+
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title= site_name + page_title
+    meta(name="keyword", content="")
+    meta(name="description", content="")
+    //- old_layout 定义在_data.json，若分站的页头与页脚统一了样式，可以移除该变量，且调用该变量的地方移除相应判断代码
+    if old_layout
+      link(rel="stylesheet",  href="#{current.base}css/default/base#{suffix}.css")
+    else
+      link(rel="stylesheet",  href="#{current.base}css/shared/base#{suffix}.css")
+    if stylesheets
+      each stylesheet in stylesheets
+        link(rel="stylesheet", href="#{current.base}css/#{category}/#{stylesheet}#{suffix}.css")
+  body(class=body_class ? body_class : false, id=body_id ? body_id : false)
+    #wrap
+      // Start:顶部导航
+      include ../../partials/_topbar
+      // End:顶部导航
+
+      .container
+        // Start:横幅
+        +banner("default")
+        +banner("chinese")
+        +banner("math")
+        +banner("english")
+        +banner("politics")
+        +banner("physics")
+        +banner("chemistry")
+        // End:横幅
+
+        // Start:专题简介
+        .box.clearfix
+          .topic-info
+            .status
+              .sec
+                p 打包价：
+                p
+                  i.num 100
+                  | 高分币
+                  span.hints
+                    span.bubble
+                      | 高分币是高分网的通用货币
+                      br
+                      | 兑换参考：
+                      a(href="#", target="_blank") 充值
+                      | 50元可获得510高分币。
+                      i.arrow
+                        i.arrow-border
+                        i.arrow-body
+                span
+                  | 原价
+                  i.discarded 200
+                  | 高分币
+              .sec.sec-total
+                p 包含
+                p
+                  i.num 13
+                  | 份资料
+                span
+                  | 资料
+            .actions
+              +button({option:"primary", text:"打包下载"})
+          .topic-intro
+            .hd
+              span 专题简介
+            .bd= article.content
+        // End:专题简介
+
+        .sec-preview
+          .aside
+            .box.mb25
+              .doc-list
+                ul
+                  - for(var i=1; i<=6; i++)
+                    li(class="#{i==1?'active':''}")
+                      .inner
+                        h4
+                          != i
+                          | .
+                          != article.title
+                        .operations
+                          | 共32页
+                          i |
+                          a(href="#", target="_blank") 购买单份资料
+              .pager
+                a(href="#").prev 上一组
+                a(href="#").next 下一组
+                span(href="#").prev-disabled 上一组
+                span(href="#").next-disabled 下一组
+
+            // Start: 专题推荐
+            +widget-post({title:"专题推荐", more:"更多"})
+            // End: 专题推荐
+
+            // Start: 热门搜索
+            +widget-tag-clouds({title:"热门搜索"})
+            // End: 热门搜索
+
+          .box.main
+            .reader
+              // Start:预览
+              #readcontainerparent
+                include partials/_picture-previewer
+                +picture-previewer
+              // End:预览
+
+      block content
+
+      // Start: 页脚
+      if old_layout
+        include ../../partials/_old-footer
+      else
+        include ../../partials/_footer
+      // End: 页脚
+
+    // Start: 返回顶部
+    include ../../partials/_gotop
+    // End: 返回顶部
+
+    //- 浮层
+    if environment != "production" || outputModal == true
+      +modal({modals:modals})
+
+    //- 资料预览工具条
+    include partials/_data-topic-toolbar
+
+    //- 脚本
+    include ../../partials/_scripts

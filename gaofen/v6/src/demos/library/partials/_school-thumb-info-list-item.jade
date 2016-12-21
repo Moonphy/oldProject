@@ -1,0 +1,20 @@
+mixin school-thumb-info-list-item(params)
+  - var params = params || {}
+  li
+    .thumb
+      a(href="#", target="_blank")
+        +dummy(140, 105)
+    .info
+      h3
+        a(href="#", target="_blank")= article.title
+      p.meta
+        | 公办学校，独立批/提前批，面向番禺区招生
+      if params.comments
+        +comment-pills
+      else
+        p.address
+          | 地址：广州市越秀区执信南路152号
+    .times 人气：112312
+    .operations
+      a(href="#", target="_blank") 加入对比
+      span 已加入对比

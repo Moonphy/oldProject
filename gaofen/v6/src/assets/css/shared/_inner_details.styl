@@ -1,0 +1,58 @@
+// 介绍和报道页详情
+// ==================================================
+
+// 页面简介信息元件
+@import "../partials/components/_tips"
+
+// 介绍描述
+.intro-details
+  margin-bottom 30px
+
+  // 详情小标题
+  .hd
+    margin-bottom 10px
+    font-size 14px
+    font-weight bold
+
+  .tips
+    margin 0 5px 20px 5px
+
+  .cont
+    margin 0 5px
+    font-size 14px
+    line-height 26px
+
+    p
+      margin-bottom 10px
+
+    ol
+    ul
+      padding-left 2em
+
+      li
+        line-height 26px
+
+  .tags
+    padding 20px 5px
+
+    .label
+      font-weight bold
+      color gray-darker
+
+    em
+      font-style normal
+      color #4A4A4A
+      margin-right 10px
+
+  .related-pics
+    margin 20px 0
+
+// 报道描述
+.report-details
+  @extend .intro-details
+
+  .cont
+    h3
+      font-size 14px
+      margin 20px 0
+      text-align center

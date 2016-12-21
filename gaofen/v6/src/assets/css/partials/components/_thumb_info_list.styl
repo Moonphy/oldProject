@@ -1,0 +1,51 @@
+// 元件：图文信息列表
+// ==================================================
+
+.thumb-info-list
+  overflow hidden
+  if support-for-ie
+    *zoom 1
+
+  .item
+    margin-top -15px
+    padding 20px 0 35px
+    clearfix()
+    split(top)
+
+    .thumb
+      float left
+      if support-for-ie
+        _display inline
+
+    .info
+      margin-left 180px
+      if support-for-ie
+        margin-left 177px
+
+      h3
+        margin 0 0 10px 0
+
+        a
+          font-size 14px
+          font-weight bold
+          highlight-link()
+
+      .details
+        p
+          margin 0
+          line-height 22px
+
+          span
+            color #4A4A4A
+
+          i
+            font-weight bold
+
+      .actions
+        margin-top 5px
+
+        .btn-disabled
+          height 24px
+          padding 0 15px
+          line-height 24px
+          font-size 12px

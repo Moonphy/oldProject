@@ -1,0 +1,176 @@
+// 页头
+// ------------------------------
+
+.header
+  position relative
+  left 0
+  top 0
+  width 100%
+  z-index z-index-header
+
+  .header-bar
+    position relative
+    background green
+    border-bottom .1rem solid #D1D1D1
+    clearfix()
+    z-index 1000
+
+  .city-switcher
+    absolute left top
+    width 5rem
+    height 4.5rem
+    line-height 4.5rem
+    color #FFF
+    padding 0 3rem 0 1rem
+    font-size 1.4rem
+
+    &::after
+      absolute right .8rem top 50%
+      content "\3612"
+      size 2.4rem
+      font-size 2.4rem
+      line-height 2.4rem
+      margin-top -1.2rem
+      color #FFF
+
+    &.active
+      color #239900
+
+      &::after
+        color #239900
+
+  .icon-down
+    absolute right 0.5rem top
+    //size 4rem 4.5rem
+    font-size 1.4rem
+    color #FFF
+    line-height 4.5rem
+    //text-align center
+    &::after
+      @extends $iconfont
+      content "\3612"
+
+  .icon-home
+  .icon-return
+  .icon-menu
+  .icon-user
+  .icon-message
+  .icon-evaluate
+  .icon-search
+  .icon-edit
+    &.active
+      color #239900
+
+  .icon-return
+    absolute left top
+    size 4rem 4.5rem
+    font-size 3rem
+    color #FFF
+    line-height 4.5rem
+    text-align center
+
+  .icon-home
+  .icon-search
+  .icon-menu
+  .icon-message
+  .icon-user
+  .icon-evaluate
+  .icon-edit
+    absolute right top
+    size 4rem 4.5rem
+    font-size 3rem
+    color #FFF
+    line-height 4.5rem
+    text-align center
+
+  .icon-message
+    right 4rem
+    i
+      font-size 10px
+      font-weight normal
+      line-height 1.2
+      padding 0 2px
+      background-color #e60000
+      border-radius 100%
+      absolute right top
+      top 3px
+      right 3px
+  .icon-search
+  .icon-edit
+  .icon-ping
+  .icon-evaluate
+    right 4rem
+  h1
+    margin 0
+    font-size 2rem
+    text-align center
+    height 4.5rem
+    line-height 4.5rem
+    color #FFF
+
+  .search-bar
+    background #FFF
+    width 100%
+    padding 0.5rem 0
+    absolute left top -1rem
+    border-bottom 1px solid #CCC
+    transition top .2s ease-out
+    clearfix()
+
+    input
+      width 71%
+      box-sizing border-box
+      font-size 1.6rem
+      color #333
+      outline none
+      padding 1rem 3%
+      background #F2F2F2
+      border 1px solid #D1D1D1
+      border-radius .3rem
+      margin 0 3%
+
+    button
+      font-size 1.8rem
+      color blue
+      border none
+      background none
+      padding 1rem 4%
+      line-height 1.8rem
+  .btn-bind
+    padding .3rem 1rem
+    absolute right 1rem top 1rem
+    font-size 1.2rem
+    color #59da36
+    border .1rem solid #59da36
+    border-radius 1rem
+  .btn-done
+    padding .3rem 1rem
+    absolute right 1rem top 1rem
+    font-size 1.2rem
+    color #219900
+    background-color #59da36
+    border .1rem solid #59da36
+    border-radius 1rem
+.icon-ping
+  size 2.7rem 2.6rem
+  line-height 2.8rem
+  text-align center
+  absolute right 4rem top 0.8rem
+  border-radius 0.9rem
+  color #239900!important
+  background-color #ffffff
+  font-size 1.4rem!important
+
+.search-page
+  .header
+    h1
+      font-size 1.6rem
+
+.right-1
+  right 0!important
+
+.right-2
+  right 3.5rem!important
+
+.right-3
+  right 7rem!important

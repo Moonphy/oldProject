@@ -1,0 +1,44 @@
+---
+page_title: "报读历史页"
+body_classes: ["history-page"]
+header_bar_title: "报读历史"
+name: true
+---
+
+extends _layout
+
+block content
+    ul.listView-wrap
+        li.listView: a(href='book-detail.html',title='初三').listView-container
+            .listView-left
+                p
+                    strong 初三
+                    strong 总课时：
+                    span.class-hour-total 40.0
+                p
+                    span 开课时间：
+                    time 2015-12-18
+            .listView-right
+                i.iconfont.icon-right
+        li.listView: a(href='book-detail.html',title='初二').listView-container
+            .listView-left
+                p
+                    strong 初二
+                    strong 总课时：
+                    span.class-hour-total 30.0
+                p
+                    span 开课时间：
+                    time 2015-12-18
+            .listView-right
+                i.iconfont.icon-right
+        li.listView: a(href='book-detail.html',title='初一').listView-container
+            .listView-left
+                p
+                    strong 初一
+                    strong 总课时：
+                    span.class-hour-total 20.0
+                p
+                    span 开课时间：
+                    time 2015-12-18
+            .listView-right
+                i.iconfont.icon-right

@@ -1,0 +1,55 @@
+---
+page_title: "我的订单页"
+body_classes: ["order-page"]
+header_bar_title: "我的订单"
+navbar: true
+loading: true
+user_evaluate: true
+user_config: true
+---
+
+extends _layout
+
+mixin tab-items
+  a.active(href="#")
+    span
+      | 全部
+      i (8)
+  a(href="#")
+    span
+      | 待付款
+      i (2)
+  a(href="#")
+    span
+      | 待排课
+      i (2)
+  a(href="#")
+    span
+      | 上课中
+      i (2)
+
+block content
+  .tab.scroll-start
+    .tab-items-container
+      .tab-items
+        +tab-items
+
+  .order-list
+    - for(var i=1; i<=10; i++)
+      .order-list-item
+        a.order-link(href="order-details.html", class="#{i==2?'active':''}")
+          h3
+            span.name 教师：卓老师
+            span.subject 科目：语文
+          .info
+            p 购买课时：20
+            p 订单状态：待付款
+            p 订单时间：2015-4-18 18:20
+        if i==1
+          a.btn.btn-primary(href="#") 付款
+        if i==2
+          a.btn.btn-primary(href="#") 评论
+  +pagination
+  +pagination({prev_disabled:true})
+  +pagination({next_disabled:true})
+

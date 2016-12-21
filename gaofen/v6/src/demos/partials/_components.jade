@@ -1,0 +1,500 @@
+//-----------------------------------------------------------
+//- 元件: 按钮
+//- 参数:
+//-   text:       String, 按钮文案, 默认为"确定"
+//-   type:       String, 按钮类型, 默认为"submit"
+//-   option:     String, 按钮风格, 可选"primary"|null, 默认为null
+//-   dimension:  String, 按钮尺寸, 可选"small"|null|"large", 默认为null
+//-   element:    String, 按钮标签, 可选null|"input"|"button", 默认为null, 输出a标签
+//-   disabled:   Boolen, 按钮是否处于禁用状态, 默认为null
+//-----------------------------------------------------------
+mixin button(params)
+  - var params = params || {}
+  - var button_text = params.text || "确定"
+  - var button_type = params.type || "submit"
+  - var button_classes = []
+
+  if (params.option)
+    - button_classes.push("btn-" + params.option)
+
+  if (params.dimension)
+    - button_classes.push("btn-" + params.dimension)
+
+  if params.disabled
+    span.btn.btn-disabled= button_text
+  else
+    case params.element
+      when "input"
+        label.btn(class= button_classes)
+          input(type= button_type, value= button_text)
+      when "button"
+        label.btn(class= button_classes)
+          button= button_text
+      default
+        a.btn(class= button_classes, href="#")= button_text
+
+//-----------------------------------------------------------
+//- 元件: Loading
+//- 参数:
+//-   text:       String, Loading文案, 默认为null
+//-   dimension:  String, Loading尺寸, 可选"mini"|null, 默认为null
+//-----------------------------------------------------------
+mixin loading(params)
+  - var params = params || {}
+
+  if params.dimension
+    if params.text
+      span.loading-mini= params.text
+    else
+      .loading-mini
+  else
+    .loading
+
+//-----------------------------------------------------------
+//- 元件: 选项卡
+//-----------------------------------------------------------
+mixin tab(tab_items)
+  .tab
+    each item in tab_items
+      if item.active
+        span.active= item.label
+      else
+        a(href="#")= item.label
+
+//-----------------------------------------------------------
+//- 元件: 选项卡2
+//-----------------------------------------------------------
+mixin tab-s2(tab_items)
+  .tab-s2
+    each item in tab_items
+      if item.active
+        span.active= item.label
+      else
+        a(href="#")= item.label
+
+//-----------------------------------------------------------
+//- 元件: 过滤器
+//- 参数:
+//-   label:        String, 过滤器名称
+//-   filte_items:  Array, 过滤项
+//-   hints:        Boolen, 是否显示右侧提示图标, 默认为null
+//-----------------------------------------------------------
+mixin filter(params)
+  - var params = params || {}
+
+  .filter
+    span.label!= params.label
+    .filter-cont
+      each item in params.filter_items
+        if item.active
+          span.active= item.label
+        else
+          a(href="#")= item.label
+    if params.hints
+      span.icon-hints
+
+//------------------------------------------------------------
+//- 元件: 标题
+//- 参数:
+//-   classes:      Array,  标题类名, 默认为["heading"]
+//-   more:         String, 右侧"更多", 默认为null
+//-   extra_links:  String, 右侧链接, 默认为null
+//-   extra:        String, 右侧文案, 默认为null
+//-   pager:        String, 右侧分页, 默认为null
+//-   link:         Boolen, 标题是否为链接, 默认为null, 输出纯文本
+//-   tabs:         Array,  标题选项卡, 默认为null
+//-   tabs_s2:      Array,  标题选项卡形式2, 默认为null
+//-   dropdowns:    Array,  标题下拉菜单, 默认为null
+//-   tags:         Array,  标题标签, 默认为null
+//------------------------------------------------------------
+mixin heading(params)
+  - var params = params || {}
+  - var heading_classes = params.classes || ["heading"]
+
+  div(class= heading_classes)
+    if params.more
+      a(href="#", target="_blank", class="more", title="#{params.more}")= params.more
+
+    //- 右侧链接
+    if params.extra_links
+      .extra-links!= params.extra_links
+
+    //- 右侧文案
+    if params.extra
+      span.extra
+        != params.extra
+
+    //- 右侧分页
+    if params.pager
+      .pager
+        a(href="#", title="下一组").next 下一组
+        a(href="#", title="上一组").prev 上一组
+        span(href="#").next-disabled 下一组
+        span(href="#").prev-disabled 上一组
+
+    //- 标题链接
+    if params.link
+      .title
+        a(href="#", target="_blank", title="#{params.title}")!= params.title
+    else
+      .title!= params.title
+
+    //- 标题带选项卡
+    if params.tabs
+      .tabs
+        each tab in params.tabs
+          a(href="#{tab.url}", class="#{tab.active ? 'active' : ''}")
+            != tab.label
+            != tab.count ? ' (' + tab.count + ')' : ''
+
+    //- 标题带选项卡形式2
+    if params.tabs_s2
+      .tabs-s2
+        each tab, index in params.tabs_s2
+          a.item(href="#{tab.url}", class="#{tab.active ? 'active' : ''}")= tab.label
+
+    //- 标题带下拉菜单
+    if params.dropdowns
+      .dropdown-group
+        each dropdown, index in params.dropdowns
+          .dropable(class="#{dropdown.active ? 'drop-on' : ''}")
+            span.trigger.caret
+              != dropdown.label
+              i
+              span.bg
+                span.bg-in
+            .dropdown
+              .dropdown-in
+                .options
+                  .inner
+                    each option in dropdown.options
+                      .item
+                        a(href="#")= option
+          unless index == params.dropdowns.length - 1
+            .seperator |
+
+    //- 标题带标签
+    if params.tags
+      .tags
+        each tag in params.tags
+          a(href="#", target="_blank")= tag
+
+//------------------------------------------------------------
+//- 元件: 图片占位符
+//- 参数:
+//-   width:  Number, 占位图片宽度, 默认160
+//-   height: Number, 占位图片高度, 默认120
+//------------------------------------------------------------
+mixin dummy(width, height)
+  - var w = width || 160
+  - var h = height || width || 120
+
+  img(src="#{current.base}img/dummies/#{w}x#{h}.png", alt="")
+  //- img.no-pic(src="#{current.base}img/blank.gif", width="#{w}", height="#{h}", alt="")
+
+//------------------------------------------------------------
+//- 元件: 头像占位符
+//- 参数:
+//-   width:  Number, 头像占位符宽度, 默认48
+//-   height: Number, 头像占位符高度, 默认48
+//------------------------------------------------------------
+mixin avatar(width, height)
+  - var w = width || 48
+  - var h = height || width || 48
+
+  img(src="#{current.base}img/dummies/avatar_#{w}x#{h}.png", alt="张三")
+
+//------------------------------------------------------------
+//- 元件: 缩略图
+//- 参数:
+//-   width:        Number, 占位图片宽度, 默认160
+//-   width:        Number, 占位图片高度, 默认120
+//-   thumb_title:  Boolen, 是否显示缩略图标题, 默认null
+//-   label:        Boolen, 标注类型, 默认null
+//-   label_text:   String, 标注, 默认null
+//-   ribbon:       Boolen, 右上缎带, 默认null
+//-   info:         Boolen, 信息, 默认null
+//-   school_info:  Boolen, 学校信息, 默认null
+//------------------------------------------------------------
+mixin thumb(params)
+  - var params = params || {}
+  - var thumb_width = params.width || 160
+  - var thumb_height = params.height || 120
+
+  // Start:缩略图
+  .thumb
+    a(href="#", title="#{article.title}")
+      +dummy(thumb_width, thumb_height)
+      if params.thumb_title
+        span.tit
+          em= article.title
+          i.bg
+      if params.label_text
+        span.label(class="#{params.label ? 'label-' + params.label:''}")!= params.label_text
+    if params.ribbon
+      span.ribbon
+        span 已结束
+        i
+  if params.info
+    p 时间: 12月17日 19:00-20:30
+    p 地点: 中国传媒大学培训学院
+
+  if params.school_info
+    p 级别: 省一级
+    p 地点: 广州市海珠区
+  // End:缩略图
+
+
+//------------------------------------------------------------
+//- 元件: 资料封面图
+//- 参数:
+//-   pack:   Boolen, 占位图片宽度, 默认null
+//-   ribbon: Boolen, 缎带, 默认null
+//------------------------------------------------------------
+mixin cover(params)
+  - var params = params || {}
+
+  .cover(class="#{params.pack? 'cover-pack':''}")
+    a(href="#", title="#{article.title}")
+      img(src="#{current.base}img/dummies/#{params.pack? 'cover_pack':'cover'}.png", alt="#{article.title}")
+      //- img.no-pic(src="#{current.base}img/blank.gif", alt="#{article.title}")
+    span.orn
+    if ribbon
+      span.ribbon 热卖
+
+//------------------------------------------------------------
+//- 元件: 广告
+//- 参数:
+//-   width:  Number, 广告图片宽度, 默认200
+//-   height:  Number, 广告图片高度, 默认70
+//-   count:  Number, 广告图片数量, 默认1
+//-   ex_class:  Array, 额外的类, 默认null
+//- 说明: 当参数count值大于1时显示页码
+//------------------------------------------------------------
+mixin ad(params)
+  - var params = params || {}
+  - var ad_width = params.width || 200
+  - var ad_height = params.height || 70
+  - var ad_count = params.count || 1
+  - var ad_class = ["picture-h" + ad_height]
+
+  if ad_count > 1
+    - ad_class = ad_class.concat(["slider"])
+  if params.ex_class
+    - ad_class = ad_class.concat(params.ex_class)
+
+  .picture(class=ad_class)
+    - for(var i=1; i<=ad_count; i++)
+      a(href="#", style="#{ad_count > 1 ? 'position:absolute; z-index:1; opacity:1; display:block;' : ''}")
+        img(width="#{ad_width}", height="#{ad_height}", src="#{current.base}img/dummies/#{ad_width}x#{ad_height}.png", alt="")
+        //- img.no-pic(width="#{ad_width}", height="#{ad_height}", src="#{current.base}img/blank.gif", alt="")
+    if ad_count > 1 && ad_width < 480
+      ul.pages
+        - for(var j=1; j<=ad_count; j++)
+          li(class=(j == 1) ? "active" : "")= j
+      span.prev
+      span.next
+
+//------------------------------------------------------------
+//- 元件: 面包屑
+//- 参数:
+//-   breadcrumb: Array, 面包屑数据, 默认null
+//------------------------------------------------------------
+mixin breadcrumb(params)
+  - var params = params || {}
+
+  if params.breadcrumb
+    .container(class=params.ex_class)
+      ul.breadcrumb
+        each item, index in params.breadcrumb
+          if index == params.breadcrumb.length - 1
+            li.active
+              span= item
+          else
+            li
+              a(href="#", target="_blank", title="#{item}")= item
+              span.divider &gt;
+
+//------------------------------------------------------------
+//- 元件: 分页
+//- 参数:
+//-   page_title: Boolen, 是否显示分页数据, 默认null
+//-   classes:    Boolen, 占位图片宽度, 默认null
+//------------------------------------------------------------
+mixin pagination(params)
+  - var params = params || {}
+
+  - var page_title = params.page_title === false ? false : true
+
+  div(class=params.classes || "page_centered")
+    .page_box
+      .pagelist.cls
+        if page_title
+          span.pltitle 1-30 条,  共 10000
+        span.page-numbers.current 1
+        a.page-numbers(href="#") 2
+        a.page-numbers(href="#") 3
+        span.page-numbers.dots ...
+        a.page-numbers(href="#") 334
+        a.next.page-numbers(href="#") 下一页
+
+//------------------------------------------------------------
+//- 元件: 文章列表
+//- 参数:
+//-   classes:      Array, 文章主题, ["post-list"]|["ranking-post"]
+//-                 |["data-post"], 默认["post-list"]
+//-   count:        String, 文章数量, 默认5
+//-   time:         Boolen, 是否带时间, 默认null
+//-   status:       Boolen, 是否带文章状态数据, 默认null
+//-   summary:      Boolen, 是否带简介, 默认null
+//-   subject:      Boolen, 文章主题, 默认null
+//-   subject_new:  Boolen, 另一种文章主题, 默认null
+//-   operations:   Boolen, 是否带百度分享, 默认null
+//------------------------------------------------------------
+mixin post-title(params)
+  - var params = params || {}
+
+  if params.subject
+    span.subject
+      | [
+      a(href="#", title="主题") 主题
+      | ]
+  if params.subject_new
+    span.subject
+      a(href="#", title="主题") 主题
+      span.seperator |
+  a(href="#", title="#{article.title}")= article.title
+
+mixin post-list(params)
+  - var params = params || {}
+  - var post_class = params.classes || ["post-list"]
+  - var post_cont = params.count || 5
+
+  if params.ex_class
+    - var post_class = post_class.concat(params.ex_class)
+
+  // Start: 文章列表
+  div(class=post_class)
+    ul
+      - for(var i = 1; i <= post_cont; i++)
+        if params.classes == "ranking-post"
+          li(class="#{i<=3 ? 'top':''}")
+            i= i
+            +post-title({subject:params.subject, subject_new:params.subject_new})
+        else if params.classes == "data-post"
+          li
+            i.icon-doc
+            +post-title({subject:params.subject, subject_new:params.subject_new})
+        else
+          li(class="#{params.first_item_highlighted && i == 1 ? 'highlight' : ''}")
+
+            if params.time
+              span.time 2013-01-15
+
+            if params.status
+              span.status= status
+
+            if params.summary
+              h2.title
+                +post-title({subject:params.subject, subject_new:params.subject_new})
+              p.summary= article.content
+            else
+              +post-title({subject:params.subject, subject_new:params.subject_new})
+
+            if params.operations
+              .operations
+                .bdsharebuttonbox.caret
+                  a.bds_more(data-cmd="more") 分享到
+                    i
+                .date 2013-04-10
+  // End: 文章列表
+
+//------------------------------
+//- 元件：下拉列表
+//------------------------------
+mixin dropdown(params)
+  - var params = params || {}
+
+  .ui-dropdown(class="#{params.hidden? 'hidden':''}")
+    .ui-dropdown-in
+      if query
+        // 正常状态
+        .query.query-blur
+          input(type="text", placeholder="请输入您要查找的学校名")
+          span.close
+        // 聚焦状态
+        .query.query-inserting
+          input(type="text", value="真光中学")
+          span.close
+      if params.options
+        .query-result.scrollable
+          ul
+            - for(var j=1; j<=params.options.count; j++)
+              li= params.options.text
+          .scroll-bar
+            .scroll-track
+            .scroll-thumb(style="height:40px;")
+      else
+        // 查找结果为空
+        .query-result
+          .tips-null 暂未能找到，换所学校试试？
+        // 查找结果
+        .query-result.scrollable
+          ul
+            - for(var j=1; j<=5; j++)
+              li(class="#{j==2 ? 'active' : ''}")
+                | 广州市
+                span.hl 天河区
+                | 华南师范大学附属中学
+          .scroll-bar
+            .scroll-track
+            .scroll-thumb(style="height:40px;")
+    i.arrow
+      i.arrow-border
+      i.arrow-body
+
+//------------------------------
+//- 元件：模拟select元素
+//------------------------------
+mixin select(params)
+  - var params = params || {}
+  - var select_class = []
+
+  if params.selected
+    - select_class = select_class.concat(["ui-select-selected"])
+
+  if params.ex_class
+    - select_class = select_class.concat(params.ex_class)
+
+  .ui-select(class=select_class)
+    .ui-select-trigger
+      span= params.value
+      input(value=params.value, type="text")
+      select
+        - for(var j=1; j<=params.options.count; j++)
+          option= params.options.text
+      i.triangle
+    +dropdown({options:params.options, hidden:true})
+
+//------------------------------------------------------------
+//- 元件: 链接云
+//- 参数:
+//-   link_title: String, 链接云标题, 默认"友情链接"
+//------------------------------------------------------------
+mixin link-cloud(params)
+  - var params = params || {}
+
+  .link-cloud
+    h3= params.link_title || "友情链接"
+    - var i = 10
+    - while(i--)
+      a(href="#", target="_blank", title="广州家长论坛") 广州家长论坛
+      a(href="#", target="_blank", title="卓越教育") 卓越教育
+      a(href="#", target="_blank", title="微学府") 微学府
+
+//------------------------------
+//- 元件: 关闭
+//------------------------------
+mixin close
+  a.close(href="#") ×
+

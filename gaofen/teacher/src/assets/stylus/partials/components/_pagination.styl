@@ -1,0 +1,32 @@
+// 元件分页
+// ------------------------------
+
+.ui-pagination
+  display flex
+  background #FFF
+  border-bottom .1rem solid #D9D9D9
+  font-size 1.6rem
+
+  a
+  span
+    flex 1
+    display block
+    height 4.5rem
+    line-height 4.5rem
+    text-align center
+    color gray
+
+  a
+    color gray-dark
+
+    &.active
+      background link-active-background
+
+  span
+    border .1rem solid #E6E6E6
+    border-width 0 .1rem
+
+  .disabled
+    color gray
+    border none
+    background #E5E5E5

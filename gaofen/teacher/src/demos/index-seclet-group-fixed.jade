@@ -1,0 +1,40 @@
+---
+page_title: "首页(选择框组固定)"
+header_bar_title: "牛师帮"
+select_group: true
+body_classes: ["search-page filter-bar-fixed"]
+navbar: true
+---
+
+extends _layout
+
+block ad
+  +ad(640, 100)
+
+block content
+
+  .teacher-list
+    - for(var i=1; i<=10; i++)
+      a.teacher-list-item(href="details.html", class="#{i==2?'active':''}")
+        .thumb
+          +avatar(128)
+        .info
+          +teacher-name
+          p 英语、数学 | 小学、初中
+          p 教龄：10年
+          +stars-with-text({count:5, size:"small", trim:true})
+          +tag-list([{label:"课堂幽默"}, {label:"奇趣英语"}, {label:"课余耐心指导"}])
+          .price
+            span.num
+              i ￥
+              | 200
+              i 起
+            span.unit 元/小时
+  +pagination
+  +pagination({prev_disabled:true})
+  +pagination({next_disabled:true})
+
+block filter-bar
+  .filter-bar
+    +filter-group([{label:"区域", active:true, count:10}, {label:"年级"}, {label:"学科"}, {label:"排序"}])
+    +options(15)

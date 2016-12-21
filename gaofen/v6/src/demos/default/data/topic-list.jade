@@ -1,0 +1,55 @@
+---
+page_title: "广州站-资料频道-资料专题列表页"
+category: "default"
+body_class: ["data-page search-result"]
+stylesheets: ["data"]
+breadcrumb: ["资料", "精华汇编", "高考"]
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 内容
+block content
+  // Start: 主导航
+  +navbar(default_nav_links)
+  // End: 主导航
+
+  // Start: 面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End: 面包屑导航
+
+  .container.page-content
+    .data-filters
+      +filter({label: "学<i class=\"gap\"></i><i class=\"gap\"></i>科：", filter_items:[{label: "全部学科", active:true}, {label:"语文"}, {label:"数学"}, {label:"英语"}, {label:"文综"}, {label:"理综"}, {label:"其他"}]})
+    .link-more
+      a(href="#", target="_blank") 充值即送高分币
+    .thumb-data-list.data-topic-list
+      - var i = 10
+      - while(i--)
+        .item
+          +cover
+          .info
+            h3.title
+              a(href="#", title="#{article.title}")= article.title
+            .details
+              p.desc= article.content
+              p.status
+                span 1188人浏览
+                i |
+                span 389次下载
+                i |
+                span 2014年7月1日发布
+                i |
+                span 12M
+                i |
+                span doc文档
+          .operations
+            p
+              | 下载需
+              span.hl 10
+              | 高分币
+            a(href="#", target="_blank")
+              | 免费试读
+              i &gt;&gt;
+    +pagination({classes:"page_right"})

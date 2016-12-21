@@ -1,0 +1,619 @@
+// 简介：定义高分网课程页面样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 侧栏导航
+@import "../shared/_nav_aside_s2"
+
+// 侧栏挂件：人物介绍
+@import "widgets/_people"
+
+
+// 元件
+// ------------------------------
+
+// 课程列表
+.course-list
+  margin-left -35px
+  clearfix()
+
+  .thumb
+    size 200px 135px
+
+  .item
+    float left
+    width 200px
+    margin 0 0 30px 35px
+    if support-for-ie
+      _display inline
+
+    .title
+      margin 5px 0
+      font-size 14px
+      height 22px
+      line-height 22px
+      overflow hidden
+
+    .status
+      color #999
+
+      i
+        color #D9D9D9
+        margin 0 6px
+
+// 评论列表
+.comment-list
+  ul
+    remove-list-style()
+
+  li
+    clearfix()
+    padding 20px 0
+    split()
+
+  .avatar
+    float left
+    size 40px
+
+    img
+      width 40px
+
+  .info
+    margin-left 55px
+    line-height 20px
+    if support-for-ie
+      _margin-left 52px
+
+    p
+      margin 0
+      color gray-darker
+
+    .author
+      margin-top 2px
+      color #363636
+
+      .date
+        color #999
+        margin-left 10px
+
+// 布局
+// ------------------------------
+.page-content
+  overflow-x visible
+
+.list-page
+  .row5-15
+    .span15
+      width 690px
+      margin-left 50px
+
+.details-page
+  .row14-6
+    .span6
+      width 260px
+      margin-left 50px
+
+// 模块
+// ------------------------------
+
+.mod
+  margin-bottom 25px
+
+.mod-free
+  margin-bottom 0
+
+.mod-comments
+  .heading
+    margin 0
+
+  .alert
+    margin 10px 0 200px
+    padding-top 15px
+
+// 课程首页
+// ------------------------------
+
+// 横幅
+.banner
+  margin-bottom 5px
+
+  img
+    display block
+
+// 课程列表
+.course-list-s2
+  overflow hidden
+
+  ul
+    remove-list-style()
+    margin-left -40px
+    clearfix()
+
+  li
+    position relative
+    float left
+    margin 20px 0 0 40px
+    size 300px 280px
+    overflow hidden
+    if support-for-ie
+      _display inline
+    background #F7F7F7
+
+    .pic
+      position relative
+      display block
+      size 300px 200px
+      overflow hidden
+
+      img
+        display block
+
+      .bg
+        absolute left top
+        size 100%
+        background #000
+        opacity 0
+        cursor pointer
+        transition opacity .4s
+
+      .txt
+        absolute right 15px bottom
+        height 40px
+        line-height 40px
+        cursor pointer
+        text-align right
+        color #FFF
+        opacity 0
+        font-size 22px
+        transition .4s
+
+      &:hover
+        text-decoration none
+
+        .bg
+          opacity .5
+
+        .txt
+          opacity 1
+          text-decoration none
+
+    .subject
+      absolute left top 215px
+      size 68px 36px
+      line-height 36px
+      background #137DCF
+      color #FFF
+      font-size 20px
+      text-align center
+
+    .info
+      padding 12px 10px 0 75px
+
+      .tit
+        font-weight bold
+        font-size 14px
+        height 22px
+        overflow hidden
+
+        a
+          color gray-darker
+
+    .status
+      color #808080
+
+      i
+        color #D9D9D9
+        margin 0 5px
+
+      a
+        color #808080
+
+  .more
+    background url("img/course/more_course.png") no-repeat
+
+// 试听课
+.audition
+  position relative
+  padding-top 80px
+  border-top 1px solid #DADADA
+  margin 50px 0 60px
+
+  .hd
+    absolute left 50% top -20px
+    margin-left -95px
+    width 190px
+    padding 0 20px
+    background #FFF
+    font-size 30px
+    color #4F4F4F
+    text-align center
+    line-height 32px
+
+    span
+      display block
+      font-size 18px
+      color #808080
+
+  ul
+    remove-list-style()
+    clearfix()
+
+  li
+    float left
+    size 215px 80px
+    padding 10px 0 0 110px
+    background-image url("img/course/audition_bg.png")
+    background-repeat no-repeat
+
+    h3
+      margin 0
+      font-size 14px
+      color gray-darker
+
+    p
+      margin 0
+      color #4E4E4E
+
+  .weixin
+    background-position 20px 0
+
+  .consult
+    background-position 20px -110px
+
+  .cooperation
+    width 200px
+    padding-left 125px
+    background-position 20px -220px
+
+
+// 最新评价
+.comment-list-s2
+  .user
+    margin-bottom 10px
+    font-size 14px
+    color #808080
+    clearfix()
+
+    .avatar
+      float left
+      size 30px
+      overflow hidden
+
+      img
+        size 30px
+
+    .name
+      padding-top 10px
+
+      span
+        margin 0 4px 0 10px
+        color gray-darker
+
+  .cont
+    position relative
+    padding 10px
+    background #F2F2F2
+
+    .arrow
+      absolute left 10px top -10px
+      caret #F2F2F2 5px up
+
+    .desc
+      height 54px
+      margin-bottom 10px
+      overflow hidden
+
+    .title
+      margin-bottom 5px
+      text-align right
+      height 18px
+      overflow hidden
+
+      a
+        highlight-link()
+
+    .status
+      text-align right
+      color #808080
+
+      i
+        color #D9D9D9
+        margin 0 5px
+
+// 课程列表页
+// ------------------------------
+.list-page
+  .course-list
+    margin-left -45px
+
+    .item
+      margin-left 45px
+
+.mod-course-list
+  .heading-tabs
+    .tabs
+      float right
+
+      a
+        font-size 12px
+        padding 0 10px
+
+// 课程详情页
+// ------------------------------
+.mod-course
+  .intro
+    margin-bottom 20px
+    clearfix()
+
+    .thumb
+      float left
+      width 280px
+      height 189px
+      overflow hidden
+
+      img
+        width 280px
+
+    .info
+      margin-left 310px
+      color #666
+      if support-for-ie
+        _margin-left 307px
+
+      p
+        margin 0
+        line-height 26px
+        color gray-darker
+
+        .label
+          color #999
+
+        a
+          color gray-darker
+
+      .actions
+        margin-top 15px
+
+        span
+          margin-left 20px
+          color #999
+
+        .btn-disabled
+          margin 0
+          background #E5E5E5
+          color #808080 !important
+          border-color #D9D9D9
+
+  .hints
+    position relative
+    padding 7px 20px
+    background #FFFBEC
+    border 1px solid #F7E9BA
+    font-size 14px
+    if support-for-ie
+      *zoom 1
+
+    a
+      highlight-link()
+      font-weight bold
+
+    .arrow
+      absolute left 30px top -12px
+      z-index 1000
+
+    .arrow-border
+      absolute left top
+      caret #F7E9BA 6px up
+
+    .arrow-body
+      absolute left top 1px
+      caret #FFFBEC 6px up
+
+
+.mod-features
+  margin-top 25px
+
+.mod-features
+.mod-desc
+  .info
+    font-size 14px
+    line-height 24px
+    margin-bottom 30px
+
+// 机构页
+// ------------------------------
+.mod-intro
+  .intro
+    padding-top 15px
+    margin-bottom 25px
+    clearfix()
+
+    .thumb
+      float left
+      width 200px
+      height auto
+
+      img
+        width 200px
+
+    .info
+      margin-left 230px
+      color #666
+      if support-for-ie
+        _margin-left 227px
+
+      h3
+        margin 0 0 10px
+
+      a
+        highlight-link()
+
+
+// 侧栏挂件
+// ------------------------------
+
+// 评价
+.widget
+  .comments
+    .item
+      margin-bottom 25px
+
+    .title
+      font-size 14px
+      margin-bottom 5px
+
+      a
+        color gray-darker
+
+    .status
+      margin-bottom 8px
+      color #999
+
+      i
+        margin 0 8px
+        color #C4C4C4
+
+    .cont
+      background #F5F5F5
+      padding 10px
+      color #676767
+
+      .info
+        margin-bottom 10px
+
+      .author
+        a
+          color #333
+
+        img
+          size 20px 20px
+          vertical-align middle
+          margin-right 10px
+
+// 老师介绍
+.widget-people
+  .heading
+    margin-bottom 0
+
+  .people-intro
+    margin 20px 0 0
+
+  .avatar
+    size 60px
+
+  .info
+    margin-left 70px
+
+// 地图
+.widget-map
+  .map
+    size 260px 300px
+
+
+// 浮层
+// ------------------------------
+
+// 报名浮层
+.modal-apply
+  center-modal(570, 420)
+  size 570px auto
+
+  .modal-body
+    padding-bottom 40px
+
+  // 表单
+  .form
+    margin-top 10px
+
+    .form-row
+      margin-bottom 20px
+
+      .control-label
+        width 100px
+
+    .actions
+      margin-left 110px
+
+    .name
+      .controls
+        font-size 14px
+        line-height 24px
+        width 320px
+        margin-top 3px
+
+    .multi
+      .help-inline
+        margin-top 0
+        line-height 1.2
+        background-position -20px -231px
+
+// 评价课程浮层
+.modal-comment
+  center-modal 530 380
+  size 530px auto
+
+  .modal-body
+    padding 30px 0 50px 40px
+
+  .form
+    textarea
+      size 310px 150px
+      resize none
+      font-size 14px
+      line-height 24px
+
+    .name
+      .controls
+        font-size 14px
+        line-height 30px
+
+    .actions
+      .btn
+        width auto
+
+  .success
+    .help-inline
+      width auto
+      text-indent 0
+      color #4A4A4A
+
+  .alert
+    padding-top 15px
+    padding-right 80px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

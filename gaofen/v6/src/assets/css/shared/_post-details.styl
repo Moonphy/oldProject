@@ -1,0 +1,71 @@
+// 文章内容
+// 注：此文件同时供后台编辑器引用
+
+post-content()
+  a
+    color link-color-hover
+    border-bottom 1px dashed
+
+    &:hover
+      color link-color-hover
+      text-decoration none
+      border-bottom-style solid
+
+  p
+    margin 1.5em 0
+    line-height 26px
+    font-size 14px
+
+  em
+    color #D80102
+    font-style normal
+    font-weight bold
+
+  h2
+    font-size 16px
+    margin 1.5em 0
+
+  h3
+    margin 1.5em 0
+    font-size 14px
+
+  table
+    width 100%
+    border-collapse collapse
+
+    td
+      border 1px solid #D9D9D9
+      padding 20px 10px
+      font-size 14px
+
+      p
+        margin 0
+
+  .img-link
+    border none
+
+    &:hover
+      border none
+
+// 表格
+post-table()
+  .post-table
+    width 100%
+    margin 25px 0
+    border-collapse collapse
+    border 1px solid #D9D9D9
+    border-width 1px 0 0 1px
+    font-size 14px
+
+    th
+    td
+      border 1px solid #D9D9D9
+      border-width 0 1px 1px 0
+      text-align center
+
+    th
+      background #F6F6F6
+      padding 10px 5px
+
+    td
+      padding 20px 5px

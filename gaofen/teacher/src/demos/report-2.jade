@@ -1,0 +1,175 @@
+---
+page_title: "学习报告页"
+body_classes: ["report-page"]
+header_bar_title: "学习报告"
+navbar: false
+loading: false
+user_config: false
+is_new: true
+---
+extends _layout
+block css
+    link(rel="stylesheet", type="text/css", href="#{current.base}css/feedback.css")
+block content
+    .plr-1
+        h3.mt20 课程信息
+        .table-wrap.mb10
+            .table-v
+                .tr
+                    .th 学生姓名
+                    .td 小绿人
+                    .th 年级
+                    .td 初一
+                .tr
+                    .th 科目
+                    .td 数学
+                    .th 授课教师
+                    .td 李老师
+                .tr
+                    .th 上课日期
+                    .td 2016-3-16
+                    .th 上课时段
+                    .td 9:00-12:00
+                .tr
+                    .th 辅导内容
+                    .td(colspan='3') 三角函数
+        h3 上次辅导作业情况
+        .table-wrap.mt--20
+            .total-wrap
+                .row
+                    .y-name 正确数
+                    .y-value
+                        .valueY(data-value='18') 18
+                .row
+                    .y-name 完成数
+                    .y-value
+                        .valueY(data-value='22') 22
+                .row
+                    .y-name 总题量
+                    .y-value
+                        .valueY(data-value='32') 32
+        h3.mt20 本周辅导学情
+        .table-wrap
+            .analysis-detail
+                .h3 课堂讲练
+                .analysis-wrap
+                    .img-wrap
+                        img(src="#{current.base}images/analysis-img.png", alt="学生照片")
+                        div.ti-num
+                            span 8
+                            | 题
+                        div.ti-num
+                            span 15
+                            | 题
+                        div.ti-num
+                            | 对：
+                            span 8
+                            | 题
+                            br
+                            | 错：
+                            span 4
+                            | 题
+                        div.ti-num
+                            | 对：
+                            span 8
+                            | 题
+                            br
+                            | 错：
+                            span 4
+                            | 题
+
+            .analysis-detail
+                .h3 知识掌握
+                .analysis-wrap.pl10.pr10.pb20
+                    .clearfix
+                        .analysis-pie
+                            p.text-overflow 二次函数的图像二次函数的图像
+                            p.font-grey 题量：
+                                span 10
+                            p.font-grey 正确率：
+                                span.font-blue 80%
+                            // 饼图
+                            #pie-1
+                            +label('仍需努力','orange')
+                        .analysis-pie
+                            p.text-overflow 二次函数的图像
+                            p.font-grey 题量：
+                                span 10
+                            p.font-grey 正确率：
+                                span.font-blue 80%
+                            #pie-2
+                            +label('已掌握','blue')
+                        .analysis-pie
+                            p.text-overflow 二次函数的图像
+                            p.font-grey 题量：
+                                span 10
+                            p.font-grey 正确率：
+                                span.font-blue 80%
+                            #pie-3
+                            +label('发奋图强','purple')
+
+            .analysis-detail
+                .h3 课堂表现
+                .analysis-wrap
+                    .tl.mb5
+                        span 主动专注：
+                        +stars({count:5})
+                    .tl.mb5
+                        span 勤思善问：
+                        +stars({count:4})
+                    .tl.mb10
+                        span 习惯优良：
+                        +stars({count:3})
+
+
+        h3.mt20 老师评语
+        .table-wrap.mt--20.bg-grey
+            p 第一期
+                br
+                | 开发自动匹配评价（主要从学习能力+学习习惯+学习心理+学习成绩等方面评价）+教师个性化评价
+            p 第二期
+                br
+                | 开发自动匹配评价（主要从学习能力+学习习惯+学习心理+学习成绩等方面评价）+教师个性化评价
+        h3.mt20 家长配合
+        .table-wrap.mt--20.bg-grey
+            p 第一期
+                br
+                | 开发自动匹配评价（主要从学习能力+学习习惯+学习心理+学习成绩等方面评价）+教师个性化评价
+            p 第二期
+                br
+                | 开发自动匹配评价（主要从学习能力+学习习惯+学习心理+学习成绩等方面评价）+教师个性化评价
+            pre
+              | 个性化评价   个性化评价  习能力+学习习惯+学习心理+学习成绩等方面评价）
+            code 个性化评价   个性化评价  习
+
+block javascript
+    script(type="text/javascript", src="#{current.base}scripts/echarts.js")
+    script.
+        // 第一个图
+        var wrapW = document.getElementsByClassName("y-value")[0].offsetWidth,
+                scaleW = wrapW * 0.9;
+        var valueY = document.getElementsByClassName("valueY");
+        var max = valueY[2].attributes["data-value"].value;
+        for (var i = 0; i < valueY.length; i++) {
+            var N = valueY[i].attributes["data-value"].value
+            valueY[i].style.width = N / max * scaleW + 'px';
+        }
+
+        //echarts构建饼图
+        //var mychart1 = echarts.init($('#pie-1'));
+        var option1 = {
+            title: {
+                text: '二次函数的图像'
+            },
+            series: [{
+                name: '二次函数的图像',
+                type: 'pie',
+                center: ['50%','45%'],
+                radius: '50%',
+                data: [
+                    {value: '60%', name:'正确率'},
+                    {value: '40%', name:'正确率'}
+                ]
+            }]
+        };
+        //mychart1.setOption(option1);

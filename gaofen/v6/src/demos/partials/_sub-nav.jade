@@ -1,0 +1,23 @@
+mixin sub-nav(params)
+  - var params = params || {}
+
+  .container(class="#{params.ex_class ? params.ex_class:''}")
+    .sub-nav
+      span
+        a(href="#", target="_blank") 小升初要闻
+      span
+        a(href="#", target="_blank") 小升初政策
+      span
+        a(href="#", target="_blank") 小升初面试
+      span
+        a(href="#", target="_blank") 小升初竞赛
+      span
+        a(href="#", target="_blank") 学科备考
+      span
+        a(href="#", target="_blank") 小升初择校
+      span
+        a(href="#", target="_blank") 分数线
+      span
+        a(href="#", target="_blank") 招生简章
+      span
+        a(href="#", target="_blank") 小升初家长论坛

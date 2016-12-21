@@ -1,0 +1,101 @@
+---
+page_title: "广州站-课程频道-首页"
+category: "default"
+body_class: ["course-page"]
+stylesheets: ["course"]
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 内容
+block content
+  // Start:主导航
+  +navbar(default_nav_links)
+  // End:主导航
+
+  .container.page-content
+    // Start: 横幅
+    .banner
+      img(src="#{current.base}img/course/banner.jpg", alt="")
+    // End: 横幅
+
+    // Start: 课程列表
+    .mod.mod-courses
+      .course-list-s2
+        ul
+          - for(var i=1; i<=6; i++)
+            - if (i!=6)
+              li
+                a.pic(href="details.html", target="_blank")
+                  +dummy(300, 200)
+                  span.bg
+                  span.txt
+                    | 进入课程
+                    i &gt;
+                span.subject 英语
+                .info
+                  .tit
+                    a(href="#", target="_blank", title="#{article.title}")= article.title
+                  .status
+                    span 17人报名
+                    i |
+                    span 免费
+                    i |
+                    a(href="institute.html", target="_blank") 新东方
+            - else
+              li.more
+    // End: 课程列表
+
+    // Start: 最新评价
+    .mod.mod-latest-comments
+      +heading({title:"最新评价"})
+      .row.comment-list-s2
+        - var i = 4
+        - while(i--)
+          .span5.item
+            .user
+              .avatar
+                +avatar(30)
+              .name
+                span= article.author
+                | 的评价：
+            .cont
+              .desc
+                | “
+                != article.summary
+                | ”
+              .title
+                a(href="#", target="_blank", title="#{article.title}") 英语一对一提高班
+              .status
+                span 17条评价
+                i |
+                span 31人参加
+              i.arrow
+    // End: 最新评价
+
+    // Start: 试听课
+    .audition
+      .hd
+        | 高分试听课
+        span 帮您找到最心仪的课程
+      ul
+        li.weixin
+          h3 关注微信
+          p
+            | 登录微信关注公众号“高分试听课”
+            br
+            | 立即了解更多试听课信息
+        li.consult
+          h3 课程咨询
+          p
+            | 拨打客服热线：400-517-517
+            br
+            | 专人为您查找课程信息
+        li.cooperation
+          h3 机构合作
+          p
+            | 有意合作的教育机构，可加
+            br
+            | QQ详聊合作方案
+    // End: 试听课

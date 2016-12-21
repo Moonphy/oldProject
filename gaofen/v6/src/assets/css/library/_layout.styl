@@ -1,0 +1,19 @@
+// 主布局：span14 + span6
+// 使用场景：带右侧栏，左栏为内容区
+// 注：设计稿不完全遵从栅格，左栏宽度比标准栅格少10px
+// ----------------------------------------------
+.row14-6
+  .span14
+    // 宽度比标准栅格少10px
+    width grid-column-width * 14 + grid-gutter-width * 13 - 10
+
+    .row7-7
+      margin-left -30px
+
+    .span7
+      width grid-column-width * 7 + grid-gutter-width * 6 - 10
+      margin-left 30px
+  .span6
+    // 右栏补回左栏缺少的10px
+    margin-left grid-gutter-width + 10
+

@@ -1,0 +1,240 @@
+// 简介：定义高分网深圳站小学和初中频道首页样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 链接云
+@import "../shared/_link_cloud"
+
+// 基于Base对深圳站的某些样式做全局性质的改动
+@import "_extends_base"
+
+// 高亮小文章列表链接
+// Todo: 如果确定是12px字体的文章列表都是蓝色，
+// 则可以将如下代码移到extends_base
+.post-list
+  a
+    highlight-link()
+
+// 元件
+// ------------------------------
+
+// 投票按钮元件
+@import "components/_btn_vote"
+
+// 布局
+// ------------------------------
+.page-content
+  margin-top 20px
+
+// 子布局：11 + 4
+// 使用场景：嵌套在子布局的12列中
+// 注：设计稿不完全遵从栅格，需要强行重置栅格宽度
+// ==================================================
+.row15-5
+  .row11-4
+    .span11
+      // 因在不标准的栅格中细分栅格，故少2个列距
+      width grid-column-width * 11 + grid-gutter-width * 9
+
+    .span4
+      width (grid-column-width + grid-gutter-width) * 4
+
+// 模块
+// ------------------------------
+.mod
+  margin-bottom 25px
+  highlight-subject()
+
+// 子模块标题
+.sub-hd .title,
+.sub-hd-noline .title
+  font-size 14px
+
+// 日历模块
+.mod-calendar
+  float left
+  width 300px
+
+  .heading
+    margin-bottom 4px
+
+  ul
+    remove-list-style()
+
+  li
+    split()
+    font-size 14px
+    padding 7px 0 8px
+    clearfix()
+
+  .time
+    float left
+    width 100px
+
+  .subject
+    float left
+    size 200px 20px
+    overflow hidden
+
+    a
+      highlight-link()
+
+// 专题模块
+.mod-topic
+  float right
+  width 200px
+
+  .heading
+    border none
+    margin 0
+
+// 指南
+.mod-guide
+  clear both
+
+  .headline
+    margin 0 10px 0 5px
+
+    .title
+      padding 5px 0
+      font-size 14px
+      font-weight bold
+
+      a
+        highlight-link()
+
+    .info
+      line-height 22px
+      color #4A4A4A
+      height 66px
+      overflow hidden
+
+      a
+        highlight-link()
+
+// 今日话题
+.focus-today
+  background #E7F0F8
+  padding 10px
+  border 1px solid #CADAEA
+  margin-bottom 10px
+  height 180px
+
+  .hd
+    position relative
+    background #0B60A1
+    color #FFF
+    font-size 14px
+    font-weight bold
+    text-align center
+    line-height 30px
+    size 86px 30px
+    margin-top -16px
+    margin-bottom 10px
+
+  .topic
+    font-weight bold
+    font-size 14px
+
+    a
+      highlight-link()
+
+  p
+    max-height 60px
+    overflow hidden
+    margin 6px 0 10px
+    color #777
+    line-height 20px
+
+  .actions
+    text-align center
+
+    .btn-approve
+      margin-right 5px
+
+// 热门资料标签
+.hot-tags
+  .tags
+    clearfix()
+    padding-left 5px
+
+    a
+      float left
+      highlight-link()
+      line-height 24px
+      margin-right 10px
+      white-space nowrap
+
+// 家长社区模块
+.mod-bbs
+  margin-bottom 10px
+
+  .heading
+    .status
+      float right
+      margin-right 5px
+      font-size 14px
+
+.forums
+  ul
+    clearfix()
+    remove-list-style()
+    margin-bottom 0
+
+  li
+    float left
+    size 152px 26px
+    padding-left 18px
+    line-height 26px
+    overflow hidden
+    background url("../img/dot.png") no-repeat 7px 11px
+    font-size 14px
+
+    span
+      margin-left 5px
+
+// 侧栏签到
+@import "components/_sign"
+
+.widget-sign
+  margin-bottom 16px
+
+// 侧栏家长热议
+.widget-discuss
+  margin-top 42px
+  margin-bottom 29px
+
+// 侧栏高分新媒体挂件
+.widget-sns
+  @extend $widget-sns
+  margin-bottom 10px
+
+  .sns
+    clearfix()
+
+  .sec
+    float left
+
+  .weibo
+  .qq-space
+    width 100px
+
+  .qq-group
+  .wechat
+    width 130px
+
+  .wechat
+    img
+      border 5px solid #FFF

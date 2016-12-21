@@ -1,0 +1,19 @@
+//------------------------------
+//- 词条分类
+//------------------------------
+mixin category-list(params)
+  - var params = params || {}
+
+  .category-list
+    - while(params.count--)
+      .item
+        .tit
+          a(href="#", target="_blank")= article.title
+        .desc
+          p= article.summary
+        .related
+          span 相关词条：
+          - var i=4
+          - while(i--)
+            a(href="entry-details.html", target="_blank", title="毕业考试") 毕业考试
+

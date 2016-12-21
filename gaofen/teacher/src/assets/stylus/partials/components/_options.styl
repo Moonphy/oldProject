@@ -1,0 +1,67 @@
+// 元件: 下拉选项
+// ------------------------------
+.ui-options-flex
+  display: flex
+  flex-flow row
+  ul
+    flex-grow 1
+    height: 100%
+    overflow auto
+    box-sizing border-box
+    border-right .1rem solid #e6e6e6 !important
+  li
+    box-sizing border-box
+    background-color #f4f4f4 !important
+    //border-right .1rem solid #e6e6e6 !important
+
+  .ui-option-selected
+    background-color #ffffff !important
+
+.ui-options,.ui-options-flex
+  absolute left top 4.5rem
+  size 100% 30rem
+  transform translateY(-10%) translateZ(0)
+  opacity 1
+  overflow auto
+  background #FFF
+  z-index -1
+
+  ul
+    reset-list()
+    width 100%
+    background #FFF
+
+  li
+    height 4rem
+    line-height 4rem
+    font-size 1.6rem
+    border-bottom .1rem solid #E6E6E6
+    text-indent 1rem
+    color #4D4D4D
+
+    a
+      display block
+
+  .ui-option-selected
+    a
+      position relative
+
+      &::before
+        @extends $iconfont
+        absolute right 1rem top 50%
+        content "\3614"
+        size 4rem
+        font-size 2.4rem
+        color green
+        margin-top -2rem
+
+.show-options
+  height 100%
+  overflow hidden
+
+  .ui-options, .ui-options-flex
+    animation slide-down .4s ease-in-out both
+
+.hide-options
+  .ui-options, .ui-options-flex
+    animation slide-up .4s ease-in-out both

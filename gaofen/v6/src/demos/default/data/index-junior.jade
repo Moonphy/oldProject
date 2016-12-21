@@ -1,0 +1,128 @@
+---
+page_title: "广州站-资料频道-中考首页"
+category: "default"
+body_class: ["data-page"]
+stylesheets: ["data"]
+breadcrumb: ["资料", "中考"]
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 导入资料图文列表项
+include ../../partials/_data-thumb-info-item
+
+//- 导入资料网格项
+include ../../partials/_data-grid-item
+
+//- 内容
+block content
+  // Start: 主导航
+  +navbar(default_nav_links)
+  // End: 主导航
+
+  +ad({width:980, ex_class:["container", "mb15", "mt15"], count:3})
+
+  // Start: 面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End: 面包屑导航
+
+  .container.page-content
+    .mod.mod-data-rec
+      +heading({title:"热门推荐"})
+      .data-grid
+        - var i = 6
+        - while(i--)
+          +data-grid-item
+
+    .row.row13-7
+      .span13
+        // Start: 中考历年真题
+        .mod.mod-data
+          +heading({classes:"heading heading-tabs", title:"中考历年真题", tags:['语文', '数学', '英语', '物理', '化学', '政治', '史地生'], more:"更多"})
+          .thumb-data-list
+            .list
+              +data-thumb-info-item({pack:true, price:true, ribbon:true})
+              +data-thumb-info-item({price:true})
+          +post-list({count:6})
+        // End: 中考历年真题
+
+        +ad({ex_class:["mb25"], width:620})
+
+        // Start: 中考总复习资料
+        .mod.mod-data
+          +heading({classes:"heading heading-tabs", title:"中考总复习资料", tags:['一轮', '二轮', '三轮', '仿真模拟', '专项突破', '考前冲刺'], more:"更多"})
+          .thumb-data-list
+            .list
+              +data-thumb-info-item({pack:true, price:true})
+              +data-thumb-info-item({price:true})
+          +post-list({count:6})
+        // End: 中考总复习资料
+
+        // Start: 初中分册考点
+        .mod.mod-data
+          +heading({classes:"heading heading-tabs", title:"初中分册考点", tags:['七年级', '八年级', '九年级'], more:"更多"})
+          .thumb-data-list
+            .list
+              +data-thumb-info-item({pack:true, price:true})
+              +data-thumb-info-item({price:true})
+          +post-list({count:6})
+        // End: 初中分册考点
+
+        // Start: 初中会考
+        .mod.mod-data
+          +heading({classes:"heading heading-tabs", title:"初中会考", tags:['真题', '知识点复习', '模拟题'], more:"更多"})
+          .thumb-data-list
+            .list
+              +data-thumb-info-item({pack:true, price:true})
+              +data-thumb-info-item({price:true})
+          +post-list({count:6})
+        // End: 初中会考
+
+        +ad({ex_class:["mb25"], width:620})
+
+        .row.row6-6
+          .span6
+            // Start: 一模二模
+            .mod.mod-data
+              +heading({classes:"heading heading-tabs", title:"一模二模", tags:['越秀区', '海珠区', '荔湾区'], more:"更多"})
+              .thumb-data-list
+                .list
+                  +data-thumb-info-item({price:true})
+              +post-list({count:3})
+            // End: 一模二模
+          .span6
+            // Start: 期中期末
+            .mod.mod-data
+              +heading({classes:"heading heading-tabs", title:"期中期末", tags:['七年级', '八年级', '九年级']})
+              .thumb-data-list
+                .list
+                  +data-thumb-info-item({price:true})
+              +post-list({count:3})
+            // End: 期中期末
+      .span7
+        // Start: 精华汇编
+        .widget.widget-pack
+          +heading({classes:"heading", title:"精华汇编"})
+          .tab-cont
+            .thumb-data-list
+              .list
+                +data-thumb-info-item({price:true})
+                +data-thumb-info-item({price:true})
+        // End: 精华汇编
+
+        // Start: 热门下载
+        .widget
+          +heading({title:"热门下载"})
+          .tab-cont
+            +post-list({classes:["ranking-post"], ex_class:["mt5"], count:10})
+        // End: 热门下载
+
+        // Start: 挂件-会员动态
+        +widget-events({title:"会员动态"})
+        // End: 挂件-会员动态
+
+        +ad({ex_class:["mb20"], width:330})
+
+block qrcode
+  include ../../partials/_qrcode

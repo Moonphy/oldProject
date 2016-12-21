@@ -1,0 +1,37 @@
+---
+page_title: "广州站-资料频道-资料上传验证邮箱页"
+category: "default"
+body_class: ["data-page"]
+stylesheets: ["data"]
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 内容
+block content
+  // Start: 主导航
+  +navbar(default_nav_links)
+  // End: 主导航
+
+  .container.page-content
+    // Start:上传资料验证邮箱
+    .alert.alert-error.upload-activate
+      i.ico
+      .info
+        p
+          | 抱歉，您需要验证您的邮箱并激活账号才能进行本操作
+        p
+          | 您的注册邮箱：
+          span.hl-red smaabc@163.com
+        .actions
+          +button({text:"登录邮箱", option:"primary"})
+        p.hints
+          | 还没收到邮件？
+          a(href="#") 点此重发一遍
+          span.icon-success 已发送
+          span.icon-error 发送失败
+          span.loading-mini 发送中
+        .operations
+          a(href="#") [点击这里返回上一页]
+    // End:上传资料验证邮箱

@@ -1,0 +1,49 @@
+---
+page_title: "填写阶段评价页"
+header_bar_title: "填写阶段评价"
+body_classes: ["comment-page"]
+navbar: true
+loading: false
+user_config: false
+---
+
+extends _layout
+
+block content
+  .order-details
+    .order-summary
+      a.thumb(href="#")
+        +avatar(128)
+      .info
+        +teacher-name
+        .subject 科目：语文
+        .subject 课时：20课时
+
+  .form.form-comment
+    .row-message
+      textarea(placeholder="在这里表达您与教师的上课体验吧")
+      .text-count
+        | 你还可以输入
+        span 100
+        | 个字
+
+    .form-row
+      span.label-sm 孩子本科目成绩进步：
+      +stars({count:3, favour:true})
+      .stars-tips 不满意
+    .form-row
+      span.label-sm 教师对孩子个性（动力、能力、习惯）的关注：
+      +stars({count:3, favour:true})
+      .stars-tips 非常满意
+    .form-row
+      span.label-sm 教师服务频率与质量：
+      +stars({count:4, favour:true})
+      .stars-tips 需改进
+    .actions
+      +button({text:"提交评语", option:"primary", block:true, element:"button", disabled:true})
+      +button({text:"提交评语", option:"primary", block:true, element:"button"})
+  // End: 评价表单
+  // Start 已评价
+  .comment-details
+    .comment-status 你已评价该教师
+  // End: 已评价

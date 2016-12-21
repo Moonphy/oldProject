@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" href="css/base.css" rel="stylesheet">
+	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="gaofen.js"></script>
+	<style>
+		.form{
+			margin-left : 100px;
+		}
+		
+	</style>
+</head>
+
+<body>	
+
+	<div>
+		<br>
+		</br>		<br>
+		</br>		<br>
+		</br>
+	<div id="slider" class="sliders">
+			<ul id="sliderUL" class="clear" style="width: 3050px;position:absolute;">
+				
+				<li><a href="http://dev.ziyou.com/youji/id-278" target="_blank"><img src="http://file.ziyou.com/201206111139477Civ4XBucj4fd5688356509_web_pic.jpg" ></a></li>
+			
+				<li><a href="http://dev.ziyou.com/youji/id-621446802810" target="_blank"><img src="http://file.ziyou.com/20120611113948ronrkIDrVa4fd56884af55f_web_pic.jpg" ></a></li>
+			
+				<li><a href="http://dev.ziyou.com/index.php?m=youji&amp;id=596855853820" target="_blank"><img src="http://file.ziyou.com/20120611113952jlWolUTC364fd568885ef43_web_pic.jpg" ></a></li>
+
+				<li><a href="http://dev.ziyou.com/youji/id-250" target="_blank"><img src="http://file.ziyou.com/201206111156571V4SsY6Rbh4fd56c8948f06_web_pic.jpg" ></a></li>
+			
+				<li><a href="http://dev.ziyou.com/youji/id-250" target="_blank"><img src="http://file.ziyou.com/20120611115702PQrn6kolIg4fd56c8e87884_web_pic.jpg" ></a></li> 
+
+			</ul>
+			<div id="sliderControl" class="slide-nav">
+				<a class="current" href="#">1</a>
+				<a href="#" class="">2</a>
+				<a href="#" class="">3</a>
+
+				<a href="#" class="">4</a>
+				<a href="#" class="">5</a>
+			
+			</div>
+			<div id="info" class="tour-info">
+				<div style="display: none;">
+				<h3>
+					<a href="http://dev.ziyou.com/youji/id-278" target="_blank"><span>sadfdsafsad</span> · dsfa</a>
+				</h3>
+				<p>
+														作者 <a href="/space.ta/id-1080111972210" target="_blank">HorseLuke</a>
+													</p>
+			</div>
+																		<div style="display: none;">
+				<h3>
+					<a href="http://dev.ziyou.com/youji/id-621446802810" target="_blank"><span>ww</span> · wwwwwww</a>
+				</h3>
+				<p>
+														作者 <a href="/space.ta/id-12803832582" target="_blank">dev-ctang</a>
+													</p>
+			</div>
+																		<div style="display: none;">
+				<h3>
+					<a href="http://dev.ziyou.com/index.php?m=youji&amp;id=596855853820" target="_blank"><span>www</span> · www</a>
+				</h3>
+				<p>
+														作者 <a href="/space.ta/id-12803832582" target="_blank">dev-ctang</a>
+													</p>
+			</div>
+																		<div style="display: block;">
+				<h3>
+					<a href="http://dev.ziyou.com/youji/id-250" target="_blank"><span>sw</span> · wwwww</a>
+				</h3>
+				<p>
+														作者 <a href="/space.ta/id-12803832582" target="_blank">dev-ctang</a>
+													</p>
+			</div>
+																		<div style="display: none;">
+				<h3>
+					<a href="http://dev.ziyou.com/youji/id-250" target="_blank"><span>2222222222222222222222</span> · 222222222222</a>
+				</h3>
+				<p>
+														作者 <a href="/space.ta/id-12803832582" target="_blank">dev-ctang</a>
+				</p>
+			</div>
+		</div>
+		<div class="tour-info-bg"></div>
+		<div style="position:absolute;top:0px;">
+			<span id="turnLeft">left</span>
+			<span id="turnRight">right</span>
+		</div>
+	</div>
+	</div>
+<script>
+	$(document).ready(function(){
+
+	
+		$.fn.slideScroll = function(param){
+
+			var	opt = $.extend({
+					effect : 'fadeOut',//动画方式
+					target : "div",//
+					eventType : 'over',
+					showEles : 1,
+					overStop : true,//
+					isauto : true,//自动播放
+					speed : 3000,//播放时间
+					effectTime : 300,//过度效果时间
+					active : "active",
+					hasContorl : true, //是否有控制器
+					createContorl : true,//是否自己创建控制器
+					sliderControl : $('<div class="slider-control"></div>'),
+				}, param),
+				
+				jqview = this,
+				viewMain = opt.viewMain || this,
+				sliderControl = opt.sliderControl,
+				effect = opt.effect,
+				target = opt.target,//
+				active = opt.active,//选中样式
+				index = 0,
+				loadCount = 0,//图片加载           
+				$me = $(target,viewMain),
+				imgLen = $me.length,
+				turnLeft = opt.turnLeft,
+				turnRight = opt.turnRight,
+				showEles,
+				childWidth,
+				turn,
+				timer;
+				
+			if(imgLen < 2) return;
+			var init = function(){	
+				if(effect === 'slide'){//滑动效果
+					showEles = opt.showEles;
+					childWidth = $me.eq(0).width();
+					viewMain.css({'width':childWidth * imgLen});
+					turn = 'right';
+				}
+				
+				//加控制器
+				if(opt.createContorl === true){
+					$me.not(":first").hide();
+					var controls = [];
+					$me.each(function(i){
+						controls.push("<span>"+(++i)+"</span>");
+						$(this).find("a").append("<span class='tit'><i class='bg'></i><em>"+$(this).find("a").attr("title")+"</em></span>");
+					});
+					sliderControl.append(controls.join(''));
+					$me.css("position","absolute");  
+					viewMain.after(sliderControl);
+					$("span:first",sliderControl).addClass(active);	
+				}
+				if(opt.hasContorl){
+					sliderControl.children().bind(opt.eventType === 'click' ? 'click' : 'mouseenter', function(){
+						clearTimeout(timer);
+						var that = $(this);
+						if(!that.hasClass(active)){
+							index = that.index(); 
+							animate(index);
+						}
+					});
+				}
+				
+				if(turnLeft){//左右按钮滚动
+					turnLeft.click(function(){
+						clearTimeout(timer);
+						--index;
+						if(index === -1)
+							index = imgLen - 1;
+						turn = 'left';
+						animate(index);
+					});
+					turnRight.click(function(){
+						clearTimeout(timer);
+						setIndex();
+						turn = 'right';
+						animate(index);
+					});
+					
+				}
+				
+				
+				if(opt.overStop){
+					jqview.bind("mouseenter",function(){
+						clearTimeout(timer);
+					}).bind("mouseleave",function(){
+						if(opt.isauto)
+							start();
+					});
+				}
+				//加载完图片才运行
+				if(imgLen>0){
+					$("img",$me).each(function(){
+						var imgObj = new Image();
+						$(imgObj).load(function(){
+							loadCount++;
+							if(loadCount === imgLen)
+								start();
+						}).error(function(){//取不到图片隐藏滚动条
+							sliderControl.hide();
+						});
+						imgObj.src = this.src;
+					});
+				}
+			},
+			
+			setIndex = function(){
+				index = ++index % imgLen;		
+			},
+			
+			//切换效果
+			animate = function(_index){
+				if(_index === undefined){
+					setIndex();
+					_index = index;
+				}
+				switch (effect){
+					case 'fadeOut':				
+						$me.eq(_index).css("z-index",1).siblings().css("z-index",0);//控制absolute的层级
+						$me.eq(_index).show().find("img").css({"opacity": 0})
+						.animate({opacity:1}, opt.effectTime, function(){
+							$(this).removeAttr("style");//动画之后删除opacity
+							$me.eq(_index).show().siblings().hide();//显示大图   
+						});//展示当前显示动画
+						setControlStyle();
+					break;
+					
+					case 'shadow' : 
+						$(target+':visible', viewMain).animate({opacity:0.3}, 200,  function(){
+							$(this).hide();
+							$me.eq(_index).css({"opacity": 0.3}).show().animate({opacity:1}, opt.effectTime);
+						});					
+					break;
+					
+					case 'slide' : //滑动效果
+						var left = - childWidth * _index;
+						if(_index === 0){
+							if(turn === 'right'){
+								$me.eq(0).css({'position':'relative','left': childWidth * imgLen});
+								_index = imgLen;
+								left = - childWidth * _index;
+							}
+						}
+						
+						if(_index === imgLen - 1){
+							if(turn === 'left'){
+								$me.eq(_index).css({'position':'relative','left': - childWidth * imgLen});
+								left = childWidth;
+							}
+						}
+						
+						viewMain.animate({ left : left }, opt.effectTime, 'easeIn', function(){
+							if(_index === imgLen && turn === 'right'){
+								$me.eq(0).css({'position':'default','left':'0'});
+								viewMain.css({'left':'0'});
+							}
+							if(_index === imgLen-1 && turn === 'left'){
+								$me.eq(_index).css({'position':'default','left':'0'});
+								viewMain.css({'left':- childWidth * (imgLen-1)});
+							}
+							turn = 'right';
+						});
+
+						setControlStyle();
+					break;
+						
+				}
+				
+			},
+			
+			setControlStyle = function(){
+				sliderControl.children().eq(index).addClass(active).siblings().removeClass(active);//改变小图导航样式
+			},
+			
+			
+			start = function(){
+				timer = setInterval( animate,  opt.speed);		
+			};
+
+			init();
+
+		}
+		
+		
+		function animate(p){
+			if(p == 1){
+				$('#slider').slideScroll({
+					viewMain:$("#sliderUL"),//舞台
+					effect:'slide',//动画方式
+					target:"li",//
+					turn : 'right',
+					turnLeft : $('#turnLeft'),
+					turnRight : $('#turnRight'),
+					isauto:true,//自动播放
+					createContorl : false,
+					speed:3000,//播放时间
+					active:"current",
+					sliderControl : $('#sliderControl')
+				})
+			}else{
+				$('#slider').slideplay({
+					Main:'#sliderUL',
+					Control:'#sliderControl',
+					controlCls:'current',
+					img:'img[_src]',
+					callback:function(page){},
+					runningFn : function(){},
+					split : 3000
+				});
+			}
+		}
+		animate(1);
+		
+	
+	});
+	
+</script>
+</body>
+</html>

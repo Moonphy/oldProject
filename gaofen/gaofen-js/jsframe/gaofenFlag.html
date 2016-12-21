@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>HoverDelay</title>
+	<link type="text/css" href="http://demo.gaofen.com/css/default/base.css" rel="stylesheet">
+	<link type="text/css" href="http://demo.gaofen.com/css/default/reg.css" rel="stylesheet">
+    <script type="text/javascript" src="gaofen.js"></script>
+	<style>
+		
+		.slider {
+			position: relative;
+			width: 720px;
+			overflow: hidden;
+		}
+		
+		.flaglistparent {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			z-index: 0;
+			width : 2500px;
+		}
+		
+		.parent{
+			width : 2500px;
+			left : 100px;
+		}
+	
+		.main-body {
+			background : #cccccc;
+			width  : 30%;
+			height : 400px;
+			left : 200px;
+			float : left
+		}
+		
+		.line {
+			width : 100%;
+			height : 33%;			
+			border : 1px solid #DFDFDF;
+		}
+		.line div {
+			
+		}
+		
+		.first-line .item{
+			width : 19.8%;
+			position : relative;
+			background : yellow;
+			float : left;
+			height : 100%;
+			/*border : 1px solid blue;*/
+		}
+		
+		.second-line .item{
+			width : 33.1%;
+			position : relative;
+			float : left;
+			height : 100%;
+			/*border : 1px solid blue;*/
+		}
+		
+		
+		.last-line .item{
+			width : 24.8%;
+			position : relative;
+			float : left;
+			height : 100%;
+			/*border : 1px solid blue;*/
+		}
+		
+		.item-top, .item-bottom {
+			height : 50%;			
+		}
+
+		#test {
+			font-size : 30px;
+			background : yellow;
+		}
+		
+		.special a{
+			color : blue;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="slider">
+		<div class="flaglistparent" id="flaglistparent">
+			<div class="parent" id="animateParent">
+				<div id="animate_0" class="main-body">
+					<div class="line first-line">
+						<div class="item">
+							<div class="item-top cell"></div>
+							<div class="item-bottom cell"></div>
+						</div>
+						<div class="item cell"></div>
+						<div class="item cell"></div>
+						<div class="item cell"></div>
+						<div class="item cell"></div>
+					</div>	
+					<div class="line second-line">
+						<div class="item keynote cell"></div>
+						<div class="item keynote cell" id="test">跨M域跨M域跨M域跨M域</div>
+						<div class="item">
+							<div class="cell"></div>
+							<div class="cell"></div>
+						</div>
+					</div>	
+					<div class="line last-line">
+						<div class="item cell"></div>
+						<div class="item cell"></div>
+						<div class="item">
+							<div class="cell"></div>
+							<div class="cell">00</div>
+						</div>
+						<div class="item cell">00</div>
+					</div>
+				</div>
+
+				</div>
+		</div>
+	</div>
+	<div><a href="#" id="next">下一页</a></div>
+
+<script>
+	$(document).ready(function(){
+		var G = Gaofen,
+			Util = G.util,
+		
+			T = G.tpl,
+		
+			doc = document, 
+			
+			hidCls   = 'hidden', 
+			
+			ui = G.ui;
+			
+		var testData = [{
+				url : 'www.baidu.com',
+				title : '--教育部高度重视幼儿园校车被告撞事故',
+				flag : 1,			
+			},{
+				url : 'www.baidu.com',
+				title : '2012广东省招生艺术单考院校申报表',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '金山区零志愿分数线',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '小学生消防安全作文200字',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '高中预防艾滋病教案',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '北京高中生',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '高中生与父母的矛盾',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '2012年广东高考需要的个人资料',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '广州市华师附中番禺学校中考录取',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '中国校车运营模式',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '中山大学附属中学录取分数线',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '--广外附设外语学校中考',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '高中生持刀砍父母一死一伤',
+				flag : 0,			
+			},{
+				url : 'www.baidu.com',
+				title : '2012陕西省高考网上报名时间已发布',
+				flag : 1,			
+			},{
+				url : 'www.baidu.com',
+				title : '2012天津高考网上报名时间表',
+				flag : 0,			
+			}];	
+
+		
+		Gaofen.reg('Headline', Util.create(Gaofen.ui.Base, {
+        
+			view : '',
+			
+			specialCls : 'special',
+			
+			classNum : 1,
+			
+			classCls : '',
+			
+			cellHtml : '<a href="{.url}" target="_blank">{.title}</a>',
+			
+			onViewReady : function(){
+				this.classNum = Math.floor(Math.random()*5+1);
+				this.getData();
+				this.setSpecialClass();
+			},
+			setSpecialClass : function(){//根据自身的样式
+				var cells = this.jq('.cell'),
+					scell = [];
+				switch(this.classNum){
+					case 1 :
+						scell = [1,3,5,6,12];
+					break;
+					case 2 :
+						scell = [0,4,6,8,11];
+					break;
+					case 3 :
+						scell = [0,2,8,10,12,14];
+					break;
+					case 4 :
+						scell = [3,6,8,11,12];
+					break;
+					case 5 :
+						scell = [1,2,4,7,10,12,14];
+					break;						
+				};
+				
+				for(var i=0, len = scell.length;i<len;i++){
+					cells.eq(scell[i]).addClass(this.specialCls);
+				}
+					
+			},
+			getData : function(){
+				var self = this;
+				/*G.request.q('', {}, function(r){
+					if(r.isOk()){
+						self.setData();
+					}
+				});*/
+				
+				this.setData(testData);
+			},
+			setData : function(d){
+				var keyNote = this.jq('.keynote'), keynum = keyNote.length, num = 0,
+				
+					cells = this.jq('.cell'), leaveItem = [], special = [];
+
+				for(var i=0, len = d.length;i<len;i++){//先填充特殊位置
+
+					var item = d[i];
+
+					if(item.flag == '1' && num < keynum){
+						special.push(keyNote.eq(num).html(Gaofen.tpl.parse(this.cellHtml, item)));
+						num++;
+					}else{
+						leaveItem.push(item);
+					}
+				
+				}
+				var cellnum = 0;
+				for(var i=0, len = leaveItem.length;i<len;i++){		
+					var _item = this.getFillCell(cells, cellnum);
+					cellnum = _item;	
+					console.log(_item)
+					
+					cells.eq(_item).html(Gaofen.tpl.parse(this.cellHtml, leaveItem[i]));
+					cellnum++;
+				}
+			},
+
+			getFillCell : function(cells, num, s){
+				var x = false;
+				while(!x){					
+					if(this.isFilled(cells.eq(num))){
+						console.log('false');
+						num++;
+					}else{
+						x = cells[num];
+					}
+				}				
+				return num;				
+			},
+	
+			isFilled : function(cell){		
+				return cell.find('a').length === 1;
+			},
+			
+			setCharSize : function(){//设置字体大小
+				
+			},
+			
+			slide : function(){
+				
+			}
+			
+		}));
+		
+		
+		var Headline = Gaofen.use('Headline', {
+			view : $('#animate_0')[0]
+		}).play(1);
+
+		var page = 0;	
+		$('#next').click(function(e){
+			e.preventDefault();
+			var animate = $('#animate_'+page);
+			var left = animate.offset().left;
+			left = left + animate.width();
+			//$('#animate').animate({'left' : -left}, 700, 'easeIn');
+			/*
+			G.request.q('', {page : page++}, function(r){
+				if(r.isOk()){
+				
+				}
+			});
+			*/
+			page++;
+			var clone = animate.clone();
+			clone.find('.cell>a').remove();
+			clone.find('.special').removeClass('special');
+			$('#animateParent').append(clone);
+			$('.flaglistparent').animate({'left' : -left}, 500, 'easeIn', function(){
+				animate.remove();
+				$(this).css('left',0);
+			});
+			clone.attr('id', 'animate_'+page);
+			Gaofen.use('Headline', {
+				view : clone[0]
+			}).play(1);
+
+		});
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+//------------------------------
+//- 元件：评价
+//------------------------------
+mixin comment-pills(params)
+  - var params = params || {}
+
+  span.comment-pills
+    if params.label
+      span.label= params.label + "："
+    a.pill(href="#", target="_blank") 中考成绩一流
+    a.pill(href="#", target="_blank") 升学出状元率高
+    a.pill(href="#", target="_blank") 名师优秀
+    a.pill(href="#", target="_blank") 中考成绩一流
+    a.pill(href="#", target="_blank") 升学出状元率高

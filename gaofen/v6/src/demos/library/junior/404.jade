@@ -1,0 +1,30 @@
+---
+page_title: "初中库-页面不存在"
+category: "library"
+body_class: ["error-page"]
+stylesheets: ["junior"]
+is_new: false
+---
+
+//- 模板继承
+extends ../_layout
+
+block header
+  // Start: 页头
+  +header("junior")
+  // End: 页头
+
+//- 内容
+block content
+  .container.page-content
+    // Start: 页面不存在
+    .alert.alert-error
+      i.ico
+      .info
+        h3 抱歉，您所访问的页面不存在
+        p
+          span.hl 3
+          | 秒，自动跳转到
+          a(href="#", target="_blank") 高中库首页
+    // End: 页面不存在
+

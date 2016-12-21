@@ -1,0 +1,943 @@
+// 简介：定义高分网试题商城页面样式
+// 维护人：张盛志
+// 版本：v3
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 元件
+// ------------------------------
+
+// 图文介绍元件 .thumb-info-details
+@import "../partials/components/_thumb_info_details"
+
+// 表格元件 .table
+@import "../partials/components/_table"
+
+// 提示元件
+@import "../partials/components/_tips"
+
+// 在线客服
+@import "../shared/_feedback"
+
+
+// 会员
+.members
+  overflow hidden
+  margin-bottom 20px
+
+  li
+    float left
+    size 30px
+    margin 0 1px 3px 0
+    overflow hidden
+
+// 定制
+// ------------------------------
+body
+  background #F7F7F7
+
+// 布局
+// ------------------------------
+#wrap
+  background url(img/shop/v2/shop_bg.png) repeat-x 0 28px
+
+.page-content
+  width 996px
+  overflow-x visible
+
+// 顶部导航
+@import "../shared/_topbar"
+
+// 头部登录
+@import "_head_login"
+
+// 面包屑
+.shop-page
+  .breadcrumb
+    margin-top 10px
+
+// Banner
+.shop-banner
+  height 112px
+  background url(img/shop/v2/shop_banner_bg.png) no-repeat center top
+
+.shop-info
+  height 90px
+  background url(img/shop/v3/shop_info_bg.png) repeat-x
+  margin-bottom 35px
+
+  .container
+    position relative
+
+  ul
+    remove-list-style()
+
+    li
+      float left
+      list-style none
+
+    a
+      float left
+      height 71px
+      background url(img/shop/v3/tab.png) no-repeat
+      hide-text()
+
+    .menu-xsc
+      a
+        width 131px
+
+        &:hover
+          background-position 0 -109px
+
+    .menu-zk
+      a
+        width 115px
+        background-position -131px 0
+
+        &:hover
+          background-position -131px -109px
+
+    .menu-gk
+      a
+        width 114px
+        background-position -246px 0
+
+        &:hover
+          background-position -246px -109px
+
+  .cont
+    absolute right 60px top 15px
+
+  p
+    margin 0
+    line-height 16px
+
+  .time
+    span
+      margin-left 13px
+      color #999
+
+  .tel
+    line-height 24px
+    margin-top 5px
+    font-size 23px
+
+  .btn-client
+    absolute right top 13px
+
+  .features
+    absolute right -8px top 85px
+    size 395px 26px
+    background url(img/shop/v3/features.png) no-repeat
+
+.shop-xsc-page
+  .shop-info
+    ul
+      .menu-xsc
+        a
+        a:hover
+          background-position 0 -109px
+          height 90px
+
+.shop-zk-page
+  .shop-info
+    ul
+      .menu-zk
+        a
+        a:hover
+          background-position -131px -109px
+          height 90px
+
+.shop-gk-page
+  .shop-info
+    ul
+      .menu-gk
+        a
+        a:hover
+          background-position -246px -109px
+          height 90px
+
+// 模块
+// ------------------------------
+.mod-product
+  background #FFF
+  padding 0 8px 5px
+  margin-bottom 48px
+  border-bottom 5px solid #DEDEDE
+
+  .hd
+    relative left -14px top -13px
+    height 65px
+    hide-text()
+    background-repeat no-repeat
+
+// 纸质版标题
+paper-titles = zthb dxlm mxdk wgy zkmn gkmn
+
+$paper-title
+  background-image url(img/shop/v3/title_paper.png)
+
+for title, index in paper-titles
+  offset-y = -80px * index
+  .paper-{title}
+    .hd
+      @extend $paper-title
+      background-position 0 offset-y
+
+// 电子版标题
+digital-titles = xsc zk gk
+
+$digital-title
+  background-image url(img/shop/v3/title_digital.png)
+
+for title, index in digital-titles
+  offset-y = -80px * index
+  .digital-{title}
+    .hd
+      @extend $digital-title
+      background-position 0 offset-y
+
+// 首页
+// ------------------------------
+.shop-index-page
+  .page-content
+    margin-top 15px
+
+  .tips-hints
+    margin-bottom 30px
+
+// 试卷列表
+.product-list
+  clearfix()
+  margin-right -10px
+  if support-for-ie
+    _padding-bottom 20px
+
+  .item
+    float left
+    width 297px
+    margin 0 10px 20px 0
+    border 1px solid #DEDEDE
+    background #FFF
+    padding 9px 11px 9px 10px
+
+  .thumb
+    size 297px 180px
+
+    a
+      position static
+
+    img
+      width 300px
+      max-width none
+
+    .label
+      size 120px 47px
+      line-height 47px
+      background-image url(img/shop/v2/data_label.png)
+      font-size 14px
+      if support-for-ie
+        _background #ED6013
+
+      i
+        font-size 30px
+
+    .badge
+      absolute left 15px top -4px
+      size 74px 45px
+      hide-text()
+      background-image url(img/shop/v2/badge_promotion.png)
+      if support-for-ie
+        _background-image url(img/shop/v2/badge_promotion_ie6.png)
+
+  .info
+    margin-bottom 15px
+    padding 0 3px
+    height 110px
+    overflow hidden
+
+    h3
+      margin 15px 0
+      font-size 16px
+      line-height 20px
+
+      a
+        highlight-link()
+
+    p
+      margin 0
+      line-height 20px
+      height 60px
+      overflow hidden
+      color #666
+
+      a
+        highlight-link()
+        margin-left 5px
+
+  .status
+    clearfix()
+    split(top)
+    padding-top 10px
+
+  // 立即购买
+  .actions
+    float right
+    margin-top 5px
+
+    .btn
+      padding 0 15px
+
+  // 已购买者
+  .customers
+    p
+      margin 8px 0 0
+      color #999
+
+// 消费
+.customers
+  .hd
+    margin 8px 0
+
+    span
+      float right
+      color #999
+      margin-right 12px
+      if support-for-ie
+        _display inline
+
+      i
+        color #E46A20
+
+    h3
+      margin 0
+      font-size 14px
+      font-weight normal
+
+  ul
+    remove-list-style()
+
+    li
+      margin-bottom 10px
+      color #666
+
+      span
+        color #0C67AA
+
+.span4
+  .customers
+    float left
+    width 230px
+
+// 资料备考专题
+.shop-data-topics
+  clearfix()
+
+  .ads
+  .pictures
+    float left
+    width 500px
+
+    a
+      display block
+      margin-bottom 10px
+
+    img
+      display block
+
+  .related-data
+    relative top -25px
+    float left
+    width 447px
+    margin-left 20px
+    if support-for-ie
+      *display inline
+
+    table
+      table-layout fixed
+      width 100%
+
+    td
+      color #999
+      width 74px
+      padding 3px 5px
+      white-space normal
+
+    .title
+      width auto
+
+      span
+        display block
+        height 18px
+        overflow hidden
+        padding-left 15px
+        background url("../img/dot.png") no-repeat 2px 8px
+
+.btn-links
+  position relative
+  clearfix()
+  margin 0 0 20px
+
+  a
+    float left
+    size 300px 55px
+    margin-right 20px
+    hide-text()
+    background url("img/shop/v3/btn_links.png") no-repeat
+
+  .btn-chinese
+    &:hover
+      background-position 0 -75px
+
+  .btn-math
+    background-position -320px 0
+    &:hover
+      background-position -320px -75px
+
+  .btn-english
+    background-position -640px 0
+    &:hover
+      background-position -640px -75px
+
+
+
+// 最新会员模块
+.avatar-list
+  a
+    float left
+    size 48px
+    margin 0 3px 10px 7px
+    if support-for-ie
+      _display inline
+
+.mod-members
+  margin-bottom 10px
+
+// 温馨提示
+.shop-tips
+  size 882px 184px
+  margin 10px auto 0
+  padding 10px 0 0 100px
+  background url(img/shop_tips_bg.png) no-repeat
+
+  h3
+    margin 8px 0
+    font-size 14px
+
+  ul
+    remove-list-style()
+
+  li
+    font-size 14px
+    margin-bottom 5px
+
+// 试卷内容页
+// ------------------------------
+$btn-buy
+  display block
+  hide-text()
+  height 40px
+  background url(img/shop/v2/btn.png) no-repeat
+
+.product-desc
+  padding 30px 29px 50px
+  background #FFF
+  border 1px solid #DEDEDE
+  if support-for-ie
+    *zoom 1
+
+  h1
+    margin 0 0 20px
+    font-size 20px
+    color #0F0F0F
+
+  .features
+    clearfix()
+    border 2px solid #DFECF6
+    border-width 2px 0
+    background #F5F9FC
+    padding 15px
+    margin-bottom 20px
+
+  .thumb
+    float left
+    size 300px 180px
+
+    img
+      width 300px
+
+  .info
+    margin-left 344px
+    if support-for-ie
+      _margin-left 341px
+
+    .price
+      margin 10px 0 0
+      font-size 13px
+      color #222
+
+      span
+        font-size 14px
+
+      i
+        font-size 22px
+        margin-right 5px
+
+    .origin-price
+      margin 5px 0
+      color #999
+
+      span
+        text-decoration line-through
+
+    .sold-out
+      margin 10px 0 5px
+      font-size 24px
+      color #4D4D4D
+
+    .actions
+      margin-top 30px
+      clearfix()
+
+      .col
+        float left
+        width 126px
+        text-align center
+        margin-right 20px
+
+      .btn-buy
+        @extend $btn-buy
+
+        &:hover
+          background-position -136px 0
+
+      .btn-taobao
+        @extend $btn-buy
+        background-position 0 -48px
+
+        &:hover
+          background-position -136px -48px
+
+      .btn-order-online
+        @extend $btn-buy
+        background-position 0 -96px
+
+        &:hover
+          background-position -136px -96px
+
+    .status
+      margin-top 5px
+      color #999
+
+  // 倒计时
+  .countdown
+    p
+      margin 0 0 2px
+      line-height 20px
+      font-size 13px
+
+    .clock
+      background #D9EEFB
+      padding 10px 0 10px 25px
+
+    .num
+      inline-block()
+      size 22px 31px
+      background url(img/shop/v2/clock_bg.png) no-repeat
+      text-align center
+      margin 0 3px 0 0
+      color #FFF
+      line-height 31px
+      font-size 30px
+      font-family Verdana, Tahoma, Arial, Helvetica
+
+    span
+      inline-block()
+      margin 0 8px 0 5px
+      color #708089
+      vertical-align 6px
+
+  // 带倒计时的feature
+  .info-countdown
+    .actions
+      margin-top 15px
+
+  // 内容详细介绍
+
+  // 分割线
+  .split
+    font-size 0
+    height 0
+    overflow hidden
+    text-indent -9999px
+    border-bottom 1px solid #E4E4E4
+    margin 10px 0
+
+  .sec
+    line-height 26px
+    padding 20px 0
+
+    .hd
+      position relative
+      height 56px
+      left -35px
+      font-size 14px
+      font-weight bold
+      margin-bottom 10px
+      background-repeat no-repeat
+      hide-text()
+
+    .bd
+      font-size 14px
+      color #5A5A5A
+
+      .sub-tit
+        color #333
+        font-weight bold
+
+    ul
+      remove-list-style()
+      margin 0
+
+    li
+      line-height 26px
+      background url("img/shop/v2/dot.png") no-repeat 5px 10px
+      padding-left 17px
+
+details-titles = intro gift desc content album tips
+
+$details-title
+  background-image url(img/shop/v3/title_details.png)
+
+for title, index in details-titles
+  offset-y = -80px * index
+  .sec-{title}
+    .hd
+      @extend $details-title
+      background-position 0 offset-y
+
+// 侧栏挂件
+// ------------------------------
+.widget
+  width 100%
+  overflow hidden
+
+// 在线客服
+.widget-feedback
+  margin-bottom 20px
+  padding 10px 10px 0
+  border 3px solid #DFDFDF
+  background #FFF
+
+  .hd
+    font-size 14px
+    padding-bottom 5px
+    split()
+
+  .shop_server
+    size 145px 174px
+    margin 0
+    padding 15px 9px 0
+    color gray-darker
+    text-align left
+
+    dt
+      padding 0
+      margin 0 0 10px
+      font-weight bold
+
+    dd
+      padding 0
+      margin 0 0 12px
+
+      p
+        margin 5px 0
+
+    .tel
+      background url(img/all_bg.png) no-repeat -43px -30px
+      padding 0 0 8px 30px
+
+// 订购动态
+.widget-orders
+  p
+    margin 5px 5px 5px 0
+    white-space nowrap
+
+  span
+    color #E46A20
+    margin 0 5px
+
+.shop-page
+  .customers
+    float none
+    width auto
+    margin-bottom 25px
+
+    .hd
+      margin-top 0
+
+// 资料专题
+.widget-data-topic
+  margin-bottom 15px
+
+  .cont
+    padding 0 10px
+
+  .ad
+  .picture
+    margin-bottom 10px
+
+// 试卷订单页
+// ------------------------------
+.order-page
+  .page-content
+    background #FFF
+    width 918px
+    padding 30px
+    border 1px solid #DEDEDE
+
+.orders
+  font-size 14px
+  margin-bottom 50px
+
+  span
+    float left
+
+  input
+    width 30px
+    text-align center
+    vertical-align middle
+
+  img
+    vertical-align middle
+    margin-right 20px
+
+  a
+    display inline-block
+    vertical-align middle
+    border 1px solid #CCC
+    size 14px
+    overflow hidden
+    line-height 14px
+    font-size 10px
+    text-align center
+    -webkit-text-size-adjust none
+
+    &:hover
+      text-decoration none
+
+  .order-head
+    clearfix()
+    padding 8px 20px
+    background #F5F7F9
+    font-weight bold
+
+  .order-list
+    img
+      width 80px
+
+    em
+      font-style normal
+
+    .item
+      padding 20px
+      clearfix()
+      split()
+
+    .price
+    .quantity
+    .total
+      padding-top 18px
+
+  .order-total
+    margin 5px 30px 0 0
+    font-weight bold
+    text-align right
+
+    i
+      padding-left 20px
+      background url(img/icon_rmb.png) no-repeat 2px 8px
+      font-weight normal
+      font-size 26px
+      line-height 30px
+      color #E46A20
+
+  .btn-reduce
+    margin-right 5px
+
+  .btn-plus
+    margin-left 5px
+
+  .name
+    width 595px
+
+  .price
+    width 65px
+
+  .quantity
+    width 155px
+    text-align center
+
+  .total
+    width 60px
+    text-align center
+
+.heading-order
+  padding 8px 20px
+  background #F5F7F9
+
+  h2
+    margin 0
+    font-size 14px
+
+    i
+      font-size 12px
+      font-weight normal
+
+// 表单
+.form
+  .form-row
+    margin-bottom 20px
+
+    .controls
+      width 352px
+
+// 支付方式
+.form-pay
+  font-size 14px
+  margin-bottom 50px
+
+  .form-row
+    margin 20px 0 0 40px
+
+  .label-radio
+    input
+      margin-right 4px
+
+  .tips
+    margin 20px 190px 0 38px
+    padding-top 6px
+    padding-bottom 6px
+
+    .desc
+      margin-top 10px
+
+// 收货表单
+.form-delivery
+  margin-top 30px
+
+  .form-row
+    .control-label
+      width 95px
+
+    .input-large
+      width 340px
+
+    textarea.input-large
+      height 78px
+      line-height 26px
+
+    select
+      width 109px
+
+  .tips-hints
+    margin 0 230px 0 105px
+    padding 6px 10px
+
+    p
+      line-height 22px
+
+    .icon-hints
+      background url(img/icon_help.png) no-repeat -14px -120px
+      size 16px
+      margin-top 3px
+
+    .desc
+      font-size 12px
+      margin-left 25px
+
+
+  .email
+    .hints
+      margin-bottom 0
+
+  .actions
+    margin-left 105px
+
+// 订购成功页
+.shop-page
+  .alert
+    margin-top 20px
+
+    h4
+      margin 0
+      padding 5px 0 10px
+      font-weight bold
+      color #E46A20
+      font-size 14px
+
+      span
+        font-weight normal
+        color #4A4A4A
+
+    p
+      margin-bottom 10px
+
+    .action-pay
+      margin-top 40px
+
+.ali-pay
+  display block
+  height 40px
+  background url(img/shop/ali_pay.png) no-repeat
+  margin-bottom 20px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

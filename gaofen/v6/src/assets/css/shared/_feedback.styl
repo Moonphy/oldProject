@@ -1,0 +1,126 @@
+// 在线客服
+// ==================================================
+
+// fixed定位窗口
+if support-for-ie
+  html
+    _background-attachment fixed
+
+.feedback
+  fixed right top 410px
+  size 195px 224px
+  z-index 20000
+  if support-for-ie
+    _position absolute
+    _top: unquote("expression(documentElement.scrollTop + 400)")
+    _margin-top 0
+
+  .handle
+    absolute left top 45px
+    width 12px
+    padding 15px 13px 30px 9px
+    background #6187AF
+    background-clip padding-box
+    border-width 4px 0 4px 4px
+    border-style solid
+    border-color #6187AF
+    border-radius 4px 0 0 4px
+    color #FFF
+    cursor pointer
+    z-index 101
+
+    span
+      absolute left 9px bottom 22px
+
+      i
+        position absolute
+        caret #FFF 5px right
+
+      .arrow-r
+        left 6px
+
+  .bd
+    absolute left top
+    margin-left 34px
+    background #FFF
+    background-clip padding-box
+    border-width 4px 0 4px 4px
+    border-style solid
+    border-color #6187AF
+    border-radius 3px 0 0 3px
+    z-index 100
+
+    .shop_server
+      size 145px 174px
+      margin 0
+      padding 15px 9px
+      color gray-darker
+      text-align left
+
+      dt
+        padding 0
+        margin 0 0 10px
+
+      dd
+        padding 0
+        margin 0 0 12px
+
+        p
+          margin 5px 0
+
+      .tel
+        background url(img/all_bg.png) no-repeat -43px -30px
+        padding 0 0 8px 30px
+        border-bottom 1px solid #BFBFBF
+
+// 隐藏
+.fb-hide
+  right -161px
+  if support-for-ie
+    _right -162px
+
+  .handle
+    span
+      left 4px
+
+      i
+        caret #FFF 5px left
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

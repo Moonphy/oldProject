@@ -1,0 +1,62 @@
+// 工具条
+// ------------------------------
+
+.tool-bar
+  display flex
+  fixed left bottom
+  size 100% 4.4rem
+  z-index z-index-tool-bar
+
+  a
+    display block
+    height 4.4rem
+    line-height 4.4rem
+    color #FFF
+    text-align center
+
+  .link-consult
+  .link-share
+    flex 2
+    background rgba(0, 0, 0, .8)
+    text-align left
+    text-indent 2rem
+
+    i
+      font-size 2rem
+      vertical-align middle
+      margin-right 0.3rem
+
+  .link-share
+    border-left .1rem solid #4D4D4D
+
+  .link-booking
+    flex 3
+    background orange
+    font-size 2rem
+
+    &.active
+      background darken(@background, 5%)
+    &.disabled
+      background-color #b3b3b3
+  .booking-tips
+    width 18rem
+    absolute right 1.5rem bottom 5rem
+    background url("../images/bg/tool-bar-tip-bg.png") no-repeat 0 0
+    background-size 100% 100%
+    border-radius .5rem
+    overflow hidden
+
+    .icon
+      display inline-block
+      color white
+      padding 1.5rem 2rem 0 2rem
+      background-color orange
+      transform rotate(-45deg)
+      absolute left -2.5rem top -.8rem
+      z-index 0
+    p
+      text-indent 1.5rem
+      color orange
+      font-size 1.5rem
+      padding 0 1rem
+      margin-top 1rem

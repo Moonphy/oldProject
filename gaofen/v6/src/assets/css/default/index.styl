@@ -1,0 +1,272 @@
+// 简介：定义高分网主站首页样式
+// 维护人：张盛志
+// 版本：6.0.0
+// ==================================================
+
+// 配置
+@import "../shared/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 元件：图文信息列表
+@import "../partials/components/_thumb_info_list_s2"
+
+// 元件：标签云
+@import "../partials/components/_tag_clouds"
+
+// 元件：侧栏推荐
+@import "../partials/components/_thumb_info_rec"
+
+// 侧栏活动
+@import "widgets/_event"
+
+// 链接云
+@import "../shared/_link_cloud"
+
+
+// 首页文章列表首项高亮
+.post-list-large
+  .highlight
+    padding-left 5px
+    background none
+
+    a
+      font-weight bold
+      highlight-link()
+
+
+// 通栏广告
+//  .ad-full
+//  .picture-full
+//    margin-bottom 25px
+
+// mod里面的小广告
+.mod .span4 .ad,
+.mod .span4 .picture
+  margin-top 8px
+
+// 模块
+.mod
+  margin-bottom 25px
+
+// 热门
+.mod-hot
+  height 195px
+  overflow hidden
+  margin-bottom 30px
+
+  .slider
+    float right
+    width 260px
+
+  .rec-news
+    margin-right 280px
+    margin-top -12px
+    if support-for-ie
+      _margin-right 277px
+
+    .post-list-large
+      padding 10px 0
+      split top
+
+      .highlight
+        font-size 16px
+
+        a
+          color gray-darker
+
+          &:hover
+            color link-color-hover
+
+// 大家在关注
+.mod-focus
+  border 1px solid common-border-color
+  border-top 2px solid #3397E4
+  position relative
+
+  .hd
+    absolute left 10px top -10px
+    padding 0 5px
+    background #FFF
+    font-size 16px
+    color #4D4D4D
+    font-weight bold
+
+  .bd
+    padding 20px 10px 12px 15px
+
+  .tag-links
+    position relative
+    overflow hidden
+
+    .inner
+      clearfix()
+      height 38px
+      margin-left -16px
+      overflow hidden
+
+    a
+      float left
+      border-left 1px solid common-border-color
+      padding-left 10px
+      margin 0 0 10px 10px
+      line-height 14px
+      if support-for-ie
+        _display inline
+
+    .highlight
+      font-weight bold
+      color #DD0013
+
+// 列表标题
+.mod-latest
+  .heading
+    margin-bottom 0
+
+// 侧栏模块
+// ===========================
+
+// 注册入口
+.reg-entrance
+  height 63px
+  padding 8px 10px 12px
+  background #EDF5FD
+  margin-bottom 17px
+  border-top 2px solid #DFEAF2
+
+  .info
+    margin-bottom 5px
+    font-size 14px
+
+    span
+      margin 0 3px
+      font-size 17px
+      color #0073CC
+
+  .actions
+    color #747474
+
+  .btn
+    height 30px
+    line-height 30px
+    margin-right 10px
+
+  .msg
+    span
+      margin-right 10px
+
+// 快速入口
+.entrances
+  padding 10px 10px 0
+  border 1px solid common-border-color
+
+  .sec
+    position relative
+    clearfix()
+    split(top)
+    padding 8px 0
+
+    h3
+      position relative
+      float left
+      margin 9px 0 0 5px
+      size 55px 30px
+      line-height 30px
+      font-size 12px
+      font-weight bold
+      color #1C79C1
+      background #E0F1FF
+      text-align center
+
+      .arrow
+        absolute right -8px top 50%
+        margin-top -4px
+        caret(#E0F1FF, 4px, right)
+
+    .cont
+      clearfix()
+      margin-left 60px
+
+      a
+        float left
+        width 64px
+        height 24px
+        margin-left 15px
+        overflow hidden
+        line-height 24px
+        color link-color
+
+  .first
+    background none
+    padding-top 0
+
+// 侧栏活动
+.widget-event
+  padding 0
+  border none
+
+  .heading
+    border-bottom-width 2px
+
+  .thumb-info-rec
+    .thumb
+      size 120px 90px
+
+      img
+        size 120px 90px
+
+    .info
+      margin-left 130px
+
+      .actions
+        margin 8px 0 0
+
+// 社区热门
+.widget-posts
+  .slider
+    margin-bottom 10px
+
+    a
+      clearfix()
+      color link-color
+
+      .pic
+        float left
+        size 200px 150px
+        cursor pointer
+
+      .tit
+        float right
+        size 105px 130px
+        padding 10px 10px 10px 15px
+        background #F0F0F0
+        font-size 14px
+        text-align left
+        cursor pointer
+
+    .pages
+      width 130px
+
+      li
+        size 8px
+        margin 0 4px
+        background-position 0 -330px
+
+        &.active
+          background-position 0 -300px
+
+// 热门资料
+.widget
+  .heading-tabs
+    .tabs
+      float right
+      margin-right 1px
+
+

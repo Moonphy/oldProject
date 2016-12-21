@@ -1,0 +1,12 @@
+// 元件：星标
+// ==================================================
+
+.vote-stars
+  size 124px 12px
+  overflow hidden
+  background url("img/vote_stars.png") no-repeat
+
+for i in (1..10)
+  .vote-stars-{i}
+    offset-y = -20px * i
+    background-position 0 offset-y

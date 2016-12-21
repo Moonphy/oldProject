@@ -1,0 +1,30 @@
+// 元件：查看更多
+// ==================================================
+
+.view-more
+  text-align center
+  margin-top 20px
+
+  a
+    display inline-block
+    font-weight bold
+    font-size 14px
+    color #343434
+    padding-left 26px
+    @extend $icons
+    background-position 0 -398px
+
+    &:hover
+      color link-color-hover
+      text-decoration none
+
+  .loading-mini
+    display none
+    height 21px
+
+.view-loading
+  a
+    display none
+
+  .loading-mini
+    display block

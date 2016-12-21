@@ -1,0 +1,81 @@
+// start:幻灯片
+.photoMHD
+  #imgBox.photoNews
+    #picDiv(style='display: block; ')
+      #photoView.pic
+        img#photoPrevLoading(src='http://res.img.ifeng.com/2012/0821/wm_a0117799d69c6ba7444ff753dfa977b3.jpg', width='950', height='600', style='display:none')
+        .photo_prev
+          a#photoPrev.btn_pphoto(target='_self', hidefocus='true', title='上一张，支持 "← "翻页')
+        .photo_next
+          a#photoNext.btn_nphoto(target='_self', hidefocus='true', title='下一张，支持 "→ "翻页')
+        a#photoimg
+          img#photo(style='filter:alpha(opacity=100);', src='http://res.img.ifeng.com/2012/0821/wm_a0117799d69c6ba7444ff753dfa977b3.jpg', width='950', height='600')
+        .zy.clearfix
+          p#photoDesc.text_con
+          | &lpar;
+          em#photoIndex
+          | &sol;
+          em#photoCount
+          | &rpar;
+    #moretab.allPic(style='display:none')
+      div(style='height:572px')
+        .leftArae
+          a#moreLeft
+        .smallpic_box
+          div(style='height:560px;overflow: hidden;position: relative;width: 869px;')
+            #imageListView.smallpic_con.clearfix
+            .clear
+        .rightArae
+          a#moreRight
+        .clear
+      #btnPage.btn
+    .clear
+    #picList_b.photoList
+      #scrl.picList
+        #scrlPrev.l1
+          a#scrlPrev_b
+        .l2
+          .listM(style='position: relative')
+            ul#thumb(style='position: absolute')
+              li
+                a(href='#p=1')
+                  img(src='http://y2.ifengimg.com/f04c9b92453d105f/2012/0821/xes_0d51878254dfbb1200d99cc0fa2ed66e.jpg')
+          .scrollBar
+            a#bar.drag(href='/')
+              b.l_arrow
+              b.c_arrow
+              b.r_arrow
+        #scrlNext.l3
+          a#scrlNext_b
+      .clear
+  .clear
+script(type='text/javascript', src='http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js')
+script(type='text/javascript', src='#{current.base}js/album/photo_article.ul.js')
+script(type='text/javascript', src='#{current.base}/js/album/article_gallery.js')
+script.
+  var _listdata = [];
+  _listdata[0] = { title: '2012年8月10日，对于云南弥勒县10岁的小女孩锦玺来说，', timg: 'http://res.img.ifeng.com/2012/0821/wm_a0117799d69c6ba7444ff753dfa977b3.jpg', img: 'http://y2.ifengimg.com/f04c9b92453d105f/2012/0821/xes_0d51878254dfbb1200d99cc0fa2ed66e.jpg', listimg: 'http://y0.ifengimg.com/f04c9b92453d105f/2012/0821/xes_9bced863c695e56d96cd2e069d9be246.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[1] = { title: '8月10日早上7点多，弥勒县和谐家园小区(廉租房)', timg: 'http://res.img.ifeng.com/2012/0821/wm_694c4070efa98f230ae5f7b955be231a.jpg', img: 'http://y2.ifengimg.com/f04c9b92453d105f/2012/0821/xes_34dfae3786f6566d7130c2f03424bf59.jpg', listimg: 'http://y3.ifengimg.com/f04c9b92453d105f/2012/0821/xes_670031c998a18745181e9b6ce08f851a.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[2] = { title: '10岁的锦玺说，在平时养父母无休止的争吵中', timg: 'http://res.img.ifeng.com/2012/0821/wm_a6936f0ead37f1f7faf4b49a03318be9.jpg', img: 'http://y0.ifengimg.com/f04c9b92453d105f/2012/0821/xes_450f9ea7320e9ce8ffb37d1c27ff1064.jpg', listimg: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_f767c3d9b761681ddead706494744499.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[3] = { title: '谈到卖孩子，养父吴海南的理由有点荒唐。', timg: 'http://res.img.ifeng.com/2012/0821/wm_7ebb7df108d0199e1a5087e4e7c2ac8e.jpg', img: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_ff4cffb90b98f741f8edb20cc2a238b8.jpg', listimg: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_dff4ce7acb5fa07ec8918d647a3218e8.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[4] = { title: '在一旁的母亲毕升看着女儿，流泪说：', timg: 'http://res.img.ifeng.com/2012/0821/wm_863b8eddd77ee436c122eebc19e72cf8.jpg', img: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_35af417f3d3c19bc4c2e17498aa36ecd.jpg', listimg: 'http://y3.ifengimg.com/f04c9b92453d105f/2012/0821/xes_5cfc61255ca376b6eec32d5cecce9a42.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[5] = { title: '锦玺开始做饭。她做的菜很简单', timg: 'http://res.img.ifeng.com/2012/0821/wm_3f5a01f0842a13584d318ee7a0282377.jpg', img: 'http://y2.ifengimg.com/f04c9b92453d105f/2012/0821/xes_8ee58c88cb7a7ff846d07688440c25d9.jpg', listimg: 'http://y3.ifengimg.com/f04c9b92453d105f/2012/0821/xes_ffd04c225c5c8e01fe8c5000224ffb5b.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[6] = { title: '廉租房不到50平方米，家里除了两张床外', timg: 'http://res.img.ifeng.com/2012/0821/wm_1816458019188724e5834dc94bdb6923.jpg', img: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_967f41470d89737a07a02a571dd2ef4b.jpg', listimg: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_183710b628d5bd29d50b04beb9ffd176.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[7] = { title: '“我很小就被抛弃，幸亏有养母把我养大', timg: 'http://res.img.ifeng.com/2012/0821/wm_ef65df67f4cafea56e2164dfbaa57217.jpg', img: 'http://y3.ifengimg.com/f04c9b92453d105f/2012/0821/xes_2479e23f98b7429fee1b28e59ba94bb3.jpg', listimg: 'http://y0.ifengimg.com/f04c9b92453d105f/2012/0821/xes_4a6010d0d57f9826776e72d489698baa.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  _listdata[8] = { title: '8月17日，云南弥勒，虽然还没有开学', timg: 'http://res.img.ifeng.com/2012/0821/wm_e02c484757e35da29e2d8b4c522bbe0d.jpg', img: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_fea9632eb19aaefbd0ef3231bfbb729b.jpg', listimg: 'http://y1.ifengimg.com/f04c9b92453d105f/2012/0821/xes_c80641696b433d3b12d289c9f9a945fe.jpg', picwidth: '580', picheight: '435', morelink: 'http://news.ifeng.com/photo/society/detail_2012_08/21/16969417_0.shtml' };
+  new ifeng.Gallery({
+  photoViewMode: "loop"//"loop":循环/ "skip":下一图集
+  , activeThumbCls: "current"//预览图选中的类名
+  , data: _listdata
+  });
+  V.addListener($("sharebox"), "mouseout", function () {
+  O.setStyle($("share_zk"), "display", "none");
+  });
+  V.addListener($("sharebox"), "mouseover", function () {
+  O.setStyle($("share_zk"), "display", "block");
+  });
+  function ifengcmtcallback(num, allnum) {
+  if (num >= 0) { $('cmtcount').innerHTML = num; }
+  if (allnum >= 0) { $('cmtcount4').innerHTML = allnum; }
+  }
+// end:幻灯片

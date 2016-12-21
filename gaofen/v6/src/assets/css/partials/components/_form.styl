@@ -1,0 +1,110 @@
+// 元件：表单
+// ==================================================
+
+// 可选设置
+.checkbox
+.radio
+  input
+    margin-right 3px
+    margin-right ie678(0)
+    margin-left ie678(-3px)
+    if support-for-ie
+      _margin-top -3px
+
+.form
+  if support-for-ie
+    *zoom 1
+
+  .input-text
+    width 190px
+    padding 5px
+    border 1px solid #CDCDCD
+    font-size 14px
+
+  select
+    display inline-block
+    width 90px
+    padding 2px
+    margin 5px 5px 5px 0
+
+  // 输入框尺寸
+  .input-large
+    width 250px
+  .input-small
+    width 70px
+
+  .form-row
+    margin-bottom 10px
+    clearfix()
+
+    .radio-group
+    .checkbox-group
+      padding-top 6px
+
+      .radio
+      .checkbox
+        margin-right 10px
+
+    .require
+      color #E20B0B
+
+    .control-label
+      float left
+      width 80px
+      margin-right 10px
+      text-align right
+      font-size 14px
+      line-height 30px
+
+    .controls
+      float left
+
+    .hints
+      margin 5px 0
+      color #999
+
+  .actions
+    clearfix()
+    margin 30px 0 0 90px
+
+    .btn
+      float left
+      width 72px
+      text-align center
+
+    label.btn
+      width 112px
+
+  // 提示
+  .help-inline
+    float left
+    margin 5px 0 0 15px
+    padding-left 24px
+    line-height 20px
+    color #999
+
+  // 错误提示
+  .error
+    .input-text
+      border-color #E1A1A1
+      background #FEF8F8
+      box-shadow 0 0 0 2px #FFE9E6
+
+    .help-inline
+      color #E72E2E
+
+  // 成功提示
+  .success
+    .help-inline
+      width 0
+      hide-text()
+
+  // 信息提示
+  .hints
+    .input-text
+      border-color #A2C4E0
+      box-shadow 0 0 0 2px #EFF4F8
+
+    .help-inline
+      color #999
+

@@ -1,0 +1,182 @@
+---
+page_title: "详情页"
+header_bar_title: "教师详情页"
+body_classes: ["details-page"]
+---
+
+extends _layout
+
+block content
+
+  .ui-panel
+    .teacher-info
+      .thumb
+        +avatar(128)
+        b.icon-v V
+      .info
+        +teacher-name
+        .cert
+          .ui-label-group
+            +label("身份认证", 1)
+            +label("学历认证", 2)
+            +label("教师认证", 3)
+            +label("教师认证", 4)
+        .properties
+          span 语文
+          span 二年级、三年级、四年级、五年级、六年级、七年级、八年级、九年级
+        .properties
+          span 广州越秀区
+          span 8年教龄
+        +stars-with-text({count:5, size:"small", trim:true})
+    .course-info
+      .row
+        .label 上课地点:
+        .info
+          p 卓越教育市二宫校区 / 上门家教
+      .row
+        .label 课时单价:
+        .info
+          p 200元/小时
+      .row
+        .label 教学特点:
+        .info
+          p 卓越名师，专长英语户外教学让学生更好吸收知识
+          +tag-list([{label:"课堂幽默"}, {label:"奇趣英语"}, {label:"课余耐心指导"}])
+
+  // Start: 教师介绍
+  .ui-panel
+    +tab([{label:"教师介绍", active:true}, {label:"可授课时间"}, {label:"学生评论", count:88888888}])
+    .tab-cont
+      .desc
+        h2 教学经历
+        p= article.content
+        p
+          +dummy(640, 100)
+  // End: 教师介绍
+
+  // Start: 可授课时间
+  .ui-panel
+    +tab([{label:"教师介绍"}, {label:"可授课时间", active:true}, {label:"学生评论", count:88888888}])
+    .tab-cont
+      .schedule-box
+        .schedule
+          .date
+            .mon
+              em 2015
+              span 6月
+            .week
+              .day
+                em 周一
+                span 8
+              .day
+                em 周二
+                span 9
+              .day
+                em 周三
+                span 10
+              .day
+                em 周四
+                span 11
+              .day
+                em 周五
+                span 12
+              .day
+                em 周六
+                span 13
+              .day
+                em 周日
+                span 14
+          .arrange
+            .timeline
+              table
+                thead
+                  tr
+                    th
+                      span 08:30
+                      span -
+                      span 10:20
+                    th
+                      span 10:30
+                      span -
+                      span 12:20
+                    th
+                      span 14:00
+                      span -
+                      span 15:50
+                    th
+                      span 16:00
+                      span -
+                      span 17:50
+                    th
+                      span 19:00
+                      span -
+                      span 20:50
+            table
+              tbody
+                - for(var j=1; j<=7; ++j)
+                  tr
+                    - for(var k=1; k<=5; ++k)
+                      td
+                        .placeholder(class="#{(j==1 && k==1) ? 'over' : ''}")
+        .schedule-pager
+          .prev.disabled 上一周
+          .legend
+            span.over 不可预约
+            span.bookable 可预约 
+          .next 下一周
+  // End: 可授课时间
+
+  // Start: 学生评论
+  .ui-panel
+    +tab([{label:"教师介绍"}, {label:"可授课时间"}, {label:"学生评论", active:true, count:8888}])
+    .tab-cont
+      .rates
+        | 教师好评率：
+        span 86%
+      // 无评论
+      .tips-null
+        | 暂无评论
+      // 评论列表
+      .comment-list
+        - for(var i=1; i<=3; i++)
+          .comment-list-item
+            .thumb
+              +avatar(128)
+            .info
+              .name= article.author
+              p= article.summary
+              .date 2015-04-18
+              +stars({count:3, favour:true, trim:true, size:"small"})
+              //-
+                .comment-type
+                  if i==1
+                    span
+                      i.iconfont &#x3611;
+                      | 好评
+                  else if i==2
+                    span
+                      i.iconfont &#x3610;
+                      | 中评
+                  else
+                    span
+                      i.iconfont &#x3616;
+                      | 差评
+  // End: 学生评论
+
+  .panel-share
+    a.btn.btn-weixin.btn-block(href="#")
+      i.iconfont &#x3603;
+      span 立即分享给小伙伴们
+
+block tool-bar
+  include partials/_tool-bar
+
+block share-guide
+  .share-guide.hidden
+
+block javascript
+    script.
+        $('.link-booking').on('tap',function () {
+            $(this).addClass('disabled');
+            $('.booking-tips').removeClass('hidden');
+        })

@@ -1,0 +1,40 @@
+// 投票按钮元件
+// ==============================================
+
+$btn-vote
+  inline-block()
+  size 45px 34px
+  background url(img/btn_vote.png) no-repeat
+  padding 0 5px 0 40px
+  line-height 32px
+  vertical-align middle
+  text-align center
+  color #FFF
+
+  &:hover
+    text-decoration none
+
+// 赞成按钮
+// HTML结构：
+// <a href="#" class="btn-approve"><span class="count">89</span></a>
+.btn-approve
+  @extend $btn-vote
+
+// 已赞成按钮
+// HTML结构：
+// <a href="#" class="btn-approve btn-approved"><span class="count">89</span></a>
+.btn-approved
+  background-position 0 -52px
+
+// 反对按钮
+// HTML结构：
+// <a href="#" class="btn-object"><span class="count">89</span></a>
+.btn-object
+  @extend $btn-vote
+  background-position 0 -104px
+
+// 已反对按钮
+// HTML结构：
+// <a href="#" class="btn-object btn-objected"><span class="count">89</span></a>
+.btn-objected
+  background-position 0 -156px

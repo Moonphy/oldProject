@@ -1,0 +1,27 @@
+mixin bubble(params)
+  - var params = params || {}
+
+  if params.bubbles
+    each bubble in params.bubbles
+      if bubble == "投票" && category == "sz"
+        // Start:已经投票气泡提示
+        .bubble.bubble-info.hidden 您已经投过票啦
+        // End:已经投票气泡提示
+
+        // Start:投票成功提示
+        .bubble.bubble-success.hidden 投票成功
+        // End:投票成功提示
+
+      if bubble == "签到成功" && category == "sz"
+        // Start:签到成功
+        .bubble.bubble-success.bubble-award.hidden
+          | 签到成功，高分币+10
+          span.arrow
+            i.arrow-border
+            i.arrow-body
+        // End:签到成功
+
+      if bubble == "打卡" && category == "default"
+        // Start:打卡成功
+        .bubble.bubble-success.bubble-award 今日获得5高分币
+        // End:打卡成功

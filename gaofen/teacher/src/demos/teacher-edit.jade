@@ -1,0 +1,73 @@
+---
+page_title: "学习轨迹信息页"
+header_bar_title: "学习轨迹信息"
+body_classes: ["teacher-edit-page"]
+navbar: false
+loading: false
+user_config: false
+---
+extends _layout
+block css
+    link(rel="stylesheet", type="text/css", href="#{current.base}css/feedback.css")
+block content
+    .teacher-edit
+        .table-wrap
+            table.un-post
+                tr
+                    th 学生
+                    td
+                        | 黄江宁
+                        span 初中-语文（初一）
+                tr
+                    th 上课时段
+                    td
+                        | 3月7日
+                        span 20:00~21:00
+                tr
+                    th 上课地点
+                    td
+                        | 西村一对一
+                        span 课室103
+                tr
+                    th 课时
+                    td
+                        | 2.0
+                tr
+                    th 提交时间
+                    td
+                        span.font-grey 未提交
+                tr
+                    td.p-0(colspan='2')
+                        a(href='teacher-edit-post.html',title='编辑')
+                            i.iconfont.icon-change
+                            | 编辑
+
+        .table-wrap
+            table
+                tr
+                    th 学生
+                    td
+                        | 黄江宁
+                        span 初中-语文（初一）
+                tr
+                    th 上课时段
+                    td
+                        | 3月7日
+                        span 20:00~21:00
+                tr
+                    th 上课地点
+                    td
+                        | 西村一对一
+                        span 课室103
+                tr
+                    th 课时
+                    td
+                        | 2.0
+                tr
+                    th 提交时间
+                    td
+                        span 2016年3月10日
+
+    +pagination
+    //+pagination({prev_disabled:true})
+    //+pagination({next_disabled:true})

@@ -1,0 +1,91 @@
+---
+page_title: "初中库-首页"
+category: "library"
+body_class: ["index-page"]
+stylesheets: ["junior"]
+modals:
+  -
+    type: "comparison-list"
+is_new: false
+ad_footer: true
+hide_widget_weixin: true
+---
+
+//- 模板继承
+extends ../_layout
+
+//- 导入学校网格
+include ../partials/_school-grid
+
+//- 导入初中库侧栏
+include partials/_widgets
+
+block header
+  // Start: 页头
+  +header("junior")
+  // End: 页头
+
+//- 内容
+block content
+  .container.page-content
+    .row.row14-6
+      .span14
+        +ad({width:670, height:200, count:3})
+
+        // Start: 选学校
+        .tags-filter
+          .hd 选学校
+          .bd
+            each tag in ["省属示范性高中", "市属示范性高中", "区属示范性高中", "独立批", "提前批", "面向全市招生", "民办高中"]
+              a(href="search.html", target="_blank")= tag
+        // End: 选学校
+
+        // Start: 民校择校
+        .mod.mod-school
+          .mod-heading
+            a.more(href="#", target="_blank") 更多
+            .mod-title 民校择校
+          .mod-body
+            +school-grid({count:6})
+        // End: 民校择校
+
+        // Start: 特长生择校
+        .mod.mod-school
+          .mod-heading
+            a.more(href="#", target="_blank") 更多
+            .mod-title 特长生择校
+          .mod-body
+            +school-grid({count:6, special:true})
+        // End: 特长生择校
+
+        // Start: 外国语学校
+        .mod.mod-school
+          .mod-heading
+            a.more(href="#", target="_blank") 更多
+            .mod-title 外国语学校
+          .mod-body
+            +school-grid({count:6})
+        // End: 外国语学校
+
+
+      .span6
+        // Start: 侧栏挂件-民校推荐
+        +widget-school-query
+        // End: 侧栏挂件-民校推荐
+
+        // Start: 侧栏挂件-特长生招生查询
+        +widget-recruit-query
+        // End: 侧栏挂件-特长生招生查询
+
+        // Start: 侧栏挂件-热门学校推荐
+        +widget-rec-school({tabs:[{label:"民办", active:true}, {label:"公办"}], meta:true})
+        // End: 侧栏挂件-热门学校推荐
+
+        // Start: 侧栏挂件-近期热门讨论
+        +widget-discuss
+        // End: 侧栏挂件-近期热门讨论
+
+        // Start: 侧栏挂件-关注高分小升初
+        +widget-follow-s2({type:"xsc"})
+        // End: 侧栏挂件-关注高分小升初
+

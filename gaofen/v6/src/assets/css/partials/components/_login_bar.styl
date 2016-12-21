@@ -1,0 +1,92 @@
+// 登录条
+// ==================================================
+
+.login-bar
+  position fixed
+  left 0
+  bottom 0
+  size 100% 80px
+  z-index 10000
+
+  if support-for-ie
+    _position absolute
+    _bottom auto
+    _top unquote("expression(documentElement.scrollTop + documentElement.clientHeight - this.clientHeight)")
+
+  .bg
+    absolute left top
+    size 100%
+    background #333
+    opacity .95
+    z-index -1
+
+  .login-form
+    float left
+    width 470px
+
+    h3
+      font-size 18px
+      font-weight normal
+      color #FFF
+      line-height 40px
+      margin 0
+
+    .input-text
+      float left
+      width 156px
+      padding 5px 10px
+      margin-right 10px
+      font-size 12px
+      border 1px solid #CCC
+
+    .blur
+      color #999
+
+    .btn
+      button
+        height 25px
+        padding 4px 20px
+
+  .quick-login
+    float left
+    width 203px
+    margin-top 10px
+    padding-left 25px
+    border-left 1px solid #4c4c4c
+
+    h3
+      font-size 14px
+      color #FFF
+      margin 0 0 6px
+      line-height 26px
+
+    .actions
+      a
+        float left
+        margin-right 5px
+
+  .reg
+    float left
+    width 200px
+    padding-left 25px
+    margin-top 10px
+    border-left 1px solid #4c4c4c
+
+    p
+      color #CBCBCB
+      font-size 14px
+      margin 0 0 6px
+      line-height 26px
+
+    .btn
+      font-weight bold
+      height 24px
+      line-height 24px
+
+  .close
+    absolute right 50px top 25px
+    size 30px
+    background url("../img/login_bar_close.png") no-repeat
+
+    &:hover
+      background-position 0 -50px

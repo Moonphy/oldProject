@@ -1,0 +1,106 @@
+---
+page_title: "高中库-首页"
+category: "library"
+body_class: ["index-page"]
+stylesheets: ["senior"]
+modals:
+  -
+    type: "comparison-list"
+is_new: false
+ad_footer: true
+hide_widget_weixin: true
+---
+
+//- 模板继承
+extends ../_layout
+
+//- 导入学校网格
+include ../partials/_school-grid
+
+//- 导入特色班网格
+include partials/_class-grid
+
+//- 导入高中库侧栏
+include partials/_widgets
+
+block header
+  // Start: 页头
+  +header("senior")
+  // End: 页头
+
+//- 内容
+block content
+  .container.page-content
+    .row.row14-6
+      .span14
+        +ad({width:670, height:200, count:3})
+
+        // Start: 选学校
+        .tags-filter
+          .hd 选学校
+          .bd
+            each tag in ["省属示范性高中", "市属示范性高中", "区属示范性高中", "独立批", "提前批", "面向全市招生", "民办高中"]
+              a(href="search.html", target="_blank")= tag
+        // End: 选学校
+
+        // Start: 广州重点高中
+        .mod.mod-school
+          .mod-heading
+            a.more(href="#", target="_blank") 更多
+            .mod-title 广州重点高中
+          .mod-body
+            +school-grid
+        // End: 广州重点高中
+
+        // Start: 各区重点高中
+        .mod.mod-school
+          .mod-heading
+            .mod-title 各区重点高中
+          .mod-body
+            // Start: 过滤器
+            .filter
+              .filter-cont
+                span.active 越秀区
+                a(href="#") 荔湾区
+                a(href="#") 天河区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+                a(href="#") 海珠区
+            // End: 过滤器
+            +school-grid({base:current.base, count:4, loading:true})
+        // End: 各区重点高中
+
+        // Start: 特色班推荐
+        .mod.mod-school
+          .mod-heading
+            .mod-title 特色班推荐
+          .mod-body
+            +class-grid
+        // End: 特色班推荐
+
+      .span6
+        // Start: 侧栏挂件-估分选校
+        +widget-choose-school
+        // End: 侧栏挂件-估分选校
+
+        // Start: 侧栏挂件-历年分数线查询
+        +widget-score-query
+        // End: 侧栏挂件-历年分数线查询
+
+        // Start: 侧栏挂件-热门学校推荐
+        +widget-rec-school({meta:true})
+        // End: 侧栏挂件-热门学校推荐
+
+        // Start: 侧栏挂件-近期热门讨论
+        +widget-discuss
+        // End: 侧栏挂件-近期热门讨论
+
+        // Start: 侧栏挂件-关注高分中考
+        +widget-follow-s2({type:"zk"})
+        // End: 侧栏挂件-关注高分中考
+

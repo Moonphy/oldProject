@@ -1,0 +1,534 @@
+// 定制
+// 说明：在重置的基础上补充定义网站基本字体及链接等样式
+// ==================================================
+
+// 页面主体
+// ------------------------------
+html
+body
+  overflow-x hidden
+body
+  margin 0
+  font-family font-stack
+  font-size font-size
+  color font-color
+  line-height line-height
+  background-color white
+
+// 超链接
+// ------------------------------
+a
+  color link-color
+  text-decoration none
+  &:hover
+    color link-color-hover
+    text-decoration underline
+
+// 斜体
+// ------------------------------
+i
+  font-style normal
+
+// 列表
+// ------------------------------
+ul
+ol
+  padding 0
+  margin 0 0 10px 20px
+
+ul ul
+ul ol
+ol ol
+ol ul
+  margin-bottom 0
+
+li
+  line-height 1.5
+
+// 表单元素
+// ------------------------------
+
+// 去除input和textarea元素的聚焦样式
+input:focus
+textarea:focus
+  outline none
+
+// 占位符
+@import "../partials/_placeholders"
+
+// 默认图片背景
+.no-pic
+  background #F8F8F8 url("../img/no_pic.png") no-repeat center
+
+// 全站公用拼图
+// ------------------------------
+
+// 热线
+.hotline
+  @extend $all-bg
+  background-position -50px -28px
+
+// @deprecated 旧版城市切换的口号
+// 页头与页脚统一之后可以移除
+.slogan
+  @extend $all-bg
+  background-position -50px 0
+
+// 返回顶部
+.gotop
+  @extend $all-bg
+  background-position 0 -57px
+
+  &:hover
+    background-position -50px -57px
+
+// QQ咨询图标
+.btn-qq-consult
+  span
+    @extend $all-bg
+    background-position -110px -55px
+
+// 推荐图标
+.icon-rec
+  @extend $icon
+  display inline-block
+  size 15px
+  hide-text()
+  background-position -15px 0
+
+// 人气图标
+.icon-pop
+  @extend $icon
+  display inline-block
+  size 30px 15px
+  hide-text()
+  background-position 0 -30px
+
+// 放大镜图标
+.search-btn
+  @extend $icon
+  size 30px 20px
+  hide-text()
+  background-position -6px -87px
+
+  &:hover
+    background-position -6px -357px
+
+// 时钟图标
+.icon-clock
+  @extend $icon
+  padding-left 20px
+  background-position -15px -115px
+
+// QQ群图标
+.qq-list
+  li
+    @extend $icon
+    background-position -10px -150px
+
+// 侧栏箭头图标
+.nav-aside
+  .active
+    .top-level
+    .active a
+      @extend $icon
+      background-position 140px -228px
+    span.top-level
+      i
+        @extend $icon
+        background-position right -263px
+
+// new小图标
+.icon-new
+  @extend $icon
+  background-position -11px -420px
+
+// hot小图标
+.icon-hot
+  @extend $icon
+  background-position -11px -510px
+
+// 表示返回链接的箭头小图标
+.icon-return
+  @extend $icon
+  background-position -15px -446px
+
+// 评论图标
+.icon-comment
+  @extend $icon
+  padding-left 20px
+  background-position -15px -447px
+
+// 表单验证提示图标
+@import '../partials/sprites/_form_help_inline'
+
+// tooltip中的提示图标
+.tooltip
+  .ico
+    @extend $icon-help
+    size 16px
+  // 成功图标
+  .alert-success
+    .ico
+      background-position -14px -180px
+  // 出错图标
+  .alert-error
+    .ico
+      background-position -14px -60px
+  // 询问图标
+  .alert-ask
+    .ico
+      background-position -14px -120px
+
+// 第三方账号登录按钮
+@import '../partials/sprites/_btn_sns'
+
+// 各种提示图标
+@import '../partials/sprites/_icon_alert'
+
+// 相册幻灯
+.photoMHD
+  .photoList
+    .picList
+      .l1
+        a
+          @extend $gallery-bg
+      .l3
+        a
+          @extend $gallery-bg
+          background-position -23px 0
+  .scrollBar
+    .drag
+    .drag_no
+      @extend $gallery-bg
+      background-repeat repeat-x
+      background-position 0 -114px
+
+    .l_arrow
+    .r_arrow
+      @extend $gallery-bg
+      width 11px
+    .l_arrow
+      background-position 0 -91px
+    .r_arrow
+      background-position -25px -91px
+
+    .c_arrow
+      @extend $gallery-bg
+      width 14px
+      background-position -11px -91px
+
+// 标题
+// ------------------------------
+.heading
+  position relative
+  margin-bottom 15px
+  border-bottom 2px solid #DFDFDF
+  if support-for-ie
+    *zoom 1
+
+  .more
+    float right
+    margin 4px 0 0 0
+    highlight-link()
+
+  .extra
+    float right
+    margin 4px 0 0 0
+    color #999
+
+  .pager
+    absolute right top 5px
+
+    a
+    span
+      float right
+      margin-left 2px
+      size 14px
+      background url("img/data/arrow_s2.png") no-repeat
+      font-size 200px
+      overflow hidden
+      if support-for-ie
+        _display inline
+
+    .next
+      background-position -15px 0
+
+    .prev-disabled
+      background-position -30px 0
+
+    .next-disabled
+      background-position -45px 0
+
+
+  .btn
+    margin-top 3px
+
+  .title
+    padding 0 0 3px
+    margin 0
+    font-size 16px
+    font-weight bold
+    color #4D4D4D
+
+    a
+      color #0F0F0F
+
+    h1
+    h2
+      display inline
+      font-size 16px
+
+    span
+      font-size 12px
+      font-weight normal
+      color #929698
+
+    i
+      margin 0 8px 0 5px
+      color #D2D2D2
+
+    strong
+      margin 0 5px
+
+    em
+      margin 0 10px 0 0
+      font-style normal
+      font-weight bold
+      font-size 12px
+
+    .tags
+      a
+        highlight-link()
+        margin-left 5px
+
+// 子标题
+.sub-hd
+.sub-hd-noline
+  if support-for-ie
+    *zoom 1
+
+  .more
+    float right
+    margin 6px 5px 0 0
+    highlight-link()
+
+  .title
+    padding 6px 5px
+    margin 0
+    font-size 12px
+    font-weight bold
+    color #222
+
+    a
+      color #0F0F0F
+
+.sub-hd
+  margin-bottom 5px
+  split()
+
+// 新版子标题
+.sub-hd-s2
+  if support-for-ie
+    *zoom 1
+
+  .more
+    float right
+    margin 6px 5px 0 0
+    highlight-link()
+
+  .title
+    margin 15px 0 5px
+    padding-left 5px
+    border-left 3px solid #147DCF
+    font-size 12px
+    height 12px
+    line-height 12px
+    font-weight bold
+    color #222
+
+    a
+      color #0F0F0F
+
+.sub-hd-s2
+  position relative
+  margin-bottom 10px
+  border-bottom 1px solid #DEDEDE
+
+// 侧栏挂件的标题
+.widget
+  .heading
+    margin-bottom 10px
+
+// 带tabs的标题
+.heading-tabs
+  position relative
+  clearfix()
+
+  .title
+    float left
+
+  .tabs
+    float left
+    margin-bottom -2px
+    if support-for-ie
+      _display inline
+
+    span
+      cursor default
+
+    a
+    span
+      float left
+      color #4E4E4E
+      padding 0 20px
+      margin-right -1px
+      background #FFF
+      line-height 26px
+      border 1px solid common-border-color
+      border-bottom 2px solid #DEDEDE
+      font-size 14px
+
+      &:hover
+        text-decoration none
+
+    .active
+      position relative
+      color #FFF
+      background #3D9EF2
+      border-color #3D9EF2
+      text-decoration none
+
+  .tabs-s2
+    absolute left 90px bottom -2px
+
+    .item
+      float left
+      color #4E4E4E
+      padding 0 10px
+      background #FFF
+      line-height 27px
+      border-bottom 2px solid #DEDEDE
+      font-size 14px
+
+    span:hover
+      cursor default
+
+    a
+      color #4D4D4D
+
+    .active
+      position relative
+      color link-color-hover
+      border-color #66B1EC
+      text-decoration none
+
+  .tags
+    float left
+    margin-top 3px
+
+    a
+      highlight-link()
+      margin-left 15px
+      font-size 14px
+
+// 带下拉选择的标题
+.heading-dropable
+  .dropdown-group
+    float left
+    margin 4px 0 0 30px
+
+  .trigger
+    position relative
+    display inline-block
+    z-index 1000
+    cursor pointer
+
+  .caret
+    width 25px
+    padding-right 10px
+
+    i
+      absolute right top 8px
+      if support-for-ie
+        _top 6px
+
+  .dropable
+    float left
+
+    .bg
+      display none
+      absolute left -19px top -6px
+      size 35px 12px
+      padding 5px 19px 4px 11px
+      z-index -1
+      border 3px solid #D9D9D9
+      border-color rgba(0, 0, 0, .15)
+      border-bottom none
+      border-radius 3px 3px 0 0
+
+      .bg-in
+        absolute left top
+        size 33px 12px
+        padding 6px 19px 6px 11px
+        border 1px solid #B0B0B0
+        border-bottom none
+        background white
+
+    .dropdown
+      display none
+      width 105px
+      absolute left -19px top 18px
+      border-radius 0 3px 3px 3px
+      z-index 100
+
+    .dropdown-in
+      padding 5px 15px
+
+  .drop-on
+    position relative
+    z-index 10
+
+    .dropdown
+    .bg
+      display block
+
+  .options
+    .inner
+      overflow hidden
+
+    .item
+      border-top 1px solid #CCC
+      padding 5px 0
+      margin-top -1px
+
+    a
+      line-height 20px
+
+  .seperator
+    float left
+    color #D2D2D2
+    margin 0 11px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

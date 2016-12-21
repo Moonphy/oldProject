@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>表单验证</title>
+	<link type="text/css" href="http://demo.gaofen.com/css/default/base.css" rel="stylesheet">
+	<link type="text/css" href="http://demo.gaofen.com/css/default/reg.css" rel="stylesheet">
+    <script type="text/javascript" src="gaofen.js"></script>
+	<style>
+		.center{
+			margin: 100px 0 0 100px;
+		}
+		
+	</style>
+</head>
+
+<body>	
+	<div class="center">
+		<h3>注册</h3>
+		<form id="myform" action="#" class="form form-reg">
+				<div class="form-row">
+                    <label class="control-label"><i class="require">*</i> 邮箱</label>
+                    <div class="controls">
+                        <input type="text" name="regEmail" class="input-text input-large" id="regEmail" vrel="_f|ne=m:请填写电子邮箱，可用来取回密码|tips=m:如\:gaofen@gaofen.com|mail=m:请正确输入邮箱格式"/>
+                    </div>
+                    <span class="help-inline hidden">6-20位字符，可由英文、数字及标点符号组成</span>
+                </div>
+				
+				<div class="form-row">
+                    <label class="control-label"><i class="require">*</i> 密码</label>
+                    <div class="controls">
+                        <input type="password" class="input-text input-large" id="password" vrel="_f|ne=m:请设置密码|tips=m:6-15位字符，可以是汉字、英文组合|sz=max:15,min:6,m:6-15位字符，可以是汉字和英文字体"/>
+                    </div>
+                    <span class="help-inline hidden">6-20位字符，可由英文、数字及标点符号组成</span>
+                </div>
+				
+				<div class="form-row">
+                    <label class="control-label"><i class="require">*</i> 再次输入密码</label>
+                    <div class="controls">
+                        <input type="password" class="input-text input-large" id="title" vrel="_f|ne=m:请再次设置密码|cpw=pid:password|tips=m:6-15位字符，可以是汉字、英文组合|sz=max:15,min:6,m:6-15位字符，可以是汉字和英文字体"/>
+                    </div>
+                    <span class="help-inline hidden">6-20位字符，可由英文、数字及标点符号组成</span>
+                </div>
+				
+				<div class="form-row">
+                    <label class="control-label"><i class="require">*</i> 昵称</label>
+                    <div class="controls">
+                        <input name="username" type="text" class="input-text input-large" id="username" vrel="_f|mcode|ne=m:请填写昵称|tips=m:4-15位字符，可以是汉字、英文组合|sz=max:15,min:4,m:4-15位字符，可以是汉字和英文字体""/>
+                    </div>
+                    <span class="help-inline hidden">6-20位字符，可由英文、数字及标点符号组成</span>
+                </div>
+				
+				<div class="form-row">
+                    <label class="control-label"><i class="require">*</i> 手机号</label>
+                    <div class="controls">
+                        <input type="text" class="input-text input-large" vrel="_f|ne|phone" id="slder_phone" name="phone">
+                    </div>
+                <span class="help-inline"></span></div>
+				
+				<div class="form-row">
+                    <label class="control-label"><i class="require">*</i> URL</label>
+                    <div class="controls">
+                        <input type="text" class="input-text input-large" vrel="_f|ne|url" id="url" name="url">
+                    </div>
+                <span class="help-inline"></span></div>
+								
+				<div class="form-row ipt_addess">
+                    <label class="control-label">地域</label>
+                    <div class="controls" id="residedistrictbox">
+                        <select tabindex="9"  class="ps" id="resideprovince" vrel="ne=m:请选择地域" name="resideprovince"><option value="" did="0">--省份--</option><option value="北京市" did="1">北京市</option><option value="天津市" did="2">天津市</option><option value="河北省" did="3">河北省</option><option value="山西省" did="4">山西省</option><option value="内蒙古自治区" did="5">内蒙古自治区</option><option value="辽宁省" did="6">辽宁省</option><option value="吉林省" did="7">吉林省</option><option value="黑龙江省" did="8">黑龙江省</option><option value="上海市" did="9">上海市</option><option value="江苏省" did="10">江苏省</option><option value="浙江省" did="11">浙江省</option><option value="安徽省" did="12">安徽省</option><option value="福建省" did="13">福建省</option><option value="江西省" did="14">江西省</option><option value="山东省" did="15">山东省</option><option value="河南省" did="16">河南省</option><option value="湖北省" did="17">湖北省</option><option value="湖南省" did="18">湖南省</option><option value="广东省" did="19">广东省</option><option value="广西壮族自治区" did="20">广西壮族自治区</option><option value="海南省" did="21">海南省</option><option value="重庆市" did="22">重庆市</option><option value="四川省" did="23">四川省</option><option value="贵州省" did="24">贵州省</option><option value="云南省" did="25">云南省</option><option value="西藏自治区" did="26">西藏自治区</option><option value="陕西省" did="27">陕西省</option><option value="甘肃省" did="28">甘肃省</option><option value="青海省" did="29">青海省</option><option value="宁夏回族自治区" did="30">宁夏回族自治区</option><option value="新疆维吾尔自治区" did="31">新疆维吾尔自治区</option><option value="台湾省" did="32">台湾省</option><option value="香港特别行政区" did="33">香港特别行政区</option><option value="澳门特别行政区" did="34">澳门特别行政区</option><option value="海外" did="35">海外</option><option value="其他" did="36">其他</option></select>
+                        <select id="residecity" class="hidden"></select>
+                        <select id="residedist" class="hidden"></select>
+                        <select id="residecommunity" class="hidden"></select>
+                    </div>
+                <span class="help-inline"></span></div>
+				
+				
+				<div class="form-row ipt_require">
+                    <label class="control-label"><i class="require">*</i> 身份</label>
+                    <div class="controls radio-group">
+                        <label class="radio"><input class="rd" vrel="radio=m:请选择身份" type="radio" name="status" value="学生">学生</label> 
+                        <label class="radio"><input class="rd" type="radio" name="status" value="家长">家长</label> 
+                        <label class="radio"><input class="rd" type="radio" name="status" value="老师">老师</label> 
+                        <label class="radio"><input class="rd" type="radio" name="status" value="保密">保密</label> 
+                    </div>
+                    <span class="help-inline"></span>
+			    </div>
+				
+				
+				<div class="form-row ipt_require">
+                    <label class="control-label"><i class="require">*</i> 喜好</label>
+                    <div class="controls radio-group">
+                        <label class="radio"><input class="rd" vrel="cbox=m:请选择喜好" type="checkbox" name="status" value="音乐">音乐</label> 
+                        <label class="radio"><input class="rd" type="radio" name="checkbox" value="阅读">阅读</label> 
+                        <label class="radio"><input class="rd" type="radio" name="checkbox" value="运动">运动</label> 
+                        <label class="radio"><input class="rd" type="radio" name="checkbox" value="电影">电影</label> 
+                    </div>
+                    <span class="help-inline"></span>
+			    </div>
+				
+				<div class="form-row ipt_code">
+                    <label class="control-label"><i class="require">*</i> 验证码</label>
+                    <div class="controls code">
+                        <input type="text" vrel="_f|ne|vcode" class="input-text input-small" name="checkCode" id="checkCode"><img width="80" height="30" src="http://my.gaofen.com/index.php?mod=common&amp;do=authCode&amp;size=20" onclick="this.src='index.php?mod=common&amp;do=authCode&amp;n='+Math.random();" alt="点击图片，更换验证码" id="authcode_flush"><a onclick="(function(el){var img=document.getElementById('authcode_flush'),src=img.src.replace(/(\?0\.\d+)?$/, ''); img.src=src+'?'+Math.random()})(this)" href="javascript:void(0)" class="link">换一个</a>
+						<span class="help-inline"></span>
+					</div>
+                </div>
+			
+			<div id="btn" class="btn btn-primary">submit</div>
+		</form>
+	</div>
+<script>
+	$(document).ready(function(){
+		
+		//在外面注册一个验证方法
+		Gaofen.ui.validation.prototype.reg('url', function(elem, v, data, next){
+			var checkfiles=new RegExp("((^http)|(^https)|(^ftp)):\/\/(\\w)+\.(\\w)+"); 
+			if(checkfiles.test(v)){
+				this.report(true, data);
+			}else{
+				data.m = data.m || '请正确输入网址';
+				this.report(false, data);
+			}
+			next();
+		});
+		
+		
+		Gaofen.use('validator', {
+			form : '#myform'
+			, trigger : '#btn'
+			, inForm : true
+			, onSuccess : function(data){
+				console.log(data);
+				alert('通过验证,ajax请求')
+				return false;
+			}
+		});
+		
+		
+	
+	});
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+if current.source != "teacher-login"
+    header.header#header
+      .header-bar
+        if current.source == "index" || current.source == "404" || current.source == "auth-failed"
+          span.iconfont.city-switcher 广州市
+        else
+          a.iconfont.icon-return(href="index.html") &#x3613;
+        if header_menu
+          span.iconfont.icon-menu#navToggle &#x3600;
+        if user_message
+          a.iconfont.icon-message(href="teacher-feedback.html")
+            i 2
+        if user_config
+          a.iconfont.icon-user(href="#")
+          include _users
+        if heaer_home
+          a.iconfont.icon-home.right-2(href="index.html")
+        if user_evaluate
+          a.iconfont.icon-ping(href="stage-evaluation.html") 评
+        if name
+            a.icon-down(href='#') 小绿人
+        if current.source == "user-config-new"
+            a.btn-bind(href='#') 解除绑定
+            a.btn-done(href='#') 完成
+
+        h1= header_bar_title || ''
+        if current.source == "teacher-edit"
+            .head-un-post 未提交(18)
+      include _nav-main

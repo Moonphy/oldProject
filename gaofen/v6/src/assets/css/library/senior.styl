@@ -1,0 +1,376 @@
+// 简介：定义高分网高中库基础样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "_settings"
+@import "senior/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 全局占位符
+@import "../partials/_placeholders"
+
+// 占位符
+@import "../library/_placeholders"
+
+// 定制元件样式
+// ------------------------------
+
+// 模块
+// ------------------------------
+.mod
+  margin-bottom 30px
+
+// 班级区块列表
+.class-grid
+  clearfix()
+  margin-right -2px
+
+  .class-grid-item
+    float left
+    width 148px
+    margin 20px 20px 0 0
+    clearfix()
+    if support-for-ie
+      _display inline
+
+    .thumb
+      size 148px 111px
+      margin-bottom 4px
+
+      img
+        size 148px 111px
+        display block
+
+    .info
+      h3
+        margin 0
+        height 26px
+        line-height 26px
+        overflow hidden
+        font-size 14px
+
+      p
+        margin 0
+        color gray
+
+// 侧栏挂件
+// ------------------------------
+
+// 侧栏选择学校
+.widget-choose-school
+  .ui-select
+    width 136px
+
+  .form
+    .form-row
+      .control-label
+        width 108px
+
+      .input-text
+        width 107px
+
+// 学校详情页
+//------------------------------
+.school-summary
+  .info
+    .sec-properties
+      padding-top 8px
+      padding-bottom 8px
+
+      ul
+        li
+          font-size 14px
+          width 194px
+
+          .cont
+            width 100px
+
+        .col-2
+          width 150px
+
+          .cont
+            width 56px
+
+        .col-3
+          width 238px
+
+          .cont
+            width 164px
+
+      .label
+        width 74px
+
+    .sec-stars
+      li
+        width 194px
+
+      .col-2
+        width 150px
+
+      .col-3
+        width 238px
+
+  .actions
+    top 140px
+
+  // 中考头条
+  .headlines
+    margin-top 20px
+
+    .hd
+      font-size 16px
+      font-weight bold
+      margin-bottom 5px
+      color gray-dark
+
+    .post-list-large
+      ul
+        clearfix ()
+
+      li
+        float left
+        width 270px
+        margin-right 30px
+
+.tabs
+  li
+    width 111px
+
+  .active
+    width 113px
+
+
+// 选校指南页
+// ------------------------------
+.guide-tools
+  border 1px solid common-border-color
+  padding 0 20px
+  margin-bottom 50px
+  min-height 444px
+
+.tool-details
+  padding 40px 20px
+
+  .hd
+    border-left 4px solid #3397E4
+    padding-left 10px
+    font-size 20px
+    line-height 22px
+    font-weight bold
+    margin-bottom 30px
+
+  .bd
+    padding 0 20px 0 14px
+
+  p
+    margin 0 0 10px
+    font-size 16px
+
+  .return
+    margin-top 15px
+    font-size 14px
+
+    a
+      highlight-link()
+
+  // 表单
+  .form
+    .form-row
+      margin-bottom 15px
+
+      .control-label
+        width 110px
+        font-size 14px
+
+    .input-blur
+      color gray
+
+    .actions
+      margin-left 120px
+
+      .btn
+        border-radius 4px
+        font-size 16px !important
+
+        button
+          height 40px
+          padding 7px 20px
+
+      span.btn
+        height 40px
+        line-height 40px
+
+      .help-inline
+        margin-top 12px
+
+  // 表格
+  .table
+    td
+      font-weight bold
+      font-size 14px
+
+      a
+        margin-right 10px
+
+        &:hover
+          color link-color-hover
+          text-decoration none
+
+    .tips-null
+      inline-block()
+      padding-left 24px
+      margin 60px auto 80px
+      text-align left
+      background url("../img/icon_help.png") no-repeat -12px -118px
+      font-weight normal
+      color gray
+
+
+// 估分选校结果/历年分数线查询
+.guide-tools-query
+  .ui-select
+    width 115px
+
+  .form
+    clearfix()
+    margin-bottom 15px
+
+    .input-text
+      width 70px
+
+    .form-row
+      float left
+      margin 0 24px 0 0
+      padding-bottom 5px
+
+      .control-label
+        width auto
+        text-align left
+        margin-right 0
+
+// 升学指导工具列表
+.tool-list
+  ul
+    remove-list-style()
+    clearfix()
+    background url("img/split_h.png") repeat-x left center
+
+  li
+    float left
+    padding 20px 0
+    font-size 14px
+    *zoom 1
+
+    a
+      position relative
+      display block
+      size 252px 90px
+      padding 46px 66px 46px 150px
+      background url("img/split_v.png") repeat-y right top
+      color #333
+      transition background-color .3s
+
+      &:hover
+        background-color #F9F9F9
+        text-decoration none
+
+    .ico
+      absolute left 30px top 36px
+      size 100px
+      @extend $icon-tools
+
+    .name
+      display block
+      font-size 18px
+      line-height 46px
+      font-weight bold
+
+      .sub
+        font-weight normal
+        font-size 14px
+        margin-left 4px
+
+    .desc
+      display block
+      line-height 22px
+
+  .even
+    a
+      background-image none
+
+tool-types = choose-school, score-query, zk-baike, zk-data
+
+for type, i in tool-types
+  offset-y = -110px * i
+
+  .{type}
+    .ico
+      background-position 0 offset-y
+
+// 志愿填报页
+// ------------------------------
+.aspiration-flow
+  background url("img/senior/bg_flows.jpg") no-repeat 0 0
+  border 1px solid common-border-color
+  padding 150px 20px 20px
+  font-size 14px
+  line-height 24px
+
+  p
+    margin 0
+
+    strong
+      color #262626
+
+      a
+        color #262626
+
+  a
+    highlight-link()
+
+  dl
+    margin 0
+
+  dt
+    color #262626
+    font-weight bold
+
+    a
+      color #262626
+
+  dd
+    margin 0 0 20px
+    color gray
+
+  .leadin
+    margin-bottom 20px
+    color gray
+
+  .sec
+    margin-bottom 25px
+
+  .sec-hd
+    margin-bottom 10px
+
+    span
+      display inline-block
+      line-height 30px
+      vertical-align middle
+      font-size 16px
+      font-style italic
+      font-weight bold
+
+    .num
+      size 30px
+      margin 0 5px
+      color #FFF
+      font-weight normal
+      text-align center
+      background url("img/senior/bubble.png") no-repeat
+

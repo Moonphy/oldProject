@@ -1,0 +1,211 @@
+// 页头样式
+// ==================================================
+
+#header
+  position relative
+  height 90px
+  z-index 1000
+
+.logo
+  float left
+  width auto
+  margin 25px 0 0 2px
+  font-size 0
+  if support-for-ie
+    _display inline
+
+// 子站切换
+.subsite-switcher
+  position relative
+  float left
+  border-left 1px solid #EBEBEB
+  margin 18px 0 0 14px
+  padding 3px 0 3px 10px
+
+  .city
+    font-size 20px
+    line-height 1.1
+
+  .tigger
+    color link-highlight-color
+    cursor pointer
+
+  .drop
+    display none
+    absolute left 0 top 46px
+    margin-left -64px
+    width 171px
+    border 1px solid #B0B0B0
+    padding 20px
+    background white
+
+    .in
+      background url("../img/split_v.png") repeat-y center top
+      clearfix()
+
+    a
+    span
+      float left
+      width 75px
+      margin 0 5px
+      height 30px
+      line-height 30px
+      font-size 14px
+      text-align center
+
+    a
+      highlight-link()
+
+      &:hover
+        background #E7F0F8
+        text-decoration none
+
+  // 小三角
+  .arrow
+    absolute left 50% top -12px
+    margin-left -6px
+
+    .arrow-border
+      absolute left top
+      caret #999 6px up
+
+    .arrow-body
+      absolute left top 1px
+      caret #FFF 6px up
+
+// 顶部链接
+.extra-links
+  absolute right top
+  remove-list-style()
+  padding 6px 10px
+  background #F5F7F9
+  border-radius 0 0 4px 4px
+  z-index 10
+
+  li
+    float left
+    font-family "Simsun"
+    white-space nowrap
+
+  .seperator
+    color #D2D2D2
+    margin 0 10px
+    if support-for-ie
+      _line-height 16px
+
+  .account
+    position relative
+
+  a
+    highlight-link()
+
+  .caret
+    position relative
+    display inline-block
+    width 74px
+    padding-right 10px
+    z-index 1000
+
+    i
+      absolute right top 8px
+      if support-for-ie
+        _top 6px
+
+    .bg
+      absolute left -12px top -9px
+      size 84px 20px
+      padding 5px 10px 4px 11px
+      z-index -1
+      border 3px solid #D9D9D9
+      border-color rgba(0, 0, 0, .15)
+      border-bottom none
+
+      .bg-in
+        absolute left top
+        size 82px 20px
+        padding 6px 10px 6px 11px
+        border 1px solid #B0B0B0
+        border-bottom none
+        background white
+
+  .dropdown
+    absolute left -12px top 23px
+    width 160px
+    border 3px solid #D9D9D9
+    border-color rgba(0, 0, 0, .15)
+    border-radius 0 3px 3px 3px
+    z-index 100
+
+    .dropdown-in
+      background #FFF
+      border 1px solid #B0B0B0
+
+  // 登录前
+  .quick-login
+    padding 5px 15px 15px
+
+    a
+      float left
+      margin-top 10px
+
+  // 登录后
+  .badge
+    padding 0 1px
+    margin-left 2px
+    background #F48B4C
+    color white
+    font-size 10px
+    webkit-text-size-adjust none
+    border-radius 2px
+
+  .username
+    img
+      vertical-align middle
+      margin-right 4px
+      margin-top -1px
+
+.hotline
+  absolute right 15px top 50px
+  padding-left 24px
+  color #666
+  font-weight bold
+  font-size 14px
+  z-index 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

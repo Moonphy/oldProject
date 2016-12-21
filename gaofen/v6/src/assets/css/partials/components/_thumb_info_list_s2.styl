@@ -1,0 +1,60 @@
+// 元件：图文信息列表第二种样式
+// 说明：左边为信息右边为缩略图
+// ==================================================
+
+.thumb-info-list-s2
+  overflow hidden
+  if support-for-ie
+    *zoom 1
+
+  .item
+    padding 25px 0 24px
+    clearfix()
+    split()
+
+    .thumb
+      float right
+      margin 0 0 0 15px
+      if support-for-ie
+        _display inline
+
+    .info
+      h3
+        margin 0 0 5px 0
+
+        .title
+          font-size 16px
+
+        .subject
+          vertical-align 2px
+          inline-block()
+          padding 0 5px
+          margin-right 10px
+          background #50A8F3
+          line-height 22px
+          font-size 12px
+          font-weight normal
+          color #FFF
+
+      .meta
+        color #999
+        line-height 22px
+
+        i
+          color #E5E5E5
+          margin 0 10px
+
+      .details
+        max-height 66px
+        overflow hidden
+        line-height 22px
+
+      .tags
+        margin-top 13px
+
+        span
+          color #999
+
+        a
+          margin-right 10px
+          highlight-link()

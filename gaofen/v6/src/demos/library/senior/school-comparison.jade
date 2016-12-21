@@ -1,0 +1,66 @@
+---
+page_title: "高中库-学校对比页"
+category: "library"
+body_class: ["comparison-page"]
+stylesheets: ["senior"]
+fixed_comparison: true
+is_new: false
+---
+
+//- 模板继承
+extends ../_layout
+
+block header
+  // Start: 页头
+  +header("senior")
+  // End: 页头
+
+//- 内容
+block content
+  .container.page-content
+    +heading({title:'学校对比'})
+    .comparison-table
+      table
+        tbody
+          +comparison-header({changeable:true})
+          tr.line
+            td(colspan="5", height="1")
+          - var rows = ["高分网点评", "办学性质", "总浏览量", "学校地址", "中考平均分", "招生方式", "招生对象", "录取分数线", "分数优惠", "特长生招生", "学费", "奖学金", "住宿情况", "分数线", "高考成绩"]
+          each item, index in rows
+            tr(class="#{index==0 ? 'first-row' : index==rows.length - 1 ? 'last-row' : ''}")
+              th(scope="row")= item
+              - for(var i=1; i<=3; i++)
+                if index==0
+                  td 校风淳朴，住宿环境好
+                else if index==1
+                  td 民办学校
+                else if index==2
+                  td 共232341次浏览
+                else if index==3
+                  td 广州市越秀区中山三路33号中华国际中心B座2407室
+                else if index==4
+                  td
+                    ul
+                      li 2012年300分
+                      li 2012年300分
+                      li 2012年300分
+                else if index==rows.length - 2
+                  td
+                    dl
+                      dt 2014
+                      dd 提前批：户籍生700，借读生700，外区生700
+                      dd 第一批：户籍生700，借读生700，外区生700
+                      dt 2013
+                      dd 提前批：户籍生700，借读生700，外区生700
+                      dd 第一批：户籍生700，借读生700，外区生700
+                else if index==rows.length - 1
+                  td
+                    dl
+                      dt 2014
+                      dd 一本录取率50%
+                      dd 二本A录取率50%
+                      dd 二本B录取率50%
+                else
+                  td -
+              td -
+

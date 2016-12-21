@@ -1,0 +1,172 @@
+---
+page_title: "订单详情页"
+body_classes: ["order-page"]
+header_bar_title: "我的订单"
+navbar: true
+---
+
+extends _layout
+
+block content
+  .ui-panel.order-details
+    // Start: 未付款
+    .order-summary
+      a.thumb(href="#")
+        +avatar(128)
+      .info
+        +teacher-name
+        .subject 科目：语文
+    .form-pay
+      .order-info
+        p 订单状态：待付款
+        p 订单时间：2015-4-18 13:18
+        p 课时单价：100元
+         p 购买课时：40
+      .total
+        | 总金额：
+        span.hl 8000
+        | 元
+      .actions
+        +button({text:"立即付款", option:"primary", block:true, element:"button"})
+    // End: 未付款
+
+    // Start: 已付款
+    .order-summary
+      a.thumb(href="#")
+        +avatar(128)
+      .info
+        +teacher-name
+        .subject 科目：语文
+    .form-pay
+      .order-info
+        p 订单状态：已付款
+        p 订单时间：2015-4-18 13:18
+        p 课时单价：100元
+        p 购买课时：40
+      .total
+        | 总金额：
+        span.hl 8000
+        | 元
+      .actions
+        +button({text:"点评老师", option:"primary", block:true, element:"button"})
+        +button({text:"申请退款", option:"danger", block:true, element:"button"})
+    // End: 已付款
+
+    // Start: 确认退款
+    .order-summary
+      a.thumb(href="#")
+        +avatar(128)
+      .info
+        +teacher-name
+        .subject 科目：语文
+    .form-pay
+      .order-info
+        p 订单状态：上课中
+        p 订单时间：2015-4-18 13:18
+        p 课时单价：100元
+        p 购买课时：40
+        p 剩余课时：18
+      .total
+        | 退款金额：
+        span.hl 8000
+        | 元
+      .actions
+        +button({text:"确认退款", option:"danger", block:true, element:"button"})
+    // End: 确认退款
+
+    // Start: 申请退款失败
+    .order-summary
+      a.thumb(href="#")
+        +avatar(128)
+      .info
+        +teacher-name
+        .subject 科目：语文
+    .form-pay
+      .order-info
+        p 订单状态：上课中
+        p 订单时间：2015-4-18 13:18
+        p 课时单价：100元
+        p 购买课时：40
+        p 剩余课时：18
+      .actions
+
+        .error-message 退款申请失败，请联系客服获悉具体原因
+        a.btn.btn-primary.btn-block(href="#")
+          i.iconfont &#x3608;
+          | 咨询客服
+      div
+        .error-message 退款申请失败，请联系客服获悉具体原因
+        a.btn.btn-primary.btn-block(href="#")
+          i.iconfont &#x3608;
+          | 咨询客服
+
+    // End: 申请退款失败
+
+    // Start: 评价表单
+    .form.form-comment
+      .form-row.row-message
+        textarea(placeholder="在这里表达您与教师的上课体验吧")
+        .text-count
+          | 你还可以输入
+          span 100
+          | 个字
+      //-
+        .form-row.radio-group
+          label.iconfont.icon-rate-5.checked
+            input(type="radio")
+            | 好评
+          label.iconfont.icon-rate-3
+            input(type="radio")
+            | 中评
+          label.iconfont.icon-rate-1
+            input(type="radio")
+          | 差评
+        .form-row.row-rate
+          span.label 教学质量：
+          +stars({count:3})
+        .form-row.row-rate
+          span.label 教学态度：
+          +stars({count:0})
+        .form-row.row-rate
+          span.label 响应速度：
+          +stars({count:0})
+      .form-row.row-rate
+        span.label 学习成绩：
+        +stars({count:3, favour:true})
+      .form-row.row-rate
+        span.label 学习个性：
+        +stars({count:3, favour:true})
+      .form-row.row-rate
+        span.label 教师沟通：
+        +stars({count:4, favour:true})
+      .actions
+        +button({text:"提交评语", option:"primary", block:true, element:"button", disabled:true})
+        +button({text:"提交评语", option:"primary", block:true, element:"button"})
+    // End: 评价表单
+
+    // Start 已评价
+    .comment-details
+      //-
+        .comment
+          .label 教师点评：
+          .radio-group
+            label.iconfont.icon-rate-5.checked
+              | 好评
+      //- .comment-cont= article.content
+      .row-rate
+        span.label 教师点评：
+        +stars({count:3, favour:true, trim:true})
+      .comment-cont
+        | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      //-
+        .row-rate
+          span.label 教学质量：
+          +stars({count:3})
+        .row-rate
+          span.label 教学态度：
+          +stars({count:0})
+        .row-rate
+          span.label 响应速度：
+          +stars({count:0})
+      .comment-status 你已评价该教师
+    // End: 已评价

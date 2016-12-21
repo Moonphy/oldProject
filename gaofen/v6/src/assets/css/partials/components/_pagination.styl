@@ -1,0 +1,97 @@
+// 元件：分页
+// ==================================================
+
+// 默认分页
+.page_box
+  clearfix()
+  padding 20px 0
+
+.pagelist
+  inline-block()
+  line-height 16px
+
+  a
+  span
+    float left
+    border 1px solid #D9D9D9
+    margin 0 5px
+    padding 3px 8px
+    color #4A4A4A
+    border-radius 2px
+
+  a
+    &:hover
+      background-color #66B1EC
+      border-color #66B1EC
+      text-decoration none
+      color #FFF !important
+
+  .page-numbers
+    background-color #FFF
+
+  .current
+    color #FFF
+    background-color #3D9EF2
+    border-color #3D9EF2
+
+  .pltitle
+    padding 4px 8px
+    border none
+
+// 居中分页
+.page_centered
+  clearfix()
+
+  .page_box
+    float left
+    position relative
+    left 50%
+
+  .pagelist
+    position relative
+    left -50%
+    if support-for-ie
+      _float left
+
+// 居右分页
+.page_right
+  clearfix()
+
+  .page_box
+    float right
+    position relative
+
+  .pagelist
+    position relative
+    if support-for-ie
+      _float right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

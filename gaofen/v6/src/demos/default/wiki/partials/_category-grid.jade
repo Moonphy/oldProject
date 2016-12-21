@@ -1,0 +1,20 @@
+mixin category-grid(params)
+  - var params = params || {}
+
+  .category-grid
+    .row.row7-7
+      - while(params.count--)
+        .span7.item
+          .thumb
+            a(href="#", target="_blank")
+              +dummy(100)
+          .info
+            .tit
+              a(href="#", target="_blank")= article.title
+            .desc= article.summary
+            .related
+              span 相关词条：
+              - var i=6
+              - while(i--)
+                a(href="entry-details.html", target="_blank", title="毕业考试") 毕业考试
+

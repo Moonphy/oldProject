@@ -1,0 +1,86 @@
+---
+page_title: "广州站-资料频道-搜索无结果页"
+category: "default"
+body_class: ["data-page", "search-result"]
+stylesheets: ["data"]
+breadcrumb: ["资料", "小升初"]
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 内容
+block content
+  // Start: 主导航
+  +navbar(default_nav_links)
+  // End: 主导航
+
+  // Start: 面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End: 面包屑导航
+
+  .container.page-content
+    .row.row5-15
+      .span5
+        .nav-aside-s2
+          .hd
+            h3 小升初
+          .bd
+            - var i = 5
+            - while(i--)
+              a(href="#", class="#{i == 4 ? 'active' : ''}") 分类名称
+
+        // Start: 热门搜索
+        .widget.widget-tags
+          +heading({title:"热门搜索"})
+          include ../../partials/_tag-clouds
+        // Start: 热门搜索
+      .span15
+        .data-filters
+          .hd
+            .status
+              | 共为您找到相关资料
+              span 118
+              | 份
+            //- h1 小升初择校
+          .filter-group
+            +filter({label: "真题类型：", filter_items:[{label: "全部类型", active:true}, {label:"原大联盟"}, {label:"小联盟"}, {label:"外国语学院"}, {label:"单考民校"}, {label:"公办初中"}], hints:true})
+            +filter({label: "年<i class=\"gap\"></i><i class=\"gap\"></i>份：", filter_items:[{label: "所有年份", active:true}, {label:"2012"}, {label:"2013"}, {label:"2014"}]})
+        // Start: 无结果提示
+        .alert.alert-info
+          i.ico
+          .info
+            p 暂无结果，小编正在积极为您搜罗资料！
+        // End: 无结果提示
+
+        .mod
+          +heading({title:"为您推荐以下资料"})
+          .thumb-data-list
+            - var i = 10
+            - while(i--)
+              .item
+                +cover
+                .info
+                  h3.title
+                    a(href="#", title="#{article.title}")= article.title
+                  .details
+                    p.desc= article.content
+                    p.status
+                      span 1188人浏览
+                      i |
+                      span 389次下载
+                      i |
+                      span 2014年7月1日发布
+                      i |
+                      span 12M
+                      i |
+                      span doc文档
+                .operations
+                  p
+                    | 下载需
+                    span.hl 10
+                    | 高分币
+                  a(href="#", target="_blank")
+                    | 免费试读
+                    i &gt;&gt;
+        +pagination({classes:"page_right"})

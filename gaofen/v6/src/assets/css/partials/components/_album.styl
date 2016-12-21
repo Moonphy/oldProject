@@ -1,0 +1,303 @@
+// 元件：相册
+// ==================================================
+.zy
+  p
+    .text_con
+      color #999
+      line-height 20px
+      text-align left
+
+      a
+        color #A16B00
+
+.photoMHD
+  width 606px
+  background #FFF
+  padding-top 15px
+  border 1px solid #EDE9E9
+
+  .photoNews
+    margin 0 auto
+    padding 0 10px
+    width 580px
+
+    .picDiv
+      position relative
+      text-align center
+
+    .pic
+      width 580px
+      text-align center
+      margin 0 auto
+      display block
+      overflow hidden
+      background url("../img/loading_32.gif") no-repeat scroll center 80px
+      height 100%
+      position relative
+      z-index 100
+      if support-for-ie
+        _height 0
+
+      .zy
+        absolute left bottom
+        color #FFF
+        size 100% 30px
+        text-align left
+        line-height 30px
+        z-index 101
+        background rgba(0,0,0,.5)
+        filter unquote("progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#50000000',endColorstr = '#50000000')")
+        if support-for-ie
+          _background #000
+
+        .text_con
+          color #FFF
+          float left
+          padding 0 5px 0 15px
+          text-align left
+          height 30px
+          line-height 30px
+
+        em
+          font-style normal
+
+      img
+        display block
+
+  .operate
+    margin 0 12px 5px
+    float right
+    display inline
+
+    a
+      color #0B3B8C
+
+  .wb
+    float right
+    padding 4px 0 20px 0
+    width 178px
+    text-align left
+    color #666
+
+    a
+      color #666
+      line-height 12px
+
+      &:hover
+        color #999
+
+      em
+        color #A16B00
+
+  .zy
+    width 580px
+    margin 0 auto
+
+    p
+      margin 0
+
+.photoList
+  width 580px
+  margin 10px auto 0
+  overflow hidden
+
+  a
+    color #666
+
+    &:hover
+      color #999
+
+  .picList
+    float left
+    display inline
+
+    .l1
+      float left
+      display inline
+      margin 0 10px 0 0
+
+      a
+        float left
+        display block
+        size 13px 81px
+        outline none
+        cursor pointer
+
+    .l2
+      float left
+      display block
+      size 534px 125px
+      overflow hidden
+
+    .l3
+      float left
+      display inline
+      margin 0 0 0 10px
+
+      a
+        float left
+        display block
+        size 13px 81px
+        outline none
+        cursor pointer
+
+    .listM
+      float left
+      size 534px 82px
+      overflow hidden
+
+      ul
+        float left
+        width 10000px
+        left 0
+        remove-list-style()
+
+      li
+        float left
+        size 84px 78px
+        padding 0 5px 0 0
+        text-align center
+
+        h2
+          background #EAEAEA
+          display block
+          size 100% 16px
+          line-height 16px
+          float left
+          margin 0
+          font-size 12px
+          font-weight normal
+
+          span
+            display none
+
+        a
+          border 2px solid #EAEAEA
+          display inline-block
+          float left
+
+          img
+            display block
+            margin 0 auto
+
+        img
+          size 80px 60px
+
+        &.current
+          h2
+            color #FFF
+            background #898989
+
+            span
+              display inline
+
+          a
+            border 2px solid #898989
+
+.scrollBar
+  size 533px 13px
+  margin 14px 0 0
+  display inline
+  float left
+  background url("../img/scorll_border.gif") repeat-x 0 center
+  position relative
+  overflow hidden
+
+  .drag
+  .drag_no
+    absolute left top 1px
+    cursor pointer
+    display block
+    size 300px 13px
+
+  .drag b.l_arrow,
+  .drag_no b.l_arrow
+    size 11px 13px
+    float left
+
+  .drag
+    b.c_arrow
+      display inline-block
+      size 14px 13px
+      position absolute
+      left 50%
+      margin-left -7px
+
+  .drag b.r_arrow,
+  .drag_no b.r_arrow
+    size 11px 13px
+    float right
+    if support-for-ie
+      _position absolute
+      _right -1px
+
+  .drag_no b.c_arrow
+    display inline-block
+    size 14px 13px
+    position absolute
+    left 50%
+    margin-left -7px
+
+.photo_prev
+.photo_next
+  absolute left top
+  size 50% 100%
+  opacity 0
+  z-index 100
+
+.photo_next
+  left 289px
+
+.btn_pphoto
+.btn_nphoto
+  cursor url(server + "img/prev.cur"), auto
+  display block
+  size 100% 100%
+  outline none
+
+.btn_nphoto
+  cursor url(server + "img/next.cur"), auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

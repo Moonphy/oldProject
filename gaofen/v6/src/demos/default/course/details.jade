@@ -1,0 +1,115 @@
+---
+page_title: "广州站-课程频道-详情页"
+category: "default"
+body_class: ["course-page", "details-page"]
+stylesheets: ["course"]
+breadcrumb: ["首页", "课程", "作文"]
+modals:
+  -
+    type: "course-apply"
+  -
+    type: "comment-course"
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 内容
+block content
+  // Start: 主导航
+  +navbar(default_nav_links)
+  // End: 主导航
+
+  // Start: 面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End: 面包屑导航
+
+  .container.page-content
+    // Start:课程详情
+    .mod.mod-course
+      +heading({title:article.title})
+      .row.row14-6
+        .span14
+          // Start:机构介绍
+          .intro
+            +thumb({width:280, height:189})
+            .info
+              p
+                span.label 开课时间：
+                | 每周1，3，5晚8:00-9:00
+              p
+                span.label 上课地点：
+                | 天河区、越秀区
+              p
+                span.label 主讲机构：
+                a(href="institute.html", target="_blank") 卓越教育
+              p
+                span.label 适用范围：
+                | 六年级语文
+              p
+                span.label 费用：
+                | 免费
+              .actions
+                +button({text:"立即报名", option:"primary"})
+                span 33人参加
+              .actions
+                +button({text:"名额已满", disabled:true})
+                span 33人参加
+          // End:机构介绍
+
+          .hints
+            | 您参加了该课程但还没有评价，快来分享下您的课程体验吧！
+            a(href="#", target="_blank")
+              | 立即评价
+              i &gt;
+            i.arrow
+              i.arrow-border
+              i.arrow-body
+
+          // Start:课程特色
+          .mod.mod-features
+            +heading({title:"课程特色"})
+            .info= article.content
+          // End:课程特色
+
+          // Start:课程简介
+          .mod.mod-desc
+            +heading({title:"课程简介"})
+            .info= article.content
+            include ../../partials/_album
+          // End:课程简介
+
+          // Start:用户评价
+          .mod.mod-comments
+            +heading({title:"用户评价", extra:"共12条评论"})
+            // Start:课程列表为空
+            .alert.alert-info.alert-inline
+              i.ico
+              .info
+                p
+                  | 暂时还没有人对该课程作出评价
+            // End:课程列表为空
+            .comment-list
+              ul
+                - var i = 5
+                - while(i--)
+                  li
+                    span.avatar
+                      +avatar(48)
+                    .info
+                      p= article.title
+                      .author
+                        != article.author
+                        span.date 2014-07-08
+            +pagination({classes:"page_right"})
+          // End:用户评价
+        .span6
+          // Start: 授课老师
+          +widget-people({title:"授课老师", count:2})
+          // End: 授课老师
+
+          // Start: 开课校区
+          +widget-map({title:"开课校区"})
+          // End: 开课校区
+
+    // End:课程详情

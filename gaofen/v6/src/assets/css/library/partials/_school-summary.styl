@@ -1,0 +1,217 @@
+// 学校简介
+// ==================================================
+
+.school-summary
+  border 1px solid common-border-color
+  padding 20px
+
+  .school-heading
+    border-bottom 1px solid #D9D9D9
+    margin-bottom 15px
+    clearfix()
+
+    .title
+      clearfix()
+      padding-bottom 10px
+
+      h1
+        float left
+        margin 0 7px 0 5px
+        color gray-darker
+        font-size 24px
+        font-weight normal
+        height 26px
+        line-height 26px
+        if support-for-ie
+          _display inline
+
+      .meta
+        float left
+        margin 8px 0 0 15px
+        color gray
+
+    .operations
+      float right
+      margin-top 8px
+
+      a
+        highlight-link()
+
+      i
+        color #E5E5E5
+        margin 0 10px
+
+  .picture
+    float right
+    width 262px
+    margin-left 30px
+    if support-for-ie
+      _display inline
+
+    .thumb
+      position relative
+      display block
+      size 260px 195px
+      border 1px solid #D9D9D9
+
+    img
+      display block
+      size 260px 195px
+
+    .tit
+      absolute left bottom
+      color #FFF
+      size 260px 34px
+      text-indent 20px
+      line-height 34px
+      z-index 1
+      cursor pointer
+
+      .bg
+        absolute left top
+        size 100%
+        background #000
+        opacity .5
+        z-index -1
+
+    span.thumb
+      .tit
+        cursor default
+
+    .orig1
+    .orig2
+      border 1px solid #D9D9D9
+      border-top none
+      height 2px
+      overflow hidden
+
+    .orig1
+      margin 0 5px
+
+    .orig2
+      margin 0 10px
+
+  .info
+    position relative
+    margin-right 292px
+    *zoom 1
+
+    .sec
+      padding-left 64px
+      margin-bottom 5px
+      @extend $icon-sec
+
+      span
+      i
+      strong
+        display inline-block
+        vertical-align middle
+
+    .sec-properties
+      line-height 24px
+
+      ul
+        remove-list-style()
+        overflow hidden
+
+        li
+          float left
+          clearfix()
+
+          .cont
+            float left
+
+      .label
+        float left
+
+      .hl
+        color #D80102
+        font-weight bold
+
+    .sec-stars
+      line-height 24px
+      padding-top 12px
+      padding-bottom 12px
+
+      ul
+        remove-list-style()
+        height 35px
+
+      li
+        float left
+
+        p
+          font-size 14px
+          margin 0 0 3px
+
+  .sec-metas
+    line-height 24px
+    padding-top 5px
+    padding-bottom 5px
+    min-height 52px
+
+    p
+      margin 0
+
+    a
+      highlight-link()
+
+    span
+      display inline-block
+      vertical-align middle
+      margin-right 15px
+
+    .address
+      span
+        margin-right 0
+
+    .icon-pin
+      display inline-block
+      vertical-align middle
+      size 24px
+      margin 0
+      @extend $icons
+      background-position 1px 4px
+      cursor pointer
+
+      &:hover
+        background-position 1px -46px
+
+  summary-sections = properties, stars, comments, metas
+  for item, i in summary-sections
+    .sec-{item}
+      offset-y = -120px * i + 6px
+      background-position 0 offset-y
+
+  .actions
+    absolute right bottom 10px
+
+    .btn-follow
+    .btn-add-comparison
+      float right
+      border 1px solid common-border-color
+      background #FFF
+      height 37px
+      line-height 37px
+      padding 0 15px 0 10px
+      font-weight bold
+      font-size 14px
+      border-radius 3px
+      margin-left 7px
+      if support-for-ie
+        _display inline
+
+      span
+        display inline-block
+        @extend $icons
+        cursor pointer
+
+    .btn-follow
+      span
+        padding-left 24px
+        background-position -2px -239px
+
+    .btn-add-comparison
+      span
+        padding-left 28px
+        background-position 0 -291px

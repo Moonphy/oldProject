@@ -1,0 +1,439 @@
+// 简介：定义高分网初中库基础样式
+// 维护人：张盛志
+// ==================================================
+
+// 配置
+@import "_settings"
+@import "junior/_settings"
+
+// Nib
+@import "nib"
+
+// 混入声明
+@import "../partials/_mixins"
+
+// 全局占位符
+@import "../partials/_placeholders"
+
+// 占位符
+@import "../library/_placeholders"
+
+// 模块
+.mod
+  margin-bottom 30px
+
+// 评论
+.comment-pills
+  display block
+  font-size 0
+
+  .label
+    font-size 16px
+    margin-bottom 5px
+
+  .pill
+    display inline-block
+    height 24px
+    margin-right 5px
+    margin-bottom 5px
+    vertical-align middle
+    border 1px solid orange
+    color #666
+    background #FFF
+    line-height 22px
+    white-space nowrap
+    padding 0 10px
+    border-radius 2px
+    font-size 12px
+
+    &:hover
+      background orange
+      border-color orange
+      color #FFF
+      text-decoration none
+
+// 侧栏挂件
+// ------------------------------
+// 挂件：民校推荐查询
+.widget-school-query
+  .form
+    padding-left 25px
+    padding-right 0
+
+    .form-row
+      .control-label
+        font-size 14px
+        display block
+        width 100%
+        text-align left
+
+      .controls
+        p
+          margin 0 0 10px
+
+        .checkbox
+          font-weight bold
+          font-size 14px
+
+  .actions
+    margin-top 0
+    margin-left 70px
+
+// 挂件：排名
+.widget-ranking
+  .widget-box-hd
+    position relative
+
+    .title
+      font-size 14px
+
+  .arrow
+    absolute left 20px bottom
+
+  .arrow-border
+    absolute left top
+    caret #DDD 5px down
+
+  .arrow-body
+    absolute left top -1px
+    caret #FFF 5px down
+
+  .widget-box-bd
+    padding-bottom 20px
+
+  .ranking-list
+    li
+      padding 8px 0 3px 15px
+
+      .num
+        font-size 12px
+        top 8px
+
+      .operations
+        margin-right 10px
+
+      .tit
+        float left
+        font-size 12px
+        width 120px
+        margin-top 3px
+
+// 挂件：相关点评标签
+.widget-comment-tags
+  .widget-hd
+    padding-top 0
+
+  .comment-pills
+    margin-top 10px
+
+    .pill
+      margin-bottom 10px
+
+// 首页
+//-
+.school-grid
+  .school-grid-item
+    .info
+      p
+        font-size 12px
+        line-height 21px
+
+        span
+          display inline-block
+          white-space nowrap
+
+// 学校详情页
+//------------------------------
+
+.school-summary
+  .info
+    .sec-properties
+      padding-top 20px
+      padding-bottom 20px
+
+      ul
+        li
+          font-size 14px
+          width 145px
+
+          .cont
+            width 73px
+
+        .col-3
+          width 290px
+
+          .cont
+            width 218px
+
+      .label
+        width 72px
+
+    .sec-comments
+      padding-top 18px
+      padding-bottom 12px
+
+    .sec-stars
+      li
+        width 145px
+
+// 评论列表
+.comment-list
+  .comment-pills
+    .label
+      font-size 14px
+
+  ul
+    remove-list-style()
+
+  li
+    position relative
+    background url("img/split_h.png") repeat-x left bottom
+    padding 12px 0 25px
+    margin-bottom 18px
+    if support-for-ie
+      *zoom 1
+
+    .date
+      absolute right top 12px
+      color gray
+
+  .user
+    clearfix()
+    margin-bottom 12px
+
+    .avatar
+      float left
+      size 60px
+
+      img
+        size 60px
+        border-radius 5px
+
+    .info
+      margin-left 72px
+      if support-for-ie
+        _margin-left 69px
+
+      .name
+        margin-bottom 10px
+
+        strong
+          font-size 14px
+
+        span
+          color gray
+          margin-left 15px
+
+  .comment-cont
+    p
+      margin 0
+      text-indent 1em
+      line-height 22px
+
+  .operations
+    .unfold
+    .fold
+      position relative
+      padding-right 10px
+      highlight-link()
+      if support-for-ie
+        *zoom 1
+
+      .arrow
+        absolute right 0
+
+    .unfold
+      .arrow
+        caret link-color-hover 3px down
+        top 8px
+
+    .fold
+      .arrow
+        caret link-color-hover 3px up
+        top 4px
+
+  .view-more
+    a
+      background-position 0 -348px
+
+// 学校排行页
+// ------------------------------
+.mod-ranking
+  margin-bottom 40px
+
+  .heading
+    margin-bottom 0
+
+// 升学指导页
+// ------------------------------
+.guide-tools
+  border 1px solid common-border-color
+  padding 0 20px
+  margin-bottom 50px
+  min-height 444px
+
+.tool-details
+  padding 40px 20px
+
+  .hd
+    border-left 4px solid #FF5B41
+    padding-left 10px
+    font-size 20px
+    line-height 22px
+    font-weight bold
+    margin-bottom 30px
+
+  .bd
+    padding 0 20px 0 14px
+
+  p
+    margin 0 0 10px
+    font-size 16px
+
+  .return
+    margin-top 15px
+    font-size 14px
+
+    a
+      highlight-link()
+
+  // 无推荐结果
+  .alert
+    padding-left 56px
+    margin 40px 0
+
+    .ico
+      left 0
+
+    a
+      highlight-link()
+
+  // 表单
+  .form
+    .form-row
+      margin-bottom 25px
+
+      .control-label
+        width 100%
+        text-align left
+        font-size 16px
+        margin-bottom 5px
+
+    select
+      width 140px
+      margin-right 10px
+
+    .actions
+      margin 0
+
+      .btn
+        height 40px
+        line-height 40px
+        border-radius 4px
+        font-size 16px !important
+
+      .help-inline
+        margin-top 14px
+
+  // 表格
+  .table
+    td
+      font-weight bold
+      font-size 14px
+
+      a
+        margin-right 10px
+        white-space nowrap
+
+        &:hover
+          color link-color-hover
+          text-decoration none
+
+  // 结果列表
+  .result-list
+    margin-bottom 40px
+
+    ul
+      remove-list-style()
+
+    li
+      font-size 16px
+      margin 5px 0
+
+      a
+        font-weight bold
+        color link-color
+        &:hover
+          color link-color-hover
+          text-decoration none
+
+// 升学指导工具列表
+.tool-list
+  ul
+    remove-list-style()
+    clearfix()
+    background url("img/split_h.png") repeat-x left center
+
+  li
+    float left
+    padding 20px 0
+    font-size 14px
+    *zoom 1
+
+    a
+      position relative
+      display block
+      size 252px 90px
+      padding 46px 66px 46px 150px
+      background url("img/split_v.png") repeat-y right top
+      color #333
+      transition background-color .3s
+
+      &:hover
+        background-color #F9F9F9
+        text-decoration none
+
+    .ico
+      absolute left 30px top 36px
+      size 100px
+      @extend $icon-tools
+
+    .name
+      display block
+      font-size 18px
+      line-height 46px
+      font-weight bold
+
+      .sub
+        font-weight normal
+        font-size 14px
+        margin-left 4px
+
+    .desc
+      display block
+      line-height 22px
+
+  .even
+    a
+      background-image none
+
+tool-types = spec-recruit, school-rec, xsc-baike, xsc-data
+
+for type, i in tool-types
+  offset-y = -110px * i
+
+  .{type}
+    .ico
+      background-position 0 offset-y
+
+// 标签页
+//------------------------------
+.mod-school-list
+  .heading
+    .title
+      border none
+      font-size 16px
+      color gray-dark
+      margin-bottom 4px
+      padding-left 34px
+      background url("img/junior/icon_tag.png") no-repeat left center

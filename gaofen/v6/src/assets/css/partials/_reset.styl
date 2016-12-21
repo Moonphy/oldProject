@@ -1,0 +1,85 @@
+// 样式重置
+// ==============================================
+
+// HTML5元素
+// -------------------------
+
+article
+aside
+details
+figcaption
+figure
+footer
+header
+hgroup
+nav
+section
+  display block
+
+canvas
+video
+  display inline-block
+  if support-for-ie
+    *display inline
+    *zoom 1
+
+// 基本设置
+// -------------------------
+html
+  font-size 100%
+  -webkit-text-size-adjust 100%
+  -ms-text-size-adjust 100%
+
+// 超链接
+a:focus
+  tab-focus()
+
+a:hover
+a:active
+  outline 0
+
+
+// 图片
+img
+  max-width 100%
+  border 0
+  -ms-interpolation-mode bicubic
+
+
+// 表单元素
+button
+input
+select
+textarea
+  margin 0
+  font-size 100%
+  vertical-align middle
+
+button
+input
+  // FF3/4 默认设置了 !important
+  line-height normal
+  // IE6/7 额外的内间距
+  if support-for-ie
+    *overflow visible
+
+button::-moz-focus-inner
+input::-moz-focus-inner
+  padding 0
+  border 0
+
+label
+select
+button
+input[type="button"]
+input[type="reset"]
+input[type="submit"]
+input[type="radio"]
+input[type="checkbox"]
+  // 改进手势
+  cursor pointer
+
+textarea
+  // 移除 IE6-9 的默认滚动条
+  overflow auto
+  vertical-align top

@@ -1,0 +1,712 @@
+//-----------------------------------
+//- 挂件: 社区热门
+//-----------------------------------
+mixin widget-bbs-hot-posts
+  .widget.widget-posts
+    +heading({title:"社区热门", more:"更多", classes:["heading", "mb15"]})
+    .picture.picture-h150.slider
+      a(href="#", target="_blank", style="position:absolute; z-index:1; opacity:1; display:block;")
+        span.pic
+          +dummy(200, 150)
+        span.tit= article.title
+      ul.pages
+        li.active 1
+        li 2
+        li 3
+    +post-list({classes:["post-list-large"], subject:true})
+
+//-----------------------------------
+//- 挂件: 热门资料
+//- 参数:
+//-   count: Number，热门活动数，默认为1
+//-----------------------------------
+mixin widget-hot-data
+  .widget
+    +heading({classes:["heading", "heading-tabs"], title:"热门资料", tabs:[{label:"小升初", url:"#", active:true}, {label:"中考", url:""}, {label:"高考", url:"#"}]})
+    .tab-cont
+      //- include _tag-clouds
+      +post-list({classes:["ranking-post"], ex_class:["mt5"], count:10})
+
+//-----------------------------------
+//- 挂件: 资料
+//-----------------------------------
+mixin widget-data(params)
+  - var params = params || {}
+  - var widget_title = params.title || "小升初资料"
+
+  .widget.widget-data
+    +heading({title:widget_title})
+    +post-list({classes:["data-post"], count:6})
+
+
+//-----------------------------------
+//- 挂件: 热报课程
+//-----------------------------------
+mixin widget-courses
+  .widget.widget-courses
+    +heading({title:"热报课程",})
+    ul
+      - for(var i=1; i<=4; i++)
+        li
+          a(href="#", target="_blank")
+            +dummy(160, 120)
+            span= article.title
+
+//-----------------------------------
+//- 挂件: 头条
+//-----------------------------------
+mixin widget-headlines
+  .widget.widget-headlines
+    +heading({title:"小升初头条",})
+    +post-list({first_item_highlighted:true, count:6})
+
+//-----------------------------------
+//- 挂件: 热门标签
+//-----------------------------------
+mixin widget-hot-tags
+  .widget.widget-tags
+    +heading({title:"热门标签"})
+    +heading({title:"小升初", classes:"sub-hd-s2"})
+    include _tag-clouds
+    +heading({title:"中考", classes:"sub-hd-s2"})
+    include _tag-clouds
+    +heading({title:"高考", classes:"sub-hd-s2"})
+    include _tag-clouds
+
+
+//-----------------------------------
+//- 挂件: 学校查询
+//-----------------------------------
+mixin widget-school-query
+  .widget.widget-query
+    +heading({title:"学校查询"})
+    .bd
+      .form-query
+        +select({value:"请选择区域", options:{count:5, text:"越秀区"}})
+        +select({value:"请选择学校", options:{count:5, text:"华南师范大学附属中学"}})
+        +button({option:"primary", dimension:"small", text:"查询"})
+
+//-----------------------------------
+//- 挂件: 查询
+//-----------------------------------
+mixin widget-query-junior
+  .widget.widget-query
+    .form-query
+      .query-school
+        .hd 中学查询
+        .bd
+          .form-row
+            select
+              option 请选择区域
+            select
+              option 请选择中学
+          .form-row
+            input.input-text(type="text", placeholder="请输入学校名称，如“执信中学”")
+            +button({option:"primary", dimension:"small", text:"查询"})
+
+      .query-score
+        .hd 查询历年分数线
+        .bd
+          .form-row
+            select.sm
+              option 2012
+            select.sm
+              option 独立批
+            select.sm
+              option 全市
+            +button({option:"primary", dimension:"small", text:"查询"})
+
+mixin widget-query-senior
+  .widget.widget-query
+    .form-query
+      .query-school
+        .hd 大学查询
+        .bd
+          .form-row
+            select.sm
+              option 大学所在地
+            select.sm
+              option 大学性质
+            select.sm
+              option 大学类型
+          .form-row
+            input.input-text(type="text", placeholder="请输入学校名称，如“中山大学”")
+            +button({option:"primary", dimension:"small", text:"查询"})
+
+      .query-score
+        .hd 大学分数线
+        .bd
+          .form-row
+            select
+              option 您所在城市
+            select
+              option 科系
+          .form-row
+            select
+              option 报考城市
+            select
+              option 报考大学
+            +button({option:"primary", dimension:"small", text:"查询"})
+
+//-----------------------------------
+//- 挂件: 热门活动
+//- 参数:
+//-   count: Number，热门活动数，默认为1
+//-----------------------------------
+mixin widget-hot-events(params)
+  - var params = params || {}
+  - var event_count = params.count || 1
+  - var widget_title = params.title || "热门活动"
+
+  .widget.widget-event
+    +heading({title:widget_title, more:"更多"})
+    - for(var i = 1; i <= event_count; i++)
+      .thumb-info-rec
+        +thumb({width:120, height:90})
+        .info
+          h3: a(href="#", target="_blank")= article.title
+          p 时间：2014年05月17日
+          p 费用：500元
+          p
+            | 名额：30名
+            span
+              | 已有
+              i 123
+              | 人报名
+          .actions
+            +button({text:"立即报名", option:"primary", dimension:"small"})
+      if i < event_count
+        .split-line.mt15.mb10
+
+//-----------------------------------
+//- 挂件: 小升初活动
+//-----------------------------------
+mixin widget-event(params)
+  - var params = params || {}
+  - var widget_title = params.title || "小升初活动"
+
+  .widget.widget-event
+    +heading({title:widget_title, more:"更多"})
+    .thumb-info-rec
+      +thumb({width:120, height:90})
+      .info
+        h3: a(href="#", target="_blank")= article.title
+    .event-info
+      p 时间：2014年05月17日 09:00-11:00
+      p 地点：广州市越秀区
+      p 主办：新东方教育
+    .actions
+      +button({text:"立即报名", option:"primary"})
+      span.stat
+        | 报名剩余
+        i 12
+        | 天
+    +post-list({count:3, classes:["post-list-large"]})
+
+//-----------------------------------
+//- 挂件: 人物简介
+//- 参数:
+//-   title:  String，挂件标题
+//-   count: Number，人物数，默认为1
+//-----------------------------------
+mixin widget-people(params)
+  - var params = params || {}
+  - var people_count = params.count || 1
+
+  .widget.widget-people
+    +heading({title:params.title})
+    //- 人物简介
+    - while(people_count--)
+      .people-intro
+        .clearfix
+          .avatar
+            +dummy(70)
+          .info
+            h3 郎咸平
+            p 香港中文大学首席活动教授
+        .desc 1986年获得美国宾西法尼亚大学沃顿商学院金融学博士。郎教授曾经任教于沃顿商学院，密西根州立大学，俄亥俄州立大学，纽约大学和芝加哥大学。目前是香港中文大学最高学术级别的首席活动教授。
+
+//-----------------------------------
+//- 挂件: 主办方
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-sponsor(params)
+  - var params = params || {}
+
+  .widget.widget-sponsor
+    +heading({title:params.title})
+    - var i = 3
+      - while(i--)
+        .picture-aside
+          a(href="#", target="_blank", title="#{article.title}")
+            +dummy(180, 60)
+
+//-----------------------------------
+//- 挂件: 文章
+//- 参数:
+//-   title:  String，挂件标题
+//-   headline:  String，是否有头条
+//-----------------------------------
+mixin widget-post(params)
+  - var params = params || {}
+
+  .widget.widget-post(class=params.ex_class)
+    +heading({title:params.title, more:params.more})
+    if params.headline
+      .thumb-info-rec
+        +thumb(120, 90)
+        .info
+          h3: a(href="#", target="_blank")= article.title
+          .stat
+            span.browse 浏览：2324
+            span.comments 回复：899
+          //- .stat
+            | 最后发表：
+            != article.author
+    //- 文章列表
+    +post-list({classes:params.post_class, count:params.post_count, summary:params.post_summary, subject:params.post_subject})
+
+//-----------------------------------
+//- 挂件: 文档信息
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-info(params)
+  - var params = params || {}
+
+  .widget.widget-info
+    +heading({title:params.title})
+    //- 资料信息
+    .status
+      p 大小：53KB
+      p 格式：doc
+      p 浏览：12000
+      p 下载：13
+      p 更新：2013-06-05
+    .tags
+      strong 文档标签：
+      span 语文
+      span 中考
+      span 真题
+
+//-----------------------------------
+//- 挂件: 联系方式
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-contact(params)
+  - var params = params || {}
+
+  .widget.widget-contact
+    +heading({title:params.title})
+    .cont
+      p 电话咨询：
+      p 020-38350411
+      p.online 在线咨询：
+      p
+        a.btn.btn-primary.btn-qq-consult(href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA2NjI0Ml81MTA2MF80MDA4ODA1Mjg2XzJf", target="_blank"): span 资料客服QQ
+      p 工作时间：9:00-18:00
+
+//-----------------------------------
+//- 挂件: 他们也对这份资料感兴趣
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-fav(params)
+  - var params = params || {}
+
+  .widget.widget-fav
+    +heading({title:params.title})
+    .event-list
+      ul
+        - var i = 5
+        - while(i--)
+          li
+            span.avatar
+              +avatar
+            .info
+              .name= article.author
+              p
+                span.time 2天前
+                | 收藏了这份资料
+
+//-----------------------------------
+//- 挂件: 标签云
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-tag-clouds(params)
+  - var params = params || {}
+
+  .widget
+    +heading({title:params.title})
+    include _tag-clouds
+
+//-----------------------------------
+//- 挂件: 标签云2
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-tag-clouds-s2(params)
+  - var params = params || {}
+
+  .widget
+    +heading({title:params.title})
+    include _tag-clouds-s2
+
+//-----------------------------------
+//- 挂件: 动态
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-events(params)
+  - var params = params || {}
+
+  .widget.widget-memeber-events
+    +heading({title:params.title})
+    .event-list
+      ul
+        - var i = 5
+        - while(i--)
+          li
+            span.avatar
+              +avatar
+            .info
+              .time 15分钟前
+              .name= article.author
+              p
+                | 下载了
+                a(href="#", target="_blank") 《神啊，请给我练就葵花宝典挥刀自宫那一瞬的勇气》
+
+//-----------------------------------
+//- 挂件: 评价
+//- 参数:
+//-   title:  String，挂件标题
+//-----------------------------------
+mixin widget-comments(params)
+  - var params = params || {}
+
+  .widget.widget-comments
+    +heading({title:params.title})
+    //- 课程评价
+    .comments
+      - for(var i=1; i<=3; i++)
+        .item
+          .title
+            a(href="#", target="_blank")= article.title
+          .status
+            span 12条评价
+            i |
+            span 31人参加
+            i |
+            span 2人推荐
+          .cont
+            .info= article.summary
+            .author
+              a(href="#", target="_blank")
+                +avatar(40)
+                span= '-- ' + article.author
+
+//-----------------------------------
+//- 挂件: 地图
+//- 参数:
+//-   title:  String，挂件标题
+//-   width:  Number，地图宽度，默认为260
+//-   height: Number，地图高度，默认为300
+//-----------------------------------
+mixin widget-map(params)
+  - var params = params || {}
+  - var map_width = params.width || 260
+  - var map_height = params.height || 300
+
+  .widget.widget-map
+    +heading({title:params.title})
+    //- 校区地图
+    .map
+      +dummy(map_width, map_height)
+
+//-----------------------------------
+//- 挂件: 关注高分
+//- 参数:
+//-   type: String，"xsc"|"zk"|"gk"|"all"，默认为"xsc"
+//-----------------------------------
+mixin widget-follow-s2(params)
+  - var params = params || {}
+  - var type = params.type || "xsc"
+
+  .widget.widget-follow-s2
+    //- 侧栏关注
+    if type == "xsc" || type == "all"
+      // Start: 小升初
+      if !hide_widget_weixin
+        .weixin
+          .inner
+            .qrcode
+              img(src="#{current.base}img/qrcode/weixin_xsc.jpg", alt="高分网小升初微信群")
+            .info
+              p.tit 广州小升初微信
+              p 关注【ixiaoshengchu】微信号
+              p 随时把握广州小升初动态
+              p 提供在线答疑、每日一练
+      //-
+        .weixin.weixin-zyzs
+          .inner
+            .qrcode
+              img(src="../../../img/qrcode/weixin_zyzs.jpg",  alt="公众号【作业助手】")
+            .info
+              p.tit 公众号【作业助手】
+              p 关注作业助手 【izuoyebao】
+              p 立即查看最全手抄报、单元作文、观后感
+      .qq-group
+        .tit 2015广州小升初家长QQ群
+        .info
+          span
+            != "广州市小升初群：151496916 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=fT3D0A", target="_blank") 点击加群
+          span
+            != "海珠区小升初群：323577295 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=ZakVnO", target="_blank") 点击加群
+          span
+            != "越秀区小升初群：147059436 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=cqVUA9", target="_blank") 点击加群
+          span
+            != "天河区小升初群：165637070 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=eUmWt9", target="_blank") 点击加群
+          span
+            != "白云区小升初群：171756874 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=TALkBZ", target="_blank") 点击加群
+          span
+            != "荔湾区小升初群：102217972 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=b9dH9w", target="_blank") 点击加群
+      .weibo
+        span.tit 高分网小升初微博
+        iframe(class="addfollow-btn", width="63", height="24", frameborder="0", allowtransparency="true", marginwidth="0", marginheight="0", scrolling="no", border="0", src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1760826651&style=1&btn=light&dpc=1")
+      // End: 小升初
+
+    if type == "zk" || type == "all"
+      // Start: 中考
+      if !hide_widget_weixin
+        .weixin
+          .inner
+            .qrcode
+              img(src="#{current.base}img/qrcode/weixin_zk.jpg", alt="高分网广州中考微信群")
+            .info
+              p.tit 广州中考微信
+              p 关注【izhongkao】微信号
+              p 获取备考升学、讲座资料
+              p 掌握名校动态、志愿填报
+      //-
+        .weixin.weixin-zyzs
+          .inner
+            .qrcode
+              img(src="../../../img/qrcode/weixin_zyzs.jpg",  alt="公众号【作业助手】")
+            .info
+              p.tit 公众号【作业助手】
+              p 关注作业助手 【izuoyebao】
+              p 立即查看最全作业答案、观后感、读后感
+      .qq-group
+        .tit 2015广州中考家长QQ群
+        .info
+          span
+            != "广州中考1群：145819391 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=bmfpP1", target="_blank") 点击加群
+          span
+            != "广州中考2群：171893183 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=bXoLIi", target="_blank") 点击加群
+          span
+            != "广州中考3群：163788668 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=SRhyhK", target="_blank") 点击加群
+          span
+            != "广州初二1群：95749380 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=Scacdn", target="_blank") 点击加群
+          span
+            != "广州初二2群：241266241 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=XKDyC1", target="_blank") 点击加群
+          span
+            != "广州初一1群：322381648 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=fuGA03", target="_blank") 点击加群
+          span
+            != "广州初一2群：299890891 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=b0SZjr", target="_blank") 点击加群
+      .weibo
+        span.tit 高分网中考微博
+        iframe(class="addfollow-btn", width="63", height="24", frameborder="0", allowtransparency="true", marginwidth="0", marginheight="0", scrolling="no", border="0", src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1760826651&style=1&btn=light&dpc=1")
+      // End: 中考
+
+    if type == "gk" || type == "all"
+      // Start: 高考
+      if !hide_widget_weixin
+        .weixin
+          .inner
+            .qrcode
+              img(src="#{current.base}img/qrcode/weixin_gk.jpg", alt="高分网高考微信群")
+            .info
+              p.tit 高考微信
+              p 关注【igaokao100】微信号
+              p 获取备考技巧、讲座资料
+              p 掌握升学、志愿动态
+
+      //-
+        .weixin.weixin-zyzs
+          .inner
+            .qrcode
+              img(src="../../../img/qrcode/weixin_zyzs.jpg",  alt="公众号【作业助手】")
+            .info
+              p.tit 公众号【作业助手】
+              p 关注作业助手 【izuoyebao】
+              p 立即查看最全作业答案、读后感、手抄报
+      .qq-group
+        .tit 高考QQ群
+        .info
+          span
+            != "广东高考家长群：195276744 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=bXVtKe", target="_blank") 点击加群
+          span
+            != "广州高考家长1群：124702897 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=XB48qF", target="_blank") 点击加群
+          span
+            != "广州高考家长2群：149978425 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=e0zEHr", target="_blank") 点击加群
+          span
+            != "广州高二家长群：242373985 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=XVZv42", target="_blank") 点击加群
+          span
+            != "广州高一家长群：322037593 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=avw1bH", target="_blank") 点击加群
+          span
+            != "全国高考家长群1：236323902 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=a3LYpb", target="_blank") 点击加群
+      .weibo
+        span.tit 高分网高考微博
+        iframe(class="addfollow-btn", width="63", height="24", frameborder="0", allowtransparency="true", marginwidth="0", marginheight="0", scrolling="no", border="0", src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1760826651&style=1&btn=light&dpc=1")
+      // End: 高考
+
+//-----------------------------------
+//- 挂件: 微信广告位
+//- 参数:
+//-   type: String，"xsc"|"zk"|"gk"，默认为"xsc"
+//-----------------------------------
+mixin widget-weixin(params)
+  - var params = params || {}
+  - var type = params.type || "xsc"
+
+  .widget.widget-weixin
+    //- 侧栏关注
+    if type == "xsc"
+      // Start: 小升初
+      .inner
+        .qrcode
+          img(src="#{current.base}img/qrcode/weixin_xsc.jpg", alt="高分网小升初微信群")
+        .info
+          p.tit 想知道数学考上148分的秘密吗？
+          p  立即扫码，订阅【小升初助手】
+      // End: 小升初
+
+    if type == "zk"
+      // Start: 中考
+      .inner
+        .qrcode
+          img(src="#{current.base}img/qrcode/weixin_zk.jpg", alt="高分网广州中考微信群")
+        .info
+          p.tit 想知道数学考上148分的秘密吗？
+          p  立即扫码，订阅【中考助手】
+      // End: 中考
+
+    if type == "gk"
+      // Start: 高考
+      .inner
+        .qrcode
+          img(src="#{current.base}img/qrcode/weixin_gk.jpg", alt="高分网高考微信群")
+        .info
+          p.tit 想知道数学考上148分的秘密吗？
+          p  立即扫码，订阅【高考助手】
+      // End: 高考
+
+//-----------------------------------
+//- 挂件: QQ 广告位
+//- 参数:
+//-   type: String，"xsc"|"zk"|"gk"，默认为"xsc"
+//-----------------------------------
+mixin widget-qq-group(params)
+  - var params = params || {}
+  - var type = params.type || "xsc"
+
+  .widget.widget-qq-group
+    if type == "xsc"
+      // Start: 小升初
+      .qq-group
+        .tit 2015广州小升初家长QQ群
+        .info
+          span
+            != "广州市小升初群：151496916 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=fT3D0A", target="_blank") 点击加群
+          span
+            != "海珠区小升初群：323577295 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=ZakVnO", target="_blank") 点击加群
+          span
+            != "越秀区小升初群：147059436 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=cqVUA9", target="_blank") 点击加群
+          span
+            != "天河区小升初群：165637070 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=eUmWt9", target="_blank") 点击加群
+          span
+            != "白云区小升初群：171756874 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=TALkBZ", target="_blank") 点击加群
+          span
+            != "荔湾区小升初群：102217972 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=b9dH9w", target="_blank") 点击加群
+      // End:  小升初
+
+    if type == "zk"
+      // Start: 中考
+      .qq-group
+        .tit 2015广州中考家长QQ群
+        .info
+          span
+            != "广州中考1群：145819391 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=bmfpP1", target="_blank") 点击加群
+          span
+            != "广州中考2群：171893183 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=bXoLIi", target="_blank") 点击加群
+          span
+            != "广州中考3群：163788668 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=SRhyhK", target="_blank") 点击加群
+          span
+            != "广州初二1群：95749380 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=Scacdn", target="_blank") 点击加群
+          span
+            != "广州初二2群：241266241 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=XKDyC1", target="_blank") 点击加群
+          span
+            != "广州初一1群：322381648 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=fuGA03", target="_blank") 点击加群
+          span
+            != "广州初一2群：299890891 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=b0SZjr", target="_blank") 点击加群
+      // End: 中考
+
+    if type == "gk"
+      // Start: 高考
+      .qq-group
+        .tit 高考QQ群
+        .info
+          span
+            != "广东高考家长群：195276744 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=bXVtKe", target="_blank") 点击加群
+          span
+            != "广州高考家长1群：124702897 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=XB48qF", target="_blank") 点击加群
+          span
+            != "广州高考家长2群：149978425 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=e0zEHr", target="_blank") 点击加群
+          span
+            != "广州高二家长群：242373985 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=XVZv42", target="_blank") 点击加群
+          span
+            != "广州高一家长群：322037593 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=avw1bH", target="_blank") 点击加群
+          span
+            != "全国高考家长群1：236323902 "
+            a.hl-link(href="http://jq.qq.com/?_wv=1027&k=a3LYpb", target="_blank") 点击加群
+      // End: 高考

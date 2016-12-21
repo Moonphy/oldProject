@@ -1,0 +1,58 @@
+---
+page_title: "广州站-课程频道-机构页"
+category: "default"
+body_class: ["course-page"]
+stylesheets: ["course"]
+breadcrumb: ["首页", "课程", "作文"]
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 导入课程列表
+include partials/_course-list
+
+//- 内容
+block content
+  // Start: 主导航
+  +navbar(default_nav_links)
+  // End: 主导航
+
+  // Start: 面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End: 面包屑导航
+
+  .container.page-content
+    // Start:机构详情
+    .mod.mod-intro
+      +heading({title:"机构详情"})
+      .row.row14-6
+        .span14
+          // Start:机构介绍
+          .intro
+            +thumb({width:200, height:135})
+            .info
+              h3 新东方教育
+              .desc
+                != article.content
+                a(href="#") [全部展开]
+
+          // End:机构介绍
+
+          // Start:最新免费课程 .mod-free
+          .mod.mod-free
+            +heading({title:"最新免费课程"})
+            .course-list
+              +course-list
+          // End:最新免费课程 .mod-free
+
+          // Start:校区图集
+          .mod.mod-album
+            +heading({title:"校区图集"})
+            include ../../partials/_album
+          // End:校区图集
+        .span6
+          // Start: 课程评价
+          +widget-comments({title:"课程评价"})
+          // End: 课程评价
+    // End:机构详情

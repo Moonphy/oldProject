@@ -1,0 +1,43 @@
+// 页面简介信息
+// ==================================================
+
+.tips
+  clearfix()
+  padding 10px 15px
+  background #FAF7F0
+  border 1px solid #F8F2E5
+  color #C94C0F
+  border-radius 5px
+
+  i
+    float left
+
+  .desc
+    margin-left 60px
+    font-size 14px
+    if support-for-ie
+      _margin-left 57px
+
+  p
+    margin 0
+    line-height 26px
+
+.tips-hints
+  @extend .tips
+  border-color #EFD886
+  background #FFFBEC
+  border-radius 0
+
+// 各种简介信息图标
+$tips-icon
+  display inline-block
+  background url(img/icon_tips.png) no-repeat
+  size 40px
+
+for item, i in mic bulb good hints
+  offset-x = -50px * i
+  .icon-{item}
+    @extend $tips-icon
+    if i > 0
+      background-position offset-x 0
+

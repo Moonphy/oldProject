@@ -1,0 +1,60 @@
+---
+page_title: "百科-词条详情"
+category: "default"
+body_class: ["wiki-page"]
+stylesheets: ["wiki"]
+breadcrumb: ["初中百科", "中考招生"]
+---
+
+//- 模板继承
+extends _layout
+
+//- 内容
+block content
+  // Start:面包屑导航
+  +breadcrumb({breadcrumb:breadcrumb})
+  // End:面包屑导航
+
+  +ad({width:980, ex_class:["mt10"]})
+
+  .container.page-content
+    .row.row14-6
+      .span14
+        // Start: 词条详情
+        .entry-details
+          .entry-title
+            span.views
+              | 共
+              i 23113
+              | 次浏览
+            h1 国防生
+          .entry-summary
+            +thumb({width:200, height:150})
+            .info
+              p= article.summary
+              .related
+                span 相关词条：
+                - var i=8
+                - while(i--)
+                  a(href="entry-details.html", target="_blank", title="毕业考试") 毕业考试
+
+          include partials/_entry-contents
+
+          include partials/_entry-body
+
+          .entry-related
+            +heading({title:"相关阅读"})
+            +post-list({classes:"stat-post", count:3, time:true})
+        // End: 词条详情
+      .span6
+        // Start: 挂件：分类导航
+        +widget-entry-list({ex_class:"widget-categories mt5", categories:["提前录取", "普通招生", "本地学校"], title:"分类导航"})
+        // End: 挂件：分类导航
+
+        // Start: 侧栏广告位
+        +ad({ex_class:["mb25"], width:280})
+        // End: 侧栏广告位
+
+        // Start: 挂件：看过此词条的人还看了
+        +widget-entry-list({title:"看过此词条的人还看了"})
+        // End: 挂件：看过此词条的人还看了

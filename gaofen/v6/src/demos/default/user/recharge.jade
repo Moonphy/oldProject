@@ -1,0 +1,69 @@
+---
+page_title: "广州站-用户-充值中心"
+category: "default"
+body_class: ["reg-page"]
+stylesheets: ["reg"]
+breadcrumb: ["首页", " 找回密码"]
+hide_login: true
+no_extra_links: true
+head_hotline: true
+---
+
+//- 模板继承
+extends ../../_layout
+
+//- 内容
+block content
+  .container.page-content
+    // Start:输入激活
+    .form.form-recharge
+      .form-row
+        label.control-label
+          | 充值金额：
+        .controls
+          .amount-options
+            span.first
+              | 20元
+              i.arrow
+                i.arrow-border
+                i.arrow-body
+            span.active
+              | 50元
+              i.arrow
+                i.arrow-border
+                i.arrow-body
+            span
+              | 100元
+              i.arrow
+                i.arrow-border
+                i.arrow-body
+            span
+              | 200元
+              i.arrow
+                i.arrow-border
+                i.arrow-body
+          .gift
+            | 额外赠送
+            span.hl 50
+            | 个高分币
+          p.tips
+            | 获得
+            span.hl.num 550
+            | 高分币（内含
+            span.hl 50
+            | 个赠币）
+      .form-row
+        label.control-label
+          | 充值方式：
+        .controls
+          .pay-types
+            .item.zhifubao.active 支付宝
+          .help-inline
+            strong 温馨提示：
+            | 没开通支付宝也可以支付哦！
+            a(href="http://help.alipay.com/lab/help_detail.htm?help_id=260867", target="_blank")
+              | 查看教程
+              i &gt;&gt;
+      .actions
+        +button({element:"input", option:"primary", text:"确认充值"})
+    // End:输入激活
