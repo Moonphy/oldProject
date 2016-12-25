@@ -1,0 +1,172 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#search_header {
+  margin: -10px -10px 30px -10px;
+  border-radius: 10px 10px 0 0;
+  height: 50px;
+  background-color: #d4effe;
+}
+#search_header ul {
+  border-bottom: 1px solid #cbedfe;
+}
+#search_header ul li {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  width: 200px;
+  background-color: #f2fafe;
+  border-right: 1px solid #cbedfe;
+}
+#search_header ul li:first-child {
+  border-radius: 10px 0 0 0;
+}
+#search_header ul li a {
+  color: #666666;
+}
+#search_header ul li.selected {
+  background-color: #ffffff;
+}
+#search_header ul li.selected a {
+  color: #18a1f1;
+}
+ul#fans {
+  margin: 10px 0 10px 10px;
+}
+ul#fans li.fan {
+  float: left;
+  position: relative;
+  width: 280px;
+  height: 162px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+ul#fans li.fan:hover {
+  border: 1px solid #a2d7ef;
+}
+ul#fans li.fan .user-info {
+  height: 62px;
+  width: 230px;
+  margin: 15px;
+  font-size: 14px;
+}
+ul#fans li.fan .user-info .image {
+  float: left;
+  width: 62px;
+  height: 62px;
+  margin-right: 10px;
+}
+ul#fans li.fan .user-info .image img {
+  width: 62px;
+  height: 62px;
+  border-radius: 31px;
+}
+ul#fans li.fan .user-info .info {
+  float: left;
+  height: 62px;
+  width: 150px;
+}
+ul#fans li.fan .user-info .info .top-info {
+  padding-left: 6px;
+}
+ul#fans li.fan .user-info .info .top-info a {
+  color: #3fb0f2;
+}
+ul#fans li.fan .user-info .info .bottom-info {
+  clear: both;
+}
+ul#fans li.fan .user-info .info .bottom-info li.num {
+  float: left;
+  margin-right: 5px;
+  width: 40px;
+  height: 45px;
+  text-align: center;
+}
+ul#fans li.fan .user-info .info .bottom-info li.num .top {
+  color: #999999;
+}
+ul#fans li.fan .user-info .info .bottom-info li.num .bottom {
+  color: #666666;
+  font-weight: bold;
+}
+ul#fans li.fan .user-info .info .bottom-info li.border-right {
+  border-right: 1px solid #e6e6e6;
+}
+ul#fans li.fan .tags {
+  font-size: 14px;
+  color: #999999;
+  margin: 10px 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e6e6e6;
+}
+ul#fans li.fan .tags a {
+  color: #999999;
+}
+ul#fans li.fan .buttons {
+  margin: 0 15px;
+  font-size: 14px;
+}
+ul#fans li.fan .buttons div {
+  padding-left: 20px;
+  height: 20px;
+}
+ul#fans li.fan .buttons .add-fans {
+  cursor: pointer;
+  background: url("../images/icon_plus_fans.png") 0 center no-repeat;
+}
+ul#fans li.fan .buttons .double-fans {
+  float: left;
+  background: url("../images/icon_fans_double.png") 0 center no-repeat;
+}
+ul#fans li.fan .buttons .follower {
+  float: left;
+  background: url("../images/icon_check.png") 0 center no-repeat;
+}
+ul#fans li.fan .buttons .cancel-fans {
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+  background: url("../images/icon_fans_split.png") 0 center no-repeat;
+}
+ul#fans li.fan .close {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon_close_fans.png") center center no-repeat;
+}

@@ -1,0 +1,18 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/home_website.css')
+    title 个人中心-采集
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            include _home_header
+            +home_header('home_website')
+
+            .all
+                include _websites
+                include _pager
+    include _footer

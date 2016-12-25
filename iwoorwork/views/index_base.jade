@@ -1,0 +1,172 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/index.css')
+    title 来爱窝，发现分享好网址
+body
+    block header
+    .wrap
+        #body
+            include _popup
+            #user-bar
+                .user-info
+                    .image
+                        a(href='home.html'): img(src='images/examples/touxiang.jpg')
+                    .info
+                        .top-info: a(href='home.html',target='_blank') LUTHER-FENG
+                        .bottom-info
+                            ul
+                                li.border-right
+                                    a(href='home_website.html')
+                                        .top 采集
+                                        .bottom 639
+                                li.border-right
+                                    a(href='home.html')
+                                        .top 小窝
+                                        .bottom 12
+                                li
+                                    a(href='home_fans.html')
+                                        .top 粉丝
+                                        .bottom 98
+                .search_engine
+                    .top
+                        ul
+                            each item in ['网页','视频','音乐','图片','贴吧','新闻','知道','地图']
+                                li= item
+                    .bottom
+                        .engine_name
+                            img(src='images/baidu.jpg',key='baidu')
+                            #popup-search.js-over-show
+                                .search(key='google')
+                                    .google(class='icon')
+                                    .name 谷歌
+                                .search(key='baidu')
+                                    .baidu(class='icon')
+                                    .name 百度
+                                .search(key='sogou')
+                                    .sogou(class='icon')
+                                    .name 搜狗
+                                .search(class='last',key='360')
+                                    .s360(class='icon')
+                                    .name 360
+                        .keyword
+                            input(type='text')
+                        .search_button 百度一下
+                .clendar
+                    .line1 12月15日 周四
+                    .line2 十一月 初三
+                    .line3 广州
+                        span.btn-change-location <更换>
+                        #panel-location
+                            div
+                                select
+                                    option 广东
+                                select
+                                    option 广州
+                                select
+                                    option 白云区
+                            .row
+                                .btn-ok 确定
+                                .btn-cancel 取消
+
+                .weather
+                    .top
+                        .icon(class='w1')
+                        .text
+                            .top 今天 38°
+                            .bottom 雷阵雨转大暴雨
+                    .bottom
+                        .icon(class='w2')
+                        .text
+                            .top 明天 38°
+                            .bottom 晴
+            #left-part
+                #bookmarks
+                    #popup-bookmark-edit
+                        .content
+                        .footer
+                            div.small-button(class='ok') 确定
+                            div.small-button(class='reset') 清除
+                    #popup-bookmark-delete
+                        .content 确定要清除便签内容吗？
+                        .footer
+                            div.small-button(class='ok') 确定
+                            div.small-button(class='reset') 清除
+                    each val in [1,2,3]
+                        .bookmark
+                            .header
+                                .toolbar
+                                    .pullback
+                                    .expand
+                                    .edit
+                                    .delete
+                            p 便捷书签，再也不忘要做的事哦~~便捷书签司法所。不用注册即可留言，给站长留言吧，等我们网站又有新的神器推出，及时通知大家，留下你的邮箱即可！
+                #popup-base
+                .user-defined
+                    .header
+                        .title 自定义常用网址
+                        .toolbar
+                            .pullback
+                            .expand
+                            .edit
+                    .content
+                        ul
+                            - for(var i=0;i<80;i++)
+                                li: a(href='website.html',target='_blank') 爱窝网分享好
+                    #popup-defined-folder.popup_window
+                        .header 自定义常用网址
+                        ul
+                            - for(var i=0;i<30;i++)
+                                li
+                                    .text 爱窝网分享网
+                                    .edit
+                                    .delete
+                        .expand 展开全部
+                        .row1
+                            .title 网站名称
+                            .name: input(type='text',placeholder='如：爱窝网')
+                            .title 网站地址
+                            .address: input(type='text',placeholder='如：www.iwoor.com')
+                        .row2
+                            .title 介绍
+                            .instroduce: textarea(placeholder='输入一段话介绍一下这个网站吧！')
+                        .row3
+                            .title 标签
+                            .tag 收藏网站
+                            .tag 网址
+                            .tag 网址大全
+                            .tag-input: input(type='text',placeholder='输入标签内容')
+                            .button 添加
+                        .button 确定添加
+                        .detail
+                            .title 最热采集
+                            ul
+                                - for(var i=0;i<24;i++)
+                                    li 爱窝分享好网
+                            .title 编辑推荐
+                            ul
+                                - for(var i=0;i<24;i++)
+                                    li 爱窝分享好网
+                            .title 搞笑排行
+                            ul
+                                - for(var i=0;i<24;i++)
+                                    li 爱窝分享好网
+                include _folders
+
+            #right-part
+                block right-part
+                include _friend_info
+                include _interested
+                include _guess
+                include _hot_question
+
+
+
+
+
+
+
+    include _footer
+    script(src='js/blocksit.min.js' type='text/javascript')
+    script(src='js/index.js' type='text/javascript')
+    script(src='js/folder.js' type='text/javascript')

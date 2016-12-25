@@ -1,0 +1,44 @@
+@import "base";
+@import "_fun_site";
+
+.fun-header{
+  margin: 10px;
+  margin-right: 3px;
+  padding: 0px 0 20px 0;
+  border-bottom: 1px solid @border-color;
+
+  ul{
+    li{
+      float: left;
+      width: 68px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      font-size: 18px;
+      background-color: #fff;
+      border: 1px solid #bfebfe;
+      border-radius: 18px;
+      margin: 0 5px;
+      cursor: pointer;
+      a{
+        color:#43d3d8;
+      }
+      &:hover,&.selected{
+          a{
+            color:#fff;
+          }
+          background-color: #43d3d8;
+          border: 1px solid #43d3d8;
+      }
+    }
+  }
+}
+
+#left-part{
+  margin-top: -10px;
+  .pager{
+    ul{
+      margin-left: 0px;
+    }
+  }
+}

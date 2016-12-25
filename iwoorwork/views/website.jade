@@ -1,0 +1,21 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/website.css')
+    title 网站详情-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #left-part
+                include _website
+                +website('y')
+                include _comments
+            #right-part
+                include _ad
+                include _hot_question
+                include _guess
+
+    include _footer

@@ -1,0 +1,117 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#filter-search-group {
+  float: right;
+  margin-top: 6px;
+  height: 26px;
+  position: relative;
+}
+#filter-search-group .combo {
+  float: left;
+  height: 26px;
+  line-height: 26px;
+  border: 1px solid #c7e8f9;
+  padding: 0 10px 0 2px;
+  font-size: 16px;
+  color: #666666;
+  cursor: pointer;
+  padding: 0 20px 0 10px;
+  border-radius: 4px;
+  background: url("../images/icon_down_gray.png") right center no-repeat #ffffff;
+}
+#filter-search-group .search {
+  float: left;
+  margin-left: 10px;
+  line-height: 16px;
+  width: 200px;
+  height: 26px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #c7e8f9;
+  color: #c0c0c0;
+  background-color: #ffffff;
+}
+#filter-search-group .search input.input {
+  width: 144px;
+  padding: 0 10px;
+  color: #c1c1c1;
+}
+#filter-search-group .search input.input:focus {
+  color: #666666;
+}
+#filter-search-group .search #find-search {
+  cursor: pointer;
+  width: 30px;
+  height: 26px;
+  background: url("../images/icon_find.png") no-repeat scroll center center #ffffff;
+}
+#filter-search-group #panel-type-select {
+  display: none;
+  position: absolute;
+  left: -13px;
+  top: 10px;
+  z-index: 1000;
+  width: 290px;
+  height: 300px;
+  padding-top: 40px;
+}
+#filter-search-group #panel-type-select .content {
+  width: 290px;
+  height: 290px;
+  position: relative;
+}
+#filter-search-group #panel-type-select .content .pointer {
+  position: absolute;
+  width: 18px;
+  height: 11px;
+  left: 30px;
+  top: -10px;
+  background: url("../images/icon_pointer_up4.png") no-repeat;
+}
+#filter-search-group #panel-type-select .content ul {
+  width: 290px;
+  height: 280px;
+  background-color: #f1f1f1;
+}
+#filter-search-group #panel-type-select .content ul li {
+  float: left;
+  height: 28px;
+  width: auto;
+  line-height: 28px;
+  padding: 0 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px solid #e6e6e6;
+  background-color: #ffffff;
+  color: #666666;
+  cursor: pointer;
+}

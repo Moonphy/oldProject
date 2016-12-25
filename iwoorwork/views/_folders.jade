@@ -1,0 +1,67 @@
+#folders
+    each count in [24,14,41,24,28]
+        .folder
+            .header
+                .title: a(href='folder_detail.html',target='_blank') 设计网站收藏
+                .toolbar
+                    .pullback
+                    .expand
+                    .edit
+                    .delete
+            .content
+                ul
+                    - for(var i=0;i<count;i++)
+                        li: a(href='website.html',target='_blank') 爱窝网分享好
+    .folder(class='empty')
+        .header
+            .title 设计网站收藏
+            .toolbar
+                .pullback
+                .expand
+                .edit
+                .delete
+        .content
+            .add 添加网址
+    .folder(class='expand')
+        .header
+            .title 设计网站收藏
+            .toolbar
+                .pullback
+                .expand
+                .edit
+                .delete
+            .content
+    .folder_new
+        .add 创建新小窝
+
+    #popup-folder-delete
+        .content 确定要删除“<span>设计网站收藏</span>”这个小窝吗？
+        .footer
+            div.small-button(class='ok') 确定
+            div.small-button(class='reset') 清除
+
+#popup-edit-folder.popup_window
+    .header 设计网站收藏
+    ul
+        - for(var i=0;i<30;i++)
+            li
+                .text 爱窝网分享网
+                .edit
+                .delete
+    .expand 展开全部
+    .row1
+        .title 网站名称
+        .name: input(type='text',placeholder='如：爱窝网')
+        .title 网站地址
+        .address: input(type='text',placeholder='如：www.iwoor.com')
+    .row2
+        .title 介绍
+        .instroduce: textarea(placeholder='输入一段话介绍一下这个网站吧！')
+    .row3
+        .title 标签
+        .tag 收藏网站
+        .tag 网址
+        .tag 网址大全
+        .tag-input: input(type='text',placeholder='输入标签内容')
+        .button 添加
+    .button 确定添加

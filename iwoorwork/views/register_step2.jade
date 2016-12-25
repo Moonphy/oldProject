@@ -1,0 +1,29 @@
+doctype html
+include _fans
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/register_step2.css')
+    title 推荐关注页-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #top-logo
+                .logo
+            #info 他们是爱窝收藏分享达人哦！快关注他们获取更实用的网址吧！
+                .buttons
+                    .btn-change 换一批
+                    .btn-next 跳过此步
+
+            ul#fans
+                - for(var i=0;i<2;i++)
+                    +show_fan('add')
+                - for(var i=0;i<1;i++)
+                    +show_fan('other')
+                - for(var i=0;i<5;i++)
+                    +show_fan('add')
+            #btn-finish 完成
+    include _footer
+    script(src='js/register.js' type='text/javascript')

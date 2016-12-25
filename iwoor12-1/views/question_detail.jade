@@ -1,0 +1,71 @@
+doctype html
+mixin comment_row(quote)
+    li
+        .left
+            .image: a(href='home.html',target='_blank'): img(src='images/examples/user1.jpg')
+            .name: a(href='home.html',target='_blank') 是我不懂还是
+        .right
+            p.
+                经典物理学所涉及的物理学领域通常是一些在量子力学与相对论之前发的
+                是广东省高的分公司该到时发个嘎的该…
+            if quote=='yes'
+                blockquote
+                    .pointer
+                    .author: a(href='home.html',target='_blank') 是我不懂还是
+                    p.
+                        经典物理学所涉及的物理学领域通常是一些在量子力学与相对论之前发的是广东省高
+                        的分公司该到时发个嘎信得过的的该…
+            .footer
+                span.good 36
+                span.comment 89
+                span.delete 删除
+                span.time 2014-8-26
+
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/question_detail.css')
+    title 问答详情-爱窝网
+body
+    include _header
+    +header('question')
+    .wrap
+        #body
+            include _popup
+            #left-part
+                #question-detail
+                    .left
+                        .image: a(href='home.html',target='_blank'): img(src='images/examples/user1.jpg')
+                        .name: a(href='home.html',target='_blank') 是我不懂还是
+                    .right
+                        .title  求几个韩国高清模特素材网站，最好的要免费的哦!谁有求推荐！
+                        p.
+                            经典物理学所涉及的物理学领域通常是一些在量子力学与相对论之前发的
+                            是广东省高的分公司该到时发个嘎的该…
+                        ul.tags
+                            each item in ['平面设计','广告设计','电商','直播']
+                                li: a(href='search_website.html',target='_blank')= item
+                        .footer
+                            span.time 发表于2014-8-26
+                            span.good 36
+                            span.comment 89
+                            span.edit 修改
+                include _comments
+            #right-part
+                .right1
+                    .button 关注
+                    .return: a(href='javascript:history.back(1);') 返回
+                    .home: a(href='question.html') 问答首页
+                .right2
+                    .title <i>98</i>人关注该问题
+                    ul
+                        - for(var i=0;i<10;i++)
+                            li.user: a(href='home.html',target='_blank'): img(src='images/examples/user-little.jpg')
+                        - for(var i=0;i<4;i++)
+                            li.empty
+                include _hot_user
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+
+    include _footer

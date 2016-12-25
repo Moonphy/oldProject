@@ -1,0 +1,32 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/register_step1.css')
+    title 推荐关注页-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #top-logo
+                .logo
+            .reg-info <i>过往看客</i>，给自己添加个性标签吧
+            .reg-info 系统给你推荐的内容将更符合你的兴趣哦！
+
+            #tag-bar
+                .label 标签
+                .input: input(type='text',placeholder='标签之间用“、”隔开，如：文艺青年、男神、手机党')
+                .info 最多五个标签
+
+            #tag-list
+                .left 热门标签：
+                .right
+                    ul
+                        each item in ['文艺青年','男神','手机党','文艺青年','男神','手机党','文艺青年','男神','手机党','文艺青年','男神','手机党']
+                            li= item
+                .skip 跳过此步
+
+            #btn-next 下一步
+    include _footer
+    script(src='js/register.js' type='text/javascript')

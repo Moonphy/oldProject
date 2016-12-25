@@ -1,0 +1,210 @@
+@import "base";
+#home_header{
+  height: 190px;
+  background-color:#fbfbfb ;
+  border-radius: 10px;
+  border:1px solid #cbedfe;
+  color:#555555;
+  a{
+    color:#555555;
+  }
+  div,li{
+    float: left;
+  }
+
+  .user-info{
+    height: 125px;
+    margin: 10px 0 10px 10px;
+    font-size: 14px;
+
+    .bottom{
+      font-size: 18px;
+    }
+    .image{
+      width: 100px;
+      height: 100px;
+      margin: 10px 10px 20px 0;
+      img{
+        width: 92px;
+        height: 92px;
+        border-radius: 100%;
+        border:4px solid #ffffff;
+      }
+    }
+
+    .info{
+      height: 80px;
+      padding: 17px 20px 17px 0;
+      border-right: 1px solid #f4f4f4;
+      margin-top: 5px;
+      .top-info{
+        font-size: 18px;
+        color: #918167;
+      }
+      .bottom-info{
+        clear: both;
+      }
+      li{
+        margin-right: 5px;
+        width: 40px;
+        height: 45px;
+        border-right: 1px solid #ececec;
+        a{
+          div{
+            text-align: center;
+          }
+        }
+        &.selected{
+          a{
+            color:#3fb0f2;
+          }
+        }
+      }
+    }
+
+    .search{
+      margin: 42px 80px 0 50px;
+      width: 300px;
+      background-color: #ffffff;
+      border-radius: 4px;
+      border: 1px solid #e6e6e6;
+      input.input{
+        width: 250px;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 10px;
+        color: #c1c1c1;
+        &:focus{
+          color: #666666;
+        }
+      }
+      .search_header{
+        height: 40px;
+        width: 40px;
+        float: right;
+        padding-top: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        background: url("../images/icon_find_search.png") center no-repeat;
+      }
+    }
+
+    .user-list{
+      width: 208px;
+      height: 104px;
+      margin-top: 8px;
+      margin-left: 20px;
+      .header{
+        font-size: 16px;
+        clear: left;
+        padding-left: 2px;
+        .title{
+          padding-left: 5px;
+        }
+        ul{
+          clear: left;
+          margin: 0px -5px 10px 0px;
+          li{
+            float: left;
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0 5px;
+            img{
+              width: 35px;
+              height: 35px;
+              border-radius: 4px;
+            }
+
+            &.empty{
+              background-color: #ededed;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .home-nav {
+    width: 100%;
+    height: 44px;
+    border-top: 1px solid #cbedfe;
+    border-radius: 0 0 10px 10px;
+    background-color: #d4effe;
+
+    ul.menu{
+      float: left;
+
+      li{
+        float: left;
+        width: 116px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        border-right: 1px solid #bae6fe;
+        background-color: #f2fafe;
+        margin: 0;
+        a{
+          font-size: 16px;
+          color:#3fb0f2;
+        }
+        &:hover,&.selected{
+          background-color: #fff;
+        }
+
+        &:first-child{
+          border-radius: 0 0 0 10px;
+        }
+        &:last-child{
+          width: 180px;
+          a{
+            padding-left: 20px;
+            background: url("../images/icon_invite.png") 0 center no-repeat;
+          }
+        }
+      }
+    }
+
+    #setting{
+      float: right;
+      margin: 7px 10px;
+      width: 76px;
+      height: 28px;
+      line-height: 28px;
+      cursor: pointer;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #bae6fe;
+      border-radius: 14px;
+      color:#999999;
+    }
+  }
+}
+
+ul#my_question_menu{
+  margin: 20px 10px 0;
+  li{
+    float: left;
+    margin-right: 20px;
+    font-size: 16px;
+    height: 26px;
+
+    padding: 3px 20px;
+    border-radius: 26px;
+    border: 1px solid #c9e8fb;
+    background-color: #ffffff;
+    a{
+      color: #666666;
+    }
+
+    &.selected{
+      background: #f2fafe;
+    }
+    &:hover{
+      a{
+        color:#3fb0f2;
+      }
+    }
+  }
+}

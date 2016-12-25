@@ -1,0 +1,13 @@
+#guess
+    .header
+        .title 猜你喜欢
+        .subject(class='selected') 程序设计
+        .split
+        .subject 平面设计
+    .content
+        ul
+            - for(var i=0;i<10;i++)
+                li: a(href='website.html',target='_blank') 爱窝网分享好
+        .refresh
+            .line
+            .icon: a(href='#') 换一换

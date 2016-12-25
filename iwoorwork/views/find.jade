@@ -1,0 +1,26 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/find.css')
+    title 发现
+body
+    include _header
+    +header('find')
+    .wrap
+        #body
+            include _popup
+            include _find_header
+            +find_header('find')
+
+            #left-part
+                include _websites
+                include _pager
+            #right-part
+                include _hot_collect
+                include _hot_user
+                include _hot_question
+                .right-split-20
+                include _hot_tag
+
+    include _footer
+    script(src='js/find.js',type='text/javascript')

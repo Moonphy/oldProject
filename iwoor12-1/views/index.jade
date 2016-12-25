@@ -1,0 +1,19 @@
+extends index_base
+include _header
+block header
+    +header('index')
+
+block right-part
+    include _ad
+    #share
+        .favor 把爱窝设为首页
+        .tool: a(href='bookmark.html',target='_blank') 安装网址分享工具
+    ul.function
+        li.friend: a.invite-friend 邀请朋友来爱窝
+        li.website: a(href='home_attend.html',target='_blank') 我关注的小窝
+        li.find: a(href='find.html') 发现
+        li.fun: a(href='fun.html') 趣站
+            .badge 38
+        li.anwser: a(href='home_attend.html',target='_blank') 我关注的问答
+        li.invite: a(href='home_question.html',target='_blank') 邀请我回答的问题
+        li.question: a(href='question.html') 问答广场

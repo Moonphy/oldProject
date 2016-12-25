@@ -1,0 +1,70 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#about-menu {
+  float: left;
+  width: 148px;
+  margin: 40px 35px 500px 20px;
+  border: 1px solid #dedede;
+}
+#about-menu .title {
+  height: 58px;
+  line-height: 58px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #48b6f7;
+  color: #ffffff;
+}
+#about-menu ul li {
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: 16px;
+  border-top: 1px solid #dedede;
+}
+#about-menu ul li.selected a {
+  color: #48b6f7;
+}
+#about-content {
+  width: 830px;
+  margin-top: 55px;
+  float: left;
+}
+#about-content .title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #48b6f7;
+}
+#about-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.7em;
+}

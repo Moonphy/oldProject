@@ -1,0 +1,193 @@
+#popup-new-folder.popup_window
+    .header 创建小窝
+    .row1
+        .label 小窝名称
+        input.input(type='text')
+    .row2
+        .label 小窝分类
+        input.select(type='text')
+    .button 确认创建
+
+#popup-new-question.popup_window
+    .header 提问
+    .content
+        .row1
+            input.input(type='text',placeholder='写下你的问题')
+        .row1
+            textarea(placeholder='问题说明')
+        .row2
+            .label 选择分类
+            input.select(type='text',placeholder='导航类网站')
+        .row3
+            .title 标签
+            .tag 收藏网站
+            .tag 网址
+            .tag 网址大全
+            .tag-input: input(type='text',placeholder='输入标签内容')
+            .add-tag 添加
+        .button 提问
+
+#popup-message.popup_window
+    .header 私信
+    .content
+        ul
+            - for(var i=1;i<=15;i++)
+                li
+                    .image: a(href='home.html'): img(src='images/examples/touxiang.jpg')
+                    .msg
+                        .top
+                            span.name: a(href='home.html') 幸福的小麦兜
+                            span.time 2014-6-26
+                        .bottom 为什么你们网站打不开？自动跳转到mio.la ??
+                    .delete: .button 删除
+                    .next: .button
+
+#popup-message-detail.popup_window
+    .header
+        span.title 私信
+        span 与
+        span.name 幸福的小麦兜
+        span 的对话
+    .content
+        .to
+            .image: a(href='home.html'): img(src='images/examples/friend2.jpg')
+            .msg
+                .top
+                    span.name: a(href='home.html') 幸福的小麦兜
+                    span.time 2014-6-26  10:43:34
+                .bottom 为什么你们网站打不开？自动跳转到mio.la ??
+                .pointer
+        .clear
+        .from
+            .msg
+                .top
+                    span.name: a(href='home.html') 幸福的小麦兜
+                    span.time 2014-6-26  10:43:34
+                .bottom 为什么你们网站打不开？自动跳转到mio.la ??
+                .pointer
+            .image: a(href='home.html'): img(src='images/examples/friend3_3.jpg')
+
+        .clear
+        .footer
+            .input: textarea
+            .send
+                .button 发送私信
+
+#popup-notice.popup_window
+    .header 通知
+    .content
+        ul
+            - for(var i=1;i<=15;i++)
+                li
+                    .image: a(href='home.html'): img(src='images/examples/touxiang.jpg')
+                    .msg
+                        .top
+                            span.name: a(href='home.html') 幸福的小麦兜
+                            span.time 2014-6-26  10:43:34
+                        .bottom 为什么你们网站打不开？自动跳转到<a href='#'>mio.la</a> ??
+                    .delete: .button 删除
+
+#popup-invite.popup_window
+    .header 邀请朋友来爱窝网
+    .content: input.input(type='text',placeholder='输入ta的邮箱点击发送即可')
+    .button 发送邀请
+
+#popup-gather.popup_window
+    .title 转采
+    .name
+        img(src='images/examples/icon_websit.png')
+        span 爱窝网
+    .url www.iwoor.com
+    .select 导航类网站
+    .detail
+        p.
+            这是一个中国最热的设计社交类网站，很
+            在这里集合了中国大部分设计师...
+        ul.tags
+            each item in ['平面设计','广告设计','电商','彩票','直播']
+                li: a(href='search_website.html',target='_blank')= item
+        .input
+            span.label 标签
+            input(type='text',placeholder='输入标签内容')
+            span.btn-add 添加
+
+    .btn-confirm-gather 采下来
+
+    .panel-search
+        .main
+            ul
+                each item in ['平面设计','广告设计','电商','彩票','直播','平面设计','广告设计','电商','彩票','直播']
+                    li
+                        .letter
+                        .text= item
+
+        input.search-input(placeholder='快速筛选/创建小窝')
+
+#popup-share.popup_window
+    .title 分享网址
+    .row1
+        .label 网站名称
+        .name: input(type='text',placeholder='如：爱窝网')
+        .label 网站地址
+        .address: input(type='text',placeholder='如：www.iwoor.com')
+    .row2
+        .label 介绍
+        .instroduce: textarea(placeholder='输入一段话介绍一下这个网站吧！')
+    .row3
+        .label 标签
+        .tag 收藏网站
+        .tag 网址
+        .tag 网址大全
+        .tag-input: input(type='text',placeholder='输入标签内容')
+        .button 添加
+    .btn-confirm-to-next 下一步
+
+#popup-register.popup_window
+    .goto-see 先逛逛
+    .icons
+        .qq
+        .weibo
+        .douban
+        .renren
+    .info 使用以上第三方账号注册
+    .input: input(type='email',placeholder='邮箱注册，请输入邮箱账号')
+    .btn-email-register 注册
+    .goto-login 已有账号？登录>>
+
+#popup-login.popup_window
+    .logo
+    .info 使用第三方帐号登录
+    .icons
+        .qq
+        .weibo
+        .douban
+        .renren
+    .login-info
+        .label 使用邮箱登录
+    .input: input(type='email',placeholder='邮箱账号')
+    .input: input(type='password',placeholder='登录密码')
+    .btn-login 登录
+    .bottom
+        .forget-password 忘记密码 >>
+        .goto-register 点击注册 >>
+        .info 还没账号？
+
+#popup-register-ok.popup_window
+    .logo
+    #register-ok.info 注册成功
+    .info
+    .info 验证邮件已发送到
+        span.email 635305047@qq.com
+    .info 请 <a href='#' class='finish-register' target='_blnak'>点击查收邮件</a> 激活账号
+    .info 没有后收到激活邮件？请耐心等待，或者 <i>重新发送20秒</i>
+    #register-return.info
+        a.goto-login « 返回登录页
+
+#popup-forget-password.popup_window
+    .logo
+    .login-info
+        .label 找回密码
+    .input: input(type='email',placeholder='请输入在爱窝注册的邮箱账号')
+    .btn-send-email 发送邮件
+    .bottom
+        .goto-login 又想起来了 >>

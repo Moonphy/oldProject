@@ -1,0 +1,145 @@
+@import "base";
+
+.website{
+  width: 868px;
+  height: 222px;
+  margin: 25px 0px 25px 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+
+  .site-info{
+    height: 149px;
+    border-bottom: 1px dashed #e6e6e6;
+    background-color: #fbfbfb;
+    border-radius: 10px 10px 0 0;
+    padding-top: 12px;
+    padding-left: 20px;
+    padding-right: 10px;
+
+    .row{
+      div{
+        float: left;
+        height: 32px;
+      }
+
+      .icon{
+        margin-top: 16px;
+        width: 20px;
+      }
+
+      .name{
+        margin: 5px 10px;
+        font-size: 22px;
+        color:#3fb0f2;
+      }
+
+      .link{
+        margin:10px 20px 0 0;
+        font-size: 18px;
+        a{
+          color: #3fb0f2;
+          border-bottom: 1px solid #3fb0f2;
+        }
+      }
+
+      .button{
+        cursor: pointer;
+        width: 80px;
+        height: 32px;
+        text-align: center;
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 32px;
+        border-radius: 4px;
+        background-color: #ffa45f;
+      }
+
+      .record{
+        float: right;
+        font-size: 14px;
+        color: #666666;
+        i{
+          font-size: 18px;
+          color: #3fb0f2;
+        }
+      }
+
+    }
+
+    p{
+      font-size: 14px;
+      width: 780px;
+      line-height: 1.7em;
+    }
+
+    ul.tags{
+      margin-top: 15px;
+      li{
+        cursor: pointer;
+        float: left;
+        font-size: 14px;
+        padding: 2px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        color:#999999;
+        background-color: #fdfdfd;
+        border: 1px solid #e6e6e6;
+      }
+    }
+  }
+  .user-info{
+    font-size: 14px;
+    margin: 10px 10px 10px 20px;
+    div{
+      height: 40px;
+      line-height: 40px;
+    }
+
+    .image{
+      float: left;
+      img{
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+    }
+    .name{
+      float: left;
+      margin-left: 20px;
+
+      a.user{
+        color:#2ea2e4;
+      }
+      span{
+        color: #999999;
+        margin: 0 10px;
+      }
+      a.folder{
+        color:#c0c0c0;
+        border-bottom: 1px solid #c0c0c0;
+      }
+    }
+
+    .footer{
+      float: right;
+      text-align: right;
+      color: #c0c0c0;
+      span{
+        margin-left: 20px;
+        padding-left: 20px;
+      }
+      .good{
+        background: url("../images/icon_good.png") no-repeat;
+      }
+      .comment{
+        background: url("../images/icon_comment.png") no-repeat;
+      }
+      .edit{
+        cursor: pointer;
+        padding: 0 20px 0 0;
+        background: url("../images/icon_edit_question.png") right center no-repeat;
+
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.pager
+    ul
+        - for (var i=0; i< totalPage; i++){
+            - if(currentPage == (i + 1)){
+                li.current
+                    span #{currentPage}
+            - }
+            - else{
+                - if(web_urls){
+                    li
+                        a(href='/find.html?#{query}&p=#{i}') #{i + 1}
+                - }
+                - if(web_folders){
+                    li
+                        a(href='/find_folder.html?#{query}&p=#{i}') #{i + 1}
+                - }
+                - if(members){
+                    li
+                        a(href='/find_user.html?#{query}&p=#{i}') #{i + 1}
+                - }
+            - }
+        - }
+        li: a(href='#') 下一页
+    .goto
+        span 跳转到
+        input(type='text')
+        span.button GO

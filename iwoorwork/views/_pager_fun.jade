@@ -1,0 +1,9 @@
+.pager-fun
+    ul
+        - for(var page=1;page<pager.pageCount;page++)
+            li: a(href='#{pager.pageUrl}#{page}') #{page}
+
+    .goto
+        span 跳转到
+        input(type='text')
+        span.button GO

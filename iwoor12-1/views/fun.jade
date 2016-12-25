@@ -1,0 +1,33 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/fun.css')
+    title 趣站
+body
+    include _header
+    +header('fun')
+    .wrap
+        #body
+            include _popup
+            .fun-header
+                ul
+                    li.selected: a(href='fun.html') 全部
+                    li: a(href='fun.html') 科学
+                    li: a(href='fun.html') 神奇
+                    li: a(href='fun.html') 国内
+                    li: a(href='fun.html') 国外
+            #left-part
+
+                include _fun_site
+
+                include _pager
+
+            #right-part
+                include _hot_tag
+                include _interested
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+
+    include _footer

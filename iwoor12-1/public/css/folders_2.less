@@ -1,0 +1,94 @@
+@import "base";
+
+#folders{
+  margin-left: -10px;
+  margin-top: -3px;
+  position: relative;
+  .folder{
+    position: absolute;
+    width: 284px;
+    float: left;
+    margin-left: 10px;
+  }
+}
+
+.folder{
+  .folder-border;
+  overflow: hidden;
+  .header{
+    height: 32px;
+    line-height: 32px;
+    background-color: #f2fafe;
+    border-bottom: 1px solid @folder-border-color;
+    border-radius: 10px 10px 0 0;
+
+    .title{
+      float:left;
+      padding-left: 10px;
+      font-size: 16px;
+      a{
+        color: #3fb0f2;
+        &:hover{
+          border-bottom: 1px solid #3fb0f2;
+        }
+      }
+    }
+  }
+
+  .content{
+    ul{
+      margin: 10px -25px 15px 20px;
+    }
+    li{
+      float: left;
+      font-size: 14px;
+      height: 20px;
+      width: 110px;
+      margin: 5px 30px 5px 0;
+
+      a{
+        background: url("../images/examples/icon_websit.png") no-repeat 0 center;
+        padding-left: 20px;
+        color: #666666;
+      }
+    }
+  }
+
+  .footer{
+    font-size: 14px;
+    margin: 10px 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e6e6e6;
+    .image{
+      float: left;
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .name{
+      float: left;
+      height: 40px;
+      line-height: 40px;
+      margin: 0 10px;
+      a{
+        color: #3fb0f2;
+      }
+      span{
+        margin-left: 10px;
+        color:#999999;
+      }
+    }
+    .button{
+      cursor: pointer;
+      margin-top: 7px;
+      height: 26px;
+      line-height: 26px;
+      padding: 0 10px;
+      color: #666666;
+      border: 1px solid #e6e6e6;
+      border-radius: 4px;
+      float: right;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/question.css')
+    title 问答-爱窝网
+body
+    include _header
+    +header('question')
+    .wrap
+        #body
+            include _popup
+            #question-header
+                .question-title 问答广场
+                .link: a(href='question_my.html') 我的问答 <i>26</i>
+                .link: a(href='question_attend.html') 我关注的问答 <i>26</i>
+
+            #left-part
+                ul.main
+                    - for(var i=0;i<2;i++)
+                        each item in ['设计','平面设计','广告设计','电商','彩票','直播','电商','平面设计','广告设计','彩票','直播','电商','平面设计','广告设计','彩票','直播']
+                            li: a(href='search_website.html',target='_blank')= item
+                #nav
+                    .title 设计
+                    ul
+                        each item in [{k:'question',v:'干货'},{k:'question_my',v:'按点击'},{k:'question_attend',v:'按关注'}]
+                            if item.k=='question'
+                                li.selected: a(href='#{item.k}.html') #{item.v}
+                            else
+                                li: a(href='#') #{item.v}
+
+                    include _filter_search_group
+
+                include _question_list
+                include _pager
+            #right-part
+                include _question_input
+                include _hot_user
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+
+    include _footer

@@ -1,0 +1,25 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/home_ask.css')
+    title 个人中心-我的提问
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            include _home_header
+            +home_header('home_question')
+            #left-part
+                +my_question_menu('ask')
+                include _question_my_list
+                include _pager_fun
+            #right-part
+                include _question_input
+                include _hot_user
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+    include _footer

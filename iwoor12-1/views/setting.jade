@@ -1,0 +1,92 @@
+doctype html
+mixin select_box(from,to)
+    select
+        - for(var i=from;i<=to;i++)
+            option= i
+
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/setting.css')
+    title 账号设置-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            .logo_top
+                .icon_logo 账号设置
+            .table
+                .ul
+                    .li1 昵称
+                    .li2 立志成土豪
+                    .btn-nickname 编辑
+                .ul
+                    .li1 我的标签
+                    .li2 设计、创业、素材、关注互联网、猫宠
+                    .btn-tags 编辑
+                .ul
+                    .li1 密码
+                    .li2 ********
+                    .btn-password 修改
+                .ul
+                    .li1 关于我
+                    .li2 一个立志于互联网的设计小屌丝，努力的试图改变自己的命运~
+                    .btn-aboutme 编辑
+                .ul
+                    .li1 生日
+                    .select
+                        +select_box(1960,2014)
+                        span 年
+                        +select_box(1,12)
+                        span 月
+                        +select_box(1,31)
+                        span 日
+                .ul
+                    .li1 性别
+                    .select
+                        select
+                            option 男
+                            option 女
+
+                .ul_tip 爱窝温馨提醒<i>（资料填写的越详细准确，爱窝智能推荐的精彩内容越符合你的需要哦~）<i>
+                .ul_photo
+                    .li_photo
+                    .btn-photo 编辑头像
+            .btn-save 保存设置
+
+    #popup-nickname.popup_window
+        .title 修改昵称
+        input(value='立志成土豪')
+        .count 6/6
+        .btn-confirm 确定修改
+
+    #popup-tags.popup_window
+        .title 修改标签
+        .input
+            .label 标签
+            input(value='设计、创业、素材、关注互联网、猫宠')
+        .count 最多５个标签，请用“、”号隔开
+        .btn-confirm 确定修改
+
+    #popup-password.popup_window
+        .title 修改密码
+
+        .row
+            input(type='password',placeholder='现用密码')
+        .row
+            input(type='password',placeholder='新密码')
+            .info-error
+        .row
+            input(type='password',placeholder='重复新密码')
+            .info-correct
+        .btn-confirm 确定修改
+
+    #popup-aboutme.popup_window
+        .title 修改关于我
+        textarea 一个立志于互联网的设计小吊丝，努力的试图改变自己的命运~
+        .count 36/150
+        .btn-confirm 确定修改
+
+    include _footer
+    script(src='js/setting.js' type='text/javascript')

@@ -1,0 +1,22 @@
+doctype html
+include _search_common
+include _fans
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/search_user.css')
+    title 搜索结果页—窝窝头-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body_search_website
+            include _popup
+            +search_header('user')
+            ul#fans
+                +show_fan('add')
+                - for(var i=0;i<9;i++)
+                    +show_fan('double')
+                - for(var i=0;i<10;i++)
+                    +show_fan('other')
+            include _pager_fun
+    include _footer

@@ -1,0 +1,16 @@
+ul#question-list
+     each item in question
+        li
+            .left
+                .title: a(href='question_detail.html',target='_blank') #{item.title}
+                p.desc.
+                    #{item.content}
+            .right
+                .top
+                    span.good 36
+                    span.comment 86
+                    span.attend 关注 <i>63</i>
+                    .button <b>+</b> 关注
+                .bottom
+                    a(href='home.html',target='_blank') 天高任我飞～
+                    span.time 发表于2014-8-26 13:53

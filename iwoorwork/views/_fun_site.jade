@@ -1,0 +1,17 @@
+each fun in funs
+    .fun-site
+        .left: a(href='/fun/#{fun._id}'): img(src= '/images/examples/fun.jpg')
+        .right
+            .row1
+                span.title: a(href='/fun/#{fun._id}') #{fun.name}
+                .btn-gather 采集
+            p.
+                #{fun.introduce}
+            .row3
+                .left
+                    ul
+                        each key in fun.tags
+                            li.tag: a(href='search_website.html',target='_blank')= key
+                .right
+                    span.good #{fun.count}
+                    span.comment 89

@@ -1,0 +1,23 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/website_detail.css')
+    title 网站详情-采集记录-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #left-part
+                include _website
+                +website('y')
+                - for(var i=1;i<10;i++)
+                    +website('n')
+
+                #more 加载更多记录
+            #right-part
+                include _ad
+                include _hot_question
+                include _guess
+    include _footer

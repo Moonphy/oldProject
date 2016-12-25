@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="website_app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/website.css">
+</head>
+<body ng-controller="FunSiteController">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" id="website-nav">
+            <div>
+                <input class="form-control" type="search" ng-model="vm.filter"/>
+            </div>
+            <ul class="list-group" >
+                <a ng-class="website.class" ng-repeat="website in vm.websites" ng-click="setCurrent($index)" href="javascript:void(0);" >
+                    <h4 class="list-group-item-heading">{{$index+1}}.{{website.name}}</h4>
+                </a>
+            </ul>
+        </div>
+        <div class="col-md-5 col-md-offset-4">
+            <form role="form" name="funForm" novalidate="">
+                <div class="form-group">
+                    <button type="button" class="btn btn-info btn-lg " ng-click="add()" ng-disabled="vm.adding">增加记录</button>
+                    <button type="button" class="btn btn-danger btn-lg " ng-click="delete()" ng-disabled="vm.adding">删除当前记录</button>
+                </div>
+                <div class="form-group">
+                    <label for="name">网站名称</label>
+                    <input type="text" class="form-control" id="name" placeholder="请输入网站名称" ng-model="vm.data.name" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="url">网站地址【<a href="http://{{vm.data.url}}" target="_blank">点击这里查看原网站内容</a>】 </label>
+                    <input type="text" class="form-control" id="url" placeholder="请输入网站地址" ng-model="vm.data.url" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="tags">网站标签</label>
+                    <input type="text" class="form-control" id="tags" placeholder="请输入标签，以空格分割" ng-model="vm.data.tags" ng-required="false">
+                </div>
+                <div class="form-group">
+                    <label for="introduce">网站介绍</label>
+                    <textarea class="form-control" id="introduce" ng-model="vm.data.introduce" ng-required="true"></textarea>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-primary btn-lg " ng-click="submit()" ng-disabled="test()">保存修改</button>
+                    <button type="button" class="btn btn-warning btn-lg " ng-click="cancel()" ng-disabled="test()">放弃修改</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <div ng-file-select="vm.onSelectFile($files)" ng-model="vm.myFiles" multiple="false"  accept="image/*" style="width:100%;min-height: 180px;cursor: pointer;">
+                <img class="img-thumbnail"  ng-src="{{vm.data.image}}"/>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/underscore-min.js"></script>
+<script type="text/javascript" src="js/angular-file-upload.min.js"></script>
+<script type="text/javascript" src="js/website.js"></script>
+</body>
+</html>

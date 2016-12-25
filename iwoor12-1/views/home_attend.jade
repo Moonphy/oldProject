@@ -1,0 +1,20 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/home_attend.css')
+    title 个人中心-我的关注
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            include _home_header
+            +home_header('home_attend')
+            .all
+                include _folders_2
+                include _pager
+
+    include _footer
+    script(src='js/blocksit.min.js' type='text/javascript')
+    script(src='js/home_attend.js' type='text/javascript')

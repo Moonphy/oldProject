@@ -1,0 +1,47 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/website.css')
+    title 网站详情-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #left-part
+                include _website
+                    #popup-edit-folder.popup_window
+                        .header 设计网站收藏
+                        ul
+                            - for(var i=0;i<30;i++)
+                                li
+                                    .text 爱窝网分享网
+                                    .edit
+                                    .delete
+                        .expand 展开全部
+                        .row1
+                            .title 网站名称
+                            .name: input(type='text',placeholder='如：爱窝网')
+                            .title 网站地址
+                            .address: input(type='text',placeholder='如：www.iwoor.com')
+                        .row2
+                            .title 介绍
+                            .instroduce: textarea(placeholder='输入一段话介绍一下这个网站吧！')
+                        .row3
+                            .title 标签
+                            .tag 收藏网站
+                            .tag 网址
+                            .tag 网址大全
+                            .tag-input: input(type='text',placeholder='输入标签内容')
+                            .button 添加
+                        .button 确定添加
+                +website('y')
+                include _comments
+            #right-part
+                include _ad
+                include _hot_question
+                include _guess
+
+    include _footer
+    script(src='js/folder.js' type='text/javascript')

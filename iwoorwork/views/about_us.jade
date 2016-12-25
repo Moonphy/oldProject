@@ -1,0 +1,32 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/about_us.css')
+    title 趣站
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #about-menu
+                .title 爱窝介绍
+                ul
+                    li.selected: a(href='#') 关于爱窝
+                    li: a(href='#') 联系我们
+                    li: a(href='#') 职位招聘
+                    li: a(href='#') 免责声明
+                    li: a(href='#') 会员条款
+            #about-content
+                .title 我们的网站
+                p.
+                    爱窝网致力打造中国第一家	居生活网络分享平台，让热爱生活的人们在这里得到全方位的家居经验，分享喜爱的家居产品，有
+                    帮助的家居装修知识、精彩的家居购物经历和有价值的装修案例，满足人们打造美好居家生活的需求。
+                .title 我们的愿景
+                p.
+                    爱窝网的愿景是利用充分互联网技术，提供分享社交平台，让越来越关注家居生活质量的人们在这里获得实用的，直接的，有
+                    价值的家居资讯，让大众分享和创造美的家居生活，产品创新将成为我们最重要的生存技能。
+                .title 上爱窝，发现分享你喜欢的网址！
+                .right-split-20
+                .right-split-20
+    include _footer
