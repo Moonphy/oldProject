@@ -1,0 +1,28 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/find_folder.css')
+    title 发现小窝
+body
+    include _header
+    +header('find')
+    .wrap
+        #body
+            include _popup
+            include _find_header
+            +find_header('find_folder')
+            #left-part
+                include _folders_2
+
+                include _pager
+            #right-part
+                include _hot_collect
+                include _hot_user
+                include _hot_question
+                .right-split-20
+                include _hot_tag
+
+    include _footer
+    script(src='js/find.js',type='text/javascript')
+    script(src='js/blocksit.min.js' type='text/javascript')
+    script(src='js/find_folder.js' type='text/javascript')

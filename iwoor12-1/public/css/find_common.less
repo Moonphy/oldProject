@@ -1,0 +1,162 @@
+@import "base";
+@import "_filter_search_group";
+
+
+#find-header{
+  margin: 10px;
+  font-size: 16px;
+  color: #666666;
+  i{
+    font-size: 18px;
+    color:#2ea2e4;
+  }
+}
+#find-category{
+  margin: 0 auto;
+  width: 1174px;
+  height: 274px;
+  border: 2px solid #d4effe;
+  border-radius: 4px;
+  overflow: hidden;
+  ul{
+    width: 1176px;
+    overflow: hidden;
+    li,div.type{
+      float: left;
+      width: 116.6px;
+      height: 38.3px;
+      line-height: 38px;
+      font-size: 14px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      a{
+        display: block;
+      }
+    }
+  }
+
+  li{
+    &:hover{
+      background-color: #f0fafe;
+      a{
+        color: #3fb0f2 ;
+      }
+    }
+
+    &.hot{
+      background: url("../images/icon_hot.png") 20px center no-repeat;
+    }
+    &.new{
+      background: url("../images/icon_new.png") 10px center  no-repeat;
+    }
+
+    &.hot:hover{
+      background: url("../images/icon_hot.png") 20px center no-repeat #f0fafe;
+    }
+    &.new:hover{
+      background: url("../images/icon_new.png") 10px center  no-repeat #f0fafe;
+    }
+  }
+  div.type{
+    a{
+      color: #3fb0f2;
+      font-size: 16px;
+    }
+    background-color: #f6f6f6;
+    &.selected{
+      a{
+        color: #fff;
+        font-size: 16px;
+      }
+      background-color: #81d0ff;
+    }
+  }
+  div.type1{
+    border-radius: 4px 0 0 0;
+  }
+}
+
+#find-menu{
+  margin: 20px 0 15px 0;
+
+  #nav{
+    float: left;
+    font-size: 16px;
+    padding: 0 10px;
+    width: 860px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #e1f5fe;
+    border: #c7e8f9;
+    border-radius: 4px;
+
+
+    .title{
+      float: left;
+      width: 80px;
+      padding-right: 20px;
+      font-size: 18px;
+      color: #3fb0f2;
+      background: url("../images/icon_double_right_blue.png") right center no-repeat;
+    }
+
+    ul{
+      float: left;
+      margin: 0 10px;
+      li{
+        float: left;
+        width: 70px;
+        height: 40px;
+        margin: 0 5px;
+        text-align: center;
+        a{
+          color: #666666;
+        }
+        &.selected{
+          a{
+            color: #3fb0f2;
+          }
+
+          background: url("../images/icon_pointer_up2.png") center bottom no-repeat;
+        }
+      }
+    }
+  }
+
+
+  .tools{
+    float: left;
+    height: 40px;
+    padding-left: 20px;
+    div{
+      float: left;
+      text-align: center;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .share_website{
+      width: 120px;
+      height: 40px;
+      line-height: 40px;
+      color:#fff;
+      background-color: #88cef7;
+    }
+    .install{
+      margin-left: 18px;
+      padding: 0 5px;
+      height: 38px;
+      line-height: 38px;
+      a{
+        color:#3fb0f2;
+      }
+      background-color: #f0fafe;
+      border: 1px solid #b7e2f9;
+    }
+  }
+}
+
+
+

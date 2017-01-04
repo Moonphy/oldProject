@@ -1,0 +1,47 @@
+@import "base";
+
+#about-menu{
+  float: left;
+  width: 148px;
+  margin: 40px 35px 500px 20px;
+  border: 1px solid @border-color;
+  .title{
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #48b6f7;
+    color: #ffffff;
+  }
+  ul{
+    li{
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      font-size: 16px;
+      border-top: 1px solid @border-color;
+      &.selected{
+        a{
+          color:#48b6f7;
+        }
+
+      }
+    }
+  }
+}
+
+#about-content{
+  width: 830px;
+  margin-top: 55px;
+  float: left;
+  .title{
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #48b6f7;
+  }
+  p{
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.7em;
+  }
+}

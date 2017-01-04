@@ -1,0 +1,26 @@
+doctype html
+include _search_common
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/search_question.css')
+    title 搜索结果页—问答-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body_search_website
+            include _popup
+            +search_header('question')
+
+            #left-part
+                include _question_list
+                include _pager
+
+            #right-part
+                include _question_input
+                include _hot_user
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+    include _footer

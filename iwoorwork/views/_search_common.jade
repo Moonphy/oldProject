@@ -1,0 +1,8 @@
+mixin search_header(tag)
+    #search_header
+        ul
+            each item in [{k:'website',n:'采集1869'},{k:'folder',n:'小窝568'},{k:'question',n:'问答1032'},{k:'fun',n:'趣站1032'},{k:'user',n:'窝窝头1032'}]
+                if tag==item.k
+                    li.selected: a(href='search_#{item.k}.html') #{item.n}
+                else
+                    li: a(href='search_#{item.k}.html') #{item.n}

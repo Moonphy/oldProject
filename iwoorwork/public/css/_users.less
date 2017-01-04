@@ -1,0 +1,123 @@
+@import "base";
+
+ul#fans{
+  margin: 10px 0 10px 10px;
+
+  li.fan{
+    float: left;
+    position: relative;
+    width: 280px;
+    height: 162px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+
+    &:hover{
+      border: 1px solid #a2d7ef;
+    }
+
+    .user-info{
+      height: 62px;
+      width: 230px;
+      margin: 15px;
+      font-size: 14px;
+
+      .image{
+        float: left;
+        width: 62px;
+        height: 62px;
+        margin-right: 10px;
+        img{
+          width: 62px;
+          height: 62px;
+          border-radius: 31px;
+        }
+      }
+
+      .info{
+        float: left;
+        height: 62px;
+        width: 150px;
+
+        .top-info{
+          padding-left: 6px;
+          a{
+            color:#3fb0f2;
+          }
+        }
+        .bottom-info{
+          clear: both;
+
+          li.num{
+            float: left;
+            margin-right: 5px;
+            width: 40px;
+            height: 45px;
+            text-align: center;
+            .top{
+              color:#999999;
+            }
+            .bottom{
+              color:#666666;
+              font-weight: bold;
+            }
+          }
+          li.border-right{
+            border-right: 1px solid #e6e6e6;
+          }
+        }
+
+      }
+    }
+    .tags{
+      font-size: 14px;
+      color:#999999;
+      margin: 10px 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e6e6e6;
+      a{
+        color:#999999;
+      }
+    }
+
+    .buttons{
+      margin: 0 15px;
+      font-size: 14px;
+      div{
+        padding-left: 20px;
+        height: 20px;
+      }
+      .add-fans{
+        cursor: pointer;
+        background: url("../images/icon_plus_fans.png") 0 center no-repeat;
+      }
+      .double-fans{
+        float: left;
+        background: url("../images/icon_fans_double.png") 0 center no-repeat;
+      }
+
+      .follower{
+        float: left;
+        background: url("../images/icon_check.png") 0 center no-repeat;
+      }
+
+      .cancel-fans{
+        float: left;
+        margin-left: 10px;
+        cursor: pointer;
+        background: url("../images/icon_fans_split.png") 0 center no-repeat;
+      }
+    }
+    .close{
+      display: none;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      background: url("../images/icon_close_fans.png") center center no-repeat;
+    }
+  }
+}

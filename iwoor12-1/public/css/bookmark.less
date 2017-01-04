@@ -1,0 +1,127 @@
+@import "base";
+
+#bannar{
+  margin: -10px -10px 0 -10px;
+  width: 1200px;
+  height: 325px;
+  border-radius: 10px 10px 0 0 ;
+  background: url("../images/bg/bookmark.jpg") no-repeat;
+  .box{
+    width: 580px;
+    height: 86px;
+    padding: 120px 0 0 105px;
+
+    .button-row{
+      z-index: 1000;
+      position: relative;
+
+      .btn-install{
+        float: left;
+        .btn(56px,#ffa25e);
+        font-size: 22px;
+        width: 260px;
+        margin: 0;
+        cursor: move;
+      }
+      .info{
+        width: 240px;
+        height: 40px;
+        margin: 8px 0 8px 25px;
+        padding-left: 33px;
+        color: #ffffff;
+        line-height: 20px;
+        float: left;
+        background: url("../images/icon_pointer_right2.png") 0 center no-repeat;
+      }
+
+      .bookmark-pointer{
+        display: none;
+        width: 127px;
+        height: 181px;
+        position: absolute;
+        top: -181px;
+        left: 5;
+        background: url("../images/bookmark_pointer.png") 0 0 no-repeat;
+      }
+    }
+
+    .range{
+      margin-top: 10px;
+      color: #000000;
+    }
+  }
+}
+
+.step{
+  margin: 0px -10px;
+  width: 1198px;
+  height: 69px;
+  background-color: #f8f8f8;
+  border: 1px solid #e6e6e6;
+
+  .step_a,.step_b{
+    margin: 0 auto;
+    width: 124px;
+    height: 69px;
+    line-height: 69px;
+    padding-left: 56px;
+    font-size: 24px;
+    color: #48b6f7;
+  }
+  .step_a{
+    background: url("../images/bookmark/icon_step_a.png")  0 center no-repeat;
+  }
+  .step_b{
+    background: url("../images/bookmark/icon_step_b.png")  0 center no-repeat;
+  }
+}
+
+#step_a{
+  color: #666666;
+  .text{
+    padding: 20px 0 0 15px;
+    line-height: 20px;
+    border: 1px solid #e6e6e6;
+    i{
+      font-size: 18px;
+      color: #48b6f7;
+    }
+  }
+
+  .s01{
+    margin: 24px 0 50px 170px;
+    float: left;
+    width: 293px;
+    height: 380px;
+
+    .text{
+      height: 60px;
+      width: 276px;
+    }
+  }
+  .s02{
+    margin: 24px 168px 50px 0;
+    float: right;
+    width: 478px;
+    height: 380px;
+
+    .text{
+      width: 461px;
+      height: 65px;
+    }
+  }
+}
+
+#step_b{
+  p{
+    color: #666666;
+    width: 965px;
+    line-height: 1.7em;
+    margin: 40px auto;
+  }
+
+  .img{
+    margin: 50px auto;
+    width: 965px;
+  }
+}

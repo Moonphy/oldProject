@@ -1,0 +1,27 @@
+doctype html
+include _search_common
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/search_fun.css')
+    title 搜索结果页—趣站-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body_search_website
+            include _popup
+            +search_header('fun')
+
+            #left-part
+                - for(var i=0;i<10;i++)
+                    include _fun_site
+
+            #right-part
+                include _hot_tag
+                include _interested
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+            include _pager
+    include _footer

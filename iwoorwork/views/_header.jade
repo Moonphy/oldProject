@@ -1,0 +1,74 @@
+mixin header_common(name,login_status)
+    #header
+        .home-nav
+            .logo
+                a(href='index.html')
+                    img(src='images/logo.png')
+                img.category_menu(src='images/menu.png')
+            ul.main-menu
+                each item in [{k:'index',v:'首页'},{k:'find',v:'发现'},{k:'question',v:'问答'},{k:'fun',v:'趣站'}]
+                    if item.k==name
+                        li.selected: a(href='#{item.k}.html') #{item.v}
+                    else
+                        li: a(href='#{item.k}.html') #{item.v}
+            .search
+                input.keyword(placeholder='搜索你喜欢的网址')
+                input(type='button')#gsearch.search
+            if login_status=='login'
+                #system_icon
+                    .plus
+                    .message
+                    .notice
+                        .badge 18
+                    .user_name LUTHER-FENG
+            else
+                .btn-login 登录
+                .btn-register 注册
+
+            #popup_shortcut(class='js-over-show')
+                .pointer: img(src='images/icon_pointer_up.png')
+                .content
+                    ul
+                        li: a.share_website 分享网站
+                        li: a.folder_add 添加小窝
+                        li: a(href='bookmark.html',target='_blank') 安装网址分享工具
+
+            #popup_userinfo(class='js-over-show')
+                .right-pointer: img(src='images/icon_pointer_right.png')
+                .content
+                    .header
+                        .img: a(href='home.html'): img(src='images/examples/touxiang.jpg')
+                        .name: a(href='home.html') LUTHER-FENG
+                    .menu
+                        ul
+                            li: a(href='index.html') 我的主页
+                            li: a(href='home.html',target='_blank') 我的小窝
+                            li: a(href='home_question.html',target='_blank') 我的问答
+                            li: a(href='home_website.html',target='_blank') 我的采集
+                    .system
+                        .exit: a(href='index_login.html') 退出账号
+                        .setting: a(href='setting.html') 账号设置
+
+            #popup_category(class='js-over-show')
+                .pointer: img(src='images/icon_pointer_up.png')
+                .content
+                    .header
+                        .chuantong(class='selected',select='chuantong') 按传统分类
+                        .zhiye(select='zhiye') 按职业分类
+                    .detail
+                        .chuantong
+                            ul
+                                - for(var i=0;i<40;i++)
+                                    li: a(href='find.html',target='_blank')音乐/电影[传统]
+                        .zhiye(class='none')
+                            ul
+                                - for(var i=0;i<34;i++)
+                                    li: a(href='find.html',target='_blank')音乐/电影[职业]
+                    .footer: a(href='bookmark.html',target='_blank') 安装地址分享工具，一键收藏到你的小窝
+
+mixin header(name)
+    +header_common(name,'login')
+
+mixin header_no_login(name)
+    +header_common(name,'no_login')
+

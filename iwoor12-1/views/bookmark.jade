@@ -1,0 +1,39 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/bookmark.css')
+    title 书签栏工具安装说明-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            #bannar
+                .box
+                    .button-row
+                        a.btn-install(title='拖动此按钮到书签栏',onclick='window.alert("请把按钮拖动到书签栏");return false;',href='#') 采集到爱窝网
+                        .info 将鼠标移动到橙色按钮上面，拖动到浏览器的书签栏即可！
+                        .bookmark-pointer
+                    .range 提示：目前爱窝采集工具支持：搜狗、谷歌、猎豹、遨游浏览器。（暂不支持360跟IE）
+            .step
+                .step_a 安装图示：
+
+            #step_a
+                .s01
+                    .text <i>01：</i>如图，鼠标移到“采集工具”橙色按钮上，出现指示箭头。
+                    .img: img(src='images/bookmark/01.jpg')
+                .s02
+                    .text <i>02：</i>如图，拖动“采集工具”按钮，安装成功后如下图所示效果。<br>(以谷歌 Chrome 浏览器为例)
+                    .img: img(src='images/bookmark/02.jpg')
+
+            .step
+                .step_b 使用说明
+
+            #step_b
+                p.
+                    安装采集工具成功后，在日常浏览任意一个网站的网页，遇到喜欢的，想收藏的，都可以点击“采集到爱窝”<br>
+                    轻松保存到爱窝网里边，再也不用担心丢失咯~如下图，打开腾讯网，觉得想收藏这个网站，就点击一下“采集到爱窝”即可采集！
+                .img: img(src='images/bookmark/03.jpg')
+    include _footer
+    script(src='js/bookmark.js' type='text/javascript')

@@ -1,0 +1,16 @@
+doctype html
+include _search_common
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/search_website.css')
+    title 搜索结果页—采集-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body_search_website
+            include _popup
+            +search_header('website')
+            include _websites_search
+            include _pager
+    include _footer

@@ -1,0 +1,15 @@
+#folders
+    each webfolder in web_folders
+        .folder
+            .header
+                .title: a(href='folder_detail.html',target='_blank') #{webfolder.name}（#{webfolder.web_urls.length}）
+            .content
+                ul
+                    each weburl in webfolder.web_urls
+                        li: a(href='website.html',target='_blank') #{weburl.name}
+            .footer
+                .image: a(href='home.html',target='_blank'): img(src='images/examples/friend1.jpg')
+                .name
+                    a(href='home.html',target='_blank') 爱玩的小麦兜
+                    span 创建
+                .button 关注

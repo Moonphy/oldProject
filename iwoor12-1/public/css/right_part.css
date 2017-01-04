@@ -1,0 +1,408 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+.right-split-20 {
+  height: 20px;
+}
+.right-split-10 {
+  height: 10px;
+}
+#hot-tag {
+  width: 278px;
+  height: 230px;
+  border: 1px solid #d4f0fe;
+  border-radius: 4px;
+}
+#hot-tag .header {
+  font-size: 18px;
+  margin: 0 15px;
+  padding: 10px 0 10px 50px;
+  border-bottom: 1px solid #dedede;
+  background: url("../images/icon_hot_tag.png") 0 center no-repeat;
+}
+#hot-tag ul {
+  padding: 15px;
+}
+#hot-tag ul li {
+  cursor: pointer;
+  float: left;
+  font-size: 14px;
+  padding: 2px 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  color: #999999;
+  background-color: #edf9fe;
+  border: 1px solid #a2d7ef;
+}
+#hot-collect {
+  width: 278px;
+  height: 230px;
+  border: 1px solid #d4f0fe;
+  border-radius: 4px;
+}
+#hot-collect .header {
+  font-size: 18px;
+  margin: 0 15px;
+  padding: 10px 0 10px 50px;
+  border-bottom: 1px solid #dedede;
+  background: url("../images/icon_top_collect.png") 0 center no-repeat;
+}
+#hot-collect ul {
+  padding: 20px 0px 20px 20px;
+}
+#hot-collect ul li {
+  width: 105px;
+  height: 16px;
+  line-height: 16px;
+  cursor: pointer;
+  float: left;
+  font-size: 14px;
+  padding: 2px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  color: #999999;
+}
+#hot-collect ul li a {
+  margin-left: 5px;
+}
+.right-header {
+  padding-left: 10px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  font-size: 16px;
+  background-color: #56befa;
+  border-radius: 4px 4px 0 0;
+}
+#friend-info {
+  width: 280px;
+  height: 258px;
+  margin-top: 20px;
+}
+#friend-info .header {
+  padding-left: 10px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  font-size: 16px;
+  border-radius: 4px 4px 0 0;
+  background-color: #56befa;
+}
+#friend-info .content {
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #cbedfe;
+  border-radius: 0 0 4px 4px;
+}
+#friend-info .content .row {
+  padding: 6px 5px 3px 10px;
+  height: 45px;
+  width: 263px;
+  border-bottom: 1px solid #ebebeb;
+}
+#friend-info .content .row:last-child {
+  border: none;
+}
+#friend-info .content .row .left {
+  float: left;
+  width: 45px;
+  height: 45px;
+}
+#friend-info .content .row .top a {
+  color: #3fb0f2;
+}
+#friend-info .content .row .right,
+#friend-info .content .row p {
+  font-size: 14px;
+  float: left;
+  margin: 4px 0px 3px 5px;
+  width: 210px;
+  height: 38px;
+  line-height: 18px;
+  overflow: hidden;
+}
+#friend-info .content .row .right span.user a,
+#friend-info .content .row p span.user a,
+#friend-info .content .row .right span.subject a,
+#friend-info .content .row p span.subject a {
+  color: #3fb0f2;
+}
+#interested {
+  width: 280px;
+  height: 258px;
+  margin-top: 20px;
+}
+#interested .header {
+  padding-left: 10px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  font-size: 16px;
+  background-color: #56befa;
+  border-radius: 4px 4px 0 0;
+  background-color: #8bb4ff;
+}
+#interested .content {
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #cbedfe;
+  border-radius: 0 0 4px 4px;
+}
+#interested .content .row {
+  padding: 6px 5px 3px 10px;
+  height: 45px;
+  width: 263px;
+  border-bottom: 1px solid #ebebeb;
+}
+#interested .content .row:last-child {
+  border: none;
+}
+#interested .content .row .left {
+  float: left;
+  width: 45px;
+  height: 45px;
+}
+#interested .content .row .top a {
+  color: #3fb0f2;
+}
+#interested .content .row .right,
+#interested .content .row p {
+  font-size: 14px;
+  float: left;
+  margin: 4px 0px 3px 5px;
+  width: 210px;
+  height: 38px;
+  line-height: 18px;
+  overflow: hidden;
+}
+#interested .content .row .right span.user a,
+#interested .content .row p span.user a,
+#interested .content .row .right span.subject a,
+#interested .content .row p span.subject a {
+  color: #3fb0f2;
+}
+.ad {
+  width: 280px;
+  height: 145px;
+  position: relative;
+}
+.ad li {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ad img {
+  width: 280px;
+  height: 145px;
+  border-radius: 10px;
+}
+.ad .dot {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  height: 10px;
+}
+.ad .dot div {
+  float: left;
+  margin: 0 3px;
+  width: 10px;
+  height: 10px;
+}
+.ad .dot .normal {
+  background: url("../images/icon_dot.png") no-repeat;
+}
+.ad .dot .current {
+  background: url("../images/icon_dot_hot.png") no-repeat;
+}
+.refresh .line {
+  float: left;
+  margin-left: 20px;
+  width: 160px;
+  height: 14px;
+  background: url("../images/icon_line.png") repeat-x;
+}
+.refresh .icon {
+  font-size: 14px;
+  float: right;
+  width: 50px;
+  line-height: 14px;
+  padding-right: 14px;
+  margin-right: 20px;
+  background: url("../images/icon_refresh.png") right center no-repeat;
+}
+#guess {
+  margin-top: 20px;
+}
+#guess .header {
+  border-radius: 4px 4px 0 0;
+  padding-left: 10px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  font-size: 16px;
+  background-color: #43d3d8;
+}
+#guess .header div {
+  float: left;
+}
+#guess .header .title {
+  width: 85px;
+  background: url("../images/icon_double.png") right center no-repeat;
+}
+#guess .header .selected {
+  border-bottom: 3px solid #fff;
+}
+#guess .header .split {
+  width: 1px;
+  height: 36px;
+  background: url("../images/icon_split.png") 0 center no-repeat;
+}
+#guess .header .subject {
+  font-size: 14px;
+  height: 22px;
+  padding-bottom: 10px;
+  margin: 0 16px;
+  cursor: pointer;
+}
+#guess .header .subject:hover {
+  border-bottom: 3px solid #fff;
+}
+#guess .content {
+  border-width: 0 1px 1px 1px;
+  border-style: dashed;
+  border-color: #a7d9f0;
+  border-radius: 0 0 4px 4px;
+  padding-bottom: 20px;
+}
+#guess .content ul {
+  margin: 0 -10px 15px 15px;
+  padding-top: 10px;
+  font-size: 14px;
+}
+#guess .content ul li {
+  float: left;
+  font-size: 14px;
+  height: 20px;
+  width: 110px;
+  margin: 0px 20px 10px 5px;
+}
+#guess .content ul li a {
+  background: url("../images/examples/icon_websit.png") no-repeat 0 center;
+  padding-left: 20px;
+}
+#hot-question {
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+#hot-question .header {
+  padding-left: 10px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  font-size: 16px;
+  background-color: #56befa;
+  border-radius: 4px 4px 0 0;
+}
+#hot-question .content {
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #cbedfe;
+  border-radius: 0 0 4px 4px;
+  height: 236px;
+}
+#hot-question .content ul {
+  padding: 15px 15px 0 15px;
+}
+#hot-question .content ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+#hot-user {
+  margin-top: 20px;
+  border: 1px solid #cbedfe;
+  border-radius: 4px;
+}
+#hot-user .header {
+  padding-left: 10px;
+  height: 36px;
+  color: #fff;
+  line-height: 36px;
+  font-size: 16px;
+  background-color: #56befa;
+  border-radius: 4px 4px 0 0;
+  background-color: #8bb4ff;
+  height: 38px;
+  line-height: 38px;
+}
+#hot-user ul {
+  padding: 0 10px;
+}
+#hot-user ul .border-bottom-style {
+  border-bottom: none;
+}
+#hot-user ul li {
+  height: 58px;
+  font-size: 14px;
+  border-bottom: 1px solid #ebebeb;
+}
+#hot-user ul li:last {
+  border: none;
+}
+#hot-user ul li div {
+  float: left;
+}
+#hot-user ul li .img {
+  padding-top: 7px;
+}
+#hot-user ul li .img img {
+  width: 45px;
+  height: 45px;
+  border-radius: 21px;
+}
+#hot-user ul li .name {
+  width: 142px;
+  height: 58px;
+  padding-left: 7px;
+  line-height: 58px;
+}
+#hot-user ul li .attend {
+  width: 30px;
+  margin-top: 16px;
+  height: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #f3b366;
+  padding: 0 10px 0 20px;
+  background: url("../images/icon_plus_small.png") 5px center no-repeat #ffc684;
+}

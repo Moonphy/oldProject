@@ -1,0 +1,32 @@
+mixin show_fan(flag)
+    li.fan
+        .user-info
+            .image
+                a(href='home.html',target='_blank'): img(src='images/examples/friend1.jpg')
+            .info
+                .top-info: a(href='home.html',target='_blank') LUTHER-FENG
+                .bottom-info
+                    ul
+                        li.num(class='border-right')
+                            a(href='home_website.html',target='_blank')
+                                .top 采集
+                                .bottom 639
+                        li.num(class='border-right')
+                            a(href='home.html',target='_blank')
+                                .top 小窝
+                                .bottom 12
+                        li.num
+                            a(href='home_fans.html',target='_blank')
+                                .top 粉丝
+                                .bottom 98
+        .tags 标签：<a href='search_website.html' target='_blank'>潮流</a>、<a href='search_website.html' target='_blank'>范特西</a>、<a href='search_website.html' target='_blank'>傻蛋</a>、<a href='search_website.html' target='_blank'>麦霸~</a>
+        .buttons
+            if flag=='add'
+                .add-fans 加关注
+            else if flag=='double'
+                .double-fans 相互关注
+                .cancel-fans 取消关注
+            else
+                .follower 已关注
+                .cancel-fans 取消关注
+        .close

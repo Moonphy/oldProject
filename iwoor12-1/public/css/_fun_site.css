@@ -1,0 +1,111 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+.fun-site {
+  width: 864px;
+  height: 168px;
+  margin-left: 10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e6e6e6 ;
+}
+.fun-site:hover {
+  background-color: #fbfbfb;
+}
+.fun-site .left {
+  float: left;
+}
+.fun-site .left img {
+  padding-top: 5px;
+  width: 200px;
+  height: 140px;
+}
+.fun-site .tag {
+  font-size: 14px;
+  float: left;
+  padding: 0px 5px ;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #e6e6e6 ;
+}
+.fun-site .right {
+  float: left;
+  height: 144px;
+  width: 640px;
+  margin-left: 20px;
+  position: relative;
+}
+.fun-site .right .row1 span.title {
+  font-size: 20px;
+}
+.fun-site .right .row1 span.title a {
+  color: #3fb0f2;
+}
+.fun-site .right .row1 span.title a:hover {
+  border-bottom: 1px solid #3fb0f2;
+}
+.fun-site .right .row1 .btn-gather {
+  position: absolute;
+  cursor: pointer;
+  top: -3px;
+  left: 335px;
+  border-radius: 4px;
+  width: 82px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ffa45f;
+  display: none;
+}
+.fun-site .right p {
+  margin: 10px 0 20px;
+  font-size: 14px;
+}
+.fun-site .right .row3 .right {
+  float: right;
+  height: 20px;
+  right: -10px;
+  width: 120px;
+}
+.fun-site .right .row3 span {
+  font-size: 16px;
+  color: #c0c0c0;
+  padding-left: 22px;
+}
+.fun-site .right .row3 .good {
+  padding-right: 20px;
+  background: url("../images/icon_good.png") 0 center no-repeat;
+}
+.fun-site .right .row3 .comment {
+  background: url("../images/icon_comment.png") 0 center no-repeat;
+}

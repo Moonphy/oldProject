@@ -1,0 +1,25 @@
+ul#websites
+    - for(var i=0;i<18;i++)
+        li
+            .title
+                .name
+                    img(src='images/examples/icon_websit_find.png')
+                    a(href='website.html',target='_blank') 爱窝网
+                .btn-gather 删除
+            p.
+                这是一个中国最热的设计社交类网站，很
+                在这里集合了中国大部分设计师...
+            .tags
+                each item in ['平面设计','网页设计','开发','广告设计','客户设计','网页设计']
+                    span: a(href='search_website.html',target='_blank')= item
+            .comments
+                span.like 18
+                span.comment 评论 19
+                span.favor: a(href='website_detail.html',target='_blank') 采集 69
+            .user
+                .left: a(href='home.html',target='_blank'): img(src='images/examples/friend1.jpg')
+                .right
+                    .top
+                        a(href='home.html',target='_blank'): i 天高任我飞～
+                        span 采集到
+                    .bottom: a(href='folder_detail.html',target='_blank') 设计类收藏

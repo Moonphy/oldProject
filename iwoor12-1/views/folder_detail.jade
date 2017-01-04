@@ -1,0 +1,37 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/folder_detail.css')
+    title 小窝详情页
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+
+            #folder-header
+                .row1
+                    .title 设计素材网站
+                    .type 所属分类：<i>设计、素材</i>
+
+                    .share
+                        .top 分享爱窝到：
+                        .bottom
+                            a(href='#'): img(src='images/examples/share_friend1.jpg')
+                            a(href='#'): img(src='images/examples/share_friend2.jpg')
+                            a(href='#'): img(src='images/examples/share_friend3.jpg')
+                            a(href='#'): img(src='images/examples/share_friend4.jpg')
+                            a(href='#'): img(src='images/examples/share_friend5.jpg')
+                            a(href='#'): img(src='images/examples/share_friend6.jpg')
+                    .edit: a(href='folder_edit.html',target='_blank') 编辑小窝
+                .row2
+                    .image: a(herf='home.html'): img(src='images/examples/user-little.jpg')
+                    .name: a(href='home.html') 大神崛起之~
+                    .text 创建
+                    .num 96人关注
+                    .num 256个采集
+
+            include _websites
+            include _pager
+    include _footer

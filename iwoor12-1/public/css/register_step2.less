@@ -1,0 +1,51 @@
+@import "base";
+@import "_users";
+
+#top-logo{
+  position: relative;
+  margin: 100px 10px 10px 10px;
+  border-bottom: 1px solid #e6e6e6;
+  height: 0;
+  .logo{
+    position: absolute;
+    width: 184px;
+    height: 82px;
+    top: -80px;
+    left: 488px;
+    background: url("../images/iwoor_logo_website.png") center 0 no-repeat #ffffff;
+  }
+}
+
+#info{
+  position: relative;
+  margin: 30px 10px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+
+  .buttons{
+    position: absolute;
+    top: -10px;
+    right: 0;
+    height: 30px;
+    width: 168px;
+    div{
+      float: left;
+      .btn-base(28px,76px);
+      border: 1px solid #e6e6e6;
+    }
+
+    .btn-next{
+      margin-left: 10px;
+      color:#3fb0f2;
+    }
+  }
+}
+#btn-finish{
+  width: 300px;
+  .btn(50px,#48b6f7);
+  font-size: 20px;
+  margin: 40px auto;
+}

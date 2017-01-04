@@ -1,0 +1,242 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+ul#websites {
+  font-size: 16px;
+  margin-right: -10px;
+  margin-left: 2px;
+}
+ul#websites li {
+  float: left;
+  height: 288px;
+  width: 288px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #e6e6e6;
+}
+ul#websites li:hover {
+  border-color: #b7e2f9;
+}
+ul#websites li:hover .title .name a {
+  color: #3fb0f2;
+}
+ul#websites li .title {
+  margin: 20px 10px 10px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e6e6e6;
+}
+ul#websites li .title .name {
+  float: left;
+}
+ul#websites li .title .name a {
+  margin-left: 5px;
+  color: #666666;
+}
+ul#websites li .title .btn-gather {
+  display: none;
+  cursor: pointer;
+  float: right;
+  width: 69px;
+  height: 27px;
+  line-height: 27px;
+  text-align: center;
+  background-color: #9bd7fa;
+  color: #fff;
+  border-radius: 2px;
+  margin-top: -10px;
+}
+ul#websites li p {
+  margin: 10px;
+  font-size: 14px;
+  color: #999999;
+}
+ul#websites li .tags {
+  margin: 10px;
+  line-height: 35px;
+}
+ul#websites li .tags span {
+  display: inline-block;
+  height: 19px;
+  line-height: 19px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 2px 5px;
+  border: 1px solid #e6e6e6;
+  background-color: #f9f9f9;
+}
+ul#websites li .comments {
+  font-size: 14px;
+  color: #c0c0c0;
+  border-bottom: 1px solid #f1f1f1;
+  margin-top: 10px;
+  padding: 5px;
+}
+ul#websites li .comments span {
+  margin-right: 10px;
+}
+ul#websites li .comments span.like {
+  padding-top: 6px;
+  padding-left: 20px;
+  background: url("../images/icon_good2.png") no-repeat;
+}
+ul#websites li .user {
+  margin: 5px;
+}
+ul#websites li .user .left {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+ul#websites li .user .left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+ul#websites li .user .right {
+  margin-top: 4px;
+  margin-left: 5px;
+  float: left;
+  font-size: 14px;
+}
+ul#websites li .user .right .top a {
+  color: #95c1da;
+}
+ul#websites li .user .right .top span {
+  color: #c0c0c0;
+}
+ul#websites li .user .right .bottom a {
+  color: #999999;
+}
+#folder-header {
+  height: 126px;
+  margin: -10px -10px 30px -10px;
+}
+#folder-header .row1 {
+  height: 72px;
+  background-color: #e1f5fe;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #dedede;
+}
+#folder-header .row1 .title {
+  float: left;
+  font-size: 20px;
+  color: #555555;
+  margin: 26px 20px;
+  height: 20px;
+  line-height: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #a2d7ef;
+}
+#folder-header .row1 .type {
+  float: left;
+  color: #999999;
+  font-size: 16px;
+  margin: 26px 0px;
+  height: 20px;
+  line-height: 20px;
+}
+#folder-header .row1 .type i {
+  color: #3fb0f2;
+}
+#folder-header .row1 .edit {
+  float: right;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #c5ecfd;
+  border-radius: 4px;
+  width: 76px;
+  height: 30px;
+  margin: 21px 40px 0;
+  line-height: 30px;
+  color: #999999;
+  background-color: #ffffff;
+}
+#folder-header .row1 .share {
+  margin-top: 12px;
+  float: right;
+  width: 132px;
+  height: 48px;
+  padding-left: 20px;
+  border-left: 1px solid #c5ecfd;
+}
+#folder-header .row1 .share > div {
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+}
+#folder-header .row2 {
+  height: 52px;
+  background-color: #fbfbfb;
+  border-bottom: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+#folder-header .row2 .image {
+  float: left;
+  width: 36px;
+  height: 36px;
+  margin: 8px 15px 8px 20px;
+}
+#folder-header .row2 .image img {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+}
+#folder-header .row2 .name {
+  float: left;
+  font-size: 16px;
+  height: 52px;
+  line-height: 52px;
+}
+#folder-header .row2 .name a {
+  color: #72c5f5;
+}
+#folder-header .row2 .text {
+  margin-left: 20px;
+  height: 52px;
+  line-height: 52px;
+  float: left;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+#folder-header .row2 .num {
+  float: right;
+  width: 160px;
+  line-height: 52px;
+  text-align: center;
+  color: #666666;
+  font-size: 16px;
+  border-left: 1px solid #e6e6e6;
+}

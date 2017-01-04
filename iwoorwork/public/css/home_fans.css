@@ -1,0 +1,331 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#home_header {
+  height: 190px;
+  background-color: #fbfbfb ;
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+  color: #555555;
+}
+#home_header a {
+  color: #555555;
+}
+#home_header div,
+#home_header li {
+  float: left;
+}
+#home_header .user-info {
+  height: 125px;
+  margin: 10px 0 10px 10px;
+  font-size: 14px;
+}
+#home_header .user-info .bottom {
+  font-size: 18px;
+}
+#home_header .user-info .image {
+  width: 100px;
+  height: 100px;
+  margin: 10px 10px 20px 0;
+}
+#home_header .user-info .image img {
+  width: 92px;
+  height: 92px;
+  border-radius: 100%;
+  border: 4px solid #ffffff;
+}
+#home_header .user-info .info {
+  height: 80px;
+  padding: 17px 20px 17px 0;
+  border-right: 1px solid #f4f4f4;
+  margin-top: 5px;
+}
+#home_header .user-info .info .top-info {
+  font-size: 18px;
+  color: #918167;
+}
+#home_header .user-info .info .bottom-info {
+  clear: both;
+}
+#home_header .user-info .info li {
+  margin-right: 5px;
+  width: 40px;
+  height: 45px;
+  border-right: 1px solid #ececec;
+}
+#home_header .user-info .info li a div {
+  text-align: center;
+}
+#home_header .user-info .info li.selected a {
+  color: #3fb0f2;
+}
+#home_header .user-info .search {
+  margin: 42px 80px 0 50px;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
+}
+#home_header .user-info .search input.input {
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  color: #c1c1c1;
+}
+#home_header .user-info .search input.input:focus {
+  color: #666666;
+}
+#home_header .user-info .search .search_header {
+  height: 40px;
+  width: 40px;
+  float: right;
+  padding-top: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  background: url("../images/icon_find_search.png") center no-repeat;
+}
+#home_header .user-info .user-list {
+  width: 208px;
+  height: 104px;
+  margin-top: 8px;
+  margin-left: 20px;
+}
+#home_header .user-info .user-list .header {
+  font-size: 16px;
+  clear: left;
+  padding-left: 2px;
+}
+#home_header .user-info .user-list .header .title {
+  padding-left: 5px;
+}
+#home_header .user-info .user-list .header ul {
+  clear: left;
+  margin: 0px -5px 10px 0px;
+}
+#home_header .user-info .user-list .header ul li {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin: 5px 0 0 5px;
+}
+#home_header .user-info .user-list .header ul li img {
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+}
+#home_header .user-info .user-list .header ul li.empty {
+  background-color: #ededed;
+  border-radius: 4px;
+}
+#home_header .home-nav {
+  width: 100%;
+  height: 44px;
+  border-top: 1px solid #cbedfe;
+  border-radius: 0 0 10px 10px;
+  background-color: #d4effe;
+}
+#home_header .home-nav ul.menu {
+  float: left;
+}
+#home_header .home-nav ul.menu li {
+  float: left;
+  width: 116px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border-right: 1px solid #bae6fe;
+  background-color: #f2fafe;
+  margin: 0;
+}
+#home_header .home-nav ul.menu li a {
+  font-size: 16px;
+  color: #3fb0f2;
+}
+#home_header .home-nav ul.menu li:hover,
+#home_header .home-nav ul.menu li.selected {
+  background-color: #fff;
+}
+#home_header .home-nav ul.menu li:first-child {
+  border-radius: 0 0 0 10px;
+}
+#home_header .home-nav ul.menu li:last-child {
+  width: 180px;
+}
+#home_header .home-nav ul.menu li:last-child a {
+  padding-left: 20px;
+  background: url("../images/icon_invite.png") 0 center no-repeat;
+}
+#home_header .home-nav #setting {
+  float: right;
+  margin: 7px 10px;
+  width: 76px;
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #bae6fe;
+  border-radius: 14px;
+  color: #999999;
+}
+ul#my_question_menu {
+  margin: 20px 10px 0;
+}
+ul#my_question_menu li {
+  float: left;
+  margin-right: 20px;
+  font-size: 16px;
+  height: 26px;
+  padding: 3px 20px;
+  border-radius: 26px;
+  border: 1px solid #c9e8fb;
+  background-color: #ffffff;
+}
+ul#my_question_menu li a {
+  color: #666666;
+}
+ul#my_question_menu li.selected {
+  background: #f2fafe;
+}
+ul#my_question_menu li:hover a {
+  color: #3fb0f2;
+}
+ul#fans {
+  margin: 10px 0 10px 10px;
+}
+ul#fans li.fan {
+  float: left;
+  position: relative;
+  width: 280px;
+  height: 162px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+ul#fans li.fan:hover {
+  border: 1px solid #a2d7ef;
+}
+ul#fans li.fan .user-info {
+  height: 62px;
+  width: 230px;
+  margin: 15px;
+  font-size: 14px;
+}
+ul#fans li.fan .user-info .image {
+  float: left;
+  width: 62px;
+  height: 62px;
+  margin-right: 10px;
+}
+ul#fans li.fan .user-info .image img {
+  width: 62px;
+  height: 62px;
+  border-radius: 31px;
+}
+ul#fans li.fan .user-info .info {
+  float: left;
+  height: 62px;
+  width: 150px;
+}
+ul#fans li.fan .user-info .info .top-info {
+  padding-left: 6px;
+}
+ul#fans li.fan .user-info .info .top-info a {
+  color: #3fb0f2;
+}
+ul#fans li.fan .user-info .info .bottom-info {
+  clear: both;
+}
+ul#fans li.fan .user-info .info .bottom-info li.num {
+  float: left;
+  margin-right: 5px;
+  width: 40px;
+  height: 45px;
+  text-align: center;
+}
+ul#fans li.fan .user-info .info .bottom-info li.num .top {
+  color: #999999;
+}
+ul#fans li.fan .user-info .info .bottom-info li.num .bottom {
+  color: #666666;
+  font-weight: bold;
+}
+ul#fans li.fan .user-info .info .bottom-info li.border-right {
+  border-right: 1px solid #e6e6e6;
+}
+ul#fans li.fan .tags {
+  font-size: 14px;
+  color: #999999;
+  margin: 10px 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e6e6e6;
+}
+ul#fans li.fan .tags a {
+  color: #999999;
+}
+ul#fans li.fan .buttons {
+  margin: 0 15px;
+  font-size: 14px;
+}
+ul#fans li.fan .buttons div {
+  padding-left: 20px;
+  height: 20px;
+}
+ul#fans li.fan .buttons .add-fans {
+  cursor: pointer;
+  background: url("../images/icon_plus_fans.png") 0 center no-repeat;
+}
+ul#fans li.fan .buttons .double-fans {
+  float: left;
+  background: url("../images/icon_fans_double.png") 0 center no-repeat;
+}
+ul#fans li.fan .buttons .follower {
+  float: left;
+  background: url("../images/icon_check.png") 0 center no-repeat;
+}
+ul#fans li.fan .buttons .cancel-fans {
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+  background: url("../images/icon_fans_split.png") 0 center no-repeat;
+}
+ul#fans li.fan .close {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon_close_fans.png") center center no-repeat;
+}

@@ -1,0 +1,69 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#nav {
+  margin-top: 12px;
+  font-size: 16px;
+  padding: 0 10px;
+  width: 856px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #e1f5fe;
+  border: #c7e8f9;
+  border-radius: 4px;
+}
+#nav .title {
+  float: left;
+  padding-right: 20px;
+  font-size: 18px;
+  color: #3fb0f2;
+  background: url("../images/icon_double_right_blue.png") right center no-repeat;
+}
+#nav ul {
+  float: left;
+  margin: 0 10px;
+}
+#nav ul li {
+  float: left;
+  width: 70px;
+  height: 40px;
+  margin: 0 5px;
+  text-align: center;
+}
+#nav ul li a {
+  color: #666666;
+}
+#nav ul li.selected {
+  background: url("../images/icon_pointer_up2.png") center bottom no-repeat;
+}
+#nav ul li.selected a {
+  color: #3fb0f2;
+}

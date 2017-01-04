@@ -1,0 +1,40 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/folder_edit.css')
+    title 编辑小窝
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            .h 编辑小窝/ <i>程序必备<i>
+            .forms
+                .form
+                    .left_title 标题
+                    .center_wrap: input(type="text" value="程序必备")
+                .form
+                    .left_title 分类
+                    .center_wrap2
+                        input(type="text" value="" id="txtType")
+                        #popup-edit.popup-edit
+                            ul
+                                li 科学
+                                li 开发
+                                li 平面设计
+                                li 汽车
+                                li 美女
+                                li 图片素材
+                                li 在线教育
+                                li 美食
+                                li 站长
+                                li 编辑
+
+                .form
+                    .left_title 删除
+                    .btn-delete 删除小窝
+                .btn-edit-submit 保存设置
+
+    include _footer
+    script(src='js/folder_edit.js' type='text/javascript')

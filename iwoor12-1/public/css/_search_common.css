@@ -1,0 +1,62 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#search_header {
+  margin: -10px -10px 30px -10px;
+  border-radius: 10px 10px 0 0;
+  height: 50px;
+  background-color: #d4effe;
+}
+#search_header ul {
+  border-bottom: 1px solid #cbedfe;
+}
+#search_header ul li {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  width: 200px;
+  background-color: #f2fafe;
+  border-right: 1px solid #cbedfe;
+}
+#search_header ul li:first-child {
+  border-radius: 10px 0 0 0;
+}
+#search_header ul li a {
+  color: #666666;
+}
+#search_header ul li.selected {
+  background-color: #ffffff;
+}
+#search_header ul li.selected a {
+  color: #18a1f1;
+}

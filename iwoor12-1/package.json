@@ -1,0 +1,43 @@
+{
+  "name": "iwoor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bin/www",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "connect-memcache": "^0.0.5",
+    "connect-mongo": "^0.4.1",
+    "connect-multiparty": "^1.2.5",
+    "cookie-parser": "^1.3.3",
+    "cookie-session": "^1.1.0",
+    "debug": "^2.0.0",
+    "emailjs": "^0.3.12",
+    "express": "^4.9.8",
+    "express-session": "^1.9.3",
+    "gm": "^1.17.0",
+    "jade": "^1.6.0",
+    "less-middleware": "^1.0.4",
+    "memcache": "^0.3.0",
+    "mongodb": "^1.4.19",
+    "morgan": "^1.3.2",
+    "passport": "^0.2.1",
+    "passport-douban": "^0.0.1",
+    "passport-qq": "^0.0.3",
+    "mongoose": "^3.8.20",
+    "passport-renren": "^0.1.3",
+    "passport-weibo": "^0.1.2",
+    "serve-favicon": "^2.1.7",
+    "uuid": "^2.0.1",
+    "body-parser": "^1.8.4",
+    "async":"*"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "7090@121.12.168.85:iwoor.git"
+  },
+  "author": "7090",
+  "license": "ISC"
+}

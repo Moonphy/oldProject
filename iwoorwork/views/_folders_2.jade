@@ -1,0 +1,17 @@
+#folders
+    each count in [24,14,41,24,28]
+        .folder
+            .header
+                .title: a(href='folder_detail.html',target='_blank') 设计网站收藏（34）
+            .content
+                - var i=0
+                ul
+                    while i<= count
+                        - i++
+                        li: a(href='website.html',target='_blank') 爱窝网分享好
+            .footer
+                .image: a(href='home.html',target='_blank'): img(src='images/examples/friend1.jpg')
+                .name
+                    a(href='home.html',target='_blank') 爱玩的小麦兜
+                    span 创建
+                .button 关注

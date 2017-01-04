@@ -1,0 +1,43 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/register.css')
+    title 注册-爱窝网
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            .logo2
+                  .left_bottom_border
+                  .icon_logo2
+                  .right_bottom_border
+            .activation
+                  p.
+                      欢迎你！<i>过往看客</i>，完善下你的信息，以后你也可以使用该邮箱和密码来登录爱窝了。
+                  .forms
+                      .form
+                           .left_title 邮箱
+                           .center_wrap: input(type="text")
+                           .right
+                      .form
+                           .left_title 昵称
+                           .center_wrap: input(type="text" value="过往看客")
+                           .right
+                      .form
+                           .left_title 密码
+                           .center_wrap: input(type="text")
+                           .right
+                               .icon_correct
+                      .form
+                           .left_title 确认密码
+                           .center_wrap: input(type="text")
+                           .right
+                                .icon_error
+                  .select
+                       input(type="checkbox")
+                       p 我已经认真阅读并接受<i>《爱窝网免责声明》<i>
+                  .btn-register-submit 提交
+    include _footer
+    script(src='js/register.js' type='text/javascript')

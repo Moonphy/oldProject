@@ -1,0 +1,70 @@
+doctype html
+mixin user_website(tag)
+    .website
+        .header
+            .title
+                a(href='website.html',target='_blank') 超劲爆素材站
+                span （68）
+            if tag=='y'
+                .button 已关注
+            else
+                .btn-attend-normal
+        .sites
+            - for(var j=0;j<9;j++)
+                .web: a(href='website.html',target='_blank') 爱窝网分享好
+            .more: a(href='folder_detail.html',target='_blank') 查看全部 >>
+
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/find_user.css')
+    title 发现用户
+body
+    include _header
+    +header('find')
+    .wrap
+        #body
+            include _popup
+            include _find_header
+            +find_header('find_user')
+            ul.list
+                each member in members
+                    li
+                        .user
+                            .info
+                                .image: a(href='home.html',target='_blank'): img(src='#{member.image}')
+                                .detail
+                                    .name: a(href='home.html',target='_blank') #{member.name}
+                                    .cols
+                                        .col
+                                            .top 2365
+                                            .bottom: a(href='home_website.html',target='_blank') 采集
+                                        .col
+                                            .top 63
+                                            .bottom: a(href='home.html',target='_blank') 小窝
+                                        .col(class='last')
+                                            .top 336
+                                            .bottom: a(href='home_fans.html',target='_blank') 粉丝
+                                        .button 关注他
+                            p.
+                                注册高级室内建筑师、高级国际商业美术设计师
+                                （环境艺术设计专业）一枚。秉承“交换一个苹
+                                果，各得一个苹是果...
+
+                        each webfolder in member.web_folders
+                            .website
+                                .header
+                                    .title
+                                        a(href='website.html',target='_blank') #{webfolder.name}
+                                        span （#{webfolder.web_urls.length}）
+                                    if tag=='y'
+                                        .button 已关注
+                                    else
+                                        .btn-attend-normal
+                                .sites
+                                    each weburl in webfolder.web_urls
+                                        .web: a(href='website.html',target='_blank') #{weburl.name}
+                                    .more: a(href='folder_detail.html',target='_blank') 查看全部 >>
+
+            include _pager
+    include _footer
+    script(src='js/find.js',type='text/javascript')

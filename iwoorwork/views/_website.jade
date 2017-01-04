@@ -1,0 +1,27 @@
+mixin website(button)
+    .website
+        .site-info
+            .row
+                .icon: img(src='images/examples/icon_websit.png')
+                .name #{name}
+                .link: a(href='#') www.iwoor.com
+                if button=='y'
+                    .button 采集
+                    .record: a(href='website_detail.html',target='_blank') <i>78</i>采集记录
+            p.
+                准备纹身的朋友也许用得上，在这个网站里有各种哥特式的英文字体，你可以预览自定义的文字字体，满意后下载下来给
+                纹身师就可以了。。。在输入框里输入你要的文字（英文）设置一下字体大小，点击Create Ta...
+            ul.tags
+                each item in ['平面设计','广告设计','电商','彩票','平面设计']
+                    li: a(href='search_website.html',target='_blank')= item
+        .user-info
+            .image: a(href='home.html',target='_blank'): img(src='images/examples/touxiang.jpg')
+            .name
+                a.user(href='home.html',target='_blank') 是我不懂还是
+                span 采集到
+                a.folder(href='folder_detail.html',target='_blank') 网址导航
+            .footer
+                span.time 发表于2014-8-26
+                span.good 36
+                span.comment 89
+                span.edit 修改

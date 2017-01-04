@@ -1,0 +1,35 @@
+mixin find_header(name)
+    #find-header 窝窝头们一共采集分享了<i>68938</i>个 超棒的网址！快来发现分享吧！
+    #find-category
+        ul
+            .type(class='selected type1'): a(href='#') 按传统分类
+            .type: a(href='#') 按职业分类
+            each item in ['电商','彩票','直播']
+                li: a(href='find.html')= item
+            li.hot: a(href='find.html') 按传统
+            each item in ['电商','彩票','直播','电商','彩票','直播','电商','彩票','直播','电商','彩票','直播','电商','彩票','直播']
+                li: a(href='find.html')= item
+            li.hot: a(href='find.html') 按传统
+            li: a(href='find.html') 设计素材
+            li.new: a(href='find.html') 软件开发
+            - for(var i=0;i<46;i++)
+                li: a(href='find.html') 传统分类
+    #find-menu
+        #nav
+            .title 设计素材
+            ul
+                each item in [{k:'find',v:'全部采集'},{k:'find_folder',v:'小窝'},{k:'find_user',v:'推荐用户'}]
+                    if item.k==name
+                        li.selected: a(href='#{item.k}.html') #{item.v}
+                    else
+                        li: a(href='#{item.k}.html') #{item.v}
+
+            include _filter_search_group
+
+        .tools
+            .share_website 分享网址
+            .install: a(href='bookmark.html',target='_blank') 安装网址采集工具
+
+
+
+

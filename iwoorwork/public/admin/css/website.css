@@ -1,0 +1,23 @@
+#website-nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+}
+
+#introduce{
+    display: block;
+    height: 150px;
+}
+img.img-thumbnail{
+    max-height: 240px;
+    width: auto;
+}
+
+.ng-hide {
+    /* this is just another form of hiding an element */
+    display:block!important;
+    position:absolute;
+    top:-9999px;
+    left:-9999px;}

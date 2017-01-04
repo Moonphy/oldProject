@@ -1,0 +1,23 @@
+ul#websites
+    each weburl in web_urls
+        li
+            .title
+                .name
+                    img(src='images/examples/icon_websit_find.png')
+                    a(href='website.html',target='_blank') #{weburl.name}
+                .btn-gather 采集
+            p #{weburl.introduce}
+            .tags
+                each tag in weburl.tags
+                    span: a(href='search_website.html',target='_blank')= tag
+            .comments
+                span.like 18
+                span.comment 评论 19
+                span.favor: a(href='website_detail.html',target='_blank') 采集 69
+            .user
+                .left: a(href='home.html',target='_blank'): img(src='images/examples/friend1.jpg')
+                .right
+                    .top
+                        a(href='home.html',target='_blank'): i 天高任我飞～
+                        span 采集到
+                    .bottom: a(href='folder_detail.html',target='_blank') 设计类收藏

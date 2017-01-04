@@ -1,0 +1,38 @@
+doctype html
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/fun_detail.css')
+    title 趣站明细
+body
+    include _header
+    +header('fun')
+    .wrap
+        #body
+            include _popup
+            #left-part
+                .fun-site
+                    .left: a(href='/fun/#{fun._id}'): img(src= '/images/examples/fun.jpg')
+                    .right
+                        .row1
+                            span.title: a(href='/fun/#{fun._id}') #{fun.name}
+                            .btn-gather 采集
+                        p.
+                            #{fun.introduce}
+                        .row3
+                            .left
+                                ul
+                                each key in fun.tags
+                                    li.tag: a(href='search_website.html',target='_blank')= key
+                            .right
+                                span.good #{fun.count}
+                                span.comment 89
+                include _comments
+
+            #right-part
+                include _hot_tag
+                include _interested
+                include _hot_question
+                include _guess
+                .right-split-20
+                include _ad
+    include _footer

@@ -1,0 +1,62 @@
+mixin user_list(title)
+    .header
+        .title= title
+        ul
+            - for(var i=0;i<8;i++)
+                li.user: a(href='home.html',target='_blank'): img(src='images/examples/user-little.jpg')
+            - for(var i=0;i<2;i++)
+                li.empty
+
+mixin my_question_menu(tag)
+    ul#my_question_menu
+        each item in [{k:'question',v:'关注'},{k:'ask',v:'提问'},{k:'answer',v:'回答'}]
+            if tag==item.k
+                li.selected: a(href='home_#{item.k}.html') #{item.v}
+            else
+                li: a(href='home_#{item.k}.html') #{item.v}
+
+mixin my_fans_menu(tag)
+    ul#my_question_menu
+        each item in [{k:'fans',v:'粉丝'},{k:'follwers',v:'关注'}]
+            if tag==item.k
+                li.selected: a(href='home_#{item.k}.html') #{item.v}
+            else
+                li: a(href='home_#{item.k}.html') #{item.v}
+
+mixin home_header(tag)
+    #home_header
+        .user-info
+            .image
+                a(href='home.html'): img(src='images/examples/touxiang.jpg')
+            .info
+                .top-info: a(href='home.html') LUTHER-FENG
+                .bottom-info
+                    ul
+                        each item in [{k:'fans',n:'粉丝',c:639},{k:'follwers',n:'关注',c:98}]
+                            if tag==item.k
+                                li.selected
+                                    a(href='home_#{item.k}.html')
+                                        .top #{item.n}
+                                        .bottom #{item.c}
+                            else
+                                li
+                                    a(href='home_#{item.k}.html')
+                                        .top #{item.n}
+                                        .bottom #{item.c}
+            .search
+                input(class='input' placeholder='搜索我采集的网址，我的关注的一切吧~')
+                input(class='search_header' type='button')
+            .user-list
+                +user_list('来看我的人')
+            .user-list
+                +user_list('最多采至')
+
+        .home-nav
+            ul.menu
+                each item in [{k:'home',n:'小窝63'},{k:'home_website',n:'采集158'},{k:'home_question',n:'问答98'},{k:'home_attend',n:'关注小窝326'}]
+                    if tag==item.k
+                        li.selected: a(href='#{item.k}.html') #{item.n}
+                    else
+                        li: a(href='#{item.k}.html') #{item.n}
+                li: a.invite-friend(href='javascript:void(0)') 邀请朋友来爱窝
+            #setting: a(href='setting.html',target='_blank') 账号设置

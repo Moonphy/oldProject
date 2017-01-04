@@ -1,0 +1,145 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#search_header {
+  margin: -10px -10px 30px -10px;
+  border-radius: 10px 10px 0 0;
+  height: 50px;
+  background-color: #d4effe;
+}
+#search_header ul {
+  border-bottom: 1px solid #cbedfe;
+}
+#search_header ul li {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  width: 200px;
+  background-color: #f2fafe;
+  border-right: 1px solid #cbedfe;
+}
+#search_header ul li:first-child {
+  border-radius: 10px 0 0 0;
+}
+#search_header ul li a {
+  color: #666666;
+}
+#search_header ul li.selected {
+  background-color: #ffffff;
+}
+#search_header ul li.selected a {
+  color: #18a1f1;
+}
+#folders {
+  margin-left: -10px;
+  margin-top: -3px;
+  position: relative;
+}
+#folders .folder {
+  position: absolute;
+  width: 284px;
+  float: left;
+  margin-left: 10px;
+}
+.folder {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+  overflow: hidden;
+}
+.folder .header {
+  height: 32px;
+  line-height: 32px;
+  background-color: #f2fafe;
+  border-bottom: 1px solid #cbedfe;
+  border-radius: 10px 10px 0 0;
+}
+.folder .header .title {
+  float: left;
+  padding-left: 10px;
+  font-size: 16px;
+}
+.folder .header .title a {
+  color: #3fb0f2;
+}
+.folder .content ul {
+  margin: 10px -25px 15px 20px;
+}
+.folder .content li {
+  float: left;
+  font-size: 14px;
+  height: 20px;
+  width: 110px;
+  margin: 5px 30px 5px 0;
+}
+.folder .content li a {
+  background: url("../images/examples/icon_websit.png") no-repeat 0 center;
+  padding-left: 20px;
+  color: #666666;
+}
+.folder .footer {
+  font-size: 14px;
+  margin: 10px 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #e6e6e6;
+}
+.folder .footer .image {
+  float: left;
+}
+.folder .footer .image img {
+  width: 40px;
+  height: 40px;
+}
+.folder .footer .name {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 10px;
+}
+.folder .footer .name a {
+  color: #3fb0f2;
+}
+.folder .footer .name span {
+  margin-left: 10px;
+  color: #999999;
+}
+.folder .footer .button {
+  cursor: pointer;
+  margin-top: 7px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 10px;
+  color: #666666;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  float: right;
+}

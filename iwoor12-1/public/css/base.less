@@ -1,0 +1,94 @@
+@border-color:#dedede;
+@folder-border-color:#cbedfe;
+@website_width:1200px;
+@fontYH:'微软雅黑';
+@fontST:'宋体';
+@header_height:50px;
+@input-default-color:#d2eaf9;
+
+.borderStyle{
+  border-radius: 10px;
+  border:1px solid #e6e6e6;
+}
+
+.folder-border{
+  border-radius: 10px;
+  border: 1px solid @folder-border-color;
+}
+
+.btn-base(@h){
+  height: @h;
+  line-height: @h;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-base(@h,@w){
+  .btn-base(@h);
+  width: @w;
+}
+
+.btn(@h,@bg-color,@font-size:18px){
+  .btn-base(@h);
+  background-color: @bg-color;
+  font-size: @font-size;
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.btn(@h,@w,@bg-color,@font-size:18px){
+  .btn(@h,@bg-color,@font-size);
+  width: @w;
+}
+
+.div-center{
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.edit_buttons{
+  .expand{
+    background: url("../images/icon_folder_expand.png") no-repeat center;
+  }
+  .edit{
+    background: url("../images/icon_folder_edit.png") no-repeat center;
+    border-left: 1px solid #b5dff3;
+  }
+  .delete{
+    border-left: 1px solid #b5dff3;
+    background: url("../images/icon_folder_delete.png") no-repeat center;
+  }
+  .pullback{
+    display: none;
+    background: url("../images/icon_folder_pullback.png") no-repeat center;
+  }
+}
+
+.popup-setting(@w,@h){
+  width: @w;
+  height: @h;
+  border-radius: 10px;
+
+  .title{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px 10px 0 0;
+    color: #666666;
+  }
+
+  .btn-confirm{
+    .btn-base(30px,130px);
+    font-size: 14px;
+    margin: 30px auto 0;
+    background-color: #74cafc;
+    color: #ffffff;
+  }
+}

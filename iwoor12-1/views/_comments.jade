@@ -1,0 +1,42 @@
+mixin comment_row(quote)
+    li
+        .left
+            .image: a(href='home.html',target='_blank'): img(src='images/examples/user1.jpg')
+            .name: a(href='home.html',target='_blank') 是我不懂还是
+        .right
+            p.
+                经典物理学所涉及的物理学领域通常是一些在量子力学与相对论之前发的
+                是广东省高的分公司该到时发个嘎的该…
+            if quote=='yes'
+                blockquote
+                    .pointer
+                    .author: a(href='home.html',target='_blank') 是我不懂还是
+                    p.
+                        经典物理学所涉及的物理学领域通常是一些在量子力学与相对论之前发的是广东省高
+                        的分公司该到时发个嘎信得过的的该…
+            .footer
+                span.good 36
+                span.comment 89
+                span.delete 删除
+                span.time 2014-8-26
+
+#comment-input
+    .left
+        .image: a(href='home.html',target='_blank'): img(src='images/examples/user1.jpg')
+        .name: a(href='home.html',target='_blank') 是我不懂还是
+    .right
+        .input
+            textarea(placeholder='写下你要说的话吧~')
+            img(src='images/icon_right_pointer.png')
+        .footer
+            .button 发表
+            .number 200/200
+ul.comments
+    +comment_row('no')
+
+    +comment_row('yes')
+
+    - for(var i=0;i<7;i++)
+        +comment_row('no')
+
+#more 加载更多评论

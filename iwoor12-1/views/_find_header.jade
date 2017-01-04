@@ -1,0 +1,40 @@
+mixin find_header(name)
+    #find-header 窝窝头们一共采集分享了<i>68938</i>个 超棒的网址！快来发现分享吧！
+    if members
+        #find-category
+            ul
+                .type(class='selected type1'): a(href='#') 按传统分类
+                .type: a(href='#') 按职业分类
+                each webfoldertype in web_folder_types
+                    li.hot: a(href='/find_user.html?typeId=#{webfoldertype._id}&p=0') #{webfoldertype.name}
+    if web_folders
+        #find-category
+            ul
+                .type(class='selected type1'): a(href='#') 按传统分类
+                .type: a(href='#') 按职业分类
+                each webfoldertype in web_folder_types
+                    li.new: a(href='/find_folder.html?typeId=#{webfoldertype._id}&p=0') #{webfoldertype.name}
+    if web_urls
+        #find-category
+            ul
+                .type(class='selected type1'): a(href='#') 按传统分类
+                .type: a(href='#') 按职业分类
+                each webfoldertype in web_folder_types
+                    li.hot: a(href='/find.html?typeId=#{webfoldertype._id}&p=0') #{webfoldertype.name}
+
+    #find-menu
+        #nav
+            if web_folder_type
+                .title #{web_folder_type.name}
+            else
+                .title 所有分类
+            ul
+                each item in [{k:'find',v:'全部采集'},{k:'find_folder',v:'小窝'},{k:'find_user',v:'推荐用户'}]
+                    if item.k==name
+                        li.selected: a(href='#{item.k}.html?&p=0') #{item.v}
+                    else
+                        li: a(href='#{item.k}.html?&p=0') #{item.v}
+            include _filter_search_group
+        .tools
+            .share_website 分享网址
+            .install: a(href='bookmark.html',target='_blank') 安装网址采集工具

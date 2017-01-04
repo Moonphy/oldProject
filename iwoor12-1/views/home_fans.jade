@@ -1,0 +1,26 @@
+doctype html
+include _fans
+head
+    include _css
+    link(rel='stylesheet',type='text/css',href='css/home_fans.css')
+    title 我的粉丝列表
+body
+    include _header
+    +header('')
+    .wrap
+        #body
+            include _popup
+            include _home_header
+            +home_header('fans')
+
+            +my_fans_menu('fans')
+
+            ul#fans
+                +show_fan('add')
+                - for(var i=0;i<9;i++)
+                    +show_fan('double')
+                - for(var i=0;i<10;i++)
+                    +show_fan('other')
+            include _pager
+    include _footer
+    script(src='js/home_fans.js' type='text/javascript')

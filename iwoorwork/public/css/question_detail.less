@@ -1,0 +1,139 @@
+@import "base";
+@import "_comments";
+
+
+#question-detail{
+  font-size: 14px;
+  margin: 20px 0 0 20px;
+  .left{
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .right{
+    float: left;
+    width: 720px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left: 40px;
+
+    border-bottom: 1px solid #e6e6e6;
+    .title{
+      font-size: 20px;
+      color: #4cb5f3;
+    }
+
+    p{
+      width: 600px;
+      margin: 10px 0;
+    }
+
+    ul.tags{
+      margin-top: 10px;
+      li{
+        cursor: pointer;
+        float: left;
+        padding: 2px;
+        margin-right: 15px;
+        margin-bottom: 10px;
+        a{
+          color:#999999;
+        }
+        background-color: #fff;
+        border: 1px solid #e6e6e6;
+
+      }
+    }
+
+    .footer{
+      text-align: right;
+      color: #c0c0c0;
+      span{
+        margin-left: 30px;
+        padding-left: 20px;
+      }
+      .good{
+        background: url("../images/icon_good.png") no-repeat;
+      }
+      .comment{
+        background: url("../images/icon_comment.png") no-repeat;
+      }
+      .edit{
+        cursor: pointer;
+        padding: 0 20px 0 0;
+        background: url("../images/icon_edit_question.png") right center no-repeat;
+
+      }
+    }
+  }
+}
+
+
+#right-part{
+  .right1{
+    margin-top: 30px;
+    font-size: 14px;
+    width: 100%;
+    height: 32px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6e6e6;
+
+    div{
+      float: left;
+    }
+    .button{
+      cursor: pointer;
+      width: 80px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      font-size: 16px;
+      background-color: #b1e37c;
+      border-radius: 4px;
+      color: #ffffff;
+    }
+    .return{
+      margin:14px 5px 0 40px;
+      a{
+        color:#666666;
+      }
+    }
+    .home{
+      margin-top: 14px;
+      a{
+        color: #4cb5f3 ;
+      }
+    }
+  }
+
+  .right2{
+    font-size: 14px;
+    .title{
+      margin-top: 10px;
+      i{
+        font-size: 16px;
+        color:#3fb0f2;
+        margin-right: 5px;
+      }
+    }
+    ul{
+      margin: 0px -5px 10px 2px;
+      li{
+        float: left;
+        width: 35px;
+        height: 35px;
+        margin: 5px 5px 0 0;
+        img{
+          width: 35px;
+          height: 35px;
+          border-radius: 4px;
+        }
+
+        &.empty{
+          background-color: #ededed;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

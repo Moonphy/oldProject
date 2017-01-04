@@ -1,0 +1,11 @@
+#filter-search-group
+    .combo 筛选
+    .search
+        input.input(type='text',placeholder='在此分类下搜索')
+        input(type='button')#find-search
+        #panel-type-select.js-over-show
+            .content
+                .pointer
+                ul
+                    each item in ['psd素材','UI组件','图库','字体','设计论坛','psd素材','UI组件','图库','字体','设计论坛','psd素材','UI组件','图库','字体','设计论坛']
+                        li= item

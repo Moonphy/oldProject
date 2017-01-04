@@ -1,0 +1,307 @@
+.borderStyle {
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+.folder-border {
+  border-radius: 10px;
+  border: 1px solid #cbedfe;
+}
+.div-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.edit_buttons .expand {
+  background: url("../images/icon_folder_expand.png") no-repeat center;
+}
+.edit_buttons .edit {
+  background: url("../images/icon_folder_edit.png") no-repeat center;
+  border-left: 1px solid #b5dff3;
+}
+.edit_buttons .delete {
+  border-left: 1px solid #b5dff3;
+  background: url("../images/icon_folder_delete.png") no-repeat center;
+}
+.edit_buttons .pullback {
+  display: none;
+  background: url("../images/icon_folder_pullback.png") no-repeat center;
+}
+#comment-input {
+  font-size: 14px;
+  margin-left: 20px;
+}
+#comment-input .left {
+  float: left;
+  width: 100px;
+}
+#comment-input .left img {
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+#comment-input .left a {
+  color: #2ea2e4;
+}
+#comment-input .left {
+  margin-top: 30px;
+}
+#comment-input .right {
+  float: left;
+  width: 720px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  margin-left: 30px;
+  border-bottom: 1px dashed #e6e6e6;
+}
+#comment-input .right .input {
+  position: relative;
+  margin-left: 20px;
+  width: 682px;
+  height: 150px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fbfbfb;
+}
+#comment-input .right .input textarea {
+  background-color: #fff;
+  width: 670px;
+  height: 138px;
+  padding: 5px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  color: #c1c1c1;
+}
+#comment-input .right .input textarea:focus {
+  color: #666666;
+}
+#comment-input .right .input img {
+  position: absolute;
+  display: block;
+  width: 19px;
+  height: 20px;
+  left: -18px;
+  top: 25px;
+}
+#comment-input .right .footer {
+  margin: 15px 0 10px;
+}
+#comment-input .right .footer div {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 30px;
+}
+#comment-input .right .footer .button {
+  cursor: pointer;
+  width: 84px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #74cafc;
+  border-radius: 4px;
+  color: #fff;
+}
+#comment-input .right .footer .number {
+  color: #c1c1c1;
+}
+ul.comments {
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: -30px;
+}
+ul.comments li {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+ul.comments li .left {
+  float: left;
+  width: 100px;
+}
+ul.comments li .left img {
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+  margin-top: 30px;
+  border-radius: 50%;
+}
+ul.comments li .left a {
+  color: #2ea2e4;
+}
+ul.comments li .right {
+  float: left;
+  width: 720px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 30px;
+  border-bottom: 1px dashed #e6e6e6;
+}
+ul.comments li .right p {
+  width: 600px;
+}
+ul.comments li .right blockquote {
+  width: 600px;
+  position: relative;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #fbfbfb;
+  border: 1px solid #e6e6e6;
+}
+ul.comments li .right blockquote .pointer {
+  width: 600px;
+  position: absolute;
+  top: -11px;
+  height: 11px;
+  background: url("../images/icon_pointer_up3.png") 23px 0 no-repeat;
+}
+ul.comments li .right blockquote .author a {
+  color: #2ea2e4;
+}
+ul.comments li .right .footer {
+  margin-top: 22px;
+}
+ul.comments li .right .footer span {
+  margin-right: 20px;
+  padding-left: 20px;
+}
+ul.comments li .right .footer .good {
+  background: url("../images/icon_good.png") no-repeat;
+}
+ul.comments li .right .footer .comment {
+  background: url("../images/icon_comment.png") no-repeat;
+}
+ul.comments li .right .footer .delete {
+  cursor: pointer;
+  background: url("../images/icon_delete_question.png") 0 center no-repeat;
+}
+#more {
+  font-size: 16px;
+  margin: 50px auto;
+  cursor: pointer;
+  width: 456px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  color: #999999;
+  background-color: #fbfbfb;
+}
+.fun-site {
+  width: 864px;
+  height: 168px;
+  margin-left: 10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e6e6e6 ;
+}
+.fun-site:hover {
+  background-color: #fbfbfb;
+}
+.fun-site .left {
+  float: left;
+}
+.fun-site .left img {
+  padding-top: 5px;
+  width: 200px;
+  height: 140px;
+}
+.fun-site .tag {
+  font-size: 14px;
+  float: left;
+  padding: 0px 5px ;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #e6e6e6 ;
+}
+.fun-site .right {
+  float: left;
+  height: 144px;
+  width: 640px;
+  margin-left: 20px;
+  position: relative;
+}
+.fun-site .right .row1 span.title {
+  font-size: 20px;
+}
+.fun-site .right .row1 span.title a {
+  color: #3fb0f2;
+}
+.fun-site .right .row1 span.title a:hover {
+  border-bottom: 1px solid #3fb0f2;
+}
+.fun-site .right .row1 .btn-gather {
+  position: absolute;
+  cursor: pointer;
+  top: -3px;
+  left: 335px;
+  border-radius: 4px;
+  width: 82px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ffa45f;
+  display: none;
+}
+.fun-site .right p {
+  margin: 10px 0 20px;
+  font-size: 14px;
+}
+.fun-site .right .row3 .right {
+  float: right;
+  height: 20px;
+  right: -10px;
+  width: 120px;
+}
+.fun-site .right .row3 span {
+  font-size: 16px;
+  color: #c0c0c0;
+  padding-left: 22px;
+}
+.fun-site .right .row3 .good {
+  padding-right: 20px;
+  background: url("../images/icon_good.png") 0 center no-repeat;
+}
+.fun-site .right .row3 .comment {
+  background: url("../images/icon_comment.png") 0 center no-repeat;
+}
+#left-part {
+  margin-top: -10px;
+}
+#left-part .fun-site:hover {
+  background-color: #ffffff;
+}
+#left-part .fun-site .right .row1 span.title {
+  font-size: 20px;
+}
+#left-part .fun-site .right .row1 span.title a {
+  color: #3fb0f2;
+}
+#left-part .fun-site .right .row1 span.title a:hover {
+  border-bottom: none;
+}
+#left-part .fun-site .right .row1 .btn-gather {
+  position: absolute;
+  cursor: pointer;
+  top: -3px;
+  left: 335px;
+  border-radius: 4px;
+  width: 82px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ffa45f;
+  display: block;
+}
+#right-part {
+  margin-top: 25px;
+}

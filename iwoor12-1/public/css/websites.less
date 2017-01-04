@@ -1,0 +1,130 @@
+@import "base";
+
+
+ul#websites{
+  font-size: 16px;
+  margin-right: -10px;
+  margin-left: 2px;
+  li{
+    float: left;
+    height: 288px;
+    width: 288px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #e6e6e6;
+    &:hover{
+
+      border-color: #b7e2f9;
+      .title{
+        .name{
+          a{
+            color:#3fb0f2;
+          }
+        }
+      }
+    }
+    .title{
+      margin: 20px 10px 10px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e6e6e6;
+      .name{
+        float: left;
+
+        a{
+          margin-left: 5px;
+          color:#666666;
+        }
+      }
+
+      .btn-gather{
+        display: none;
+        cursor: pointer;
+        float: right;
+        width: 69px;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        background-color: #9bd7fa;
+        color: #fff;
+        border-radius: 2px;
+        margin-top: -10px;
+      }
+    }
+    p{
+      margin: 10px;
+      font-size: 14px;
+      color: #999999;
+    }
+
+    .tags{
+      margin: 10px;
+      line-height: 35px;
+      span{
+        display: inline-block;
+        height: 19px;
+        line-height: 19px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 5px;
+        padding: 2px 5px;
+        border: 1px solid #e6e6e6;
+        background-color: #f9f9f9;
+      }
+    }
+
+    .comments{
+      font-size: 14px;
+      color:#c0c0c0;
+      border-bottom: 1px solid #f1f1f1;
+      margin-top: 10px;
+      padding: 5px;
+      span{
+        margin-right: 10px;
+      }
+      span.like{
+        padding-top: 6px;
+        padding-left: 20px;
+        background: url("../images/icon_good2.png") no-repeat;
+      }
+    }
+
+    .user{
+      margin: 5px;
+      .left{
+        width: 50px;
+        height: 50px;
+        float: left;
+        img{
+          width: 50px;
+          height: 50px;
+          border-radius: 25px;
+        }
+      }
+
+      .right{
+        margin-top: 4px;
+        margin-left: 5px;
+        float: left;
+        font-size: 14px;
+
+        .top{
+          a{
+            color: #95c1da;
+          }
+          span{
+            color: #c0c0c0;
+          }
+        }
+
+        .bottom{
+          a{
+            color:#999999;
+          }
+        }
+      }
+    }
+  }
+}
