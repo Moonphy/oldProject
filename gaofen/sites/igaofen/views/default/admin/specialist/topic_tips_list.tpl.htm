@@ -1,0 +1,71 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+	<div class="mod">
+		<div class="mod-head">
+			<h3>
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#list" data-toggle="tab"><?php _e('方法提示管理'); ?></a></li>
+					<!-- <li><a href="#add" data-toggle="tab"><?php _e('方法提示添加'); ?></a></li -->
+				</ul>
+			</h3>
+		</div>
+		<div class="mod-body tab-content">
+			<div class="tab-pane active" id="list">
+
+				<input type="hidden" id="action" name="action" value="" />
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr class="col-sm-2 col-xs-12">
+								<a href="admin/specialist/topic_tips_add/" class="btn-primary btn"><?php _e('添加方法提示'); ?></a>
+							</tr>
+							<tr>
+								<th><input type="checkbox" class="check-all"></th>
+								<th><?php _e('内容'); ?></th>
+								<th><?php _e('分类'); ?></th>
+								<th><?php _e('是否显示'); ?></th>
+								<th><?php _e('发布时间'); ?></th>
+								<th><?php _e('最后更新'); ?></th>
+								<th><?php _e('操作'); ?></th>
+							</tr>
+						</thead>
+					<?php if ($this->topic_tips_list) { ?>
+						<tbody>
+							<?php foreach ($this->topic_tips_list AS $key => $val) { ?>
+							<tr>
+								<td><input type="checkbox" name="topic_ids[]" value="<?php echo $val['id']; ?>"></td>
+								<td><?php echo $val['tips_name']; ?></a></td>
+								<td><?php echo $val['category_name']; ?></a></td>
+							<?php if($val['tips_type'] != -1):?>
+								<td><?php echo '显示'; ?></a></td>
+							<?php else:?>
+								<td><?php echo '隐藏'; ?></a></td>
+							<?php endif;?>
+								<td><?php echo date_friendly($val['add_time']); ?></td>
+								<td><?php echo date_friendly($val['update_time']); ?></td>
+								<td>
+									<a href="admin/specialist/topic_tips_edit/<?php echo $val['id']; ?>" target="_blank" class="icon icon-edit md-tip" title="<?php _e('编辑'); ?>"></a>
+									<?php if($val['tips_type'] != -1 ): ?>
+										<a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/topic_tips_show/', 'tips_id=<?php echo $val['id']; ?>&tips_type=-1');" class="icon icon-delete md-tip" title="<?php _e('隐藏'); ?>"></a>
+									<?php else: ?>
+										<a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/topic_tips_show/', 'tips_id=<?php echo $val['id']; ?>&tips_type=0');" class="icon icon-check md-tip" title="<?php _e('显示'); ?>"></a>
+									<?php endif; ?>
+								</td>
+							</tr>
+							<?php } ?>
+					<?php } ?>
+						</tbody>
+					</table>
+				
+				</div>
+				<div class="mod-table-foot">
+					<?php echo $this->pagination; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>

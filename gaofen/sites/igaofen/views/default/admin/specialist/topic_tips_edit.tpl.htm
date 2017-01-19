@@ -1,0 +1,55 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+    <div class="mod">
+        <div class="mod-head">
+            <h3>
+                <span class="pull-left"><?php _e('修改方法提示'); ?></span>
+            </h3>
+        </div>
+        <div class="tab-content mod-content">
+                <form action="admin/specialist/topic_tips_update/" id="settings_form" enctype="multipart/form-data;charset=utf-8" method="post" onsubmit="return false">
+                <table class="table table-striped">
+                    <input name="topic_tips_id" type="hidden" value="<?php echo $this->topic_tips_info['id']; ?>" />
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label"><?php _e('方法分类'); ?>:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <select class="form-control" name="category_id">
+                                    <?php foreach ($this->category_list AS $val) { ?>
+
+                                    <option value="<?php echo $val['id']; ?>" <?php if($this->topic_tips_info['category_id'] == $val['id']){ ?> selected="selected"<?php } ?>><?php echo $val['category_name']; ?></option>
+
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label"><?php _e('方法提示'); ?>:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input class="form-control" name="topic_tips_name" type="text" value="<?php echo $this->topic_tips_info['tips_name']; ?>" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tfoot>
+                <tr>
+                    <td>
+                        <input type="button" value="<?php _e('保存'); ?>" class="btn btn-primary center-block" onclick="AWS.ajax_post($('#settings_form'));" />
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>

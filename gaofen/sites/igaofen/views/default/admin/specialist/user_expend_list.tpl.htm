@@ -1,0 +1,105 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+	<div class="mod">
+		<div class="mod-head">
+			<h3>
+				<ul class="nav nav-tabs">
+					<li <?php if(!$_GET['type'] || $_GET['type']==1){ ?>class="active"<?php } ?>><a href="admin/specialist/user_income_list/?type=1"><?php _e('用户收入明细'); ?></a></li>
+					<li <?php if($_GET['type']==2){ ?>class="active"<?php } ?>><a href="admin/specialist/user_expend_list/?type=2"><?php _e('用户支出明细'); ?></a></li>
+				</ul>
+			</h3>
+		</div>
+		<div class="mod-body tab-content">
+			<div class="tab-pane active" id="list">
+				<div class="table-responsive">
+
+					<div class="col-sm-8 col-xs-9">
+						<div class="col-sm-4 mod-double" style="font-size:18px;height:30px;">
+							<?php if($_GET['user_name'] && $_GET['date_start'] && $_GET['date_end']){ ?>
+							<?php echo $_GET['date_start'] ?> ~ <?php echo $_GET['date_end'] ?>
+							<?php } ?>
+						</div>
+						<div class="col-sm-6 mod-double" style="font-size:18px;height:30px;">
+							<?php if ($_GET['user_name']) { ?>
+								总支出：<?php echo $this->user_total_expend ?>元
+							<?php } ?>
+						</div>
+					</div>
+
+					<form id="search_form" action="/admin/specialist/user_expend_list/">
+						<div class="col-sm-10 col-xs-12">
+	                        <div class="row">
+	                        	<input type="hidden" name="type" value="2">
+								<div class="col-sm-4 mod-double">
+								    <input type="text" class="form-control" name="user_name" placeholder="用户名">
+								</div>
+
+								<div class="col-sm-4 mod-double">
+								    <input type="text" class="form-control mod-data date-start" name="date_start">
+								    <i class="icon icon-date"></i>
+								</div>
+								<span class="mod-symbol col-xs-1 col-sm-1">
+								   -
+								</span>
+	                            <div class="col-sm-4 mod-double">
+	                                <input type="text" class="form-control mod-data date-end" name="date_end">
+	                                <i class="icon icon-date"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-sm-1">
+	                    	<input type="submit" class="btn btn-primary  btn-sm date-seach" value="确认查询">
+	                        <!-- <a href="javascript:;" class="btn btn-primary  btn-sm date-seach">确认查询</a> -->
+	                    </div>
+                    </form>
+					
+				<?php if($this->user_type){ ?>	
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th><input type="checkbox" class="check-all"></th>
+								<th><?php _e('付费用户'); ?></th>
+								<th><?php _e('类别'); ?></th>
+								<th><?php _e('问题内容'); ?></th>
+								<th><?php _e('金额'); ?></th>
+								<th><?php _e('时间'); ?></th>
+							</tr>
+						</thead>
+					<?php if ($this->expend_list) { ?>
+						<tbody>
+							<?php foreach ($this->expend_list AS $key => $val) { ?>
+							<tr>
+								<td><input type="checkbox" name="prorate_ids[]" value="<?php echo $val['id']; ?>"></td>
+								<td><?php echo $val['user_name']; ?></a></td>
+							<?php if($val['question_id']):?>
+								<td><?php echo '提问'; ?></a></td>
+							<?php elseif($val['answer_id']):?>
+								<td><?php echo '偷听'; ?></a></td>
+							<?php endif;?>
+								<td><?php echo $val['question_name']; ?></td>
+								<td><?php echo $val['price']; ?></td>
+								<td><?php echo date('Y-m-d H:i:s',$val['add_time']); ?></td>
+							</tr>
+							<?php } ?>
+					<?php } ?>
+						</tbody>
+					</table>
+				<?php }else{ ?>
+					<table class="table table-striped">
+						<tr>
+							<td>请输入用户名</td>
+						</tr>
+					</table>
+				<?php } ?>
+				</div>
+				<div class="mod-table-foot">
+					<?php echo $this->pagination; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>

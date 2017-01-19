@@ -1,0 +1,122 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+    <div class="mod">
+        <div class="mod-head">
+            <h3>
+                <span class="pull-left"><?php _e('神箭手文章设置');?></span>
+            </h3>
+        </div>
+        <div class="tab-content mod-content">
+            <form action="admin/shenjianshou/ajax_article/" method="post" id="config_form">
+            <table class="table">
+                <tbody>
+                <tr>
+                   <td width="300">当前插件版本</td>
+                   <td>v<?php _e($this->sjs_version);?>
+                   		<span class="help-block"><?php _e('最新版本会定期在qq群174631869中发布'); ?></span>
+                   	</td>
+                </tr>
+                <tr>
+                    <td>神箭手云采集官网</td>
+                    <td><a href="http://www.shenjianshou.cn" target="_blank" style="text-decoration:underline;color:red;">点击前往&gt;&gt;</a></td>
+                </tr>
+                <tr>
+                    <td>发布地址</td>
+                    <td>
+                        <input type="text" value="<?php echo base_url();?>/<?php echo G_INDEX_SCRIPT;?>shenjianshou/article/" style="width:400px;height:36px;padding-left:5px;" onclick="this.select()" readOnly="true" />
+                    </td>
+                </tr>
+                <?php
+                if(isset($this->sjs_tasks)){
+                ?>
+                <tr>
+                    <td>绑定任务</td>
+                    <td>
+                        <select name="bind_task_id">
+                        	<?php
+                        	foreach($this->sjs_tasks as $task){
+                        	?>
+                        	<option value="<?php _e($task["task_id"]); ?>" <?=(($task["task_id"].""=="".$this->sjs_config['bind_task_id'])?"selected":"")?>><?php _e($task["task_name"]); ?></option>		
+                        	<?php
+                        	}
+                        	?>
+                        </select>
+                        <span class="help-block"><?php _e('绑定任务后，在神箭手自动发布模块点击启动即可'); ?></span>
+                    </td>
+                </tr>
+                 <?php
+                }
+                ?>
+                <tr style="display:none">
+                    <td><?php _e('字段映射');?></td>
+                    <td>
+                        <table class="table">
+                            <tr>
+                                <td><?php _e('文章标题');?></td>
+                                <td><input type="text" name="article_title" <?php if(!empty($this->sjs_config['article_title'])){?>value="<?php echo $this->sjs_config['article_title'];?>" <?php }?>/></td>
+                            </tr>
+                            <tr>
+                                <td><?php _e('文章内容');?></td>
+                                <td><input type="text" name="article_content" <?php if(!empty($this->sjs_config['article_content'])){?>value="<?php echo $this->sjs_config['article_content'];?>" <?php }?>/></td>
+                            </tr>
+                            <tr>
+                                <td><?php _e('文章作者');?></td>
+                                <td><input type="text" name="article_author" <?php if(!empty($this->sjs_config['article_author'])){?>value="<?php echo $this->sjs_config['article_author'];?>" <?php }?>/></td>
+                            </tr>
+                            <tr>
+                                <td><?php _e('发布时间');?></td>
+                                <td><input type="text" name="article_time" <?php if(!empty($this->sjs_config['article_time'])){?>value="<?php echo $this->sjs_config['article_time'];?>" <?php }?>/></td>
+                            </tr>
+                            <tr>
+                                <td><?php _e('话题');?></td>
+                                <td><input type="text" name="article_topics" <?php if(!empty($this->sjs_config['article_topics'])){?>value="<?php echo $this->sjs_config['article_topics'];?>" <?php }?>/></td>
+                            </tr>
+                            <tr>
+                                <td><?php _e('文章分类');?></td>
+                                <td><input type="text" name="article_categories" <?php if(!empty($this->sjs_config['article_categories'])){?>value="<?php echo $this->sjs_config['article_categories'];?>" <?php }?>/></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php _e('作者');?></td>
+                    <td style="line-height:30px;">
+                        <input type="radio" name="article_author_config" value="1" <?php if($this->sjs_config['article_author_config']==1){?>checked="checked" <?php }?>/><?php _e('根据抓取结果插入用户');?><br />
+                        <input type="radio" name="article_author_config" value="2" <?php if($this->sjs_config['article_author_config']==2){?>checked="checked" <?php }?>/><?php _e('使用指定用户');?>&nbsp;<input type="text" name="article_author_user" <?php if(!empty($this->sjs_config['article_author_user'])){?>value="<?php echo $this->sjs_config['article_author_user'];?>"<?php }?>/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php _e('分类选项');?></td>
+                    <td style="line-height:30px;">
+                        <input type="radio" name="article_category_config" value="1" <?php if($this->sjs_config['article_category_config']==1){?>checked="checked" <?php }?>/><?php _e('使用抓取到的分类，自动插入分类到数据库');?><br />
+                        <input type="radio" name="article_category_config" value="2" <?php if($this->sjs_config['article_category_config']==2){?>checked="checked" <?php }?>/><?php _e('发布到指定分类');?>&nbsp;
+                        <select name="article_category">
+                        <?php
+                        foreach($this->categories as $category){
+                        ?>
+                        <option value="<?php _e($category["id"]); ?>" <?php if(intval($this->sjs_config['article_category']) == $category["id"]) echo "selected";?> ><?php _e($category["title"]); ?></option>
+                        <?php
+                     		 }
+                        ?>
+                      	</select>
+                        <!--
+                        <input type="text" name="article_category" <?php if(!empty($this->sjs_config['article_category'])){?>value="<?php echo $this->sjs_config['article_category'];?>"<?php }?>/>
+                    		-->
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                <td colspan="2">
+                <input type="button" value="<?php _e('保存设置'); ?>" class="btn btn-primary center-block" onclick="AWS.ajax_post($('#config_form'));" />
+                </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>

@@ -1,0 +1,39 @@
+<?php TPL::output('global/gaofen_new/header.tpl.htm'); ?>
+<div class="container">
+    <div class="special-item-top">
+        <h2><?php echo $this->special_info['special_title'] ?></h2>
+        <!-- 分享到朋友圈微信等-->
+        <div class="ui-share fr"></div>
+        <div class="special-item-slogan font-lg"><?php echo $this->special_info['special_description'] ?></div>
+    </div>
+    <?php if($this->article_list_count <=4){ ?>
+    <!-- item数量少时(4个以下)显示这个风格-->
+    <div class="treasury-group treasury-thumbnail-big clearfix pt20 pb30">
+        <?php foreach ($this->article_list as $key => $value) { ?>
+        <div class="ui-thumbnail"><a href="article/<?php echo $value['id'] ?>" title="<?php echo $value['title'] ?>" target="_blank" class="img-wrap"><img src="<?php echo $value['article_cover_url_big'] ?>" alt=""/></a>
+            <div class="ui-thumbnail-content"><a href="article/<?php echo $value['id'] ?>" title="<?php echo $value['title'] ?>" target="_blank" class="thumbnail-title"><?php echo $value['title'] ?></a>
+                <div class="thumbnail-tips mt10"><span><i class="icon icon-fav-grey"></i><?php echo $value['fav_num'] ?></span><span><i class="icon icon-msg-grey"></i><?php echo $value['comments'] ?></span><span class="fr"><?php echo $value['add_date'] ?></span></div>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+    <?php }else{ ?>
+    <!-- item数量多时显示这个风格-->
+    <div class="treasury-group clearfix pt20 pb30">
+        <?php foreach ($this->article_list as $key => $value) { ?>
+        <div class="ui-thumbnail"><a href="article/<?php echo $value['id'] ?>" title="<?php echo $value['title'] ?>" target="_blank" class="img-wrap"><img src="<?php echo $value['article_cover_url_big'] ?>" alt=""/></a>
+            <div class="ui-thumbnail-content"><a href="article/<?php echo $value['id'] ?>" title="<?php echo $value['title'] ?>" target="_blank" class="thumbnail-title"><?php echo $value['title'] ?></a>
+                <div class="thumbnail-tips mt10"><span><i class="icon icon-fav-grey"></i><?php echo $value['fav_num'] ?></span><span><i class="icon icon-msg-grey"></i><?php echo $value['comments'] ?></span><span class="fr"><?php echo $value['add_date'] ?></span></div>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+    <?php } ?>
+</div>
+<script src="<?php echo G_STATIC_URL; ?>/js/gaofen_new/jquery.1.8.2.js"></script>
+<script src="<?php echo G_STATIC_URL; ?>/js/gaofen_new/swipePC.js"></script>
+<script src="<?php echo G_STATIC_URL; ?>/js/gaofen_new/common.js"></script>
+<script>
+    $('.wrap').removeClass('index-page').addClass('special-page');
+</script>
+<?php TPL::output('global/gaofen_new/footer.tpl.htm'); ?>

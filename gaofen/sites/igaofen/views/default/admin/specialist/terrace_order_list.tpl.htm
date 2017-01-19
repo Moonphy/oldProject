@@ -1,0 +1,113 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+	<div class="mod">
+		<div class="mod-head">
+			<h3>
+				<ul class="nav nav-tabs">
+					<li <?php if(!$_GET['type'] || $_GET['type']==1){ ?>class="active"<?php } ?>><a href="admin/specialist/terrace_order_list/?type=1"><?php _e('平台订单明细'); ?></a></li>
+					<li <?php if($_GET['type']==2){ ?>class="active"<?php } ?>><a href="admin/specialist/terrace_income_list/?type=2"><?php _e('平台收入明细'); ?></a></li>
+				</ul>
+			</h3>
+		</div>
+		<div class="mod-body tab-content">
+			<div class="tab-pane active" id="list">
+				<div class="table-responsive">
+
+					<div class="col-sm-8 col-xs-9">
+						<div class="col-sm-4 mod-double" style="font-size:18px;height:30px;">
+							<?php if($_GET['date_start'] && $_GET['date_end']){ ?>
+							<?php echo $_GET['date_start'] ?> ~ <?php echo $_GET['date_end'] ?>
+							<?php }else{ ?>
+								至今
+							<?php } ?>
+						</div>
+						<div class="col-sm-6 mod-double" style="font-size:18px;height:30px;">
+							总分成收入：<?php echo $this->terrace_income ?>元
+						</div>
+					</div>
+
+					<form id="search_form" action="/admin/specialist/terrace_order_list/">
+						<input type="hidden" name="type" value="1">
+						<div class="col-sm-10 col-xs-12">
+	                        <div class="row">
+								<!-- <div class="col-sm-4 mod-double">
+								    <input type="text" class="form-control" name="user_name" placeholder="用户名">
+								</div> -->
+
+								<div class="col-sm-6 mod-double">
+								    <input type="text" class="form-control mod-data date-start" name="date_start">
+								    <i class="icon icon-date"></i>
+								</div>
+								<span class="mod-symbol col-xs-1 col-sm-1">
+								   -
+								</span>
+	                            <div class="col-sm-6 mod-double">
+	                                <input type="text" class="form-control mod-data date-end" name="date_end">
+	                                <i class="icon icon-date"></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-sm-1">
+	                    	<input type="submit" class="btn btn-primary  btn-sm date-seach" value="确认查询">
+	                        <!-- <a href="javascript:;" class="btn btn-primary  btn-sm date-seach">确认查询</a> -->
+	                    </div>
+                    </form>
+
+					<table class="table table-striped">
+						<thead>
+
+							<tr>
+								<th><input type="checkbox" class="check-all"></th>
+								<th><?php _e('付费用户'); ?></th>
+								<th><?php _e('类别'); ?></th>
+								<th><?php _e('问题内容'); ?></th>
+								<th><?php _e('已退款'); ?></th>
+								<th><?php _e('金额'); ?></th>
+								<th><?php _e('时间'); ?></th>
+								<th><?php _e('操作'); ?></th>
+							</tr>
+						</thead>
+					<?php if ($this->order_list) { ?>
+						<tbody>
+							<?php foreach ($this->order_list AS $key => $val) { ?>
+							<tr>
+								<td><input type="checkbox" name="prorate_ids[]" value="<?php echo $val['id']; ?>"></td>
+								<td><?php echo $val['user_name']; ?></a></td>
+							<?php if($val['question_id']):?>
+								<td><?php echo '提问'; ?></a></td>
+							<?php elseif($val['answer_id']):?>
+								<td><?php echo '偷听'; ?></a></td>
+							<?php endif;?>
+								<td><?php echo $val['question_name']; ?></td>
+								<td>
+									<?php if($val['refund_type']): ?>
+										<span style="color:#ff0000">是</span>
+									<?php else: ?>
+										否
+									<?php endif; ?>
+								</td>
+								<td><?php echo $val['price']; ?></td>
+								<td><?php echo date('Y-m-d H:i:s',$val['add_time']); ?></td>
+								<td>
+									<?php if($val['question_id'] && $val['refund_type']==0): ?>
+										<a href="javascript:;" onclick="if(confirm('确定要退款吗？')){AWS.ajax_request(G_BASE_URL + '/admin/ajax/order_refund/', 'order_id=<?php echo $val['order_id']; ?>&refund_type=1');}" class="icon icon-check md-tip" title="<?php _e('退款'); ?>"></a>
+									<?php endif; ?>
+								</td>
+							</tr>
+							<?php } ?>
+					<?php } ?>
+						</tbody>
+					</table>
+				
+				</div>
+				<div class="mod-table-foot">
+					<?php echo $this->pagination; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>

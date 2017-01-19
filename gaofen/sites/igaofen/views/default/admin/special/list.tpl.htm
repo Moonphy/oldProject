@@ -1,0 +1,161 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+    <div class="mod">
+        <div class="mod-head">
+            <h3>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#list" data-toggle="tab"><?php _e('文章专题列表'); ?></a></li>
+                    <li><a href="#search" data-toggle="tab"><?php _e('搜索'); ?></a></li>
+                </ul>
+            </h3>
+        </div>
+        <div class="mod-body tab-content">
+            <div class="tab-pane active" id="list">
+                <?php if ($_GET['action'] == 'search') { ?>
+                <div class="alert alert-info"><?php _e('找到 %s 条符合条件的内容', intval($this->special_count)); ?></div>
+                <?php } ?>
+
+                <form id="batchs_form" action="admin/ajax/special_manage/" method="post">
+                <input type="hidden" id="action" name="action" value="del" />
+                <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr class="col-sm-2 col-xs-12">
+                        <a href="admin/special/add_special/" class="btn-primary btn"><?php _e('新建专题'); ?></a>
+                    </tr>
+                </table>
+                <?php if ($this->list) { ?>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="check-all"></th>
+                                <th><?php _e('专题名称'); ?></th>
+                                <th><?php _e('专题描述'); ?></th>
+                                <th><?php _e('是否前台显示'); ?></th>
+                                <th><?php _e('排序'); ?></th>
+                                <th><?php _e('是否推荐'); ?></th>
+                                <th><?php _e('发布时间'); ?></th>
+                                <th><?php _e('操作'); ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($this->list AS $key => $val) { ?>
+                            <tr>
+                                <td><input type="checkbox" name="special_ids[]" value="<?php echo $val['id']; ?>"></td>
+                                <td><a href="admin/special/edit_special/<?php echo $val['id']; ?>" target="">
+                                    <?php echo $val['special_title'] ?>
+                                </a></td>
+                                <td><?php echo $val['special_description']; ?></td>
+                                <td>
+                                    <?php if($val['is_show'] == 1){ ?>
+                                        <span>是</span>
+                                    <?php }else{ ?>
+                                        <span style="color:#ff0000">否</span>
+                                    <?php } ?>
+                                </td>
+                                <td class="sort" id="<?php echo $val['id'] ?>" ><?php echo $val['sort']; ?></td>
+                                <td class="is_recommend" id="recommend<?php echo $val['id'] ?>" recommend_id="<?php echo $val['id'] ?>" ><?php echo $val['is_recommend']; ?></td>
+                                <td><?php echo date_friendly($val['add_time']); ?></td>
+                                <td>
+                                    <a href="admin/special/special_article_list/<?php echo $val['id']; ?>" target="" class="icon icon-list md-tip" title="<?php _e('专题文章'); ?>"></a>
+                                    <a href="admin/special/edit_special/<?php echo $val['id']; ?>" target="" class="icon icon-edit md-tip" title="<?php _e('编辑'); ?>"></a>
+                                    <?php if($val['is_show'] != 0 ): ?>
+                                        <a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/article_special_show/', 'special_id=<?php echo $val['id']; ?>&is_show=0');" class="icon icon-delete md-tip" title="<?php _e('前台隐藏'); ?>"></a>
+                                    <?php else: ?>
+                                        <a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/article_special_show/', 'special_id=<?php echo $val['id']; ?>&is_show=1');" class="icon icon-check md-tip" title="<?php _e('前台显示'); ?>"></a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                <?php } ?>
+                </div>
+                </form>
+                <div class="mod-table-foot">
+                    <?php echo $this->pagination; ?>
+
+                    <!-- <a class="btn btn-danger" onclick="$('#action').val('del'); AWS.ajax_post($('#batchs_form'));" href="javascript:;"><?php _e('删除'); ?></a> -->
+                </div>
+            </div>
+
+            <div class="tab-pane" id="search">
+                <form method="post" action="admin/special/list/" onsubmit="return false;" id="search_form" class="form-horizontal" role="form">
+
+                    <input name="action" type="hidden" value="search" />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-xs-3 control-label"><?php _e('关键词'); ?>:</label>
+
+                        <div class="col-sm-5 col-xs-8">
+                            <input class="form-control" type="text" value="<?php echo rawurldecode($_GET['keyword']); ?>" name="keyword" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-xs-3 control-label"><?php _e('时间范围'); ?>:</label>
+
+                        <div class="col-sm-6 col-xs-9">
+                            <div class="row">
+                                <div class="col-xs-11  col-sm-5 mod-double">
+                                    <input type="text" class="form-control mod-data" value="<?php echo base64_decode($_GET['start_date']); ?>" name="start_date" />
+                                    <i class="icon icon-date"></i>
+                                </div>
+                                <span class="mod-symbol col-xs-1 col-sm-1">
+                                -
+                                </span>
+                                <div class="col-xs-11 col-sm-5">
+                                    <input type="text" class="form-control mod-data" value="<?php echo base64_decode($_GET['end_date']); ?>" name="end_date" />
+                                    <i class="icon icon-date"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-5 col-xs-8">
+                            <button type="button" onclick="AWS.ajax_post($('#search_form'));" class="btn btn-primary"><?php _e('搜索'); ?></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.sort').click(function(){
+        var val = $(this).text();
+        var id = $(this).attr('id');
+        $(this).html('<input value="'+val+'" id="i'+id+'"/>');
+        $('#i'+id).click(function(event){
+            $(this).attr({'value': val});
+            // 阻止冒泡click
+            event.stopPropagation();
+        });
+        $('#i'+id).mouseleave(function(){
+            var current_v = $(this).val();
+            $(this).parent().text(current_v);
+            $(this).remove();
+            AWS.ajax_request(G_BASE_URL + '/admin/ajax/article_special_sort/', 'special_id='+id+'&sort='+current_v);
+        })
+    });
+    $('.is_recommend').click(function(){
+        var val = $(this).text();
+        var id = $(this).attr('recommend_id');
+        // console.log(id);
+        $(this).html('<input value="'+val+'" id="j'+id+'"/>');
+        $('#j'+id).click(function(event){
+            $(this).attr({'value': val});
+            // 阻止冒泡click
+            event.stopPropagation();
+        });
+        $('#j'+id).mouseleave(function(){
+            var current_v = $(this).val();
+            $(this).parent().text(current_v);
+            $(this).remove();
+            AWS.ajax_request(G_BASE_URL + '/admin/ajax/article_special_recommend/', 'special_id='+id+'&recommend='+current_v);
+        })
+    });
+</script>
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>

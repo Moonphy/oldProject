@@ -1,0 +1,83 @@
+<?php TPL::output('global/gaofen_new/header_meta.tpl.htm'); ?>
+<body>
+<div class="wrap index-page">
+<div class="header">
+    <div class="header-container clearfix"><a href="<?php echo base_url(); ?>" title="高分家长" class="logo"><img src="<?php echo G_STATIC_URL; ?>/img/gaofen_new/logo.png" alt="高分家长"></a>
+        <ul class="ml10">
+            <li><a href="<?php echo base_url(); ?>" title="首页" class="link-index"><i class="icon icon-index"></i><span>首页</span></a></li>
+            <li><a href="column/" title="宝库" class="link-treasury" target="_blank"><i class="icon icon-treasury"></i><span>宝库</span><span>&or;</span></a></li>
+            <li><a href="special/" title="专题" class="link-special" target="_blank"><i class="icon icon-special"></i><span>专题</span></a></li>
+            <li><a href="explore/" title="问答" class="link-wenda" target="_blank"><i class="icon icon-wenda"></i><span>问答</span></a></li>
+        </ul>
+        <form action="search_new/" class="form" id="global_search_form" method="post">
+            <input type="text" placeholder="请输入要搜索的关键词" name="q" value=""><a href="javascript: void(0);" class="btn-search" onClick="$('#global_search_form').submit();"><i class="icon icon-search"></i>
+                <input type="submit" value=""></a>
+        </form>
+        <?php if ($this->user_id) { ?>
+			<div class="reg-login fr">
+                <div class="ui-avatar fl">
+                	<a href="people/<?php echo $this->user_info['url_token']; ?>" class="ui-avatar"><img src="<?php echo get_avatar_url($this->user_info['uid'], 'mid'); ?>" alt="<?php echo $this->user_info['user_name']; ?>">
+                	</a>
+                </div>
+                <div class="header-user fl">
+            		<?php echo $this->user_info['user_name']; ?>
+                </div>
+                <div class="user-home-list"><i class="icon bg-user-top"></i>
+                    <ul class="user-list">
+                        <li><a href="inbox/" title="">私信</a></li>
+                        <li><a href="account/setting/profile/" title="">设置</a></li>
+                        <li><a href="admin/" title="">管理</a></li>
+                        <li><a href="account/logout/" title="">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        <?php }else{ ?>
+			<div class="reg-login fr"><a href="login/" title="" class="btn-login">登录</a><a href="account/register/" title="注册" class="btn-reg">注册</a></div>
+        <?php } ?>
+    </div>
+</div>
+<div class="header-slide">
+    <div class="top-slide">
+        <div class="slide-wrap">
+            <div class="slide-container">
+                <!-- 宝库栏目 -->
+                <ul id="topSlide" class="clearfix">
+                    <?php foreach ($this->column_list as $key => $value) { ?>
+                    <li>
+                        <a href="column/<?php echo $value['id'] ?>" title="">
+                            <div class="img-wrap">
+                                <img src="<?php echo $value['column_cover_url'] ?>">
+                            </div>
+                            <p><?php echo $value['title'] ?></p>
+                        </a>
+                    </li>
+                    <?php } ?>
+                    <li>
+                        <a href="age/" title="" target="_blank">
+                            <div class="img-wrap">
+                                <img src="<?php echo G_STATIC_URL; ?>/img/gaofen_new/top-slide-img/age.jpg">
+                            </div>
+                            <p>孩子年龄</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://huodong.gaofen.com" title="" target="_blank">
+                            <div class="img-wrap">
+                                <img src="<?php echo G_STATIC_URL; ?>/img/gaofen_new/top-slide-img/activity.jpg">
+                            </div>
+                            <p>活动福利</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="index-btn"><span class="active"></span></div>
+        </div>
+        <div class="slide-btn"><a href="javascript: void(0);" class="btn-left"><i class="icon arrow-left"></i></a><a href="javascript: void(0);" class="btn-right"><i class="icon arrow-right"></i></a></div>
+    </div>
+</div>
+<noscript unselectable="on" id="noscript">
+    <div class="aw-404 aw-404-wrap container">
+        <img src="<?php echo G_STATIC_URL; ?>/common/no-js.jpg">
+        <p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+    </div>
+</noscript>

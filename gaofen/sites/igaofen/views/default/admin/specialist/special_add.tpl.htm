@@ -1,0 +1,65 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+    <div class="mod">
+        <div class="mod-head">
+            <h3>
+                <span class="pull-left"><?php _e('新建专辑'); ?></span>
+            </h3>
+        </div>
+        <div class="tab-content mod-content">
+                <form action="admin/specialist/create_special/" id="settings_form" enctype="multipart/form-data;charset=utf-8" method="post" onsubmit="return false">
+                <table class="table table-striped">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label"><?php _e('专辑名称'); ?>:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input class="form-control" name="special_name" type="text" value="<?php echo $this->special_info['special_name']; ?>" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label"><?php _e('专辑介绍'); ?>:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <textarea class="form-control" name="special_description"><?php echo $this->special_info['special_description']; ?></textarea>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label"><?php _e('专辑封面'); ?>:</span>
+                                <div class="col-sm-2">
+                                    <span class="mod-file">
+                                        <input type="button" class="btn btn-primary" value="专辑封面">
+                                        <input type="file" name="special_cover" exts="png|jpg|bmp|jpeg" class="mod-input-file">
+                                    </span><br>
+                                    <p class="filetext"></p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tfoot>
+                <tr>
+                    <td>
+                        <button class="btn btn-primary" onclick="history.back();">返回</button>
+                        <input type="button" value="<?php _e('保存'); ?>" class="btn btn-primary" onclick="AWS.ajax_post($('#settings_form'));" />
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+            </form>
+        </div>
+        <div class="mod-table-foot">
+            <?php echo $this->pagination; ?>
+        </div>
+    </div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>
