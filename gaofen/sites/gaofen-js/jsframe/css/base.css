@@ -1,0 +1,86 @@
+﻿.hidden {display : none !important}
+
+.sliders {
+    height: 320px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 610px;
+}
+.sliders li {
+    float: left;
+    width: 610px;
+}
+.sliders .tour-info {
+    bottom: 10px;
+    color: #999999;
+    left: 15px;
+    position: absolute;
+    z-index: 100;
+}
+.sliders .tour-info-bg {
+    background: none repeat scroll 0 0 #000000;
+    bottom: 0;
+    height: 70px;
+    left: 0;
+    opacity: 0.65;
+    position: absolute;
+    width: 610px;
+    z-index: 0;
+}
+
+.sliders .slide-nav a {
+    background: none repeat scroll 0 0 #666666;
+    border-radius: 4px 4px 4px 4px;
+    float: left;
+    height: 8px;
+    margin: 0 0 0 11px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 8px;
+}
+.sliders .slide-nav {
+    bottom: 11px;
+    position: absolute;
+    right: 11px;
+    z-index: 100;
+}
+
+.sliders .slide-nav .current, .sliders .slide-nav .current:hover {
+    background: none repeat scroll 0 0 #EE5C04;
+}
+.pagination {
+    margin: 20px auto 0;
+    overflow: hidden;
+}
+.pagination .page-wrap {
+    float: right;
+    position: relative;
+}
+.pagination .page {
+    position: relative;
+}
+.pagination .prev-disable {
+    background-position: -5px -2564px;
+}
+
+.pagination .prev, .pagination .prev-disable {
+    background-position: -5px -2529px;
+    margin-right: 14px;
+    padding-left: 13px;
+}
+
+.pagination a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 34px;
+    padding: 0 14px;
+    text-decoration: none;
+}

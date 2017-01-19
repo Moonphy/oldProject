@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>HoverDelay</title>
+	<link type="text/css" href="http://demo.gaofen.com/css/default/base.css" rel="stylesheet">
+	<link type="text/css" href="http://demo.gaofen.com/css/default/reg.css" rel="stylesheet">
+    <script type="text/javascript" src="gaofen.js"></script>
+	<style>
+		.center{
+			margin: 100px 0 0 100px;
+		}
+		#animate {background:yellow;width:5%}
+		#account2{
+			position: relative;		
+		}
+	</style>
+</head>
+
+<body>	
+	<div id="animate">----</div>
+	<div class="center" id="center">
+	<!--在外部显示-->
+		<div class="account" id="account">
+			<a class="caret" href="#">其他账号登录<i></i><span class="bg hidden"><span class="bg-in"></span></span></a>
+		</div>
+		<div class="dropdown hidden">
+			<div class="dropdown-in">
+				<div class="quick-login clearfix">
+				<a class="btn-qq" target="_blank" href="http://s.gaofen.com/account/qzoneLogin">用QQ帐号登录</a>
+				<a class="btn-weibo" target="_blank" href="http://s.gaofen.com/account/sinaLogin">用微博帐号登录</a>
+				</div>
+			</div>
+		</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<!--在内部显示-->
+	<div class="account" id="account2">
+		<a class="caret" href="#">其他账号登录<i></i><span class="bg hidden"><span class="bg-in"></span></span></a>		
+		<div class="dropdown hidden">
+			<div class="dropdown-in">
+				<div class="quick-login clearfix">
+				<a class="btn-qq" target="_blank" href="http://s.gaofen.com/account/qzoneLogin">用QQ帐号登录</a>
+				<a class="btn-weibo" target="_blank" href="http://s.gaofen.com/account/sinaLogin">用微博帐号登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<canvas width="300" height="300" id="demo"></canvas>
+	</div>
+<script>
+	$(document).ready(function(){
+		//alert($('div').get(0).tagName)
+		//alert($('div').get(0).nodeName)
+		//在外部显示
+		var $v = $('#account');
+		var aview = Gaofen.use('HoverDelay', {
+			view: $v[0],
+			inline : false,//在外部显示
+			hoverEvent : function(){
+				$v.addClass('hover');
+			},
+			innerViewReady : function(){
+				//console.log();
+			},
+			hoverView : $('div.dropdown:first')		
+		}).play(1);
+		
+		//在内部显示
+		Gaofen.use('HoverDelay', {
+			view: $('#account2')[0],
+			hoverView : $('#account2 .dropdown')
+		}).play(1);
+		
+	})
+</script>
+</body>
+</html>

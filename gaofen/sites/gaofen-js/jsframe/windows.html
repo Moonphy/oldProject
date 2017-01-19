@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" href="css/base.css" rel="stylesheet">
+	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" >
+	<!--link type="text/css" href="http://demo.gaofen.com/css/default/base.css" rel="stylesheet">
+	<link type="text/css" href="http://demo.gaofen.com/css/default/reg.css" rel="stylesheet"-->
+	<title>windows</title>
+    <script type="text/javascript" src="gaofen.js"></script>
+	<style>
+		.border{
+			margin-left : 100px;
+		}
+		.form{
+			margin-left : 100px;
+		}
+	</style>
+</head>
+
+<body>	
+<div id="formcon" class="hidden">
+	<div class="form">
+		<div class="row">
+			<div class="el">
+				<input type="text" value="{.username}" name="username" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="el">
+				
+				<input type="password" name="password" id="password" />
+			</div>
+		</div>
+		<div class="ext">
+			<a title="登录" class="btn-login" href="javascript:;" id="btnSubmit"><span>登录</span></a>
+		</div>
+	</div>
+			
+			
+		</div>
+	<div>
+		<br>
+		</br>		<br>
+		</br>		<br>
+		</br>		<br>
+		</br>		<br>
+		</br>		<br>
+		</br>
+	<div class="border" id="container">
+		<button rel="e:box">一般窗口</button>
+		|----|<button rel="e:box,f:t">带按钮窗口</button>
+		|----|<button rel="e:c,id:1,uid:2">提示对话框</button>
+		|----|<button rel="e:d">一般对话框</button>
+		|----|<button rel="e:alert,f:t">带按钮窗口</button>
+		|----|<button rel="e:tip,id:1,uid:2">提示对话框</button>
+	</div>
+			
+			
+		</div>
+	</div>
+<script>
+	$(function(){
+		var G = Gaofen,
+			mboxs = G.use('mbox');
+	
+	G.use('Event', {target:'body'}).reg('c',function(e){
+		mbox.anchorConfirm(e.src,'confirm',function(){});
+	}).reg('box', function(e){//一般窗口
+		e.lock(1);
+		var opt = {
+				appendTo : 'body'
+				//, mask : true
+				, title : 'test'
+				, cs : 'log-in'
+				, contentHtml : $.trim($('#formcon').html())
+				, actionMgr : true
+				, onactiontrig : function(e){
+					alert(e.data.e)
+				}
+				,username:'测试'
+				, closeable: true};
+			if(e.get('f')){
+				opt.footers  = '<a href="#" class="btn btn-primary" rel="e:save">Save changes</a>'
+			}
+			var _b = G.use('Modal', opt);
+			var box = _b.play(1);
+	}).reg('d', function(e){//带按钮窗口
+		var opt = $.extend({
+				closeable:true,
+                //对话框默认按钮
+                buttons : [
+                  {title: '确&nbsp;定',     id :'ok', cs:'btn-s1'},
+                  {title: '取&nbsp;消',     id :'cancel', cs:'btn-s1 btn-s1-gray'},
+                  {title: '&nbsp;是&nbsp;', id :'yes', cs:'btn-s1'},
+                  {title: '&nbsp;否&nbsp;', id :'no', cs:'btn-s1 btn-s1-gray'},
+                  {title: '关&nbsp;闭',     id :'close', cs:'btn-s1 btn-s1-gray'}
+                ]
+
+          }, {});
+
+	        var dlg = G.use('Dlg', opt);
+			dlg.play(1);
+	}).reg('alert', function(e){//带按钮窗口
+		mbox.alert('', 'alert')	
+	}).reg('tip', function(e){//tips
+		mbox.tip('success', 'success')	
+	});
+
+
+
+
+	var win = window;
+	//本地存储
+	var ls = function(page){
+		if (!('localStorage' in win)) {
+			/**
+			 * @ignore
+			 */
+			win.localStorage = (function() {
+				var documentElement, isIE = !!document.all;
+		
+				if (isIE) {
+					documentElement = document.createElement('div');
+					documentElement.style.display = 'none';
+					document.body.appendChild(documentElement);
+					documentElement.addBehavior('#default#userdata');
+				}
+		
+				return {
+					setItem: function(key, value, filename) {
+						if (isIE) {
+							documentElement.setAttribute(key, value);
+							documentElement.save(filename ? filename: key);
+						}
+						else {
+							win.globalStorage[location.hostname][key] = value;
+						}
+					},
+					getItem: function(key, filename) {
+						if (isIE) {
+							try{
+								documentElement.load(filename ? filename: key);
+								return documentElement.getAttribute(key);
+							}catch(e){
+								return '';
+							}
+						}
+		
+						return win.globalStorage[location.hostname][key] || '';
+					},
+					removeItem: function(key, filename) {
+						if (isIE) {
+							documentElement.removeAttribute(key);
+							documentElement.save(filename ? filename: key);
+						}
+						else {
+							win.globalStorage[location.hostname].removeItem(key);
+						}
+					}
+				};
+			})();
+		}
+
+		// window.onstorage = function(){
+		// 	alert('window.onstorage');
+		// 	console.log(arguments);
+		// }
+		if(window.addEventListener)
+		window.addEventListener("storage", function(){
+						alert('window.onstorage-d'+location.hash);
+			console.log(arguments);
+		}, false);  
+		else{
+       document.attachEvent("onstorage",function(e){
+       							alert('window.onstorage-ie'+location.hash);
+
+       });
+     }  
+
+		// window.onstoragecommit = document.onstoragecommit = function(){
+		// 	alert('document.onstorage');
+		// 	console.log(arguments);
+		// }
+		return {
+			page : page,
+
+			get : function(key, filename){
+				return localStorage.getItem(key, filename);
+			},
+			
+			set : function(key, value, filename){
+				return localStorage.setItem(key, value, filename);
+			},
+			
+			remove : function(key, filename){
+				return localStorage.removeItem(key, filename);
+			},
+			
+			initEx : function(dom){
+
+			}
+			
+		}
+	}()
+	window.ls = ls;
+
+	setTimeout(function(){
+		if(location.hash){
+			console.log('hash')
+			ls.set('bbb', 1);
+		}
+
+
+	}, 2000)
+
+	setTimeout(function(){
+		if(location.hash){
+			ls.remove('bbb');
+		}
+	}, 20000)
+		
+});
+	
+</script>
+</body>
+</html>

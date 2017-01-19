@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>模板</title>
+	<link type="text/css" href="http://demo.gaofen.com/css/default/base.css" rel="stylesheet">
+	<link type="text/css" href="http://demo.gaofen.com/css/default/reg.css" rel="stylesheet">
+    <script type="text/javascript" src="gaofen.js"></script>
+	<style>
+		.center{
+			margin: 100px 0 0 100px;
+		}
+		
+	    ul {list-style:none;margin:0px;} 
+		a {color : red}
+		#list {padding : 10px 0;}
+		li { height:20px;border : 1px }
+		.link {color : red}
+		a:link {color : red}
+	</style>
+</head>
+
+<body>	
+
+	<div class="center">
+		<div>点击下面链接：</div><br>
+		<div class="link">A:<a href="#"  rel="e:getList">一般模板</a></div>
+		<div id="list">
+			<ul></ul>
+		</div>
+		<br></br><br></br>
+		<div class="link">B:<a href="#"  rel="e:detail">嵌套模板</a></div>
+		<div id="detail"></div>
+		<br></br><br></br>
+		<div class="link">C:<a href="#"  rel="e:term">条件模板</a></div>
+		<div id="termCon"></div>
+		
+	</div>
+<script>
+	$(document).ready(function(){
+		var G = Gaofen,
+		
+			tpl = G.tpl,
+			
+			template = '<li id="{.id}">{.id}.{.username|escape}//过虑XSS</li>',
+			
+			detail = '<div>{.title}：{.content}</div>',
+			
+			termTemp = '<div>{.title}：[?.isTemp? <div>{.rar}</div>?]--[?!.ishas? {.falseresult} ?]</div>';
+		
+		G.use('action').reg('getList', function(e){//一般模板
+			var data = [{id:1, username:'小明'},{id:2, username:'王亮'},{id:3, username:'张和<div>XSS</div>'}],
+				htmls = [];
+				for(var i=0,k=data.length;i<k;i++){
+					htmls.push(tpl.parse(template, data[i]));
+				}	
+				$('#list ul').html(htmls.join(''));
+		}).reg('detail', function(){//嵌套模板
+			$('#detail').html(tpl.parse(detail, {
+				title : '内容包括',
+				content : '<span>{.con}</span>',
+				con : '我是嵌套内容'
+			}));
+		}).reg('term', function(e){//条件模板
+			$('#termCon').html(tpl.parse(termTemp, {
+				title : '条件模板',
+				isTemp : true,
+				rar : '这是判断结果',
+				ishas : false,
+				falseresult :'false写法'
+			}));
+		});
+		
+		
+	
+	});
+	
+</script>
+</body>
+</html>
