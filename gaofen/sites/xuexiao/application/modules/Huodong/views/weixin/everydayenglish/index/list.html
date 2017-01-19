@@ -1,0 +1,17 @@
+<?php foreach($today_voice_list as $i=>$row): ?>
+<li>
+    <div class="q-row">
+        <div class="ui-avatar fl"><img src="<?php echo $row->user->headimgurl; ?>" alt></div>
+        <div class="q-audio-wrap">
+            <div class="q-name"><span class="ml5 font-white"><?php F::O($row->user->nickname); ?></span>
+                <div class="fr"><span>播放 <span class="play_num"><?php F::O($row->views); ?></span></span></div>
+            </div>
+            <div class="q-audio" vrel="<?php echo $row->id ?>" rel="<?php echo $row->present()->getVoiceLink(); ?>"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/audio-bg.png" alt class="q-audio-bg">
+                <div class="q-audio-state"><span class="q-line-1"></span><span class="q-line-2"></span><span class="q-line-3"></span>
+                    <time><?php F::O($row->mil_sec) ?>"</time>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<?php endforeach; ?>

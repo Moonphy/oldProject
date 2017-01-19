@@ -1,0 +1,6 @@
+<?php if(F::inEnv('develop')): ?>
+<script type="text/javascript" src="/public/js/xxmobile.js"></script>
+<?php else: ?>
+<script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/js/xuexiaomobi.min.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+<?php endif; ?>
+

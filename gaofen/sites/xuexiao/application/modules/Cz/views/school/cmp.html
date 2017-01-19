@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+
+    <head>
+        <meta charset="UTF-8">
+        <title><?php echo F::siteTitle(SEO_XCZ_CMP_TITLE, array('sn1'=>isset($sList[0]['name'])?$sList[0]['name']:'', 'sn2'=>isset($sList[1]['name'])?$sList[1]['name']:'','sn3'=>isset($sList[2]['name'])?$sList[2]['name']:'','sn4'=>isset($sList[3]['name'])?$sList[3]['name']:'',)); ?></title>
+        <?php F::TPL('common/header.html', [], 'Cz'); ?>
+    </head>
+
+    <body class="comparison-page">
+        <div id="wrap">
+            <?php F::TPL('common/nav.html', [], 'Cz'); ?>
+            <div class="container page-content">
+                <div class="heading"><div class="title">学校对比</div></div>
+                <div class="comparison-table">
+                    <table id="cmpdata">
+                        <tbody>
+                            <tr class="tb-header">
+                                <td class="first-cell w100">对比学校</td>
+                                <?php for($i=0; $i<4; $i++): ?>
+                                <td<?php if($i==3): ?> class="last-cell"<?php endif; ?> rel="<?php F::O(!empty($sList[$i]['id'])?$sList[$i]['id']:''); ?>">
+                                    <div class="name-wrap">
+                                        <?php if(isset($sList[$i])): ?>
+                                        <span class="name"><a href="<?php echo F::URL('/Cz/school/view', array('id'=>$sList[$i]['id'])); ?>" target="_blank"><?php F::O($sList[$i]['name']); ?></a></span>
+                                        <span class="placeholder"></span><span class="close" rel="e:cmpDel"></span>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="switcher">
+                                    <?php if(isset($sList[$i])): ?>
+                                        <a href="#" rel="e:addcmp" class="trigger">换一所学校</a>
+                                    <?php else: ?>
+                                        <a href="#" rel="e:addcmp" class="trigger">添加一所学校</a>
+                                    <?php endif; ?>
+                                    </div>
+                                </td>
+                                <?php endfor; ?>
+                            </tr>
+                            <tr class="line">
+                                <td colspan="5" height="1"></td>
+                            </tr>
+                            <?php $_allFieldCount=count($fieldOrder); foreach($fieldOrder as $_k=>$_n): ?>
+                            <tr<?php if($_k==0): ?> class="first-row"<?php endif; ?><?php if($_k+1==$_allFieldCount): ?> class="last-row"<?php endif; ?>>
+                                <th scope="row"><?php F::O($_n); ?></th>
+                                <?php for($i=0; $i<4; $i++): ?>
+                                <?php if(empty($infoList[$i][$_n])): ?>
+                                <td>-</td>
+                                <?php else: ?>
+                                <td><?php echo $infoList[$i][$_n]; ?></td>
+                                <?php endif; ?>
+                                <?php endfor; ?>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <?php F::TPL('common/footer.html', [], 'Cz'); ?>
+        </div>
+        <?php F::TPL('common/footer_script.html', [], 'Cz'); ?>
+    </body>
+    <script type="text/javascript">
+        Gaofen.PD.set({'channel':'xuexiao','action':'cmp','hasPKfloat':false});
+    </script>
+</html>

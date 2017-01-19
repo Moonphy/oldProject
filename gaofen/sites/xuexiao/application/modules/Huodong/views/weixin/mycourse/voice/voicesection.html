@@ -1,0 +1,44 @@
+<?php if(!empty($list['list'])): ?>
+    <?php foreach($list['list'] as $row): ?>
+    <section class="flex">
+        <a href="<?php echo F::URL('huodong_m:huodong/weixin_mycourse_voice/view', ['id'=>$row->id]); ?>" class="show">
+            <img src="<?php echo $row->user->headimgurl; ?>" alt="" class="user-header"/>
+        </a>
+        <div class="user-record fr">
+            <div class="user-title" style="width: 120px;float: left;">
+                <span class="user-name"><?php F::O($row->user->nickname); ?></span>
+            </div>
+            
+            <div class="user-record-like">
+                <div class="record fl hidden" rel="e:play">
+                    <div id="<?php F::O($row->user->openid); ?>" class="teacher-info hidden"><?php F::O($row->user->info); ?></div>
+                </div>
+                 <div style="clear:both;"></div>
+				<div class="teacher-info fl"><span id="<?php F::O($row->user->openid); ?>-1"></span>&nbsp;<span id="<?php F::O($row->user->openid); ?>-2"></span><p id="<?php F::O($row->user->openid); ?>-3"></p></div>
+                
+            </div>
+
+            <div style="clear:both;margin-bottom:8px"></div>
+            <div style="float:left;margin-right:5px"><a href="http://m.qlchat.com/live/1900000047107070.htm?lshareKey=f3777d3ad483ae0075babbb63978cd02&from=singlemessage" class="url-btn btn-green">选手<br/>风采</a></div>
+        
+
+<div style="float:left" class="record-like <?php echo $row->present()->isFavByUser($uid, 'class'); ?>">
+                    <div rel="e:like,id:<?php F::O($row->id); ?>"  class="like iconfont <?php echo $row->present()->isFavByUser($uid, 'icon'); ?> "><?php echo $row->present()->isFavByUser($uid, 'text'); ?></div>
+                    <p class="total"><?php F::O($row->fav_num); ?></p>
+        </div>
+    <div style="float:left;margin-left:5px"><a href="<?php echo F::URL('huodong_m:huodong/weixin_mycourse_voice/view', ['id'=>$row->id]); ?>" class="url-btn btn-orange">我要<br/>留言</a>
+        </div>
+    </section>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<script>
+window.onload=function(){ 
+	for(var i=1;i<38;i++){
+		var tinfo="";
+		tinfo=document.getElementById(i).innerHTML.split("||");
+		document.getElementById(i+"-1").innerHTML=tinfo[0];
+		document.getElementById(i+"-2").innerHTML=tinfo[1];
+	}
+} 
+</script>

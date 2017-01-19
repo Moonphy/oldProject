@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>元宵抢红包</title>
+        <meta name="keyword" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" type="text/css" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/css/base.min.css?version=<?php echo STATIC_VERSION; ?>">
+        <!--if stylesheets
+        each stylesheet in stylesheets
+            link(rel="stylesheet", href="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/css/preview/.min.css")
+        -->
+    </head>
+    <body class="preview">
+        <div class="wrap">
+           <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/record-header.png" class="index-bg">
+           <?php if (!$isEnd): ?>
+               <a href="<?php F::O($makeCardLink); ?>" title="" class="btn-record">重新录音</a>
+           <?php endif; ?>
+           <div class="user-wrap">
+                <div class="ui-avatar" id="cardUserhead"><img src="<?php echo $card->headimgurl; ?>" alt=""/>
+                </div>
+                <div class="audio-wrap">
+                    <audio id="myaudio" src="<?php echo $card->getVoiceLink(); ?>"></audio>
+                    <div class="ui-record">
+                        <div class="icon fl"></div><span class="dot1 fl"></span><span class="dot2 fl"></span>
+                    </div>
+                </div>
+                <div class="user-greetings"><strong class="font-xlg"><?php echo $card->nickname; ?></strong></div>
+            </div>
+            <div class="ui-center">
+                <a class="btn btn-list" rel="e:getHbList">
+                    红包记录<img class="btn-list-img" src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/hongbao-btn.png" alt="">
+                </a>
+            <?php F::TPL('weixin/ny2016/common/hongbao.html', get_defined_vars(), 'huodong'); ?>
+            <a class="btn btn-share w90">让朋友也来拿红包</a>
+            </div><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/qrcode-h.png" class="qrcode-h w90">
+            <div class="fixed-bar">
+                <p>我的全球排行第<span><?php F::O($finalRank); ?></span>位</p><a href="<?php F::O($rankLink); ?>" class="btn btn-danger fr">查看榜单</a>
+            </div>
+            <!-- 分享提示-->
+            <div class="mask share-tips hidden">按这里发给大家哦~</div>
+            <!-- 压岁钱记录-->
+            <div class="mask hongbao-lists hidden" id="hongbao_lists">
+                <div class="mask-wrap">
+                    <div class="mask-content">
+                        <p>累计金额<br><b class="font-xxlg"><?php F::O($redpackAmount); ?></b><span class="font-lg">元</span><br>共收到红包<span id="hbamount"><?php F::O($redpackCount); ?></span>份</p>
+                        <a class="btn btn-green hidden" href="#" rel="e:rplist">详细记录</a>
+                    </div>
+                    <p class="font-sm">1.给您发祝福的朋友也有机会获得我们送出红包、学习资料等礼品。</p>
+                    <p class="font-sm">2.收到的红包将在金额大于1元时通过公众号自动转账到您的账户。</p>
+                    <p class="font-sm">本活动由 豆计划 举办，如有疑问请直接联系 豆计划公众号 alldoujihua</p>
+                    <div class="mask-footer"><a class="mask-btn btn-danger w60">继续加油哦</a></div>
+                </div>
+            </div>
+            <div class="mask visit-lists hidden" id="rplists">
+                    <div class="mask-wrap">
+                      <div class="mask-content">
+                        <ul>
+                        </ul>
+                      </div>
+                      <div class="mask-footer"><a class="mask-btn btn-danger w60">知道了</a></div>
+                    </div>
+            </div>
+            <?php F::TPL('weixin/ny2016/common/draw.html', get_defined_vars(), 'huodong'); ?>
+        </div>
+        <?php F::TPL('weixin/ny2016/common/script.html', get_defined_vars(), 'huodong'); ?>
+        <script type="text/javascript">
+            Gaofen.PD.set({router: 'shareCard',
+                link : {
+                    'inviteLink': '<?php F::O($inviteLink); ?>',
+                    'drawAction': '<?php F::O($drawLink); ?>'
+                },
+                redpackCount : '<?php F::O($redpackCount); ?>',
+                redpackAmount : '<?php F::O($redpackAmount); ?>',
+                redpacks:'<?php echo json_encode($redpacks); ?>',
+                drawStatus : '<?php F::O($drawStatus); ?>'
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>中国豆娃好声音</title>
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/champion.css?v=<?php echo STATIC_VERSION; ?>">
+</head>
+<body>
+<div class="main-wrap">
+    <div class="certificate-wrap">
+        <div class="header">
+            <div class="sort list4"></div>
+            <div class="header-wrap header-4">
+                <img src="<?php echo $uInfo->headimgurl; ?>" alt="" class="certificate-header"/>
+            </div>
+            <div class="zhou zhou-list4"><?php F::O($mInfo->present()->getHonourName($roundInfo['data'][0]['fav_num'], $mInfo->pre_rank)); ?></div>
+        </div>
+        <strong class="name"><?php F::O($uInfo->nickname);?>：</strong>
+        <p>恭喜你家萌娃获得2015年中国豆娃萌音大赛上周<?php F::O($mInfo->present()->getHonourName($roundInfo['data'][0]['fav_num'], $mInfo->pre_rank)); ?>！</p>
+        <p>特发此证，以资奖励</p>
+        <div class="organizing ">
+            豆计划组委会
+            <br/>
+            <time><?php F::O($roundInfo['date']); ?></time>
+        </div>
+        <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/img/list-doujihua.png" alt="" class="organizing-cover"/>
+    </div>
+    <div class="about-douwa">
+        <h4 >关于豆娃萌音大赛</h4>
+        <p>晒出豆娃萌声音，既有机会获得30-1000元奖金哦！中奖几率大大的有，快来参与吧。</p>
+        <a href="<?php echo F::URL('huodong_m:/huodong/weixin_bestvoice_voice/rule'); ?>" class="small-btn">了解更多</a>
+        <a href="<?php echo F::URL('huodong_m:/huodong/weixin_bestvoice_voice/record'); ?>" class="small-btn">我要参赛</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div class="container">
+    <ul class="breadcrumb">
+    <?php
+    	$total = count($navData);
+    	foreach($navData as $k=>$item):
+    ?>
+        <li>
+        <?php if($item['link']): ?>
+        <a href="<?php F::O($item['link']); ?>" target="<?php F::O($item['target']); ?>" title="<?php F::O($item['name']); ?>"><?php F::O($item['name']); ?></a>
+        <?php if($k<$total-1): ?><span class="divider">&gt;</span><?php endif; ?>
+    	<?php else: ?>
+		<span><?php F::O($item['name']); ?></span>
+    	<?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>

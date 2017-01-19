@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>邀请卡 - 海外生存大作战</title>
+    <?php F::TPL('weixin/staroutlook/common/script.html', get_defined_vars(), 'huodong'); ?>
+</head>
+<body class="card">
+    <img style="width:100%;" src="<?php F::O($link); ?>" />
+    <script type="text/javascript">
+        Gaofen.PD.set({
+            router: 'card'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="wrap rule"  id="taskrule"  v-show="partShow"  :transition="transitionName">
+    <div class="rule-task1">
+        <div class="title">
+            <h2 class="title-content"  >任务说明</h2>
+        </div>
+        <div class="content">
+            <ol>
+                <li>让孩子折一个纸船</li>
+                <li>给一个关键字，通过关键字到达一个网页</li>
+                <li>网页上有一句话</li>
+                <li>让孩子把那句话写在纸船上，然后拍照上传</li>
+            </ol>
+            <p>每周得到赞数最多的一个小朋友，还可以得到额外奖励哦。</p>
+            <p>不会折纸船的，可关注微信号<a href="#">逗计划</a>后发送关键字“纸船”，即可看到几种常见的纸船折法哦。</p>
+        </div>
+        <div class="ui-center mt10 mb40"><a href="javascript:;" title="开始任务" class="btn btn-start" v-on:click="progress('post', $event)"><i class="icon btn-right"></i>开始任务{{test.a}}</a></div>
+        <div class="ui-center mt10 mb40"><a href="javascript:;" title="开始任务" class="btn btn-start" v-on:click="progress('preview', $event)"><i class="icon btn-right"></i>查看我的进度</a></div>
+    </div>
+    <div class="tasks-list" v-show="showTaskLists">
+        <task-lists :task-items="taskItems" v-on:child-msg="preview"></task-lists>
+        <a href="#list" title="查看更多成功作品" class="btn btn-start btn-radius-1">查看{{count}}个成功作品</a>
+    </div>
+</div>

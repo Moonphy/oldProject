@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全城悬赏，寻找升学宗师</title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#222222">
+    <?php F::TPL('weixin/star2015/style.html', [], 'huodong') ?>
+</head>
+<body class="game-page">
+<div class="game" id="gameBox">
+    <div class="records-board">x<span id="score">0</span></div>
+    <div class="farm-grid">
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+        <div class="cell">
+            <div class="bubble">+1</div>
+            <div class="flower"></div>
+        </div>
+    </div>
+    <!-- Start: 倒计时-->
+    <div class="reciprocal hidden"><span class="frame1">3</span><span class="frame2">2</span><span class="frame3">1</span></div>
+    <!-- End: 倒计时-->
+    <!-- Start: 结果-->
+    <div class="tips" style="display:none;" id="tips">为高手收集<span>0</span>招武功招式</div>
+    <!-- End: 结果-->
+    <div class="tips" id="startTip">请点击屏幕上出现的武功招式</div>
+</div>
+<script src="http://file.gaofen.com/html/v5/js/zepto.min.js"></script>
+
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    var ti = <?php echo time(); ?>;
+    var playedKey = 'played_' + ti;
+    var weixinCfg = <?php echo $weixinCfg->toJson(); ?>;
+
+//    if(window.localStorage[playedKey]){
+//        location.href = "<?php echo F::URL('/huodong/weixin_star2015_card/show', ['open_id' => $gameId]); ?>";
+//    } else {
+        wx.config($.extend(weixinCfg,
+                {
+                    debug: false,
+                    jsApiList: [
+                        'checkJsApi',
+                        'hideMenuItems',
+                    ]
+                }));
+
+        wx.ready(function () {
+            wx.hideMenuItems({
+                menuList: [
+                    'menuItem:share:appMessage', //发送给朋友
+                    'menuItem:share:timeline', // 分享到朋友圈
+                    'menuItem:share:qq', //分享到QQ
+                    'menuItem:share:weiboApp', //分享到Weibo
+                    'menuItem:share:QZone', //分享到 QQ 空间
+                    'menuItem:copyUrl' // 复制链接
+                ],
+                success: function (res) {
+                    //alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            $(function(){
+                //$('#startTip').removeClass('hidden');
+                setTimeout(function(){
+                    $('#startTip').addClass('hidden');
+                    $('.reciprocal').removeClass('hidden').addClass('ani');
+                    setTimeout(function(){
+                        $('.reciprocal').addClass('hidden');
+                        new Attackmouse({
+                            lastTime : navigator.userAgent.indexOf('Android') > 0 ? 400 : 350,
+                            view : $('#gameBox')
+                        });
+                    }, 2500);
+                }, 1500);
+
+            });
+        });
+
+        var myFastClick = function(etype, el, fn){
+            var zel = $(el), dom = $(el).get(0), evt, preventDefault = true, stopPropagation = true;
+            if($.type(etype) === 'object'){
+                evt = etype.evt;
+                preventDefault = etype.hasOwnProperty('pd') ? etype.pd : preventDefault;
+                stopPropagation = etype.hasOwnProperty('sp') ? etype.sp : stopPropagation;
+            }else{
+                evt = etype;
+            }
+            $(el).on('touchend', function (e) {
+                var event = $.Event(evt);
+                //这里为了方便而已，其实该e.target
+                dom.dispatchEvent(event);
+                preventDefault && e.preventDefault();
+                stopPropagation && e.stopPropagation();
+            });
+            $(el).on(etype, fn);
+        }
+        var isPc = function(){
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+            }
+            return flag;
+        }
+        //var eventType = isPc() ? 'click' : 'tap';
+        var eventType = 'tap';
+        function Attackmouse(opt){
+            var  extend = $.extend || angular.extend;
+            extend(this, {
+                prevNums : ['','',''],
+                autoTimer : [],
+                ceil : 9,
+                max : 40,
+                maxSecond : 20,
+                lastTime : 300,
+                delayTime : 200,
+                nullshow : [3,5,9,14,18,22,27,31,36,38],
+                view : '',
+                step : 1,
+                second : 10,//当前时间
+                timer : null,
+                mouseTimer : null,
+                flowerShow : 'flower-show',
+                flowerHide : 'flower-hide',
+                bubbleFlash : 'bubble-flash',
+                actionBtn : 'actionBtn',
+                result : 0
+            }, opt);
+            this.init();
+        }
+        Attackmouse.prototype = {
+            init : function(){
+                var that = this;
+                $('#'+this.actionBtn).on(eventType, function(e){
+                    e.preventDefault();
+                    if($(this).text() === '开始'){
+                        that.start();
+                        $(this).text('暂停');
+                    }else if($(this).text() === '暂停'){
+                        clearInterval(that.timer);
+                        clearInterval(that.mouseTimer);
+                        $(this).text('继续');
+                    }else{
+                        $.proxy(that.start, that)();
+                        $(this).text('暂停');
+                    }
+
+                });
+                var flowers = this.view.find('.flower');
+                this.ceil = flowers.length;
+                flowers.each(function(i, evt){
+                    myFastClick(eventType, $(this), function(e){
+                        var jq = $(this), hiding = false;
+                        //$('#recode').text(jq.parent().attr('class'));
+                        if(jq.parent().hasClass(that.flowerHide)){//下落过程
+                            //alert(+new Date - parseInt(jq.data('delay')));
+                            if(+new Date - parseInt(jq.data('delay')) < that.delayTime)
+                                hiding = true;
+                        }
+                        if(hiding || jq.closest('.'+that.flowerShow).length){
+                            //$('#recode').text($('#recode').text()+(+new Date))                            
+                            that.success($(this));
+                            that.result++;
+                            that.setResult();
+                            //that.createMouse();
+                        }
+                    });
+                })
+                this.ceilDoms = flowers;
+
+                this.reset();
+
+                this.start();
+            },
+
+            reset : function(){
+                this.second = this.maxSecond;
+                this.result = 0;
+                this.max = 40;
+                this.setSecond();
+                this.setResult();
+                this.clearMouse();
+            },
+
+            start : function(){
+                if(this.view.find('.'+this.flowerShow).length === 0)
+                    this.createMouse(false);
+                this.timer = setInterval($.proxy(this.cutSecond, this), 1000);
+                this.mouseTimer = setInterval($.proxy(this.createMouse, this), 400);
+            },
+
+
+
+            cutSecond : function(){
+                this.second--;
+                this.setSecond();
+                if(this.second === 0){
+                    //this.gameOver();
+                    return;
+                }
+            },
+
+            setSecond : function(){
+                this.view.find('.second').text(this.second);
+            },
+
+            setResult : function(){
+                this.view.find('#score').text(this.result * this.step);
+            },
+
+            clearMouse : function(){
+                this.view.find('.bmouse').removeClass();
+            },
+
+            clearThisMouse : function(dom){
+                dom.data('delay', +new Date);
+                this.setClearClassFast(dom.parent().removeClass(this.flowerShow).addClass(this.flowerHide));
+
+            },
+
+            setClearClassFast : function(dom){
+
+                var fastHide = setTimeout(function(){
+                    dom.attr('class','cell');
+                    //dom.data('fastHide', '');
+                }, 200);
+                this.autoTimer[dom.index()] = fastHide;
+                //dom.data('fastHide', fastHide);
+            },
+
+            setClearClass : function(dom){
+                var p = dom.parent();
+                clearTimeout(this.autoTimer[p.index()]);
+                setTimeout(function(){
+                    //totalC++;
+                    p.attr('class','cell');
+                }, 600);
+
+            },
+
+            getNum : function(){
+
+                var num =  Math.ceil(Math.random()*this.ceil);
+
+                //if(this.prevNums.length === 0) return num;
+                if(this.prevNums[0] === num || this.prevNums[1] === num || this.prevNums[2] === num) return this.getNum();
+                else{
+                    this.prevNums[0] = this.prevNums[1];
+                    this.prevNums[1] = this.prevNums[2];
+                    this.prevNums[2] = num;
+                    return num;
+                }
+            },
+
+            getFlowerColor : function(num){
+                if(num % 2 === 0){
+                    return 'flower-blue';
+                }else if(num % 3 === 0){
+                    return 'flower-red';
+                }else{
+                    return 'flower-purple';
+                }
+            },
+
+            createMouse : function(isTrue){
+
+                var num = this.getNum(), that = this;
+                //this.clearMouse();
+                if(this.max >0){
+                    --this.max;
+                    if($.inArray(this.max, this.nullshow) > -1) return;
+                    var color = this.getFlowerColor(num);
+                    var dom = this.ceilDoms.eq(num-1);
+                    dom.parent().addClass(color).addClass(this.flowerShow);
+
+                    var s = +new Date;
+                    var fastHide = setTimeout(function(){
+                        that.clearThisMouse(dom);
+                    }, that.lastTime);
+                    this.autoTimer[dom.parent().index()] = fastHide;
+                }else{
+                    clearInterval(this.timer);
+                    clearInterval(this.mouseTimer);
+                    setTimeout(function(){that.gameOver();},1000);
+                }
+            },
+            gameOver : function(){
+
+                $('#'+this.actionBtn).text('开始');
+                $('#tips').show('slow').find('span').text(this.step*this.result);
+                var tis = +new Date;
+                $.post("<?php echo F::URL('mobi:/huodong/weixin_star2015_game/record'); ?>", {id : "<?php echo $gameId?>", score: this.result}, function(r){
+                    if(typeof(r) === 'string') r = JSON.parse(r);
+                    if(r.errcode == '0'){
+                        window.localStorage[playedKey] = 1;
+                        if(+new Date - tis > 3500) location.href = "<?php echo F::URL('mobi:/huodong/weixin_star2015_card/show', ['id' => $gameId]); ?>";
+                        else
+                            setTimeout(function(){
+                                location.href = "<?php echo F::URL('mobi:/huodong/weixin_star2015_card/show', ['id' => $gameId, 'just_play' => 1]); ?>";
+                            }, 3500 - (+new Date - tis));
+
+                    }else{
+                        //uploadFail(r.errmsg || '图片上传失败，请重新上传');
+                        location.reload();
+                    }
+                })
+                //console.log('游戏结束,本次得分：'+this.step*this.result);
+            },
+            success : function(dom){
+                dom.parent().removeClass(this.flowerShow).addClass(this.flowerHide).addClass(this.bubbleFlash);
+                this.setClearClass(dom);
+            }
+        };
+//    }
+
+</script>
+<?php F::TPL('/common/gtm.html', []) ?>
+</html>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+    <head>
+        <title><?php F::SEO()->echoTitle(); ?></title>
+        <meta charset="utf-8">
+        <meta name="keywords"content="<?php F::SEO()->echoKeyword(); ?>">
+        <meta name="Description"content="<?php F::SEO()->echoDesc(); ?>">
+        <?php F::TPL('common/header.html', [], 'Gz') ?>
+    </head>
+    <body class="guide-page">
+        <div id="wrap">
+        <?php F::TPL('common/nav.html', [], 'Gz') ?>
+            <div class="container page-content">
+
+            <?php echo $form->open('form', F::URL('/gz/guide/result'), ['method' => 'GET'], ['id' => 'select_form']); ?>
+                <!-- Start: 估分选校-->
+                <div class="guide-tools">
+                    <div class="tool-details">
+                        <div class="hd">估分选校</div>
+                        <div class="bd">
+                            <p>请输入信息以便为您精准推荐学校：</p>
+                            <div class="form">
+                                <div class="form-row">
+                                    <label class="control-label">考生所在区域：</label>
+                                    <div class="controls">
+                                        <?php echo $form->simulatselect('district_id', $district) ?>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="control-label">参考年份：</label>
+                                    <div class="controls">
+                                        <?php echo $form->simulatselect('year', $years, $defaultYear) ?>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="control-label">中考总分/估分：</label>
+                                    <div class="controls">
+                                        <?php echo $form->text('low_mark', null, ['class' => "input-text", 'placeholder' => "请输入分数"]) ?>
+                                    </div>
+                                    <div class="help-inline hidden">中考总分/估分须为1-810之间的正整数</div>
+                                </div>
+                                <div class="actions">
+                                    <label class="btn btn-primary hidden">
+                                        <button >去选校</button>
+                                    </label>
+                                    <span class="btn btn-disabled">去选校</span>
+                                    <div class="help-inline hidden">请选择学校所在区域</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End: 估分选校-->
+                <?php echo $form->close(); ?>
+            </div>
+        <?php F::TPL('common/footer.html', [], 'Gz') ?>
+        </div>
+        <?php F::TPL('common/footer_script.html', [], 'Gz'); ?>
+    </body>
+    <script type="text/javascript">
+        Gaofen.PD.set({'channel':'xuexiao','action':'select'});
+    </script>
+</html>

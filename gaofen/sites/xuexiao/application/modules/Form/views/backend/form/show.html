@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>自定义表单-管理后台-表单概览</title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <?php F::TPL('/backend/form/style.html', [], 'form') ?>
+</head>
+<body class="dashboard-page">
+<?php F::TPL('/backend/common/nav.html', [], 'form') ?>
+<div class="page-container">
+    <?php F::TPL('/backend/form/menu.html', compact('form'), 'form') ?>
+    <div class="main-content form-dashboard">
+        <div class="summary-info"><span><i class="fa fa-clock-o"></i>创建时间：<?php echo $form->created_at ?></span>
+            <span><i class="fa fa-key"></i>填写者权限：公开所有人填写</span>
+            <span><i class="fa fa-refresh fa-spin"></i>已开启，正在收集...</span></div>
+    </div>
+</div>
+<script src="/public/js/customform/customform.js"></script>
+</body>
+</html>

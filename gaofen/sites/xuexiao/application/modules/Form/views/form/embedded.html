@@ -1,0 +1,26 @@
+    //提供给后台直接使用
+    ;(function(){
+    var iframeUrl = '<?php echo my_domain().F::URL('/form/form/show', ['id' => $id, 'mobile' => $mobile]) ?>';
+    var height = '<?php echo $height; ?>'
+    var domain = '<?php echo my_domain(); ?>'
+
+    var iframe = document.createElement('iframe');
+    iframe.id= 'gf_custom_frame';
+    iframe.src = iframeUrl;
+    iframe.style.height = height + 'px';
+    iframe.style.width = '100%';
+    iframe.onload = function(){
+    window.addEventListener("message", function( event ) {
+    console.log(event);
+    iframe.style.height = (event.data.height || 400) + 'px';
+    }, false );
+    (function(){
+    document.getElementById("gf_custom_frame").contentWindow
+    .postMessage({
+    host : location.host,
+    msg : 'connect'
+    }, domain);
+    })();
+    }
+    document.body.appendChild(iframe);
+    })();

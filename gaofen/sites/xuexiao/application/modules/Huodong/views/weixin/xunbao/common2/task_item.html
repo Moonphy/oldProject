@@ -1,0 +1,17 @@
+<div class="wrap preview" v-show="partShow" id="taskpreview"  :transition="transitionName">
+    <div class="div-wrap">
+        <div class="div-top">
+            <div class="ui-avatar"><img :src="task.user.headimgurl" alt=""/>
+            </div>
+            <p>{{task.user.nickname}}</p>
+        </div>
+        <div class="input-file"><img :src="task.path" alt="{{task.alt}}">
+            <p></p>
+        </div>
+        <a href="" title="支持送钻" class="btn btn-start" v-show="!isFav" v-on:click="markfav($event)"><i class="icon btn-left"></i><i class="icon btn-right"></i>支持送颗钻</a>
+    </div>
+    <div class="div-list">
+        <a href="#rank" title="本周排名" class="btn btn-start btn-radius-1 btn-block" v-show="isme"><i class="icon icon-right"></i>本周排名<span>{{weeklyRank}}</span>位</a>
+        <a href="javascript:;" title="拉票攻略" class="btn btn-start btn-radius-1 btn-block" v-on:click="showpopup($event)"><i class="icon icon-right"></i>拉票攻略</a>
+    </div>
+</div>

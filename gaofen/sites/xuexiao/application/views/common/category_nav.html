@@ -1,0 +1,19 @@
+<div class="heading">
+    <div class="title">分类导航</div>
+</div>
+<?php if (isset($category_nav)): ?>
+
+   <?php foreach ($category_nav as $level1_id => $category_level1): ?>
+    <div class="hd">
+        <a href="<?php echo F::URL('/Entry/list', array('school_type'=>$category_level1['school_type']), array('cid'=>$category_level1['id'])); ?>" target="_blank"><?php echo $category_level1['name'] ?></a>
+    </div>
+
+    <div class="tag-list">
+        <?php foreach ($category_level1['sub_category'] as $level2_id => $category_level2): ?>
+            <a href="<?php echo F::URL('/Entry/list', array('school_type'=>$category_level2['school_type']), array('cid'=>$category_level2['id'])); ?>" target="_blank"><?php echo $category_level2['name'] ?></a>
+        <?php endforeach ?>
+    </div>
+
+    <?php endforeach ?>
+
+<?php endif ?>

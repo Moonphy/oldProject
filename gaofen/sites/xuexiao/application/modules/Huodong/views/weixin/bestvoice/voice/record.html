@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>中国豆娃好声音</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/record.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+</head>
+<body class="record">
+<p class="tip icon-recording">录取声音中..</p>
+<div class="record-wrap" id="record_wrap">
+    <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/img/record-wrap.png" alt="" class="record-wrap-bg"/>
+    <p class="duration">还没生成录音作品</p>
+    <div class="audio-wrap icon-recording hidden" id="myaudio_parent">
+        <audio src="" id="myaudio"></audio>
+    </div>
+
+</div>
+<?php if(!$isEnd): ?>
+<!--<input type="button" id=" record" class="icon-weixin" value="按住录音"/>-->
+<a href="javascript:void(0);" id="btn-recording" class="icon-recording btn hidden">按住录音</a>
+<p class="record-less-than" id="record_tips">录音时长最多1分钟</p>
+<a href="javascript:void(0);" id="btn-commit" class="btn btn-commit hidden">提交录音</a>
+<a href="javascript:void(0);" id="btn-reset" class="btn btn-reset hidden">删除录音，重新录制</a>
+<?php else: ?>
+<p class="record-less-than" id="record_tips">活动已结束</p>
+<?php endif; ?>
+<?php F::TPL('weixin/bestvoice/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/bestvoice/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'voice':{'link':'<?php echo $info?$info->present()->getVoiceLink():""; ?>', 'times':'<?php echo $info?$info->mil_sec:""; ?>'}, 'uri':<?php echo $ajaxUri; ?>, 'router' : 'record'});
+</script>
+</body>
+</html>

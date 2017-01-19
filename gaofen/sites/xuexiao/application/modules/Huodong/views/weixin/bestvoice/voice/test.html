@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!-- <script type="text/javascript" src="http://file.gaofen.com/html/v5/js/weixin-init.min.js"></script> 
+-->
+<script type="text/javascript" src="/public/js/weixin/wxinit.js"></script>
+<script type="text/javascript" src="/public/js/gmu/zepto.min.js"></script>
+<script type="text/javascript">
+	var shareData = <?php echo $wxConfig; ?>;
+</script>
+<style>
+	.voiceBtn{
+		width:100px;
+		height:60px;
+		background: green;
+		color:white;
+		margin-top : 20px;
+		text-align: center;
+		font-size: 20px;
+	}
+	.disabled{
+		background: #5A5A57;
+	}
+	.mt100{
+		margin-top : 20px;
+	}
+	.music{
+		width: 100px
+		height : 120px;
+	}
+	.playing{
+		background: #CA744B;
+	}
+</style>
+</head>
+
+<body>
+<div id="recordstart"   class="voiceBtn">开始录音</div>
+ <div id="recordstop"  class="voiceBtn">停止录音</div>
+ <div id="playrecord"  class="voiceBtn">预览播放</div>
+ <div id="uploadrecord"  class="voiceBtn">提交上传</div>
+ <div class="mt100">已录音数：<span id="recordnum">0</span><div>
+ <div>播放数：<span id="playnum">0</span><div>
+ <div>上传数：<span id="uploadnum">0</span><div>
+ <div id="playmusic"  class="voiceBtn">播放录音</div>
+ <audio id="music" src="" controls="controls"  class="mt100 music"></audio>
+ <script type="text/javascript">
+ 	shareData['debug'] = false;
+ 	(function(){
+ 		var recording = false, recordIds = [], currentIndex = 0, uploadList = [], serverIds = [];
+
+        GWX.wxready({debug : false}, function(e){
+	        $('#recordstart').on('click', function(e){
+	        	if(recording) return;	        	
+       				recording = true;
+       				wx.startRecord();
+       			$(this).addClass('disabled');
+	        });
+	        $('#recordstop').on('click', function(e){
+                wx.stopRecord({
+                    success: function (res) {
+                        var localId = res.localId;
+                        recordIds.push(localId);
+                        $('#recordnum').text(recordIds.length);
+                        // if(self.records.length < 3)
+                        //     document.getElementById('recordstart').click();
+                    }
+                });
+                recording = false;
+                $('#recordstart').removeClass('disabled');
+	        });
+
+	        //使用微信播放
+	       	$('#playrecord').on('click', function(e){
+
+	        	if(recording) return;
+	        	if(currentIndex <= recordIds.length){
+	                wx.playVoice({
+	                    localId: recordIds[currentIndex] // 需要播放的音频的本地ID，由stopRecord接口获得
+	                });	 
+	                currentIndex++; 
+	                $('#playnum').text(currentIndex+'段');    		
+	        	}	        	
+	        });
+
+
+	       	$('#uploadrecord').on('click', function(e){
+	        	if(recording) return;	
+	        	if(recordIds.length  === 0) return;
+	        	for(var i=0;i<recordIds.length;i++){
+	        		uploadList.push(recordIds[i]);
+	        	}
+	        	uploadServer();        	
+
+	        });
+
+	        $('#playmusic').on('click', function(e){
+	        	if($(this).hasClass('playing')){
+	        		$('#music')[0].pause();
+	        		$(this).removeClass('playing');
+	        	}else{
+	        		$('#music')[0].play();
+	        		$(this).addClass('playing');
+	        	}
+	        	
+	        })
+
+
+
+            wx.onVoiceRecordEnd({
+                // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+                complete: function (res) {
+                    var localId = res.localId; 
+                    recordIds.push(localId);
+                    recording = false;
+                    $('#recordnum').text(recordIds.length);
+                    $('#recordstart').trigger('click');
+                }
+            });
+
+            wx.onVoicePlayEnd({
+                success: function (res) {
+                    if(currentIndex < recordIds.length){                       
+                        setTimeout(function(){$('#playrecord').trigger('click');},0);
+                    }else{
+                    	setTimeout(function(){
+                    		currentIndex = 0;
+                    	}, 5000);
+                    }
+                }
+            });
+
+
+	    });
+
+        var uploadServer = function(){
+        	if(uploadList.length == 0){
+        		if(serverIds.length){
+        			var media_id = serverIds.join(',');
+
+        			$.ajax({
+					   type: "GET",
+					   url: "http://m.gaofen.com/huodong/weixin_bestvoice_voice/upload",
+					   data: {
+					   	media_id : media_id
+					   },
+					   success: function(res){
+					        serverIds = [];
+					        if($.type(res) === 'string'){
+					        	res = JSON.pares(res);
+					        }
+					        $('#music').attr('src', res.rst.voice);
+					   }
+					});
+     //    			$.getJSON("http://m.gaofen.com/huodong/weixin_bestvoice_voice/upload?media_id="+media_id+"&callback=?", function(data){
+     //    				serverIds = [];
+     //    				$('#music').src = 'http://dev.phpmvc.com/5.mp3';
+					// });
+					// $('#music').attr('src', 'http://dev.phpmvc.com/3.mp3');
+        		}
+        		return;
+        	}
+        	var ls = uploadList.shift();
+    		wx.uploadVoice({
+                localId: ls, // 需要上传的音频的本地ID，由stopRecord接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                    success: function (res) {
+                    var serverId = res.serverId; // 返回音频的服务器端ID
+                    serverIds.push(serverId);
+                    $('#uploadnum').text(Number($('#uploadnum').text())+1);
+                    uploadServer();
+                }
+            });
+        }
+
+ 	})();
+
+ 	$('#music').attr('src', 'http://dev.phpmvc.com/5.mp3');
+ </script>
+</body>
+
+</html>

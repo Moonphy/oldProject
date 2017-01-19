@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/match/css/match.css?v=<?php echo STATIC_VERSION; ?>">
+    <title>谁和我最Match?</title>
+</head>
+<body>
+<img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/match/img/header-bg.png" alt="" class="header-img"/>
+<div id="wrap">
+    <input type="file" id="uploadfile" accept="image/*" class="hidden">
+    <!-- 初始显示的文案-->
+    <p class="copywriter<?php if($info): ?> copywriter-end<?php endif; ?> tc"><?php F::O($tips); ?></p>
+    <!-- 匹配完成后文案内容改为-->
+    <div class="content-wrap">
+        <div class="teacher">
+            <div class="teacher-img" id="teacher_img">
+                <img id="face1" src="<?php echo !empty($info['face1']) ? F::imageUrl($info['face1'], '180_180'):$face_default; ?>" alt="教师照片"/>
+            </div>
+        </div>
+        <?php if(empty($info['compareResult'])): ?>
+        <!-- 初始的pk-->
+        <div class="pk"></div>
+        <?php else: ?>
+        <!-- 匹配完成后隐藏pk,显示pk-match以及百分比-->
+        <div id="pkmatch" class="pk-match tc"><?php F::O(round($info['compareResult']['similarity'])); ?>%</div>
+        <?php endif; ?>
+        <div class="student">
+            <div class="student-img" id="student_img">
+                <img id="face2" src="<?php echo !empty($info['face2']) ? F::imageUrl($info['face2'], '180_180'):$face_default; ?>" alt="学生照片"/>
+            </div>
+        </div>
+    </div>
+    <div class="pic-for">教师照片</div>
+    <div class="pic-for">个人照片</div>
+    <?php if(empty($info)): ?>
+    <!-- 初始显示上传教师照片按钮-->
+    <a href="javascript:void(0);" class="btn submit hidden" id="teacherbtn">立即上传教师照片
+    </a>
+    <!-- 教师照片上传完后显示上传个人照片按钮-->
+    <a href="javascript:void(0);" class="btn submit hidden" id="studentbtn">立即上传个人照片
+    </a>
+    <!-- 教师照片上传跟个人照片上传完后显示分享按钮-->
+    <a href="javascript:void(0);" id="sharebtn" class="btn share hidden">分享出去</a>
+
+    <a href="javascript:void(0);" id="reset" class="btn share hidden">重新上传</a>
+    <?php else: ?>
+        <a href="<?php echo F::URL('huodong_m:/huodong/weixin_match_who/index'); ?>" class="btn submit">我也要Match</a>
+    <?php endif; ?>
+</div>
+<div class="mask hidden" id="waitting">
+    <div class="loading-fixed">
+        <div class="icon-loading">
+            <div class="dot dot1"><i class="dot-t"></i><i class="dot-b"></i></div>
+            <div class="dot dot2"><i class="dot-t"></i><i class="dot-b"></i></div>
+            <div class="dot dot3"><i class="dot-t"></i><i class="dot-b"></i></div>
+            <div class="dot dot4"><i class="dot-t"></i><i class="dot-b"></i></div>
+        </div>
+        <p>正在上传中...</p>
+    </div>
+</div>
+<canvas id="canvas" class="hidden"></canvas>
+<?php F::TPL('weixin/match/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'face1':'<?php echo $face1; ?>', 'router':'index'});
+</script>
+</body>

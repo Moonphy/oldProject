@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>元宵抢红包</title>
+        <meta name="keyword" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" type="text/css" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/css/base.min.css?version=<?php echo STATIC_VERSION; ?>">
+        <!--if stylesheets
+        each stylesheet in stylesheets
+            link(rel="stylesheet", href="../css/index/.min.css")
+        -->
+    </head>
+    <body class="index">
+        <div class="wrap"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/index-bg-1.png" class="index-bg">
+            <div class="index-start">
+                <div class="ui-tips">
+                    <div class="ui-tips-text">点击参与</div>
+                    <div class="triangle"></div>
+                </div>
+                <a href="<?php  F::O($loginLink); ?>" class="btn btn-start" id="touchStrart">
+                    <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/tap-bg.png" alt="" class="index-bg">
+                </a>
+            </div>
+            <!--div.index-p-1
+            h2 活动介绍
+            div 您可以录下孩子拜年的语音，替孩子向亲戚朋友讨要压岁钱。他们也将得到我们送出的
+                b 现金、学习资料
+                | 等小小心意。
+            -->
+            <div class="show-hongbao">
+                <div class="title">
+                    <h2 class="title-content">活动介绍</h2>
+                </div>
+                <div class="content">
+                    <p>元宵节，录一段孩子祝福语，拿红包！</p>
+                    <p>元宵节，录一段孩子祝福语，拿红包！</p>
+                    <p>元宵节，录一段孩子祝福语，拿红包！</p>
+                </div>
+            </div>
+            <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/qrcode-h.png" alt="" class="qrcode-h w90">
+
+        </div>
+        <div class="fixed-bar">
+            <p><a href="<?php F::O($loginLink); ?>" style="color:#fff;">点击拿现金红包</a></p>
+            <a href="<?php F::O($ruleLink); ?>" class="btn btn-danger fr">活动规则</a>
+        </div>
+        <?php F::TPL('weixin/ny2016/common/script.html', get_defined_vars(), 'huodong'); ?>
+        <script type="text/javascript">
+            Gaofen.PD.set({router: 'index', link : {loginLink : '<?php F::O($loginLink); ?>'}, isEnd : '<?php F::O(json_encode($isEnd)); ?>'});
+        </script>
+    </body>
+</html>

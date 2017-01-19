@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>页面不存在-中学库-高分网广州站</title>
+        <meta http-equiv="refresh" content="3;URL=<?php echo F::getLink('xcz'); ?>">
+        <?php F::TPL('common/style.html');?>
+    </head>
+
+    <body class="wiki-page">
+        <div id="wrap">
+            <!-- Start: 顶部导航-->
+            <!-- End: 页头-->
+            <?php F::TPL('common/baike_header.html');?>
+            <div class="container page-content">
+                <!-- Start:页面不存在-->
+                <div class="alert alert-error"><i class="ico"></i>
+                    <div class="info">
+                        <h3>抱歉，您所访问的页面不存在</h3>
+                        <p><span class="hl">3</span>秒后，自动跳转到<a href="<?php echo F::getSiteHost('xcz'); ?>">首页</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- End:页面不存在-->
+            </div>
+            <?php echo F::TPL('common/footer.html') ?>
+        </div><a title="返回顶部" href="javascript:void(0);" onfocus="this.blur();" class="gotop">返回顶部</a>
+        <?php echo F::jsFooterCfg(); ?>
+    </body>
+</html>

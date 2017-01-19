@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+    <head>
+        <title><?php F::SEO()->echoTitle(); ?></title>
+        <meta charset="utf-8">
+        <meta name="keywords"content="<?php F::SEO()->echoKeyword(); ?>">
+        <meta name="Description"content="<?php F::SEO()->echoDesc(); ?>">
+        <?php F::TPL('common/header.html', [], 'Gz') ?>
+    </head>
+    <body class="guide-page">
+        <div id="wrap">
+        <?php F::TPL('common/nav.html', [], 'Gz') ?>
+            <div class="container page-content">
+                <?php echo $form->open('form', F::URL('/gz/guide/history'), ['method' => 'GET'], ['id' => 'select_form']); ?>
+                <!-- Start: 历年分数线查询-->
+                <div class="guide-tools guide-tools-query">
+                    <div class="tool-details">
+                        <div class="hd">历年分数线查询</div>
+                        <div class="bd">
+                            <div class="form">
+                                <div class="form-row form-row-year">
+                                    <label class="control-label">年份：</label>
+                                    <div class="controls">
+                                        <?php echo $form->simulatselect('year', $years, $defaultYear) ?>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="control-label">录取批次：</label>
+                                    <div class="controls">
+                                        <?php echo $form->simulatselect('batch_id', ['不限', $batch], 2) ?>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="control-label">招生范围：</label>
+                                    <div class="controls">
+                                        <?php echo $form->simulatselect('range_id', ['不限', $admitRange], 0) ?>
+                                    </div>
+                                </div>
+                                <div class="form-row" id="luqu_sel">
+                                    <label class="control-label">录取类别：</label>
+                                    <div class="controls">
+                                        <?php echo $form->simulatselect('luqu_id', ['不限', $luqu_type], 0) ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 查询结果-->
+                            <div class="table data-table">
+                                <table>
+                                    <?php if (V('g:year', $defaultYear) > 2013): ?>
+                                        <?php F::TPL('/guide/post.2013.history.html',['history' => $history], 'Gz') ?>
+                                    <?php else: ?>
+                                        <?php F::TPL('/guide/pre.2013.history.html',['history' => $history], 'Gz') ?>
+                                    <?php endif ?>
+                                </table>
+                            </div>
+                            <div class="return"><a href="<?php echo F::URL('/Gz/Guide/Index') ?>">返回至选校指南</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End: 历年分数线查询-->
+                <?php echo $form->close(); ?>
+            </div>
+        <?php F::TPL('common/footer.html', [], 'Gz') ?>
+        </div>
+        <?php F::TPL('common/footer_script.html', [], 'Gz'); ?>
+    </body>
+    <script type="text/javascript">
+        Gaofen.PD.set({'channel':'xuexiao','action':'history'});
+    </script>
+</html>

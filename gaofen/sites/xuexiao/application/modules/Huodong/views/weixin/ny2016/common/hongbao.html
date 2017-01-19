@@ -1,0 +1,24 @@
+<div class="show-hongbao">
+    <h2 class="title">祝福团</h2>
+    <?php if (empty($favList)): ?>
+        <p>还没有人来收祝福，赶快把祝福送给亲朋好友吧。</p>
+        <!-- <a class="btn btn-share">立即分享</a> -->
+
+    <?php else: ?>
+        <div class="speak-show hidden" id="popupTips">"恭喜发财"</div>
+        <div id="silder" class="avatar-groups-wrap" >
+            <ul class="avatar-groups">
+                <?php foreach ($favList as $item): ?>
+                    <li>
+                        <div class="ui-avatar"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/img/dummies/avatar_60x60.png" _src="<?php echo $item['headimgurl'] ?>" alt=""/>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="dot-groups"></div>
+
+    <?php endif; ?>
+    
+</div>
+<!-- <a class="btn btn-share">立即分享</a> -->

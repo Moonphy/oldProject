@@ -1,0 +1,21 @@
+<div class="container">
+    <ul class="breadcrumb">
+        <?php if (isset($breadcrumb)): ?>
+
+            <?php foreach ($breadcrumb as $index => $bread): ?>
+
+                <?php if (count($breadcrumb) == $index + 1): ?>
+
+                    <li class="active"><span><?php F::O($bread['name']) ?></span></li>
+                <?php else: ?>
+
+                    <li><a href="#" target="_blank" title="<?php F::O($bread['name']) ?>">
+                        <?php F::O($bread['name']) ?></a>
+                        <span class="divider">&gt;</span>
+                    </li>
+                <?php endif ?>
+
+            <?php endforeach ?>
+        <?php endif ?>
+    </ul>
+</div>

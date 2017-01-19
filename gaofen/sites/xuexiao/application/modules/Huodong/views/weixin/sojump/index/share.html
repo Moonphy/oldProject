@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>广州课外辅导满意度</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            font-size: 10px;
+        }
+        .header-img{
+            width: 100%;
+            min-height: 100px;
+            display: block;
+        }
+        .container{
+            width: 100%;
+            height: 80%;
+            background-image: url("<?php echo GAOFEN_STATIC; ?>/html/weixin/sojump/img/container.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-color: #21d2fe;
+            margin: 0;
+            position: relative;
+        }
+        .ui-avatar{
+            width: 10rem;
+            height: 10rem;
+            border-radius: 100%;
+            border: .3rem solid #21d2fe;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: absolute;
+            top: -5rem;
+            left: 5rem;
+        }
+        .ui-avatar img{
+            width: 100%;
+        }
+        .content{
+            font-size: 1.4rem;
+            position: absolute;
+            top: 9rem;
+            left: 5rem;
+        }
+        .name{
+            color: #ffffff;
+            font-size: 2.4rem;
+            width: 70%;
+        }
+        .label{
+            color: #0086ca;
+            font-size: 1.8rem;
+            margin: 1rem 0;
+        }
+        .font-shadow .font-big{
+            font-size: 8rem;
+            color: #ffffff;
+            text-shadow: #1392cb .1rem .2rem 0;
+        }
+        .font-shadow span{
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-shadow: #1392cb .1rem .2rem 0;
+        }
+        .btn{
+            padding: 1rem 3rem;
+            display: inline-block;
+            background-color: #ffdc65;
+            color: #ff9600;
+            text-decoration: none;
+            font-size: 2.4rem;
+            margin: 2rem 0;
+            border-radius: 1rem;
+        }
+        .ui-mask{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: url("<?php echo GAOFEN_STATIC; ?>/html/weixin/sojump/img/share.png") no-repeat right 2rem #000000;
+            background-size: 80%;
+            opacity: 0.8;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/sojump/img/header.png" alt="" class="header-img">
+    <div class="container">
+        <?php if ($user): ?>
+        <div class="ui-avatar">
+            <img src="<?php F::O($user['headimgurl']); ?>" alt="头像">
+        </div>
+        <?php endif; ?>
+        <div class="content">
+            <?php if ($user && $data['totalValue'] != 0): ?>
+            <div class="name"><?php F::O($user['nickname']); ?></div>
+            <div class="label">对广州课外辅导满意度打：</div>
+            <div class="font-shadow">
+                <span class="font-big"><?php F::O($data['totalValue']); ?></span>
+                <span>分</span>
+            </div>
+            <?php else: ?>
+                <?php if ($isOwner): ?>
+                    <div class="name">感谢你的参与，谢谢。</div>
+                <?php else: ?>
+                    <div class="name">我参加了广州课外辅导满意度打分。</div>
+                <?php endif; ?>
+            <?php endif; ?>
+            <?php if ($isOwner): ?>
+                <a href="javascript:void(0);" class="btn" id="btn" onclick="btn()">我要分享</a>
+            <?php else: ?>
+                <a href="http://zhuoyue.sojump.com/jq/7926282.aspx?udsid=760683" class="btn" id="btn">我也来评分</a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="ui-mask" id="mask"></div>
+    <script>
+        function btn(){
+            var mask = document.getElementById('mask');
+            mask.style.display="block"
+        }
+    </script>
+
+
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<?php if(!\F::inEnv('product')): ?>
+    <script src="/public/js/weixin/sojump.js?v=<?php echo STATIC_VERSION; ?>"></script>
+<?php else: ?>
+    <!-- <script src="<?php echo GAOFEN_STATIC; ?>/html/v5/js/huodong-sojump.min.js?v=<?php echo STATIC_VERSION; ?>"></script> -->
+    <script src="/public/js/weixin/sojump.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5KNNRX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5KNNRX');</script>
+    <!-- End Google Tag Manager -->
+<?php endif; ?>
+
+<script type="text/javascript">
+    Gaofen.PD.set({
+        'wxconfig':<?php echo json_encode($wxConfig); ?>,
+        'totalvalue': '<?php F::O($data['totalValue']); ?>'
+    });
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', 'b4e5e5bca6206570']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+</script>
+</body>
+</html>

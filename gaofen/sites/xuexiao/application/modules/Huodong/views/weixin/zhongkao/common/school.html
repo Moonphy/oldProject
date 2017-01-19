@@ -1,0 +1,78 @@
+
+<div class="school-page" id="s_detail" v-show="partShow">
+    <div class="ui-screen">
+        <div class="img-wrap">
+            <img :src="detail.school.path" alt="">
+        </div>
+        <div class="screen-show">
+            <ul id="screenul">
+                <screen-list :s-lists="sLists"></screen-list>
+            </ul>
+        </div>
+    </div>
+    <div class="pl15">
+        <h2 class="mt10 font-green">{{detail.school.ext_data.text}}</h2>
+        <div class="font-grey">
+            <span class="mr20">获得赞数：
+                <span class="font-orange">{{detail.school.fav_num_total}}</span>
+            </span>
+            <span class="mr20">今日排名：
+                <span class="font-orange">{{detail.rank.today}}</span>
+            </span>
+            <span>总排名：
+                <span class="font-orange">{{detail.rank.total}}</span>
+            </span>
+        </div>
+        <div class="top-list">
+            <ul class="clearfix"  :style="{width: ulwidth}">
+                <top-lists  :top-lists="topLists"></top-lists>
+                <topother-lists  :topother-lists="topotherLists"></topother-lists>
+            </ul>
+        </div>
+
+    </div>
+    <div class="plr15 pb30">
+        <div class="share-tips">
+            <i class="icon icon-rule"></i>
+            <p>
+                分享母校页面，让朋友们来点赞！你也可以成为母校光荣的队长！大队长还享受丰富的奖品呢！<a href="#"  v-on:click="showPrize($event)">查看奖品</a>
+            </p>
+        </div>
+        <a href="javascript:void(0);" class="btn btn-orange btn-block pt5" v-on:click="markfav($event)" v-show="!favcs">
+            <i class="icon icon-zan-w"></i>
+            <span>赞</span></a>
+        <a href="javascript:void(0);" class="btn btn-disabled btn-block" v-on:click="markfav($event)" v-show="favcs">
+            <i class="icon icon-zan-w"></i>
+            <span>赞</span></a>
+        <div class="zan-group clearfix">
+            <div class="group-title">最新点赞</div>
+            <div class="zan-avatar">
+                <recent-lists  :recent-lists="recentLists"></recent-lists>
+            </div>
+        </div>
+        <div class="logo-wrap">
+            <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/support-school/dist/img/logo.png?v=<?php echo STATIC_VERSION; ?>" alt="">
+        </div>
+    </div>
+    <div class="fixed-bar" id="reward" v-show="isShowReward"  v-on:click="showWinner($event)">
+        <div class="ad-icon"></div>
+        <div class="ad-wrap">
+            <ol id="ad-text-school" style="width: {{winnerBarWidth}}">
+                <!-- {{winneruser}} -->
+            </ol>
+        </div>
+    </div>
+    <div class="fixed-right">
+        <a href="#build&id={{sid}}" class="btn btn-green">我要表白</a>
+        <a href="javascript:void(0);" class="btn btn-comment" v-on:click="isComment = !isComment">
+            发表弹幕
+        </a>
+        <a href="#home" class="btn btn-mine" v-on:click="toHome($event)">母校
+            排名</a>
+    </div>
+    <div class="post-fixed-bottom" v-show="isComment">
+        <input type="text" placeholder="此处文字将在上方弹幕显示" class="text" v-model="commentmsg">
+        <input type="button" value="发表" class="btn-send ml5" v-on:click="submit($event)">
+    </div>
+</div>
+<!-- end 学校页-->

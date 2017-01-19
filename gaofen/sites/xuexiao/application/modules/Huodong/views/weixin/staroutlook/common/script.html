@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="keyword" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/staroutlook/css/index.min.css?version=<?php echo STATIC_VERSION; ?>">
+<script src="http://file.gaofen.com/html/v5/js/city.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<?php if(!\F::inEnv('product')): ?>
+    <script src="/public/js/weixin/staroutlook.js?v=<?php echo STATIC_VERSION; ?>"></script>
+<?php else: ?>
+    <!-- <script src="<?php echo GAOFEN_STATIC; ?>/html/v5/js/huodong-staroutlook.min.js?v=<?php echo STATIC_VERSION; ?>"></script> -->
+    <script src="/public/js/weixin/staroutlook.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5KNNRX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5KNNRX');</script>
+    <!-- End Google Tag Manager -->
+<?php endif; ?>
+
+<script type="text/javascript">
+    Gaofen.PD.set({
+        'wxconfig':<?php echo $wxConfig; ?>, 
+        'isEnd': '<?php echo json_encode($isEnd); ?>',
+        'share': '<?php F::O($share); ?>'
+    });
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', 'b4e5e5bca6206570']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+</script>
+

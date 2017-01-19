@@ -1,0 +1,73 @@
+<style>
+.qq-wrap{
+    text-align: left;
+}
+.qq-title{
+    color: #3397e4;
+    font-size: 22px;
+    border-bottom: 4px solid #3397e4;
+    text-align: left;
+}
+.icon-qq{
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+    height: 37px;
+    background: url("http://file.gaofen.com//html/v6/img/qq-title-bg.png") no-repeat center 0;
+}
+.qq-title span{
+    vertical-align: middle;
+}
+.qq-content{
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    padding: 10px 0;
+}
+.qq-content .fl{
+    width: 49.9%;
+    line-height: 22px;
+    text-align: left;
+
+}
+.qq-content .fl-left{
+    border-right: 1px dashed #e5e5e5;
+}
+.qq-content .fl span{
+    display: block;
+    padding-left: 20px;
+    position: relative;
+}
+.qq-content .fl a{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    color: #3397e4;
+}
+.qq-content a i{
+    font-weight: bolder;
+    font-size: 16px;
+    font-style: normal;
+    vertical-align: middle;
+}
+</style>
+<div class="qq-new">
+    <div class="qq-wrap">
+        <div class="qq-title">
+            <i class="icon-qq"></i>
+            <span class="title-blue"><?php F::O($title); ?></span>
+        </div>
+
+        <div class="qq-content clearfix">
+        <?php foreach($data as $row): ?>
+            <div class="fl">
+                <span>
+                    <?php F::O($row['name']); ?>：<?php F::O($row['num']); ?>
+                    <a href="<?php echo $row['link']; ?>" target="_blank" class="hl-link">
+                        <i>+</i>点击加群
+                    </a>
+                </span>
+            </div>
+        <?php endforeach; ?>
+        </div>
+    </div>
+</div>

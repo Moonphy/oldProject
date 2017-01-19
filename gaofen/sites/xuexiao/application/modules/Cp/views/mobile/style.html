@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="<?php echo GAOFEN_STATIC;?>/html/mobile/gmu/gmu.css">
+<link rel="stylesheet" href="<?php echo GAOFEN_STATIC;?>/html/mobile/css/base.css">
+<link rel="stylesheet" href="<?php echo GAOFEN_STATIC;?>/html/mobile/css/post.css">
+
+
+<?php if(schoolType()->isXsc()): ?>
+<script src="http://bbs.gaofen.com/source/plugin/gaofen_ad/js/gad_xsc.js" type="text/javascript"></script>
+<?php elseif(schoolType()->isZhongkao()): ?>
+<script src="http://bbs.gaofen.com/source/plugin/gaofen_ad/js/gad_zhongkao.js" type="text/javascript"></script>
+<?php elseif(schoolType()->isGaokao()): ?>
+<script src="http://bbs.gaofen.com/source/plugin/gaofen_ad/js/gad_gaokao.js" type="text/javascript"></script>
+<?php endif ?>

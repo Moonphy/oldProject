@@ -1,0 +1,463 @@
+<?php F::TPL('common/header.html', ['id'=>$sid, 'action'=>'editinfo', 'type'=>$type], 'Czadmin') ?>
+      <div class="row">
+        <div class="col-sm-12">
+          <form action="#" method="POST" class="form-horizontal">
+			<div id="allConfig" class="hidden">
+				<input type="hidden" name="id" value="<?php F::O(@$info['id']); ?>" />
+				<input type="hidden" name="sort" value="<?php F::O($type); ?>"/>
+				<input type="hidden" name="name">
+				<input type="hidden" name="type" value="<?php F::O($type); ?>"/>
+				<input type="hidden" name="sid" value="<?php F::O($sid); ?>"/>
+			</div>
+            <div class="form-group">
+              <div class="col-sm-2 col-sm-offset-2">
+                <select name="" id="modalSelect" class="form-control">
+                  <option value="">请选择模块</option>
+                  <?php foreach($struct['modules'] as $_k=>$item): ?>
+                  <option value="flag:<?php F::O($item['flag']); ?>,name:<?php F::O($item['name']); ?>,sys:<?php F::O($item['sys']); ?>"><?php F::O($item['name']); ?></option>
+              	  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" id="addModalBtn" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> 添加模块
+                </button>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-8 col-sm-offset-2">
+					<div class="alert alert-danger" role="alert">如果模块<序号>不由0开始或序号间断，请先保存一次再做其它操作</div>
+            	</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">模块：</label>
+              <div class="col-sm-6">
+                <ul class="tree-view tree-view-fixed" id="mode_list">
+                <?php if(!empty($info['data']) && is_array($info['data'])):?>
+                <?php foreach($info['data'] as $_k=>$item): ?>
+				<li>
+				<?php echo '<input type="hidden" name="flag" value="'.$item['flag'].'" />'; ?>
+                <?php echo '<input type="hidden" name="name" value="'.F::O(@$item['name'], true).'" />'; ?>
+                <?php echo '<input type="hidden" name="sys" value="'.(int)($item['flag']!='udm_text').'" />'; ?>
+                <?php echo '<textarea class="hidden" name="value">'.F::O(@$item['value'], true).'</textarea>'; ?>
+				<span class="name"><?php F::O($_k.'. '.$item['name']); ?></span>
+                <div class="operations">
+                	<a data-toggle="modal" href="#modalConfirmDelete">
+						<i class="glyphicon glyphicon-trash text-danger"></i>
+					</a>
+                	<a data-toggle="modal" rel="flag:<?php F::O($item['flag']); ?>,name:<?php F::O($item['name']); ?>" href="#modalEditModule"><i class="glyphicon glyphicon-pencil"></i><?php if(in_array($item['flag'], array('rich_text', 'text', 'udm_text'))): ?><textarea class="hidden"><?php if(!empty($item['value'])){ F::O($item['value']);} ?></textarea><?php endif; ?></a>					
+                </div>
+                </li>
+                <?php endforeach; ?>
+            	<?php endif; ?>
+                </ul>
+              </div>
+            </div>
+            <nav role="navigation" class="navbar navbar-default navbar-fixed-bottom">
+              <div class="col-sm-offset-2 col-sm-8 actions">
+                <button type="submit" class="btn btn-primary" id="listSaveBtn">保存排序</button>
+              </div>
+            </nav>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- 自定义模块添加、修改浮层-->
+        <!-- Start: 自定义模块编辑浮层 .modal-edit-->
+        <div id="modalAddModule" class="modal modal-edit modal-module fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                <h4 class="modal-title mr40">
+                  <input value="" placeholder="请输入模块名称..." class="form-control">
+                </h4>
+              </div>
+              <div class="modal-body">
+
+              </div>
+              <div class="modal-footer">
+                <!--button type="button" data-dismiss="modal" class="btn btn-default">取消</button-->
+                <button type="button" class="btn btn-primary">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: 自定义模块编辑浮层 .modal-edit-->
+    <!-- 自定义模块添加、修改浮层-->
+        <!-- Start: 自定义模块编辑浮层 .modal-edit-->
+        <div id="modalEditModule" class="modal modal-edit modal-module fade" data-backdrop="static">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                <h4 class="modal-title mr40">
+                  <input value="升学成绩" placeholder="请输入模块名称..." class="form-control" readonly>
+                </h4>
+              </div>
+              <div class="modal-body" id="modal_body">
+				  <div id="removeFloat"></div>
+              </div>
+              <div class="modal-footer">
+                <!--button type="button" data-dismiss="modal" class="btn btn-default">取消</button-->
+                <button type="button" class="btn btn-primary" id="surebtn">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: 自定义模块编辑浮层 .modal-edit-->
+    <!-- 警告浮层-->
+        <!-- Start: 警告浮层 .modal-warning-->
+        <div id="modalConfirmDelete" class="modal modal-warning fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                <h4 class="modal-title">警告</h4>
+              </div>
+              <div class="modal-body">
+                <p>你确定删除？</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                <button type="button" class="btn btn-primary" id="delSchoolSure">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Start: 警告浮层 .modal-warning-->
+		
+				
+	<div id="part" class="hidden">
+		<!-- Start: 升学成绩-->
+		<div id="score">
+			<div class="form-horizontal">
+			  <div class="form-group">
+				<div class="col-sm-2">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="年份" class="form-control" autocomplete="true"><span class="input-group-addon">年</span>
+				  </div>
+				</div>
+				<div class="col-sm-2">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="中考平均分" class="form-control"><span class="input-group-addon">分</span>
+				  </div>
+				</div>
+				<div class="col-sm-2">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="参加考试人数" class="form-control"><span class="input-group-addon">人</span>
+				  </div>
+				</div>
+				<div class="col-sm-2">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="全市平均分" class="form-control"><span class="input-group-addon">分</span>
+				  </div>
+				</div>
+				<div class="col-sm-3">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="全市平均分" class="form-control"><span class="input-group-addon">%</span>
+				  </div>
+				</div>
+				<div class="col-sm-1">
+				  <button type="button" class="btn btn-primary btn-sm" id="add">添加</button>
+				</div>
+			  </div>
+			</div>
+			<table class="table table-striped table-hover dragable">
+			 <thead>
+				<tr>
+				  <th class="w150">年份</th>
+				  <th class="w150">中考平均分</th>
+				  <th class="w150">参加考试人数</th>
+				  <th class="w150">全市平均分</th>
+				  <th>国家师范高中上线比例</th>
+				  <th class="w110">操作</th>
+				</tr>
+			  </thead>
+			  <tbody>
+
+			  </tbody>
+			</table>
+		</div>
+		<!-- End: 升学成绩-->
+		<!-- Start: 录取分数线-->
+		<div id="admit_score">
+			<div class="form-horizontal">
+			  <div class="form-group">
+				<div class="col-sm-2">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="年份" class="form-control"><span class="input-group-addon">年</span>
+				  </div>
+				</div>
+				<div class="col-sm-3">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="录取分数线" class="form-control"><span class="input-group-addon">分</span>
+				  </div>
+				</div>
+				<div class="col-sm-6">
+				  <input type="text" id="" placeholder="备注" class="form-control input-sm">
+				</div>
+				<div class="col-sm-1">
+				  <button type="button" class="btn btn-primary btn-sm">添加</button>
+				</div>
+			  </div>
+			</div>
+			<table class="table table-striped table-hover dragable">
+		  <thead>
+			<tr>
+			  <th class="w140">年份</th>
+			  <th class="w140">录取分数线</th>
+			  <th>备注</th>
+			  <th class="w110">操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		</table>
+		</div>
+		<!-- End: 录取分数线-->
+		<!-- Start: 特长生招生-->
+		<div id="admit_forte">
+			<div class="form-horizontal">
+			  <div class="form-group">
+				<div class="col-sm-3">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="年份" class="form-control"><span class="input-group-addon">年</span>
+				  </div>
+				</div>
+				<div class="col-sm-2">
+					<select name="" id="forteSelectp" class="form-control input-sm" rel="parent">
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<select name="" id="forteSelectp_c" class="form-control input-sm">
+					  <option value="" selected="selected">舞蹈</option>
+					  <option value="">篮球</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+				  <div class="input-group input-group-sm">
+					<input type="text" id="" placeholder="人数" class="form-control"><span class="input-group-addon">人</span>
+				  </div>
+				</div>
+				<div class="col-sm-1">
+				  <button type="button" class="btn btn-primary btn-sm">添加</button>
+				</div>
+			  </div>
+			</div>
+			<table class="table table-striped table-hover dragable">
+		  <thead>
+			<tr>
+			  <th class="w250">
+				<select name="" id="">
+				  <option value="">年份</option>
+				  <option value="">2012年</option>
+				  <option value="">2013年</option>
+				</select>
+			  </th>
+			  <th class="w250">特长项目</th>
+			  <th>人数</th>
+			  <th class="w110">操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		</table>
+		</div>
+		<!-- End: 特长生招生-->
+		<!-- Start: 作息时间-->
+		<div id="schedule">
+			<div class="form-horizontal hidden">
+			  <div class="form-group">
+				<div class="col-sm-3">
+				  <input type="text" id="" placeholder="上午" class="form-control input-sm">
+				</div>
+				<div class="col-sm-3">
+				  <input type="text" id="" placeholder="下午" class="form-control input-sm">
+				</div>
+				<div class="col-sm-3">
+				  <input type="text" id="" placeholder="晚上" class="form-control input-sm">
+				</div>
+				<div class="col-sm-1">
+				  <button type="button" class="btn btn-primary btn-sm">添加</button>
+				</div>
+			  </div>
+			</div>
+			<table class="table table-striped table-hover dragable">
+		  <thead>
+			<tr>
+			  <th class="w270">上午</th>
+			  <th class="w270">下午</th>
+			  <th class="w270">晚上</th>
+			  <th>操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>			
+			<tr class="warning">
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+				<input type="text" id="" value="" class="form-control input-sm">
+			  </td>
+			  <td>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+		</div>
+		<!-- End: 作息时间-->	
+		<div id="rich_text">
+			<textarea rows="10" class="form-control" name="intro" id="introEditor"></textarea>
+		</div>
+	</div>			
+		
+	<script>
+		var admitForte = <?php echo $admitForteList; ?>;
+	</script>
+    <?php F::TPL('common/footer.html', [], 'Czadmin') ?>

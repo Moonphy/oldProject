@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>    
+        <?php if(schoolType()->isXSC()): ?>
+        <?php $title = SEO_M_XSC_VIEW ?>
+        <?php elseif(schoolType()->isZhongkao()): ?>
+        <?php $title = SEO_M_ZHONGKAO_VIEW ?>
+        <?php elseif(schoolType()->isGaokao()): ?>
+        <?php $title = SEO_M_GAOKAO_VIEW ?>
+        <?php endif; ?>
+        <?php echo F::siteTitle($title, ['title' => $post->post_title, 'catname' => $post->catname]) ?>
+    </title>
+
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#F8F8F8">
+    <?php F::TPL('mobile/style.html',[],'cp') ?>
+    <script type="text/javascript">
+        var dataLayer = [{}];
+        dataLayer[0]['xueduan'] = "<?php echo schoolType()->toAlias()?>";
+        dataLayer[0]['timeMArticle'] = "<?php echo $post->post_day ?>";
+        dataLayer[0]['navMArticle'] = "<?php echo schoolType()->toName().'>'.$post->catname ?>";
+    </script>
+</head>
+<body>
+<?php F::TPL('common/mobile/navigation.html', ['backwardLink' => $backwardLink, 'title' => '文章页']) ?>
+<div class="page-content">
+    <?php F::TPL('common/mobile/ad.html', ['ad' => 'article_ad_wap4']) ?>
+    <div class="box">
+        <h1 class="post-title"><?php echo $post->post_title ?></h1>
+
+        <div class="post-metas"><span><?php echo F::friendly_date(strtotime($post->post_date)) ?></span><span>编辑：<?php echo $post->
+            post_author ?></span></div>
+        <div class="post-content">
+            <?php echo msite_content_filter($post->post_content) ?>
+            <?php //echo $post->post_content ?>
+
+            <!-- 备考活动 -->
+            <!-- <div class="post-promotion">
+                <?php F::AD('article_ad_wap5') ?>
+            </div> -->
+
+            <!-- 高分家长入口 -->
+            <div class="post-promotion">
+                <strong>[高分家长入口]</strong>
+                <?php foreach ($i_parents as $key => $value): ?>
+                    <span>
+                        <a href="<?php F::O($value['link']) ?>" target="_blank"><?php F::O($value['name']) ?></a>
+                    </span>
+                    <br/>
+                <?php endforeach; ?>
+            </div>
+
+        </div>
+        <?php echo $post->links('mobile/view_pagination.html', ['schoolType' => schoolType(), 'post' =>
+        $post] + V('G')
+        ,'cp') ?>
+    </div>
+    <div class="panel-share hidden">
+        <a href="#" class="btn btn-weixin btn-block" id="weixinshare"><i class="iconfont">&#xe606;</i><span>立即分享给小伙伴们</span></a>
+    </div>
+<?php if(!$post->relate_post->isEmpty()): ?>
+<div class="box mod">
+    <h2 class="mod-hd"><span>扩展阅读</span></h2>
+
+    <div class="ui-list">
+        <?php foreach ($post->relate_post as $id => $post):?>
+        <a href="<?php echo F::URL('/cp/mobile/view', ['id' => $post->id]) ?>"
+           class="ui-list-item" gid="<?php echo 'rel-'.($id +1) ?>"><?php echo $post->post_title ?></a>
+        <?php endforeach ?>
+
+    </div>
+</div>
+<?php endif ?>
+<div class="box mod">
+    <h2 class="mod-hd"><span>推荐活动</span></h2>
+    <?php F::TPL('/mobile/huodong_list.html', ['huodongs' => $huodongs['list']], 'cp') ?>
+
+</div>
+</div>
+<?php F::TPL('common/mobile/footer.html', ['ad' => 'article_ad_wap6']) ?>
+<script>
+    Gaofen.PD.set({
+      'wxconfig': <?php echo $weixinCfg->toJson(); ?>, 'action':'view', 'school_type':'<?php echo schoolType()->toAlias()?>', 'nav':'<?php echo schoolType()->toName().'>'.$post->catname ?>'
+    });
+</script>
+</body>
+</html>

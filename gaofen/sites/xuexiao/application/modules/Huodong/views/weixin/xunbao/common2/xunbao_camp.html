@@ -1,0 +1,15 @@
+<div class="div-wrap"  v-show="partShow" id="campPage">
+    <div class="div-top">
+        <div class="ui-avatar"><img :src="meinfo.user.headimgurl" alt=""/>
+        </div>
+        <p>{{meinfo.user.nickname}}</p>
+    </div>
+    <div class="div-list">
+    	<a href="#info" title="我的资料" class="btn btn-start btn-radius-1">
+    		<i class="icon icon-right"></i>我的资料
+    	</a>
+    	<a href="#mytask" title="我的参与" class="btn btn-start btn-radius-1">
+    		<i class="icon icon-right"></i>我的参与
+    	</a>
+    </div>
+</div>

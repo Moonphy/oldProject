@@ -1,0 +1,20 @@
+<div class="mod-bd">
+
+    <div class="activity-list">
+
+        <?php foreach ($huodongs as $id => $huodong):?>
+        <a href="<?php echo F::URL('huodong_m:/huodong/mobileactivity_lectures_detail/index', ['id'=>$huodong->id, 'school_type'=>schoolType()->toValue()]);?>" class="activity-list-item"
+           gid="<?php echo 'act-'.($id + 1) ?>">
+            <div class="thumb"><img src="<?php echo $huodong->cover ?>" alt=""/>
+            </div>
+            <div class="info">
+                <h3><?php echo $huodong->title ?></h3>
+
+                <p>截止时间：<?php echo $huodong->expiration ?></p>
+            </div>
+        </a>
+        <?php endforeach ?>
+
+    </div>
+
+</div>

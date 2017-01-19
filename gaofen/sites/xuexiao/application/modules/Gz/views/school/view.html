@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+    <!--<![endif]-->
+
+    <head>
+        <meta charset="UTF-8">
+        <title><?php F::SEO()->echoTitle(array('name'=>$info['name'], '__pindex'=>$type)); ?></title>
+        <meta name="keywords"content="<?php F::SEO()->echoKeyword(array('name'=>$info['name'], '__pindex'=>$type)); ?>">
+        <meta name="Description"content="<?php F::SEO()->echoDesc(array('name'=>$info['name'], '__pindex'=>$type)); ?>">
+        <?php F::TPL('common/header.html', [], 'Gz'); ?>
+    </head>
+
+    <body class="details-page tab-page">
+        <div id="wrap">
+            <?php F::TPL('common/nav.html', [], 'Gz'); ?>
+            <div class="container">
+                <?php echo F::breadcrumbNav()->indexNav()
+                                         ->czIndexNav()
+                                         ->finalNav($info['name']);
+                ?>
+            </div>
+            <div class="container page-content">
+                <div class="school-summary mb25">
+                    <div class="school-heading">
+                        <div class="operations">
+                            <a href="<?php echo F::URL('/Gz/School/detail', ['id'=>$info['id']]); ?>" target="_blank">学校介绍</a>
+                            <?php if($info['has_cz'] && $relCzUrl): ?>
+                            <i>|</i><a href="<?php echo $relCzUrl; ?>" target="_blank">查看该校初中</a>
+                            <?php endif; ?>
+                        </div>
+                        <div class="title">
+                            <h1 id="school_name"><?php F::O($info['name']); ?></h1><span class="meta">学校代码：<?php F::O($info['code']); ?></span><span class="meta">人气：<?php F::O($info['views']); ?></span>
+                        </div>
+                    </div>
+                    <div class="cont clearfix">
+                        <div class="picture">
+                            <a href="<?php echo F::URL('/Gz/School/album', array('sid'=>$info['id'])); ?>" target="_blank" class="thumb">
+                                <img src="<?php echo $info['cover']; ?>" alt="" class="no-pic" /><span class="tit">共<?php F::O($picList['total']); ?>张相关照片<i class="bg"></i></span>
+                            </a>
+                            <div class="orig1"></div>
+                            <div class="orig2"></div>
+                        </div>
+                        <div class="info">
+                            <div class="sec sec-properties">
+                                <ul>
+                                    <li class="col-1">
+                                        <span class="label">学校类型：</span>
+                                        <span class="cont<?php if($info['gz_property']>0): ?> hl<?php endif; ?>"><?php F::O(CFG::school('school', 'gz_property', $info['gz_property'])); ?></span>
+                                    </li>
+                                    <li class="col-2">
+                                        <span class="label">学校级别：</span>
+                                        <span class="cont<?php if($info['gz_level']>0): ?> hl<?php endif; ?>"><?php F::O(CFG::school('school', 'gz_level', $info['gz_level'])); ?></span>
+                                    </li>
+                                    <li class="col-3">
+                                        <span class="label">招生范围：</span>
+                                        <span class="cont<?php if(in_array(1, $info['gz_admit_range'])): ?> hl<?php endif; ?>"><?php F::O(implode('/', $gzModel->explainAdmitRange($info['gz_admit_range']))); ?></span>
+                                    </li>
+                                    <li class="col-1">
+                                        <span class="label">所在区域：</span>
+                                        <span class="cont"><?php F::O(CFG::school('location', 'city', $info['city'], 'district', $info['district'])); ?></span>
+                                    </li>
+                                    <li class="col-2">
+                                        <span class="label">办学性质：</span>
+                                        <span class="cont"><?php F::O(CFG::school('cate', 'gz_cate', $info['cate'])); ?></span>
+                                    </li>
+                                    <li class="col-3">
+                                        <span class="label">录取批次：</span>
+                                        <span class="cont"><?php F::O(implode('/',$gzModel->explainAdmitBatch($info['gz_admit_batch']))); ?></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sec sec-stars">
+                                <ul>
+                                    <li class="col-1">
+                                        <p>入学难度：</p>
+                                        <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['admit'] * 2)); ?>"></div>
+                                    </li>
+                                    <li class="col-2">
+                                        <p>高考成绩：</p>
+                                        <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['score'] * 2)); ?>"></div>
+                                    </li>
+                                    <li class="col-3">
+                                        <p>热门程度：</p>
+                                        <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['hot'] * 2)); ?>"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sec sec-metas">
+                                <p class="address"><span>地址：<?php if(!empty($info['ext']['address'])): ?><?php F::O($info['ext']['address']); ?><?php else: ?>--<?php endif; ?></span>
+                                    <a href="#" target="_blank" class="icon-pin" vrel="<?php if(!empty($info['ext']['address'])): ?><?php F::O($info['ext']['address']); ?><?php else: ?>--<?php endif; ?>" rel="e:bm"></a>
+                                </p>
+                                <p><span>电话：<?php if(!empty($info['ext']['phone'])): ?><?php F::O($info['ext']['phone']); ?><?php else: ?>--<?php endif; ?></span>
+                                </p>
+                                <?php if(!empty($info['ext']['website'])): ?>
+                                <p>官网：<a href="<?php echo $info['ext']['website']; ?>" target="_blank"><?php echo $info['ext']['website']; ?></a>
+                                </p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="actions"><a href="#" class="btn-add-comparison" id="contrastBtn" rel='e:contrast,n:<?php F::O($info['name']); ?>,id:<?php F::O($info['id']); ?>'><span>加入对比</span></a>
+                            <?php if ($isFollow): ?>
+                                <a rel="e:fav,type:2,id:<?php echo $info['id']; ?>" href="<?php echo F::URL('/Gz/ajax/unfollow', ['school_id' => $info['id']]) ?>" class="btn-follow"><span>取消收藏</span></a>
+                            <?php else: ?>
+                                <a rel="e:fav,type:1,id:<?php echo $info['id']; ?>" href="<?php echo F::URL('/Gz/ajax/follow', ['school_id' => $info['id']]) ?>" class="btn-follow"><span>收藏本校</span></a>
+                            <?php endif ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="headlines">
+                    <div class="hd">中考头条</div>
+                    <div class="bd">
+                        <!-- Start: 文章列表-->
+                        <div id ="post-list-large" class="post-list-large">
+                            <ul>
+                                <?php foreach($topicPostList as $row): ?>
+                                <li><a href="<?php echo $row['url']; ?>" target="_blank" title="<?php F::O($row['post_title']); ?>"><?php F::O($row['post_title']); ?></a>
+                                </li>
+                                <?php endforeach; ?>
+
+                            </ul>
+                        </div>
+                        <!-- End: 文章列表-->
+                    </div>
+                </div>
+                </div>
+                <div class="row row14-6">
+                    <a name="info-part"></a>
+                    <div class="span14">
+                        <div class="tabs">
+                            <ul>
+                                <li<?php if($type==7): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gz/School/view', array('id'=>$info['id'], 'type'=>7)); ?>#info-part">分数线</a></li>
+                                <li<?php if($type==8): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gz/School/view', array('id'=>$info['id'], 'type'=>8)); ?>#info-part">高考成绩</a></li>
+                                <li<?php if($type==9): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gz/School/view', array('id'=>$info['id'], 'type'=>9)); ?>#info-part">招生信息</a></li>
+                                <li<?php if($type==10): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gz/School/view', array('id'=>$info['id'], 'type'=>10)); ?>#info-part">校园生活</a></li>
+                                <li<?php if($type==11): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gz/School/view', array('id'=>$info['id'], 'type'=>11)); ?>#info-part">学校要闻</a></li>
+                                <li<?php if($type==12): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gz/School/view', array('id'=>$info['id'], 'type'=>12)); ?>#info-part">资料推荐</a></li>
+                            </ul>
+                        </div>
+                        <div class="school-desc">
+                            <!-- Start:广告 630*40 -->
+                            <?php AD('gz_detail_tgw_a1', '', true, '<div class="picture picture-h40 mb30">');?>
+                            <!-- End:广告 630*40 -->
+                            <?php echo $infoList; ?>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <!-- Start: 关注高分 -->
+                        <?php F::TPL('common/gz_weixin.html', [], 'Gz') ?>
+                        <!-- End: 关注高分 -->
+                        <!-- Start: 热门学校推荐 -->
+                        <?php echo F::TPL('school/school_widget.html', ['citySchools' => $citySchools['list'], 'districtSchools'=> $districtSchools['list'], 'none_compare' => false], 'Gz') ?>
+                        <!-- End: 热门学校推荐 -->
+                        <!-- Start: 他们也对这所学校感兴趣 -->
+                        <?php F::TPL('school/actives.html', ['actives' => $actives], 'Gz') ?>
+                        <!-- End: 他们也对这所学校感兴趣 -->
+                        <!-- Start: 您浏览过的学校 -->
+                        <?php F::TPL('school/visited.html', ['visited' => $visited], 'Gz') ?>
+                        <!-- End: 您浏览过的学校 -->
+                    </div>
+                </div>
+            </div>
+            <?php F::TPL('common/footer.html', [], 'Gz'); ?>
+        </div>
+        <?php F::TPL('common/footer_script.html', [], 'Gz'); ?>
+        <script type="text/javascript">
+                Gaofen.PD.set({'channel':'xuexiao','action':'detail'});
+        </script>
+    </body>
+</html>

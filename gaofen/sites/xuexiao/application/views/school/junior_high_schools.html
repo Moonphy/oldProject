@@ -1,0 +1,19 @@
+<div class="school-thumb-info-list">
+    <?php foreach ($schools['list'] as $school): ?>
+    <div class="item">
+        <!-- Start:缩略图-->
+        <div class="thumb">
+            <a href="<?php echo F::URL('/cz/school/view', ['id' => $school->id]) ?>" title="<?php echo $school->name ?>"><img src="<?php echo F::imageUrl($school->cover) ?>" width="160" height="120" alt="<?php echo $school->name ?>" class="no-pic" />
+            </a>
+        </div>
+        <!-- End:缩略图-->
+        <div class="info">
+            <h3 class="tit"><a href="<?php echo F::URL('/cz/school/view', ['id' => $school->id]) ?>" target="_blank" title="华南师范大学附属中学初中部上午校"><?php echo $school->name ?></a></h3>
+            <p><?php echo $property ?>学校热度排名<span class="num"><?php echo $school->present()->rank() ?></span></p>
+            <span class="comments">
+                <?php echo $school->present()->tags('index') ?>
+            </span>
+        </div>
+    </div>
+    <?php endforeach ?>
+</div>

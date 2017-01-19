@@ -1,0 +1,29 @@
+<header id="header" class="header">
+
+  <div class="header-bar" id="header_bar">
+  <?php if(!empty($r_controller) && !empty($r_action) && $r_controller=='teacher' && $r_action=='list'): ?>
+    <span class="iconfont city-switcher" id="city_switcher">
+    <?php F::O($model->getLocation('province', $model->getCurProvince(), 'city', $model->getCurCity(), 'name')); ?>
+    </span>
+  <?php else: ?>
+    <a href="<?php echo F::goBack(F::URL('/Teacher/Teacher/list')); ?>" class="iconfont icon-return">&#xe605;</a>
+  <?php endif; ?>
+    <span id="navToggle" class="iconfont icon-menu">&#xe600;</span>
+    <?php if(!empty($__pindex)): ?>
+    <h1><?php F::SEO()->echoTitle(array('__pindex'=>$__pindex)); ?></h1>
+    <?php else: ?>
+    <h1><?php F::SEO()->echoTitle(); ?></h1>
+    <?php endif; ?>
+  </div>
+  <div class="nav-main" id="nav_main">
+    <ul class="menu-cities hidden">
+    <?php foreach($model->getLocation('province', $model->getCurProvince(), 'city') as $_id=>$_city): ?>
+      <li<?php if($_id==$model->getCurCity()): ?> class='current'<?php endif; ?>><a href="<?php echo F::URL('/Teacher/Teacher/list', array('city'=>$_id)); ?>" rel="<?php F::O($_id); ?>"><span><?php F::O($_city['name']); ?></span></a></li>
+    <?php endforeach; ?>
+    </ul>
+    <ul class="menu-tools hidden">
+      <li><a href="<?php echo F::URL('/Teacher/Teacher/list'); ?>" class="nav-item-search"><span>查找老师</span></a></li>
+      <li><a href="<?php echo F::URL('/Teacher/User/orderList'); ?>" class="nav-item-orders"><span>我的订单</span></a></li>
+    </ul>
+  </div>
+</header>

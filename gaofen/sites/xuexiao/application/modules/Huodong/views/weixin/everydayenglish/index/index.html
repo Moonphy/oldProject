@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>卓越希望之星广东赛区</title>
+        <meta name="keyword" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/css/base.min.css?v=<?php echo STATIC_VERSION; ?>">
+        <style>
+          @keyframes loading{ 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);}}
+          .load-area{
+            margin: 10px 0;}
+          .load-area>div{
+                        box-sizing: border-box;
+                        width: 50%;
+                        float: left}
+          .load-area>.loading{
+                        text-align: right;
+                        padding-right: 5px;}
+          .loading>img{
+                          width: 16px;
+                          height: 16px;
+                          animation: loading 0.8s linear infinite;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="index-page">
+                <header class="header">
+                  <?php if( $type == 1 ): ?>
+                    <?php if( $yesterday_type != 1 ): ?>
+                    <a href="<?php echo $url ?>" class="icon icon-left">昨日回顾</a>
+                    <?php endif; ?>
+                    <h1><?php echo $date; ?></h1><a href="javascript: void(0);" id="ruleBtn" class="btn btn-trans">活动规则</a>
+                  <?php else: ?>
+                    <h1><?php echo $date; ?></h1>
+                    <a href="<?php echo $url; ?>" class="icon icon-right">今日练习</a>
+                  <?php endif; ?>
+                </header>
+                <audio id="audio"  autoplay></audio>
+                <div class="page-title"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/title.png"></div>
+                <div class="q-teacher">
+                    <div class="english"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/question-bg.png">
+                         <p><?php F::O(str_replace(' ', ' ', $data['daily_voice']['content'])); ?></p>
+                    </div>
+
+                    <?php if( $daily_voice_type != 1 ): ?>
+                    <!--播放时加q-play，不播放去掉q-play-->
+                    <div class="q-audio" rel="<?php echo $data['daily_voice']['path'] ?>">
+                        <div class="q-audio-state"><span class="q-line-1"></span><span class="q-line-2"></span><span class="q-line-3"></span>
+                            <time><?php F::O($data['daily_voice']['mil_sec']); ?>"</time>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
+                </div>
+
+              <?php if( $type == 1 ): ?>
+                <?php if( $submit_type == 1 ): ?>
+                <form>
+                    <div class="form-row mt30">
+                        <div class="border-t-solid"></div>
+                        <div class="form-title"><?php F::O($subTitle); ?></div>
+
+                        <?php if( $daily_voice_type == 3 ): ?>
+                        <div class="ui-flex">
+                            <a  id="btn-reset" href="javascript: void(0);" class="btn btn-reset invisible"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/btn-reset.png">
+                            </a>
+                            <a id="btn-stop" href="javascript: void(0);" class="btn btn-stop hidden">
+                                <p>停止录音</p><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/holder-img.jpg">
+                            </a>
+                            <a id="btn-playstop" href="javascript: void(0);" class="btn btn-stop hidden">
+                                <p>停止播放</p><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/holder-img.jpg">
+                            </a>
+                            <a id="btn-play" href="javascript: void(0);" class="btn btn-play hidden">
+                                <p>播放录音</p><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/holder-img.jpg">
+                            </a>
+                            <a href="javascript: void(0);" class="btn btn-start" id="btn-recording">
+                                <p>点击录音</p><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/holder-img.jpg">
+                            </a>
+                            <a id="btn-commit" href="javascript: void(0);" class="btn btn-upload invisible">
+                                <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/btn-upload.png">
+                            </a>
+                        </div>
+                        <?php endif; ?>
+
+                    </div>
+                </form>
+                <?php endif; ?>
+
+                <!-- 今日练习录音列表 -->
+                <div class="audio-list">
+                    <ul id="voice_list">
+                        <?php foreach($data['today_voice_list'] as $i=>$row): ?>
+                        <li>
+                            <div class="q-row">
+                                <div class="ui-avatar fl"><img src="<?php echo $row->user->headimgurl; ?>" alt></div>
+                                <div class="q-audio-wrap">
+                                    <div class="q-name"><span class="ml5 font-white"><?php F::O($row->user->nickname); ?></span>
+                                        <div class="fr"><span>播放 <span class="play_num"><?php F::O($row->views); ?></span></span></div>
+                                    </div>
+                                    <div class="q-audio" vrel="<?php echo $row->id ?>" rel="<?php echo $row->present()->getVoiceLink(); ?>"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/audio-bg.png" alt class="q-audio-bg">
+                                        <div class="q-audio-state"><span class="q-line-1"></span><span class="q-line-2"></span><span class="q-line-3"></span>
+                                            <time><?php F::O($row->mil_sec) ?>"</time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+              <?php else: ?>
+                
+                <!-- 昨日回顾录音列表 -->
+                <div class="audio-teacher-list">
+                    <ul id="voice_list">
+
+                      <?php foreach($data['today_voice_list'] as $i=>$row): ?>
+
+                        <?php if( $row->ext_data['reply'] != '' ): ?>
+                        <li>
+                            <div class="q-row">
+                                <div class="ui-avatar fl"><img src="<?php echo $row->user->headimgurl; ?>" alt></div>
+                                <div class="q-audio-wrap">
+                                    <div class="q-name"><span class="ml5 font-white"><?php F::O($row->user->nickname); ?></span>
+                                        <div class="fr"><span>播放<span class="play_num"><?php F::O($row->views); ?></span></span></div>
+                                    </div>
+                                    <div class="q-audio" vrel="<?php echo $row->id ?>" rel="<?php echo $row->present()->getVoiceLink(); ?>"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/img/audio-bg.png" alt class="q-audio-bg">
+                                        <div class="q-audio-state"><span class="q-line-1"></span><span class="q-line-2"></span><span class="q-line-3"></span>
+                                            <time><?php F::O($row->mil_sec) ?>"</time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-row">
+                                <div class="border-t-solid"></div>
+                                <div class="ui-label">教师评语</div>
+                                <p><?php F::O($row->ext_data['reply']); ?></p>
+                            </div>
+                        </li>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+
+                    </ul>
+                </div>
+              <?php endif; ?>
+                <div class="load-area hidden" id="load_area">
+                  <div class="loading">
+                    <img src="http://file.gaofen.com/html/v5/js/image/loading.png" />
+                  </div>
+                  <div>加载中...</div>
+                </div>
+
+                <div class="loading-fixed hidden">
+                    <div class="icon-loading">
+                        <div class="dot dot1"><i class="dot-t"></i><i class="dot-b"></i></div>
+                        <div class="dot dot2"><i class="dot-t"></i><i class="dot-b"></i></div>
+                        <div class="dot dot3"><i class="dot-t"></i><i class="dot-b"></i></div>
+                        <div class="dot dot4"><i class="dot-t"></i><i class="dot-b"></i></div>
+                    </div>
+                </div>
+                <div class="ui-mask hidden"></div>
+                <div id="signed" class="mask-wrap hidden">
+                    <div class="mask-header">签到成功</div>
+                    <div class="mask-content">
+                        <p>Congratulation！今天签到成功！</p>
+                        <p id="jifen"></p>
+                        <p id="weeksign" class="hidden">您已连续签到7天，恭喜你获得额外 1 积分</p>
+                        <div id="outfen30" class="hidden">
+                            <br>
+                            <div>恭喜您！您的积分已累计30分，可领取小礼品一份！</div>
+                            <div>请联系：xxxxxxxx</div>
+                        </div>
+                        <div id="outfen100" class="hidden">
+                            <br>
+                            <div>Amazing！You are so great！</div>
+                            <div>您积分已累计100分，可领取广东省预选赛直通卡！</div>
+                            <div>请联系：xxxxxxxx</div>
+                        </div>
+                        <div id="outfen150" class="hidden">
+                            <br>
+                            <div>Well done！You are so good！</div>
+                            <div>您积分已累计达到150分，获得广东省赛观赛门票及“最佳XX奖”</div>
+                            <div>请联系：xxxxxxxx</div>
+                        </div>
+                    </div>
+                    <div class="mask-footer"><a href="#" id="closeSign" class="btn btn-block btn-primary">好的</a></div>
+                </div>
+                <div id="rule" class="mask-wrap hidden">
+                    <div class="mask-header">活动规则</div>
+                    <div class="mask-content">
+                        <ol>
+                            <li>上传语音即完成签到成功，获得1积分，连续签到七天即可获得额外1积分。</li>
+                        </ol>
+                        <br>
+                        <div>奖励机制：</div>
+                        <ol>
+                            <li>2016年12月20日正式启动奖励机制，具体奖励规则将于后续公布。获得一定积分可获得神秘礼品，更有机会获得面试赛直通卡，敬请期待！(注意：正式启动奖励机制前，12月20日前的积分将清零。)</li>
+                        </ol>
+                    </div>
+                    <div class="mask-footer"><a href="javascript: void(0);" class="btn btn-block btn-primary btn-close">关闭</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="/public/js/gmu/min.zepto.js"></script> -->
+        <!--<script src="<?php echo GAOFEN_STATIC; ?>/html/weixin/DailyEnglish/js/index.js"></script>-->
+        <script src="http://file.gaofen.com/html/v5/js/zepto/zepto1.0.min.js"></script>
+        <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript" src="/public/js/weixin/wxinit.js"></script>
+        <script type="text/javascript" src="/public/js/base.js"></script>
+        <script>
+        (function(){
+              Gaofen.PD.set({'wxconfig':'<?php echo $wxConfig; ?>', imgUrl:'<?php echo $headimgurl; ?>', title: 'WOW！我已经打卡<?php echo $sign_days; ?>天了，快来听听我的语音吧！',link: location.href});
+              var config = Gaofen.PD.get(),
+                timer = 59500,
+                sec = 0,
+                interSec = null,
+                setTime = null,
+                recording = false,
+                uploading = false,
+                wxplaying = false,
+                uploadUrl = '/huodong/weixin_everydayenglish_index/uploadvoice',
+                pageUrl = '/huodong/weixin_everydayenglish_index/voiceList',
+                localId = '',
+                btn_recording = $('#btn-recording'),
+                btn_reset = $('#btn-reset'),
+                btn_stop = $('#btn-stop'),
+                btn_comment = $('#btn-commit'),
+                myaudio_parent = $('#myaudio_parent'),
+                btn_play = $('#btn-play'),
+                btn_playstop = $('#btn-playstop'),
+                audio = $('#audio'),
+                startRecord = function(){
+                    if (recording) return;
+                    recording = true;
+                    wx.startRecord({
+                      success : function(){
+                        recordDuration()
+                        clearTimeout(setTime);
+                      },
+                      cancel : function(){ // 用户拒绝授权录音
+                        recording = false;
+                      },
+                      fail : function(){
+                        recording = false;
+                      }
+                    });
+
+
+                    btn_stop.display(1);
+                    btn_comment.addClass('invisible');
+                    btn_recording.display(0);
+                },
+
+                recordDuration = function(){
+                    sec = 0;
+                    setTime = setTimeout(function(){
+                        stopRecord(true);
+                    }, timer); 
+                    interSec = setInterval(function(){
+                        ++sec;
+                    }, 1000)
+                },
+
+                stopRecord = function() {
+                    clearTimeout(setTime);
+                    clearInterval(interSec);
+                    wx.stopRecord({
+                        success: function (res) {
+                            localId = res.localId;
+                            stopRecordfn();
+                        },
+                        fail : function(){
+                            // stopRecordfn();
+                        }
+                    });
+                },
+                stopRecordfn = function(e){
+                    recording = false;
+                    btn_stop.display(0);
+                    if(localId && sec > 1){
+                        btn_comment.removeClass('invisible');
+                        btn_reset.removeClass('invisible');
+                        btn_play.display(1);
+                    }else{
+                        btn_recording.display(1);
+                        localId = ''
+                         // myaudio_parent.addClass('invisible');
+                    }
+                    // btn_recording.text('重新录音').removeClass('btn-recording');
+                },
+                setPlayingStop = function(src){
+                    $('.q-audio[rel="'+src+'"]').removeClass('q-play');
+                    audio.attr('src', '')
+                },
+                reset = function(){
+                    sec = 0;
+                    localId = '';
+                    btn_comment.addClass('invisible');
+                    btn_play.display(0);
+                    btn_recording.display(1);
+                    btn_playstop.display(0);
+                    btn_reset.addClass('invisible');
+                    if (wxplaying === true){
+                        wxplaying = false;
+                        wx.stopVoice({
+                            localId: localId
+                        });
+                    }
+                };
+
+                var uploadServer = function(){
+                    if(uploading) return;
+                    uploading = true;
+                    $('.loading-fixed').display(1);
+                    if(localId){
+                        wx.uploadVoice({
+                            localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                            isShowProgressTips: 0, // 默认为1，显示进度提示
+                                success: function (res) {
+                                var serverId = res.serverId; // 返回音频的服务器端ID
+                                Gaofen.Ajax.send(uploadUrl, {
+                                    media_id: serverId,
+                                    sec: sec
+                                }, function(res){
+                                    
+                                    uploading = false;
+                                    $('.loading-fixed').display(0);
+                                    try{
+                                        // alert(res.rst.path)
+                                        if($.type(res) === 'string'){
+                                            res = JSON.parse(res);
+                                        }
+                                        if(res.errno !== 0){
+                                            alert(res.err);
+                                            return;
+                                        }
+                                        
+                                        var integral = Number(res.rst.integral),
+                                            msgText = '目前您的积分是 '+integral+' 分。';
+                                        $('#jifen').text(msgText);
+                                        if(Number(res.rst.sign_continue_days||0) % 7 === 0){
+                                            $('#weeksign').display(1);
+                                        }
+                                        if(integral === 30){
+                                            $('#outfen30').display(1);
+                                        }
+                                        if(integral === 100) {
+                                            $('#outfen100').display(1);
+                                        }
+                                        if(integral === 150) {
+                                            $('#outfen150').display(1);
+                                        }
+                                        $('#signed').display(1);
+                                        $('.ui-mask').display(1);
+
+                                    }catch(e){
+                                    }
+
+                               })
+                            }
+                        });
+                    }
+                }
+
+              //微信注册  
+              GWX.wxready(config, function(e){
+                btn_comment.on('click', function(e){
+                    if(recording) return;   
+                    if(localId === '') return;
+                    uploadServer();
+                });
+                btn_reset.on('click', function(e){
+                    reset();
+                })
+
+                btn_recording.on('click', function(e){
+                    startRecord();
+                })
+                btn_stop.on('click', function(e){
+                    stopRecord();
+                });
+                btn_play.on('click', function(e){
+                    wxplaying = true;
+                    wx.playVoice({
+                        localId: localId
+                    });
+                    btn_play.display(0);
+                    btn_playstop.display(1);
+                });
+                btn_playstop.on('click', function(e){
+                    wxplaying = false;
+                    wx.stopVoice({
+                        localId: localId
+                    });
+                    btn_play.display(1);
+                    btn_playstop.display(0);
+                });
+                wx.onVoicePlayEnd({
+                    success: function (res) {
+                        var localId = res.localId; // 返回音频的本地ID
+                        btn_play.display(1);
+                        btn_playstop.display(0);
+                    }
+                });
+              })
+
+              $('.q-audio').on('click', function(e){
+
+                var trel = $(this).attr('rel'), src = audio.attr('src');
+                if(!audio[0].paused) {
+                    audio[0].pause();
+                }
+                $('.q-audio').removeClass('q-play');
+                if(trel !== src) {
+                    audio.attr('src', trel);
+                    audio[0].play();
+                    $(this).addClass('q-play');
+                    Gaofen.Ajax.send('/huodong/weixin_everydayenglish_index/views', {
+                        id: $(this).attr('vrel')
+                    }, function(res){
+                   })
+                   var parent = $(this).parent(), play_num = parent.find('span.play_num');
+                   // console.log(play_num.html())
+                   play_num.text(Number(play_num.text())+1);
+                }else {
+                    audio.attr('src', '');
+                }
+
+              })
+
+             audio[0].addEventListener('ended', function(){
+                setPlayingStop(audio.attr('src'));
+             }, false);
+
+             audio.on('canplay', function () {
+              audio[0].play();
+            })
+
+             $('#ruleBtn').on('click', function(e){
+                e.preventDefault();
+                $('.ui-mask').display(1);
+                $('#rule').display(1);
+             })
+            $('#rule .btn-close').on('click', function(e){
+                e.preventDefault();
+                $('.ui-mask').display(0);
+                $('#rule').display(0);
+             })
+
+            $('#closeSign').on('click', function(e){
+                e.preventDefault();
+                $('.loading-fixed').display(1);
+                location.href = location.origin + location.pathname + '?tmp='+ (+new Date);
+                btn_comment.addClass('invisible');
+                $('.ui-mask').display(0);
+                $('#signed').display(0);
+            })
+
+            //下拉分页功能
+            if($('#voice_list').children().length >= 10) {
+                var getPageTimer = null, page = 1, loading = false, type = 1;
+                $('#load_area').display(1);
+                if(location.search.indexOf('type=2') > -1){
+                    type = 2;
+                }
+                $('.wrap')[0].addEventListener('scroll', function(e){
+                  var wh = window.screen.height,
+                    top = $('.wrap')[0].scrollTop;
+                  if (top + wh > $('.index-page').height()) {
+                    clearTimeout(getPageTimer)
+                    getPageTimer = setTimeout(function(e){
+                        if(loading === true) return;
+                        loading = true
+                        Gaofen.Ajax.send(pageUrl, {page: ++page, type: type}, function(res){
+                            $('.loading-fixed').display(0);
+                            if($.type(res) === 'string'){
+                                res = JSON.parse(res);
+                            }
+                            if(res.errno === 0){
+                                if(res.rst.html !== ''){
+                                    loading = false
+                                    $('#voice_list').append(res.rst.html);
+                                }else{
+                                    $('#load_area').display(0);
+                                }
+                            }
+                        })
+                    }, 10)
+                  }
+                }, false)
+            }
+        })()
+        </script>
+        <!-- Google Tag Manager -->
+<!-- <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5KNNRX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5KNNRX');</script> -->
+<!-- End Google Tag Manager -->
+    </body>
+</html>

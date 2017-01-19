@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>高分家长专家录音</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/record.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+    <style type="text/css">
+    .playing{
+        background: #fff;
+    }
+    #btn-stop{
+        background: red;
+    }
+    body{
+        background-color: #f7e498;
+    }
+    table audio {
+        width: 45px;
+    }
+    body,html{
+        overflow : auto;
+    }
+    body{
+        background-image: url(http://file.gaofen.com/html/weixin/voice/img/expert-body-bg.png.png);
+    }
+    .voice-delete-btn{
+        background-color: #fd4454;
+        width: 2em;
+        font-size: 1.2em;
+        padding: 0 1em;
+        margin-right: 2em;
+    }
+    </style>
+    <style type="text/css">
+        .loading-fixed {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  margin: -30px 0 0 -60px;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 999;
+  color: #fff;
+}
+.loading-fixed p {
+  margin-top: 10px;
+}
+.icon-loading {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  color: #808080;
+  left: 50%;
+  margin-left: -10px;
+}
+.icon-loading .dot {
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+.icon-loading .dot-t,
+.icon-loading .dot-b {
+  position: absolute;
+  left: 0;
+  content: '';
+  background: #fff;
+  width: 2px;
+  height: 6px;
+  border-radius: 1px;
+  -webkit-animation: blink 0.8s infinite ease-in-out;
+  animation: blink 0.8s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.icon-loading .dot-t {
+  top: 0;
+}
+.icon-loading .dot-b {
+  bottom: 0;
+}
+.icon-loading .dot1 .dot-t {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+}
+.icon-loading .dot1 .dot-b {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+.icon-loading .dot2 {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.icon-loading .dot2 .dot-t {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+.icon-loading .dot2 .dot-b {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+.icon-loading .dot3 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.icon-loading .dot3 .dot-t {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+.icon-loading .dot3 .dot-b {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s;
+}
+.icon-loading .dot4 {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.icon-loading .dot4 .dot-t {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+.icon-loading .dot4 .dot-b {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    -webkit-filter: none;
+            filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    -webkit-filter: none;
+            filter: none;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    -webkit-filter: none;
+            filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    -webkit-filter: none;
+            filter: none;
+  }
+}
+
+    </style>
+</head>
+<body class="record">
+<!-- <div id="testmsg">==</div> -->
+<p class="tip icon-recording">录取声音中..</p>
+<div class="record-wrap" id="record_wrap">
+    <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/img/record-wrap.png" alt="" class="record-wrap-bg"/>
+    <p class="duration">还没生成录音</p>
+    <div class="audio-wrap icon-recording hidden" id="myaudio_parent">
+        <audio src="" id="myaudio"></audio>
+    </div>
+
+</div>
+
+<!--<input type="button" id=" record" class="icon-weixin" value="按住录音"/>-->
+<a href="javascript:void(0);" id="btn-recording" class="btn">按住录音</a>
+<a href="javascript:void(0);" id="btn-stop" class="btn btn-commit hidden">停止录音</a>
+<a href="javascript:void(0);" id="btn-commit" class="btn btn-commit hidden">提交录音</a>
+<a href="javascript:void(0);" id="btn-reset" class="btn btn-reset hidden">删除录音，重新录制</a>
+<iframe src="" name="upload" class="hidden"></iframe>
+<div align="center"><p>注意：录音时，不能锁屏、休眠、接听来电、切换到其它APP</p></div>
+<div align="left" style="padding-left:50px;"><br /><p>上传本地录音(只对mp3有效)：</p></div>
+<div align="center"><form method="post" enctype="multipart/form-data" target="upload" action="<?php echo F::URL('huodong_m:/Huodong/weixin_bestvoice_vv/uploadLocalFile'); ?>"><input type="file" name='upload' /><input type="submit" name="上传" onclick="loading('show')"></form></div>
+    <br><br><br><br>
+    <table id="voicelist" align="center">
+        <thead>
+            <tr>
+                <th width="40%"></th>
+                <th width="30%"></th>
+                <th width="30%"></th>
+            </th>
+        </thead>
+        <tbody>
+            <?php foreach($list['list'] as $i=>$row): ?>
+            <tr>
+                <!-- <td><?php F::O($i+1);?></td> -->
+                <td align="center"><?php F::O($row->created_at); ?></td>
+                <td align="center"><div style="width:45px; overflow:hidden"><audio src="<?php echo $row->present()->getVoiceLink(); ?>" controls></audio></div></td>
+                <td align="center"><a class="btn voice-delete-btn" href="<?php echo F::URL('huodong_m:/huodong/weixin_bestvoice_vv/delete', ['id'=>$row->id]); ?>">删除</a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<div class="loading-fixed hidden" id='loading'>
+    <div class="icon-loading">
+        <div class="dot dot1"><i class="dot-t"></i><i class="dot-b"></i></div>
+        <div class="dot dot2"><i class="dot-t"></i><i class="dot-b"></i></div>
+        <div class="dot dot3"><i class="dot-t"></i><i class="dot-b"></i></div>
+        <div class="dot dot4"><i class="dot-t"></i><i class="dot-b"></i></div>
+    </div>
+    <p>上传中...</p>
+</div>
+
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/public/js/weixin/wxinit.js"></script>
+<script type="text/javascript" src="/public/js/gmu/zepto.min.js"></script>
+<script type="text/javascript" src="/public/js/base.js"></script>
+<script type="text/javascript">
+    Gaofen.PD.set({'wxconfig':'<?php echo $wxConfig; ?>'});
+    Gaofen.PD.set({'voice':{'link':'', 'times':''}, 'uri':<?php echo $ajaxUri; ?>, 'router' : 'record'});
+
+    function loading(flag) {
+        if(flag=='show') {
+            $('#loading').removeClass('hidden');
+        }else{
+            $('#loading').addClass('hidden');
+        }
+    }
+
+    var isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    (function(){
+        var recording = false, recordIds = [], currentIndex = 0, uploadList = [], serverIds = [],
+            uploading = false,
+            startTamp = '',
+            endTamp = '',
+            recordTimer = null,
+            eventType = Gaofen.eventType,
+            config = Gaofen.PD.get(),
+            btn_recording = $('#btn-recording'),
+            btn_reset = $('#btn-reset'),
+            btn_stop = $('#btn-stop'),
+            btn_comment = $('#btn-commit'),
+            myaudio_parent = $('#myaudio_parent'),
+            myaudio = $('#myaudio');
+
+        var init = function(voice, unupload){
+            voice = voice || config.voice;
+            if(voice.link || unupload){
+                if(!unupload){//非上传后        
+                    myaudio.attr('src', voice.link);                                     
+                }else{//录音，通过微信JDK播放
+                    myaudio.attr('src', '#');  
+                }
+                myaudio_parent.display(1);
+                btn_recording.text('重新录音').removeClass('btn-recording'); 
+                // $('.duration').css('visibility', 'hidden');
+            }else{
+                myaudio_parent.display(0);
+                // $('.duration').css('visibility', 'visible');
+                myaudio.attr('src', '');
+                btn_recording.text('开始录音').removeClass('btn-recording');
+            }
+        }
+
+        // config.voice.link = 'http://dev.phpmvc.com/bg.mp3';
+
+        init(config.voice);
+
+        //针对android机加计时件
+        var setTime = null, timer = 58500;
+
+        var startRecord = function(){
+            recording = true;
+            wx.startRecord();
+            btn_recording.text('').addClass('btn-recording');
+            btn_stop.display(1);
+            btn_comment.display(0);
+
+            // $('#testmsg').text(recordIds.length);
+ //           if(!isiOS){
+                clearTimeout(setTime);
+                setTime = setTimeout(function(){
+                    stopRecord(true);               
+                }, timer); 
+//            }
+
+        },
+
+        clearTimer = null,
+        stopRecord = function(auto){
+            clearTimeout(setTime);
+            wx.stopRecord({
+                success: function (res) {
+                    clearTimeout(clearTimer);
+                    var localId = res.localId;
+                    recordIds.push(localId);
+                    if(auto){
+                        startRecord();
+                    }else{
+                        stopRecordfn();
+                    }
+                },
+                fail : function(){
+                    stopRecordfn();
+                },
+                error : function(){
+                    stopRecordfn();
+                }
+            });
+            clearTimer = setTimeout(function(){
+                stopRecordfn();
+            }, 500);
+
+        },
+
+        clearRecord = function(){
+            recordIds = [];
+        },
+
+        audioEndfn = function(e, audioDom, dot){
+              myaudio_parent.removeClass('playing');
+        },
+
+        stopRecordfn = function(e){
+            init("", true);
+            recording = false;
+            btn_stop.display(0);
+            if(recordIds.length){
+                btn_comment.display(1);
+            }else{
+                 myaudio_parent.display(0);
+            }
+            btn_recording.text('重新录音').removeClass('btn-recording');
+        },
+        Tips = function(msg, type){
+            $('#testmsg').text('type:'+type+'---:'+msg);
+        };
+
+        GWX.wxready({debug : false}, function(e){
+
+            btn_recording.on(eventType, function(e){
+                if(recording) return;
+                startTamp = +new Date;
+                clearInterval(recordTimer);
+                $('.duration').text("1''");
+                recordTimer = setInterval(function(){
+                    var t = +new Date - startTamp;
+                    if(Math.floor(t / 1000) > 1){
+                        $('.duration').text(Math.floor(t / 1000)+"''");
+                    }
+                }, 1000);
+                clearRecord();               
+                startRecord();
+            });
+
+
+            btn_stop.on(eventType, function(e){
+                if(startTamp) startTamp = +new Date;
+                clearInterval(recordTimer);
+                stopRecord();
+            });
+
+            //使用微信播放
+            myaudio_parent.on(eventType, function(e){
+                if(recording || uploading) return;
+                if(myaudio.attr('src') === '#'){//微信JDK播放
+                    if(currentIndex <= recordIds.length){
+                        $(this).addClass('playing');
+                        wx.playVoice({
+                            localId: recordIds[currentIndex] // 需要播放的音频的本地ID，由stopRecord接口获得
+                        });  
+                        currentIndex++;           
+                    } 
+                }else{//播放已有录音             
+                    if($(this).hasClass('playing')){
+                        myaudio[0].pause();
+                        $(this).removeClass('playing');
+                    }else{
+                        myaudio[0].play();
+                        $(this).addClass('playing');
+                    }
+                    myaudio[0].removeEventListener('ended', audioEndfn, false);
+                    myaudio[0].addEventListener('ended', audioEndfn, false);
+                }
+
+            });
+
+
+            btn_comment.on(eventType, function(e){
+                if(recording) return;   
+                if(recordIds.length  === 0) return;
+                for(var i=0;i<recordIds.length;i++){
+                    uploadList.push(recordIds[i]);
+                }
+                uploadServer();         
+
+            });
+
+
+
+            wx.onVoiceRecordEnd({
+                // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+                complete: function (res) {
+                    //var localId = res.localId; 
+                    //recordIds.push(localId);
+                    //startRecord();
+                }
+            });
+
+            wx.onVoicePlayEnd({
+                success: function (res) {
+                    if(currentIndex < recordIds.length){                 
+                        setTimeout(function(){myaudio_parent.trigger(eventType);},0);
+                    }else{
+                        myaudio_parent.removeClass('playing');
+                        setTimeout(function(){
+                            currentIndex = 0;
+                        }, 5000);
+                    }
+                }
+            });
+
+
+        });
+
+        var uploadServer = function(){
+            if(uploading) return;
+            uploading = true;
+            if(uploadList.length == 0){
+
+                if(serverIds.length){
+                    var media_id = serverIds.join(',');
+                    $.ajax({
+                       type: "GET",
+                       url: config.uri.upload,
+                       data: {
+                        media_id : media_id
+                       },
+                       success: function(res){
+                            uploading = false;
+                            try{
+                                serverIds = [];
+                                if($.type(res) === 'string'){
+                                    res = JSON.pares(res);
+                                }
+                                init({link:res.rst.voice}, false);
+
+                                alert('提交成功！');
+                                var href =  location.href;
+                                if(href.indexOf('?')>-1){
+                                    href += '&v='+(+new Date);
+                                }else{
+                                    href += '?v='+(+new Date);
+                                }
+                                location.href = href;
+                            }catch(e){
+                                alert('提交失败！');
+                            }
+
+                       }
+                    });
+                }
+                return;
+            }
+            var ls = uploadList.shift();
+            wx.uploadVoice({
+                localId: ls, // 需要上传的音频的本地ID，由stopRecord接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                    success: function (res) {
+                    var serverId = res.serverId; // 返回音频的服务器端ID
+                    serverIds.push(serverId);
+                    uploading = false;
+                    uploadServer();
+                }
+            });
+        }
+
+
+        var lock = false;
+        $('#voicelist').on('click', 'td>a', function(e){
+            e.preventDefault();
+            if(lock) return;
+             if(confirm("确定要删除吗？")){
+                var dom = $(this);
+                lock = true;
+                $.ajax({
+                   type: "GET",
+                   url: dom.attr('href'),
+                   data: {
+                   },
+                   success: function(r){
+                        if($.type(r) === 'string') r = JSON.parse(r);
+                        if(r.errno == '0'){
+                            dom.closest('tr').remove();
+                        }else{
+                            alert('删除失败，请稍候再试！');
+                        }
+                      lock = false;
+                   }
+                });
+             }
+        });
+
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv='mobile-agent' content='format=html5; url=<?php echo F::URL('xczweixin:/czweixin/school/list'); ?>'>
+        <title>
+        <?php
+        //【广州越秀区民办初中】广州越秀区民办初中有哪些_越秀区民办初中排行榜-高分网初中库
+        $_pr = V('g:property');
+        $_di = V('g:district');
+        if($_pr || $_di) {
+             echo F::siteTitle(SEO_XCZ_INDEX_EX_TITLE, array('property'=>@$filters['property']['list'][$_pr], 'district'=>@$filters['district']['list'][$_di]));
+        }elseif(V('g:q')) {
+            echo F::siteTitle(SEO_XCZ_INDEX_SEARCH_TITLE, array());
+        }else{
+             echo F::siteTitle(SEO_XCZ_INDEX_TITLE, array());
+        }
+        ?>
+        </title>
+        <?php F::TPL('common/header.html', [], 'Cz'); ?>
+    </head>
+
+    <body class="search-page">
+        <div id="wrap">
+            <?php F::TPL('common/nav.html', [], 'Cz'); ?>
+            <div class="container page-content">
+                <!-- Start: 过滤器-->
+                <div class="filter-group">
+                    <?php foreach ($filters as $flag=>$filter): ?>
+                        <div class="filter"><span class="label"><?php echo $filter['filter_name'] ?>：</span>
+                            <div class="filter-cont<?php if(!in_array($flag, array('district'))): ?> single-line<?php endif; ?>">
+                                <div class="filter-options">
+                                    <?php echo F::filterUrl($filter['list'], $filter['param_name'], array_keys($filters)) ?>
+                                </div>
+                                <div class="filter-operations hidden"><a href="#" class="unfold">更多<i class="triangle"></i></a><a href="#" class="fold">收起<i class="triangle"></i></a></div>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+                <!-- End: 过滤器-->
+                <div class="row row14-6">
+                    <div class="span14">
+                        <?php if ($schools['list']->isEmpty()): ?>
+                        <!-- Start: 搜索结果为空-->
+                        <div class="alert alert-info alert-single"><i class="ico"></i>
+                            <div class="info">
+                                <p>暂无学校，换个条件试试？</p>
+                            </div>
+                        </div>
+                        <!-- End: 搜索结果为空-->
+                        <?php endif ?>
+                        <!-- Start: 学校列表-->
+                        <div class="school-thumb-info-list">
+                            <ul id="school_list">
+                                <?php F::TPL('school/school.html', ['schools' => $schools['list']], 'Cz') ?>
+                            </ul>
+                            <div class="view-more">
+                                <?php if ($schools['total'] > $schools['list']->count()): ?>
+                                    <a href="#" rel="e:lmore">查看更多学校</a>
+                                <?php endif ?>
+                                <div class="loading-mini"></div>
+                            </div>
+                        </div>
+                        <!-- End: 学校列表-->
+                    </div>
+                    <div class="span6">
+                        <!-- Start: 侧栏挂件-特长生招生查询-->
+                        <?php F::TPL('school/guide_widget.html', compact('districtList', 'form', 'pstypeList'), 'Cz') ?>
+                        <!-- End: 侧栏挂件-特长生招生查询-->
+
+                        <!-- Start: 优秀民校推荐 -->
+                        <?php echo F::TPL('school/private_schools.html', ['privateSchools' => $privateSchools['list'], 'govSchools'=> $govSchools['list'], 'none_compare' => true], 'Cz') ?>
+                        <!-- End: 优秀民校推荐 -->
+                        <!-- Start: 备考资料推荐 -->
+                        <div class="widget">
+                            <div class="widget-hd">
+                                <div class="title">备考资料推荐</div>
+                            </div>
+                            <div class="widget-bd">
+                                <div class="list data-list">
+                                    <ul>
+                                        <?php if ($topic = array_shift($topics['list'])): ?>
+                                        <li class="rec">
+                                            <!-- Start:资料封面图-->
+                                            <div class="cover<?php if($topic['docType']==2): ?> cover-pack<?php endif; ?>">
+                                                <a href="<?php echo $topic['docInfo']['link'] ?>" title="<?php echo $topic['docInfo']['title'] ?>" target="_blank">
+                                                <img src="<?php echo F::imageUrl($topic['docInfo']['cover'], '100_141', '/attachs/'); ?>" alt="<?php echo $topic['docInfo']['title'] ?>" class='no-pic' />
+                                                </a><span class="orn"></span>
+                                            </div>
+                                            <!-- End:资料封面图-->
+                                            <div class="info">
+                                                <div class="name"><a href="<?php echo $topic['docInfo']['link'] ?>" target="_blank"><?php echo $topic['docInfo']['title'] ?></a>
+                                                </div>
+                                                <div class="date"><?php echo date('Y-m-d', $topic['docInfo']['dateline']) ?>发布</div>
+                                            </div>
+                                        </li>
+                                        <?php endif ?>
+                                        <?php foreach ($topics['list'] as $topic): ?>
+                                        <li><span class="name">
+                                        <a href="<?php echo $topic['docInfo']['link'] ?>" target="_blank" title="<?php echo $topic['docInfo']['title'] ?>">
+                                        <?php echo $topic['docInfo']['title'] ?></a></span>
+                                        </li>
+                                        <?php endforeach ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End: 备考资料推荐 -->
+                        <!-- Start: 您浏览过的学校 -->
+                        <?php F::TPL('school/visited.html', ['visited' => $visited], 'Cz') ?>
+                        <!-- End: 您浏览过的学校 -->
+                    </div>
+                </div>
+            </div>
+            <?php F::TPL('common/footer.html', [], 'Cz'); ?>
+        </div>
+        <?php F::TPL('common/footer_script.html', [], 'Cz'); ?>
+    </body>
+    <script type="text/javascript">
+    <?php $params = V('g');unset($params['r']);$params=json_encode($params); ?>
+        Gaofen.PD.set({ 'channel':'xuexiao','action':'index', params : <?php echo $params; ?>,
+                        'admitForte':<?php echo json_encode(isset($admitForteList)?$admitForteList:array()); ?>
+                    });
+    </script>
+
+</html>

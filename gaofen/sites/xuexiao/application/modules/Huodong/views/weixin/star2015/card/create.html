@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全城悬赏，寻找升学宗师</title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#222222">
+    <?php F::TPL('weixin/star2015/style.html', [], 'huodong') ?>
+</head>
+<body class="data-page">
+<div class="container">
+    <div class="form">
+        <div class="upload-photo">
+            <div class="thumb" id="uploadArea">
+                <img alt="" id="faceImg">
+
+                <div class="loading">
+                    <span class="bounce1"></span>
+                    <span class="bounce2"></span>
+                    <span class="bounce3"></span>
+                </div>
+            </div>
+            <p>上传以卓越教育“升学宗师”广告为背景的照片<br>点击可重新上传</p>
+        </div>
+        <div class="form-row">
+            <div class="controls">
+                <input type="text" placeholder="填写您的微信昵称" name="nickname" id="nickname"
+                       value="<?php echo $weixinInfo->nickname ?>">
+            </div>
+            <div class="hints hidden">请填写微信号</div>
+        </div>
+        <div class="form-row">
+            <div class="controls">
+                <input type="text" placeholder="填写11位手机号码" name="phone" id="phone" value="<?php echo $phone?>">
+            </div>
+            <div class="hints hidden">手机号码填写错误，请检查修改</div>
+        </div>
+        <div class="form-tips">准确填写手机号码，这将作为兑奖的唯一凭证</div>
+        <div class="actions"><a href="#" class="btn hidden" id="btn">立即制作参赛名片</a>
+            <span href="#" class="btn btn-disabled " id="disbtn">立即制作参赛名片</span>
+        </div>
+    </div>
+    <div class="rules">
+        <h2>活动规则</h2>
+        <h3>1. 活动时间：</h3>
+        <p>7月10日-7月20日；</p>
+
+        <h3>2. 奖项设置：</h3>
+        <p>（1）一代宗师奖-- 1名 (积攒武功招式数量最多者，可获得Apple Watch一枚)</p>
+        <p>（2）人气高手奖-- 2名 (累计收集武功招式数量第2、3名，可获得卡西欧美颜相机礼盒一套</p>
+        <p>（3）武侠新人奖-- 6名 (累计收集武功招式数量第4-9名，可获得华为运动手环一枚)</p>
+
+        <h3>3. 活动步骤：</h3>
+        <p>（1）每个微信ID填写的手机号码，将作为参与评奖和兑奖的为一凭证</p>
+        <p>（2）上传与<span class="hl">“升学宗师”广告页面创意合照</span></p>
+        <p>（3）进入游戏积攒武功招式</p>
+        <p>（4）还可分享游戏，邀请好友帮忙收集武功招式</p>
+        <p>（5）2015年7月20日24：00 前，努力积攒武功招式，赢取大奖吧！</p>
+
+        <h3>4. 兑奖方式：</h3>
+        <p>持续关注“<a
+                href="http://mp.weixin.qq.com/s?__biz=MjM5NTA1NTgyMA==&mid=203742259&idx=1&sn=4027ebff4d067f98a0c78a96f3b6dc30&key=fbe9f9f4b565962c5a6aa2b7eab4d19550fe29ac8913b3ae689d2659adeb104c4303c605c6a24fb90347ba51996cbb32&ascene=1&uin=ODkzNDAxNjAw&devicetype=Windows-QQBrowser&version=61000f01&pass_ticket=ZkB%2FAAE2kBh0Dm52VcCIRtBHRC%2BN%2FeqfBSoyo18PK444%2F9oF%2BnoQD0Msm0sswdSQ">卓越教育</a>”微信，<span
+                class="hl">7月24日将在微信平台公布高手排名</span>，工作人员将通过电话与获奖者联系。</p>
+        <p>最终解释权归卓越教育所有。</p>
+    </div>
+</div>
+<div class="tips hidden" id="errTip">图片上传失败，请重新上传</div>
+</body>
+<script src="http://file.gaofen.com/html/v5/js/zepto.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    var isCreateCarded = 'createCard_{GaoFenV::VER}_{GaoFenV:$wecha_id}';
+    var weixinCfg = <?php echo $weixinCfg->toJson() ?>;
+//    if (window.localStorage[isCreateCarded]) {
+//        location.href = "<?php echo F::URL('huodong/weixin_star2015_card/store')?>";
+//    } else {
+        wx.config($.extend(weixinCfg,
+                {
+                    debug: false,
+                    jsApiList: [
+                        'checkJsApi',
+                        'hideMenuItems',
+                        'chooseImage',
+                        'previewImage',
+                        'uploadImage',
+                        'downloadImage',]
+                }));
+
+        wx.ready(function () {
+            wx.hideMenuItems({
+                menuList: [
+                    'menuItem:share:appMessage', //发送给朋友
+                    'menuItem:share:timeline', // 分享到朋友圈
+                    'menuItem:share:qq', //分享到QQ
+                    'menuItem:share:weiboApp', //分享到Weibo
+                    'menuItem:share:QZone', //分享到 QQ 空间
+                    'menuItem:copyUrl' // 复制链接
+                ],
+                success: function (res) {
+                    //alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+
+            (function ($) {
+                var myFastClick = function (etype, el, fn) {
+                    var zel = $(el), dom = $(el).get(0), evt, preventDefault = true, stopPropagation = true;
+                    if ($.type(etype) === 'object') {
+                        evt = etype.evt;
+                        preventDefault = etype.hasOwnProperty('pd') ? etype.pd : preventDefault;
+                        stopPropagation = etype.hasOwnProperty('sp') ? etype.sp : stopPropagation;
+                    } else {
+                        evt = etype;
+                    }
+                    $(el).on('touchend', function (e) {
+                        var event = $.Event(evt);
+                        //这里为了方便而已，其实该e.target
+                        dom.dispatchEvent(event);
+                        preventDefault && e.preventDefault();
+                        stopPropagation && e.stopPropagation();
+                    });
+                    $(el).on(etype, fn);
+                }
+                var isPc = function () {
+                    var userAgentInfo = navigator.userAgent;
+                    var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+                    var flag = true;
+                    for (var v = 0; v < Agents.length; v++) {
+                        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    return flag;
+                }
+                var eventType = 'tap', uploadArea = $('#uploadArea'), uploadingcs = 'show-loading',
+                        showUpload = function (isAdd, flag) {
+                            uploadArea[isAdd ? 'addClass' : 'removeClass'](uploadingcs);
+                            !flag && displayBtn(isAdd);
+                        },
+                        images = {
+                            'localId': '',
+                            'serverId': ''
+                        },
+                        uploadFail = function (err) {
+                            if (err) {
+                                $('#errTip').text(err).removeClass('hidden');
+                                setTimeout(uploadFail, 3000);
+                            } else {
+                                $('#errTip').text('').addClass('hidden');
+                            }
+                        },
+                        displayBtn = function (istrue) {
+                            var btn = $('#btn'), disbtn = $('#disbtn');
+                            btn[istrue ? 'addClass' : 'removeClass']('hidden');
+                            disbtn[!istrue ? 'addClass' : 'removeClass']('hidden').text('立即制作参赛名片');
+                        },
+                        checkForm = function (ipt, flag) {
+
+                            !flag && ipt.trigger('blur');
+                            if (ipt.closest('.form-row').hasClass('error')) return '';
+                            return $.trim(ipt.val());
+                        };
+                $(function () {
+                    displayBtn(!$('#faceImg').attr('src'));
+
+                    myFastClick(eventType, uploadArea, function (e) {
+                        if (!uploadArea.hasClass(uploadingcs)) {
+                            uploadFail();
+
+                            wx.chooseImage({
+                                success: function (res) {
+                                    showUpload(true);
+                                    images.localId = res.localIds[0];
+                                    function upload() {
+                                        wx.uploadImage({
+                                            localId: images.localId,
+                                            success: function (res) {
+                                                images.serverId = res.serverId;
+                                                $.post("<?php echo F::URL('/huodong/weixin_star2015_card/downPic') ?>", {media_id: res.serverId}, function (r) {
+                                                    if (typeof(r) === 'string') r = JSON.parse(r);
+                                                    if (r.errcode == '0') {
+                                                        var nickname = checkForm($('#nickname'), true), phone = checkForm($('#phone'), true);
+                                                        //if(nickname && phone)
+                                                        showUpload(false);
+                                                        //else
+                                                        //    showUpload(false, true);
+                                                        $('#faceImg').attr('src', r.ret);
+                                                        //alert($('#faceImg').attr('src'));
+                                                    } else {
+                                                        //uploadFail(r.errmsg || '图片上传失败，请重新上传');
+                                                        uploadFail('图片上传失败，请重新上传');
+                                                    }
+                                                })
+                                            }, fail: function (res) {
+                                                uploadFail(JSON.stringify(res) || '图片上传失败，请重新上传');
+                                            }
+                                        });
+                                    }
+
+                                    upload();
+                                },
+                                error: function (res) {
+                                    uploadFail('图片上传失败，请重新上传');
+                                },
+                                fail: function (res) {
+                                    uploadFail('图片上传失败，请重新上传');
+                                }
+                            });
+                        }
+                    });
+
+                    $('#nickname,#phone').on('blur', function (e) {
+                        var jq = $(this), v = $.trim(jq.val()), name = jq.attr('name');
+                        var parent = jq.closest('.form-row'), hints = parent.find('.hints');
+                        if (v === '') {
+                            parent.addClass('error');
+                            hints.removeClass('hidden');
+                            if (name === 'phone') {
+                                hints.text('请填写手机号');
+                            }
+                        } else {
+                            if (name === 'phone' && !/^1[3|4|5|8][0-9]\d{8}$/.test(v)) {
+                                parent.addClass('error');
+                                hints.removeClass('hidden').text('手机号码填写错误，请检查修改');
+                            } else {
+                                parent.removeClass('error');
+                                hints.addClass('hidden');
+                            }
+                        }
+                    });
+                    myFastClick(eventType, $('#btn'), function (e) {
+                        var nickname = checkForm($('#nickname')), phone = checkForm($('#phone')), cover = $('#faceImg').attr('src');
+                        $('#disbtn').text('资料提交中，请稍等');
+                        displayBtn(true);
+                        if (nickname && phone) {
+                            $.post("<?php echo F::URL('/huodong/weixin_star2015_card/store') ?>", {
+                                nickname: nickname,
+                                phone: phone,
+                                pic: cover
+                            }, function (r) {
+
+                                if (typeof(r) === 'string') r = JSON.parse(r);
+                                if (r.errcode == '0') {
+                                    window.localStorage[isCreateCarded] = 1;
+                                    location.href = "<?php echo F::URL('/huodong/weixin_star2015_card/show')?>";
+                                } else {
+                                    //uploadFail(r.errmsg || '图片上传失败，请重新上传');
+                                    uploadFail('操作失败，请再次尝试！');
+                                    displayBtn(false);
+
+                                }
+                            })
+                        } else {
+                            //uploadFail('请正确填写信息');
+                            displayBtn(false);
+                        }
+
+                    });
+                })
+            })(Zepto);
+
+        });
+//    }
+</script>
+<?php F::TPL('/common/gtm.html', []) ?>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>上传图片</title>
+		<link href="css/myupload.css" rel="stylesheet" type="text/css">
+		
+	</head>
+	<body>
+		<form class="form-inline" id="upl" name="upl" action="ci/index.php?upload/english" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="jbImagesDialog.inProgress();">
+			
+			<p id="upload_form_container">
+				<input type="radio" name="utype" value="1" checked>
+				本地上传:
+				<input id="uploadefile" name="imgFile" type="file" class="jbFileBox" multiple="multiple">
+				<input type="hidden" name="fileuri" value="">
+				<span id="loading" class="uploading" style="display:none;"> 正在上传，请等待。。。</span>
+			</p>
+			<p id="watermark">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="watermark" > 图片水印
+			</p>
+			<!-- 		<p id="imgLink">图片连接:
+					<input type="text" name="imgLink" value="" class="file-input">
+			</p> -->
+			
+			   <p id="the_plugin_name">
+				
+				<input type="radio" name="utype" value="2">
+				网络图片:
+				<input type="text" name="netfile" value="" class="file-input" id="netfile">
+			</p>
+			<p>图片大小:
+				宽<input type="text" name="w" value="" class="small">
+				高<input type="text" name="h" value="" class="small">
+			</p>
+			<p>图片链接:
+				<input type="text" name="imgLink" value="" class="file-input">
+			</p>
+			<p>图片说明:
+				<input type="text" name="imgTitle" value="" class="file-input">
+			</p>
+			
+		</form>
+		<iframe id="upload_target" name="upload_target" src=""></iframe>
+		<script type="text/javascript">
+			var $ = jQuery = parent.jQuery, tinymce = parent.tinymce, opts = tinymce.settings, jqbody = $(document.body);
+		</script>
+		<script type="text/javascript" src="/public/js/html5upload.js"></script>
+		<script type="text/javascript">
+				var uploading = false,
+					waitUp = false;
+					uploadStack = '',
+					jquploading = jqbody.find('#loading'),
+					formSet = '',
+					HU = '';
+					upl = jqbody.find('#upl');
+					var myupload = {
+						getInfo : function(fn, cfn){
+							if(uploading) return;
+							var result = {
+								type : 1,//1表示本地上传，2表示网络图片
+								img : '',
+								imgWidth : '',
+								watermark : 0,
+								imgBorder : 0,
+								imgLink : '',
+								imgTitle : '',
+								imgHeight : ''
+							}, ched = upl.find('input[type="radio"]:checked');
+							if(ched.val() == '1'){
+								//result.img = upl.find('input[name="fileuri"]').val();
+								result.watermark = upl.find('input[name="watermark"]').prop('checked') ? 1 : 0;
+							}else{
+								result.img = upl.find('input[name="netfile"]').val();
+								result.type = 2;
+							}
+							result.imgWidth = upl.find('input[name="w"]').val();
+							result.imgHeight = upl.find('input[name="h"]').val();
+							result.imgTitle = upl.find('input[name="imgTitle"]').val();
+							result.imgLink = upl.find('input[name="imgLink"]').val();
+							if(result.type === 1){
+								if(!waitUp){
+									fn('')
+									return '';
+								}
+								formSet = result;
+								myupload.h5upload(fn, cfn);
+							}else{
+								if(result.img === ''){
+									fn('')
+									return '';
+								}
+								fn(result);
+								cfn();
+							}
+						},
+					h5upload : function(fn, cfn){
+							HU.afterOneSuccess = function(file, response){
+								formSet.img = response.uri;
+								fn(formSet);
+							}
+							HU.onComplete = function(){
+								cfn();
+							}
+							HU.funUploadFile();
+						}
+					};
+		
+			$(function(){
+				
+				//选中图片显示网络地址
+				var selcon = tinymce.get(0).selection.getContent(),
+					reg = /<img.*src="([^"]*)"/i, arr = selcon.match(reg);
+				if(arr && arr.length > 1){
+					jqbody.find('#netfile').val(arr[1]);
+				}
+				upl.find('input[type="radio"]').on('change', function(e){
+					var ched = $(this).prop('checked'), v = $(this).val(), flag = false;
+					if(v == '1' && ched) flag = true;
+					if(v == '2' && ched) flag = false;
+					jqbody.find('#watermark')[flag ? 'show':'hide']();
+				})
+				jqbody.find("#uploadefile").on('change', function(e){
+					waitUp = true;
+				})
+				//html5异步上传
+				HU = new html5Upload({
+						fileType : ['jpg','gif','png'],//[jpg,gif,png] //允许上传格式（*表示都可以上传）
+						fileInput: document.getElementById("uploadefile"),
+						url : tinymce.settings.uploadImgUri || '/admin/upload/keUploadJson',
+						autoUpload : false, //是否自动上传
+						preview : '',
+						fileObject : 'file',
+						preview : '',
+						uploadReady : function(){
+							jquploading.show();
+						},
+						beforeDel : function(index){
+							if(this.saveStack.length == 0) return;
+							var self  = this, file = this.saveStack[0], filepath = file.webpath;
+							//self.successcb();
+							self.removeSaveStack(file.index);
+						},
+						successcb : function(){
+							jquploading.hide();
+							//$('#thumb_attach_uri').val('');
+						},
+						afterOneSuccess : function(file, response){
+							//$('#thumb_attach_uri').val(response.uri);
+							//$('#filePreview img').attr('src', response.url);
+						},
+						beforeUpload : function(formData){
+							if(formSet){
+								for(var k in formSet){
+									formData.append(k, formSet[k]);
+								}
+														//formSet = '';
+							}
+							uploading = true;
+						},
+						// funGetFiles : function(e){
+							// 	waitUp = true;
+						// },
+						afterUpload : function(){
+							uploading = false;
+							uploadStack && uploadStack();
+						},
+						host : '/data/uploads/',
+						onComplete: function() {
+							console.log('success');
+						}
+					});
+					
+				
+			})
+		</script>
+	</body>
+</html>

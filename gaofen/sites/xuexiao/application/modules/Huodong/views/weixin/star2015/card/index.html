@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全城悬赏，寻找升学宗师</title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#222222">
+    <?php F::TPL('weixin/star2015/style.html', [], 'huodong') ?>
+</head>
+<body class="home-page">
+<div class="container">
+    <div class="welcome">
+        <div class="actions">
+            <?php if(true): ?>
+            <a href="<?php echo F::URL('/huodong/weixin_star2015_card/create') ?>" class="btn">立即为TA 加油</a>
+            <?php else: ?>
+            <a href="#" class="btn btn-disabled">活动已结束</a>
+            <?php endif; ?>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="http://file.gaofen.com/html/v5/js/zepto.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    var weixinCfg = <?php echo $weixinCfg->toJson(); ?>;
+
+    wx.config($.extend(weixinCfg,
+            {
+                debug: false,
+                jsApiList: [
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'showMenuItems',
+                ]
+            }));
+
+    wx.ready(function () {
+        var shareData = {
+            title: '全城悬赏，寻找升学宗师',
+            imgUrl: 'http://file.gaofen.com/html/mobile/events/kungfu/images/cover.png',
+        };
+        wx.onMenuShareAppMessage(shareData);
+        wx.onMenuShareTimeline(shareData);
+        wx.onMenuShareQQ(shareData);
+        wx.onMenuShareWeibo(shareData);
+    })
+</script>
+<?php F::TPL('/common/gtm.html', []) ?>
+</html>

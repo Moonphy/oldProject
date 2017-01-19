@@ -1,0 +1,122 @@
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  color: #020202;
+  background-color: #f8f8f8;
+}
+body.f-topbar-fixed {
+  padding-top: 100px;
+}
+a:link,
+a:visited {
+  color: #0c67aa;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: #147bcb;
+  text-decoration: underline;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+.title-area h1 {
+  color: #fff;
+  padding: 0 15px;
+}
+.ng-cloak {
+  display: none;
+}
+.filters {
+  text-align: center;
+}
+.filters .keyword {
+  position: relative;
+  max-width: 400px;
+}
+.filters .eraser {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  color: #fff;
+  font-size: 1.125rem;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  border-radius: 40px;
+  background: rgba(0,0,0,0.3);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.filters .eraser:hover {
+  background: rgba(255,0,0,0.5);
+}
+.filters input {
+  height: auto;
+  min-width: 300px;
+  color: #666;
+  top: 5px;
+}
+.tags {
+  text-align: left;
+  background: #f8f8f8;
+  padding-top: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+.tags .label {
+  margin: 0 4px 4px 0;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.75rem;
+}
+.links a {
+  position: relative;
+  display: block;
+  background: #fff url("images/safari.png") no-repeat center 70%;
+  border: 1px solid #e3e3e3;
+  line-height: 24px;
+  height: 185px;
+  margin-bottom: 20px;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+.links a span {
+  display: block;
+  line-height: 18px;
+}
+.links a .title {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  right: -1px;
+  background-color: #2ba6cb;
+  padding: 3px 5px;
+  color: #fff;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  font-size: 0.75rem;
+}
+.links a .url {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  color: #999;
+  font-size: 0.75rem;
+}
+.links a:hover {
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.links a:hover .title {
+  background-color: #f04124;
+}
+.links .new .title {
+  background-color: #f04124;
+}
+[class*="column"]+[class*="column"]:last-child {
+  float: left;
+}

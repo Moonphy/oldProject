@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>中国豆娃好声音</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/user-detail.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+</head>
+<body class="user-detail">
+<div class="main-wrap">
+    <section class="flex">
+        <a href="<?php echo F::URL('huodong_m:huodong/weixin_bestvoice_voice/view', ['id'=>$info->id]); ?>">
+            <img src="<?php echo $info->user->headimgurl; ?>" alt="" class="user-header"/>
+        </a>
+        <div class="user-record">
+            <div class="user-title">
+                <span class="user-name text-overflow"><?php F::O($info->user->nickname); ?></span>
+            </div>
+            <div class="record-bg"></div>
+            <div class="user-record-like">
+                <div class="record fl" rel="e:play">
+                    <?php echo $info->present()->getAudioHtml(); ?>
+                    <div class="dot hidden"></div>
+                    <label class="icon-recording cording-time"><?php F::O($info->present()->getVoiceTime()); ?></label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div rel="e:like,id:<?php F::O($info->id); ?>,type:view" class="btn-record-like iconfont btn <?php echo $info->present()->isFavByUser($uid, 'icon'); ?>"><?php echo $info->present()->isFavByUser($uid, 'text'); ?></div>
+    <?php if(!empty($info->pre_rank)): ?>
+    <a href="<?php echo F::URL('huodong_m:huodong/weixin_bestvoice_voice/honour', ['id'=>$info->id]); ?>" class="zou-list btn" target="_blank">
+        <div class="list-wrap ">
+            <div class="list-head list<?php F::O($info->present()->getPreRank()); ?>"><?php F::O($info->pre_rank); ?></div>
+        </div><?php F::O($info->present()->getPreRankDescription()); ?>
+    </a>
+    <?php endif; ?>
+    <p class="zan-tips"><a href="#this" onclick="showHowToGetPrize()" class="tu">点击此处抽幸运奖30元</a></p>
+    <div class="support">
+        <?php if($info->fav_num): ?>
+        <h3>本周已获得<em><?php F::O($info->fav_num); ?></em>个人支持，合计总票数:<em><?php F::O($info->fav_num_total); ?></em></h3>
+        <?php else: ?>
+        <h3>还未获得任何人点赞，点击微信右上方分享到朋友圈</h3>
+        <?php endif; ?>
+        <ul class="clearfix">
+        <?php if(!empty($favList['list'])): ?>
+            <?php
+            foreach($favList['list'] as $row):
+                if(!empty($roundInfo['date']) && strtotime($row->created_at)<strtotime($roundInfo['date'])) continue;
+            ?>
+            <li><img src="<?php echo $row->user->headimgurl; ?>" alt=""/></li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </ul>
+    </div>
+
+    <div class="scan ">
+        <h5>如何分享</h5>
+        <a href="http://mp.weixin.qq.com/s?__biz=MzAwODE3MzQ5MA==&amp;mid=400399338&amp;idx=2&amp;sn=d451b9b15043d7670f8cb7e1a5921e46#rd" title="投票攻略" class="touPiao">拉票攻略&gt;&gt;</a>
+        <p>点击屏幕右上角按钮 > 分享到朋友圈</p>
+        <h5>如何关注</h5>
+        <p>长按下图，识别二维码关注我</p>
+        <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/img/qrcode-h.png" alt=""/>
+    </div>
+</div>
+<?php F::TPL('weixin/bestvoice/common/inform.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/bestvoice/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/bestvoice/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'router':'view', 'uri':<?php echo $ajaxUri; ?>});
+</script>
+</body>
+</html>

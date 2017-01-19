@@ -1,0 +1,22 @@
+<div class="widget">
+    <div class="widget-hd">
+        <div class="title">近期热门讨论</div>
+    </div>
+    <div class="widget-bd">
+        <!-- 热门讨论列表-->
+        <div class="list">
+            <ul>
+                <?php foreach ($threads as $thread): ?>
+                    <li>
+                        <span class="subject">
+                            [<a href="<?php echo $thread['fields']['typeurl'] ?>" target="_blank"><?php echo $thread['fields']['typename'] ?></a>]
+                        </span>
+                        <span class="tit">
+                            <a href="<?php echo $thread['url'] ?>" target="_blank"><?php echo $thread['fields']['fulltitle'] ?></a>
+                        </span>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    </div>
+</div>

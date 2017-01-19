@@ -1,0 +1,18 @@
+<?php if($paginator->getTotal() > 1): ?>
+<div class="ui-pagination">
+    <?php $disabled = $paginator->hasPreviousPage() ? '' : 'disabled';
+    $link = $paginator->hasPreviousPage() ? F::URL('/cp/mobile/view', ['school_type' => $schoolType->toValue(), 'page'
+    =>
+    $paginator->getPreviousPage(), 'id' => $post->id]) : '#';
+    ?>
+    <a href="<?php echo $link ?>" class="ui-pagination-prev <?php echo $disabled ?>">上一页</a>
+
+    <span><?php echo $paginator->getCurrentPage() .'/'. $paginator->getLastPage()  ?></span>
+
+    <?php $disabled = $paginator->hasNextPage() ? '' : 'disabled';
+    $link = $paginator->hasNextPage() ? F::URL('/cp/mobile/view', ['school_type' => $schoolType->toValue(), 'page' =>
+    $paginator->getNextPage(), 'id' => $post->id]) : '#';
+    ?>
+    <a href="<?php echo $link ?>" class="ui-pagination-next <?php echo $disabled ?>">下一页</a>
+</div>
+<?php endif ?>

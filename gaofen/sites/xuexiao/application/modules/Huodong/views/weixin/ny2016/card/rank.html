@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>元宵抢红包</title>
+        <meta name="keyword" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" type="text/css" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/bainian/css/base.min.css?version=<?php echo STATIC_VERSION; ?>">
+    </head>
+    <body class="list">
+        <div class="wrap">
+            <div class="ui-center">
+                <div class="show-hongbao">
+                    <h2 class="title">全球排行</h2>
+                    <ol class="list-top-3">
+                        <?php for($i = 0; $i < sizeof($list['list']); ++$i):?>
+                            <?php $item = $list['list'][$i]; ?>
+                            <?php if ($i < 3): ?>
+                                <li>
+                                    <div class="list-<?php F::O($i+1); ?>-wrap">
+                                        <div class="list-num"><?php F::O($i+1); ?></div>
+                                    </div>
+                                    <?php if (!empty($item->user->headimgurl)): ?>
+                                        <div class="ui-avatar"><img src="<?php F::O($item->user->headimgurl); ?>" alt=""/></div>
+                                    <?php else: ?>
+                                        <div class="ui-avatar"><img src="<?php F::O(GAOFEN_STATIC.'/html/weixin/bainian/img/dummies/avatar_48x48.png'); ?>" alt=""/></div>
+                                    <?php endif; ?>
+                                    <div class="visit-user">
+                                        <div class="visit-user-title"><?php F::O($item->user->nickname); ?></div>
+                                        <p class="visit-user-text">已获得<b><?php F::O($item->fav_num); ?></b>个祝福</p>
+                                    </div>
+                                </li>
+                            <?php else: ?>
+                                <?php break; ?>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                   </ol>
+                    <ol class="list-top-other">
+                        <?php for($i = 3; $i < sizeof($list['list']); ++$i):?>
+                            <?php $item = $list['list'][$i]; ?>
+                            <?php if ($item->user->id == $user->id): ?>
+                                <li class="list-mine">
+                            <?php else: ?>
+                                <li>
+                            <?php endif; ?>
+                                <div class="list-num"><?php F::O($i+1); ?></div>
+                                <div class="visit-user-title"><?php F::O($item->user->nickname); ?></div>
+                                <div class="list-zan">已获得<b><?php F::O($item->fav_num); ?></b>个祝福</div>
+                            </li>
+                        <?php endfor; ?>
+                        <?php if ($finalRank > sizeof($list['list'])): ?>
+                            <li class="list-dots">
+                                <div class="list-dot"></div>
+                                <div class="list-dot"></div>
+                            </li>
+                            <li class="list-mine">
+                                <div class="list-num"><?php F::O($finalRank); ?></div>
+                                <div class="visit-user-title"><?php F::O($user->nickname); ?></div>
+                                <div class="list-zan">已获得<b><?php F::O($card->fav_num); ?></b>个祝福</div>
+                            </li>
+                        <?php endif; ?>
+                    </ol>
+                </div><a class="btn btn-green w90" href="<?php F::O($shareLink); ?>">继续加油吧</a>
+            </div>
+<!--
+            <div class="fixed-bar">
+                <div class="ad-icon"></div>
+                <div class="ad-wrap">
+                    <ul id="adText">
+                        <li>1、今天的新用户幸运奖被<span>小丑罗宾逊小丑罗宾逊</span>摘走了</li>
+                        <li>2、今天的新用户幸运奖被<span>小丑罗宾逊小丑罗宾逊</span>摘走了</li>
+                    </ul>
+                </div>
+            </div>
+-->
+        </div>
+        <?php F::TPL('weixin/ny2016/common/script.html', get_defined_vars(), 'huodong'); ?>
+        <script type="text/javascript">
+            window.onload = function () {
+                var adText = document.getElementById("adText");
+                var lists = adText.getElementsByTagName("li");
+                var len = lists.length;
+                var listsWidth = 0;
+
+                for(var i = 0; i < len; i++){
+                    listsWidth += lists[i].offsetWidth;
+                }
+
+                adText.style.width = listsWidth + 'px';
+            }
+        </script>
+    </body>
+</html>

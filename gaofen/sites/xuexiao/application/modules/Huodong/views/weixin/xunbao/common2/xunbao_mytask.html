@@ -1,0 +1,10 @@
+<div class="div-wrap"  v-show="partShow" id="mytasks">
+<!-- 	<a href="camp-form.html" title="已成功征服" class="btn btn-start-y"><i class="icon btn-left"></i>已成功征服</a>
+	<a href="" title="尚未开始" class="btn btn-un-start">活动二 尚未开始</a><a href="" title="尚未开始" class="btn btn-un-start">活动二 尚未开始</a> -->
+
+
+	<a v-for="item in tasks" href="{{item.link}}" class="{{item.cs}}"  title="{{item.alt}}">
+        <i class="icon icon-current" v-if="item.path"></i>
+        <i class="icon btn-right"  v-if="item.path"></i>{{item.status}}
+    </a>
+</div>

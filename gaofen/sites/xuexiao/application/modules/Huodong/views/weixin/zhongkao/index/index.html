@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?php F::TPL('weixin/zhongkao/common/header.html', get_defined_vars(), 'huodong'); ?>
+    <style type="text/css">
+        [v-show] { display: none; }
+/*        .lefttoright{
+            -webkit-animation:bounce-in 8s  ease-in infinite;
+        }
+        @-webkit-keyframes bounce-in {
+          0% {
+            left : 100%;
+            transform: translate(100%);
+          }
+          100% {
+            left : 0%;
+            transform: translate(-120%);
+          }
+        }*/
+    </style>
+</head>
+<body >
+    <div id="schoolapp" class="hidden">
+    </div>
+    <div class="gf-page">
+        <div class="loading-fixed" v-show="isloaded" id="loading">
+            <div class="icon-loading">
+                <div class="dot dot1"><i class="dot-t"></i><i class="dot-b"></i></div>
+                <div class="dot dot2"><i class="dot-t"></i><i class="dot-b"></i></div>
+                <div class="dot dot3"><i class="dot-t"></i><i class="dot-b"></i></div>
+                <div class="dot dot4"><i class="dot-t"></i><i class="dot-b"></i></div>
+            </div>
+            <p>加载中...</p>
+        </div>
+        <?php F::TPL('weixin/zhongkao/common/home.html', [], 'huodong'); ?>
+        <?php F::TPL('weixin/zhongkao/common/school.html', [], 'huodong'); ?>
+        <?php F::TPL('weixin/zhongkao/common/share.html', [], 'huodong'); ?>
+        <?php F::TPL('weixin/zhongkao/common/build.html', [], 'huodong'); ?>
+
+                <!-- start 查看奖品弹窗-->
+        <div id="prize" class="gf-mask" v-show="isShowPrize">
+            <div class="mask-wrap">
+                <div class="mask-close" v-on:click="isShowPrize = !isShowPrize"></div>
+
+                <div class="mask-content plr30" style="height: 450px;overflow: auto;">
+                    <div class="font-nm">奖品：</div>
+                    <ol>
+                        <li>总冠军校园大队长：价值2500元的Apple Watch Sport智能手表</li>
+                        <li>校园总亚军的大队长(校园总点赞数第二)：价值1200元的Kindle 全新升级版6英寸</li>
+                        <li>总季军校园大队长：价值500元的手机充值卡</li>
+                        <li>注：6月20日零时截止点赞，按照总点赞数产生前三甲校园）</li>
+                    </ol>
+                    <div class="font-nm">每日开奖：</div>
+                    <ol>
+                        <li>今日排行冠军校园的大队长：价值100元的京东购物卡（次日凌晨12点，由点赞数产生）</li>
+                        <li>每日幸运奖：价值50元的京东购物卡（次日中午12点，由点赞者中随机抽取）</li>                       
+                    
+                    </ol>
+                    <div class="font-nm">活动时间：</div>
+                    <ol>
+                        <li>2016.6.10 — 2016.6.19</li>                       
+                    
+                    </ol>
+                    <div class="font-nm">活动参与规则：</div>
+                    <ol>
+                        <li>同一个学校只限点赞一次</li>
+                        <li>领奖或咨询，请扫描二维码</li>
+                    </ol>
+                    <div class="img-wrap"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/support-school/dist/img/code.jpg?v=<?php echo STATIC_VERSION; ?>" ></div>       
+                    <div>注:若发现任何作弊行为，组委会有权取消参与者的点赞资格，大赛规则最终解释权归组委会</div>
+                    <div>活动主办方：卓越教育</div>
+                </div>
+            </div>
+        </div>
+        <!-- end 查看奖品弹窗-->
+
+        <!-- start 历史中奖信息-->
+        <div id="allWinnerBox" class="gf-mask" v-show="isShowWinner">
+            <div class="mask-wrap">
+                <div class="mask-close" v-on:click="isShowWinner = !isShowWinner"></div>
+                <div class="mask-content plr30" style="height: 450px;overflow: auto;">
+                    
+                    <div class="font-nm" style="color:red;">为母校中考加油活动已结束，由于广州市第十八中学存在刷票违规行为，取消获奖资格，现公布结果如下：
+                    </div>
+                    <ul style="margin: 15px 0 30px 0">
+                        <li style="border-bottom:1px solid #ccc;margin-bottom: 10px;font-size: .14rem">校园总冠军：<br>广州市白云区新市中学（总票数711）</li>
+                        <li style="border-bottom:1px solid #ccc;margin-bottom: 10px;font-size: .14rem">校园总亚军：<br>广州市白云区竹料第一中学（总票数417）</li>
+                        <li style="border-bottom:1px solid #ccc;margin-bottom: 10px;font-size: .14rem">校园总季军：<br>广州市白云区石井中学（总票数316）</li>
+                    </ul>
+                    <div class="font-nm">历史中奖记录：</div>
+                    <div class="ad-wrap">
+                        <ul>
+                            {{{winnerHTML}}}
+                        </ul>
+                    </div>
+                    <div class="img-wrap"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/support-school/dist/img/code.jpg?v=<?php echo STATIC_VERSION; ?>" ></div>  
+                    <div class="font-nm" style="color:red;">请以上各位得奖者于2016年6月30日前联系客服（扫二维码），逾期礼品作废。</div>
+                </div>
+            </div>
+        </div>
+        <!-- end 查看历史中奖信息弹窗-->
+
+
+    </div>
+       <!-- start 查看奖品弹窗-->
+    <div class="gf-mask" v-show="isShowPrize" id="winnerBox">
+        <div class="mask-wrap">
+            <div class="mask-close" v-on:click="isShowPrize = !isShowPrize"></div>
+            <div class="mask-content plr30" style="height: 450px;overflow: auto;">
+            <!-- <div class="ui-avatar"><img alt="">芋人</div> -->
+                <div class="font-nm">恭喜中奖</div>
+                <div  class="font-nm">你获得了:{{prize}}</div>
+                <div  class="font-nm">奖品：{{prizeDetail}}</div>
+                <div  class="font-nm">请扫描识别下方二维码，联系客服领取或咨询。</div>
+                <div class="img-wrap"><img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/support-school/dist/img/code.jpg?v=<?php echo STATIC_VERSION; ?>" ></div> 
+                <div  class="font-nm">活动主办方：卓越教育</div>
+            </div>
+        </div>
+    </div>
+    <!-- end 查看奖品弹窗-->
+
+
+    
+    <script type="text/x-template" id="school-template">
+        <li v-for="item in recentLists" id="{{$index}}" >
+            <div class="ui-avatar mr10" v-on:click="preview(item.id, $event)">
+                <img :src="item.path" alt="">
+            </div>
+            <div class="school-bar" v-on:click="preview(item.id, $event)">
+                <p>{{item.ext_data.text}}</p>
+<!--                 <div class="bar-wrap">
+                    <div class="bar" data-width="{{item.fav_num_total}}" style="width: 0px;"></div>
+                </div> -->
+            </div>
+            <div class="ui-fav">
+                <div>
+                    <span class="zan-num">{{item.fav_num_total}}</span>
+                    <br>
+                    <span>赞</span>
+                </div>
+                <div :class="['btn-zan', item.favcs? 'active':'']" v-on:click="markfav(item.id, $index)">
+                    <i class="icon icon-zan-o">已赞</i>
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/x-template" id="otherschool-template">
+        <li class="tab-list-top" v-for="item in schoolLists" id="{{item.id}}">
+            <div class="ui-avatar mr10"  v-on:click="preview(item.id, $event)">
+                <img :src="item.path" alt="">
+                <i class="icon icon-list">{{$index+1}}</i>
+            </div>
+            <div class="school-bar " v-on:click="preview(item.id, $event)">
+                <p>{{item.ext_data.text}}</p>
+                <div class="bar-wrap">
+                    <div class="bar" data-width="{{item.fav}}" style="width: {{item.percent}};"></div>
+                </div>
+            </div>
+            <div class="ui-fav">
+                <div>
+                    <span class="zan-num">{{item.fav}}</span>
+                    <br>
+                    <span>赞</span>
+                </div>
+                <div class="btn-zan" :class="['btn-zan', item.favcs? 'active':'']" v-on:click="markfav(item.id, $index)">
+                    <i class="icon icon-zan-o">已赞</i>
+                </div>
+            </div>
+        </li>
+    </script>
+    <script type="text/x-template" id="topuserLists-template">
+        <li class="clearfix" v-for="item in topLists" id="{{item.id}}">
+            <div class="ui-avatar-wrap fl">
+                <div class="ui-avatar">
+                    <img :src="item.user.headimgurl" alt="">
+                </div>
+                <span>{{$index|usernick}}</span>
+            </div>
+
+            <div class="ml50">
+                <h3>{{item.user.nickname}}</h3>
+                <p>拉
+                    <span class="font-orange">{{item.vote}}</span>
+                    赞
+                </p>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/x-template" id="topotherLists-template">
+        <li v-for="item in topotherLists">
+            <div class="none-list">
+                <i class="icon icon-honor"></i>
+                <div class="fr">
+                    <h3>{{item.name}}</h3>
+                    <p>虚位以待</p>
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/x-template" id="recenthead-template">
+        <div class="ui-avatar" v-for="item in recentLists" >
+            <img :src="item.headimgurl" alt="{{item.nickname}}">
+        </div>
+    </script>
+
+    <script type="text/x-template" id="srceen-template">
+        <li class="lefttoright" v-for="item in sLists" style="top:{{item.top}}px">
+            {{item.text}}
+        </div>
+    </script>
+
+    <?php F::TPL('weixin/zhongkao/common/footer.html', get_defined_vars(), 'huodong'); ?>
+    <script type="text/javascript">
+        Gaofen.PD.set(
+            <?php $static['router'] = 'index'; echo json_encode($static); ?>
+        );
+    </script>
+</body>
+</html>

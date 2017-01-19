@@ -1,0 +1,13 @@
+
+            <?php if(F::inEnv('product')): ?>
+            <script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/js/xuexiaocz.min.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+
+            <div style="display:none">
+            <script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/js/footer.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+            </div>
+            <?php elseif(F::inEnv('test')): ?>
+                  <script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/js/xuexiaocz.min.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+            <?php else:?>
+                  <script type="text/javascript" src="/public/js/xuexiao.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+            <?php endif; ?>
+            <!-- End:页脚 -->

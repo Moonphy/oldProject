@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>海外生存大作战</title>
+    <?php F::TPL('weixin/staroutlook/common/script.html', get_defined_vars(), 'huodong'); ?>
+</head>
+<body class="index">
+
+    <div class="gs-page">
+        <div class="main" style="background-color: #fff;font-size: 1.2rem;padding: .5rem;width:95%;">
+
+        <?php if (!$isAuth): ?>
+            <div class="form-wrap">
+                <form action="" method="post">
+                    <input type="password" name="pw" placeholder="密码">
+                    <input type="submit" class="btn btn-blue">
+                </form>
+            </div>
+        <?php else: ?>
+
+            <table border="1">
+                <tr>
+                    <th>学生名字</th>
+                    <th>学生年级</th>
+                    <th>手机号码</th>
+                    <th>QQ号码</th>
+                    <th>省</th>
+                    <th>市</th>
+                    <th>区</th>
+                    <th>邀请数</th>
+                </tr>
+                <?php foreach($uinfos as $u): ?>
+                    <tr>
+                        <td><?php F::O($u['name']); ?></td>
+                        <td><?php F::O($u['grade']); ?></td>
+                        <td><?php F::O($u['cell']); ?></td>
+                        <td><?php F::O($u['qq']); ?></td>
+                        <td><?php F::O($u['addr']['province']); ?></td>
+                        <td><?php F::O($u['addr']['city']); ?></td>
+                        <td><?php F::O($u['addr']['district']); ?></td>
+                        <td><?php F::O($u['count']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        Gaofen.PD.set({
+            router: 'index', 
+            links: <?php echo json_encode($links); ?>
+        });
+    </script>
+</body>
+</html>

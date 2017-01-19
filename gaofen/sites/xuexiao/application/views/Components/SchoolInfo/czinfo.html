@@ -1,0 +1,212 @@
+<?php if(!empty($info['list'][0]['data']) && is_array($info['list'][0]['data'])):?>
+<?php foreach($info['list'][0]['data'] as $_block): ?>
+
+<!-- Start: <?php F::O($_block['name']); ?>-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="title"><?php F::O($_block['name']); ?></div>
+    </div>
+    <?php if($_block['flag']=='score' && $_block['value']): /*升学成绩*/?>
+    <div class="sub-mod-bd">
+        <div class="table data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w80"><div class="gap">年份</div></th>
+                        <th><div class="gap">中考平均分</div></th>
+                        <th><div class="gap">参加考试人数</div></th>
+                        <th><div class="gap">全市平均分</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($_block['value'] as $_k=>$_row): ?>
+                    <tr<?php if($_k%2!=0): ?> class="even"<?php endif; ?>>
+                        <td><?php F::O($_row['year']); ?>年</td>
+                        <td><?php F::O($_row['score_avg']?:'--'); ?></td>
+                        <td><?php F::O($_row['attend_num']?:'--'); ?></td>
+                        <td><?php F::O($_row['city_score_avg']?:'--'); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php elseif($_block['flag']=='admit_score' && $_block['value']): /*录取分数线*/?>
+    <div class="sub-mod-bd">
+        <div class="table data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w80"><div class="gap">年份</div></th>
+                        <th class="w180"><div class="gap">分数</div></th>
+                        <th><div class="gap">备注</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($_block['value'] as $_k=>$_row): ?>
+                    <tr<?php if($_k%2!=0): ?> class="even"<?php endif; ?>>
+                        <td><?php F::O($_row['year']); ?>年</td>
+                        <td><?php F::O($_row['score']?:'--'); ?></td>
+                        <td><?php F::O($_row['memo']?:'--'); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php elseif($_block['flag']=='admit_forte'): /*特长生招生*/?>
+    <?php if($admitforte): ?>
+    <?php
+        $_tmp = array_slice($admitforte, 0, 1, true);
+        $year = key($_tmp);
+        $yearDataList = $_tmp[$year];
+    ?>
+    <div class="sub-mod-bd">
+        <div class="table data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w120"><div class="gap">特长类型</div></th>
+                        <th><div class="gap"><?php F::O($year); ?>年特长项目</div></th>
+                    </tr>
+                </thead>
+                <tbody>                             
+                    <?php foreach($yearDataList as $_type=>$_cate): ?>
+                    <?php
+                    $_cateValues = [];
+                    foreach($_cate as $_co) {
+                        $_cateValues[$_co] = $admitforteList[$_type]['child'][$_co];
+                    }
+                    ?>
+                    <tr>
+                        <td><?php F::O($admitforteList[$_type]['name']); ?></td>
+                        <td><?php F::O(implode('、', $_cateValues)); ?></td>                                
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php elseif($_block['flag']=='schedule' && $_block['value']): /*作息时间*/?>
+    <div class="sub-mod-bd">
+
+    </div>
+    <?php elseif($_block['value']): ?>
+    <div class="sub-mod-bd">
+        <div class="text-cont">
+            <?php 
+                $searchment = array(
+                    //按最长优先匹配原则，除非必要或清楚调整后果，否则不能修改以下顺序
+                    '../../../../data/uploads/editor_tinymce/',
+                    '../../../data/uploads/editor_tinymce/',
+                    '../../data/uploads/editor_tinymce/',
+                    '/data/uploads/editor_tinymce/',               
+                );
+                $replacement = 'http://file.gaofen.com/xuexiao/editor_tinymce/';
+                echo str_replace($searchment, $replacement, $_block['value']); 
+            ?>
+        </div>
+    </div>
+    <?php endif; ?>
+<!--End: <?php F::O($_block['name']); ?>-->
+</div>
+<?php endforeach; ?>
+<?php elseif(in_array($type, array(2, 3)) || ($type==1 && empty($tips['list']))): ?>
+<div class="alert alert-info"><i class="ico"></i>
+    <div class="info">
+        <p>小编正在积极为你搜罗中！</p>
+        <p>如你熟悉该校情况，欢迎报料（请联系QQ1833538827），
+            <br>有大量高分币和好礼相送哦～</p>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php if(empty($expertTitle) && !empty($articleList['list']) && is_array($articleList['list'])): ?>
+<!-- Start: 学校要闻-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="more"><a href="<?php echo F::getLink('zhongkao'); ?>" target="_blank">更多</a></div>
+        <div class="title">学校要闻</div>
+    </div>
+    <div class="sub-mod-bd">
+        <div class="list post-list stat-post">
+            <ul>
+            <?php foreach($articleList['list'] as $_row): ?>
+                <li><span class="date"><?php F::O(date('Y-m-d H:i:s', strtotime($_row['post_date']))); ?></span>
+                    <div class="tit"><a href="<?php echo $_row['url']; ?>" target="_blank"><?php F::O($_row['post_title']); ?></a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End: 学校要闻-->
+<?php elseif($type==4): ?>
+<div class="alert alert-info alert-single"><i class="ico"></i>
+    <div class="info">
+        <p>该校暂无要闻</p>
+    </div>
+</div>        
+<?php endif; ?>
+
+<?php if(empty($expertTitle) && !empty($docList['list']) && is_array($docList['list'])): ?>
+<!-- Start: 资料下载-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="more"><a href="<?php echo F::getLink('ziliao-xsc'); ?>" target="_blank">更多</a></div>
+        <div class="title">资料下载</div>
+    </div>
+    <div class="sub-mod-bd">
+        <div class="list post-list stat-post">
+            <ul>
+            <?php foreach($docList['list'] as $_row): ?>
+                <li><span class="date"><?php F::O(date('Y-m-d H:i:s', $_row['dateline'])); ?></span>
+                    <div class="tit"><a href="<?php echo $_row['link']; ?>" target="_blank"><?php F::O($_row['title']); ?></a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End: 资料下载-->          
+<?php endif; ?>
+
+<?php if(empty($expertTitle) && !empty($paperList['list']) && is_array($paperList['list'])): ?>
+<!-- Start: 纸质试题-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="more"><a href="<?php echo F::getLink('shiti'); ?>" target="_blank">更多</a></div>
+        <div class="title">纸质试题</div>
+    </div>
+    <div class="sub-mod-bd">
+        <div class="list post-list stat-post">
+            <ul>
+            <?php foreach($paperList['list'] as $_row): ?>
+                <li><span class="date"><?php F::O(date('Y-m-d H:i:s', $_row['dateline'])); ?></span>
+                    <div class="tit"><a href="<?php echo $_row['link']; ?>" target="_blank"><?php F::O($_row['product_name']); ?></a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>  
+<?php endif; ?>
+
+<?php if($type==5 && empty($paperList['list']) && empty($docList['list'])): ?>
+<div class="alert alert-info alert-single"><i class="ico"></i>
+    <div class="info">
+        <p>该校暂无相关资料</p>
+    </div>
+</div>   
+<?php endif; ?>
+
+
+<?php if(!empty($tips['list'])): ?>
+<!-- Start: 经验分享-->
+<?php F::TPL('school/tip.html', ['tips' => $tips], 'Cz') ?>
+<!--End: 经验分享-->
+<?php endif; ?>

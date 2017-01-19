@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>兑奖查询</title>
+</head>
+
+<body>
+<?php if(!$isLogin): ?>
+<form method="post"><input type="password" name="passwd" placeholder="密码" /><input type="submit" value="确定"/></form>
+<?php else: ?>
+<form method="post"><input type="text" name="phone" placeholder="获奖手机号"/> <input type="hidden" name="passwd" placeholder="密码" value="<?php echo $passwd; ?>" /><input type="submit" value="查询"/></form>
+<table border="1">
+<tr>
+	<td>微信昵称</td>
+	<td>奖品</td>
+	<td>用户手机</td>
+	<td>中奖确认码</td>
+	<td>中奖日期</td>
+	<td>领奖信息</td>
+</tr>
+<?php if($rs && is_array($rs)): ?>
+<?php foreach($rs as $row): ?>
+<tr>
+	<td><?php F::O($row['nickname']); ?></td>
+	<td><?php F::O($row['gift']); ?></td>
+	<td><?php F::O($row['phone']); ?></td>
+	<td><?php F::O($row['fav_id']); ?></td>
+	<td><?php F::O($row['created_at']); ?></td>
+	<td><?php F::O($row['extData'] ? implode(',', json_decode($row['extData'], true)):''); ?>
+</tr>
+<?php endforeach; ?>
+<?php else: ?>
+	<tr><td colspan="6">没有数据</td></tr>
+<?php endif; ?>
+</table>
+<div><br /><br />小黄人中奖信息</div>
+<table border="1">
+<tr>
+	<td>序号</td>
+	<td>微信昵称</td>
+	<td>奖品</td>
+	<td>用户手机</td>
+	<td>中奖确认码</td>
+	<td>中奖日期</td>
+	<td>领奖信息</td>
+</tr>
+<?php if(!empty($huang['list']) && is_array($huang['list'])): ?>
+<?php foreach($huang['list'] as $k=>$row): ?>
+<tr>
+	<td><?php F::O($k+1); ?></td>
+	<td><?php F::O(@$row->user->nickname); ?></td>
+	<td><?php F::O($row->gift); ?></td>
+	<td><?php F::O(@$row->user->phone); ?></td>
+	<td><?php F::O($row->fav_id); ?></td>
+	<td><?php F::O($row->created_at); ?></td>
+	<td><?php F::O(!empty($row->user->extData) ? implode(',', json_decode($row->user->extData, true)):''); ?>
+</tr>
+<?php endforeach; ?>
+<?php else: ?>
+	<tr><td colspan="6">没有数据</td></tr>
+<?php endif; ?>
+</table>
+<?php endif; ?>
+
+</body>
+</html>

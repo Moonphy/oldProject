@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>2015年卓越一对一“最Match师生”评选活动</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/user-detail.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+	<style>
+body {
+    background-color: #dee1ea;
+    background-image: url(http://file.gaofen.com/html/weixin/voice/img/match-bg.jpg);
+}
+</style>
+</head>
+<body class="user-detail">
+<div class="main-wrap">
+    <section class="flex">
+        <a href="<?php echo F::URL('huodong_m:huodong/weixin_match_teacher/view', ['id'=>$info->id]); ?>">
+            <img src="<?php echo $info->user->headimgurl; ?>" alt="" class="user-header"/>
+        </a>
+        <div class="user-record">
+            <div class="user-title">
+                <span class="user-name text-overflow"><?php F::O($info->user->nickname); ?> & <?php F::O($info->user->name); ?></span><span style="line-height: 1.5;">(编号：<?php F::O($info->id); ?>)</span>
+            </div>
+            <div id="tinfo" class="teacher-info hidden"><?php F::O($info->user->info); ?></div>
+            <div class="user-record-like">
+                <span id="info1"></span>&nbsp;<span id="info2"></span>
+				<p><span id="info3"></span>&nbsp;<span id="info4"></span></p>
+				<p>学生进步<span id="info6"></span>分</p>
+            </div>
+			<br>
+		<h3>辅导时长</h3>
+		<p id='info5'></p><br>
+		<h3>参赛理由</h3>
+		<p id='info7'></p><br>
+	
+        </div>
+    </section>
+	
+
+    <div rel="e:like,id:<?php F::O($info->id); ?>,type:view" class="btn-record-like iconfont btn <?php echo $info->present()->isFavByUser($uid, 'icon', 0); ?>"><?php echo $info->present()->isFavByUser($uid, 'text', 0); ?></div>
+    <div class="support">
+        <?php if($info->fav_num): ?>
+        <h3>已获得<em><?php F::O($info->fav_num); ?></em>个赞，<span><?php F::O($info->views); ?></span>次访问</h3>
+        <?php else: ?>
+        <h3>还未获得任何人点赞，点击微信右上方分享到朋友圈</h3>
+        <?php endif; ?>
+        <ul class="clearfix">
+        <?php if(!empty($favList['list'])): ?>
+            <?php foreach($favList['list'] as $row): ?>
+            <li><img src="<?php echo $row->user->headimgurl; ?>" alt=""/></li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </ul>
+    </div>
+    <div class="scan ">
+        <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/img/qrcode-zy1997.png" alt=""/>
+    </div>
+</div>
+<?php F::TPL('weixin/match/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/match/common/script.html', get_defined_vars(), 'huodong'); ?>
+
+<script>
+	try{
+        var tinfo = document.getElementById("tinfo").innerHTML.split("||");
+        document.getElementById("info1").innerHTML=tinfo[0]||'';
+        document.getElementById("info2").innerHTML=tinfo[1]||'';
+        document.getElementById("info3").innerHTML=tinfo[2]||'';
+        document.getElementById("info4").innerHTML=tinfo[3]||'';
+        document.getElementById("info5").innerHTML=tinfo[4]||'';
+        document.getElementById("info6").innerHTML=tinfo[5]||'';
+        document.getElementById("info7").innerHTML=tinfo[6]||'';
+        document.getElementById("info8").innerHTML=tinfo[7]||'';
+    }catch(e){}
+
+
+</script>
+
+<script type="text/javascript">
+    Gaofen.PD.set({'router':'view'});
+</script>
+</body>
+</html>

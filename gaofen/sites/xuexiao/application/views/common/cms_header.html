@@ -1,0 +1,115 @@
+<script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/<?php echo JS_PATH;?>?<?php echo FILE_DATE_SUFFIX;?>"></script>
+
+<!-- Start:页头 -->
+<div id="header" class="container">
+    <h1 class="logo"><a href="http://www.gaofen.com" title="高分网首页"><img src="<?php echo GAOFEN_STATIC;?>/html/v5/img/logo.png" alt="高分网"></a></h1>
+    <div class="head-info">
+        <span class="slogan">助力学生及家长共同成长</span>
+    </div>
+
+    <?php $fromurl=F::getSiteHost('xuexiao').V('s:REQUEST_URI'); ?>
+    <?php if(!Users::isLogin()): ?>
+    <!-- Start:登录前 -->
+        <div class="head-login clearfix">
+            <div class="quick-login">
+                <a href="<?php echo F::getSiteHost('sso').F::URL('/account/qzoneLogin', array('fromurl'=>$fromurl));?>" title="用QQ账号登录" class="link-qq">用QQ账号登录</a>
+                <a href="<?php echo F::getSiteHost('sso').F::URL('/account/sinaLogin', array('fromurl'=>$fromurl));?>" title="用微博账号登录" class="link-weibo">用微博账号登录</a>
+            </div>
+            <div class="actions">
+                <a rel="e:lg" href="<?php echo F::getSiteHost('sso').F::URL('/signin', array('fromurl'=>$fromurl)); ?>">登录</a><i>|</i>
+                <a href="<?php echo F::getSiteHost('sso').F::URL('/signup', array('fromurl'=>$fromurl)); ?>" target="_blank">注册</a>
+            </div>
+        </div>
+    <!-- End:登录前-->
+    <?php else: ?>
+    <!-- Start:登录后 -->
+    <div class="user-panel" id="userPanel">
+        <a class="avatar" target="_blank" href="http://my.gaofen.com" id="userpic">
+            <img />
+        </a>
+        <div class="info">
+            <div class="name">欢迎您，<a  href="http://my.gaofen.com" target="_blank" id="user" class="username"></a></div>
+            <ul class="operations">
+                <li><a href="http://my.gaofen.com" title="会员中心">会员中心</a>
+                </li>
+                <li class="seperator">|</li>
+                <li class="dropable news" id="newsBtn"><a href="#" title="动态" class="trigger" id="newsHandle">动态<i class="icon hidden"></i><span class="bg"><span class="bg-in"></span></span></a>
+                    <div class="dropdown">
+                        <div class="dropdown-in">
+                            <div class="news-wrap">
+                                <div class="sec hidden">
+                                    <div class="hd">社区消息</div>
+                                    <div class="bd">
+                                        <div class="news-list">
+
+                                        </div>
+                                        <div class="more"><a href="#" target="_blank">查看更多消息<i>&gt;&gt;</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sec hidden">
+                                    <div class="hd setName"><span></span>最新资料</div>
+                                    <div class="bd">
+                                        <div class="data-list">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sec hidden">
+                                    <div class="hd setName"><span></span>活动</div>
+                                    <div class="bd">
+                                        <div class="event-list">
+                                        </div>
+                                        <div class="more"><a href="http://huodong.gaofen.com" target="_blank">更多活动<i>&gt;&gt;</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sec tips-null hidden">
+                                    <p>暂无任何动态</p>
+                                </div>
+                                <div class="sec" id="loading">
+                                    <div class="loading-mini"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="seperator">|</li>
+                <li class="dropable more" id="newsMore"><a href="#" class="trigger caret">更多<i></i><span class="bg"><span class="bg-in"></span></span></a>
+                    <div class="dropdown">
+                        <div class="dropdown-in">
+                            <div class="extra-links"><div class="inner"><div class="item"><a href="http://my.gaofen.com/my/profile" target="_blank">个人设置</a></div><div class="item"><a href="http://my.gaofen.com/signin/loginOut" >退出</a></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End:登录后 -->
+    <?php endif; ?>
+</div>
+<!-- End:页头 -->
+<!-- Start:导航栏 -->
+<div class="navbar container">
+    <form id="search_form" target="_black" method="get" action="http://so.gaofen.com/cse/search">
+        <div class="form-search pull-right" id="navsearch">
+            <a href="javascript:void(0);" class="search-btn" title="搜索">搜索</a>
+            <input type="hidden" name="s" value="2958907847468970783">
+            <input type="hidden" name="nsid" value="0">
+            <input class="search-query" name="q" id="searchValue" type="text" value="<?php (V('G:q')) ? F::O(V('G:q')) : ''; ?>">
+        </div>
+    </form>
+    <ul class="nav clearfix">
+        <li class="nav-home"><a href="<?php echo F::getLink('main');?>" title="首页">首页</a></li>
+        <li class="nav-primary"><a href="<?php echo F::getLink('xsc');?>" title="小学">小学</a></li>
+        <li class="nav-junior"><a href="<?php echo F::getLink('zhongkao');?>" title="初中">初中</a></li>
+        <li class="nav-senior"><a href="<?php echo F::getLink('gaokao');?>" title="高中">高中</a></li>
+        <li class="nav-school"><a href="<?php echo F::getLink('school');?>" title="学校">学校</a></li>
+        <li class="nav-lecture nav-hot"><a href="<?php echo F::getLink('huodong');?>" title="活动">活动<i class="icon-hot"></i></a></li>
+        <li class="nav-data"><a href="<?php echo F::getLink('ziliao');?>" title="资料">资料</a></li>
+        <li class="nav-shop"><a href="<?php echo F::getLink('shiti');?>" title="试题">试题</a></li>
+        <li class="nav-bbs"><a href="<?php echo F::getLink('bbs');?>" title="社区">社区</a></li>
+    </ul>
+</div>
+<!-- End:导航栏 -->

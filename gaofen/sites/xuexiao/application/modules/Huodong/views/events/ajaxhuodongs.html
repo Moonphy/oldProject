@@ -1,0 +1,16 @@
+<?php foreach ($huodongs as $huodong):?>
+
+<a href="<?php echo F::URL('huodong_m:/huodong/events/show', ['id' => $huodong->id]); ?>" class="event-list-item">
+    <div class="thumb">
+        <img _src="<?php echo $huodong->cover ?>" alt=""/>
+    </div>
+    <div class="info">
+        <h3><?php echo $huodong->title ?></h3>
+
+        <div class="event-metas">
+            <span class="time">活动时间：<?php echo $huodong->startime ?></span>
+            <span class="count">已报名：<?php echo $huodong->applynum ?></span>
+        </div>
+    </div>
+</a>
+<?php endforeach ?>

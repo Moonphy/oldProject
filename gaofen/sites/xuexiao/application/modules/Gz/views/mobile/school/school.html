@@ -1,0 +1,16 @@
+<?php foreach($schools as $school): ?>
+    <a href="<?php echo F::URL('gzm:/gz/mobile_school/view', ['id' => $school->id]) ?>" class="school-list-item">
+        <div class="thumb"><img class="no-pic" src="<?php echo $school->cover ?>" alt="" />
+        </div>
+        <div class="info">
+            <h3><?php echo $school->name ?></h3>
+            <div class="metas">
+                <span><?php echo $school->present()->level_property() ?></span>
+                <span><?php echo $school->present()->property(['gz_admit_batch', 'gz_admit_range'], '<i></i>') ?></span>
+            </div>
+            <div class="comment-pills">
+
+            </div>
+        </div>
+    </a>
+<?php endforeach; ?>

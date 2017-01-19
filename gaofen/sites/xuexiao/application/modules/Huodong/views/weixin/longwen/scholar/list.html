@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>2016“寻找学霸"琅琊榜，决胜之巅等你终极一票！</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/index.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+    <?php F::TPL('weixin/common/header.html', [], 'Huodong'); ?>
+</head>
+<body class="index">
+<div class="main-wrap">
+
+    <section class="flex">
+
+        <div class="index-info">　　由广州龙文教育主办，高分网、嘉佳卡通卫视、眸之悦等众多知名单位羊城首度联动的“2016'寻找学霸'之龙文征集令”活动，吸引了来自全市各个小学的众多同学踊跃参与。<br />
+　　本次大赛经过为期两周的激烈角逐，最终由20名来自不同学校的优异选手成功突围，并首揭学霸琅琊榜。接下来，他们还将经受终极人气PK的考验，并决出终极学霸三甲！快来为您心仪的选手加油助力，投上宝贵一票吧！</div>
+
+
+    </section>
+    <section class="flex">
+        <div id="searchBox" class="search-box">
+            <a href="#" class="search-btn" rel="e:btn">搜索</a>
+            <input type="text" placeholder="请输入选手名称或编号" id="sinput" class="search-input">
+            <ul class="search-result hidden"></ul>
+        </div> 
+    </section>
+<?php echo $sectionhtml; ?>
+
+</div>
+<div id="loading" class="hidden">
+    <div class="loader"></div>
+</div>
+<?php F::TPL('weixin/longwen/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/longwen/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'router':'list'});
+    var main_warp = document.getElementsByClassName('main-wrap')[0], len = 0, childs;
+    setInterval(function(){
+        try{
+            childs = main_warp.children;
+            if(childs.length > len){
+                for(var i = len, j = childs.length;i<j;i++){
+                    var tinfo = childs[i].getElementsByClassName('teacher-info');
+                    if(tinfo.length > 1 && tinfo[0].id){
+                        var _tinfo = tinfo[0].innerHTML.split("||");
+                        tinfo[1].children[0].innerHTML=_tinfo[1];
+                        tinfo[1].children[1].innerHTML=_tinfo[2];
+                        tinfo[1].children[2].innerHTML=_tinfo[3];
+                    }
+                }                       
+                len = j;
+            }
+        }catch(e){}
+    }, 1000);
+</script>
+</body>
+</html>

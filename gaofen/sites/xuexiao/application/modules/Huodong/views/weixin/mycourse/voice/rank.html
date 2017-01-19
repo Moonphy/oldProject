@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>卓越教育第六届微课大赛</title>
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/list.css?v=<?php echo STATIC_VERSION; ?>">
+	<style>
+body {
+    background-color: #dee1ea;
+    background-image: url(http://file.gaofen.com/html/weixin/voice/img/mycourse-bg.png);
+}
+</style>
+</head>
+<body class="list">
+
+<div class="main-wrap">
+<?php if(!empty($list['list'])): ?>
+    <?php foreach($list['list'] as $k=>$row): ?>
+    <?php if($k<3): ?>
+    <section class="flex">
+        <a href="<?php echo F::URL('huodong_m:huodong/weixin_mycourse_voice/view', ['id'=>$row->id]); ?>" class="show">
+            <div class="sort"></div>
+            <img src="<?php echo $row->user->headimgurl; ?>" alt="" class="user-header"/>
+        </a>
+        <div class="user-record">
+            <div class="user-title">
+                <span class="user-name"><?php F::O($row->user->nickname); ?></span>
+            </div>
+            <div class="user-record-like">
+                <div class="fr">
+                    <div>赞：<?php F::o($row->fav_num); ?></div>
+                    <div>评：<?php F::O($row->cmt_num); ?></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php else: ?>
+    <section class="flex third-behind">
+        <div class="user-record">
+            <div class="user-title clearfix">
+                <span class="fl">第<span class="user-num"><?php F::O($k+1); ?></span>位</span>
+                <img src="<?php echo $row->user->headimgurl; ?>" alt="" class="fl"/>
+                <span class="user-name fl"><?php F::O($row->user->nickname); ?></span>
+            </div>
+
+        </div>
+        <div>
+            <div>赞：<?php F::O($row->fav_num); ?></div>
+            <div>评：<?php F::O($row->cmt_num); ?></div>
+        </div>
+    </section>
+    <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+</div>
+<?php
+if($rankIndex): ?>
+<p class="user-support">
+    你排在第<span><?php F::O($rankIndex); ?></span>位，支持数为<em><?php F::O($info->fav_num); ?></em>
+</p>
+<?php endif; ?>
+<?php F::TPL('weixin/mycourse/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/mycourse/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'router':'rank', 'uri':<?php echo $ajaxUri; ?>});
+</script>
+</body>
+</html>

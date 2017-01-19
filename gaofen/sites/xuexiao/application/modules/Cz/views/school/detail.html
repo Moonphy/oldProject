@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+
+    <head>
+        <meta charset="UTF-8">
+        <title><?php echo F::siteTitle(SEO_XCZ_DETAIL_TITLE, array('school_name'=>$info['name'])); ?></title>
+        <?php F::TPL('common/header.html', [], 'Cz'); ?>
+    </head>
+
+    <body class="details-page">
+        <div id="wrap">
+            <?php F::TPL('common/nav.html', [], 'Cz'); ?>
+            <div class="container">
+                <?php echo F::breadcrumbNav()->indexNav()
+                                         ->czIndexNav()
+                                         ->czViewNav($info)
+                                         ->finalNav('学校简介'); 
+                ?>
+            </div>
+            <div class="container page-content">
+                <div class="row row14-6">
+                    <div class="span14">
+                        <div class="school-desc">
+                            <!-- Start: 学校简介-->
+                            <div class="sub-mod">
+                                <div class="sub-mod-hd">
+                                    <div class="title">学校简介</div>
+                                </div>
+                                <div class="sub-mod-bd">
+                                    <div class="text-cont">
+                                        <?php echo $info['intro']; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End: 学校简介-->
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="widget widget-box widget-ranking">
+                            <div class="widget-box-hd">
+                                <div class="title">返回：</div>
+                                <div class="tags">
+                                    <a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>2)); ?>#info-part" class="item">招生信息</a>
+                                    <a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>1)); ?>#info-part" class="item">学校实力</a>
+                                    <a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>4)); ?>#info-part"class="item">学校要闻</a>
+                                    <a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>3)); ?>#info-part"class="item">学生生活</a>
+                                    <a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>5)); ?>#info-part"class="item">资料推荐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php F::TPL('common/footer.html', [], 'Cz'); ?>
+        </div>
+    </body>
+    <?php F::TPL('common/footer_script.html', [], 'Cz'); ?>
+    <script type="text/javascript">
+        Gaofen.PD.set({'router':'detail'});
+    </script>
+</html>

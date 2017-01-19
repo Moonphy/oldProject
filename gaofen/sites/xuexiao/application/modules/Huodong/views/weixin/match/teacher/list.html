@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>2015年卓越一对一“最Match师生”评选活动</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/index.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+	<style>
+body {
+    background-color: #dee1ea;
+    background-image: url(http://file.gaofen.com/html/weixin/voice/img/match-bg.jpg);
+}
+</style>
+</head>
+<body class="index">
+<div class="main-wrap">
+
+    <section class="flex">
+
+        <div class="index-info">谁是2015年卓越教育年度最Match师生呢？<br>请投上宝贵的一票！</div>
+
+
+    </section>
+    <section class="flex">
+        <div id="searchBox" class="search-box">
+            <a href="#" class="search-btn" rel="e:btn">搜索</a>
+            <input type="text" placeholder="请输入教师名称" id="sinput" class="search-input">
+            <ul class="search-result hidden"></ul>
+        </div> 
+    </section>
+<?php echo $sectionhtml; ?>
+
+</div>
+<div id="loading" class="hidden">
+    <div class="loader"></div>
+</div>
+<?php F::TPL('weixin/match/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/match/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'router':'list'});
+    var main_warp = document.getElementsByClassName('main-wrap')[0], len = 0, childs;
+    setInterval(function(){
+        try{
+            childs = main_warp.children;
+            if(childs.length > len){
+                for(var i = len, j = childs.length;i<j;i++){
+                    var tinfo = childs[i].getElementsByClassName('teacher-info');
+                    if(tinfo.length > 1 && tinfo[0].id){
+                        var _tinfo = tinfo[0].innerHTML.split("||");
+                        tinfo[1].children[0].innerHTML=_tinfo[0];
+                        tinfo[1].children[1].innerHTML=_tinfo[1];
+                        tinfo[1].children[2].children[0].innerHTML=_tinfo[5]||'';
+                    }
+                }                       
+                len = j;
+            }
+        }catch(e){}
+    }, 1000);
+</script>
+</body>
+</html>

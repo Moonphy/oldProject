@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <?php F::TPL('mobileactivity/lectures/common/header.html', get_defined_vars(), 'huodong'); ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo GAOFEN_STATIC;?>/html/mobile/css/post.css?v=<?php echo STATIC_VERSION; ?>">
+  </head>
+  <body class="pb50">
+    <header id="header" class="header">
+      <!-- <div class="header-bar"><a href="post-list.html" class="iconfont icon-return">&#x3601;</a><span id="navToggle" class="iconfont icon-menu">&#x3607;</span>
+        <h1>活动列表</h1>
+      </div> -->
+      <!-- Start: 主导航-->
+      <?php F::TPL('mobileactivity/lectures/common/nav.html', get_defined_vars(), 'huodong'); ?>
+      <!-- End: 主导航-->
+    </header>
+    <div class="page-content">
+      <div class="activity-list">
+
+        <?php foreach ($lectures_info as $val) { ?>
+        <?php if($val['isEnd']): continue; endif; ?>
+          <a href="<?php F::O($val['detail_link']) ?>" class="list-item">
+            <div class="img-wrap"><img src="<?php F::O($val['cover']); ?>" alt="">
+              <div class="img-info"><i class="icon-time"></i><span>报名截止</span><span><?php F::O($val['expiration']) ?></span></div>
+            </div>
+            <div class="item-title"><?php F::O($val['title']); ?><span class="ui-label <?php F::O($val['status_class']); ?>"><?php F::O($val['status']); ?></span></div>
+            <div class="event-metas"><span class="time">活动时间：<?php F::O($val['startime']) ?></span><span class="count">已报名：<?php F::O($val['applynum']); ?></span></div>
+          </a>
+        <?php } ?>
+
+      </div>
+    </div>
+    <footer class="footer">
+      <?php F::TPL('mobileactivity/lectures/common/footer.html', get_defined_vars(), 'huodong'); ?>
+    </footer>
+    <div class="ui-mask hidden"></div>
+    <script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/mobile/gmu/zepto.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/mobile/gmu/gmu.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <script>
+      $(function ($) {
+        $("#navToggle").on('click', function(e){
+          body = $("body")
+          mask = $(".ui-mask")
+          if(body.hasClass("hide-nav")){
+            body.removeClass("hide-nav")
+          }
+          if(body.hasClass("show-nav")){
+            body.addClass("hide-nav")
+          }
+          $(this).toggleClass("active");
+          body.toggleClass("show-nav");
+          mask.toggleClass("hidden");
+        });
+      
+        $('#search').on('click', function (e) {
+          $(this).toggleClass('active');
+        });
+      
+        $('#search').on('click', function (e) {
+          $('#header').toggleClass('show-search-bar');
+        });
+      }(Zepto));
+    </script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <script type="text/javascript" src="http://file.gaofen.com/html/v5/js/weixin-init.min.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <script type="text/javascript" src="/public/js/base.js?v=<?php echo STATIC_VERSION; ?>"></script>
+    <script>
+    Gaofen.PD.set({
+        'wxconfig':'<?php echo $wxConfig ?>',
+    });
+    GWX.wxready({
+      title: '高分活动 - 中小学活动平台', // 分享标题
+      // debug: true,
+      desc: '高分活动汇集来自顶尖辅导机构、名师大咖精彩活动', // 分享描述
+      link: '<?php F::O($self_link) ?>', // 分享链接
+      imgUrl: "<?php echo GAOFEN_STATIC;?>/html/mobile/images/wxartlogo.jpg" // 分享图标
+    });
+    </script>
+  </body>
+</html>

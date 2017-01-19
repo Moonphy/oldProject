@@ -1,0 +1,281 @@
+<script src="http://file.gaofen.com/html/v5/js/zepto.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script>
+    (function(){
+        var weixinCfg = <?php echo $weixinCfg->toJson(); ?>;
+        var eventType = 'tap';
+
+        var myFastClick = function(etype, el, fn){
+            var zel = $(el), dom = $(el).get(0), evt, preventDefault = true, stopPropagation = true;
+            if($.type(etype) === 'object'){
+                evt = etype.evt;
+                preventDefault = etype.hasOwnProperty('pd') ? etype.pd : preventDefault;
+                stopPropagation = etype.hasOwnProperty('sp') ? etype.sp : stopPropagation;
+            }else{
+                evt = etype;
+            }
+            $(el).on('touchend', function (e) {
+                var event = $.Event(evt);
+                //这里为了方便而已，其实该e.target
+                dom.dispatchEvent(event);
+                preventDefault && e.preventDefault();
+                stopPropagation && e.stopPropagation();
+                //console.log($('div.name').text(+new Date))
+            });
+            $(el).on(etype, fn);
+        };
+
+        //设置图片容器
+        // (function(){
+            var pl = $('#pic_lists'), plc = pl.find('.photo-container'),
+                w = pl.width();
+            plc.css('position','relative').width(w).height(w);
+            // plc.find('ul').width(w).height(w);
+            plc.find('li').each(function(i, li){
+                $(li).width(w);
+            });
+
+        // })();
+
+        var picSilder = function(){
+            var pl = $('#pic_lists'), ul = pl.find('ul'), page = 0,
+                prevBtn = pl.find('#prev'), nextBtn = pl.find('#next'),
+                allPage = ul.children().length;
+            pl.on('swipeLeft', function(e){
+                // if(page < allPage -1)
+                    silder('left');
+            })
+            .on('swipeRight', function(e){
+                if(page > 0)
+                    silder('right');
+            });
+
+            ul.css('position','absolute').find('li').each(function(i, li){
+                // if(i !== page){
+                //     $(li).hide();
+                // }
+            });
+
+            var silder = function(p){
+                var current = pl.find('li').eq(page), next, px;
+                if(p === 'left'){
+                    if(page >= allPage -1){
+                        return;
+                    }            
+                    ++page;                   
+                }else{
+                    if(page === 0) return;
+                    --page;
+                }
+                next = pl.find('li').eq(page).show();
+                px = page * -1 * w;
+                animate(px);
+                reObj.showBtn();
+            }
+
+            var animate = function(px){
+                ul.animate({left : px}, 200, '', function(e){});
+            }
+
+            prevBtn.on(eventType, function(e){
+                silder('right');
+            });
+            nextBtn.on(eventType, function(e){
+                silder('left');
+            })
+
+            var reObj = {
+                reset : function(){
+                    ul.css({left : 0});
+                    page = 0;
+                    allPage = ul.children().length;
+                },
+                showBtn : function(){
+                    if(page === 0){
+                        prevBtn.hide();
+                        if(allPage > 1)
+                            nextBtn.show();
+                        else 
+                            nextBtn.hide();
+                    }else if(page === allPage -1 ){
+                        if(allPage > 1)
+                            prevBtn.show();
+                        nextBtn.hide();
+                    }else{
+                        prevBtn.show();
+                        nextBtn.show();
+                    }
+                }
+            }
+            // setTimeout(function(){silder('left');},1000);
+
+            reObj.showBtn();
+            return reObj;
+        };
+
+        var silderHander = picSilder();
+        
+
+
+        var weixinCfg = <?php echo $weixinCfg->toJson(); ?>;
+
+        wx.config($.extend(weixinCfg,
+                {
+                    debug: false,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo',
+                        'chooseImage',
+                        'uploadImage',
+                        'showMenuItems',
+                    ]
+                }));
+
+        wx.ready(function () {
+
+            var shareSuccess = function () {
+                $.post("<?php echo F::URL('/huodong/weixin_star2015_card/onShare'); ?>",
+                        {id : "<?php echo $card->id ?>"}, function(r){});
+            };
+            var shareData = <?php echo $gaofenShare->toJson()?>;
+            shareData.success = shareSuccess;
+
+            var shareTimelineData = <?php echo $gaofenShare->toJson('timeline')?>;
+            shareTimelineData.success = shareSuccess;
+
+            wx.onMenuShareAppMessage(shareData);
+            wx.onMenuShareTimeline(shareTimelineData);
+            wx.onMenuShareQQ(shareData);
+            wx.onMenuShareWeibo(shareData);
+
+            wx.showMenuItems({
+                menuList: [
+                    'menuItem:share:appMessage', //发送给朋友
+                    'menuItem:share:timeline', // 分享到朋友圈
+                    'menuItem:share:qq', //分享到QQ
+                    'menuItem:share:weiboApp', //分享到Weibo
+                    'menuItem:share:QZone', //分享到 QQ 空间
+                    'menuItem:copyUrl' // 复制链接
+                ],
+                success: function (res) {
+                    //alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+
+            myFastClick(eventType, $('#shareBtn'), function(e){
+                $('.share-guide').removeClass('hidden');
+            });
+
+            myFastClick(eventType, $('.share-guide'), function(e){
+                //$('.share-guide').removeClass('hidden');
+                //setTimeout(function(){
+                $('.share-guide').addClass('hidden');
+                //},5000);
+            });
+
+            // myFastClick(eventType, $('#testc'), function(e){
+            //   console.log($('div.name').text($('div.name').text()+'--'+(+new Date)))
+            // })
+
+            uploadInit();
+        });
+        wx.error(function (res) {
+            //alert(res.errMsg);
+        });
+
+
+        var uploadArea = $('#uploadArea'),
+            uploadingcs = 'show-loading',
+            uploadFail = function(err){
+                    if(err){
+                        $('#errTip').text(err).removeClass('hidden');
+                        setTimeout(uploadFail, 3000);
+                    }else{
+                        $('#errTip').text('').addClass('hidden');
+                    }
+                },
+            showUpload = function(isAdd, flag){
+                uploadArea[isAdd ? 'addClass': 'removeClass'](uploadingcs);
+                !flag && displayBtn(isAdd);
+            },
+            displayBtn = function(istrue){
+                var btn = $('#btn'), disbtn = $('#disbtn');
+                btn[istrue ? 'addClass' : 'removeClass']('hidden');
+                disbtn[!istrue ? 'addClass' : 'removeClass']('hidden').text('立即制作参赛名片');
+            },
+            addPic = function(img){
+                var ul = $('#pic_lists ul'), li = ul.children(), newli = $('<li><img src="'+img+'"></li>').width(w).height(w);
+                if(li.length)
+                    newli.insertBefore(li.eq(0));
+                else
+                    ul.append(newli);
+
+            }, 
+        uploadInit  = function(){
+
+            myFastClick(eventType, uploadArea, function(e){
+
+                
+                if(!uploadArea.hasClass(uploadingcs)){
+                    
+                     uploadFail();
+
+                    wx.chooseImage({
+                        success: function (res) {
+                          showUpload(true);                       
+                          var localId = res.localIds[0];
+                          function upload() {
+                            wx.uploadImage({
+                              localId: localId,
+                              success: function (res) {
+                                $.post("<?php echo F::URL('/huodong/weixin_star2015_card/downPic') ?>", {media_id: res.serverId},function(r){
+
+                                    if(typeof(r) === 'string') r = JSON.parse(r);
+                                    if(r.errcode == '0'){
+                                            $.post("<?php echo F::URL('/huodong/weixin_star2015_card/update') ?>", {
+                                                pic : r.ret
+                                            }, function(r){
+                                                // alert(r)
+                                            });
+                                        // alert('upload-success:'+r.ret)
+                                            showUpload(false);
+                                            // $('.shout').text(r.ret);
+                                            addPic(r.ret);
+                                            silderHander.reset();
+                                        //else 
+                                        //    showUpload(false, true);
+                                        // $('#faceImg').attr('src', r.ret);
+                                        //alert($('#faceImg').attr('src'));
+                                    }else{
+                                        //uploadFail(r.errmsg || '图片上传失败，请重新上传');
+                                        uploadFail('图片上传失败，请重新上传');
+                                    }
+                                })
+                              },fail: function (res) {
+                                uploadFail(JSON.stringify(res) || '图片上传失败，请重新上传');
+                              }
+                            });
+                          }
+                          upload();
+                        },
+                        error   : function(res){
+                            uploadFail('图片上传失败，请重新上传');
+                        },
+                        fail : function(res){
+                            uploadFail('图片上传失败，请重新上传');
+                        }
+                      });
+                }
+            });
+
+        };
+    })()
+</script>

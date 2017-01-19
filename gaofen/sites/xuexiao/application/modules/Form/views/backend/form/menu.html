@@ -1,0 +1,16 @@
+<div class="form-nav">
+    <div class="share"><span>发布表单：</span>
+        <input type="text" value="<?php echo my_domain() . F::URL('/form/form/show', ['id' => $form->id]) ?>"
+               class="form-control input-sm">
+        <a href="<?php echo F::URL('/form/form/show', ['id' => $form->id]) ?>" target="_blank" title="直接打开"
+           class="open-link"><i class="fa fa-share"></i></a>
+    </div>
+    <div class="title"><i class="fa fa-edit"></i><span><?php echo $form->title ?></span></div>
+</div>
+<nav class="sub-nav">
+    <a href="<?php echo F::URL('/form/backend_form/show', ['id' => $form->id]) ?>" class="nav-dashboard">概述</a>
+    <a href="<?php echo F::URL('/form/backend_form/edit', ['id' => $form->id]) ?>" class="nav-edit">编辑</a>
+    <a href="<?php echo F::URL('/form/backend_form/publish', ['id' => $form->id]) ?>" class="nav-public">发布</a>
+    <a href="<?php echo F::URL('/form/backend_form/entries', ['id' => $form->id]) ?>" class="nav-data">数据</a>
+    <a href="<?php echo F::URL('/form/backend_form/report', ['id' => $form->id]) ?>" class="nav-report">报表</a>
+</nav>

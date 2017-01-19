@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全城悬赏，寻找升学宗师</title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#222222">
+    <?php F::TPL('weixin/star2015/style.html', [], 'huodong') ?>
+</head>
+<body class="share-page">
+<div class="container">
+    <?php F::TPL('/weixin/star2015/card/displayCard.html', compact('card'), 'huodong') ?>
+   <div class="records-board">目前共收集到<span><?php echo $card->score ?></span>招武功招式</div>
+    <div class="statistic">最近有<span><?php echo $card->friends ?></span>人为高手收集了武功招式</div>
+
+
+    <?php if($isOwned): ?>
+    <div class="upload-photo upload-photo-sm">
+        <!-- 初始化-->
+            <div class="thumb" id="uploadArea">
+                <!-- <img alt="" id="faceImg"> -->
+                <div class="loading">
+                    <span class="bounce1"></span>
+                    <span class="bounce2"></span>
+                    <span class="bounce3"></span>
+                </div>
+            </div>
+    </div>
+
+
+    <div class="statistic statistic-hints">
+        <p>上传更多高手照片，收集更多武功招式</p>
+        <!--每上传一张高手照片，并邀请好友参加游戏，即可获得<span>8</span>招武功招式，最多将获得<span>40</span>招武功招式奖励-->
+    </div>
+
+    <?php endif; ?>
+
+    <div class="actions">
+
+        <?php if($canPlay): ?>
+
+        <a href="<?php echo F::URL('mobi:/huodong/weixin_star2015_game/index', ['id' => $card->id]) ?>"
+           class="btn">猛戳屏幕，收集武功招式</a>
+
+        <?php else: ?>
+
+        <!--<a href="#" class="btn" id="shareBtn">邀请好友收集武功招式</a>-->
+
+        <?php endif; ?>
+
+    </div>
+
+    <?php if($isOwned && !F::inEnv('product')): ?>
+
+    <!--<div class="actions">-->
+    <!--<a href="<?php echo F::URL('mobi:/huodong/weixin_star2015_card/destory', ['id' => $card->id]) ?>" class="btn">自杀</a>-->
+    <!--</div>-->
+    <?php endif; ?>
+
+    <!-- Start: 页脚-->
+    <?php F::TPL('/weixin/star2015/footer.html', [], 'huodong') ?>
+    <!-- End: 页脚-->
+    <?php F::TPL('/weixin/star2015/card/share.html', compact('weixinCfg', 'card', 'gaofenShare'), 'huodong') ?>
+</div>
+<div class="tips hidden" id="errTip">图片上传失败，请重新上传</div>
+<div class="share-guide hidden"></div>
+</body>
+</html>

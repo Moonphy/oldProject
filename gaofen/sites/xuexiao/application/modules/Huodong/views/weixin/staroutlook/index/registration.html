@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册 - 海外生存大作战</title>
+    <?php F::TPL('weixin/staroutlook/common/script.html', get_defined_vars(), 'huodong'); ?>
+</head>
+<body class="registration">
+
+    <div class="gs-page">
+        <div class="main">
+            <div class="form-wrap">
+                <form action="">
+                    <input type="text" id="name" value="<?php F::O($uinfo['name']); ?>" placeholder="学生名字">
+                    <select id="grade">
+                        <option value="" >--请选择学生年级--</option>
+                        <option value="1" >小学一年级</option>
+                        <option value="2" >小学二年级</option>
+                        <option value="3" >小学三年级</option>
+                        <option value="4" >小学四年级</option>
+                        <option value="5" >小学五年级</option>
+                        <option value="6" >小学六年级</option>
+                        <option value="7" >初中一年级</option>
+                        <option value="8" >初中二年级</option>
+                        <option value="9" >初中三年级</option>
+                        <option value="10" >高中一年级</option>
+                        <option value="11" >高中二年级</option>
+                        <option value="12" >高中三年级</option>
+                        <option value="13" >其他</option>
+                    </select>
+                    <input type="text" id="cell" value="<?php F::O($uinfo['cell']); ?>" placeholder="手机号码">
+                    <input type="text" id="qq" value="<?php F::O($uinfo['qq']); ?>" placeholder="QQ号码">
+                    <select id="province" disabled></select>
+                    <select id="city"></select>
+                    <select id="district"></select>
+
+                    <a href="javascript:;" class="btn btn-blue" rel="e:register">确认提交 - 拿邀请卡</a>
+                    <!-- <a href="javascript:;" class="btn btn-red btn-cancel hidden" rel="e:cancel">取消修改</a> -->
+                </form>
+            </div>
+            <div class="erweima-wrap hidden">
+                <!--
+                <a href="<?php F::O($links['card']); ?>" class="btn btn-orange">邀请卡</a>
+                <a href="javascript:;" class="btn btn-blue btn-update hidden" rel="e:updateInfo">修改报名信息</a>
+                -->
+                <div class="tc">
+                    <p>CCTV希望之星国际赛——海外生存大作战欢迎您，您已报名成功！</p>
+                    <p>如有疑问，请咨询官方QQ群：414227597</p>
+                    <img src="<?php echo GAOFEN_STATIC; ?>/html/weixin/staroutlook/img/QQ-qun.png" alt="二维码">
+                    <a href="javascript:;" class="btn btn-blue" rel="e:closewin">关闭页面并领取邀请卡！</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-mask hidden">
+        <div class="ui-loading">
+            <div class="icon-loading">
+                <div class="dot dot1">
+                    <i class="dot-t"></i>
+                    <i class="dot-b"></i>
+                </div>
+                <div class="dot dot2">
+                    <i class="dot-t"></i>
+                    <i class="dot-b"></i>
+                </div>
+
+                <div class="dot dot3">
+                    <i class="dot-t"></i>
+                    <i class="dot-b"></i>
+                </div>
+
+                <div class="dot dot4">
+                    <i class="dot-t"></i>
+                    <i class="dot-b"></i>
+                </div>
+            </div>
+            <p>加载中...</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        Gaofen.PD.set({
+            isReg: <?php echo json_encode($isReg); ?>,
+            canUpdate: <?php echo json_encode($canUpdate); ?>,
+            router: 'registration',
+            links: <?php echo json_encode($links); ?>,
+            wxconfigDetail: {
+                share: '<?php F::O($links['index']); ?>'
+            },
+            uinfo: <?php echo json_encode($uinfo); ?>
+        });
+
+        PCAS('province', 'city', 'district',
+            '广东省',
+            '<?php F::O($uinfo['addr']['city']); ?>',
+            '<?php F::O($uinfo['addr']['district']); ?>'
+        );
+    </script>
+</body>
+</html>

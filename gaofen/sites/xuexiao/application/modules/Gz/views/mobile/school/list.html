@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <?php F::SEO()->echoTitle(array('__pindex'=>V('g:q')?1:0)); ?>
+    </title>
+    <meta name="description" content="中小学教育服务平台">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#222222">
+    <?php F::TPL('mobile/school/style.html', [], 'gz'); ?>
+</head>
+
+<body class="school-list-page">
+<?php F::TPL('mobile/school/navigation.html', ['backwardLink' => ''], 'gz') ?>
+<div class="page-content">
+
+    <div class="ui-filter-group" id="searchArea">
+        <?php echo $form->open('form', '?') ?>
+        <div class="iconfont icon-arrow ui-filter">
+            <?php echo $form->select('district', ['全部地区', $filters['district']['list']]) ?>
+        </div>
+        <div class="iconfont icon-arrow ui-filter">
+            <?php echo $form->select('gz_property', ['全部类型', $filters['gz_property']['list']]) ?>
+        </div>
+        <?php echo $form->close() ?>
+    </div>
+    <div class="box mod">
+        <h2 class="mod-hd">
+            <span>
+                <?php
+                    if(empty(V("g:q"))) {
+                        if(!empty($district)) {
+                            F::O($filters['district']['list'][$district]);
+                        }else{
+                             F::O(str_replace('市', '', CFG::school('location', 'city', V('c:_cty'), 'name')));
+                        }
+
+                        if(!empty($property)) {
+                            F::O($filters['property']['list'][$property]);
+                        }else{
+                            F::O('全部学校');
+                        }
+                    }else{
+                        F::O("搜索 “".V("g:q")."”");
+                    }
+                ?>
+            </span>
+        </h2>
+
+        <div class="mod-bd">
+
+            <div class="school-list" id="school_list">
+                <?php if(empty($schools['list'])): ?>
+                <div class="tips-null">暂无学校，换个条件试试？</div>
+                <?php else: ?>
+                <!--Start:学校列表-->
+                <?php F::TPL('mobile/school/school.html', ['schools' => $schools['list']], 'gz') ?>
+                <!--End:学校列表-->
+                <?php endif; ?>
+            </div>
+            <div class="loading hidden" id="body_loading"><span class="bounce1"></span><span
+                    class="bounce2"></span><span class="bounce3"></span></div>
+            <span class="link-more hidden" id="listMore"><i class="iconfont">&#xe602;</i><span>查看更多学校</span></span>
+        </div>
+    </div>
+</div>
+<?php F::TPL('common/mobile/footer.html', [
+        'footerjs' =>  F::TPL('/mobile/school/footerjs.html', [], 'gz', true)
+]) ?>
+<script type="text/javascript">
+    Gaofen.PD.set({
+        'channel': 'list',
+        'total': '<?php F::O($schools['total']); ?>',
+    });
+</script>
+</body>
+</html>

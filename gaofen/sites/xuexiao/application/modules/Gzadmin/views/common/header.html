@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>学校频道后端管理-编辑经验分享</title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo ROOT_DIR; ?>/public/styles/main.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 mb20">
+          <a href="<?php echo F::URL('/Gzadmin/school/list'); ?>" class="btn btn-default pull-right"><i class="glyphicon glyphicon-arrow-left"></i> 返回学校列表</a>
+          <ul class="nav nav-tabs">
+            <li><a href="<?php echo F::URL('/Gzadmin/school/edit', array('id'=>$id)); ?>#base">基础信息</a></li>
+            <li><a href="<?php echo F::URL('/Gzadmin/school/edit', array('id'=>$id)); ?>#intro">学校简介</a></li>
+            <li<?php if(@$action=='editinfo' && @$type==7): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gzadmin/school/editinfo', array('id'=>$id, 'type'=>7)); ?>">分数线</a></li>
+            <li<?php if(@$action=='editinfo' && @$type==8): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gzadmin/school/editinfo', array('id'=>$id, 'type'=>8)); ?>">高考成绩</a></li>
+            <li<?php if(@$action=='editinfo' && @$type==9): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gzadmin/school/editinfo', array('id'=>$id, 'type'=>9)); ?>">招生信息</a></li>
+            <li<?php if(@$action=='editinfo' && @$type==10): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Gzadmin/school/editinfo', array('id'=>$id, 'type'=>10)); ?>">校园生活</a></li>
+            
+          </ul>
+        </div>
+      </div>

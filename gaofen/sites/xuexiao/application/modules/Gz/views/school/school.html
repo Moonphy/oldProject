@@ -1,0 +1,20 @@
+<?php foreach ($schools as $school): ?>
+<li rel="<?php echo $school->id; ?>">
+    <div class="thumb">
+        <a href="<?php echo F::URL('/gz/school/view', ['id' => $school->id]) ?>" target="_blank"><img src="<?php echo $school->cover ?>" width="140" height="105" alt="" class="no-pic"/>
+        </a>
+    </div>
+    <div class="info">
+        <h3><a href="<?php echo F::URL('/gz/school/view', ['id' => $school->id]) ?>" target="_blank"><?php F::O($school->name); ?></a></h3>
+        <p class="meta">
+        <?php echo $school->present()->property(); ?>
+        </p>
+        <p class="address"><?php F::O(!empty($school->ext['address'])?'地址：'.$school->ext['address']:''); ?></p>
+    </div>
+    <div class="times">人气：<?php echo $school->views; ?></div>
+    <div class="operations">
+    <a href="#" target="_blank"
+    rel="<?php echo 'e:contrast,n:'.$school->name.',id:'.$school->id.',uri:'.F::URL('/gz/school/view', ['id' => $school->id]); ?>">加入对比</a>
+    </div>
+</li>
+<?php endforeach ?>

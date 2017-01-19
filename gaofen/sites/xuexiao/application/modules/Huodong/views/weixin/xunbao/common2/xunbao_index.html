@@ -1,0 +1,29 @@
+<div class="wrap index" id="xunbaoIndex" v-show="partShow">
+    <div class="rule-task1">
+        <div class="title">
+            <h2 class="title-content">活动规则</h2>
+        </div>
+        <div class="content">
+            <p>想要得到传说中的宝藏吗？想要的话你就说嘛，说出来就全部都给你！</p>
+            <p>和你的孩子一起去找吧，所有的宝藏都藏在下面的活动中了。</p>
+        </div>
+    </div>
+    <a v-for="item in tasks" href="{{item.link}}" class="{{item.cs}}"  title="{{item.alt}}">
+        <i class="icon icon-current" v-if="item.link"></i>
+        <i class="icon btn-right"  v-if="item.link"></i>{{item.name}}
+    </a>
+
+<!--     <a href="" title="开始任务" class="btn btn-start"><i class="icon icon-current"></i><i class="icon btn-right"></i>立即动起手来</a>
+    <a href="#" title="敬请期待" class="btn btn-un-start">活动二 敬请期待</a>
+    <a href="#" title="敬请期待" class="b tn btn-un-start">活动三 敬请期待</a>-->
+
+    <!-- 活动结束后提示-->
+    <div class="mask mask-alter hidden">
+        <div class="mask-wrap">
+            <h1>活动已结束</h1>
+            <p>红包及奖品将通过微信公众号发放</p>
+            <p>请长按下方二维码关注我们的公众号，参与更多活动吧。</p>
+            <p>如有问题可联系官方微信客服：gaofenwang</p>
+        </div>
+    </div>
+</div>

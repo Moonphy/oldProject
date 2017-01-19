@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?php F::TPL('weixin/xunbao/common/script.html', get_defined_vars(), 'huodong'); ?>
+</head>
+<body>
+
+<div class="wrap list">
+    <div class="ui-center">
+        <div class="show-hongbao"><i class="icon icon-ranking-list"></i>
+            <ul class="list-tab">
+                <li class="tab-1 active"><a href="javascript:void(0)">本周排行</a></li>
+                <li class="tab-2"><a href="javascript:void(0)">总排行</a></li>
+            </ul>
+            <div class="list-container-1">
+                <ol class="list-top-3">
+
+<?php $i = 0; ?>
+<?php while($i < 3 && isset($weekly[$i])): ?>
+    <li>
+        <div class="list-<?php echo $i+1; ?>-wrap">
+            <div class="list-num"><?php echo $i+1; ?></div>
+        </div>
+        <div class="ui-avatar"><img src="<?php echo $weekly[$i]->user->headimgurl; ?>" alt=""/>
+        </div>
+        <div class="visit-user">
+            <div class="visit-user-title"><?php echo $weekly[$i]->user->nickname; ?></div>
+            <p class="visit-user-text">已获得<b><?php echo $weekly[$i]->fav_num; ?></b>个祝福</p>
+        </div>
+    </li>
+<?php ++$i; ?>
+<?php endwhile; ?>
+
+                </ol>
+                <ol class="list-top-other">
+
+<?php while($i < 7 && isset($weekly[$i])): ?>
+    <li>
+        <div class="list-<?php echo $i+1; ?>-wrap">
+            <div class="list-num"><?php F::O($i+1); ?></div>
+        </div>
+        <div class="ui-avatar"><img src="<?php F::O($weekly[$i]->user->headimgurl); ?>" alt=""/>
+        </div>
+        <div class="visit-user">
+            <div class="visit-user-title"><?php F::O($weekly[$i]->user->nickname); ?></div>
+            <p class="visit-user-text">已获得<b><?php F::O($weekly[$i]->fav_num); ?></b>个祝福</p>
+        </div>
+    </li>
+<?php ++$i; ?>
+<?php endwhile; ?>
+
+<?php if ($weeklyRank > 7): ?>
+    <li class="list-dots">
+        <div class="list-dot"></div>
+        <div class="list-dot"></div>
+    </li>
+    <li class="list-mine">
+        <div class="list-num"><?php F::O($weeklyRank); ?></div>
+        <div class="visit-user-title"><?php F::O($user->nickname); ?></div>
+        <div class="list-zan">已获得<b><?php F::O($material->fav_num); ?></b>个祝福</div>
+    </li>
+<?php endif; ?>
+
+                </ol>
+            </div>
+            <div class="list-container-2 hidden">
+                <ol class="list-top-3">
+                    <li>
+                        <div class="list-1-wrap">
+                            <div class="list-num">1</div>
+                        </div>
+                        <div class="ui-avatar"><img src="../img/dummies/avatar_48x48.png" alt=""/>
+                        </div>
+                        <div class="visit-user">
+                            <div class="visit-user-title">王二麻子</div>
+                            <p class="visit-user-text">已获得<b>386</b>个祝福</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list-2-wrap">
+                            <div class="list-num">2</div>
+                        </div>
+                        <div class="ui-avatar"><img src="../img/dummies/avatar_48x48.png" alt=""/>
+                        </div>
+                        <div class="visit-user">
+                            <div class="visit-user-title">王二麻子呵呵哒</div>
+                            <p class="visit-user-text">已获得<b>386</b>个祝福</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list-3-wrap">
+                            <div class="list-num">3</div>
+                        </div>
+                        <div class="ui-avatar"><img src="../img/dummies/avatar_48x48.png" alt=""/>
+                        </div>
+                        <div class="visit-user">
+                            <div class="visit-user-title">王二麻子呵呵哒</div>
+                            <p class="visit-user-text">已获得<b>386</b>个祝福</p>
+                        </div>
+                    </li>
+                </ol>
+                <ol class="list-top-other">
+                    <li>
+                        <div class="list-num">4</div>
+                        <div class="visit-user-title">王二麻子呵呵哒王二麻子呵呵哒</div>
+                        <div class="list-zan">已获得<b>386</b>个祝福</div>
+                    </li>
+                    <li>
+                        <div class="list-num">5</div>
+                        <div class="visit-user-title">王二麻子呵呵哒王二麻子呵呵哒</div>
+                        <div class="list-zan">已获得<b>386</b>个祝福</div>
+                    </li>
+                    <li>
+                        <div class="list-num">6</div>
+                        <div class="visit-user-title">王二麻子呵呵哒王二麻子呵呵哒</div>
+                        <div class="list-zan">已获得<b>386</b>个祝福</div>
+                    </li>
+                    <li>
+                        <div class="list-num">7</div>
+                        <div class="visit-user-title">王二麻子呵呵哒王二麻子呵呵哒</div>
+                        <div class="list-zan">已获得<b>386</b>个祝福</div>
+                    </li>
+                    <li class="list-dots">
+                        <div class="list-dot"></div>
+                        <div class="list-dot"></div>
+                    </li>
+                    <li class="list-mine">
+                        <div class="list-num">886</div>
+                        <div class="visit-user-title">靓爆镜的芭芭拉</div>
+                        <div class="list-zan">已获得<b>22</b>个祝福</div>
+                    </li>
+                </ol>
+            </div>
+        </div><a class="btn btn-start btn-radius-1 w90">继续加油</a>
+    </div>
+    <?php F::TPL('weixin/xunbao/common/menu.html', get_defined_vars(), 'huodong'); ?>
+</div>
+<script>
+    $('.list-tab li').on('tap', function () {
+        $(this).addClass('active').siblings('.active').removeClass('active')
+        if($('.tab-1').hasClass('active')){
+            $('.list-container-1').removeClass('hidden')
+            $('.list-container-2').addClass('hidden')
+        }else if($('.tab-2').hasClass('active')){
+            $('.list-container-2').removeClass('hidden')
+            $('.list-container-1').addClass('hidden')
+        }
+    })
+</script>
+
+
+
+    <?php for($i = 0; $i < sizeof($weekly); ++$i): ?>
+        <?php $item = $weekly[$i]; ?>
+        <p><?php F::O($i);?>: <?php F::O($item->id); ?></p>
+    <?php endfor; ?>
+
+
+    <?php F::TPL('weixin/xunbao/common/menu.html', get_defined_vars(), 'huodong'); ?>
+    <script type="text/javascript">
+        Gaofen.PD.set({
+            router: 'card', 
+            links: <?php echo json_encode($links); ?> 
+        });
+    </script>
+</body>
+</html>

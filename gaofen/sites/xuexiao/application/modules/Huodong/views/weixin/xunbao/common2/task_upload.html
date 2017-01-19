@@ -1,0 +1,15 @@
+<div class="wrap post"  v-show="partShow" id="taskpost" :transition="transitionName">
+    <div class="div-wrap">
+        <div class="form">
+            <form>
+                <div class="input-file">
+                    <div id="previewArea"><img src="{{form.img}}" alt=""></div>
+                    <!-- <input type="file" id="facefile"> -->
+                    <button class="btn btn_primary" id="uploadImage" v-on:click="choosePic($event)">上传图片</button>
+                </div>
+                <textarea rows="4" placeholder="发表一下作品感言">{{form.txt}}</textarea>
+                <button class="btn btn-start" v-on:click="formSubmit($event)"><i class="icon btn-right"></i>完成了</button>
+            </form>
+        </div>
+    </div>
+</div>

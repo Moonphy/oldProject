@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="container">
+		<div class="row well well-sm">
+			<?php for($i=1; $i<=$main_page; $i++): ?>
+				<a href="<?php echo F::URL('/huodong/weixin_Everydayenglish_admin/index', ['term'=>$i]); ?>"<?php if($i==$term): ?> class="glyphicon glyphicon-ok"<?php endif; ?> title="<?php F::O(date('Y-m-d', strtotime('+'.($i-1).' day', $startTime))); ?>">D<?php F::O($i); ?></a>
+			<?php endfor; ?>
+		</div>
+		<?php if($main): ?>
+		<div class="row">
+			<div class="col-md-6"><?php F::O($main->content); ?></div>
+			<div class="col-md-6"><audio src="<?php echo $main->present()->getVoiceLink(); ?>" controls=""></audio></div>
+		</div>
+		<div class="row">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<td></td>
+						<td>昵称</td>
+						<td>录音</td>
+						<td>播放次数</td>
+						<td>点评</td>
+						<td>操作</td>
+					</tr>				
+				</thead>
+				<tbody>
+				<?php foreach($list['list'] as $row): ?>
+					<tr>
+						<td><img width="60" height="60" src="<?php echo $row->user->headimgurl; ?>" /> </td>
+						<td><?php F::O($row->user->nickname); ?></td>
+						<td><audio src="<?php echo $row->present()->getVoiceLink(); ?>" controls=""></audio></td>
+						<td><?php F::O($row->views); ?></td>
+						<td><form method="post" action="<?php echo F::URL('/huodong/weixin_Everydayenglish_admin/comment'); ?>"><input type="hidden" name="id" value="<?php F::O($row->id); ?>"><textarea class="form-control" name="reply"><?php F::O(@$row->ext_data['reply']); ?></textarea><input type="submit" class="btn btn-primary" name="点评"></form></td>
+						<td><a href="<?php echo F::URL('/huodong/weixin_Everydayenglish_admin/delete', ['id'=>$row->id]); ?>" onclick="return confirm('确定删除该条记录?');" class="btn btn-danger">删除</a></td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<?php else: ?>
+			<div class="row">没数据！</div>
+		<?php endif; ?>
+	</div>
+</body>
+</html>

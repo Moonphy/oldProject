@@ -1,0 +1,83 @@
+
+<!DOCTYPE html><!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title><?php F::SEO()->echoTitle(array('tag'=>$tagname)); ?></title>
+  <meta name="keyword" content="">
+  <meta name="description" content="">
+  <?php F::TPL('common/header.html', [], 'Cz'); ?>
+</head>
+<body>
+  <div id="wrap">
+    <?php F::TPL('common/nav.html', [], 'Cz'); ?>
+    <div class="container page-content">
+      <div class="row row14-6">
+        <div class="span14">
+          <div class="mod-school-list">
+            <div class="heading">
+              <div class="title"><?php F::O($tagname); ?></div>
+            </div>
+             <?php if ($schools['list']->isEmpty()): ?>
+            <!-- Start: 搜索结果为空-->
+            <div class="alert alert-info alert-single"><i class="ico"></i>
+                <div class="info">
+                    <p>暂无学校，换个标签试试？</p>
+                </div>
+            </div>
+            <!-- End: 搜索结果为空-->
+            <?php endif ?>
+            <!-- Start: 学校列表-->
+            <div class="school-thumb-info-list">
+              <ul id="school_list">
+                <?php F::TPL('school/school.html', ['schools' => $schools['list']], 'Cz') ?>
+              </ul>
+              <div class="view-more">
+                  <?php if ($schools['total'] > $schools['list']->count()): ?>
+                      <a href="#" rel="e:lmore">查看更多学校</a>
+                  <?php endif ?>
+                  <div class="loading-mini"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <!-- Start: 侧栏挂件-相关点评标签-->
+          <div class="widget widget-comment-tags">
+            <div class="widget-hd">
+              <div class="title">相关点评标签</div>
+            </div>
+            <span class="comment-pills">
+            <?php foreach($relTags as $tid=>$name): ?>
+              <a href="<?php echo F::URL('/Cz/Tags/list', array('tagid'=>$tid)); ?>" target="_blank" class="pill"><?php F::O($name); ?></a>
+            <?php endforeach; ?>
+            </span>
+            </div>
+          <!-- End: 侧栏挂件-相关点评标签-->
+        </div>
+      </div>
+    </div>
+    <!-- Start: 页脚-->
+    <?php F::TPL('common/footer.html', [], 'Cz'); ?>
+    <!-- End: 页脚-->
+  </div>
+  <?php F::TPL('common/footer_script.html', [], 'Cz'); ?>
+</body>
+ <script type="text/javascript">
+    <?php $params = V('g');unset($params['r']);$params=json_encode($params); ?>
+        Gaofen.PD.set({'channel':'xuexiao','action':'tags', params : <?php echo $params; ?>});
+    </script>
+</html>

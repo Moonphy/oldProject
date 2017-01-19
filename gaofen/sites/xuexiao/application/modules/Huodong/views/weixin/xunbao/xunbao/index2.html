@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?php F::TPL('weixin/xunbao/common2/header.html', get_defined_vars(), 'huodong'); ?>
+    <style type="text/css">
+        [v-show] { display: none; }
+        .fade-transition {
+          transition: all .3s ease;
+          overflow: hidden;
+          opacity: 1;
+        }
+
+        .fade-enter{
+            opacity: 0;
+        }
+        .fade-leave {
+          opacity: 0;
+        }
+    </style>
+</head>
+<body >
+    <div id="taskapp" class="hidden"></div>
+    <div class="wrap list">
+        <div class="ui-center">
+            <?php F::TPL('weixin/xunbao/common2/xunbao_index.html', [], 'huodong'); ?>
+            <?php F::TPL('weixin/xunbao/common2/xunbao_camp.html', [], 'huodong'); ?>
+            <?php F::TPL('weixin/xunbao/common2/xunbao_mytask.html', [], 'huodong'); ?>
+            <?php F::TPL('weixin/xunbao/common2/xunbao_portfolio.html', [], 'huodong'); ?>
+        </div>
+        <?php F::TPL('weixin/xunbao/common2/menu.html', [], 'huodong'); ?>
+    </div>
+    
+    <?php F::TPL('weixin/xunbao/common2/footer.html', get_defined_vars(), 'huodong'); ?>
+    <script type="text/javascript">
+        Gaofen.PD.set({
+            router: 'xunbao'
+        });
+    </script>
+</body>
+</html>

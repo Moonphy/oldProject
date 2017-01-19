@@ -1,0 +1,47 @@
+
+<?php
+$_city = V('c:_cty');
+
+$_cityName = CFG::school('location', 'city', $_city, 'name');
+?>
+<?php if($_city==289): ?>
+    <?php F::TPL('common/mobile/footer.html', [
+        'footerjs' =>  F::TPL('/common/footerjs.html', [], 'czweixin', true)
+        ]) ?>
+<?php else: ?>
+<footer class="footer">
+    <div class="foot-links">
+        <a href="/">高分网首页</a>
+        <?php if(!in_array(Yaf_Dispatcher::getInstance()->getRequest()->getActionName(), array('index', 'list'))): ?>
+        <a href="<?php echo F::URL('/Czweixin/School/list'); ?>" target="_blank">返回<?php F::O(str_replace('市', '', $_cityName)); ?>初中库</a>
+        <?php endif; ?>
+    </div>
+    <div class="contact">
+        <p>&copy; 2010-<?php F::O(date('Y')); ?> 高分网&nbsp;<a target="_blank" href="http://www.miibeian.gov.cn/" title="粤ICP备13042184号-1">粤ICP备13042184号-1</a>
+        </p>
+    </div>
+</footer>
+<div class="ui-mask hidden"></div>
+    <?php if(F::inEnv('develop')): ?>
+    <script type="text/javascript" src="/public/js/xxmobile.js"></script>
+    <?php else: ?>
+    <script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/js/xuexiaomobi.min.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+    <?php endif; ?>
+<?php endif; ?>
+
+
+<?php if(F::inEnv('product')): ?>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5KNNRX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5KNNRX');</script>
+    <!-- End Google Tag Manager -->
+
+    <div style="display:none">
+    	<script type="text/javascript" src="<?php echo GAOFEN_STATIC;?>/html/v5/js/footer.js?<?php echo FILE_DATE_SUFFIX;?>"></script>
+    </div>
+<?php endif; ?>

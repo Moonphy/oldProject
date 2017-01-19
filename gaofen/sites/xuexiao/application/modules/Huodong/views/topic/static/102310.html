@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#222222">
+    <title>高分网全新社区邀您注册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            font-size: 62.5%;
+        }
+        body{
+            font-size: 62.5%;
+        }
+        .reg-bd{
+            background: #34c1a1;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        .top img{
+            width: 100%;
+        }
+        .wrap{
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
+        .wrap ul{
+            width: 165%;
+        }
+        .wrap li{
+            list-style: none;
+            width: 46%;
+            float: left;
+            margin-left: 4%;
+        }
+        .wrap img{
+            width: 100%;
+        }
+        .bottom img{
+            width: 88%;
+            margin: 20px auto 60px auto;
+        }
+        .dog span{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            padding: 8px;
+            background-color: white;
+            border-radius: 100%;
+            margin: 15px 10px;
+            opacity: 0.5;
+        }
+        .active{
+            opacity: 1!important;
+        }
+    </style>
+</head>
+<body>
+<div class="reg-bd">
+    <div class="top">
+        <img src="/public/topic/static/102310/img/top.png" alt="">
+    </div>
+    <div class="wrap" id="wrap">
+        <ul id="ul">
+            <li >
+                <img src="/public/topic/static/102310/img/wap.png" alt="" >
+            </li>
+            <li id="last-child">
+                <img src="/public/topic/static/102310/img/pc.png" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="dog" id="dog">
+        <span class="dog1 active"></span>
+        <span class="dog2"></span>
+    </div>
+    <div class="bottom">
+        <img src="/public/topic/static/102310/img/QR-codes.png" alt="二维码">
+    </div>
+</div>
+<script type="text/javascript">
+    var pageWidth  = screen.width, liwidth = document.getElementById('last-child').offsetWidth,
+            dogchilds = document.getElementById('dog').children;
+
+    document.getElementById("wrap").addEventListener("scroll", function(e){
+        var sl = this.scrollLeft;
+        if(sl > liwidth/2){
+            dogchilds[0].className =  'dog1';
+            dogchilds[1].className =  'dog2 active';
+        }else{
+            dogchilds[0].className =  'dog1 active';
+            dogchilds[1].className =  'dog2';
+        }
+    }, false);
+</script>
+
+</body>
+</html>

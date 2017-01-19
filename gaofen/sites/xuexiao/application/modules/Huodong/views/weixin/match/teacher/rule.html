@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>2015年卓越一对一“最Match师生”评选活动</title>
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/rule.css">
+	<style>
+body {
+    background-color: #dee1ea;
+    background-image: url(http://file.gaofen.com/html/weixin/voice/img/match-bg.jpg);
+}
+</style>
+</head>
+<body class="rule">
+<div class="main-wrap">
+    <ol>
+        <label for="">活动规则：</label>
+        <li>活动主题：卓越一对一2015年年度最match师生评选活动；</li>
+ <li>投票时间：2015年12月28日至2016月1日5日；</li>
+ <li>投票规则：每个微信号对同一个参赛选手每天限投一次，可以投多位选手；</li>
+ <li>奖项评选：投票截止时，得票最高的160组师生将可获得精美礼品，得票最高的30组师生将晋级参加下一轮复选；</li>
+ <li>抽奖说明：所有投票用户均有机会中奖，我们将送出200个小黄人公仔, 100元、200元卓越一对一优代金券，代金券使用说明请参照下方条款。中奖用户请务必填写手机号码，过期作废。</li>
+ <li>活动规则最终解释权归组委会，如有疑问请联系卓越教育微信公众号管理员。</li>
+    </ol>
+    <ol>
+        <label for="">代金券使用条款及明细：</label>
+        <li>报读卓越1对1课程，须报读80课时（含）以上才能使用，每次报名使用代金券总额上限为600元。</li>
+        <li>本券不能兑换现金，由本券代付的金额不做任何形式退款或返还，不开具发票，不可与其他优惠券/卡同时使用。</li>
+        <li>本券有效期截至2016年3月31日。</li>
+        <li>适用城市：广州。</li>
+        <li>广州卓越教育培训中心拥有此券最终解析权。客服电话：020-34401000。</li>
+    </ol>
+    <?php if($phone):?>    
+        <b>您已成功登记手机，如有疑问请主动联系微信公众号管理员</b>
+    <?php else: ?>
+        <input type="tel" placeholder="输入手机号，参与抽奖活动" class="tel" id='tel'/>
+        <div class="post-message hidden" id="msg">
+            <i>!</i><span>提交失败，请重新输入手机号</span>
+        </div>
+        <input type="submit" class="btn" value="提交" id='btn'/>
+
+    <?php endif; ?>
+
+<div class="scan ">
+        <img style="display: block;width: 60%;margin: 30px auto;" src="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/img/qrcode-zy1997.png" alt=""/>
+    </div>
+</div>
+<?php F::TPL('weixin/match/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/match/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'router':'rule'});
+</script>
+</body>
+</html>

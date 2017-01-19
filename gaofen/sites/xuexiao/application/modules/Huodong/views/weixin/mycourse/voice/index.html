@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>卓越教育第六届微课大赛</title>
+    <!--coolie-->
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/common.css?v=<?php echo STATIC_VERSION; ?>">
+    <link rel="stylesheet" href="<?php echo GAOFEN_STATIC; ?>/html/weixin/voice/css/index.css?v=<?php echo STATIC_VERSION; ?>">
+    <!--/coolie-->
+	<style>
+body {
+    background-color: #dee1ea;
+    background-image: url(http://file.gaofen.com/html/weixin/voice/img/mycourse-bg.png);
+}
+</style>
+</head>
+<body class="index">
+<div class="main-wrap">
+<section class="flex">
+                    <div class="index-info">　　卓越教育集团第六届微课大赛30位精英教师在2000多人的角逐中晋级全国总决赛。谁是您最喜欢的牛师呢，请看选手风采，为他们点赞，给他们留言吧！ <br>
+　　选手风采可以让您看到真人版的牛师风采哦；您的一次点赞能为喜欢的牛师积1分人气；您的一次留言能为喜欢的牛师积2分人气。点赞后记得抽奖哦！
+
+</div>
+    </section>
+<?php echo $sectionhtml; ?>
+
+</div>
+
+<?php F::TPL('weixin/mycourse/common/menu.html', get_defined_vars(), 'huodong'); ?>
+<?php F::TPL('weixin/mycourse/common/script.html', get_defined_vars(), 'huodong'); ?>
+<script type="text/javascript">
+    Gaofen.PD.set({'uri':<?php echo $ajaxUri; ?>, 'router':'index'});
+</script>
+</body>
+</html>

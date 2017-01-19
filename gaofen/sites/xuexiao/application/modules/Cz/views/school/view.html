@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7 gt-ie6">
+<![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8 gt-ie7">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9 gt-ie8">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="gt-ie9">
+<!--<![endif]-->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv='mobile-agent' content='format=html5; url=<?php echo F::URL('xczweixin:/czweixin/school/view', array('id'=>$info['id'])); ?>'>
+        <title><?php echo  F::siteTitle(constant('SEO_XCZ_VIEW_'.$type.'_TITLE'), array('school_name'=>$info['name'])); ?></title>
+        <?php F::TPL('common/header.html', [], 'Cz'); ?>
+    </head>
+
+    <body class="details-page tab-page">
+        <div id="wrap">
+            <?php F::TPL('common/nav.html', [], 'Cz'); ?>
+            <div class="container">
+                <?php echo F::breadcrumbNav()->indexNav()
+                                         ->czIndexNav()
+                                         ->finalNav($info['name']);
+                ?>
+            </div>
+            <div class="container page-content">
+                <div class="school-summary mb25">
+                    <div class="school-heading">
+                        <div class="operations">
+                        <a href="<?php echo F::URL('/Cz/School/detail', array('id'=>$info['id'])); ?>" target="_blank">学校介绍</a>
+                        <?php if($info['has_gz'] && $relGzUrl): ?>
+                        <i>|</i>
+                        <a href="<?php echo $relGzUrl; ?>" target="_blank">查看该校高中</a>
+                        <?php endif; ?>
+                        </div>
+                        <div class="title">
+                            <h1 id="school_name"><?php F::O($info['name']); ?></h1>
+                            <?php if($info['sub_name']): ?><span class="meta">简称：<?php F::O($info['sub_name']); ?></span><?php endif; ?>
+                            <span class="meta">人气：<?php F::O($info['views']); ?></span>
+                        </div>
+                    </div>
+                    <div class="cont clearfix">
+                        <div class="picture">
+                        <?php if($picList['total']>0): ?>
+                            <a href="<?php echo F::URL('/Cz/School/album', array('sid'=>$info['id'])); ?>" target="_blank" class="thumb"><img src="<?php echo $info['cover']; ?>" alt="" class="no-pic" /><span class="tit">共<?php F::O($picList['total']); ?>张相关照片<i class="bg"></i></span>
+                            </a>
+                        <?php else: ?>
+                            <span class="thumb">
+                            <img src="<?php echo $info['cover']; ?>" alt="" class="no-pic" /><span class="tit">共<?php F::O($picList['total']); ?>张相关照片<i class="bg"></i></span>
+                            </span>
+                        <?php endif; ?>
+                            <div class="orig1"></div>
+                            <div class="orig2"></div>
+                        </div>
+                        <div class="info">
+                            <div class="sec sec-properties">
+                              <ul>
+                                <li class="col-1"><span class="label">办学性质：</span><span class="cont"><?php F::O($info['cate']==2?'民办':'公办'); ?></span></li>
+                                <li class="col-2"><span class="label">所在区域：</span><span class="cont"><?php F::O($districtList[$info['district']]); ?></span></li>
+                                <li class="col-3"><span class="label">入学途径：</span><span class="cont">
+                                <?php $_tmpAttypeText=array(); if($info['attype']): ?><?php foreach($info['attype'] as $_aid): ?><?php $_tmpAttypeText[] = $attypeList[$_aid] ; ?><?php endforeach; ?><?php echo ($_tmpAttypeText?implode('/', $_tmpAttypeText):''); ?><?php endif; ?></span></li>
+                              </ul>
+                            </div>
+                            <div class="sec sec-stars">
+                              <ul>
+                                <li>
+                                  <p>入学难度：</p>
+                                  <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['admit'] * 2)); ?>"></div>
+                                </li>
+                                <li>
+                                  <p>中考成绩：</p>
+                                  <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['score'] * 2)); ?>"></div>
+                                </li>
+                                <li>
+                                  <p>热门程度：</p>
+                                  <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['hot'] * 2)); ?>"></div>
+                                </li>
+                                <?php if($info['cate']==2): ?>
+                                <li>
+                                  <p>学费高低：</p>
+                                  <div class="vote-stars vote-stars-<?php F::O((@$info['ext']['rate']['fee'] * 2)); ?>"></div>
+                                </li>
+                                <?php endif; ?>
+                              </ul>
+                            </div>
+                            <?php if(!empty($info['tags'])): ?>
+                            <div class="sec sec-comments">
+                                <span class="comment-pills">
+                                    <span class="label">高分网点评：</span>
+                                        <?php foreach($info['tags'] as $_t=>$_n): ?>
+                                        <a href="<?php echo F::URL('/Cz/Tags/list', array('tagid'=>$_t)); ?>" target="_blank" class="pill"><?php F::O($_n); ?></a>
+                                        <?php endforeach; ?>
+                                </span>
+                            </div>
+                            <?php endif; ?>
+                            <div class="sec sec-metas">
+                                <p class="address"><span>地址：<?php if(!empty($info['ext']['address'])): ?><?php F::O($info['ext']['address']); ?><?php else: ?>--<?php endif; ?></span><?php if(!empty($info['ext']['address'])): ?><a rel="e:bm" vrel="<?php if(!empty($info['ext']['address'])): ?><?php F::O($info['ext']['address']); ?><?php else: ?>--<?php endif; ?>"  target="_blank" href="http://map.baidu.com/?s=s%26wd%3D<?php F::O($info['ext']['address']); ?>" class="icon-pin"></a><?php endif; ?></p>
+                                <p><span>电话：<?php if(!empty($info['ext']['phone'])): ?><?php F::O($info['ext']['phone']); ?><?php else: ?>--<?php endif; ?></span>
+                                </p>
+                                <?php if(!empty($info['ext']['website'])): ?>
+                                <p>官网：<a href="<?php echo $info['ext']['website']; ?>" target="_blank"><?php echo $info['ext']['website']; ?></a>
+                                </p>
+                                <?php endif; ?>
+
+                            </div>
+                            <div class="actions"><a href="#" class="btn-add-comparison" id="contrastBtn" rel='e:contrast,n:<?php F::O($info['name']); ?>,id:<?php F::O($info['id']); ?>'><span>加入对比</span></a>
+                            <?php if ($isFollow): ?>
+                                <a rel="e:fav,type:2,id:<?php echo $info['id']; ?>" href="<?php echo F::URL('/Cz/ajax/unfollow', ['school_id' => $info['id']]) ?>" class="btn-follow"><span>取消收藏</span></a>
+                            <?php else: ?>
+                                <a rel="e:fav,type:1,id:<?php echo $info['id']; ?>" href="<?php echo F::URL('/Cz/ajax/follow', ['school_id' => $info['id']]) ?>" class="btn-follow"><span>收藏本校</span></a>
+                            <?php endif ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row14-6">
+                    <a name="info-part"></a>
+                    <div class="span14">
+                        <div class="tabs">
+                            <ul>
+                                <li<?php if($type==2): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>2)); ?>#info-part">招生信息</a></li>
+                                <li<?php if($type==1): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>1)); ?>#info-part">学校实力</a></li>
+                                <li<?php if($type==4): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>4)); ?>#info-part">学校要闻</a></li>
+                                <li<?php if($type==3): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>3)); ?>#info-part">学生生活</a></li>
+                                <li<?php if($type==5): ?> class="active"<?php endif; ?>><a href="<?php echo F::URL('/Cz/School/view', array('id'=>$info['id'], 'type'=>5)); ?>#info-part">资料推荐</a></li>
+                            </ul>
+                        </div>
+                        <div class="school-desc">
+                                <?php echo $infoList; ?>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <!-- Start: 关注高分 -->
+                        <?php F::TPL('school/follow_xsc.html', [], 'Cz'); ?>
+                        <!-- End: 关注高分 -->
+                        <!-- Start: 他们也对这所学校感兴趣 -->
+                        <!-- End: 他们也对这所学校感兴趣 -->
+                        <?php F::TPL('school/actives.html', ['actives' => $actives], 'Cz') ?>
+                        <!-- Start: 热门学校推荐 -->
+                        <?php echo F::TPL('school/private_schools.html', ['privateSchools' => $privateSchools['list'], 'govSchools'=> $govSchools['list'], 'current_id' => $info['id']], 'Cz') ?>
+                        <!-- End: 热门学校推荐 -->
+                        <!-- Start: 您浏览过的学校 -->
+                        <?php F::TPL('school/visited.html', ['visited' => $visited], 'Cz') ?>
+                        <!-- End: 您浏览过的学校 -->
+                    </div>
+                </div>
+            </div>
+            <?php F::TPL('common/footer.html', [], 'Cz'); ?>
+        </div>
+        <?php F::TPL('common/footer_script.html', [], 'Cz'); ?>
+        <script type="text/javascript">
+            Gaofen.PD.set({'channel':'xuexiao','action':'detail'});
+        </script>
+    </body>
+
+</html>

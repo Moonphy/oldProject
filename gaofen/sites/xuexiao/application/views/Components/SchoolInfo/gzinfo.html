@@ -1,0 +1,263 @@
+<?php if(!empty($info['list'][0]['data']) && is_array($info['list'][0]['data'])):?>
+<?php foreach($info['list'][0]['data'] as $_block): ?>
+
+<!-- Start: <?php F::O($_block['name']); ?>-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="title"><?php F::O($_block['name']); ?></div>
+    </div>
+    <?php if($_block['flag']=='gz_score' && $_block['value']): /*升学成绩*/?>
+    <div class="sub-mod-bd">
+        <div class="table data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w80"><div class="gap">年份</div></th>
+                        <th><div class="gap">参试人数</div></th>
+                        <th><div class="gap">一本上线率</div></th>
+                        <th><div class="gap">二本A上线率</div></th>
+                        <th><div class="gap">二本B上线率</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($_block['value'] as $_k=>$_row): ?>
+                    <tr<?php if($_k%2!=0): ?> class="even"<?php endif; ?>>
+                        <td><?php F::O($_row['year']); ?>年</td>
+                        <td><?php F::O($_row['joins']?:'--'); ?></td>
+                        <td><?php F::O($_row['yiben_luqu']?$_row['yiben_luqu'].'%':'--'); ?></td>
+                        <td><?php F::O($_row['erben_a_luqu']?$_row['erben_a_luqu'].'%':'--'); ?></td>
+                        <td><?php F::O($_row['erben_b_luqu']?$_row['erben_b_luqu'].'%':'--'); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php elseif($_block['flag']=='gz_admit_score' && $_block['value']): /*录取分数线*/?>
+    <div class="sub-mod-bd">
+        <div class="table data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="gap">年份</div>
+                        </th>
+                        <th>
+                            <div class="gap">录取类别</div>
+                        </th>
+                        <th>
+                            <div class="gap">招生区域</div>
+                        </th>
+                        <th>
+                            <div class="gap">最低分数</div>
+                        </th>
+                        <th>
+                            <div class="gap">最低分数末位同分序号<span class="hints"><span class="bubble">最低分数末位同分序号：向该校投档考生最低分数的同分最大排位序号。<i class="arrow"><i class="arrow-border"></i><i class="arrow-body"></i></i></span></span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="gap">末位考生志愿序号<span class="hints"><span class="bubble">末位考生志愿序号：向该校投档最后一名考生的志愿序号。<i class="arrow"><i class="arrow-border"></i><i class="arrow-body"></i></i></span></span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="gap">末位考生分数<span class="hints"><span class="bubble">末位考生分数：最后一名被录取考生的分数。<i class="arrow"><i class="arrow-border"></i><i class="arrow-body"></i></i></span></span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="gap">末位考生分数同分序号<span class="hints"><span class="bubble">末尾考生分数同分序号：向该院校投档最后一名考生分数的同分最大排位序号。<i class="arrow"><i class="arrow-border"></i><i class="arrow-body"></i></i></span></span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="gap">外区最低分数</div>
+                        </th>
+                        <th>
+                            <div class="gap">外区最低分数同分序号</div>
+                        </th>
+                        <th>
+                            <div class="gap">最大志愿号<span class="hints"><span class="bubble">最大志愿号：向该校投档考生中最大的志愿序号。<i class="arrow"><i class="arrow-border"></i><i class="arrow-body"></i></i></span></span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $_i = 1;/*只显示3年，作年份累*/foreach($admitScore[$_block['module_name']] as $year=>$item): ?>
+                        <?php 
+                        if($_i>6) {
+                            break;
+                        }
+                        $countItem = count($item); //用作合并年份单元格判断
+                        foreach($item as $_k=>$row): ?>
+                            <tr<?php if($year%2): ?> class="even<?php if($_i>3): ?> hidden<?php endif; ?>"<?php else: ?> class="<?php if($_i>3): ?>hidden<?php endif; ?>"<?php endif; ?>>
+                                <?php if($_k==0): ?>
+                                <td<?php if($countItem>1): ?> rowspan="<?php echo $countItem; ?>"<?php endif; ?>><?php F::O($year); ?>年</td>
+                                <?php endif; ?>
+                                <td><?php F::O(CFG::school('luqu_type', $row['luqu_id'])); ?></td>
+                                <td><?php F::O(CFG::school('school', 'gz_admit_range', $row['admit_range_id'])); ?></td>
+                                <td class="highlight"><?php F::O($row['low_mark']?:'-'); ?></td>
+                                <td><?php F::O($row['low_mark_last']?:'-'); ?></td>
+                                <td class="highlight"><?php F::O($row['last_student_wish']?:'-'); ?></td>
+                                <td><?php F::O($row['last_student_mark']?:'-'); ?></td>
+                                <td><?php F::O($row['last_student_num']?:'-'); ?></td>
+                                <td><?php F::O($row['other_low_mark']?:'-'); ?></td>
+                                <td><?php F::O($row['other_low_num']?:'-'); ?></td>
+                                <td><?php F::O($row['max_wish_num']?:'-'); ?></td>
+                            </tr>
+                        <?php endforeach; $_i++;?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <div class="more js-hide<?php if(count($admitScore[$_block['module_name']])<=3): ?> hidden<?php endif; ?>"><a href="#">展开更多<i class="triangle"></i></a></div>
+        </div>
+    </div>
+    <?php elseif($_block['flag']=='admit_forte'): /*特长生招生*/?>
+    <?php if($admitforte): ?>
+    <?php
+        $_tmp = array_slice($admitforte, 0, 1, true);
+        $year = key($_tmp);
+        $yearDataList = $_tmp[$year];
+    ?>
+    <div class="sub-mod-bd">
+        <div class="table data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w120"><div class="gap">特长类型</div></th>
+                        <th><div class="gap"><?php F::O($year); ?>年特长项目</div></th>
+                        <th><div class="gap">备注</div></th>
+                    </tr>
+                </thead>
+                <tbody>                             
+                    <?php foreach($yearDataList as $_type=>$_cate): ?>
+                    <?php
+                    $_cateValues = [];
+                    $_memos = [];
+                    foreach($_cate['cate'] as $_co) {
+                        $_cateValues[$_co] = $admitforteList[$_type]['child'][$_co];
+                    }
+                    foreach($_cate['memo'] as $_m) {
+                        if(trim($_m)) $_memos[] = $_m;
+                    }
+                    ?>
+                    <tr>
+                        <td><?php F::O($admitforteList[$_type]['name']); ?></td>
+                        <td><?php F::O(implode('、', $_cateValues)); ?></td>
+                        <td><?php F::O(implode('，', $_memos)?:'-'); ?></td>                          
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php elseif($_block['flag']=='schedule' && $_block['value']): /*作息时间*/?>
+    <div class="sub-mod-bd">
+
+    </div>
+    <?php elseif($_block['value']): ?>
+    <div class="sub-mod-bd">
+        <div class="text-cont">
+            <?php 
+                $searchment = array(
+                    //按最长优先匹配原则，除非必要或清楚调整后果，否则不能修改以下顺序
+                    '../../../../data/uploads/editor_tinymce/',
+                    '../../../data/uploads/editor_tinymce/',
+                    '../../data/uploads/editor_tinymce/',
+                    '/data/uploads/editor_tinymce/',               
+                );
+                $replacement = 'http://file.gaofen.com/xuexiao/editor_tinymce/';
+                echo str_replace($searchment, $replacement, $_block['value']); 
+            ?>
+        </div>
+    </div>
+    <?php endif; ?>
+<!--End: <?php F::O($_block['name']); ?>-->
+</div>
+<?php endforeach; ?>
+<?php elseif(in_array($type, array(7, 8, 9, 10))): ?>
+<div class="alert alert-info"><i class="ico"></i>
+    <div class="info">
+        <p>小编正在积极为你搜罗中！</p>
+        <p>如你熟悉该校情况，欢迎报料（请联系QQ2227698415），
+            <br>有大量高分币和好礼相送哦～</p>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php if(isset($_block['flag']) && $_block['flag']=='gz_admit_score'): ?>
+<!--显示在录取批次后面-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="title">查询全市历年中考分数线</div>
+    </div>
+    <div class="sub-mod-bd">
+        <div class="text-cont score-lines">
+            <p>
+                <?php 
+                $startYear = date('Ymd')>date('Y').'0701'?date('Y'):date('Y')-1;
+                $rangeYear = range($startYear, $startYear-2);
+                foreach($rangeYear as $_year): ?>
+                <a href="<?php echo F::URL('/Gz/Guide/history', array('year'=>$_year)); ?>" target="_blank"><?php F::O($_year); ?>年中考分数线</a>
+                <?php endforeach; ?>
+            </p>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php if(empty($expertTitle) && !empty($articleList['list']) && is_array($articleList['list'])): ?>
+<!-- Start: 学校要闻-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="more"><a href="<?php echo F::getLink('zhongkao'); ?>" target="_blank">更多</a></div>
+        <div class="title">学校要闻</div>
+    </div>
+    <div class="sub-mod-bd">
+        <div class="list post-list stat-post">
+            <ul>
+            <?php foreach($articleList['list'] as $_row): ?>
+                <li><span class="date"><?php F::O(date('Y-m-d H:i:s', strtotime($_row['post_date']))); ?></span>
+                    <div class="tit"><a href="<?php echo $_row['url']; ?>" target="_blank"><?php F::O($_row['post_title']); ?></a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End: 学校要闻-->
+<?php elseif($type==11): ?>
+<div class="alert alert-info alert-single"><i class="ico"></i>
+    <div class="info">
+        <p>该校暂无要闻</p>
+    </div>
+</div>        
+<?php endif; ?>
+
+<?php if(empty($expertTitle) && !empty($docList['list']) && is_array($docList['list'])): ?>
+<!-- Start: 资料下载-->
+<div class="sub-mod">
+    <div class="sub-mod-hd">
+        <div class="more"><a href="<?php echo F::getLink('ziliao-zhongkao'); ?>" target="_blank">更多</a></div>
+        <div class="title">资料下载</div>
+    </div>
+    <div class="sub-mod-bd">
+        <div class="list post-list stat-post">
+            <ul>
+            <?php foreach($docList['list'] as $_row): ?>
+                <li><span class="date"><?php F::O(date('Y-m-d H:i:s', $_row['dateline'])); ?></span>
+                    <div class="tit"><a href="<?php echo $_row['link']; ?>" target="_blank"><?php F::O($_row['title']); ?></a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End: 资料下载-->          
+<?php elseif($type==12): ?>
+<div class="alert alert-info alert-single"><i class="ico"></i>
+    <div class="info">
+        <p>该校暂无资料</p>
+    </div>
+</div>        
+<?php endif; ?>

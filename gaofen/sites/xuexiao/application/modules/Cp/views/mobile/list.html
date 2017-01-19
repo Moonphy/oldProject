@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        <?php if(schoolType()->isXSC()): ?>
+        <?php echo F::siteTitle(SEO_M_XSC_INDEX) ?>
+        <?php elseif(schoolType()->isZhongkao()): ?>
+        <?php echo F::siteTitle(SEO_M_ZHONGKAO_INDEX) ?>
+        <?php elseif(schoolType()->isGaokao()): ?>
+        <?php echo F::siteTitle(SEO_M_GAOKAO_INDEX) ?>
+        <?php endif; ?>
+    </title>
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-TileColor" content="#F8F8F8">
+    <?php F::TPL('mobile/style.html',[],'cp') ?>
+    <script type="text/javascript">
+        var dataLayer = [{}];
+        dataLayer[0]['xueduan'] = "<?php echo schoolType()->toAlias()?>";
+    </script>
+</head>
+<body>
+<?php F::TPL('common/mobile/navigation.html', ['backwardLink' => $backwardLink, 'title' => '资讯']) ?>
+<div class="page-content">
+    <div class="box">
+        <div class="post-list">
+            <?php foreach ($posts as $id => $post):?>
+            <a href="<?php echo F::URL('/cp/mobile/view', ['id' => $post->id]) ?>"
+               class="<?php echo $post->isHotNews ? 'hot' : '' ?>">
+                <div class="title"><?php echo $post->post_title ?></div>
+                <div class="time"><?php echo $post->post_date ?></div>
+            </a>
+            <?php endforeach ?>
+        </div>
+        <?php echo $posts->links('mobile/list_pagination.html', ['schoolType' => schoolType()] +
+        V('G'),'cp') ?>
+    </div>
+</div>
+<?php F::TPL('common/mobile/footer.html', ['ad' => 'channel_list_tgw_wap_a1']) ?>
+</body>
+</html>
