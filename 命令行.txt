@@ -1,0 +1,26 @@
+# 常用命令行
+
+## docker
+// =================================================================================
+
+* 环境容器列表
+	docker ps -a  
+
+* 查看已经开启的容器
+docker ps 
+
+* 开启docker
+docker start gaofen-nginx gaofen-php56-yaf
+
+* 关闭docker
+docker stop gaofen-nginx gaofen-php56-yaf
+
+
+## 监听
+// =================================================================================
+
+* 启动browser-sync浏览器监听
+browser-sync start --server --files "**/*.css, **/*.html, **/*.js"
+
+* http-server监听
+http-server
