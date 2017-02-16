@@ -743,6 +743,34 @@ $(function(){
                             apply_aside.fadeOut(300);
                         }
                     });
+
+                    //显示当前学段QQ群
+					var side = $('div.widget-sponsor');
+					if(side.length){
+						var section = $('ul.breadcrumb>li').eq(2).find('a').text();
+						if(section === '小学'){
+							section = 'xsc';
+						}else if(section === '幼升小'){
+							section = 'sx';
+						}else if(section === '初中'){
+							section = 'zhongkao';
+						}else if(section === '高中'){
+							section = 'gaokao';
+						}
+
+						Req.q('http://m.gaofen.com/ajax/qqgroup?callback=?', {
+							channel : 'huodong', 
+							city : remote_ip_info.city,
+							section : section
+						}, function(r){	
+								try{
+									$(r.getData()).insertAfter(side);
+								}catch(e){
+
+								}		
+						});
+					}
+
                 break;
             }
             

@@ -8,7 +8,7 @@
 
     var s = [],
 		//filePath = 'http://file.gaofen.com/html/v5/jsframe',
-		filePath = 'http://dev.myweb.com',
+		filePath = 'http://dev.gaofenjs.com/jsframe',
 		//filePath = '/jsframe',
         //加载的js文件列表
         list = [

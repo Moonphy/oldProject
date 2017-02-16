@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<style>
+  .contanter{
+    padding : 20px;
+  }
+  .contanter p {
+    margin-top: 10px
+  }
+  .code {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  h4 {
+    padding-top: 20px;
+    color: red;
+  }
+  .paramer{
+    margin: 20px 0;
+  }
+  .paramer p{
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #ccc;
+  }
+</style>
+</head>
+<body>
+<!-- <div>正式环境下请实例化Comment类：</div> -->
+<div class="contanter">
+  <h2>初始化微信JDK</h2>
+  <p>首先引入<a href="http://file.gaofen.com/html/v5/js/gaofen-plugin/weixin-init.min.js" target="blank">weixin-init.min.js</a>文件</p>
+  <p>调用方法如下：</p>
+  <h4>1.一般页面调用(默认初始化分享功能)</h4>
+  <p class="code">
+  1.一般页面调用(默认初始化分享功能)：
+    加载此文件，然后GWX.wxready();
+    全局变量：
+      var shareData = {
+        //初始化配置
+        appId: '',
+          timestamp: '',
+          nonceStr: '',
+          signature: '',
+        //分享功能属性
+        title: '', // 分享标题
+          desc: '', // 分享描述
+          link: '', // 分享链接
+          imgUrl: ' // 分享图标
+        }
+  </p>
+  <h4>2.Gaofen框架页面调用</h4>
+  <p class="code">
+    GWX.wxready(shareData);
+  </p>
+  <h4>参数说明</h4>
+  <div class="paramer">
+    <p>appId:  appId串</p>
+    <p>timestamp: 必填，生成签名的时间戳</p>
+    <p>title: 分享标题</p>
+    <p>desc: 分享描述</p>
+    <p>link: 分享链接</p>
+    <p>imgUrl: 分享图标</p>
+    <p><a href="javascript:void(0)" id="showComment">comment Dome</a></p>
+  </div>
+</div>
+
+<script type="text/javascript" src="http://file.gaofen.com/html/v5/js/weixin-init.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

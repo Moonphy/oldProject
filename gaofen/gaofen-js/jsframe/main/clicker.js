@@ -25,7 +25,7 @@
 		}
 	}).reg('join', function(e){//我要报名
 		function joinFn(){
-			var box = $(e.src).data('box'), plusFn;
+			var box = $('body').data('joinbox'), plusFn;
 			if(!box){
 				box = G.use('Modal', {
 					closeable : true,
@@ -65,10 +65,10 @@
 								_price = 0;
 							}else{
 								var text = '', price = 0, formula = p.formula;
-								if(p.adult_cost !== 0){
+								if(p.adult_cost !== 0 && p.adult_cost !== ''){
 									text += (p.adult_cost+'成人');
 								}
-								if(p.child_cost !== 0){
+								if(p.child_cost !== 0 && p.child_cost !== ''){
 									text += (p.child_cost+'小孩');
 								}
 								if(p.adult_cost >= p.child_cost && p.child_cost > 0){
@@ -109,7 +109,7 @@
 						var priceArea = this.jq('#priceArea'), allJoinNum = 0;
 						if(priceArea.length){
 							var formula = G.util.parseKnV(priceArea.attr('rel'));
-							plusFn = function(dom, type){						
+							plusFn = function(dom, type){				
 								var ipts = priceArea.find('input');
 								if(arguments.length){
 									var ipt = dom.parent().find('input'), v = parseInt(ipt.val());
@@ -117,11 +117,32 @@
 										ipt.val(++v);
 									else{
 										if(v === 0) return;
+										if(ipts.length === 1 && v <= 1){
+											ipts.eq(0).val(1);
+											return;
+										}
 										if(parseInt(ipts.eq(0).val()) + parseInt(ipts.eq(1).val())  === 1) return;
 										ipt.val(--v);
 									}
+								}
+								var param = {
+									formula : formula,
+									adult_cost : 0,
+									child_cost : 0
+								}
+								if(ipts.length === 2){
+									// {adult_cost:parseInt(ipts.eq(0).val()), child_cost: parseInt(ipts.eq(1).val()), formula: formula};
+									param.adult_cost = parseInt(ipts.eq(0).val());
+									param.child_cost = parseInt(ipts.eq(1).val());
+
+								}else if(ipts.length === 1){
+									if(ipts.eq(0).attr('name') === 'child'){
+										param.child_cost = parseInt(ipts.eq(0).val());
+									}else{
+										param.adult_cost = parseInt(ipts.eq(0).val());
+									}
 								}							
-								G.fire('pricePlus',{adult_cost:parseInt(ipts.eq(0).val()), child_cost: parseInt(ipts.eq(1).val()), formula: formula})
+								G.fire('pricePlus',param);
 							}
 							priceArea.on('click', '.plus,.minus', function(e){
 								var tjq = $(this), cls = tjq.attr('class');
@@ -136,6 +157,14 @@
 							})
 							
 							plusFn();
+						}else{
+							G.fire('pricePlus',{
+									formula : {
+										couple_cost:0,adult_cost:0,child_cost:0
+									},
+									adult_cost : 0,
+									child_cost : 0
+								});
 						}
 						
 						//var elements = this.jq('input[name="registration[childAge]"],input[name="registration[childName]"],input[name="phone"],input[name="realname"],input[name="registration[qq]"]');
@@ -250,12 +279,12 @@
 								}
 								if(box.play()){
 									//if(costArea.find('strong').text() === '免费' || costArea.find('.hl').text() == '0'){//免费活动直接提交
-									if(_price === 0){
+									if(_price === 0 || PD.get('pay_type') == '1'){//pay_type:1:线下支付 2:线上支付
 										data['huodong_id'] = view.find('input[name="huodong_id"]').val();
 										if(priceArea.length){
-											data.adult = priceArea.find('input[name="adult"]').val();
-											data.child = priceArea.find('input[name="child"]').val();
-											data.price = costArea.find('input[name="price"]').val();
+											if(priceArea.find('input[name="adult"]').length) data.adult = priceArea.find('input[name="adult"]').val();
+											if(priceArea.find('input[name="child"]').length) data.child = priceArea.find('input[name="child"]').val();
+											if(priceArea.find('input[name="price"]').length) data.price = costArea.find('input[name="price"]').val();
 										}
 										data['registration[remark]'] = view.find('textarea[name="registration[remark]"]').val();
 										view.find('.loading-mini').cssDisplay(1);
@@ -333,7 +362,7 @@
 						});					
 					}
 				})		
-				$(e.src).data('box', box);			
+				$('body').data('joinbox', box);			
 			}else{
 				box.clearInfo();
 			}

@@ -1622,11 +1622,11 @@ function gaofen_app_img_animate(page,city) {
         switch (page) {
 			case 'xsc':			
 			   gaofen_fadeSlider("sliderside",true,1,3000,true,3000,0,0);//小升初首页图片切换
-			   $("#wday").countdown({time: new Date(year,5,29,24,0,0),dayPanel:"span",endText:'0'})
+			   $("#wday").countdown({time: new Date(year,5,20,24,0,0),dayPanel:"span",endText:'0'})
 				break;
 			case 'zhongkao':
 			 	gaofen_fadeSlider("sliderside",true,1,3000,true,3000,0,0);//中考首页图片切换
-			   $("#wday").countdown({time: new Date(year,5,13,24,0,0),dayPanel:"span",endText:'0'})
+			   $("#wday").countdown({time: new Date(year,5,17,24,0,0),dayPanel:"span",endText:'0'})
 				break;
 			case 'gaokao':
 			 	gaofen_fadeSlider("sliderside",true,1,3000,true,3000,0,0);//高考首页图片切换
@@ -1973,6 +1973,31 @@ $(function(){
 					}
 											
 				break;
+			}
+
+			//显示当前学段QQ群
+			var postContent = $('div.post-details > div.post-content');
+			if(postContent.length){
+				var _tplslug = tplslug;
+				if(tplslug === 'xsc'){
+					var text = $('div.container>ul.breadcrumb').text();
+					if(text.indexOf('幼升小') > 0)
+						_tplslug = 'ysx';
+				}
+				G.Ajax.send('http://m.gaofen.com/ajax/qqgroup?callback=?', {
+					channel : 'article', 
+					city : remote_ip_info.city,
+					section : _tplslug
+				}, function(r){		
+					// if(r.err == '0'){		
+						try{
+							$(r.rst).insertAfter(postContent);
+						}catch(e){
+
+						}
+					// }
+							
+				}, 'jsonp');
 			}
 		break;
 	
@@ -2699,22 +2724,23 @@ if(typeof Gaofen === 'undefined')
 	//设置详细页在线人数
 	FN.onlineUsers = function(){
 		var jqonline = $('#onlineMath');
-		if(jqonline.length === 0) return;
-		var bigMath = 125800, base = 100, math = Math.ceil(Math.random()*base),
-			url = 'http://bbs.gaofen.com/';
-		math += bigMath;
-		switch(location.host){
-			case 'xsc.gaofen.com' :
-				url += 'forum-45-1.html';//小升初				
-			break;
-			case 'zhongkao.gaofen.com' :
-				url += 'forum-49-1.html';//中考
-			break;
-			case 'gaokao.gaofen.com' :
-				url += 'forum-53-1.html';//高考考
-			break;
-		};
-		jqonline.attr('href', url).text('[当前'+math+'位家长在线讨论]');
+		// if(jqonline.length === 0) return;
+		// var bigMath = 125800, base = 100, math = Math.ceil(Math.random()*base),
+		// 	url = 'http://bbs.gaofen.com/';
+		// math += bigMath;
+		// switch(location.host){
+		// 	case 'xsc.gaofen.com' :
+		// 		url += 'forum-45-1.html';//小升初				
+		// 	break;
+		// 	case 'zhongkao.gaofen.com' :
+		// 		url += 'forum-49-1.html';//中考
+		// 	break;
+		// 	case 'gaokao.gaofen.com' :
+		// 		url += 'forum-53-1.html';//高考考
+		// 	break;
+		// };
+    jqonline.attr('href', 'http://i.gaofen.com').text('[更多家长在线讨论]');
+		// jqonline.attr('href', url).text('[当前'+math+'位家长在线讨论]');
 		
 		//加入文章页追踪代码
 		$(window).load(function(){
