@@ -1,0 +1,62 @@
+---
+page_title: "首页"
+body_class: ["index-page"]
+---
+extends _layout
+block content
+
+    include partials/_index-center-slide
+
+    .container.pb30
+        include partials/_index-ad
+        include partials/_index-treasury
+        include partials/_index-question
+        include partials/_index-special
+
+    include partials/_page-right
+    // 底部条
+    include partials/_index-bottom-bar
+
+block javascript
+    script.
+        var bannerSwipe = new swipePC('#centerSlide', {
+            "size": 1
+        });
+        var questionSwipe = new swipePC('#questionSlide', {
+            "size": 1
+        });
+        $(".btn-top").click(function(){
+            $("html,body").animate({scrollTop: 0},"slow");
+        });
+        $(window).scroll(function () {
+            $('.index-bottom-bar').show();
+        });
+        $('.btn-bar-close').on('click', function () {
+            $('.index-bottom-bar').remove();
+        });
+        // treasurySlide()文章和专题左右切换
+        function treasurySlide(){
+            var thumWraps = $('.thumbanil-wrap');
+            thumWraps.each(function (index, thumWrap) {
+                var tContainer = $(thumWrap).find('.thumbanil-container'),
+                    lng = tContainer.length,
+                    tWidth = tContainer.width();
+                $(thumWrap).width(tWidth * lng);
+            });
+
+            $('.index-treasury li').click(function () {
+                $(this).addClass('active').siblings('.active').removeClass('active');
+                var idx = $(this).index();
+                var wrap = $(this).parent().parent().next().children();
+                var cWidth = $('.thumbanil-container').width();
+
+                wrap.css("left", - idx * cWidth);
+
+                if(idx == 0){
+                    $('#btn-more-treasury').attr('href','special-article.html');
+                }else{
+                    $('#btn-more-treasury').attr('href','treasury.html');
+                }
+            });
+        }
+        treasurySlide()

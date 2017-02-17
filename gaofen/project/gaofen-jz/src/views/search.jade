@@ -1,0 +1,82 @@
+---
+page_title: "搜索页"
+body_class: ["search-page"]
+---
+extends _layout
+block content
+    .search-top
+        .search-form-wrap.pt50
+            form.form
+                input(type='text', placeholder='请输入要搜索的关键词')
+                a.btn-search(href='javascript: void(0);')
+                    i.icon.icon-search-big
+                    input(type='submit',value='')
+            dl.clearfix.ml30.mb10
+                dt 热门搜索：
+                dd: a(href='',title='') 教育
+                dd: a(href='',title='') 家庭
+                dd: a(href='',title='') 辅导班
+            ul
+                li
+                    a.active(href='search.html',title='')
+                        | 文章
+                        //-span 1890
+                li
+                    a(href='search-special.html',title='')
+                        | 专题
+                        //-span 5
+                 li
+                    a(href='search-topic.html',title='')
+                        | 话题
+                        //-span 52
+
+    .container.pb30
+        .search-msg.font-lg
+            span 与“
+                span.font-blue 升学
+                | ”相关内容共搜出
+                span.font-orange 1982
+                | 条结果
+            .fr
+                span 排序：
+                a.active(href='',title='') 时间
+                i |
+                a(href='',title='') 热度
+                i |
+                a(href='',title='') 相关程度
+
+        .treasury-group.clearfix
+            +treasury-thumbnail(1)
+            +treasury-thumbnail(2)
+            +treasury-thumbnail(3)
+            +treasury-thumbnail(4)
+            +treasury-thumbnail(1)
+            +treasury-thumbnail(2)
+            +treasury-thumbnail(3)
+            +treasury-thumbnail(4)
+        .tc
+            a.btn.btn-blue.mt30#btn-more(href='javascript:;',title='查看更多') 查看更多
+block javascript
+    script.
+        //$('#btn-more').click(function () {
+         //   JZ.loading('show');
+          //  JZ.load_article('../js/virtualData/article_data', $(this), $('.treasury-group'))
+          //  JZ.loading('hidden');
+        //})
+        $('#btn-more').on('click', function () {
+            JZ.loading('show');
+            //$(this).attr('data-page', load_page);
+            setTimeout(function () {
+                for (var i = 0; i < article_data.length; i++){
+                    var article_url = article_data[i].article_url,
+                            article_img = article_data[i].article_img,
+                            article_title = article_data[i].article_title,
+                            article_zan = article_data[i].article_zan,
+                            article_comments = article_data[i].article_comments,
+                            article_time = article_data[i].article_time;
+                    var tmp = JZ_TEMPLATE.article_tmp(article_url,article_img,article_title,article_zan,article_comments,article_time);
+                    $('.treasury-group').append(tmp)
+                }
+                JZ.loading('hidden');
+            },3000)
+        })

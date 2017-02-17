@@ -1,0 +1,61 @@
+---
+page_title: "直播页"
+body_class: ["live-page"]
+---
+extends _layout
+
+block content
+
+    .container
+        // 正在直播状态
+        .live-wrap.live-ing
+            .live-state.live-state-ing
+                img(src='#{current.base}img/state-ing.png')
+            .live-state.live-state-notStart
+                img.mb20(src='#{current.base}img/state-notstart.png')
+            .live-state.live-state-end
+                img.mb20(src='#{current.base}img/state-end.png')
+            .live-state.live-state-playback
+                img.mb20(src='#{current.base}img/state-back.png')
+            include partials/_live-container
+
+        // 不同状态切换.live-wrap的.live-ing、.live-notStart、.live-end、.live-playback
+        // 直播未开始状态
+        .live-wrap.live-notStart
+            .live-state.live-state-ing
+                img(src='#{current.base}img/state-ing.png')
+            .live-state.live-state-notStart
+                img.mb20(src='#{current.base}img/state-notstart.png')
+            .live-state.live-state-end
+                img.mb20(src='#{current.base}img/state-end.png')
+            .live-state.live-state-playback
+                img.mb20(src='#{current.base}img/state-back.png')
+            include partials/_live-container
+
+        // 直播结束状态
+        .live-wrap.live-end
+            .live-state.live-state-ing
+                img(src='#{current.base}img/state-ing.png')
+            .live-state.live-state-notStart
+                img.mb20(src='#{current.base}img/state-notstart.png')
+            .live-state.live-state-end
+                img.mb20(src='#{current.base}img/state-end.png')
+            .live-state.live-state-playback
+                img.mb20(src='#{current.base}img/state-back.png')
+            include partials/_live-container
+
+        // 回放课程状态
+        .live-wrap.live-playback
+            .live-state.live-state-ing
+                img(src='#{current.base}img/state-ing.png')
+            .live-state.live-state-notStart
+                img.mb20(src='#{current.base}img/state-notstart.png')
+            .live-state.live-state-end
+                img.mb20(src='#{current.base}img/state-end.png')
+            .live-state.live-state-playback
+                img.mb20(src='#{current.base}img/state-back.png')
+            include partials/_live-container
+
+block javascript
+    script.
+

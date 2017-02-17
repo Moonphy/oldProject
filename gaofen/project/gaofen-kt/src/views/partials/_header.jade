@@ -1,0 +1,35 @@
+// 头部
+.gf-header
+    .header-container.clearfix
+        a.logo(href='index.html',title='高分家长')
+            img(src="#{current.base}img/logo.png", alt="高分家长")
+        ul
+            each item in nav_link
+                li
+                    a(href='#{item.slug}.html', title='#{item.label}',class='link-#{item.slug}')
+                        i.icon(class="icon-header-#{item.slug}")
+                        span= item.label
+
+        // 登录状态
+        if current.source == "home"
+            .reg-login.fr
+                a.ui-avatar(href='',title='')
+                    img(src="#{current.base}img/avatar.jpg", alt="哎呀妈妈")
+                a.header-user(href='',title='') 哎呀妈妈妈妈
+                i.icon.icon-down.ml10
+                .user-home-list
+                    i.icon.bg-user-top
+                    ul.user-list
+                        li: a(href='home.html',title='') 个人中心
+                        li: a(href='#',title='') 注销
+
+        else
+            .reg-login.fr
+                a.btn.btn-login(href='',title='登录') 登录
+                a.btn.btn-reg(href='',title='注册') 注册
+                //-a.btn.btn-person(href='#',title='')
+                    i.icon.icon-header-person
+                //-a.btn(href='#',title='')
+                    i.icon.icon-header-wechat
+                //-a.btn(href='#',title='')
+                    i.icon.icon-header-weibo

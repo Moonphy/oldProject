@@ -1,0 +1,121 @@
+// ==================================================
+// 助手类
+// ==================================================
+
+// 隐藏/显示元素
+.hidden
+  display none !important
+.show
+  display block !important
+
+.fl
+  float: left
+.fr
+  float: right
+.tl
+  text-align left
+.tr
+  text-align right
+.tc
+  text-align center
+
+// 不可见
+.invisible
+  visibility hidden
+
+// 清除浮动
+.clearfix
+  clearfix()
+
+// 文本隐藏
+.hide-text
+  hide-text()
+
+// 文本高亮
+.hl
+  color orange
+
+// 链接高亮
+.hl-link
+  highlight-link()
+
+// 宽度
+for i in 2..10
+  .w{i}0
+    width unit(i, "0%") !important
+
+// 外间距
+for i in 0 5 10 15 20 30 40 50 80
+  .mt{i}
+    margin-top unit(i, px) !important
+  .mr{i}
+    margin-right unit(i, px) !important
+  .mb{i}
+    margin-bottom unit(i, px) !important
+  .ml{i}
+    margin-left unit(i, px) !important
+
+// 外间距
+for i in 0 5 10 15 20 30 40 50
+  .pt{i}
+    padding-top unit(i, px) !important
+  .pr{i}
+    padding-right unit(i, px) !important
+  .pb{i}
+    padding-bottom unit(i, px) !important
+  .pl{i}
+    padding-left unit(i, px) !important
+
+
+.font-xxxl
+  font-size 40px
+.font-xxl
+  font-size 24px
+.font-xl
+  font-size 20px
+.font-lg
+  font-size 18px
+.font-md
+  font-size 16px
+.font-nm
+  font-size 14px
+.font-sm
+  font-size 12px
+.font-xs
+  font-size 10px
+
+.font-b
+  font-weight bold
+// 字体色
+.font-blue
+  color #67c4d4
+  &:visited
+    color #67c4d4
+.font-blue-dark
+  color #445568
+  &:visited
+    color #445568
+.font-grey
+  color #999999
+.font-grey-lither
+  color #dddddd
+.font-white
+  color #ffffff
+.font-orange
+  color #f59362
+.font-red
+  color #df2f11!important
+
+// 背景色
+.bg-grey
+  background-color #f2f2f2
+.bg-orange
+  background-color #f59362
+.bg-white
+  background-color #ffffff
+.bg-blue
+  background-color #e6f0f2
+.borer-b-grey
+  border-bottom 1px solid #e6e6e6
+.borer-b-banner
+  border-bottom 1px solid #afede9

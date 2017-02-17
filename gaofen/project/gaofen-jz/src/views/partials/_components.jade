@@ -1,0 +1,127 @@
+
+//- -----------------------------
+//- 元件：按钮
+//- -----------------------------
+mixin button(params)
+    - var params = params || {}
+    - var button_classes = []
+    if params.option
+        - button_classes.push("btn-"+params.option)
+    if params.block
+        - button_classes.push("btn-block")
+    if params.disabled
+        - button_classes.push("disabled")
+    if params.ex_class
+        - button_classes.push(params.ex_class)
+    if params.element == "button"
+        button.btn(class=button_classes)= params.text
+    else
+        a.btn(href="#", class=button_classes)= params.text
+
+
+//- -----------------------------
+//- 元件：头像
+//- -----------------------------
+mixin avatar(width,height)
+    - var w = width || 48
+    - var h = height || 48
+    .ui-avatar
+        +dummy("avatar_" + w + "x" + h + ".png")
+
+//-----------------------------------------------------------
+//- 元件: 选项卡
+//-----------------------------------------------------------
+mixin tab(tab_items)
+    .ui-tab
+        each item in tab_items
+            if item.active
+                .tab.active
+                    span= item.label
+                    if item.hot
+                        span= '(' + item.hot + ')'
+            else
+                .tab
+                    span= item.label
+                    if item.new
+                        sup.dot
+                    if item.hot
+                        span= '(' + item.hot + ')'
+
+
+//-----------------------------------------------------------
+//- 元件: 宝库缩略图
+//-----------------------------------------------------------
+mixin treasury-thumbnail(idx)
+    .ui-thumbnail
+        a.img-wrap(href='article.html',title='', target='_blank')
+            img(src="#{current.base}img/block-img/block-img-" + idx + ".jpg", alt="")
+        .ui-thumbnail-content
+            a.thumbnail-title(href='article.html',title='', target='_blank')= article.title
+            .thumbnail-tips.mt10
+                span
+                    i.icon.icon-fav-grey
+                    | 11
+                span
+                    i.icon.icon-msg-grey
+                    | 26
+                span.fr 8分钟前
+//-----------------------------------------------------------
+//- 元件: 宝库缩略图
+//-----------------------------------------------------------
+mixin treasury-thumbnail-big(idx)
+    .ui-thumbnail.ui-thumbnail-big
+        a.img-wrap(href='article.html',title='', target='_blank')
+            img(src="#{current.base}img/block-img/block-img-" + idx + ".jpg", alt="")
+        .ui-thumbnail-content
+            a.thumbnail-title(href='article.html',title='', target='_blank')= article.title
+            .thumbnail-tips.mt10
+                span
+                    i.icon.icon-fav-grey
+                    | 11
+                span
+                    i.icon.icon-msg-grey
+                    | 26
+                span.fr 8分钟前
+//-----------------------------------------------------------
+//- 元件: 加Q群
+//-----------------------------------------------------------
+mixin qq-thumbnail()
+    .qq-thumbnail
+        .img-wrap
+            img(src="#{current.base}img/title-index-add-q.png", alt="")
+        - for(var i=1;i<4;i++)
+            .qq-item.clearfix
+                .ui-avatar.fl
+                    img(src="#{current.base}img/avatar.jpg", alt="")
+                .qq-item-content
+                    p 家教方法
+                    a.font-blue(href='#',title='加入Q群') +加入Q群
+//-----------------------------------------------------------
+//- 元件: 专题缩略图
+//-----------------------------------------------------------
+mixin special-thumbnail(idx)
+    .ui-thumbnail.ui-thumbnail-special
+        a.img-wrap(href='special-item.html',title='', target='_blank')
+            img(src="#{current.base}img/block-img/block-img-" + idx + ".jpg", alt="")
+        .ui-thumbnail-content.special-thumbnail-content
+            a.thumbnail-title(href='special-item.html',title='', target='_blank') 浮华日报
+            .thumbnail-tips.mt5 共11篇内容，128收藏
+
+mixin items(title,index)
+    dl.items
+        dt= title
+        dd.item
+            .fl.item-index 1
+            .item-container
+                a.item-title(href='article.html',title='',target='_blank')
+                    | 培养孩子读书兴趣，不妨开一场读书PARTY
+                p 阅读数：356898
+                a.img-wrap(href='article.html',title='',target='_blank')
+                    img(src="#{current.base}img/block-img/block-img-" + index + ".jpg", alt="")
+        - for(var i=2;i<7;i++)
+            dd
+                .fl.item-index= i
+                .item-container
+                    a.item-title(href='article.html',title='',target='_blank')
+                        | 美国四家大型百货被控价格欺诈，以及，Vans出了个“鸡飞狗跳”系列 | 浮华日报
+                    p 阅读数：356898

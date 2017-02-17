@@ -1,0 +1,23 @@
+.index-treasury.mt80
+    .special-tab.clearfix
+        img.fl(src="#{current.base}img/title-index-special.png", alt="")
+        ul.clearfix.mt5
+            li.active
+                a(href='javascript: void(0);',title='') 编辑推荐
+                i.ml20 |
+            li
+                a(href='javascript: void(0);',title='') 最受欢迎
+        a.fr.mt10(href='',title='查看全部专题',target='_blank') 查看全部专题 &gt;
+
+    .thumbanil.thumbanil-h520
+        .thumbanil-wrap.clearfix
+            - for(var i=0;i < 2; i++)
+                .thumbanil-container.clearfix
+                    +special-thumbnail(1)
+                    +special-thumbnail(2)
+                    +special-thumbnail(3)
+                    +special-thumbnail(4)
+                    +special-thumbnail(1)
+                    +special-thumbnail(2)
+                    +special-thumbnail(3)
+                    +special-thumbnail(4)

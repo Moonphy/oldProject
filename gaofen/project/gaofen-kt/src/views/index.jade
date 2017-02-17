@@ -1,0 +1,60 @@
+---
+page_title: "首页"
+body_class: ["index-page"]
+---
+extends _layout
+block css
+    link(rel="stylesheet", type="text/css", href="#{current.base}css/unslider.css")
+block content
+    .container
+        .banner-wrap.mt30
+            img(src='#{current.base}img/block/slide-bg.png')
+            img.banner-img(src='#{current.base}img/block/slide-bg-2.png')
+            .banner-slider
+                ul.unslider-wrap
+                    li.unslider-item
+                        img(src='#{current.base}img/block/slide-img-1.jpg')
+                        ul.banner-container
+                            - for(var i=0;i<5;i++)
+                                li
+                                    a(href='1.html',title='',target='_blank') 标题1标题1标题1标题1标题1标题1
+                    li.unslider-item
+                        img(src='#{current.base}img/block/slide-img-2.jpg')
+                        ul.banner-container
+                            - for(var i=0;i<5;i++)
+                                li
+                                    a(href='2.html',title='',target='_blank') 标题2标题2标题2标题2标题2标题2标题2
+                    li.unslider-item
+                        img(src='#{current.base}img/block/slide-img-3.jpg')
+                        ul.banner-container
+                            - for(var i=0;i<5;i++)
+                                li
+                                    a(href='3.html',title='',target='_blank') 标题3标题3标题3标题3
+
+
+
+
+        .block-title.mt50
+            img(src='#{current.base}img/title-kc.png')
+            a.btn.btn-blue-reverse.fr(href='',title='更多课程') 更多课程&bull;&bull;&bull;
+        .row.clearfix
+            +courses-block(1)
+            +courses-block(2)
+            +courses-block(3)
+            +courses-block(4)
+            +courses-block(5)
+            +courses-block(1)
+            +courses-block(2)
+            +courses-block(3)
+    include partials/_page-right
+
+block javascript
+    script(src='#{current.base}js/unslider-min.js')
+    script.
+        $('.btn-top').on('click', function () {
+            $("html,body").animate({scrollTop: 0},"slow");
+        });
+        $('.banner-slider').unslider({
+            animation: 'fade',
+            autoplay: true
+        })

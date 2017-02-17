@@ -1,0 +1,36 @@
+.banner-wrap
+    .container.clearfix
+        .center-slide.fl
+            .slide-wrap
+                .slide-container.clearfix
+                    ul#centerSlide
+                        - for(var i = 1; i<5;i++)
+                            li
+                                a(href='', title='')
+                                    img(src='#{current.base}img/banner/banner-img-'+ i +'.jpg')
+                                    p 悄悄的我走了正如我悄悄的来我挥一挥衣袖不带走一片云彩
+                .index-btn
+                    span.active
+            .slide-btn
+                a.btn-left(href="javascript: void(0);")
+                a.btn-right(href="javascript: void(0);")
+
+        .article-bibei
+            .banner-article-title
+                img(src="#{current.base}img/title-banner-1.png", alt="")
+            .banner-article-img
+                img(src="#{current.base}img/banner/banner-top-1.jpg", alt="")
+            .banner-article-p
+                a(href='article.html', title='', target='_blank')= article.summary
+        .article-daka
+            .banner-article-title
+                img(src="#{current.base}img/title-banner-2.png", alt="")
+            .banner-article-img
+                img(src="#{current.base}img/banner/banner-top-2.jpg", alt="")
+            .banner-article-p
+                .article-p-2.borer-b-banner
+                    a(href='article.html', title='', target='_blank') 阅读从出生第一天开始一天开始读书兴趣，不妨开一场读书PARTY趣
+                .article-p-2.borer-b-banner
+                    a(href='article.html', title='', target='_blank') 培养孩子读书兴趣，不妨开一场读书PARTY趣，不妨开一场读书PARTY
+                .article-p-2
+                    a(href='article.html', title='', target='_blank') 怎样让一二年级孩子爱上阅读？孩子爱上阅读？

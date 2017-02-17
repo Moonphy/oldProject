@@ -1,0 +1,160 @@
+
+.banner-wrap
+  position relative
+  height 506px
+  .banner-img
+    absolute left 22px bottom 24px
+    margin 0
+    z-index 8
+  .banner-slider
+    absolute left 32px top 32px
+    size 1036px 439px
+    overflow hidden
+    z-index 2
+  .unslider-carousel
+    .unslider-item
+      position relative
+      float left
+  .banner-container
+    size 206px 416px
+    absolute right 20px top 12px
+    z-index 1
+    background-color rgba(0,0,0,.6)
+    border-radius 4px
+    border 2px solid rgba(255,255,255,.6)
+    font-size 16px
+    overflow hidden
+    li
+      display block
+      position relative
+      border-bottom 1px solid #4d4d4d
+      margin 0 18px
+      height 83px
+    a
+      display block
+      height 50px
+      absolute left -18px top 15px
+      color #cccccc
+      line-height 1.8
+      padding-left 18px
+      border-left 4px solid rgba(0,0,0,0)
+      overflow hidden
+      &:hover
+      &.hover
+        color #2ee6be
+        border-left-color #2ee6be
+
+.courses-block
+  float left
+  size 260px 328px
+  margin-right 20px
+  margin-top 20px
+  border-radius 4px
+  position relative
+  overflow hidden
+  //cursor pointer
+  &:hover
+    box-shadow 0 15px 30px rgba(0,0,0,.4)
+    transform translate3d(0,-2px,0)
+    transition all .2s
+    .courses-top
+    .courses-bottom
+      background-color rgba(0,0,0,.6)
+      border-color rgba(0,0,0,.6)
+      transition all .6s
+    .courses-title
+      animation title-rotate 1s .6s
+    .courses-des
+      padding-top 20px
+      height 108px
+      transition all 1s
+      transition-delay .3s
+    .courses-detail
+      width 0
+      transition all .5s
+  .courses-top
+    height 180px
+    absolute left top
+    color #ffffff
+    z-index 2
+    padding 10px
+    overflow hidden
+  .courses-bottom
+    absolute left bottom
+    z-index 2
+    width 238px
+    height 107px
+    border 1px solid #e6e6e6
+    border-top none
+    border-radius 0 0 4px 4px
+    padding 10px
+    background-color #ffffff
+  .courses-top-course
+    i
+    span
+      vertical-align middle
+      margin-right 5px
+      font-size 14px
+    .btn
+      background-color #ffffff
+      border-radius 4px
+      padding 2px 10px
+
+  .courses-title
+    display block
+    color #ffffff
+    font-size 24px
+    padding 0 20px
+    max-height 70px
+    overflow hidden
+    &:hover
+      text-decoration underline
+  .courses-teacher
+    text-align center
+    margin 17px 0
+    .show-inline
+      background-color rgba(230,230,230,.6)
+      color #79797a
+      padding 2px 10px
+      border-radius 4px
+  .courses-detail
+    size 238px 101px
+    overflow hidden
+    padding 10px 0
+    margin 0 20px
+    .courses-detail-price
+    .courses-detail-num
+      width 78px
+      display inline-block
+      vertical-align middle
+    .courses-detail-price
+      border-right 1px solid #e6e6e6
+      line-height 1
+      *
+        vertical-align middle
+    .courses-detail-num
+      color grey
+    .font-orange
+      font-size 28px
+    .courses-detail-state
+      margin-right 40px
+      i
+      span
+        vertical-align middle
+    .courses-detail-time
+      display block
+      height 26px
+      padding-top 4px
+      color #939393
+      border-radius 4px
+      font-size 12px
+      &.bg-orange
+        color #ffffff
+  .courses-des
+    absolute left bottom
+    size 218px 0
+    padding 0 20px
+    background-color rgba(0,0,0,.2)
+    color #ffffff
+    line-height 1.7
+    overflow hidden

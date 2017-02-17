@@ -1,0 +1,73 @@
+// 遮罩
+// ------------------------------
+.ui-dialog
+  fixed left top
+  size 100%
+  background rgba(0, 0, 0, 0.4)
+  z-index 11
+  display none
+.dialog-wrap
+  fixed left 50% top 40%
+  size 450px auto
+  box-sizing border-box
+  background-color #f9f9f9
+  border-radius 4px
+  transform translate(-50%,-50%)
+  box-shadow 0 20px 20px rgba(0,0,0,.3)
+  z-index 12
+
+.dialog-header
+  font-size 16px
+  color #333333
+  padding 10px
+  border-bottom 1px solid #e5e5e5
+
+.dialog-content
+  font-size 14px
+  padding 15px
+  input[type="text"]
+    width 100%
+    padding 10px
+    border 1px solid #ccc
+    box-sizing border-box
+    color #333333
+    border-radius 4px
+
+.dialog-footer
+  padding-top 10px
+  text-align right
+  .btn
+    margin-left 10px
+.aw-favorite-tag-list
+  ul
+    @extend .clearfix
+    margin-right -10px
+    li
+      width 204px
+      float left
+      margin-right 10px
+      margin-bottom 10px
+      position relative
+      cursor pointer
+      a
+        display block
+        padding 10px
+        border 1px solid #e5e5e5
+        background-color #ffffff
+        border-radius 4px
+        &:hover
+          background-color #fafafa
+      .icon
+        absolute right 10px top 10px
+        display none
+      .icon-followed
+        size 24px
+        overflow hidden
+        background-color #67c4d4
+        border-radius 50%
+        @extend .icon-tick
+      &.active
+        .icon
+          display block
+.aw-favorite-tag-add
+  display none

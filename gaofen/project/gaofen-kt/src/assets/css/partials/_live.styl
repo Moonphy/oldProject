@@ -1,0 +1,107 @@
+// 简介：首页样式
+//==============================
+
+// 状态
+.live-state
+  display none
+
+.live-state-ing
+  absolute right 20px top -10px
+  z-index 2
+
+for item in ing notStart end playback
+  .live-{item}
+    .live-state-{item}
+      display block
+
+// 视频框样式
+.live-wrap
+  margin 40px 0
+  position relative
+
+.live-container
+  background-color #3f3f3f
+
+.live-content
+  max-width 800px
+  //size 800px 600px
+  overflow hidden
+
+.live-message-wrap
+  size 300px 600px
+  color #8e8e8e
+  font-size 14px
+  overflow hidden
+
+.live-message-top
+  height 220px
+  padding 10px 20px
+  margin-bottom 10px
+  background-color #4c4c4c
+  position relative
+
+.live-message-top-title
+  font-size 16px
+  line-height 2
+  border-bottom 1px solid #656565
+
+.live-message-teacher
+  padding 20px 0
+  text-align center
+  overflow hidden
+  p
+    margin 0 0 0 42px
+    line-height 1.8
+    text-align left
+  .dot-wrap
+    width 100%
+    absolute left bottom 5px
+    text-align center
+    span
+      display inline-block
+      size 8px
+      margin 5px
+      background-color #3f3f3f
+      border-radius 50%
+      cursor pointer
+      &.active
+        background-color #979797
+
+.live-message-list
+  padding 20px 20px 0 20px
+  background-color #4c4c4c
+  overflow hidden
+  .message-list
+    width 300px
+    height 245px
+    position relative
+    overflow-y scroll
+    ul
+      absolute left top
+    .message-item
+      padding-right 20px
+  span
+    margin-right 10px
+  .message-item-content
+    color #fbfcfc
+
+.message-form
+  background-color #656565
+  textarea
+    width 230px
+    height 60px
+    border none
+    resize none
+    padding 10px
+    background none
+    &:focus
+      border none
+      box-shadow none
+  .btn
+    size 40px 64px
+    color #ffffff
+    background-color #2be4bd
+    float right
+    margin 10px 5px 0 0
+    border-radius 2px
+    border none

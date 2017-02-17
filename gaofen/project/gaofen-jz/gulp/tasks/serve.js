@@ -1,0 +1,7 @@
+// ================================
+// 任务描述：建立简单的服务器并监听文件改动
+// ================================
+
+module.exports = function (gulp, opts, config, $) {
+  gulp.task('serve', $.sequence('clean', 'compile', 'browserSync'));
+};

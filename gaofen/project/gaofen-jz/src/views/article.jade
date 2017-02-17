@@ -1,0 +1,247 @@
+---
+page_title: "文章页"
+body_class: ["article-page"]
+---
+extends _layout
+block content
+    .container.pb30
+        include partials/_dialog
+        ul.ui-crumbs.clearfix
+            li: a(href='',title='') 主页
+            li &gt;
+            li: a.font-blue-dark(href='',title='') 栏目
+        .row.clearfix
+            .span820.fl
+                .ui-article
+                    .article-title
+                        h2 家长应该如何对孩子防拐骗教育？
+                        div.pt10.pb10
+                            span.font-nm.mr20
+                                i.icon.icon-person
+                                i 绿巨人
+                            span.font-nm
+                                i.icon.icon-time
+                                i 2016-12-18
+                            .fr
+                                a.ui-label.label-red.btn-fav(href='javascript: void(0);')
+                                    i.icon.icon-fav
+                                    | 收藏
+                                a.ui-label.label-blue(href='#comment')
+                                    | 评论
+                                    span 55
+                                a.ui-label.label-orange(href='javascript: void(0);')
+                                    | 点赞
+                                    span 266
+                    .article-content.tc.mt20
+                        p= article.summary
+                        p= article.content
+                        img(src='#{current.base}img/banner/banner-img-1.jpg')
+
+
+                    .article-bottom
+                        a.article-label(href='',title='') 育儿那点事
+                            i.icon.icon-close-sm
+                        a.article-label(href='',title='') 教育方法
+                            i.icon.icon-close-sm
+                        a.article-label(href='',title='') 亲子关系
+                            i.icon.icon-close-sm
+                        // 分享到朋友圈微信等
+                        .ui-share.fr
+                            span.fl.font-md.pt5 分享：
+                            ul.fl
+                                li.fl
+                                    a.btn-weibo(href='javascript:;')
+                                        i.icon.icon-weibo
+                                        //span 微博
+                                li.fl
+                                    a.btn-qq(href='javascript:;')
+                                        i.icon.icon-qq
+                                        //span
+                                li.fl
+                                    a.btn-wechat(href='javascript:;')
+                                        i.icon.icon-wechat
+                                        //span 微信
+
+                // 评论区--登录状态
+                .ui-comment#comment
+                    .comment-header
+                        span.comment-header-title 文章评论
+                            span.font-md.font-grey (5)
+                        //-.fr.mt10
+                            a.mr30(href='',title='') 时间 &or;
+                            a(href='',title='') 关注的人
+                    div.mt15.mb10
+                        .avatar-container
+                            .ui-avatar
+                                img(src='#{current.base}img/avatar.jpg')
+                            i.avatar-lev Lv.48
+                        span.avatar-user.ml5 Banana粑粑
+                    .comment-form.clearfix
+                        form
+                            textarea()
+                            //-.ui-radio.selected
+                                span.radio-box
+                                    .radio-box-c
+                                span.ml5 关注问题
+
+                            a.btn.btn-blue.btn-sm.fr.mt10(href='javascript: void(0);') 评论
+
+                    .comment-container
+                        ul.comment-list
+                            li.comment-item
+                                .avatar-container.fl
+                                    .ui-avatar
+                                        img(src='#{current.base}img/avatar.jpg')
+                                    i.avatar-lev Lv.26
+                                .comment-item-content
+                                    .item-header
+                                        span.avatar-user.mr10 Banana粑粑
+                                        span 2016-12-27
+                                    .item-content
+                                        p= article.content
+                                    .item-reply
+                                        a.btn-zan(href='javascript: void(0);',title='')
+                                            i.icon.icon-zan
+                                            span 0
+                                        a.btn-comment(href='javascript: void(0);',title='')
+                                            i.icon.icon-msg-grey
+                                            span 0
+
+                                    //-ul.comment-list
+                                        li.comment-item
+                                            .avatar-container.fl
+                                                .ui-avatar
+                                                    img(src='#{current.base}img/avatar.jpg')
+                                                i.avatar-lev Lv.26
+                                            .comment-item-content
+                                                .item-header
+                                                    span.avatar-user.mr10 Banana粑粑
+                                                    span 2016-12-27
+                                                .item-content
+                                                    p 哎哟，不错哦！
+                                                .item-reply
+                                                    a.btn-zan(href='javascript: void(0);',title='')
+                                                        i.icon.icon-zan
+                                                        span 0
+                                                    a.btn-comment(href='javascript: void(0);',title='')
+                                                        i.icon.icon-msg-grey
+                                                        span 0
+                                                //-ul.comment-list
+                                                    li.comment-item
+                                                        .avatar-container.fl
+                                                            .ui-avatar
+                                                                img(src='#{current.base}img/avatar.jpg')
+                                                            i.avatar-lev Lv.26
+                                                        .comment-item-content
+                                                            .item-header
+                                                                span.avatar-user.mr10 Banana粑粑
+                                                                span 2016-12-27
+                                                            .item-content
+                                                                p 哎哟，不错哦！
+                                                            .item-reply
+                                                                a.btn-zan(href='javascript: void(0);',title='')
+                                                                    i.icon.icon-zan
+                                                                    span 0
+                                                                a.btn-comment(href='javascript: void(0);',title='')
+                                                                    i.icon.icon-msg-grey
+                                                                    span 0
+                            li.comment-item
+                                .avatar-container.fl
+                                    .ui-avatar
+                                        img(src='#{current.base}img/avatar.jpg')
+                                    i.avatar-lev Lv.26
+                                .comment-item-content
+                                    .item-header
+                                        span.avatar-user.mr10 Banana粑粑
+                                        span.font-md.font-blue.mr10 回复
+                                        span.avatar-user.mr10 Banana麻麻
+                                        span 2016-12-27
+                                    .item-content
+                                        p= article.summary
+                                    .item-reply
+                                        a.btn-zan(href='javascript: void(0);',title='')
+                                            i.icon.icon-zan
+                                            span 0
+                                        a.btn-comment(href='javascript: void(0);',title='')
+                                            i.icon.icon-msg-grey
+                                            span 0
+                            li.comment-item
+                                .avatar-container.fl
+                                    .ui-avatar
+                                        img(src='#{current.base}img/avatar.jpg')
+                                    i.avatar-lev Lv.26
+                                .comment-item-content
+                                    .item-header
+                                        span.avatar-user.mr10 Banana粑粑
+                                        span 2016-12-27
+                                    .item-content
+                                        p= article.title
+                                    .item-reply
+                                        a.btn-zan(href='javascript: void(0);',title='')
+                                            i.icon.icon-zan
+                                            span 0
+                                        a.btn-comment(href='javascript: void(0);',title='')
+                                            i.icon.icon-msg-grey
+                                            span 0
+                // 评论区--未登录状态
+                .ui-comment#comment
+                    .comment-header
+                        span.comment-header-title 文章评论
+                            //-span.font-md.font-grey (5)
+
+                    div.mt15.mb10
+                        .avatar-container
+                            .ui-avatar
+                                img(src='#{current.base}img/avatar.jpg',alt='默认未登录头像')
+                            //-i.avatar-lev Lv.48
+                        a.avatar-user.font-red.ml5(href='',title='') 登录
+                        span.ml5.font-nm 后参与讨论
+                    .comment-form.clearfix
+                        form
+                            textarea.disabled(placeholder='参与讨论前请先登录',disabled='disabled')
+
+                    // 没有评论时
+                    include partials/_loading
+                    .comment-none.mt50.mb30
+                        span.font-blue-dark 暂无评论
+
+            .span260.fr
+                .right-thumbnail.article-thumbnail
+                    .img-wrap
+                        img(src="#{current.base}img/title-p-a.png", alt="")
+                    ul.thumbnail-list
+                        - for(var i=0;i<4;i++)
+                            li.thumbnail-item
+                                a.clearfix(href='article.html',title='',target='_blank')
+                                    .thumbnail-item-img.fl
+                                        img(src='#{current.base}img/avatar.jpg')
+                                    .thumbnail-item-title= article.title
+
+                .right-thumbnail.question-thumbnail
+                    .img-wrap
+                        img(src="#{current.base}img/title-p-q.png", alt="")
+                    ul.thumbnail-list
+                        - for(var i=0;i<4;i++)
+                            li.thumbnail-item
+                                a(href='article.html',title='',target='_blank')= article.title
+                        li.thumbnail-item
+                            a(href='article.html',title='',target='_blank') 如何提高孩子读书的专注度
+                        li.thumbnail-item
+                            a(href='article.html',title='',target='_blank') 如何提高孩子读书的专注度
+block javascript
+    script(src='#{current.base}js/layer/layer.js')
+    script.
+        $('.btn-fav').click(function () {
+            $('.ui-dialog').show();
+            //layer.open({
+             //   title: '收藏',
+             //   content: '<input type="text" style="width: 100%;border-radius: 4px;box-sizing: border-box;border: 1px solid #e6e6e6;padding:5px;"/>',
+              //  yes: function (layero, index) {
+             //       layer.close(index);
+             //       layer.open()({
+             //           content: '<span>tag</span>'
+             //       })
+             //   }
+            //})
+        })
+

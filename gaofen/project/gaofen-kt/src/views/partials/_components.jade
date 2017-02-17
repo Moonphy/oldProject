@@ -1,0 +1,137 @@
+
+//- -----------------------------
+//- 元件：按钮
+//- -----------------------------
+mixin button(params)
+    - var params = params || {}
+    - var button_classes = []
+    if params.option
+        - button_classes.push("btn-"+params.option)
+    if params.block
+        - button_classes.push("btn-block")
+    if params.disabled
+        - button_classes.push("disabled")
+    if params.ex_class
+        - button_classes.push(params.ex_class)
+    if params.element == "button"
+        button.btn(class=button_classes)= params.text
+    else
+        a.btn(href="#", class=button_classes)= params.text
+
+
+//- -----------------------------
+//- 元件：头像
+//- -----------------------------
+mixin avatar(width,height)
+    - var w = width || 48
+    - var h = height || 48
+    .ui-avatar
+        +dummy("avatar_" + w + "x" + h + ".png")
+
+//-----------------------------------------------------------
+//- 元件: 选项卡
+//-----------------------------------------------------------
+mixin tab(tab_items)
+    .ui-tab
+        each item in tab_items
+            if item.active
+                .tab.active
+                    span= item.label
+                    if item.hot
+                        span= '(' + item.hot + ')'
+            else
+                .tab
+                    span= item.label
+                    if item.new
+                        sup.dot
+                    if item.hot
+                        span= '(' + item.hot + ')'
+
+
+//-----------------------------------------------------------
+//- 元件: 课程缩略图
+//-----------------------------------------------------------
+mixin courses-block(idx)
+    a.courses-block(href='live.html',title='#{article.title}')
+        img(src='#{current.base}img/block/course-bg-' + idx + '.jpg')
+        .courses-top
+            .courses-top-course
+                if idx == 3
+                    i.icon.icon-physics
+                    span 初一物理
+                    span.btn.fr.font-green 系列课
+                else
+                    i.icon.icon-math
+                    span 中考数学
+            .courses-title.mt30= article.title
+            .courses-teacher
+                .show-inline 陆小生老师
+        .courses-bottom
+            .courses-detail
+                .courses-detail-price.tr.pr20
+                    span.font-orange &yen;250
+                .courses-detail-num.pl20
+                    strong 849人
+                    br
+                    span 已报名
+                .courses-detail-state.mt15
+                    if idx == 3
+                        .courses-detail-time.bg-orange
+                            i.icon.icon-live.ml10
+                            span.ml5 课程直播中，点击上课
+                    else
+                        .courses-detail-time.bg-grey
+                            i.icon.icon-time.ml10
+                            span.ml5 每周一三五
+                            span.ml5 19:00~20：00
+
+            .courses-des= article.summary
+
+//-----------------------------------------------------------
+//- 元件: 订单缩略图
+//-----------------------------------------------------------
+mixin order-block(idx)
+    .order-block
+        .order-top
+            if idx == 1
+                span.ui-label.label-blue 系列课
+            a.courses-title.mt30(href='live.html',title='#{article.title}')= article.title
+            .courses-teacher.tc.mt10
+                .font-grey 授课老师：陆小生
+                .font-orange.font-xxxl.mt5 &yen;250
+        .order-bottom
+            .mt15
+                span.fl 订单编号：
+                p 1654156156165646
+            div
+                span.fl 付款时间：
+                p 2016-11-30 11:28:46
+//-----------------------------------------------------------
+//- 元件: 消息缩略图
+//-----------------------------------------------------------
+mixin mes-block(idx)
+    .mes-block
+        .mes-left
+            .mes-title
+                span 陆小生老师
+                | 的
+                a.font-green.ml5(href='live.html',title='中考数学冲刺压轴真题突破极限') 中考数学冲刺压轴真题突破极限
+                | 即将开课，快去直播室和小伙伴一起准备上课吧~
+            .mes-state.font-grey.mt10
+                .course-state.show-inline
+                    span 课程状态：
+                    if idx == 1
+                        span.ui-label.label-orange 正在直播
+                    if idx == 2
+                        span.ui-label.label-green 即将开始
+                    if idx == 3
+                        span.ui-label.label-blue 结束回放
+
+                .course-time.show-inline
+                    span 开课时间
+                    span 每周日 10:00-11:50
+        a.mes-right(href='live.html',title='中考数学冲刺压轴真题突破极限')
+            img(src='#{current.base}img/block/course-bg-'+ idx +'.jpg')
+            p 中考数学冲刺压轴真题突破极限
+            if idx == 3
+                span.ui-label.label-white  系列课

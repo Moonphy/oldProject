@@ -1,0 +1,75 @@
+// 宝库页样式
+// ======================
+.treasury-top
+  width 100%
+  border-bottom 1px solid #e5e5e5
+  text-align center
+
+  ul
+    margin 20px -26px 25px 0
+  li
+    float left
+    font-size 18px
+    margin-right 26px
+    i
+      margin-right 20px
+      font-size 24px
+      line-height 24px
+      color #e6e6e6
+    a
+      color #445568
+      &:hover
+      &.active
+        @extend .font-blue
+        border-bottom 2px solid #67c4d4
+
+
+// 面包屑导航
+.treasury-page
+  .ui-crumbs
+    margin-top 15px
+.ui-crumbs
+  li
+    float left
+    font-size 14px
+    margin 15px 10px 15px 0
+    a
+      &:hover
+        color #67c4d4
+.label-group
+  background-color #e6f0f2
+  border-radius 4px
+  padding 10px 20px
+  li
+    float left
+    position relative
+
+    a
+      display block
+      padding 2px 10px
+      border-radius 20px
+      margin 5px 0
+      &.active
+        background-color #445568
+        color #ffffff
+    &:hover
+      .label-msg
+        display block
+
+.label-msg
+  font-size 0
+  absolute left 50% top 30px
+  transform translateX(-50%)
+  z-index 2
+  display none
+.label-msg-content
+  font-size 12px
+  background-color #ffffff
+  border 1px solid #e6e6e6
+  border-radius 4px
+  padding 2px 8px
+  margin-top -3px
+  white-space nowrap
+
+.treasury-group
+  margin-right -20px

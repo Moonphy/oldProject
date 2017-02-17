@@ -1,0 +1,147 @@
+---
+page_title: "专题页"
+body_class: ["special-page"]
+---
+
+extends _layout
+
+block content
+    .container.pb30
+        .special-tab.clearfix.mt40
+            img.mr20(src="#{current.base}img/title-special.png", alt="")
+            span.font-lg.font-grey 发掘更多专题在这里
+            .special-sort.fr
+                a.active(href='#',title='')
+                    i.icon.icon-sort
+                    span 最新
+                a(href='#',title='')
+                    i.icon.icon-sort
+                    span 热门
+        .treasury-group.clearfix
+            +special-thumbnail(1)
+            +special-thumbnail(2)
+            +special-thumbnail(3)
+            +special-thumbnail(4)
+            +special-thumbnail(1)
+            +special-thumbnail(2)
+            +special-thumbnail(3)
+            +special-thumbnail(4)
+        .tc
+            a.btn.btn-blue.mt20(href='javascript:;',title='查看更多') 查看更多
+block javascript
+    script.
+        var article_data = [
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-1.jpg",
+                article_title: "悄悄的我走了，正如我悄悄的来，我挥挥衣袖",
+                article_zan: "11",
+                article_comments: "7",
+                article_time: "2016-12-27"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-2.jpg",
+                article_title: "悄悄的我走了衣袖",
+                article_zan: "2",
+                article_comments: "4",
+                article_time: "2016-12-26"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-3.jpg",
+                article_title: "悄悄的我走了衣袖悄悄的我走了衣袖悄悄的我走了衣袖",
+                article_zan: "8",
+                article_comments: "6",
+                article_time: "2016-12-25"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-4.jpg",
+                article_title: "悄悄的我悄悄的我走了衣袖",
+                article_zan: "5",
+                article_comments: "16",
+                article_time: "2016-12-24"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-1.jpg",
+                article_title: "悄悄的我走了，正如我悄悄的来，我挥挥衣袖",
+                article_zan: "11",
+                article_comments: "7",
+                article_time: "2016-12-27"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-2.jpg",
+                article_title: "悄悄的我走了衣袖",
+                article_zan: "2",
+                article_comments: "4",
+                article_time: "2016-12-26"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-3.jpg",
+                article_title: "悄悄的我走了衣袖悄悄的我走了衣袖悄悄的我走了衣袖",
+                article_zan: "8",
+                article_comments: "6",
+                article_time: "2016-12-25"
+            },
+            {
+                article_url: "article.html",
+                article_img: "../img/block-img/block-img-4.jpg",
+                article_title: "悄悄的我悄悄的我走了衣袖悄悄的我悄悄的我走了衣袖悄悄的我悄悄的我走了衣袖悄悄的我悄悄的我走了衣袖",
+                article_zan: "5",
+                article_comments: "16",
+                article_time: "2016-12-24"
+            }
+        ];
+
+        var jz_template = {
+            'article_tmp' : function (article_url,article_img,article_title,article_zan,article_comments,article_time) {
+                return '<div class="ui-thumbnail"><a href="' + article_url +
+                        '" title="" target="_blank" class="img-wrap"><img src="' + article_img +
+                        '" alt=""></a><div class="ui-thumbnail-content"><a href="' + article_url +
+                        '" title="" target="_blank" class="thumbnail-title">' + article_title +
+                        '</a><div class="thumbnail-tips mt10"><span><i class="icon icon-fav-grey"></i>' + article_zan +
+                        '</span><span><i class="icon icon-msg-grey"></i>' + article_comments +
+                        '</span><span class="fr">' + article_time +
+                        '</span></div></div></div>'
+            },
+            'special_tmp': function (article_url,article_img,article_title,article_zan,article_comments) {
+                return '<div class="ui-thumbnail ui-thumbnail-special"><a href="'+ article_url +
+                        '" title="" target="_blank" class="img-wrap"><img src="'+ article_img +
+                        '" alt=""></a><div class="ui-thumbnail-content special-thumbnail-content"><a href="'+
+                        article_url +
+                        '" title="" target="_blank" class="thumbnail-title">' + article_title +
+                        '</a><div class="thumbnail-tips mt5">共'+ article_zan + '篇内容，'+ article_comments +
+                        '收藏</div></div></div>'
+            }
+        }
+        $('.btn-blue').on('click', function () {
+            for (var i = 0; i < article_data.length; i++){
+                var article_url = article_data[i].article_url,
+                    article_img = article_data[i].article_img,
+                    article_title = article_data[i].article_title,
+                    article_zan = article_data[i].article_zan,
+                    article_comments = article_data[i].article_comments;
+                var tmp = jz_template.special_tmp(article_url,article_img,article_title,article_zan,article_comments);
+                $('.treasury-group').append(tmp)
+            }
+        })
+
+        function fdate(date){
+            if(typeof date === 'string'){
+                date = Number(date)
+            }
+            if(date < 2000000000){
+                date *= 1000
+            }
+            return date
+        }
+        function splitDate(date){
+            var formatDate = new Date(date);
+            var year = formatDate.getFullYear().toString();
+            var month = formatDate.getMonth() + 1 > 9 ? (formatDate.getMonth() + 1).toString() : '0' + (formatDate.getMonth() + 1).toString();
+            var day = formatDate.getDate()
+        }

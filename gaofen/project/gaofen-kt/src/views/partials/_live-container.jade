@@ -1,0 +1,47 @@
+.live-container.clearfix
+    // 直播窗口区
+    .live-content.fl
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+        | -------------------- 我是直播--------------------
+    .live-message-wrap.fr
+        .live-message-top
+            .live-message-top-title 直播信息
+            .live-message-teacher
+                ul
+                    li.hidden
+                        img(src='#{current.base}img/teacher-img.jpg',alt='陈老师')
+                    li
+                        div
+                            span.fl 主讲：
+                            p 泰莉莎老师
+                        div
+                            span.fl 标题：
+                            p 当宇宙大爆炸是地球会发生什么事
+                        div
+                            span.fl 简介：
+                            p 从事中学语文教学多年，经验丰富一直任教初中语文七八年级的阅读与写作课程，熟悉初中。
+                .dot-wrap
+                    span
+                    span.active
+
+        .live-message-list
+            .message-list
+                ul
+                    - for (var i=0;i<5;i++)
+                        li.message-item.mb20
+                            .message-item-top
+                                span.font-b 阿里妈妈
+                                span 2017-1-18
+                                span 15:24:52
+                            .message-item-content= article.title
+        .message-form
+            form
+                textarea(placeholder='跟辅导老师提问',rows='3')
+                input.btn(type='button',value='发送')

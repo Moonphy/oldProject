@@ -1,0 +1,55 @@
+---
+page_title: "宝库页"
+body_class: ["treasury-page"]
+---
+
+extends _layout
+
+block content
+
+    .treasury-top
+        img.mt50(src="#{current.base}img/logo-treasury.png", alt="高分家长")
+
+        .container
+            ul.clearfix
+                each item, index in treasury_tabs
+                    li
+                        if index == 7
+                            a.active(href='',title='') 生活 &sdot; 帮
+                        if index == treasury_tabs.length - 1
+                            i &bull;
+                        unless index == 7
+                            a(href='',title='')= item.label
+
+    .container.pb30
+        ul.ui-crumbs.clearfix
+            li: a(href='',title='') 主页
+            li &gt;
+            li: a.font-blue-dark(href='',title='') 热门关注
+
+        .label-group
+            ul.clearfix
+                each item, index in treasury_label
+                    if index == 0
+                        li.font-nm
+                            a.font-blue-dark(href='',title='', class='active')= item.label
+                            .label-msg.tc
+                                i.icon.bg-msg-top
+                                .label-msg-content= index + item.label + "干货知识哦~"
+                    else
+                        li.font-nm
+                            a.font-blue-dark(href='',title='')= item.label
+                            .label-msg.tc
+                                i.icon.bg-msg-top
+                                .label-msg-content= index + item.label + "干货知识哦~"
+
+
+        .treasury-group.clearfix.mt20
+            +treasury-thumbnail(1)
+            +treasury-thumbnail(2)
+            +treasury-thumbnail(3)
+            +treasury-thumbnail(4)
+            +treasury-thumbnail(1)
+            +treasury-thumbnail(2)
+            +treasury-thumbnail(3)
+            +treasury-thumbnail(4)

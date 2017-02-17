@@ -1,0 +1,144 @@
+.loader-box-dot
+  font-size 0
+  text-align center
+  display none
+  span
+    display inline-block
+    vertical-align middle
+    border-radius 50%
+    size 12px
+    margin 20px 5px
+    animation loader-box-dot 0.8s linear infinite alternate
+    &:nth-child(1)
+      animation-delay -1s
+      background rgba(138, 138, 138,0.6)
+    &:nth-child(2)
+      animation-delay -0.8s
+      background rgba(138, 138, 138,0.8)
+    &:nth-child(3)
+      animation-delay -0.26666s
+      background rgba(138, 138, 138,1)
+    &:nth-child(4)
+      animation-delay -0.8s
+      background rgba(138, 138, 138,0.8)
+    &:nth-child(5)
+      animation-delay -1s
+      background rgba(138, 138, 138,0.4)
+
+
+@keyframes loader-box-dot
+  from
+    transform scale(0,0)
+  to
+    transform scale(1,1)
+
+.loader-box-t
+  margin 20px auto
+  text-align center
+  display none
+  span
+    display inline-block
+    size 10px
+    margin 0 5px
+    background-color #ccc
+    border-radius 50%
+    animation loader-box-t 1.4s infinite ease-in-out both
+    &:nth-child(1)
+      animation-delay -0.32s
+    &:nth-child(2)
+      animation-delay -0.16s
+
+@keyframes loader-box-t
+  0%, 80%, 100%
+    transform scale(0)
+  40%
+    transform scale(1)
+.loader-box-fixed
+  size 100%
+  fixed left top
+  z-index 8
+  background-color rgba(0,0,0,.3)
+  display none
+.icon-loading{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  color: grey;
+  top: 50%
+  left: 50%;
+  margin-left: -10px;
+  padding 10px
+  border-radius 4px
+  background-color rgba(0,0,0,.6)
+  .dot{
+    width: 2px;
+    height: 20px;
+    position: absolute;
+    top:10px;
+    left: 50%;
+    margin-left: -1px;
+  }
+  .dot-t, .dot-b{
+    position: absolute;
+    left: 0;
+    content: '';
+    background: white;
+    width: 2px;
+    height: 6px;
+    border-radius: 1px;
+    animation: blink 0.8s infinite ease-in-out;
+    animation-fill-mode: both;
+  }
+  .dot-t{
+    top: 0;
+  }
+  .dot-b{
+    bottom: 0;
+  }
+  .dot1{
+    .dot-t{
+      animation-delay: -0.1s;
+    }
+    .dot-b{
+      animation-delay: -0.5s;
+    }
+  }
+  .dot2{
+    transform: rotate(45deg);
+    .dot-t{
+      animation-delay: -0.2s;
+    }
+    .dot-b{
+      animation-delay: -0.6s;
+    }
+  }
+  .dot3{
+    transform: rotate(90deg);
+    .dot-t{
+      animation-delay: -0.3s;
+    }
+    .dot-b{
+      animation-delay: -0.7s;
+    }
+  }
+  .dot4{
+    transform: rotate(135deg);
+    .dot-t{
+      animation-delay: -0.4s;
+    }
+    .dot-b{
+      animation-delay: -0.8s;
+    }
+  }
+}
+@keyframes blink {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

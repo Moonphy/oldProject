@@ -1,0 +1,57 @@
+.unslider
+  overflow auto
+.unslider-wrap
+  position relative
+  .unslider-carousel
+    height 100%
+    .unslider-item
+      float left
+      position relative
+.unslider-vertical
+  .unslider-wrap
+    height 100%
+  .unslider-item
+    float none
+    width 100%
+.unslider-fade
+  position relative
+  .unslider-wrap
+    .unslider-item
+      position absolute
+      left 0
+      top 0
+      right 0
+      z-index 8
+      &.unslider-active
+        z-index 10
+
+.unslider-arrow
+  position absolute
+  left 20px
+  z-index 2
+  cursor pointer
+  display none
+.unslider-arrow.next
+  left auto
+  right 20px
+.unslider-nav
+  width 100%
+  position absolute
+  left 0
+  bottom 30px
+  z-index 10
+  ol
+    text-align center
+    li
+      display inline-block
+      text-indent -999px
+      overflow hidden
+      width 8px
+      height 8px
+      border-radius 50%
+      border 1px solid #ffffff
+      background-color rgba(0,0,0,.6)
+      margin 5px
+      cursor pointer
+      &.unslider-active
+        background-color #e6e6e6
