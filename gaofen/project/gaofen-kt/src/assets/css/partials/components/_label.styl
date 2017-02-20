@@ -32,24 +32,27 @@
 // tab选项卡
 // =================
 .ui-tab
-  display flex
-  border-bottom .01rem solid #dddddd
+  height 32px
+  border-top 2px solid #48bccb
+  font-size 16px
+  background-color #e9f3f8
+  li
+    float left
   .tab
-    flex 1
-    text-align center
-    padding-top .1rem
-    span
-      display inline-block
-      font-size .16rem
-      margin-bottom -.01rem
+    display inline-block
+    padding 0 28px
+    line-height 32px
     &.active
-      span
-        color #fd8f7b
-        border-bottom .02rem solid #fd8f7b
-
+      color #48bccb
+      background-color #ffffff
+      line-height 39px
+      border 1px solid #e6e6e6
+      border-top 4px solid #48bccb
+      border-radius 0 0 4px 4px
+      transform translate(0, -5px)
     .dot
       display inline-block
       size .05rem
-      background-color #ff704c
+      background-color #48bccb
       vertical-align super
       border-radius 100%

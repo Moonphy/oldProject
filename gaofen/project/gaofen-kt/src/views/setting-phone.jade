@@ -1,0 +1,29 @@
+---
+page_title: "个人信息--绑定手机页"
+body_class: ["setting-page"]
+---
+extends _layout
+block content
+    .container
+        // 个人设置
+        .setting-wrap.mt30
+            .ui-tab
+                ul.clearfix
+                    li: a.tab(href='setting-msg.html',title='') 个人信息
+                    li: a.tab(href='setting-psw.html',title='') 修改密码
+                    li: a.tab.active(href='setting-phone.html',title='') 绑定手机
+                    li: a.tab(href='setting-wechat.html',title='') 绑定微信
+
+            .setting-container.tc
+                form.gf-form
+                    .gf-form-row.tr
+                        label 手机号码：
+                        input(type='text')
+                    .gf-form-row.tr
+                        label 验证码：
+                        input.w138(type='text')
+                        a.btn.ml5(href='javascript:;') 获取验证码
+
+                    input.btn.btn-submit.mt80(type='button', value='保存')
+block javascript
+    script.

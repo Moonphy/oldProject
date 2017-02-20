@@ -1,0 +1,22 @@
+---
+page_title: "个人信息--绑定微信页"
+body_class: ["setting-page"]
+---
+extends _layout
+block content
+    .container
+        // 个人设置
+        .setting-wrap.mt30
+            .ui-tab
+                ul
+                    li: a.tab(href='setting-msg.html',title='') 个人信息
+                    li: a.tab(href='setting-psw.html',title='') 修改密码
+                    li: a.tab(href='setting-phone.html',title='') 绑定手机
+                    li: a.tab.active(href='setting-wechat.html',title='') 绑定微信
+
+            .setting-container.tc
+                p.font-lg 使用微信扫描下方二维码，完成绑定操作。
+                img(src='#{current.base}img/erweima.jpg')
+
+block javascript
+    script.
