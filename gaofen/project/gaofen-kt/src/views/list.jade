@@ -1,0 +1,47 @@
+---
+page_title: "课程列表页"
+body_class: ["list-page"]
+---
+extends _layout
+block content
+    .container
+        // 课程列表
+        .filter-wrap.mt30
+            .ui-dropdown
+                .dropdown-text 排序方式
+                i.icon.icon-down-black
+                ul.dropdown-list
+                    li: a(href='',title='') 排序方式
+                    li: a(href='',title='') 排序方式1
+                    li: a(href='',title='') 排序方式2
+                    li: a(href='',title='') 排序方式3
+            .ui-dropdown
+                .dropdown-text 科目筛选
+                i.icon.icon-down-black
+                ul.dropdown-list
+                    li: a(href='',title='') 科目筛选
+                    li: a(href='',title='') 数学
+                    li: a(href='',title='') 物理
+                    li: a(href='',title='') 英语
+            .ui-dropdown
+                .dropdown-text 课程类型
+                i.icon.icon-down-black
+                ul.dropdown-list
+                    li: a(href='',title='') 课程类型
+                    li: a(href='',title='') 课程类型1
+                    li: a(href='',title='') 课程类型2
+                    li: a(href='',title='') 课程类型3
+        .row.clearfix
+            +courses-block(1)
+            +courses-block(2)
+            +courses-block(3)
+            +courses-block(4)
+            +courses-block(5)
+            +courses-block(1)
+            +courses-block(2)
+            +courses-block(3)
+        .mt20
+            +loader-box()
+
+block javascript
+    script.

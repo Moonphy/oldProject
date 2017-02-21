@@ -1,25 +1,23 @@
-.loader-box-dot
-    span
-    span
-    span
-    span
-    span
-
-//-.loader-box-t
-    span
-    span
-    span
-.loader-box-fixed
-    .icon-loading
-        .dot.dot1
-            i.dot-t
-            i.dot-b
-        .dot.dot2
-            i.dot-t
-            i.dot-b
-        .dot.dot3
-            i.dot-t
-            i.dot-b
-        .dot.dot4
-            i.dot-t
-            i.dot-b
+mixin loader-box(params)
+    if params == 'fixed'
+        .loader-box-fixed
+            .icon-loading
+                .dot.dot1
+                    i.dot-t
+                    i.dot-b
+                .dot.dot2
+                    i.dot-t
+                    i.dot-b
+                .dot.dot3
+                    i.dot-t
+                    i.dot-b
+                .dot.dot4
+                    i.dot-t
+                    i.dot-b
+    else
+        .loader-box-dot
+            span
+            span
+            span
+            span
+            span

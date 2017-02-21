@@ -1,0 +1,41 @@
+.filter-wrap
+  border 1px solid #e6e6e6
+  border-radius 4px
+  font-size 14px
+  background-color #ffffff
+.ui-dropdown
+  width 140px
+  display inline-block
+  position relative
+  line-height 44px
+  margin-right 10px
+  .dropdown-text
+    padding 0 20px
+  .icon
+    absolute right 20px top 20px
+    z-index 10
+  .dropdown-list
+    width 140px
+    background-color #48bccb
+    overflow hidden
+    absolute left -1px top -1px
+    z-index 9
+    display none
+    li
+      padding 0 20px
+      &:hover
+        background-color #34a4b2
+        a
+          color #aaeaf2
+    a
+      display block
+      color #ffffff
+      border-bottom 1px solid #ffffff
+      margin-bottom -1px
+
+
+  &:hover
+    .dropdown-list
+      display block
+    .icon-down-black
+      @extend .icon-down
