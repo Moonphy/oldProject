@@ -48,11 +48,13 @@
   span
     vertical-align middle
 .teacher-slider
-  //background-color #c3e9e2
-  padding 48px 0 25px
+  margin-top 38px
+  height 165px
   color grey
+  .unslider-wrap
+    height 146px
   .unslider-item
-    padding 0 19px
+    padding 10px 19px
     float left
     box-sizing border-box
     strong.font-md
@@ -79,7 +81,7 @@
 
 .course-detail-content
   display inline-block
-  width 50%
+  width 49.5%
   .icon
     vertical-align middle
     margin-right 10px
@@ -109,6 +111,7 @@
     text-indent 999px
     overflow hidden
     left auto
+    z-index 0
     @extend .icon-up-grey
 
     &.prev

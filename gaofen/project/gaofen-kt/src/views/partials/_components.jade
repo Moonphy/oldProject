@@ -52,26 +52,22 @@ mixin tab(tab_items)
 //- 元件: 课程缩略图
 //-----------------------------------------------------------
 mixin courses-block(idx)
-    a.courses-block(href='live.html',title='#{article.title}')
-        img(src='#{current.base}img/block/course-bg-' + idx + '.jpg')
+    a.courses-block(href='live.html',title='#{article.title}' class="courses-block-" + idx)
+        //-img(src='#{current.base}img/block/course-bg-' + idx + '.jpg')
         .courses-top
             .courses-top-course
-                if idx == 3
-                    i.icon.icon-physics
-                    span 初一物理
-                    span.btn.fr.font-green 系列课
-                else
-                    i.icon.icon-math
-                    span 中考数学
+                i.icon.icon-courses
+                span 中考数学
             .courses-title.mt30= article.title
+            //-.courses-title.mt30 我是标题
             .courses-teacher
                 .show-inline 陆小生老师
         .courses-bottom
             .courses-detail
                 .courses-detail-price.tr.pr20
-                    span.font-orange &yen;250
+                    span.font-orange &yen;250.00
                 .courses-detail-num.pl20
-                    strong 849人
+                    strong 848人
                     br
                     span 已报名
                 .courses-detail-state.mt15

@@ -37,11 +37,25 @@ block content
             +courses-block(3)
             +courses-block(4)
             +courses-block(5)
-            +courses-block(1)
-            +courses-block(2)
-            +courses-block(3)
+            +courses-block(6)
+            +courses-block(7)
+            +courses-block(8)
+            +courses-block(9)
+            +courses-block(10)
+            +courses-block(11)
         .mt20
             +loader-box()
 
 block javascript
     script.
+        $('.dropdown-list li a').click(function (e) {
+            e.preventDefault();
+            var itemText = $(this).text();
+            $(this).parents('.ui-dropdown').find('.dropdown-text').text(itemText);
+            $(this).parents('.dropdown-list').hide();
+        })
+        $('.ui-dropdown').hover(function () {
+            $(this).find('.dropdown-list').show();
+        }, function () {
+            $(this).find('.dropdown-list').hide();
+        })

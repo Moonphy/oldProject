@@ -27,7 +27,7 @@ block content
                         span 已有
                         strong.ml5.mr5 358
                         span 人报名
-                        a.btn.btn-orange.fr(href='javascript:;') 预约听课
+                        a.btn.btn-orange.fr#btn-yuyue(href='javascript:;') 预约听课
                 .course-detail-teacher.fr
                     .detail-teacher-top
                         i.icon.icon-detail-teacher
@@ -81,6 +81,8 @@ block content
                     p 学习 QQ 群 42901892092
                     p 小王老师不定时出没，带大家通关数学迷宫
 
+    include partials/_mask
+
 block javascript
     script(src='#{current.base}js/unslider-min.js')
     script.
@@ -88,8 +90,20 @@ block javascript
         if(sliderLen > 1){
             $('.teacher-slider').unslider({
                 //animation: 'fade',
+                animation: 'vertical',
                 autoplay: true
             })
+        }else{
+            $('.teacher-slider').unslider()
         }
         var sliderItemLen = $('.unslider-nav li').length;
         $('.slider-item-len span').text(sliderItemLen);
+
+        $('#btn-yuyue').click(function () {
+            $('.ui-mask').removeClass('hidden');
+            $('.mask-wrap').removeClass('hidden');
+        })
+        $('.btn-close').click(function () {
+            $('.ui-mask').addClass('hidden');
+            $('.mask-wrap').addClass('hidden');
+        })
