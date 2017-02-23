@@ -3,20 +3,33 @@ mixin live(state)
         // 直播窗口区
         .live-content.fl
             if state == 'notStart'
-                .live-courses
-                    .live-courses-title= article.title
-                    .live-courses-msg
-                        i.icon.icon-tips-smiling
-                        p.font-green 直播还没开始，同学们可先和助教老师交流哦
+                .live-courses.courses-block-1
+                    .live-courses-container
+                        .live-courses-title= article.title
+                        .live-courses-msg
+                            i.icon.icon-tips-smiling.fl.mt5
+                            p.ml40 直播还没开始，同学们可先和助教老师交流哦
             if state == 'end'
-                .live-courses
-                    .mask-wrap.tc
-                        .mask-header 请评价这次直播课
-                        form
-
-                            .gf-form-row.tr.pr0
-                                textarea(rows='5')
-                            input(type='button',value='确定').btn.btn-submit.btn-block.mt5
+                .live-courses.courses-block-2
+                    .stars-wrap
+                        .stars-container
+                            .stars-header 请评价这次直播课
+                            form
+                                .ui-stars.ui-stars-4
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                .gf-form-row.tr.pr0
+                                    textarea(rows='5',placeholder='还有什么要跟老师说的')
+                                input(type='button',value='保存提交').btn.btn-submit.btn-block.mt5
+                        .stars-container.hidden
+                            .tc
+                                i.icon.icon-tips-done.mt30
+                                p.stars-header.pl20.pr20 直播已结束
+                                    br
+                                    | 还可继续向助教提问
             else
                 p
                     | -------------------- 我是直播--------------------

@@ -41,4 +41,8 @@ block javascript
         $('.live-message-teacher').unslider({
             autoplay: true
         })
+        $('.ui-stars').on('click','.icon-star', function () {
+            var idx = $(this).index() + 1;
+            $(this).parent().attr('class','ui-stars ui-stars-' + idx);
+        })
 

@@ -1,0 +1,21 @@
+// 星星
+.ui-stars
+  padding 15px 0
+  .icon
+    vertical-align middle
+    margin 0 5px
+
+
+for i in 1..5
+  .ui-stars-{i}
+    span
+      for j in 1..i
+        &:nth-child({j})
+          @extends .icon-star-full
+
+    unless i is 5
+      &.ui-stars-trim
+        span
+          for k in i+1..5
+            &:nth-child({k})
+              display none
