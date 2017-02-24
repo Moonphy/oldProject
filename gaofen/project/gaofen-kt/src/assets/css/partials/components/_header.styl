@@ -21,15 +21,12 @@
         display block
         padding 0 7px
         font-weight 300
-        color #e5fcff
+        color #388994
       span
       .icon
         margin 0 2px
         vertical-align middle
 
-      &:hover
-        span
-          color #398f9a
       a:visited
         color #398f9a
 
@@ -79,7 +76,7 @@
     .ui-avatar
       size 30px
       border-radius 50%
-      border 1px solid #aaeaf2
+      border 2px solid #aaeaf2
       vertical-align middle
     .icon-down
       vertical-align middle
@@ -135,28 +132,27 @@
           color #398f9a
 
 
-.treasury-page
-  .header
-    background-color #445568
-
-.btn-search
-  position relative
-  overflow hidden
-  input
-    size 100%
-    absolute left top
-    z-index 1
-    opacity .1
-
-for item in course learning community
+for item in list home community
   .link-{item}
     &:hover
-    &:active
+      color #ffffff
+      .icon-header-{item}
+        @extend .icon-header-{item}-hover
+      span
+        color #ffffff!important
+    //&:active
     &.active
+      color #a4e5ef
       .icon-header-{item}
         @extend .icon-header-{item}-active
+      span
+        color #a4e5ef
 
-for item in index treasury special
+for item in list home
   .{item}-page
     .link-{item}
-      color #a8e8f0!important
+      color #a4e5ef
+      .icon-header-{item}
+        @extend .icon-header-{item}-active
+      span
+        color #a4e5ef

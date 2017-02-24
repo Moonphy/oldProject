@@ -1,0 +1,48 @@
+---
+page_title: "直播页-旧第一版"
+body_class: ["live-page"]
+---
+extends _layout
+block css
+    link(rel="stylesheet", type="text/css", href="#{current.base}css/unslider.css")
+
+block content
+    include partials/_live-container
+    .container
+        // 正在直播状态
+        .live-wrap.live-ing
+            .live-state.live-state-ing
+                img(src='#{current.base}img/state-ing.png')
+            +live()
+
+        // 不同状态切换.live-wrap的.live-ing、.live-notStart、.live-end、.live-playback
+
+        // 直播未开始状态
+        .live-wrap.live-notStart
+            .live-state.live-state-notStart
+                img.mb20(src='#{current.base}img/state-notstart.png')
+            +live('notStart')
+
+        // 直播结束状态
+        .live-wrap.live-end
+            .live-state.live-state-end
+                img.mb20(src='#{current.base}img/state-end.png')
+            +live('end')
+
+        // 回放课程状态
+        .live-wrap.live-playback
+            .live-state.live-state-playback
+                img.mb20(src='#{current.base}img/state-back.png')
+            +live()
+
+block javascript
+    script(src='#{current.base}js/unslider-min.js')
+    script.
+        $('.live-message-teacher').unslider({
+            autoplay: true
+        })
+        $('.ui-stars').on('click','.icon-star', function () {
+            var idx = $(this).index() + 1;
+            $(this).parent().attr('class','ui-stars ui-stars-' + idx);
+        })
+

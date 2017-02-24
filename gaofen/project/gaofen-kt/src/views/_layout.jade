@@ -25,12 +25,15 @@ html(class="#{root_class ? root_class:''}")
     body
         .gf-wrap(class=body_class ? body_class : false, id=body_id ? body_id : false)
 
-            include partials/_header
+            unless current.source == "live"
+                include partials/_header
+
             // 主体
             .gf-main
                 block content
 
-            include partials/_footer
+            unless current.source == "live"
+                include partials/_footer
 
         script(src='#{current.base}js/jquery.1.8.2.js')
         block javascript

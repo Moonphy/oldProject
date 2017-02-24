@@ -14,40 +14,27 @@ block content
             img.banner-img(src='#{current.base}img/block/slide-bg-2.png')
             .banner-slider
                 ul.unslider-wrap
-                    li.unslider-item
-                        img(src='#{current.base}img/block/slide-img-1.jpg')
-                        ul.banner-container
-                            - for(var i=0;i<5;i++)
-                                li
-                                    a(href='1.html',title='',target='_blank') 标题1标题1标题1标题1标题1标题1
-                    li.unslider-item
-                        img(src='#{current.base}img/block/slide-img-2.jpg')
-                        ul.banner-container
-                            - for(var i=0;i<5;i++)
-                                li
-                                    a(href='2.html',title='',target='_blank') 标题2标题2标题2标题2标题2标题2标题2
-                    li.unslider-item
-                        img(src='#{current.base}img/block/slide-img-3.jpg')
-                        ul.banner-container
-                            - for(var i=0;i<5;i++)
-                                li
-                                    a(href='3.html',title='',target='_blank') 标题3标题3标题3标题3
+                    - for(var i=0;i<5;i++)
+                        li.unslider-item
+                            img(src='#{current.base}img/block/slide-img-1.jpg')
 
-
-
+            ul.banner-container
+                - for(var i=0;i<5;i++)
+                    li
+                        a(href='1.html',title='',target='_blank') 标题1标题1标题1标题1标题1标题1
 
         .block-title.mt50
             img(src='#{current.base}img/title-kc.png')
-            a.btn.btn-blue-reverse.fr(href='',title='更多课程') 更多课程&bull;&bull;&bull;
+            a.btn.btn-blue-reverse.fr(href='list.html',title='更多课程') 更多课程&bull;&bull;&bull;
         .row.clearfix
             +courses-block(1)
             +courses-block(2)
             +courses-block(3)
             +courses-block(4)
             +courses-block(5)
-            +courses-block(1)
-            +courses-block(2)
-            +courses-block(3)
+            +courses-block(6)
+            +courses-block(7)
+            +courses-block(8)
     include partials/_page-right
 
 block javascript
@@ -59,4 +46,9 @@ block javascript
         $('.banner-slider').unslider({
             animation: 'fade',
             autoplay: true
+        });
+        $('.banner-container li').hover(function () {
+            var idx = $(this).index();
+
+            $('.unslider-nav li').eq(idx).trigger('click')
         })

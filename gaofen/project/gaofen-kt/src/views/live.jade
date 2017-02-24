@@ -1,48 +1,107 @@
 ---
-page_title: "直播页"
+page_title: "直播页-新第二版"
 body_class: ["live-page"]
+is_new: true
 ---
 extends _layout
 block css
     link(rel="stylesheet", type="text/css", href="#{current.base}css/unslider.css")
 
 block content
-    include partials/_live-container
-    .container
-        // 正在直播状态
-        .live-wrap.live-ing
-            .live-state.live-state-ing
-                img(src='#{current.base}img/state-ing.png')
-            +live()
+    .live-wrap.live-ing
+        .live-top
+            .live-top-left.clearfix
+                i.icon.title-kt.ml40.fl
+                h2.live-title.ml40.fl= article.title
+                span.ui-label.label-blue.fl
+                    i.icon.icon-living
+                    span 直播中
+            .live-top-right
+                i.icon.icon-live-num
+                span 课堂在线人数
+                span.font-white.ml5.mr5 16
+                span 人
+        .live-container
+            .live-content
+                //-if state == 'notStart'
+                // 直播未开始浮层
+                .live-courses.courses-block-3
+                    .courses-mask
+                    .live-courses-container
+                        .live-courses-title= article.title
+                        .live-courses-msg
+                            i.icon.icon-tips-smiling.fl.mt5
+                            p.ml40 直播还没开始，同学们可先和助教老师交流哦
+                //-if state == 'end'
+                // 直播结束后浮层
+                .live-courses.courses-block-2
+                    .courses-mask
+                    .stars-wrap
+                        .stars-container
+                            .stars-header 请评价这次直播课
+                            form
+                                .ui-stars.ui-stars-4
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                    span.icon.icon-star
+                                .gf-form-row.tr.pr0
+                                    textarea(rows='5',placeholder='还有什么要跟老师说的')
+                                input(type='button',value='保存提交').btn.btn-submit.btn-block.mt5
+                        .stars-container.hidden
+                            .tc
+                                i.icon.icon-tips-done.mt30
+                                p.stars-header.pl20.pr20 直播已结束
+                                    br
+                                    | 还可继续向助教提问
+                // 视频插入区
+                div -------------------- 我是视频区 --------------------
 
-        // 不同状态切换.live-wrap的.live-ing、.live-notStart、.live-end、.live-playback
+            .live-message-wrap
+                .live-message-top
+                    .live-message-top-title 直播信息
+                    .live-message-teacher
+                        ul.unslider-wrap
+                            li.unslider-item
+                                img(src='#{current.base}img/teacher-img.jpg',alt='陈老师')
+                            li.unslider-item
+                                div
+                                    span.fl 主讲：
+                                    p 泰莉莎老师
+                                div
+                                    span.fl 标题：
+                                    p 当宇宙大爆炸是地球会发生什么事
+                                div
+                                    span.fl 简介：
+                                    p 从事中学语文教学多年，经验丰富一直任教初中语文七八年级的阅读与写作课程，熟悉初中。
 
-        // 直播未开始状态
-        .live-wrap.live-notStart
-            .live-state.live-state-notStart
-                img.mb20(src='#{current.base}img/state-notstart.png')
-            +live('notStart')
+                .live-message-list
+                    .message-list
+                        ul
+                            - for (var i=0;i<15;i++)
+                                li.message-item.mb20
+                                    .message-item-top
+                                        span.font-b 阿里妈妈
+                                        //span 2017-1-18
+                                        span.fr 15:24:52
+                                    .message-item-content= article.title
+                .message-form
+                    form
+                        textarea(placeholder='跟辅导老师提问',rows='3')
+                        input.btn(type='button',value='发送')
 
-        // 直播结束状态
-        .live-wrap.live-end
-            .live-state.live-state-end
-                img.mb20(src='#{current.base}img/state-end.png')
-            +live('end')
-
-        // 回放课程状态
-        .live-wrap.live-playback
-            .live-state.live-state-playback
-                img.mb20(src='#{current.base}img/state-back.png')
-            +live()
 
 block javascript
     script(src='#{current.base}js/unslider-min.js')
     script.
+        //var liveWidth = $('.live-content').width();
+        //$('.live-content').height(liveWidth * 0.7);
         $('.live-message-teacher').unslider({
             autoplay: true
         })
-        $('.ui-stars').on('click','.icon-star', function () {
+        $('.ui-stars').on('click', '.icon-star', function () {
             var idx = $(this).index() + 1;
-            $(this).parent().attr('class','ui-stars ui-stars-' + idx);
+            $(this).parent().attr('class', 'ui-stars ui-stars-' + idx);
         })
 

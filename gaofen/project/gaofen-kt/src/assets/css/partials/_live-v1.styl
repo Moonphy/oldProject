@@ -1,83 +1,40 @@
 // 简介：直播页样式
 //==============================
 
-.live-page
-  .gf-main
-    padding 0
-    absolute left top
-    size 100%
-    background-color #3f3f3f
+// 状态
+.live-state
+  display none
 
-.live-top
-  absolute left top
-  height 70px
-  width 100%
-  background-color #454443
-  color grey
-  z-index 4
-  .live-top-left
-    width 75%
-  .label-blue
-    border-radius 4px
-    font-size 14px
-    padding 0 10px
-    margin-top 23px
-    margin-left 20px
-  .title-kt
-    absolute left top
-  .live-title
-    font-weight 200
-    margin 0
-    display block
-    font-size 20px
-    line-height 70px
-    relative left top
-    padding-left 230px
-    box-sizing border-box
-    text-overflow(width = 70%)
-  .live-top-right
-    absolute right top
-    width 25%
-    height 70px
-    border-left 1px solid #616161
-    span
-    i
-      vertical-align middle
-    span
-      line-height 70px
-      font-size 16px
-    i
-      margin 0 20px
+.live-state-ing
+  absolute right 20px top -10px
+  z-index 2
 
+for item in ing notStart end playback
+  .live-{item}
+    .live-state-{item}
+      display block
 
 // 视频框样式
 .live-wrap
-  size 100%
+  margin 40px 0
   position relative
 
 .live-container
-  size 100%
-  padding-top 70px
-  box-sizing border-box
+  background-color #3f3f3f
 
 .live-content
-  width 75%
-  height 100%
+  //max-width 800px
+  size 800px 600px
   position relative
   overflow hidden
-  z-index 2
 .live-courses
   absolute left top
   size 100%
+  background-repeat repeat
   text-align center
-  background url("../img/block/course-bg-b.jpg") no-repeat 0 0
-  background-size cover
-  z-index 9
-  .courses-mask
-    border-radius 0
   .live-courses-container
     width 100%
-    absolute left 50% top 50%
+    absolute left 50% top 40%
     transform translate(-50%,-50%)
   .live-courses-title
     font-size 40px
@@ -97,15 +54,10 @@
 
 // 教师信息
 .live-message-wrap
-  width 25%
-  height 100%
-  padding-top 70px
-  box-sizing border-box
+  size 300px 600px
   color #8e8e8e
   font-size 14px
-  absolute right top
   overflow hidden
-  z-index 3
 
 .live-message-top
   height 220px
@@ -113,7 +65,6 @@
   margin-bottom 10px
   background-color #4c4c4c
   position relative
-  z-index 3
 
 .live-message-top-title
   font-size 16px
@@ -124,7 +75,6 @@
   padding 20px 0
   text-align center
   overflow hidden
-
   span.fl
     line-height 1.8
   p
@@ -136,20 +86,16 @@
 
 // 交流区
 .live-message-list
-  width 100%
   padding 20px 20px 0 20px
   background-color #4c4c4c
   overflow hidden
-  z-index 1
-  box-sizing border-box
-  absolute left top 320px bottom 84px
   .message-list
-    width 115%
-    height 100%
+    width 300px
+    height 245px
     position relative
     overflow-y scroll
     ul
-      relative left top
+      absolute left top
     .message-item
       padding-right 20px
   span
@@ -158,20 +104,14 @@
     color #fbfcfc
 
 .message-form
-  width 100%
   background-color #656565
-  absolute right bottom
-  z-index 3
-
   textarea
-    display block
-    width 100%
-    height 80px
+    width 230px
+    height 60px
     border none
     resize none
-    padding 10px 60px 10px 10px
+    padding 10px
     background none
-    box-sizing border-box
     &:focus
       border none
       box-shadow none
@@ -179,11 +119,10 @@
     size 40px 64px
     color #ffffff
     background-color #2be4bd
+    float right
     margin 10px 5px 0 0
     border-radius 2px
     border none
-    absolute right top
-    z-index 9
 
 
 // 浮层

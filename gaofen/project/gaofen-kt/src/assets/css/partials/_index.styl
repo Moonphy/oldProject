@@ -17,8 +17,8 @@
       float left
   .banner-container
     size 206px 416px
-    absolute right 20px top 12px
-    z-index 1
+    absolute right 50px top 42px
+    z-index 5
     background-color rgba(0,0,0,.6)
     border-radius 4px
     border 2px solid rgba(255,255,255,.6)
@@ -52,26 +52,26 @@
   border-radius 4px
   position relative
   overflow hidden
-  //cursor pointer
+  background url("../img/block/course-bg.jpg") no-repeat 0 0
   &:hover
     box-shadow 0 15px 30px rgba(0,0,0,.4)
     transform translate3d(0,-2px,0)
     transition all .2s
     .courses-top
     .courses-bottom
-      background-color rgba(0,0,0,.6)
-      border-color rgba(0,0,0,.6)
+      background-color rgba(0,0,0,.5)
       transition all .6s
     .courses-title
       animation title-rotate 1s .6s
     .courses-des
-      padding-top 20px
-      height 108px
-      transition all 1s
+      //height 108px
+      opacity 1
+      transition all 2s
       transition-delay .3s
     .courses-detail
-      width 0
-      transition all .5s
+      bottom -128px
+      opacity 0
+      transition all .6s
   .courses-top
     height 180px
     absolute left top
@@ -82,13 +82,9 @@
   .courses-bottom
     absolute left bottom
     z-index 2
-    width 238px
-    height 107px
-    border 1px solid #e6e6e6
-    border-top none
-    border-radius 0 0 4px 4px
-    padding 10px
-    background-color #ffffff
+    width 260px
+    height 128px
+    overflow hidden
   .courses-top-course
     i
     span
@@ -120,13 +116,19 @@
       padding 2px 10px
       border-radius 4px
   .courses-detail
-    size 238px 101px
+    size 218px 127px
+    //size 198px 101px
     overflow hidden
-    padding 10px 0
-    margin 0 20px
+    padding 0 20px
+    border 1px solid #e6e6e6
+    border-top none
+    border-radius 0 0 4px 4px
+    background-color #ffffff
+    text-align center
+    absolute left bottom
     .courses-detail-price
     .courses-detail-num
-      //width 78px
+      margin-top 20px
       display inline-block
       vertical-align middle
     .courses-detail-price
@@ -139,7 +141,6 @@
     .font-orange
       font-size 28px
     .courses-detail-state
-      margin-right 40px
       i
       span
         vertical-align middle
@@ -152,18 +153,67 @@
       font-size 12px
       &.bg-orange
         color #ffffff
+
   .courses-des
     absolute left bottom
-    size 218px 0
+    //size 220px 0
+    size 220px 108px
+    opacity 0
     padding 0 20px
-    background-color rgba(0,0,0,.2)
+    padding-top 20px
     color #ffffff
     line-height 1.7
     overflow hidden
 
+/*
 for i in 1..11
   _url = join('','../img/block/course-bg-',i,'.jpg')
   .courses-block-{i}
     background url(_url) no-repeat 0 0
     .icon-courses
+      @extend .icon-courses-{i}*/
+
+for i in 1..11
+  .courses-block-{i}
+    .icon-courses
       @extend .icon-courses-{i}
+
+.courses-mask
+  absolute left top
+  border-radius 4px
+  size 100%
+
+.courses-block-1
+  .courses-mask
+    background-color rgba(252,168,47,.4)
+.courses-block-2
+  .courses-mask
+    background-color rgba(124,148,37,.4)
+.courses-block-3
+  .courses-mask
+    background-color rgba(104,118,197,.4)
+.courses-block-4
+  .courses-mask
+    background-color rgba(114,221,185,.4)
+.courses-block-5
+  .courses-mask
+    background-color rgba(89,192,230,.4)
+.courses-block-6
+  .courses-mask
+    background-color rgba(115,27,215,.4)
+.courses-block-7
+  background-size 100% 100%
+  .courses-mask
+    background-color rgba(238,100,63,.4)
+.courses-block-8
+  .courses-mask
+    background-color rgba(127,231,75,.4)
+.courses-block-9
+  .courses-mask
+    background-color rgba(237,38,160,.4)
+.courses-block-10
+  .courses-mask
+    background-color rgba(221,19,19,.4)
+.courses-block-11
+  .courses-mask
+    background-color rgba(84,134,246,.4)

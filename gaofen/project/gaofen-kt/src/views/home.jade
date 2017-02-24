@@ -6,127 +6,57 @@ extends _layout
 block content
     .container
         // 我的课程
-        .home-wrap.mt30
-            .home-left
-                .home-left-setting
-                    a(href='',title='账号设置')
-                        i.icon.icon-setting
-                        span.font-blue-lither.font-nm 账号设置
-                .tc.font-white.mt10
+        .home-wrap
+            .home-top
+                a.home-left-setting.btn.label-blue(href='setting-msg.html',title='账号设置')
+                    i.icon.icon-setting-white
+                    span.font-blue-lither.font-nm 账号设置
+                .home-user
                     .ui-avatar
                         img(src="#{current.base}img/avatar.jpg", alt="哎呀妈妈")
-                    .font-md.mt5 牛逼轰轰绿巨人
-                    .font-nm.mb20 广州市第十六中学
-                        span.ml5 初三
-
-                .list-ranking.mt40
-                    .courses-num.show-inline
-                        .font-xxl.font-white 136
-                        .font-blue-lither 上课次数
-                    i.icon.icon-ranking
-                    .courses-ranking.show-inline
-                        .font-xxl.font-white 83%
-                        .font-blue-lither 超越同学
+                    div
+                        strong.font-md.mt5 牛逼轰轰绿巨人
+                        .font-grey.font-nm.mb20 广州市第十六中学
+                            span.ml5 初三
                 .home-nav
                     ul
                         li
-                            a.active(href='',title='')
-                                i.icon.home-kc
-                                span 我的课程
+                            a.active(href='',title='') 我的课程
                         li
-                            a(href='',title='')
-                                i.icon.home-mes
-                                span 消息通知
-                        li
-                            a(href='',title='')
-                                i.icon.home-order
-                                span 我的订单
-            .home-right
+                            a(href='',title='') 我的订单
+            .home-bottom
                 .clearfix.minus-r20
-                    +courses-block(1)
-                    +courses-block(2)
-                    +courses-block(3)
-                    +courses-block(4)
-                    +courses-block(5)
-        // 消息通知
-        .home-wrap.mt30
-            .home-left
-                .home-left-setting
-                    a(href='',title='账号设置')
-                        i.icon.icon-setting
-                        span.font-blue-lither.font-nm 账号设置
-                .tc.font-white.mt10
-                    .ui-avatar
-                        img(src="#{current.base}img/avatar.jpg", alt="哎呀妈妈")
-                    .font-md.mt5 牛逼轰轰绿巨人
-                    .font-nm.mb20 广州市第十六中学
-                        span.ml5 初三
+                    +home-courses-block(1)
+                    +home-courses-block(2)
+                    +home-courses-block(3)
+                    +home-courses-block(1)
+                    +home-courses-block(2)
+                    +home-courses-block(3)
+                    +home-courses-block(1)
+                    +home-courses-block(2)
+                    +home-courses-block(3)
 
-                .list-ranking.mt40
-                    .courses-num.show-inline
-                        .font-xxl.font-white 136
-                        .font-blue-lither 上课次数
-                    i.icon.icon-ranking
-                    .courses-ranking.show-inline
-                        .font-xxl.font-white 83%
-                        .font-blue-lither 超越同学
-                .home-nav
-                    ul
-                        li
-                            a(href='',title='')
-                                i.icon.home-kc
-                                span 我的课程
-                        li
-                            a.active(href='',title='')
-                                i.icon.home-mes
-                                span 消息通知
-                        li
-                            a(href='',title='')
-                                i.icon.home-order
-                                span 我的订单
-            .home-right
-                .clearfix
-                    +mes-block(1)
-                    +mes-block(2)
-                    +mes-block(3)
-                    +mes-block(3)
+
         // 我的订单
-        .home-wrap.mt30
-            .home-left
-                .home-left-setting
-                    a(href='',title='账号设置')
-                        i.icon.icon-setting
-                        span.font-blue-lither.font-nm 账号设置
-                .tc.font-white.mt10
+        .home-wrap
+            .home-top
+                a.home-left-setting.btn.label-blue(href='setting-msg.html',title='账号设置')
+                    i.icon.icon-setting-white
+                    span.font-blue-lither.font-nm 账号设置
+                .home-user
                     .ui-avatar
                         img(src="#{current.base}img/avatar.jpg", alt="哎呀妈妈")
-                    .font-md.mt5 牛逼轰轰绿巨人
-                    .font-nm.mb20 广州市第十六中学
-                        span.ml5 初三
-
-                .list-ranking.mt40
-                    .courses-num.show-inline
-                        .font-xxl.font-white 136
-                        .font-blue-lither 上课次数
-                    i.icon.icon-ranking
-                    .courses-ranking.show-inline
-                        .font-xxl.font-white 83%
-                        .font-blue-lither 超越同学
+                    div
+                        strong.font-md.mt5 牛逼轰轰绿巨人
+                        .font-grey.font-nm.mb20 广州市第十六中学
+                            span.ml5 初三
                 .home-nav
                     ul
                         li
-                            a(href='',title='')
-                                i.icon.home-kc
-                                span 我的课程
+                            a(href='',title='') 我的课程
                         li
-                            a(href='',title='')
-                                i.icon.home-mes
-                                span 消息通知
-                        li
-                            a.active(href='',title='')
-                                i.icon.home-order
-                                span 我的订单
-            .home-right
+                            a.active(href='',title='') 我的订单
+            .home-bottom
                 .clearfix.minus-r20
                     +order-block(1)
                     +order-block(2)
@@ -134,8 +64,11 @@ block content
                     +order-block(2)
                     +order-block(2)
                     +order-block(2)
-
-
-
+                    +order-block(1)
+                    +order-block(2)
+                    +order-block(2)
+                    +order-block(2)
+                    +order-block(2)
+                    +order-block(2)
 block javascript
     script.

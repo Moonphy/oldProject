@@ -1,105 +1,123 @@
 
 .home-wrap
+  margin-top 57px
+  border 1px solid #e6e6e6
   border-radius 4px
   position relative
+  .ui-label
+    absolute left top
+  .courses-title
+    display block
+    color #000000
+    font-size 22px
+    padding 0 20px
+    height 70px
+    text-align center
+    overflow hidden
 
-.home-left
-  width 240px
-  background-color #48bccb
-  border-radius 4px 0 0 4px
-  absolute left top
-  height 100%
+.home-top
+  height 199px
+  background url("../img/home-header-bg.png") no-repeat 0 0 #ffffff
+  border-bottom 1px solid #e6e6e6
   font-size 14px
+  position relative
   .home-left-setting
-    padding 10px
+    padding 5px 10px 5px 5px
+    border-radius 4px
+    absolute left 19px top 9px
+    z-index 2
     i
     span
       vertical-align middle
       margin-left 5px
+      color #ffffff
+.home-user
+  text-align center
+  transform translateY(-30px)
   .ui-avatar
     size 120px
-    border 4px solid #a4e5ef
-    border-radius 50%
+    border 4px solid #48bccb
+    border-radius 10px
     &:hover
       box-shadow 0 15px 30px rgba(0,0,0,.4)
       animation avatar-shake .2s infinite
-.list-ranking
-  margin 0 40px
-  .courses-num
-  .courses-ranking
-    width 54px
-    text-align center
-    border-top 2px solid #a4e5ef
-    padding-top 15px
-    .font-blue-lither
-      font-size 12px
-  .icon-ranking
-    vertical-align top
-    margin -12px 8px 0 8px
+
 .home-nav
-  margin 40px
+  width 100%
+  text-align center
+  absolute left bottom -2px
   li
-    margin 10px 0
+    display inline-block
+    margin 0 50px
   a
     display block
-    padding 12px 0
+    padding 5px 0
     text-align center
     font-size 16px
-    color #388994
-    border-radius 4px
-    i
-    span
-      vertical-align middle
-      margin 0 5px
+    font-weight bold
+    color #939393
+    border-bottom 4px solid transparent
     &:hover
     &.active
-      background-color #60cbd8
-      color #ffffff
-      .home-kc
-        @extend .home-kc-active
-      .home-mes
-        @extend .home-mes-active
-      .home-order
-        @extend .home-order-active
+      color #48bccb
+      border-bottom-color #48bccb
 
 
-.home-right
-  padding 0 0 20px 20px
+.home-bottom
+  padding 0 0 16px 14px
   min-height 630px
-  background-color #ffffff
-  margin-left 240px
-  border 1px solid #e6e6e6
+  background-color #f9fafa
   border-left none
   border-radius 0 4px 4px 0
   overflow hidden
 .minus-r20
   margin-right -20px
 
+// 我的课程缩略图
+.home-courses-block
+  display block
+  margin 20px 10px 0 0
+  float left
+  size 258px 214px
+  border 1px solid #e6e6e6
+  border-radius 4px
+  position relative
+  font-size 14px
+  background-color #ffffff
+  &:hover
+    box-shadow 0 15px 30px rgba(0,0,0,.4)
+    transform translate3d(0,-2px,0)
+    transition all .2s
+
+  .home-courses-bottom
+    absolute left -1px bottom -1px
+    size 260px 50px
+    line-height 50px
+    text-align center
+    color #ffffff
+    background-color #48bccb
+    font-size 16px
+    border-radius 0 0 4px 4px
+  .bg-ing
+    background-color #fc992b
+  .bg-back
+    background-color #5b95dd
+
 // 订单缩略图
 .order-block
-  margin 20px 20px 0 0
+  display block
+  margin 20px 10px 0 0
   float left
   size 258px 264px
   border 1px solid #e6e6e6
   border-radius 4px
   position relative
   font-size 14px
+  background-color #ffffff
   &:hover
     box-shadow 0 15px 30px rgba(0,0,0,.4)
     transform translate3d(0,-2px,0)
     transition all .2s
-  .order-top
-    .ui-label
-      absolute left top
-  .courses-title
-    display block
-    color #000000
-    font-size 22px
-    padding 0 20px
-    max-height 70px
-    overflow hidden
-    &:hover
-      text-decoration underline
 
   .order-bottom
     absolute left bottom
@@ -109,54 +127,3 @@
     color grey
     p
       margin 5px 0 5px 46px
-
-
-// 消息缩略图
-.mes-block
-  border 1px solid #e6e6e6
-  border-radius 4px
-  margin 20px 20px 0 0
-  padding 30px
-  position relative
-  overflow hidden
-  &:hover
-    box-shadow 0 15px 30px rgba(0,0,0,.4)
-    transform translate3d(0,-2px,0)
-    transition all .2s
-  .mes-left
-    margin-right 270px
-  .mes-title
-    font-size 16px
-    span
-    a
-      margin-right 5px
-    .font-green
-      color #10e2bb
-  .mes-state
-    font-size 14px
-  .course-state
-    width 180px
-  .ui-label
-    border-radius 4px
-  .mes-right
-    display block
-    absolute right -2px top -1px
-    size 262px 144px
-    overflow hidden
-    img
-      absolute left top
-      z-index 0
-    p
-      color #ffffff
-      font-size 24px
-      position relative
-      z-index 2
-      padding 10px 20px
-      text-align center
-      max-height 65px
-      overflow hidden
-    .ui-label
-      absolute left 10px top 10px
-      z-index 2
-      padding 2px 5px
-      font-size 12px
