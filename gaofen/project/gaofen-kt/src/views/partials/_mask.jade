@@ -1,16 +1,63 @@
-.ui-mask.hidden
-.mask-wrap.tc.hidden
+.ui-mask
+
+// 获取上课码
+.mask-wrap.tc
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     form
-        .gf-form-row.tr.pr0
+        .gf-form-row.tr.pl0
             input(type='text',placeholder='请输入上课码')
         input(type='button',value='确定').btn.btn-submit.btn-block.mt5
     .mask-content.mt40
-        .dividing-line.fl
-        .dividing-line.fr
-        i.icon.right-erweima
+        .mask-content-top
+            .dividing-line.al0
+            .dividing-line.ar0
+            i.icon.right-erweima
         img(src='#{current.base}img/erweima.jpg',alt='二维码')
         p.font-md.mt5 没有上课码？
             br
             | 微信扫一扫立即获取
+
+// 关注公众号
+.mask-wrap.tc
+    a.btn-close(href='javascript:;')
+        i.icon.icon-close
+    .mask-content.mt10
+        .mask-content-top
+            .dividing-line.al0
+            .dividing-line.ar0
+            i.icon.right-erweima
+        img(src='#{current.base}img/erweima.jpg',alt='二维码')
+        p.font-md.mt5 微信扫描二维码
+            br
+            | 关注公众号
+
+// 预约成功
+.mask-wrap.tc
+    a.btn-close(href='javascript:;')
+        i.icon.icon-close
+    .mask-content
+        .mask-content-top
+            .dividing-line.al0
+            .dividing-line.ar0
+            span.mask-title 预约成功
+        i.icon.icon-tick.mt20.mb10
+        p.font-md.mt5 上课前30分钟会收到我们的通知消息
+            br
+            | 请留意不要错过时间
+
+// 课程支付
+.mask-wrap.tc
+    a.btn-close(href='javascript:;')
+        i.icon.icon-close
+    .mask-content
+        .mask-content-top
+            .dividing-line.al0
+            .dividing-line.ar0
+            span.mask-title 课程支付
+        .price-tips.font-md
+            span 你购买的课程
+            .font-orange “中考数学真题之压轴突破”
+            span.font-orange.font-xxxl &yen; 880
+        img.mt10(src='#{current.base}img/erweima.jpg',alt='二维码')
+        p.font-md.mt5 微信扫描上方二维码进行支付

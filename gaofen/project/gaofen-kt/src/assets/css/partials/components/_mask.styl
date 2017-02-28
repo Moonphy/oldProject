@@ -4,7 +4,7 @@
   fixed left top
   size 100%
   background rgba(0, 0, 0, .6)
-  z-index z-index-mask
+  z-index 99
 
 .mask-wrap
   fixed left 50% top 50%
@@ -14,7 +14,7 @@
   border-radius 6px 0 6px 6px
   border 6px solid rgba(0, 0, 0, .4)
   transform translate(-50%,-50%)
-  z-index z-index-mask
+  z-index 109
   color #939393
   font-size 14px
 
@@ -40,9 +40,26 @@
     list-style-position inside
 .mask-footer
   text-align center
-
+.mask-content-top
+  position relative
+  height 30px
+  margin-top 10px
+  .mask-title
+    display inline-block
+    color #48bccb
+    font-size 22px
+    padding 0 10px
+    background-color #ffffff
+    absolute left 50% top
+    transform translate(-50%,-50%)
 .dividing-line
   width 105px
   height 2px
   border-top 1px solid #e6e6e6
   border-bottom 1px solid #e6e6e6
+  position absolute
+  top 0
+.al0
+  left 0
+.ar0
+  right 0

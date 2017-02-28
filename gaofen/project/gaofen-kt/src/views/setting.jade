@@ -1,0 +1,44 @@
+---
+page_title: "新设置页"
+body_class: ["setting-page"]
+---
+extends _layout
+block content
+    .container
+        // 个人设置
+        .mt30
+            .setting-container
+                a.btn-setting(href='javascript:;',title='账号设置')
+                    i.icon.icon-setting-b
+                    span 账号设置
+                form.tc.mt20
+                    .gf-form
+                        .set-title
+                            i.icon.icon-set-person
+                            span 基本资料
+                        .upload-avatar.tl.pl30
+                            span 个人头像：
+                            .avatar-wrap
+                                .ui-avatar
+                                    // 头像位置
+                                a.tc(href='javascript:;') 修改头像
+                        .gf-form-row.tr
+                            label 用户昵称：
+                            input(type='text')
+
+                        .set-title
+                            i.icon.icon-set-school
+                            span 就读学校
+                        .gf-form-row.tr
+                            label 所在学校：
+                            input(type='text')
+                        .gf-form-row.tr
+                            label 就读年级：
+                            input(type='text')
+
+                    br
+                    input.btn.btn-submit.mt30(type='button', value='确定')
+            .setting-bind
+        +loader-box('fixed')
+block javascript
+    script.

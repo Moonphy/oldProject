@@ -105,5 +105,5 @@ block javascript
         })
         $('.btn-close').click(function () {
             $('.ui-mask').addClass('hidden');
-            $('.mask-wrap').addClass('hidden');
+            $(this).parent().addClass('hidden');
         })
