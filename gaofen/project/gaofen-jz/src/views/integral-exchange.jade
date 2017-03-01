@@ -1,0 +1,79 @@
+---
+page_title: "积分兑换列表页"
+body_class: ["integral-page"]
+is_new: true
+---
+extends _layout
+block content
+    .container.pb30
+        .row.clearfix
+            .span820.fl
+                .mt40.mb5.clearfix
+                    i.icon.title-integral-exchange
+                    a.fr.btn.btn-blue-reverse.btn-sm(href='integral-rule.html')
+                        i.icon.icon-exchange
+                        span.font-md.ml5 兑换规则
+                .gift-list-wrap.clearfix
+                    - for(var i=0;i<2;i++)
+                        .gift-block
+                            .img-wrap
+                                img(src='#{current.base}img/gift/integral-img-1.jpg',alt='礼品1')
+                            h4.font-lg 7天优酷会员7天优酷会员7天优酷会员
+                            p.font-grey 市场售价：300元
+                            .font-grey
+                                span.font-orange.mr5 100
+                                | 积分
+
+                            a.btn.btn-orange-reverse(href='') 申请兑换
+                        .gift-block
+                            .img-wrap
+                                img(src='#{current.base}img/gift/integral-img-2.jpg',alt='礼品1')
+                            h4 7天优酷会员
+                            p.font-grey 市场售价：300元
+                            .font-grey
+                                span.font-orange.mr5 100
+                                | 积分
+
+                            a.btn.btn-orange-reverse(href='') 申请兑换
+                        .gift-block
+                            .img-wrap
+                                img(src='#{current.base}img/gift/integral-img-3.jpg',alt='礼品1')
+                            h4 7天优酷会员
+                            p.font-grey 市场售价：300元
+                            .font-grey
+                                span.font-orange.mr5 100
+                                | 积分
+
+                            a.btn.btn-orange-reverse(href='') 申请兑换
+
+            .span260.fr
+                .right-thumbnail.exchange-thumbnail
+                    .exchange-thumbnail-user
+                        .font-grey.font-md 现有积分
+                        .font-orange 588
+                        .font-grey.mb20 (含
+                            strong.ml5.mr5 50
+                            | 分在2个月后过期)
+                        a.btn.btn-blue(href='home.html') 个人中心
+                        a.btn.btn-orange(href='integral-earn.html') 赚取积分
+                    dl
+                        dt 最近兑换：
+                        - for(var i=0;i<3;i++)
+                            dd
+                                .font-black
+                                    span.font-blue.mr5 猫猫么么哒
+                                    | 成功兑换
+                                    span.ml5 只能快速充电电源
+                                .font-grey 02-27
+                                    span.ml10 09:50
+                        dd
+                            .font-black
+                                span.font-blue.mr5 猫猫
+                                | 成功兑换
+                                span.ml5 只能快速充电电源
+                            .font-grey 02-27
+                                span.ml10 09:50
+
+
+block javascript
+    script.

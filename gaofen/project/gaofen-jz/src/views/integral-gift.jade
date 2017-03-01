@@ -1,0 +1,47 @@
+---
+page_title: "积分礼品页"
+body_class: ["integral-page"]
+is_new: true
+---
+extends _layout
+
+block content
+    .container.pb30
+        ul.ui-crumbs.clearfix
+            li: a(href='',title='') 主页
+            li &gt;
+            li: a.font-blue-dark(href='',title='') 栏目
+        .row.clearfix
+            .span820.fl
+                .integral-gift-wrap
+                    .integral-gift-img
+                        img(src='#{current.base}img/gift/integral-img-1.jpg',alt='礼品1')
+                    .integral-gift-info
+                        h3= article.title
+                        div.font-grey
+                            span 已兑换：306个
+                            span 剩余：66个
+                        .font-grey
+                            | 需要积分：
+                            span.font-xxl.font-orange 1500
+                            | 市场售价
+                            del 800元
+                        a.btn.btn-orange(href='') 立即兑换
+            .span260.fr
+                .right-thumbnail
+                    i.icon.title-integral-q.mt15.ml15
+                    ul
+                        li
+                            a(href='')= article.title
+                .right-thumbnail
+                    i.icon.title-integral-gift-o.mt15.ml15
+                    ul.thumbnail-list
+                        - for(var i=0;i<4;i++)
+                            li.thumbnail-item
+                                a.clearfix(href='article.html',title='',target='_blank')
+                                    .thumbnail-item-img.fl
+                                        img(src='#{current.base}img/avatar.jpg',alt='礼品1')
+                                    .thumbnail-item-title= article.title
+
+block javascript
+    script.

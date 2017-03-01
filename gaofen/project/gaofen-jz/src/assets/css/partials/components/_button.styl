@@ -3,12 +3,9 @@
 
 .btn
   display: inline-block;
-  size 298px 48px
   border: 1px solid transparent
   border-radius 4px
   outline none
-  font-size 18px
-  line-height 48px
   text-align center
   white-space: nowrap
   vertical-align: middle
@@ -24,17 +21,12 @@
   /*&:visited
     color #ffffff*/
 
-.btn-sm
-  width 60px!important
-  height 30px
-  line-height 30px
-  font-size 14px
-.btn-block
-  display block
-  width 100%
+
 
 .btn-blue
   width 498px
+  line-height 48px
+  font-size 18px
   background #67c4d4
   color #ffffff
   &:visited
@@ -42,12 +34,21 @@
   &:hover
     text-decoration underline
 .btn-blue-reverse
+  size 298px 48px
+  line-height 48px
+  font-size 18px
   background-color #ffffff
   color #67c4d4
   border 1px solid #67c4d4
   &:visited
     color #67c4d4
 
+.btn-orange-reverse
+  border 1px solid #f59362
+  color #f59362
+  padding 2px 20px
+  &:visited
+    color #f59362
 .btn-wechat
   background #12bb12
   &:hover
@@ -64,3 +65,13 @@
   background #f59362
   &:hover
     background darken(@background, 16%)
+
+
+.btn-sm
+  width auto!important
+  height auto
+  line-height 1.5
+  padding 0 10px
+.btn-block
+  display block
+  width 100%
