@@ -18,5 +18,7 @@ $(function () {
             "loop": false
         });
     }
-
+    $('.btn-sign').click(function () {
+        var signHtml = ''
+    })
 });

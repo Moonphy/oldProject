@@ -18,30 +18,46 @@ block content
                         img(src='#{current.base}img/gift/integral-img-1.jpg',alt='礼品1')
                     .integral-gift-info
                         h3= article.title
-                        div.font-grey
+                        .font-grey.mb20
                             span 已兑换：306个
-                            span 剩余：66个
+                            span.ml20 剩余：66个
                         .font-grey
                             | 需要积分：
-                            span.font-xxl.font-orange 1500
+                            span.font-price.font-orange 1500
                             | 市场售价
                             del 800元
-                        a.btn.btn-orange(href='') 立即兑换
+                        a.btn.btn-orange.mt30(href='') 立即兑换
+
+                .article-title.mt30.pb10
+                    i.icon.title-integral-gift-detail
+                .article-content.tc.mt20.article-content-gift
+                    p 跟着图画我们看到多正经历了好多新鲜有趣的事情，也跟着多正一起伤心难过。虽然多正的记者生活有着酸甜苦辣，但他无论如何也要把真实的一面展现在读者面前。书中的画面十分有张力，多正不是在采访的路上就是在做采访和整理稿子。每个镜头的大小、布局极具匠心，把人物性格表现得十分鲜明粗线条和细节的处理也张弛有度、层次分明。
+                    p 通过图画，展现在我们面前的是一位有血有肉、勤恳敬业又满怀激情的新闻记者。
+                    img(src='#{current.base}img/gift/integral-img-1.jpg')
+                    h3 高品质做工质量上乘
             .span260.fr
-                .right-thumbnail
+                .right-thumbnail.integral-q-thumbnail
                     i.icon.title-integral-q.mt15.ml15
                     ul
-                        li
-                            a(href='')= article.title
-                .right-thumbnail
+                        li: a(href='integral-rule.html') 什么是积分？
+                        li: a(href='integral-rule.html') 如何查看自己的积分？
+                        li: a(href='integral-rule.html') 什么人可以兑换礼品？
+                        li: a(href='integral-rule.html') 满足什么条件可以兑换礼品？
+                        li: a(href='integral-rule.html') 在什么情况下兑换被拒绝？
+                        li: a(href='integral-rule.html') 如何领取我的礼品？
+                .right-thumbnail.integral-gift-thumbnail
                     i.icon.title-integral-gift-o.mt15.ml15
                     ul.thumbnail-list
                         - for(var i=0;i<4;i++)
                             li.thumbnail-item
                                 a.clearfix(href='article.html',title='',target='_blank')
                                     .thumbnail-item-img.fl
-                                        img(src='#{current.base}img/avatar.jpg',alt='礼品1')
-                                    .thumbnail-item-title= article.title
+                                        img(src='#{current.base}img/gift/integral-img-'+ (i + 1) +'.jpg',alt='礼品1')
+                                    .thumbnail-item-right
+                                        .font-black 手机特效镜头套装组合
+                                        .font-grey
+                                            span.font-orange.mr5 1500
+                                            | 积分
 
 block javascript
     script.

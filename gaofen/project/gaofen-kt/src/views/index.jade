@@ -50,5 +50,14 @@ block javascript
         $('.banner-container li').hover(function () {
             var idx = $(this).index();
 
-            $('.unslider-nav li').eq(idx).trigger('click')
+            $('.unslider-nav li').eq(idx).trigger('click');
         })
+
+        // 轮播当前页码
+        setInterval(function () {
+            var sliderIdx = $('.unslider-active').index()/2;
+
+            $('.banner-container li a').removeClass('hover')
+            $('.banner-container li').eq(sliderIdx).find('a').addClass('hover');
+        }, 500)
+

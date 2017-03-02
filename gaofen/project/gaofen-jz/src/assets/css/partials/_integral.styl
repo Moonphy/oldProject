@@ -62,8 +62,120 @@
       border-bottom 1px solid #e6e6e6
       padding 10px 0
 
-
+// 积分规则
 .integral-rule-content
+  color #333333
   ul
     li
-      list-style square outside
+      list-style square inside
+      font-size 24px
+      margin 30px 0
+      p
+        font-size 18px
+        margin 10px 0 10px 20px
+
+    ol
+      margin-left 20px
+      margin-top -10px
+      li
+        list-style decimal inside
+        font-size 18px
+
+// 积分赚取
+.integral-earn-block
+  width 450px
+  float left
+  font-size 14px
+  margin 40px 20px 0 60px
+  .icon
+    size 140px 105px
+    float left
+  .integral-task-container
+    margin-left 155px
+  .task-title
+    font-size 16px
+    color #333333
+  .task-content
+    height 42px
+    margin 8px 0
+    overflow hidden
+  .btn
+    size 73px 28px
+    line-height 28px
+    margin-top -4px
+
+// 积分礼品详情页
+.integral-gift-wrap
+  .integral-gift-img
+    width 350px
+    height 280px
+    float left
+    text-align center
+    position relative
+    img
+      absolute left 50% top 50%
+      transform translate(-50%,-50%)
+  .integral-gift-info
+    margin-left 370px
+    height 280px
+    font-size 14px
+    h3
+      margin-top 0
+      margin-bottom 10px
+      font-size 24px
+      font-weight 500
+      color #333333
+    .font-price
+      font-size 46px
+      margin-right 30px
+    .btn-orange
+      size 218px 56px
+      line-height 56px
+      font-size 22px
+.article-content-gift
+  font-size 18px
+  text-align center
+  p
+    text-indent 34px
+  h3
+  h4
+  h2
+    font-weight 500
+    text-align left
+  h2
+    font-size 36px
+  h3
+    font-size 24px
+  h4
+    font-size 22px
+.integral-q-thumbnail
+  margin-top 0
+  padding-top 5px
+  padding-bottom 20px
+  li
+    list-style square inside
+    margin 13px 19px
+    font-size 14px
+    color #61c0d0
+    a
+      color #61c0d0
+      &:hover
+        text-decoration underline
+.integral-gift-thumbnail
+  .thumbnail-list
+    padding-right 20px
+  .thumbnail-item
+    border-bottom-style dashed
+    padding 20px 0
+    a
+      line-height 1.4
+  .thumbnail-item-img
+    size 100px 60px
+    text-align center
+    border-radius 0
+    img
+      width auto
+      max-height 100%
+
+  .thumbnail-item-right
+    margin-left 110px
