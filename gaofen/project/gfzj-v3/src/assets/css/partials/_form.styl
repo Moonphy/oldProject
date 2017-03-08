@@ -1,0 +1,70 @@
+// 简介：表单页样式
+//==============================
+
+
+.row-flex
+  display flex
+  justify-content space-between
+  .form-row
+    &:first-child
+      padding-right 1rem
+    &:last-child
+      padding-left 1rem
+
+.form-row
+  width 100%
+  padding 0.05rem .2rem
+  box-sizing border-box
+  color black
+  text-align left
+  textarea
+  input
+  .input-row
+    width 100%
+    height .4rem
+    padding 0.05rem .1rem
+    font-size .14rem
+    box-sizing border-box
+    border .01rem solid #dddddd
+    background-color white
+    border-radius 0.04rem
+  textarea
+    height auto
+    resize none
+  .input-row
+    position relative
+    height auto
+    padding .1rem .2rem
+    .btn
+      position relative
+      input[type="file"]
+        size 100%
+        absolute left top
+        z-index 9
+        opacity 0
+  .ui-avatar
+    size .7rem
+    margin .05rem
+  .ui-avatar-c
+    padding .06rem
+    background url("../img/previewAvatar-c.png") 0 0
+    background-size cover
+    img
+      border-radius 100%
+  .pay-set
+    width 46%
+    margin .05rem
+    height .4rem
+    line-height .3rem
+    padding 0.05rem .1rem
+    font-size .14rem
+    border .01rem solid #fd8f7b
+    border-radius .04rem
+    color #fd704c
+    text-align center
+    &.selected
+      background-color #fd704c
+      color #ffffff
+
+.ml-20
+  margin-left 10%

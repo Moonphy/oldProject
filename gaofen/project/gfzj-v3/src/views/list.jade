@@ -1,0 +1,74 @@
+---
+page_title: "发布方法列表页"
+body_class: ["white-page"]
+---
+extends _layout
+block content
+    .bg-white
+        .list-top
+            img(src='#{current.base}img/list-title.png',alt=)
+            a.btn-skip.hidden 跳过推荐
+        ul.ui-list
+            li
+                a.list-item(href='',title='')
+
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-1
+                        | 父母成长
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+                    i.icon.icon-right
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-2
+                        | 家庭关系
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-3
+                        | 教育方式
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-4
+                        | 理解孩子
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-5
+                        | 家庭学习
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-6
+                        | 品质塑造
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-7
+                        | 生活指导
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+            li
+                a.list-item(href='',title='')
+                    i.icon.icon-right
+                    span.ui-label.label-catalog
+                        i.icon.icon-catalog-8
+                        | 社会关系
+                    p.text-overflow 为什么孩子不爱读书，家长怎么办？为什么孩子不爱读书，家长怎么办？
+
+
+        .list-top.pb40
+            input(type='button',value='换一批').btn.btn-primary.btn-block
+    // 导航条
+    include partials/_nav

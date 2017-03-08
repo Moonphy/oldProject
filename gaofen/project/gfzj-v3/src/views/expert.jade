@@ -1,0 +1,65 @@
+---
+page_title: "问专家页"
+body_class: ["expert-page"]
+---
+extends _layout
+
+block content
+    .ui-tab
+        .tab.active
+            a(href='javascript:;') 家庭氛围
+        .tab
+            a(href='javascript:;') 行为习惯
+        .tab
+            a(href='javascript:;') 品格培养
+        .tab
+            a(href='javascript:;') 沟通表达
+        .tab
+            a(href='javascript:;') 学习能力
+
+    .tab-container
+        .filter-sort
+            a.filter-item(href='javascript:;')
+                i.icon.icon-price-down
+                span 价格
+            a.filter-item(href='javascript:;')
+                i.icon.icon-authentication
+                span 专家认证
+            a.filter-item(href='javascript:;')
+                i.icon.icon-st-orange
+                span 已收听
+
+
+        // 专家列表
+        .expert-list
+            +expert-item({
+                listen: true,
+                img: '../img/demo-img/method-img-1.jpg'
+            })
+            +expert-item({
+                listen: false,
+                img: '../img/demo-img/method-img-2.jpg'
+            })
+            +expert-item({
+                listen: false,
+                img: '../img/demo-img/method-img-3.jpg'
+            })
+            +expert-item({
+                listen: false,
+                img: '../img/demo-img/method-img-2.jpg'
+            })
+
+
+
+    // 导航条
+    include partials/_nav
+block javascript
+    script(src='#{current.base}js/zepto.min.js')
+    script(src='#{current.base}js/audioPlayer.js')
+    script(src='#{current.base}js/index.js')
+    script.
+        $('.tab').on('tap', function () {
+            $(this).addClass('active').siblings('.active').removeClass('active');
+            var idx = $(this).index();
+            $('.tab-container').addClass('hidden').eq(idx).removeClass('hidden')
+        })

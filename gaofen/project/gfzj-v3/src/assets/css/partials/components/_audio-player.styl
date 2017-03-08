@@ -1,0 +1,171 @@
+// 简介：播放器样式
+//==============================
+
+// 音频主体
+.audio-wrap
+  background-color #ffffff
+  position relative
+  margin-top .1rem
+  padding .1rem
+  clearfix()
+  .label-hot
+    absolute right top .05rem
+
+.audition-time
+  font-size .12rem
+  margin-top .2rem
+  width .6rem
+
+.audio-container
+  height .4rem
+  margin .1rem .7rem
+  border-radius .2rem
+  position relative
+
+.btn-play
+  width .24rem
+  height .24rem
+  background: url("../img/icon-play.png") no-repeat center center;
+  background-size: 100%;
+
+.stop
+  background: url("../img/icon-play.png") no-repeat center center;
+  background-size: 100%;
+
+// 进度条
+.audio-time-bar
+  height: .01rem;
+  background-color: #bfbfbf;
+  margin-left .1rem
+  margin-right .1rem
+  position: relative;
+  top .19rem
+  z-index: 2;
+
+.progress-bar{
+  height: .01rem;
+  background-color: #bfbfbf;
+  absolute left .1rem top
+  z-index: 4;
+  border-radius 0 .04rem .04rem 0
+}
+#bar-point
+  display block
+  padding .02rem
+  background-color: #fff;
+  border .01rem solid #14aeec
+  border-radius: 50%;
+  absolute right top -.06rem
+  z-index 3
+  span
+    display block
+    width: .07rem;
+    height: .07rem;
+    background-color: #fff;
+    border .01rem solid #14aeec
+    border-radius: 50%;
+
+#load-present-bar{
+  width: .6rem;
+  height: .01rem;
+  background-color: #bfbfbf;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  border-radius .04rem
+}
+// 偷听
+.audio-playable
+.expert-audio
+  .audio-container
+    padding-left .3rem
+  .audio-time-bar
+    margin-right .15rem
+  .progress-bar
+  #load-present-bar
+    background-color: #fff;
+  .btn-play
+    position absolute
+    left .1rem
+    top .08rem
+
+.audio-playable
+  .audio-container
+    background-color #14aeec
+
+.expert-audio
+  border-bottom .01rem solid #e6e6e6
+  .audio-container
+    background-color #fb70a4
+    .ui-tt
+      margin-left .2rem
+      color #fff
+      font-size .12rem
+      line-height .4rem
+  .audio-title
+    font-size .14rem
+
+
+// 专家主页
+.expert-detail
+  .audio-container
+    margin .1rem 0
+    padding-left 0
+    height auto
+  #bar-point
+    width .13rem
+    height .13rem
+    border .01rem solid #ec7528
+    span
+      display none
+  .time
+    clearfix()
+    color #bfbfbf
+    margin .3rem .1rem 0 .1rem
+    font-size .12rem
+  #playTime
+    float left
+  #totalTime
+    float right
+
+  .btn-play
+    display inline-block
+    width .58rem
+    height .58rem
+    background: url("../img/icon-play-orange.png") no-repeat center center;
+    background-size: 100%;
+    vertical-align middle
+    margin 0 .27rem
+  .stop
+    background: url("../img/icon-play-orange.png") no-repeat center center;
+    background-size: 100%;
+
+  .btn-prev
+  .btn-next
+    display inline-block
+    vertical-align middle
+  .btn-next
+    .icon-prev
+      transform rotate(180deg)
+
+  .play-bar
+    position relative
+    .btn-good
+    .btn-more
+      width .56rem
+      height .24rem
+      border .01rem solid #bcbcbc
+      border-radius .12rem
+      padding 0
+      margin-top .15rem
+      i
+      span
+        vertical-align middle
+        line-height .24rem
+        font-size .12rem
+        margin 0 .02rem
+    .btn-good
+      float left
+    .btn-more
+      float right

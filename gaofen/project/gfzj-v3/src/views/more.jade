@@ -1,0 +1,46 @@
+---
+page_title: "更多页"
+body_class: ["more-page"]
+---
+
+extends _layout
+
+block content
+    header.header
+        h1 专家
+
+
+    .audio-list.mt0
+        .list-title.pt10
+            span.font-pink.ml20 最近活跃
+        - for(var i=0;i<2;i++)
+            a.item(href="index.html",title='史秀荣')
+                .ui-avatar.fl
+                    img(src='#{current.base}img/author-img.png',alt=)
+                .item-content
+                    .item-title
+                        strong.font-pink 史秀荣
+                        .fr.font-grey-lither
+                            span.font-pink 1589关注
+                            |  |
+                            span.font-pink  28个方法
+                    .font-grey= article.summary
+
+    .audio-list
+        .list-title.pt10
+            span.font-pink.ml20 热门推荐
+        - for(var i=0;i<3;i++)
+            a.item(href="index.html",title='史秀荣')
+                .ui-avatar.fl
+                    img(src='#{current.base}img/author-img.png',alt=)
+                .item-content
+                    .item-title
+                        strong.font-pink 史秀荣
+                        .fr.font-grey-lither
+                            span.font-pink 1589关注
+                            |  |
+                            span.font-pink  28个方法
+                    .font-grey= article.summary
+
+    // 导航条
+    include partials/_nav

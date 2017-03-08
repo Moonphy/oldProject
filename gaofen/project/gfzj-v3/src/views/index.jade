@@ -1,0 +1,73 @@
+---
+page_title: "爸爸有道首页"
+body_class: ["index-page"]
+---
+extends _layout
+block content
+
+    form.home-avatar
+        input(type='text',placeholder='大家都在搜：家庭氛围、行为习惯')
+        input.btn-search(type='button')
+    .ui-tab
+        .tab.active
+            a(href='javascript:;') 家庭氛围
+        .tab
+            a(href='javascript:;') 行为习惯
+        .tab
+            a(href='javascript:;') 品格培养
+        .tab
+            a(href='javascript:;') 沟通表达
+        .tab
+            a(href='javascript:;') 学习能力
+
+
+    .tab-container
+        .audio-wrap.audio-playable
+            .ui-avatar.fl
+                img(src='#{current.base}img/demo-img/author-img.png',alt=)
+            .audition-time.fr 试听三分钟
+            .label-hot
+            .audio-container
+                audio#audio-player(src='http://file.gaofen.com/huodong/voice/11/8840315_dd6371ae3d2e87609d72de0032106909.mp3')
+                .btn-play.stop#btn-play(data-state='pause')
+                .audio-time-bar#audio-time-bar
+                    .progress-bar#progress-bar
+                        span#bar-point
+                            span
+                    #load-present-bar
+
+            .audio-title-wrap
+                .audio-title 第一课： 阅读从出生第一天开始
+                .font-grey.font-sm.mt5
+                    span 主持人：张一山
+                    .fr
+                        a(href='javascript:;')
+                            i.icon.icon-good
+                            span 9
+                        a.ml5(href='javascript:;')
+                            i.icon.icon-share
+                            span 2
+
+
+        p.font-grey.font-sm.ml10 推荐方法
+        // 专家音频列表
+        .audio-list
+            +audio-list({title: '第一课：阅读从出生第一天开始阅读从出生第一天开始',src:'http://file.gaofen.com/huodong/voice/11/8840315_dd6371ae3d2e87609d72de0032106909.mp3',info: '阅读从出生第一天开始阅读从出生第一天开始阅读从出生第一天开始',img:'../img/demo-img/method-img-1.jpg', href: 'index.html#1'})
+            +audio-list({title: '第一课：阅读从出生第一天开始',src:'http://file.gaofen.com/huodong/voice/11/8840315_dd6371ae3d2e87609d72de0032106909.mp3',info: '阅读从出生第一天开始阅读从出生第一天开始阅读从出生第一天开始',img:'../img/demo-img/method-img-2.jpg', href: 'index.html#1'})
+            +audio-list({title: '第一课：阅读从出生第一天开始',src:'http://file.gaofen.com/huodong/voice/11/8840315_dd6371ae3d2e87609d72de0032106909.mp3',info: '阅读从出生第一天开始阅读从出生第一天开始阅读从出生第一天开始',img:'../img/demo-img/method-img-3.jpg', href: 'index.html#1'})
+
+
+    // 导航条
+    include partials/_nav
+
+block javascript
+    script(src='#{current.base}js/zepto.min.js')
+    script(src='#{current.base}js/audioPlayer.js')
+    script(src='#{current.base}js/index.js')
+    script.
+        $('.tab').on('tap', function () {
+            $(this).addClass('active').siblings('.active').removeClass('active');
+            var idx = $(this).index();
+
+            $('.tab-container').addClass('hidden').eq(idx).removeClass('hidden')
+        })

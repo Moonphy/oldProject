@@ -1,0 +1,209 @@
+
+//- -----------------------------
+//- 元件：按钮
+//- -----------------------------
+mixin button(params)
+    - var params = params || {}
+    - var button_classes = []
+    if params.option
+        - button_classes.push("btn-"+params.option)
+    if params.block
+        - button_classes.push("btn-block")
+    if params.disabled
+        - button_classes.push("disabled")
+    if params.ex_class
+        - button_classes.push(params.ex_class)
+    if params.element == "button"
+        button.btn(class=button_classes)= params.text
+    else
+        a.btn(href="#", class=button_classes)= params.text
+
+//- -----------------------------
+//- 元件：占位图片
+//- -----------------------------
+mixin dummy(width, height)
+    - var img_width = width
+    - var img_height = height || width
+    - var img_name = ''
+
+    - if( typeof width == "number")
+        - img_name = img_width + 'x' + img_height + '.png'
+    - else
+        - img_name = img_width
+    img(src="#{current.base}img/dummies/#{img_name}", alt="")
+
+//- -----------------------------
+//- 元件：头像
+//- -----------------------------
+mixin avatar(width,height)
+    - var w = width || 48
+    - var h = height || 48
+    .ui-avatar
+        +dummy("avatar_" + w + "x" + h + ".png")
+
+//-----------------------------------------------------------
+//- 元件: 选项卡
+//-----------------------------------------------------------
+mixin tab(tab_items)
+    .ui-tab
+        each item in tab_items
+            if item.active
+                .tab.active
+                    span= item.label
+                    if item.hot
+                        span= '(' + item.hot + ')'
+            else
+                .tab
+                    span= item.label
+                    if item.new
+                        sup.dot
+                    if item.hot
+                        span= '(' + item.hot + ')'
+
+
+//-----------------------------------------------------------
+//- 元件: 专家音频列表
+//-----------------------------------------------------------
+mixin audio-list(params)
+    - var params = params || {}
+
+    a.item(href="#{params.href ? params.href : 'javascript: void(0);'}",title= params.title)
+        input.audio-src(type='hidden',value= params.src,data-info= params.info)
+        .ui-avatar.fl
+            img(src= params.img,alt=)
+            //-if params.state
+                .ui-state
+                    span.line-1
+                    span.line-2
+                    span.line-3
+
+            //-if params.label
+                .ui-label.label-black
+                    span 88
+                    | 个提问
+        .item-content
+            .item-title
+                strong= params.title
+            .font-grey.content-bottom
+                | 主持人：史秀容
+                .fr
+                    .show-inline
+                        i.icon.icon-good
+                        span.font-black 9
+                    .show-inline.ml5
+                        i.icon.icon-share
+                        span.font-black 2
+
+//-----------------------------------------------------------
+//- 元件: 提问
+//-----------------------------------------------------------
+mixin question(params)
+    - var params = params || {}
+
+    .q-item
+        .ui-avatar.fl
+            img(src= params.img,alt=)
+        .item-content
+            strong.font-pink= params.title
+            p= article.summary
+            if params.imgZj
+                .q-row
+                    .ui-avatar.fl
+                        img(src= params.imgZj,alt=)
+                    .q-audio-wrap
+                        .triangle-left
+                        //播放时加q-play，不播放去掉q-play
+                        .q-audio.q-play
+                            audio.q-player(src='http://file.gaofen.com/huodong/voice/11/8840315_dd6371ae3d2e87609d72de0032106909.mp3')
+                            span.q-line-1
+                            span.q-line-2
+                            span.q-line-3
+                            time 58"
+                            if params.money
+                                .ui-label.ui-label-green 1元偷偷听
+
+        .font-grey.font-sm.mt10
+            if params.from
+                span 来自
+                span.font-pink= params.from
+                span 的方法提问
+                .fr 1小时前
+            if params.fromPay
+                span 来自
+                span.font-pink= params.fromPay
+                span 支付了1元向你提问
+            if params.listener
+                span 1天前
+                .fr 听过
+                    span.ml10 18
+
+//-----------------------------------------------------------
+//- 元件: 专家
+//-----------------------------------------------------------
+mixin expert-item(params)
+    - var params = params || {}
+
+    .expert-item
+        .item-top
+            a.ui-avatar.fl(href='expert-detail.html',title='张一山')
+                img(src= params.img,alt='张一山')
+            .fr.mt5
+                if params.listen == true
+                    span.btn-listened.font-xs.font-grey 已收听
+                    a.btn.btn-listen.hidden(href='javascript:;')
+                        i.icon.icon-st-blue.mr5
+                        span + 收听
+                if params.listen == false
+                    span.btn-listened.font-xs.font-grey.hidden 已收听
+                    a.btn.btn-listen(href='javascript:;')
+                        i.icon.icon-st-blue.mr5
+                        span + 收听
+            .item-content
+                .item-content-title.mt5
+                    a.expert-name(href='expert-detail.html') 张一山
+                    span.ui-label.label-blue 家庭
+                    span.icon.label-zj.ml5
+                .font-grey.font-sm.mt5
+                    span.mr5 北京大学
+                    span.mr5 心理学博士
+                    span 99人收听
+
+        .item-bottom
+            a.btn.btn-ask(href='expert-detail.html#ask-wrap') &yen;15 提问
+            .expert-info= article.summary
+
+//-----------------------------------------------------------
+//- 元件: 专家回答
+//-----------------------------------------------------------
+mixin expert-audio(params)
+    - var params = params || {}
+
+    .audio-wrap.expert-audio
+        .audio-title.mb10= article.title
+        .clearfix
+            .ui-avatar.fl
+                img(src='#{current.base}img/demo-img/method-img-1.jpg',alt=)
+            .audition-time.fr 60"
+            .audio-container
+                .btn-play.stop#btn-play(data-state='pause')
+                span.ui-tt 1元偷听
+
+        .font-grey.font-sm.mt5
+            span 1小时前
+            span.ml20 听过99
+
+
+
+
+
+
+//-----------------------------------------------------------
+//- 元件: 列表组件
+//-----------------------------------------------------------
+mixin list(params)
+    ul
+        each item in params
+            li
+                a.home-list(href='#', title="#{item.title ? item.title : ''}")
+                    span= item.title
+                    i.fr.icon.icon-right

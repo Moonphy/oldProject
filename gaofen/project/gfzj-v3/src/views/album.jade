@@ -1,0 +1,23 @@
+---
+page_title: "专辑页"
+body_class: ["album-page"]
+---
+extends _layout
+block content
+    header.header
+        h1 编辑推荐
+    .audio-list
+        - for(var i=0;i<6;i++)
+            a.item(href="album-detail.html",title='阅读从出生的第一天开始')
+                .ui-avatar.fl
+                    img(src='#{current.base}img/audio-img-1.png',alt=)
+                    .ui-label.label-pink
+                        span 8
+                        | 个方法
+                .item-content
+                    .item-title
+                        strong 阅读从出生的第一天开始
+                    .ablum-brief.font-grey= article.summary
+
+    // 导航条
+    include partials/_nav

@@ -1,0 +1,29 @@
+---
+page_title: "录制回复页"
+body_class: ["form-page"]
+---
+extends _layout
+block content
+    header.header
+        h1 问答回复
+    .form.bg-white
+        +question({title: '美美的猫爪',img:'../img/audio-current-img.jpg', fromPay: '《亲子共度怎么读》'})
+        form
+            .form-row.mt10.pb30
+                label.font-pink 录制回复
+                .input-row.tc
+                    .btn-wrap-s
+                        a.btn.btn-reset
+                        .font-grey 重置
+                    .btn-wrap
+                        a.btn.btn-start
+                            p.font-pink 点击录音
+                        .font-grey 00:00:00
+                    .btn-wrap-s
+                        a.btn.btn-upload.invisible
+                    a.btn.btn-block.btn-primary 提交回复
+                    .font-grey.font-sm.tl 该提问为公开提问，您的回复每当被偷偷听一次，您将获得
+                        span 0.4
+                        | 元
+    // 导航条
+    include partials/_nav

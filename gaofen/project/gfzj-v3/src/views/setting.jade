@@ -1,0 +1,40 @@
+---
+page_title: "消息设置页"
+body_class: ["setting-page"]
+---
+extends _layout
+block content
+    header.header
+        a.icon.icon-return(href='javascript: history.go(-1);')
+        h1 消息设置
+    div
+        div 新消息通知设置
+        ul.bg-white.pl20
+            li.list-item
+                | 收到回复
+                .filter-wrap.selected
+                    .filter-bar
+                    .filter-button
+            li.list-item
+                | 收到提问
+                .filter-wrap
+                    .filter-bar
+                    .filter-button
+            li.list-item
+                | 关注专家发布新方法
+                .filter-wrap
+                    .filter-bar
+                    .filter-button
+            li.list-item
+                | 答案被偷偷听
+                .filter-wrap
+                    .filter-bar
+                    .filter-button
+    .list-top
+        input.btn.btn-primary.btn-block(type='button',value='保存')
+block javascript
+    script(src='#{current.base}js/zepto.min.js')
+    script.
+        $(".filter-wrap").on('click', function () {
+            $(this).toggleClass('selected');
+        });

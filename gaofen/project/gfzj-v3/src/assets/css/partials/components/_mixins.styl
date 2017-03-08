@@ -1,0 +1,226 @@
+// 混入声明
+// ==================================================
+
+// 清除浮动
+// ------------------------------
+clearfix()
+  @extend $clearfix
+
+// 聚焦
+// ------------------------------
+tab-focus()
+  // 默认
+  outline thin dotted #333
+  // Webkit
+  outline 5px auto -webkit-focus-ring-color
+  outline-offset -2px
+
+// 修复 IE6/IE7 非行内元素 inline-block bug
+// ------------------------------
+inline-block()
+  display inline-block
+  if support-for-ie
+    *display inline
+    *zoom 1
+
+// 过长文字显示省略号
+// @param 容器宽度
+// ------------------------------
+text-overflow(width = 100%)
+  width width
+  overflow hidden
+  word-wrap normal
+  white-space nowrap
+  text-overflow ellipsis
+
+// 隐藏文字
+// ------------------------------
+hide-text()
+  overflow hidden
+  white-space normal
+  text-indent -9999px
+
+// 高亮链接
+// ------------------------------
+highlight-link()
+  color link-highlight-color
+
+// 去除默认列表样式
+// ------------------------------
+remove-list-style()
+  list-style none
+  margin 0
+  padding 0
+
+// 最小高度
+// ------------------------------
+min-height(height)
+  min-height height
+  height auto !important
+  height height
+
+// 设置字体大小
+rem(size)
+  font-size unit(size * 10, 'px')
+  font-size unit(size, 'rem')
+
+// 分隔线
+// ------------------------------
+split(position = bottom)
+  if position is bottom or position is top
+    img = "split_h"
+    bg-repeat = repeat-x
+  else
+    img = "split_v"
+    bg-repeat = repeat-y
+  background url("../img/" + img + ".png") bg-repeat position
+
+// 栅格系统
+// ------------------------------
+grid-core(grid-column-width, grid-gutter-width)
+  // 行
+  .row
+    clearfix()
+    margin-left grid-gutter-width * -1
+    if support-for-ie
+      _position relative
+
+  // 列
+  $span
+    float left
+    margin-left grid-gutter-width
+    if support-for-ie
+      _display inline
+
+  // 容器
+  .container
+    margin auto
+    grid-core-span(grid-columns, grid-column-width, grid-gutter-width)
+    clearfix()
+
+  grid-core-span-x(grid-columns, grid-column-width, grid-gutter-width)
+  grid-core-offset-x(grid-columns, grid-column-width, grid-gutter-width)
+
+// 生成各栅格列宽
+grid-core-span-x(grid-columns, grid-column-width, grid-gutter-width)
+  .span
+    @extend $span
+  for column in 3..grid-columns
+    .span{column}
+      @extend $span
+      grid-core-span(column, grid-column-width, grid-gutter-width)
+
+// 生成各栅格偏移
+grid-core-offset-x(grid-columns, grid-column-width, grid-gutter-width)
+  for column in 1..grid-columns
+    .offet{column}
+      grid-core-offset(column, grid-column-width, grid-gutter-width)
+
+// 生成栅格列宽
+grid-core-span(columns, grid-column-width, grid-gutter-width)
+  width grid-column-width * columns + grid-gutter-width * (columns - 1)
+
+// 生成栅格偏移
+grid-core-offset(columns, grid-column-width, grid-gutter-width)
+  margin-left grid-column-width * columns + grid-gutter-width * (columns + 1)
+
+// 小三角
+caret(color = #000, size = 10px, direction = down)
+  @extend $caret-core
+  border-width size
+
+  if direction is up
+    border-style dashed dashed solid
+    border-color transparent transparent color
+  else if direction is right
+    border-style dashed dashed dashed solid
+    border-color transparent transparent transparent color
+  else if direction is down
+    border-style solid dashed dashed
+    border-color color transparent transparent
+  else if direction is left
+    border-style dashed solid dashed dashed
+    border-color transparent color transparent transparent
+  else if direction is up-left
+    border-style solid dashed dashed solid
+    border-color color transparent transparent color
+  else if direction is up-right
+    border-style solid solid dashed dashed
+    border-color color color transparent transparent
+  else if direction is down-left
+    border-style dashed dashed solid solid
+    border-color transparent transparent color color
+  else
+    border-style dashed solid solid dashed
+    border-color transparent color color transparent
+
+// 浮层
+// ------------------------------
+
+// 基本
+modal(width = modal-width, height = modal-height)
+  absolute left top
+  width unit(width, px)
+  min-height unit(height, px)
+  background-color #FFF
+  border 1px solid #AAA
+  z-index z-index-modal
+
+// 固定定位到坐标(x, y)
+pin(x = 0, y = 0)
+  fixed left unit(x, px) top unit(y, px)
+  if support-for-ie
+    _top unquote("expression(documentElement.scrollTop + " + y + ")")
+
+// 居中
+center-modal(width = modal-width, height = modal-height)
+  fixed left 50% top 50%
+  margin unit(- height / 2, px) 0 0 unit(- width / 2, px)
+  if support-for-ie
+    _position absolute
+    _top unquote("expression(documentElement.scrollTop + documentElement.clientHeight/2)")
+
+// CSS Hack
+// ------------------------------
+ie678(value)
+  return value unquote("\9")
+
+ie8(value)
+  return value unquote("\0")
+
+ie9(value)
+  return value unquote("\9\0")
+
+// 处理png24位图片背景
+// @param 图片相对于样式表的路径，如："img/seo/logo.png"
+// @param 相对路径与css目录之间的路径片段，如："shared/"
+// ------------------------------
+pngfix(source, pattern)
+  background url(source) no-repeat
+  if support-for-ie
+    _background url('_')
+    _filter unquote("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + server + pattern + source + "', sizingMethod='crop')")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

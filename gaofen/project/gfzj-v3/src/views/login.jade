@@ -1,0 +1,21 @@
+---
+page_title: "微信二维码登录页"
+body_class: ["login-page"]
+---
+extends _layout
+
+block content
+    header.header
+        a.icon.icon-return(href='javascript: history.go(-1);')
+    .tc
+        .erweima-wrap.title-wrap.clearfix
+            img(src='#{current.base}img/title-weixin.png',alt='')
+        .erweima-wrap.mt20.mb5
+            img(src='#{current.base}img/1.png',alt='')
+        .font-white.font-xl 请使用微信扫码登录
+    .ml30.mr30.mt20
+        span.title-label 第 1 步
+        p.font-white 长按二维码，保存至个人相册；
+        span.title-label 第 2 步
+        p.font-white 打开微信扫一扫，点击相册选择二维码图片进行扫面即可。
+

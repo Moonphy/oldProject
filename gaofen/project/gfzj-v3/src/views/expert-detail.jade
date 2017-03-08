@@ -1,0 +1,116 @@
+---
+page_title: "专家主页"
+body_class: ["expert-page"]
+---
+
+extends _layout
+
+block content
+    .expert-item.expert-detail
+        .item-top
+            a.ui-avatar.fl(href='expert-detail.html',title='张一山')
+                img(src='#{current.base}img/demo-img/method-img-1.jpg',alt='张一山')
+            .fr.mt5
+                span.btn-listened.font-xs.font-grey.hidden 已收听
+                a.btn.btn-listen(href='javascript:;')
+                    i.icon.icon-st-blue.mr5
+                    span + 收听
+            .item-content
+                .item-content-title.mt5
+                    a.expert-name(href='expert-detail.html') 张一山
+                    span.ui-label.label-blue 家庭
+                    span.icon.label-zj.ml5
+                .font-grey.font-sm.mt5
+                    span.mr5 北京大学
+                    span.mr5 心理学博士
+                    span 99人收听
+        .item-bottom
+            .expert-info.ml0= article.summary
+
+    .audio-wrap.expert-detail
+        .font-orange.pl10.block-title Ta的方法
+        .audio-container
+            audio#audio-player(src='http://file.gaofen.com/huodong/voice/11/8840315_dd6371ae3d2e87609d72de0032106909.mp3')
+
+            .audio-time-bar#audio-time-bar
+                .progress-bar#progress-bar
+                    span#bar-point
+                        span
+                #load-present-bar
+            .time
+                #playTime --:--
+                #totalTime --:--
+            .play-bar.tc
+                .btn-prev
+                    i.icon.icon-prev
+                .btn-play.stop#btn-play(data-state='pause')
+                .btn-next
+                    i.icon.icon-prev
+
+                a.btn.btn-good(href='javascript:;')
+                    i.icon.icon-good
+                    span 9
+                a.btn.btn-more(href='')
+                    span 更多
+                    i.icon.icon-right
+        .audio-title-wrap
+
+            .audio-title 第一课： 阅读从出生第一天开始
+            .font-grey.font-sm.mt5= article.summary
+
+    #ask-wrap.question-wrap
+        form.clearfix
+            textarea(rows='5',placeholder='提问可选择公开或私密，公开提问的回答每被偷听1次，你分成¥0.5。')
+            input.btn.btn-ask(type='button',value='¥15 提问')
+
+            .checked-wrap.selected
+                i.icon.icon-check
+                span 公开提问
+            a.ui-warn.ml20(href='',title='提问须知')
+                i.icon.icon-warn
+                span 提问须知
+
+    // 专家回答列表
+    .expert-list.bg-white
+        .pl10.pt10.pr10.font-orange 回答99
+            span.ml10 听过999
+            a.fr.font-orange(href='') 时间
+                i.icon.icon-price-down
+        +expert-audio()
+        +expert-audio()
+        +expert-audio()
+        .tc
+            a.btn-more(href='')
+                span.mr5 点击显示更多
+                i.icon.icon-up
+
+    .method-list.bg-white.mt10
+        .pl10.pt10.font-orange 相关方法
+        .flex
+            a(href='',title='')
+                .img-wrap
+                    img(src='#{current.base}img/demo-img/method-img-1.jpg')
+                .font-xs 孩子做事磨蹭，缺乏时间观念怎么办？
+            a(href='',title='')
+                .img-wrap
+                    img(src='#{current.base}img/demo-img/method-img-2.jpg')
+                .font-xs 孩子做事磨蹭，缺乏时间观念怎么办？
+            a(href='',title='')
+                .img-wrap
+                    img(src='#{current.base}img/demo-img/method-img-3.jpg')
+                .font-xs 孩子做事磨蹭，缺乏时间观念怎么办？
+        .tc.pb20
+            a.btn-more(href='')
+                span.mr5 点击查看更多
+                i.icon.icon-right
+
+    // 导航条
+    include partials/_nav
+block javascript
+    script(src='#{current.base}js/zepto.min.js')
+    script(src='#{current.base}js/audioPlayer.js')
+    script(src='#{current.base}js/index.js')
+    script.
+        $('.checked-wrap').on('tap', function () {
+            $(this).toggleClass('selected')
+        })

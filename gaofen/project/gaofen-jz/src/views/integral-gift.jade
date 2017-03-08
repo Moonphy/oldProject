@@ -58,6 +58,64 @@ block content
                                         .font-grey
                                             span.font-orange.mr5 1500
                                             | 积分
+    .ui-dialog
+        .dialog-wrap.sign-box
+            .dialog-header
+                | 积分兑换
+                a.btn-close(href='javascript:;',onclick="$(this).parents('.ui-dialog').hide()")
+                    i.icon.icon-close-g.fr.mt5
+            .dialog-content.tc
+                img(src='#{current.base}img/gift/integral-img-2.jpg',alt='礼品2')
+                h4.mt10 手机特效镜头广角微距鱼眼三合一套装自拍外置镜头智能机通用
+                p.font-black.font-lg 需要消耗
+                    span.font-orange.ml5.mr5 1500
+                    | 积分，现有
+                    span.ml5.mr5 8600
+                    | 积分
+                a.btn.btn-orange.mt20.mb30(href='javascript:;') 确认兑换
+    .ui-dialog
+        .dialog-wrap.sign-box
+            .dialog-header
+                | 收货信息
+                a.btn-close(href='javascript:;',onclick="$(this).parents('.ui-dialog').hide()")
+                    i.icon.icon-close-g.fr.mt5
+            .dialog-content.tc
+                form()
+                    .input-row
+                        label 收货人：
+                        input(type='text')
+                    .input-row
+                        label 手机号码：
+                        input(type='text')
+                    .input-row
+                        label 邮箱地址：
+                        input(type='text')
+                    .font-sm.ml20 请填写有效邮件地址，方便赠送电子版礼品
+                    .input-row
+                        label 收货地址：
+                        input(type='text')
+                    .input-row
+                        label 留言：
+                        textarea(rows='5')
+
+                    input.btn.btn-blue.mt20.mb30.ml10(type='button', value='提交订单')
+    .ui-dialog
+        .dialog-wrap.sign-box
+            .dialog-header
+                | 完成兑换
+                a.btn-close(href='javascript:;',onclick="$(this).parents('.ui-dialog').hide()")
+                    i.icon.icon-close-g.fr.mt5
+            .dialog-content.tc
+                div
+                    i.icon.icon-gift
+                    i.icon.icon-to
+                    i.icon.icon-cart
+                h4.mt10 你的兑换信息已成功提交
+                p.font-black 我们将在
+                    span.ml5.mr5 x
+                    | 个工作日内将礼品打包发货
+                a.btn.btn-blue.mt20.mb30.btn-close(href='javascript:;',onclick="$(this).parents('.ui-dialog').hide()") 知道了
+
 
 block javascript
     script.
