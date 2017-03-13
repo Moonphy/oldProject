@@ -75,12 +75,89 @@
                 $('.loader-box-fixed').fadeOut();
             }
         },
-        // 点击加载更多
+
+        // 宝库点击加载更多栏目
+        load_treasury_article: function(whole_url){
+            JZ.loading('show');
+
+            var _page = $('#btn-more').attr('data-page');
+            if(!_page){
+                _page = 1
+            }
+            if(_page == undefined){
+                $('#btn-more').attr('data-page', _page);
+            }
+
+            _get = 0;
+
+            $.post(whole_url, {'page':_page}, function(result){
+                JZ.loading('hidden');
+
+                var data = $.parseJSON(result);
+                if (data.rsm.length) {
+                    for (var i = 0; i < data.rsm.length; i++) {
+                        var opts = {
+                            article_url: G_BASE_URL + '/article/' + data.rsm[i].id,
+                            article_img: data.rsm[i].article_cover_url_big,
+                            article_title: data.rsm[i].title,
+                            article_zan: data.rsm[i].fav_num,
+                            article_comments: data.rsm[i].comments,
+                            article_time: data.rsm[i].add_date
+                        };
+                        var tmp = JZ_TEMPLATE.article_tmp(opts);
+                        $('.treasury-group').append(tmp)
+                    }
+                    $('#btn-more').attr('data-page', parseInt($('#btn-more').attr('data-page')) + 1);
+                    _get = 1;
+                } else {
+                    $('#btn-more').text('没有更多了，不要点我了~~').addClass('disabled')
+                }
+            })
+        },
+        // 点击加载更多精选
+        load_feature_article: function(){
+            JZ.loading('show');
+
+            var _page = $('#btn-more').attr('data-page');
+            if(!_page){
+                _page = 1
+            }
+            if(_page == undefined){
+                $('#btn-more').attr('data-page', _page);
+            }
+
+            _get = 0;
+
+            $.post(G_BASE_URL + '/feature_article/?page=' + _page, function(result){
+                JZ.loading('hidden');
+
+                var data = $.parseJSON(result);
+                if (data.rsm.length) {
+                    for (var i = 0; i < data.rsm.length; i++) {
+                        var opts = {
+                            article_url: G_BASE_URL + '/article/' + data.rsm[i].id,
+                            article_img: data.rsm[i].article_cover_url_big,
+                            article_title: data.rsm[i].title,
+                            article_zan: data.rsm[i].fav_num,
+                            article_comments: data.rsm[i].comments,
+                            article_time: data.rsm[i].add_date
+                        };
+                        var tmp = JZ_TEMPLATE.article_tmp(opts);
+                        $('.treasury-group').append(tmp)
+                    }
+                    $('#btn-more').attr('data-page', parseInt($('#btn-more').attr('data-page')) + 1);
+                    _get = 1;
+                } else {
+                    $('#btn-more').text('没有更多了，不要点我了~~').addClass('disabled')
+                }
+            })
+        },
+        // 点击加载更多专题
         load_special: function(selector, _type, start_page, callback){
             JZ.loading('show');
 
             if(!start_page){
-                start_page = 2
+                start_page = 1
             }
             if(selector.attr('data-page') == undefined){
                 selector.attr('data-page', start_page);
@@ -118,7 +195,7 @@
 
             var _page = $('#btn-more').attr('data-page');
             if(!_page){
-                _page = 2
+                _page = 1
             }
             if(_page == undefined){
                 $('#btn-more').attr('data-page', _page);
