@@ -265,27 +265,5 @@ $(function () {
         $('#audio-title').text(title);
         $('#audio-brief').text(info);
         getDuration();
-
-        var idx = $(this).index();
-
-        window.location.hash = idx;
     });
-
-    $('.icon-fav').click(function () {
-        $(this).toggleClass('had-fav');
-        if($(this).hasClass('had-fav')){
-            $(this).text('已关注')
-        }else{
-            $(this).text('关注')
-        }
-    });
-
-    var _hash = window.location.hash,
-        _idx = _hash.replace('#','') - 1;
-
-    if(_hash && _idx > 0){
-        $('.item').eq(_idx).trigger('click');
-    }else{
-        $('.item').eq(0).trigger('click');
-    }
 });
