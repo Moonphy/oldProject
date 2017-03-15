@@ -1,0 +1,43 @@
+#modalDataEdit.modal.modal-data.modal-data-edit.hidden
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal')
+          span(aria-hidden='true') &times;
+        h4.modal-title 修改数据
+      .modal-body
+        .entry-info-container
+          a.entry-print(href="#")
+            i.fa.fa-print
+            | 打印
+          .entry-info
+            dl
+              dt 序号：
+              dd 1
+            dl
+              dt 提交人：
+              dd 谢滔志
+              dt 提交时间：
+              dd 2015-05-22 14:20:26
+            dl
+              dt 最后修改人：
+              dd 谢滔志
+              dt 最后修改时间：
+              dd 2015-05-22 14:20:26
+            dl
+              dt 填写设备：
+              dd Macintosh
+              dt 操作系统：
+              dd OS X 10.10.3
+              dt 浏览器：
+              dd Chrome 41.0.2272.76
+              dt IP:
+              dd 59.41.36.2
+        .entry-show
+          .form-content
+            .entry
+              +fields
+          .actions
+            button.btn.btn-primary.btn-sm(type="submit") 修改
+            button.btn.btn-default.btn-sm 取消
+

@@ -1,0 +1,228 @@
+.entry
+  .form-group
+    &:last-child
+      margin-bottom 0
+
+  .field
+    position relative
+    padding 15px 0
+
+    input[type=radio]
+    input[type=checkbox]
+      margin-top 1px
+      margin-left -19px
+
+    .other-choice
+      input[type=radio]
+      input[type=checkbox]
+        margin-top 7px
+
+      .input-sm
+        display inline
+        width 180px
+        margin-left 5px
+
+    select.form-control
+      display inline
+      margin-right 10px
+      margin-bottom 5px
+
+      &:last-child
+        margin-right 0
+
+    .control-label
+      font-size 14px
+      cursor pointer
+
+      span
+        font-size 12px
+        font-weight normal
+
+    .required
+      &:after
+        content " *"
+        color red
+
+    .help-block
+      margin 0 0 5px
+      font-size 12px
+
+    .error-message
+      margin-top 5px
+      font-size 12px
+      color red
+
+      i
+        margin-right 3px
+        font-size 14px
+
+    .form-control
+      width 240px
+      max-width 100%
+
+    textarea.form-control
+      width 360px
+
+    .radio
+    .radio-inline
+    .checkbox
+    .checkbox-inline
+      font-size 12px
+
+    .radio-inline
+    .checkbox-inline
+      margin-right 30px
+      margin-left 0
+      margin-bottom 5px
+
+      &:last-child
+        margin-right 0
+
+    .input-text-inline
+      span
+      input
+        display inline-block
+        vertical-align middle
+
+      span
+        margin-right 8px
+        font-size 12px
+
+      input
+        width 210px
+        margin-right 20px
+        font-size 14px
+
+    .captcha
+      input
+        display inline-block
+        vertical-align middle
+
+      img
+        vertical-align middle
+        margin-left 10px
+
+      a
+        display inline-block
+        color #3782C4
+        font-size 12px
+        margin-left 10px
+        line-height 30px
+        vertical-align middle
+
+    .input-number
+      font-size 0
+
+      .minus
+      .form-control
+      .plus
+        display inline-block
+
+      .form-control
+        width 60px
+        text-align center
+        border-radius 0
+        margin 0 -1px
+        font-size 12px
+
+      .minus
+      .plus
+        appearance none
+        background white
+        border 1px solid #CCC
+        line-height 28px
+        width 30px
+        padding 0
+        font-size 14px
+
+      .minus
+        border-radius 3px 0 0 3px
+
+      .plus
+        border-radius 0 3px 3px 0
+
+    .input-group
+      clearfix()
+
+    .input-group-item
+      float left
+      width 200px
+      margin-bottom 5px
+      clearfix()
+
+      .label
+        float left
+        line-height 30px
+        width 38px
+        color gray-dark
+        font-size 12px
+        font-weight normal
+
+    .sort-handler
+      display none
+      absolute right 20px top 50%
+      size 40px
+      margin-top -20px
+      text-align center
+      line-height 40px
+      font-size 24px
+      color gray
+      cursor move
+
+    .actions
+      absolute right 10px bottom -12px
+      size 68px 24px
+      display none
+
+      i
+        display inline-block
+        size 24px
+        line-height 24px
+        text-align center
+        font-size 14px
+        border-radius 20px
+        background editing-background
+        transition .3s
+        margin-left 10px
+
+        &:hover
+          background darken(editing-background, 5%)
+
+      .fa-trash
+        color #D9534F
+
+      .fa-copy
+        color green
+
+    .icons
+      float left
+      size 20px
+      line-height 20px
+      text-align center
+      font-size 14px
+
+  .form-header
+    .form-control
+      font-size 16px
+
+    .field
+      padding 30px
+
+      &.editing
+        background editing-background
+        border-color editing-background
+
+      &:hover
+        border-color editing-background
+
+    .legend
+      .form-name
+        font-size 22px
+        line-height 36px
+        margin 0
+
+      .form-description
+        margin 0
+        font-size 12px
+        line-height 24px
+        color gray

@@ -1,0 +1,290 @@
+include _components
+
+.form-design
+  .form-preview
+    .entry
+      // 表单名称:正常状态
+      .form-header
+        .field
+          .legend
+            .form-name 未命名表单
+            .form-description 您可以使用该表单调查客户对服务的满意程度，从而提升服务质量。
+      // 表单名称:编辑状态
+      .form-header
+        .field.editing
+          .legend
+            .form-group.form-name
+              input.form-control(placeholder="未命名表单", type="text", value="未命名表单")
+            .form-group.form-description
+              textarea.rich-text-editor
+      // Start: 表单项
+      .fields
+        // Start: 时间
+        +field
+          .input-text-inline
+            span 开始时间
+            input.form-control.input-sm(type="text", disabled="disabled")
+            span 结束时间
+            input.form-control.input-sm(type="text", disabled="disabled")
+        // End: 时间
+
+        // Start: 单行文字
+        +field({designing:true, editing:true})
+        // End: 单行文字
+
+        // Start: 单行文字-带设定
+        +field({designing:true, required:true, locked:true, verify_tips:"请输入最少10个字符", help_message:'分隔请用"-"或空格，国际电话请加"+"'})
+        // End: 单行文字-带设定
+
+        // Start: 多行文字
+        +field({designing:true})
+          textarea.form-control(rows="3", disabled="disabled")
+        // End: 多行文字
+
+        // Start: 单项选择-纵向
+        +field({designing:true})
+          .choices
+            - for(var i=1; i<=3; i++)
+              .radio
+                label
+                  input(type="radio", disabled="disabled")
+                  | 选项
+            .radio.other-choice
+              label
+                input(type="radio", disabled="disabled")
+                | 其他
+                input.form-control.input-sm(type="text", disabled="disabled")
+        // End: 单项选择-纵向
+
+        // Start: 单项选择-横向
+        +field({designing:true})
+          .choices
+            - for(var i=1; i<=3; i++)
+              label.radio-inline
+                input(type="radio", disabled="disabled")
+                | 选项
+            label.radio-inline.other-choice
+              input(type="radio", disabled="disabled")
+              | 其他
+              input.form-control.input-sm(type="text", disabled="disabled")
+        // End: 单项选择-横向
+
+        // Start: 多项选择-纵向
+        +field({designing:true})
+          .choices
+            - for(var i=1; i<=3; i++)
+              .checkbox
+                label
+                  input(type="checkbox", disabled="disabled")
+                  | 选项
+            .checkbox.other-choice
+              label
+                input(type="checkbox", disabled="disabled")
+                | 其他
+                input.form-control.input-sm(type="text", disabled="disabled")
+        // End: 多项选择-纵向
+
+        // Start: 多项选择-横向
+        +field({designing:true})
+          .choices
+            - for(var i=1; i<=3; i++)
+              label.checkbox-inline
+                input(type="checkbox", disabled="disabled")
+                | 选项
+            label.checkbox-inline.other-choice
+              input(type="checkbox", disabled="disabled")
+              | 其他
+              input.form-control.input-sm(type="text", disabled="disabled")
+        // End: 多项选择-横向
+
+        // Start: 下拉框
+        +field({designing:true})
+          - for(var i=1; i<=2; i++)
+            select.form-control.input-sm(disabled="disabled")
+              option 请选择
+              - for(var j=1; j<=3; j++)
+                option 选项
+        // End: 下拉框
+
+        // Start: 数字
+        +field({designing:true})
+          .input-group
+            .input-group-item
+              span.label 成人
+              .input-number
+                button.minus -
+                input.form-control.input-sm(type="text", value="0", disabled="disabled")
+                button.plus +
+            .input-group-item
+              span.label 儿童
+              .input-number
+                button.minus -
+                input.form-control.input-sm(type="text", value="0", disabled="disabled")
+                button.plus +
+        // End: 数字
+
+        // Start: 验证码
+        +field({designing:true})
+          .captcha
+            input.form-control.input-sm.w80(type="text", disabled="disabled")
+            img(src="#{current.base}images/captcha.png", alt="")
+            a(href="#") 看不清，换一张
+        // End: 验证码
+      // End: 表单项
+
+    +add-field
+    +add-field(true)
+
+    +form-actions
+    +form-actions(true)
+  .sidebar
+    .edit-box(style="margin-top:395px;")
+      .edit-box-hd
+        i.fa.fa-cog
+        span.edit-box-tit 单行文字
+      .edit-box-bd
+        .fields
+          .field
+            .form-group
+              label.control-label 标题
+              .controls.has-error
+                input.form-control.input-sm(type="text", placeholder="未命名")
+                .help-block 标题不能为空
+          .field
+            .form-group
+              label.control-label 默认值
+              .controls
+                input.form-control.input-sm(type="text")
+          .field
+            .form-group
+              label.control-label 默认值
+              .controls
+                textarea.form-control(rows="3")
+          .field
+            .form-group
+              label.control-label 选项
+              .controls
+                .choices
+                  - for(var i=1; i<=3; i++)
+                    +radio-edit
+                +choices-extra-actions
+          .field
+            .form-group
+              label.control-label 选项
+              .controls
+                .choices
+                  - for(var i=1; i<=3; i++)
+                    +checkbox-edit
+                +choices-extra-actions
+          .field
+            .form-group
+              label.control-label 选项
+              .controls
+                .multiple-choices
+                  .choices
+                    - for(var i=1; i<=2; i++)
+                      +radio-edit({has_sub:true, type:"select"})
+                        .choices
+                          - for(var j=1; j<=3; j++)
+                            +radio-edit({type:"select"})
+                    +radio-edit({has_sub:true, folded:true})
+                      .choices.hidden
+                        - for(var j=1; j<=3; j++)
+                          +radio-edit
+                .extra-actions
+                  a(href="#") 全部展开
+                  a(href="#") 全部收起
+                  a(href="#") 添加新项
+                  a(href="#") 选项名额
+          .field
+            .form-group
+              label.control-label 布局
+              .controls
+                .btn-group.btn-group-sm(data-toggle="buttons")
+                  label.btn.btn-default.active
+                    input(type="radio")
+                    != " 纵向排列"
+                  label.btn.btn-default
+                    input(type="radio")
+                    != " 横向排列"
+          .field
+            .form-group
+              label.control-label 提示
+              .controls
+                textarea.rich-text-editor
+          .field
+            .form-group
+              label.control-label 校验
+              .controls
+                .checkbox
+                  label
+                    input(type="checkbox", value="")
+                    | 必须填
+                .checkbox
+                  label
+                    input(type="checkbox", value="")
+                    | 不能和已有数据重复
+                .checkbox
+                  label
+                    input(type="checkbox", value="")
+                    | 限定手机号
+                  a(href="#", target="_blank") 设定被允许的手机号
+                .checkbox
+                  label
+                    input(type="checkbox", value="")
+                    | 使用短信验证
+                  .help-block
+                    | 当前余量：0条
+                    a(href="#", target="_blank") 购买短信
+                .checkbox.has-form-control
+                  label
+                    input(type="checkbox", value="")
+                    != "最少填 "
+                    input.form-control.input-inline.input-xs.w60(type="text")
+                    != " 个字符"
+                .checkbox.has-form-control
+                  label
+                    input(type="checkbox", value="")
+                    != "最多填 "
+                    input.form-control.input-inline.input-xs.w80(type="text")
+                    != " 个字符"
+                hr
+                .checkbox
+                  label
+                    input(type="checkbox", value="")
+                    | 仅表单管理员和数据维护员可见
+    .edit-box-arrow(style="margin-top:495px;")
+      i.fa.fa-caret-left
+
+// Start: 预览
+.form-preview-fullscreen
+  nav(role="navigation").navbar.navbar-default.navbar-fixed-top
+    .page-container
+      .collapse.navbar-collapse
+        a.zoom-out(href="#")
+          i.fa.fa-compress
+        ul.nav.navbar-nav
+          li(class="#{current.source == 'form-preview-in-web'?'active':''}")
+            a(href="#") 网页模式
+          li(class="#{current.source == 'form-preview-in-mobile'?'active':''}")
+            a(href="#") 手机模式
+  .preview-content
+    .preview-in-web(class="#{current.source=='form-preview-in-web'?'':'hidden'}")
+      include ../../partials/_form
+    .preview-in-mobile(class="#{current.source=='form-preview-in-mobile'?'':'hidden'}")
+      .mobile-container
+        iframe.mobile-preview(src="../default/form-mobile.html", frameborder="0")
+
+// End: 预览
+
+block scripts
+  script(src="#{current.base}vendors/jquery/dist/jquery.js")
+  script(src="#{current.base}vendors/tinymce/tinymce.js")
+  script.
+    $(function(){
+      tinymce.init({
+        selector: '.rich-text-editor',
+        menubar: false,
+        height: 150
+      });
+    });

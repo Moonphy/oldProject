@@ -1,0 +1,34 @@
+---
+page_title: "表单-网页版"
+---
+
+include ../partials/_components
+
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title= site_name + '-' + page_title
+    meta(name="keyword", content="#{page_keyword || ''}")
+    meta(name="description", content="#{page_description || ''}")
+    link(href="#{current.base}styles/main.css", rel="stylesheet")
+    link(href="#{current.base}vendors/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css", rel="stylesheet")
+    script(src="#{current.base}vendors/jquery/dist/jquery.min.js")
+    script(src="#{current.base}vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js")
+  body(class=body_class?body_class:'')
+    .wrap
+      // Start: 表单
+      .form
+        include ../partials/_form
+      // End: 表单
+
+      // Start: 提交成功提示
+      .msg-success
+        h3 提交成功！
+        p 谢谢您的参与。
+      // End: 提交成功提示
+
+    script.
+      $('#datetimepicker').datetimepicker('show');
+

@@ -1,0 +1,27 @@
+---
+page_title: "管理后台-首页"
+---
+
+extends _layout
+
+block content
+  .container
+    .row.form-grid
+      .col-md-2
+        .create-new
+          a(href="new.html")
+            i.fa.fa-plus
+            span 创建新表单
+      - for(var i=1; i<=10; i++)
+        .col-md-2
+          .form-grid-item
+            a(href="form-dashboard.html")
+              .cover-shadows
+              .cover
+                span.title= form.title
+                span.count
+                  i.fa.fa-database
+                  | 12488
+//-
+  block scripts
+    script(src="#{current.base}scripts/examples/app.js")

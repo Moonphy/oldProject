@@ -1,0 +1,12 @@
+.form-nav
+  .share
+    span 发布表单：
+    input.form-control.input-sm(type="text", value="http://www.gaofen.com/f/IPX1nx")
+    a.open-link(href="#", target="_blank", title="直接打开")
+      i.fa.fa-share
+  .title
+    i.fa.fa-edit
+    span 客户满意度调查
+nav.sub-nav
+  each nav in sub_nav
+    a(href="form-#{nav.slug}.html", class="nav-#{nav.slug}")= nav.label

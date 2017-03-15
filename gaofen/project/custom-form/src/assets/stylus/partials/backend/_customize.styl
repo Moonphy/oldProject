@@ -1,0 +1,70 @@
+// ==================================================
+// 定制
+// ==================================================
+
+html
+  font-size 10px
+
+if responsive
+  // 响应式设置
+  @media only screen and (min-width: 320px)
+    html
+      font-size 10px
+
+  @media only screen and (min-width: 480px)
+    html
+      font-size 15px
+
+  @media only screen and (min-width: 640px)
+    html
+      font-size 20px
+
+  @media only screen and (min-width: 800px)
+    html
+      font-size 25px
+
+  @media only screen and (min-width: 960px)
+    html
+      font-size 30px
+
+  @media only screen and (min-width: 1120px)
+    html
+      font-size 35px
+
+  @media only screen and (min-width: 1280px)
+    html
+      font-size 40px
+
+body
+  margin 0
+  font-family font-stack
+  background-color #F3F3F3
+
+// 斜体
+// ------------------------------
+i
+  font-style normal
+
+// 列表
+// ------------------------------
+ul
+ol
+  padding 0
+  margin 0 0 10px 20px
+
+ul ul
+ul ol
+ol ol
+ol ul
+  margin-bottom 0
+
+li
+  line-height 1.5
+
+// 表单元素
+// ------------------------------
+
+// 移除input和textarea元素默认的聚焦样式
+input:focus
+textarea:focus
+  outline none

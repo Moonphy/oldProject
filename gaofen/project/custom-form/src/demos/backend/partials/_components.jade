@@ -1,0 +1,65 @@
+mixin add-field(show_optional_fields)
+  .add-field.guide-box(class="#{show_optional_fields?'show-optional-fields':''}")
+    .toggle
+      i.fa.fa-plus
+      span 创建新字段
+    .optional-field-types.clearfix
+      each type in form.optional_field_types
+        .field-type(class="#{type.highlight?'hl-field-type':''}")
+          i.fa(class="fa-#{type.icon}")
+          != type.label
+
+mixin form-actions(fixed)
+  .form-actions(class="#{fixed?'fixed':''}")
+    button(type="submit").btn.btn-lg.btn-success.mr30
+      i.fa.fa-check
+      != " 保存表单"
+    a(href="#").btn.btn-lg.btn-warning
+      i.fa.fa-expand
+      != " 网页/手机预览"
+
+mixin choices-actions(params)
+  - var params = params || {}
+  span.actions
+    each action in params.actions
+      - if(action.name == "delete")
+        a.text-danger(href="#", title="#{action.label}")
+          i.fa.fa-minus-circle
+      - else if (action.name == "add-sibling" || action.name == "add-sub")
+        a.text-success(href="#", title="#{action.label}")
+          i.fa.fa-plus-circle
+
+mixin choices-extra-actions
+  .extra-actions
+    a(href="#") 添加其他
+    a(href="#") 选项名额
+
+mixin radio-edit(params)
+  - var params = params || {}
+  .radio(class="#{params.folded?'fold':''}")
+    if params.has_sub
+      .toggle
+        i.fa.fa-minus-square-o
+        i.fa.fa-plus-square-o
+    label
+      input(type="radio")
+      input.form-control.input-sm(type="text", placeholder="选项")
+    if params.type == "select"
+      +choices-actions({actions:[{name:"delete", label:"删除"}, {name:"add-sub", label:"添加子项"}]})
+    else
+      +choices-actions({actions:[{name:"delete", label:"删除"}, {name:"add-sibling", label:"添加新项"}]})
+    span.sort-handler
+      i.fa.fa-bars
+    if block
+      block
+
+mixin checkbox-edit
+  .checkbox
+    label
+      input(type="checkbox")
+      input.form-control.input-sm(type="text", placeholder="选项")
+    +choices-actions({actions:[{name:"delete", label:"删除"}, {name:"add-sibling", label:"添加新项"}]})
+    span.sort-handler
+      i.fa.fa-bars
+    if block
+      block
