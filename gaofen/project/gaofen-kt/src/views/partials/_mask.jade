@@ -61,3 +61,27 @@
             span.font-orange.font-xxxl &yen; 880
         img.mt10(src='#{current.base}img/erweima.jpg',alt='二维码')
         p.font-md.mt5 微信扫描上方二维码进行支付
+
+//第一次登录成功
+// 预约成功
+.mask-wrap.tc
+    a.btn-close(href='javascript:;')
+        i.icon.icon-close
+    .mask-content
+        .mask-content-top
+            .dividing-line.al0
+            .dividing-line.ar0
+            span.mask-title 登录成功
+        i.icon.icon-tick.mt20.mb10
+        p.font-md.mt5 快速选择你的身份让我们更有效为你提供服务
+        form.mt20
+            .gf-form-row.tr
+                label 身份：
+                .input
+                    span 选择身份
+                    select
+                        option(value='家长') 家长
+                        option(value='学生') 学生
+                        option(value='亲戚') 亲戚
+                    i.icon.icon-down-black
+            input(type='button',value='提交').btn.btn-submit.btn-block.mt5

@@ -79,7 +79,7 @@ block content
                                     span.fl 简介：
                                     p 从事中学语文教学多年，经验丰富一直任教初中语文七八年级的阅读与写作课程，熟悉初中。
 
-                .live-message-list
+                .live-message-list.bottom-0
                     .message-list
                         ul
                             - for (var i=0;i<15;i++)
@@ -89,7 +89,7 @@ block content
                                         //span 2017-1-18
                                         span.fr 15:24:52
                                     .message-item-content= article.title
-                .message-form
+                .message-form.hidden
                     form
                         textarea(placeholder='跟辅导老师提问',rows='3')
                         input.btn(type='button',value='发送')

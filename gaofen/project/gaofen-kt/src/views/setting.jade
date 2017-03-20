@@ -25,7 +25,15 @@ block content
                         .gf-form-row.tr
                             label 用户昵称：
                             input(type='text')
-
+                        .gf-form-row.tr
+                            label 身份：
+                            .input
+                                span 选择身份
+                                select
+                                    option(value='家长') 家长
+                                    option(value='学生') 学生
+                                    option(value='亲戚') 亲戚
+                                i.icon.icon-down-black
                         .set-title
                             i.icon.icon-set-school
                             span 就读学校
@@ -34,7 +42,16 @@ block content
                             input(type='text')
                         .gf-form-row.tr
                             label 就读年级：
-                            input(type='text')
+                            .input
+                                span 选择就读年级
+                                select
+                                    option(value='小学一年级') 小学一年级
+                                    option(value='小学二年级') 小学二年级
+                                    option(value='小学三年级') 小学三年级
+                                    option(value='小学四年级') 小学四年级
+                                    option(value='小学五年级') 小学五年级
+                                    option(value='小学六年级') 小学六年级
+                                i.icon.icon-down-black
 
                     br
                     input.btn.btn-submit.mt30(type='button', value='确定')
@@ -42,3 +59,7 @@ block content
         +loader-box('fixed')
 block javascript
     script.
+        $('select').on('change', function () {
+            var selected_text = $(this).find('option:selected').val()
+            $(this).prev().text(selected_text)
+        })

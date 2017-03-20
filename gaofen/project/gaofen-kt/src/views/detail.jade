@@ -27,7 +27,8 @@ block content
                         span 已有
                         strong.ml5.mr5 358
                         span 人报名
-                        a.btn.btn-orange.disabled.fr#btn-yuyue(href='javascript:;') 预约听课
+                        a.btn.btn-orange.disabled.fr#btn-yuyue.hidden(href='javascript:;') 预约听课
+                        a.btn.btn-orange.fr#btn-yuyue(href='javascript:;') 预约听课
                 .course-detail-teacher.fr
                     .detail-teacher-top
                         i.icon.icon-detail-teacher
@@ -37,7 +38,7 @@ block content
                         span 10
                     .teacher-slider
                         ul.unslider-wrap
-                            - for(var i=0;i<3;i++)
+                            - for(var i=0;i<1;i++)
                                 li.unslider-item
                                     .fl
                                         .ui-avatar
@@ -67,9 +68,10 @@ block content
                     div
                         i.icon.icon-detail-target
                         .course-detail-p
-                            | 1. 掌握分析行程问题的基本方法和思路，会处理不同类型的行程问题；
-                            br
-                            | 2. 掌握数形结合的数学分析方法；
+                            //-| 1. 掌握分析行程问题的基本方法和思路，会处理不同类型的行程问题；
+                            //-br
+                            //-| 2. 掌握数形结合的数学分析方法；
+                            pre 空有万丈雄心，无奈英语底子弱？苦背单词三个月，见到真题还蒙圈？完形阅读翻译写作，熟悉的题型陌生的考法，考研到底什么鬼？本讲座全方位解读考研英语各个题型，提炼考研英语特色；结合考研复习特点，找出黄金时间节点，使全年复习更高效。从命题人和阅卷人两个角度，全方位解读考研英语。
                 .course-detail-content
                     .course-detail-p-title 主要知识点
                     div
