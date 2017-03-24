@@ -76,6 +76,7 @@
   z-index 9
   .courses-mask
     border-radius 0
+    background-color #1a1a1a
   .live-courses-container
     width 100%
     absolute left 50% top 50%
@@ -215,3 +216,63 @@
     font-size 16px
     margin 5px 0
 
+
+// 直播状态提示
+.live-courses-tips
+  display inline-block
+  .icon
+    display block
+  .icon-live-time
+    margin-bottom -8px
+    position relative
+    z-index 1
+  .tips-content
+    padding 20px
+    background-color #fff
+    border-radius 0 0 10px 10px
+  .font-time
+    font-size 32px
+    color #fc992b
+  .erweima-content
+    margin-top 27px
+    padding 15px 25px
+    border-top 1px solid #e5e5e5
+    img
+      width 70px
+    .font-nm.tl
+      margin-left 90px
+      margin-top 12px
+
+
+// 二维码
+.erweima-wrap
+  display inline-block
+  padding 10px
+  background-color rgba(255,255,255,.3)
+  .erweima-container
+    background-color #fff
+    position relative
+    padding 15px
+    img
+      display block
+      width 156px
+    .foursquare-1
+      size 16px
+      absolute left top
+      border-left 4px solid #48bccb
+      border-top 4px solid #48bccb
+    .foursquare-2
+      size 16px
+      absolute right top
+      border-right 4px solid #48bccb
+      border-top 4px solid #48bccb
+    .foursquare-3
+      size 16px
+      absolute left bottom
+      border-left 4px solid #48bccb
+      border-bottom 4px solid #48bccb
+    .foursquare-4
+      size 16px
+      absolute right bottom
+      border-right 4px solid #48bccb
+      border-bottom 4px solid #48bccb

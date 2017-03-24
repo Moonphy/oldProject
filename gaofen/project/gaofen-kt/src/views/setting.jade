@@ -16,7 +16,7 @@ block content
                         .set-title
                             i.icon.icon-set-person
                             span 基本资料
-                        .upload-avatar.tl.pl30
+                        .upload-avatar.tl
                             span 个人头像：
                             .avatar-wrap
                                 .ui-avatar
@@ -56,7 +56,12 @@ block content
                     br
                     input.btn.btn-submit.mt30(type='button', value='确定')
             .setting-bind
-        +loader-box('fixed')
+    .ui-task.in
+        //.ui-task-tips.bg-primary 直播即将开始，同学们可先和助教老师交流哦
+        //.ui-task-tips.bg-success 提交成功
+        //.ui-task-tips.bg-warn 真的开始提交吗
+        .ui-task-tips.bg-danger 提交失败
+    +loader-box('fixed')
 block javascript
     script.
         $('select').on('change', function () {

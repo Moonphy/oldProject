@@ -57,33 +57,93 @@ block content
                                             .teacher-num-right.fl
                                                 span.font-xxl.font-blue 25
                                                 div 听课人次
-            .ui-tab
+
+            //-.ui-tab
                 ul
                     li: a.tab.active(href='javascript:;',title='') 课程介绍
                     li: a.tab(href='javascript:;',title='') 课程表
-
-            .tab-container.mt20
+            .tab-right
+                ul
+                    li.active
+                        a(href='#course',title='')
+                            span 课程介绍
+                            .dot
+                    li
+                        a(href='#study',title='')
+                            span 学习服务
+                            .dot
+                    li
+                        a(href='#schedule',title='')
+                            span 课程表
+                            .dot
+                    li: .dot
+            .tab-container
+                .tab-container-title#course
+                    span 课程介绍
+                    .borer-b-grey
                 .course-detail-content
-                    .course-detail-p-title 课程目标
-                    div
-                        i.icon.icon-detail-target
+                    i.icon.icon-detail-target.fl
+                    .ml120
+                        .course-detail-p-title 课程目标
                         .course-detail-p
-                            //-| 1. 掌握分析行程问题的基本方法和思路，会处理不同类型的行程问题；
-                            //-br
-                            //-| 2. 掌握数形结合的数学分析方法；
-                            pre 空有万丈雄心，无奈英语底子弱？苦背单词三个月，见到真题还蒙圈？完形阅读翻译写作，熟悉的题型陌生的考法，考研到底什么鬼？本讲座全方位解读考研英语各个题型，提炼考研英语特色；结合考研复习特点，找出黄金时间节点，使全年复习更高效。从命题人和阅卷人两个角度，全方位解读考研英语。
+                            pre 空有万丈雄心，无奈英语底子弱？苦背单词三个月，见到真题还蒙圈？完形阅读翻译写作，熟悉的题型陌生的考法，考研到底什么鬼？本讲座全方位解读考研英语各个题型，提炼考研
                 .course-detail-content
-                    .course-detail-p-title 主要知识点
-                    div
-                        i.icon.icon-detail-point
+                    i.icon.icon-detail-point.fl
+                    .ml120
+                        .course-detail-p-title 主要知识点
                         .course-detail-p 平均速度 、 环形跑道 、  火车过桥 、 流水行船多人多次相遇
-                div.pt30
-                    .course-detail-p-title 学习服务
+
+                .tab-container-title#study
+                    span 学习服务
+                    .borer-b-grey
+                .course-detail-content
+                    p 与之前的征召模式不同，在预选位模式中，你可以从（上单、打野、中单、下路、辅助、补位）6个位置中选取其中2个，确定后再进入队列。双方的3,4,5楼进行ban人，可ban6名英雄；蓝色方1楼率先pick，之后红色方1楼选人再轮到红色方2楼选人，照这样的z字式选取。双方玩家选人完毕后进入游戏。
                     img(src='#{current.base}img/block/detail-img-1.jpg',alt='金牌教学')
                     p 学习 QQ 群 42901892092
                     p 小王老师不定时出没，带大家通关数学迷宫
+                .tab-container-title#schedule
+                    span 课程表
+                    .borer-b-grey
+                .course-detail-content
+                    .course-detail-schedule-title.clearfix
+                        i.icon.icon-detail-schedule.fl
+                        .ml60 中考数学冲刺之压轴题突破
+                            span.font-lg.font-grey.ml15 (共4节课)
+                    .course-detail-schedule-list
+                        ul
+                            li
+                                .dot
+                                    span 1
+                                .ml40.mr100
+                                    a.font-black.font-lg(href='',title='') 传说的互联网“高薪职业”有多高？
+                                    .font-nm.font-grey 开课时间: 03-16 15:30-16:30
+                                a.btn.btn-purple-reverse(href='',title='') 查看回放
+                            li
+                                .dot
+                                    span 2
+                                .ml40.mr100
+                                    a.font-black.font-lg(href='',title='') 传说的互联网“高薪职业”有多高？
+                                    .font-nm.font-grey 开课时间: 03-16 15:30-16:30
+                                a.btn.disabled(href='',title='') 直播已结束
+                            li
+                                .dot
+                                    span 3
+                                .ml40.mr100
+                                    a.font-black.font-lg(href='',title='') 传说的互联网“高薪职业”有多高？
+                                    .font-nm.font-orange 开课时间: 03-16 15:30-16:30
+                                a.btn.btn-orange-reverse(href='',title='') 即将开始
+                            li
+                                .dot
+                                    span 4
+                                .ml40.mr100
+                                    a.font-black.font-lg(href='',title='') 传说的互联网“高薪职业”有多高？
+                                    .font-nm.font-orange 开课时间: 03-16 15:30-16:30
+                                a.btn.btn-orange(href='',title='') 直播中
 
-    include partials/_mask
+
+
+    .hidden
+        include partials/_mask
 
 block javascript
     script(src='#{current.base}js/unslider-min.js')
@@ -108,4 +168,7 @@ block javascript
         $('.btn-close').click(function () {
             $('.ui-mask').addClass('hidden');
             $(this).parent().addClass('hidden');
+        })
+        $('.tab-right li').click(function () {
+            $(this).addClass('active').siblings('.active').removeClass('active')
         })

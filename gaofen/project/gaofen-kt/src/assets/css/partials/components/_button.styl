@@ -59,16 +59,23 @@
   width 100%
 
 
-.btn-wechat
-  background #12bb12
-.btn-weibo
-  background #cd1919
-.btn-qq
-  background #1983cd
-
 .btn-orange
   background #fc992b
   color #ffffff
+  &:visited
+    color @color
+
+.btn-orange-reverse
+  color #fc992b
+  background-color #fff
+  border 1px solid #fc992b
+  &:visited
+    color @color
+
+.btn-purple-reverse
+  color #5b95dd
+  background-color #fff
+  border 1px solid #5b95dd
   &:visited
     color @color
 

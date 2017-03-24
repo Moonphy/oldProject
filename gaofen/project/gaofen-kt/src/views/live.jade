@@ -24,18 +24,64 @@ block content
                 span 人
         .live-container
             .live-content
-                //-if state == 'notStart'
-                // 直播未开始浮层
-                .live-courses.courses-block-3
+                //- 直播未开始浮层-------旧UI
+                //-.live-courses
                     .courses-mask
                     .live-courses-container
                         .live-courses-title= article.title
                         .live-courses-msg
-                            i.icon.icon-tips-smiling.fl.mt5
-                            p.ml40 直播还没开始，同学们可先和助教老师交流哦
-                //-if state == 'end'
-                // 直播结束后浮层
-                .live-courses.courses-block-2
+                            i.icon.icon-tips-time.fl.mt5
+                            p.ml40 直播即将开始，同学们可先和助教老师交流哦
+                        .erweima-wrap
+                            .erweima-container
+                                .foursquare-1
+                                .foursquare-2
+                                .foursquare-3
+                                .foursquare-4
+                                img(src='#{current.base}img/erweima.jpg')
+                                .font-md.mt5 扫描二维码
+                                    br
+                                    | 获取更多直播资讯
+                // 直播未开始
+                .live-courses
+                    .courses-mask
+                    .live-courses-container
+                        .live-courses-tips
+                            i.icon.icon-live-time
+                            .tips-content
+                                .font-lg 距离开课剩余
+                                .font-time
+                                    time 01
+                                    span :
+                                    time 16
+                                    span :
+                                    time 28
+                                .font-grey.font-nm 开课前可以和助教老师进行交流
+                                .erweima-content.clearfix
+                                    img.fl(src='#{current.base}img/erweima.jpg')
+                                    .font-nm.tl
+                                        | 扫描二维码获
+                                        br
+                                        | 取更多直播资讯
+
+                // 直播已结束
+                .live-courses
+                    .courses-mask
+                    .live-courses-container
+                        .live-courses-tips
+                            i.icon.icon-live-done
+                            .tips-content
+                                .font-lg 课程直播已结束
+                                .font-grey.font-nm 同学们可以和助教老师继续交流
+                                .erweima-content.clearfix
+                                    img.fl(src='#{current.base}img/erweima.jpg')
+                                    .font-nm.tl
+                                        | 扫描二维码获
+                                        br
+                                        | 取更多直播资讯
+
+                // 直播结束后评价老师浮层
+                .live-courses.courses-block-2.hidden
                     .courses-mask
                     .stars-wrap
                         .stars-container
@@ -64,8 +110,6 @@ block content
                     .live-message-top-title 直播信息
                     .live-message-teacher
                         ul.unslider-wrap
-                            li.unslider-item
-                                img(src='#{current.base}img/block/course-bg.jpg',alt='陈老师')
                             li.unslider-item
                                 img(src='#{current.base}img/teacher-img.jpg',alt='陈老师')
                             li.unslider-item

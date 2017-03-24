@@ -1,7 +1,7 @@
 .ui-mask
 
 // 获取上课码
-.mask-wrap.tc
+.mask-wrap.tc.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     form
@@ -19,7 +19,7 @@
             | 微信扫一扫立即获取
 
 // 关注公众号
-.mask-wrap.tc
+.mask-wrap.tc.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content.mt10
@@ -40,14 +40,18 @@
         .mask-content-top
             .dividing-line.al0
             .dividing-line.ar0
-            span.mask-title 预约成功
+            span.mask-title 报名成功
         i.icon.icon-tick.mt20.mb10
-        p.font-md.mt5 上课前30分钟会收到我们的通知消息
+        .mt5
+            strong.font-black.font-lg 中考数学冲刺之压轴题突破
+        .mb5
+            span.font-orange.font-md 20:00~21:00
+        p.font-nm.mt10 上课前30分钟会收到我们的通知消息
             br
             | 请留意不要错过时间
 
 // 课程支付
-.mask-wrap.tc
+.mask-wrap.tc.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content
@@ -64,7 +68,7 @@
 
 //第一次登录成功
 // 预约成功
-.mask-wrap.tc
+.mask-wrap.tc.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content

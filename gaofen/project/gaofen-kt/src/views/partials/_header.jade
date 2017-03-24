@@ -9,6 +9,7 @@
                     a(href='#{item.slug}.html', title='#{item.label}',class='link-#{item.slug}')
                         i.icon(class="icon-header-#{item.slug}")
                         span= item.label
+                    .hover-mask
 
         // 登录状态
         if current.source == "home" || current.source == "setting-1" || current.source == "setting-2" || current.source == "setting-3" || current.source == "setting-4"
