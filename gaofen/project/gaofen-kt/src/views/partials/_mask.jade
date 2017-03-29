@@ -1,7 +1,7 @@
 .ui-mask
 
 // 获取上课码
-.mask-wrap.tc.hidden
+.mask-wrap.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     form
@@ -19,7 +19,7 @@
             | 微信扫一扫立即获取
 
 // 关注公众号
-.mask-wrap.tc.hidden
+.mask-wrap.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content.mt10
@@ -33,7 +33,7 @@
             | 关注公众号
 
 // 预约成功
-.mask-wrap.tc
+.mask-wrap.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content
@@ -51,7 +51,7 @@
             | 请留意不要错过时间
 
 // 课程支付
-.mask-wrap.tc.hidden
+.mask-wrap.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content
@@ -67,8 +67,7 @@
         p.font-md.mt5 微信扫描上方二维码进行支付
 
 //第一次登录成功
-// 预约成功
-.mask-wrap.tc.hidden
+.mask-wrap.hidden
     a.btn-close(href='javascript:;')
         i.icon.icon-close
     .mask-content
@@ -89,3 +88,108 @@
                         option(value='亲戚') 亲戚
                     i.icon.icon-down-black
             input(type='button',value='提交').btn.btn-submit.btn-block.mt5
+
+//第一次登录成功设置身份
+.mask-wrap.mask-wrap-lg
+    a.btn-close(href='javascript:;')
+        i.icon.icon-close
+    .mask-content
+        // 选择身份
+        .set-container
+            p.font-xxl.font-black 欢迎
+                span.font-blue.ml5 昵称
+                | ，请选择你的身份
+            ul.identity
+                li.active
+                    a(href='javascript:;',title='教师')
+                        i.icon.icon-setting-teacher
+                        i.icon.border-bottom-1
+                    p.font-xl.font-black.mt5 教师
+                li
+                    a(href='javascript:;',title='学生')
+                        i.icon.icon-setting-student
+                        i.icon.border-bottom-1
+                    p.font-xl.font-black.mt5 学生
+                li
+                    a(href='javascript:;',title='家长')
+                        i.icon.icon-setting-parent
+                        i.icon.border-bottom-1
+                    p.font-xl.font-black.mt5 家长
+            a.arrow-right(href='javascript:;')
+                i.icon.icon-setting-arrow-right
+            .setting-step
+                span.active
+                span
+                span
+
+        // 选择年级
+        .set-container.hidden
+            p.font-xxl.font-black 请选择与你对应的学段年级
+            ul.grade
+                li
+                    dl
+                        dt
+                            .fl
+                                i.icon.icon-set-child
+                            p 学前
+                            i.icon.border-bottom-2
+                        dd: a(href='javascript:;') 三~六岁
+                li
+                    dl
+                        dt
+                            .fl
+                                i.icon.icon-set-primary
+                            p 小学
+                            i.icon.border-bottom-2
+                        dd.active: a(href='javascript:;') 一年级
+                        dd: a(href='javascript:;') 二年级
+                        dd: a(href='javascript:;') 三年级
+                        dd: a(href='javascript:;') 四年级
+                        dd: a(href='javascript:;') 五年级
+                        dd: a(href='javascript:;') 六年级
+                li
+                    dl
+                        dt
+                            .fl
+                                i.icon.icon-set-middle
+                            p 初中
+                            i.icon.border-bottom-2
+                        dd: a(href='javascript:;') 初一
+                        dd: a(href='javascript:;') 初二
+                        dd: a(href='javascript:;') 初三
+                li
+                    dl
+                        dt
+                            .fl
+                                i.icon.icon-set-high
+                            p 高中
+                            i.icon.border-bottom-2
+                        dd: a(href='javascript:;') 高一
+                        dd: a(href='javascript:;') 高二
+                        dd: a(href='javascript:;') 高三
+
+
+
+            a.arrow-left(href='javascript:;')
+                i.icon.icon-setting-arrow-left
+            .setting-step
+                span.active
+                span.active
+                span
+
+        // 设置成功
+        .set-container.hidden
+            .mask-content-top
+                .dividing-line.al0
+                .dividing-line.ar0
+                span.mask-title 设置成功
+            i.icon.icon-tick.mt20.mb10
+            p.font-md.mt5 可前往个人中心修改相关信息
+                br
+                | 现在立刻体验丰富的直播信息吧
+
+            a(href='',title='开始选课').btn.btn-submit.mt30.mb40 开始选课
+            .setting-step
+                span.active
+                span.active
+                span.active

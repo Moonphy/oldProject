@@ -1,0 +1,162 @@
+
+.home-wrap
+  border-radius 4px
+  position relative
+
+.home-left
+  width 240px
+  background-color #48bccb
+  border-radius 4px 0 0 4px
+  absolute left top
+  height 100%
+  font-size 14px
+  .home-left-setting
+    padding 10px
+    i
+    span
+      vertical-align middle
+      margin-left 5px
+  .ui-avatar
+    size 120px
+    border 4px solid #a4e5ef
+    border-radius 50%
+    &:hover
+      box-shadow 0 15px 30px rgba(0,0,0,.4)
+      animation avatar-shake .2s infinite
+.list-ranking
+  margin 0 40px
+  .courses-num
+  .courses-ranking
+    width 54px
+    text-align center
+    border-top 2px solid #a4e5ef
+    padding-top 15px
+    .font-blue-lither
+      font-size 12px
+  .icon-ranking
+    vertical-align top
+    margin -12px 8px 0 8px
+.home-nav
+  margin 40px
+  li
+    margin 10px 0
+  a
+    display block
+    padding 12px 0
+    text-align center
+    font-size 16px
+    color #388994
+    border-radius 4px
+    i
+    span
+      vertical-align middle
+      margin 0 5px
+    &:hover
+    &.active
+      background-color #60cbd8
+      color #ffffff
+      .home-kc
+        @extend .home-kc-active
+      .home-mes
+        @extend .home-mes-active
+      .home-order
+        @extend .home-order-active
+
+
+.home-right
+  padding 0 0 20px 20px
+  min-height 630px
+  background-color #ffffff
+  margin-left 240px
+  border 1px solid #e6e6e6
+  border-left none
+  border-radius 0 4px 4px 0
+  overflow hidden
+.minus-r20
+  margin-right -20px
+
+// 订单缩略图
+.order-block
+  margin 20px 20px 0 0
+  float left
+  size 258px 264px
+  border 1px solid #e6e6e6
+  border-radius 4px
+  position relative
+  font-size 14px
+  &:hover
+    box-shadow 0 15px 30px rgba(0,0,0,.4)
+    transform translate3d(0,-2px,0)
+    transition all .2s
+  .order-top
+    .ui-label
+      absolute left top
+  .courses-title
+    display block
+    color #000000
+    font-size 22px
+    padding 0 20px
+    max-height 70px
+    overflow hidden
+    &:hover
+      text-decoration underline
+
+  .order-bottom
+    absolute left bottom
+    size 230px 76px
+    padding-left 28px
+    background-color #efefef
+    color grey
+    p
+      margin 5px 0 5px 46px
+
+
+// 消息缩略图
+.mes-block
+  border 1px solid #e6e6e6
+  border-radius 4px
+  margin 20px 20px 0 0
+  padding 30px
+  position relative
+  overflow hidden
+  &:hover
+    box-shadow 0 15px 30px rgba(0,0,0,.4)
+    transform translate3d(0,-2px,0)
+    transition all .2s
+  .mes-left
+    margin-right 270px
+  .mes-title
+    font-size 16px
+    span
+    a
+      margin-right 5px
+    .font-green
+      color #10e2bb
+  .mes-state
+    font-size 14px
+  .course-state
+    width 180px
+  .ui-label
+    border-radius 4px
+  .mes-right
+    display block
+    absolute right -2px top -1px
+    size 262px 144px
+    overflow hidden
+    img
+      absolute left top
+      z-index 0
+    p
+      color #ffffff
+      font-size 24px
+      position relative
+      z-index 2
+      padding 10px 20px
+      text-align center
+      max-height 65px
+      overflow hidden
+    .ui-label
+      absolute left 10px top 10px
+      z-index 2
+      padding 2px 5px
+      font-size 12px

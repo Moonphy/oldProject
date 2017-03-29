@@ -17,7 +17,7 @@
   z-index 109
   color #939393
   font-size 14px
-
+  text-align center
   .right-erweima
     margin-top -20px
     background-color #ffffff
@@ -77,3 +77,119 @@
     padding 10px 20px
     border-radius 4px
     color #fff
+.mask-wrap-lg
+  width 840px
+  .btn-submit
+    color #ffffff
+  .dividing-line
+    width 360px
+  .set-container
+    position relative
+  .arrow-left
+    absolute left top 50%
+    transform translate(0,-50%)
+  .arrow-right
+    absolute right top 50%
+    transform translate(0,-50%)
+  .identity
+    li
+      display inline-block
+      margin 50px 17px
+    a
+      display block
+      size 180px
+      position relative
+      border-radius 50%
+      background-color #cecece
+      border 8px solid #ffffff
+      &:hover
+        background-color #badadf
+
+        for item in teacher student parent
+          .icon-setting-{item}
+            @extend .icon-setting-{item}-active
+
+    .icon
+      absolute left 50% bottom 23px
+      transform translate(-50%,0)
+
+    &.active
+      a
+        background-color #badadf
+        border 8px solid #d4ebef
+  .grade
+    padding-top 40px
+    padding-bottom 10px
+    li
+      display inline-block
+      vertical-align top
+      margin 0 20px
+    dl
+      width 160px
+    dt
+      height 46px
+      position relative
+      background-color #cecece
+      border-radius 10px 10px 0 0
+      margin-bottom 10px
+      p
+        line-height 46px
+        font-size 20px
+        color #000000
+      .fl
+        size 64px
+        border-radius 50%
+        background-color #ffffff
+        border 3px solid #cecece
+        margin-top -23px
+        position relative
+        .icon
+          absolute left 50% bottom
+          transform translate(-50%,0)
+        .icon-set-child
+          bottom 15px
+
+    .border-bottom-2
+      absolute left bottom
+    dd
+      border 1px solid #cecece
+      margin-bottom 5px
+      border-radius 4px
+      line-height 38px
+      a
+        display block
+        color #000
+        font-size 14px
+        &:hover
+          color #48bccb
+      &.active
+        border-color #48bccb
+        background-color #48bccb
+        a
+          color #fff
+    dl:hover
+      dt
+        background-color #badadf
+        .fl
+          border-color #badadf
+        for item in child primary middle high
+          .icon-set-{item}
+            @extend .icon-set-{item}-active
+
+
+for item in teacher student parent
+  .active
+    .icon-setting-{item}
+      @extend .icon-setting-{item}-active
+
+
+.setting-step
+  text-align center
+  span
+    display inline-block
+    size 40px 8px
+    border-radius 4px
+    background-color #e2e2e2
+    margin 0 5px
+    &.active
+      background-color #48bccb

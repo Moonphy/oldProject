@@ -1,0 +1,152 @@
+// 简介：直播页样式
+//==============================
+
+// 状态
+.live-state
+  display none
+
+.live-state-ing
+  absolute right 20px top -10px
+  z-index 2
+
+for item in ing notStart end playback
+  .live-{item}
+    .live-state-{item}
+      display block
+
+// 视频框样式
+.live-wrap
+  margin 40px 0
+  position relative
+
+.live-container
+  background-color #3f3f3f
+
+.live-content
+  //max-width 800px
+  size 800px 600px
+  position relative
+  overflow hidden
+.live-courses
+  absolute left top
+  size 100%
+  background-repeat repeat
+  text-align center
+  .live-courses-container
+    width 100%
+    absolute left 50% top 40%
+    transform translate(-50%,-50%)
+  .live-courses-title
+    font-size 40px
+    color #ffffff
+    width 70%
+    margin 0 auto
+  .live-courses-msg
+    background-color rgba(0,0,0,.6)
+    margin 20px auto
+    padding 20px 25px
+    width 180px
+    border-radius 4px
+    p
+      margin 0
+      font-size 14px
+      color #10e2bb
+
+// 教师信息
+.live-message-wrap
+  size 300px 600px
+  color #8e8e8e
+  font-size 14px
+  overflow hidden
+
+.live-message-top
+  height 220px
+  padding 10px 20px
+  margin-bottom 10px
+  background-color #4c4c4c
+  position relative
+
+.live-message-top-title
+  font-size 16px
+  line-height 2
+  border-bottom 1px solid #656565
+
+.live-message-teacher
+  padding 20px 0
+  text-align center
+  overflow hidden
+  span.fl
+    line-height 1.8
+  p
+    margin 0 0 0 42px
+    line-height 1.8
+    text-align left
+  .unslider-item
+    float left
+
+// 交流区
+.live-message-list
+  padding 20px 20px 0 20px
+  background-color #4c4c4c
+  overflow hidden
+  .message-list
+    width 300px
+    height 245px
+    position relative
+    overflow-y scroll
+    ul
+      absolute left top
+    .message-item
+      padding-right 20px
+  span
+    margin-right 10px
+  .message-item-content
+    color #fbfcfc
+
+.message-form
+  background-color #656565
+  textarea
+    width 230px
+    height 60px
+    border none
+    resize none
+    padding 10px
+    background none
+    &:focus
+      border none
+      box-shadow none
+  .btn
+    size 40px 64px
+    color #ffffff
+    background-color #2be4bd
+    float right
+    margin 10px 5px 0 0
+    border-radius 2px
+    border none
+
+
+// 浮层
+.stars-wrap
+  size 100%
+  absolute left top
+  background-color rgba(0,0,0,.6)
+.stars-container
+  width 340px
+  padding 20px 30px
+  absolute left 50% top 50%
+  background-color #ffffff
+  border 6px solid rgba(0,0,0,.2)
+  border-radius 6px
+  transform translate(-50%,-50%)
+  .stars-header
+    font-size 28px
+  textarea
+    width 100%
+    padding 18px
+    box-sizing border-box
+    border 1px solid #e6e6e6
+    border-radius 4px
+    resize none
+    font-size 16px
+    margin 5px 0
+

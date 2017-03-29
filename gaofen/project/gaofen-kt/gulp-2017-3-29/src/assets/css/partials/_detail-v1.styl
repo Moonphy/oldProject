@@ -1,0 +1,144 @@
+
+.course-detail-title
+  margin-bottom 20px
+  border-bottom 1px solid #e6e6e6
+  h1
+    display inline-block
+    margin-bottom 5px
+    margin-top 0
+    font-size 28px
+    font-weight 400
+
+.course-detail-info
+  .course-detail-time
+  .course-detail-stage
+    padding 10px 0
+    font-size 16px
+  .icon
+    vertical-align middle
+    margin-right 10px
+  .course-price
+    size 560px 60px
+    background-color #efefef
+    padding 10px 15px
+    margin-top 15px
+    color grey
+    overflow hidden
+
+  .font-price
+    color orange
+    font-size 40px
+    margin 0 10px
+  .btn-orange
+    width 130px
+    line-height 44px
+    font-size 16px
+    margin-top 7px
+    margin-right 3px
+    border-radius 4px
+.course-detail-teacher
+  size 398px 213px
+  border 1px solid #e6e6e6
+  border-radius 4px
+  position relative
+  .font-blue
+    color #48bccb
+.detail-teacher-top
+  absolute left 19px top 9px
+  .icon
+  span
+    vertical-align middle
+.teacher-slider
+  margin-top 38px
+  height 165px
+  color grey
+  .unslider-wrap
+    height 146px
+  .unslider-item
+    padding 10px 19px
+    float left
+    box-sizing border-box
+    strong.font-md
+      color #000000
+    .ui-avatar
+      size 64px
+      border-radius 4px
+  .teacher-info
+    height 84px
+    overflow hidden
+  .teacher-num
+    padding-top 5px
+    text-align center
+    i
+      font-size 30px
+      font-weight 100
+      color #e6e6e6
+      margin-top 5px
+  .teacher-num-left
+    margin-left 12px
+    padding-right 30px
+
+  .teacher-num-right
+    padding-left 30px
+  .teacher-num-right
+  .teacher-num-left
+    div
+      font-size 14px
+.course-detail-content
+  display inline-block
+  width 49.5%
+  vertical-align top
+  .icon
+    vertical-align top
+    margin-right 10px
+.course-detail-p-title
+  font-size 22px
+  padding-left 10px
+  line-height 1.2
+  border-left 4px solid #48bccb
+  margin 20px 0
+
+.course-detail-p
+  display inline-block
+  width 330px
+  min-height 100px
+  font-size 16px
+
+
+
+// slider
+.course-detail-teacher
+  .slider-item-len
+    absolute right 40px top 10px
+    font-size 12px
+    color grey
+  .unslider-arrow
+    absolute right top 15px
+    text-indent 999px
+    overflow hidden
+    left auto
+    z-index 0
+    @extend .icon-up-grey
+
+    &.prev
+      right 75px
+      &:hover
+        @extend .icon-down
+        transform rotate(180deg)
+
+    &.next
+      transform rotate(180deg)
+      &:hover
+        @extend .icon-down
+        transform rotate(0deg)
+
+
+  .unslider-nav
+    absolute right 60px top 10px
+    ol
+      li
+        display none
+        color grey
+        font-size 12px
+        &.unslider-active
+          display block

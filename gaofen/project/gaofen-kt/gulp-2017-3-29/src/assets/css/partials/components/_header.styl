@@ -1,0 +1,182 @@
+.gf-header
+  .header-container
+    max-width 1100px
+    margin 0 auto
+    font-size 18px
+
+    .logo
+      float left
+      margin-top 27px
+    ul
+    .form
+      float left
+    ul
+      margin-left 45px
+    li
+      float left
+      line-height 90px
+      height 90px
+      padding 0 12px
+      position relative
+      a
+        display block
+        padding 0 7px
+        font-weight 300
+        color #bcf6fe
+        position relative
+        z-index 1
+      span
+      .icon
+        margin 0 2px
+        vertical-align middle
+
+      a:visited
+        color #bcf6fe
+      .hover-mask
+        width 100%
+        height 0
+        absolute left bottom
+        z-index 0
+        background-color #169eb3
+        border-radius 100px 100px 0 0
+      &:hover
+        .hover-mask
+          height 90px
+          border-radius 0
+          transition height .1s ease-in, border-radius .18s ease-in
+  .form
+    margin-top 27px
+    margin-left 30px
+    input[type="text"]
+      width 278px
+      height 16px
+      line-height 16px
+      padding 10px
+      font-size 14px
+      border 1px solid #e6e6e6
+      border-right none
+      border-radius 4px 0 0 4px
+      &:focus
+        box-shadow none
+    .btn-search
+      float right
+      display block
+      size 40px 38px
+      background-color #67c4d4
+      border-radius 0 4px 4px 0
+      text-align center
+      line-height 44px
+      border none
+      position relative
+      overflow hidden
+
+  .reg-login
+    position relative
+    margin-top 32px
+    font-size 14px
+    &:hover
+      .ui-avatar
+        box-shadow 0 2px 6px rgba(0,0,0,.4)
+        transform translate3d(0,-2px,0)
+        transition all .2s
+        //animation avatar-shake .2s infinite
+    .btn
+      border-color #a7e9f1
+      line-height 28px
+      margin-left 10px
+      padding 0 5px
+      i
+      span
+        vertical-align middle
+        margin 0 2px
+    .btn-reg
+    .btn-login
+      border-radius 2px
+      //width 80px
+      background-color #aaeaf2
+      color #34a4b2
+    .ui-avatar
+      size 30px
+      border-radius 50%
+      border 2px solid #aaeaf2
+      vertical-align middle
+    .icon-down
+      vertical-align middle
+      color #a6e8f0
+      transform rotate(0)
+      transition transform .5s
+    &:hover
+      .user-home-list
+        display block
+      .icon-down
+        transform rotate(540deg)
+
+  .header-user
+    display inline-block
+    text-overflow(width = 76px)
+    margin-left 10px
+    cursor pointer
+    color #e5fcff
+    vertical-align middle
+    &:visited
+      color #e5fcff
+
+  .user-home-list
+    absolute right top 30px
+    display none
+    z-index 9
+    .bg-user-top
+      absolute right 40px top 16px
+      z-index 1
+    ul.user-list
+      margin-top 21px
+      border 1px solid #67c4d4
+      border-radius 4px
+      margin-bottom -2px
+      padding 3px 0
+      background-color #ffffff
+      overflow hidden
+    li
+      width 100px
+      font-size 14px
+      line-height 30px
+      height 30px
+      border-bottom 1px solid #e6e6e6
+      &:last-child
+        border-bottom-color #ffffff
+      a
+        width 100%
+        height 100%
+        padding 0
+        text-align left
+        color #67c4d4
+        &:hover
+        &:visited
+          color #398f9a
+
+/*
+for item in list home community
+  .link-{item}
+    &:hover
+      color #ffffff
+      .icon-header-{item}
+        @extend .icon-header-{item}
+      span
+        color #ffffff!important
+    //&:active
+    &.active
+      color #a4e5ef
+      .icon-header-{item}
+        @extend .icon-header-{item}
+      span
+        color #a4e5ef
+
+for item in list home
+  .{item}-page
+    .link-{item}
+      color #a4e5ef
+      .icon-header-{item}
+        @extend .icon-header-{item}
+      span
+        color #a4e5ef
+*/
