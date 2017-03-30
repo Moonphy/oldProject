@@ -95,28 +95,28 @@
     li
       display inline-block
       margin 50px 17px
-    a
-      display block
-      size 180px
-      position relative
-      border-radius 50%
-      background-color #cecece
-      border 8px solid #ffffff
-      &:hover
-        background-color #badadf
-
-        for item in teacher student parent
-          .icon-setting-{item}
-            @extend .icon-setting-{item}-active
-
-    .icon
-      absolute left 50% bottom 23px
-      transform translate(-50%,0)
-
-    &.active
       a
-        background-color #badadf
-        border 8px solid #d4ebef
+        display block
+        size 180px
+        position relative
+        border-radius 50%
+        background-color #cecece
+        border 8px solid #ffffff
+        &:hover
+          background-color #badadf
+
+          for item in teacher student parent
+            .icon-setting-{item}
+              @extend .icon-setting-{item}-active
+
+      .icon
+        absolute left 50% bottom 23px
+        transform translate(-50%,0)
+
+      &.active
+        a
+          background-color #badadf
+          border 8px solid #d4ebef
   .grade
     padding-top 40px
     padding-bottom 10px
@@ -146,8 +146,6 @@
         .icon
           absolute left 50% bottom
           transform translate(-50%,0)
-        .icon-set-child
-          bottom 15px
 
     .border-bottom-2
       absolute left bottom
