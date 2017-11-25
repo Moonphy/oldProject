@@ -1,9 +1,0 @@
-/uploads/*
-/cache/*
-/tmp/*
-/zj/*
-!/uploads/index.html
-!/cache/index.html
-!/tmp/index.html
-!/zj/index.html
-desktop.ini
